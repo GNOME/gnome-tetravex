@@ -1,3 +1,8 @@
+1999-08-09  Robert Brady  <rwb197@ecs.soton.ac.uk
+
+	* Makefile.am : applied Irix compiling fix from David Kaelbling 
+	  <drk@sgi.com> : [bug #1781].
+
 1999-01-26  Miguel de Icaza  <miguel@nuclecu.unam.mx>
 
 	* gnotravex.c: Kill file menu.
