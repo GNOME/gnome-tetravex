@@ -677,8 +677,10 @@ void new_board(int size){
   have_been_hinted = 0;
   solve_me = 0;
 
-  if(timer_timeout)
+  if(timer_timeout) {
     gtk_timeout_remove(timer_timeout);
+    gtk_widget_set_sensitive (GTK_WIDGET(space), TRUE);
+  }
   
   if(button_down || hint_moving){
     setup_mover(0,0,RELEASE);
@@ -875,6 +877,7 @@ void hint_move_cb(){
     count = 0;
     setup_mover(hint_dest_x + 1,hint_dest_y + 1,RELEASE);
     gtk_timeout_remove(timer_timeout);
+    gtk_widget_set_sensitive (GTK_WIDGET(space), TRUE);
     if(paused) return;
     if(solve_me)
       hint_cb(NULL,NULL);
@@ -887,6 +890,7 @@ void hint_move(int x1,int y1, int x2, int y2){
   get_pixeltilexy(x2,y2,&hint_dest_x, &hint_dest_y);
   setup_mover(hint_src_x + 1,hint_src_y + 1,PRESS);
   hint_moving = 1;
+  gtk_widget_set_sensitive (GTK_WIDGET(space), FALSE);
   timer_timeout = gtk_timeout_add (DELAY, (GtkFunction) (hint_move_cb), NULL);
 }
 

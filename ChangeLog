@@ -1,3 +1,8 @@
+2001-05-28  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* gnotravex.c: Made the game area unsensitive when whe are moving
+	  parts automaticaly, fix bug #2998.
+
 1999-09-25  Ian Peters  <itp@gnu.org>
 
 	* Makefile.am: Added a missing \, which caused $(INTLLIBS) not to be
