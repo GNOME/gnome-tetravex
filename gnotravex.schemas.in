@@ -14,14 +14,26 @@
     </schema>
 
     <schema>
-      <key>/schemas/apps/gnotravex/tile_size</key>
-      <applyto>/apps/gnotravex/tile_size</applyto>
+      <key>/schemas/apps/gnotravex/width</key>
+      <applyto>/apps/gnotravex/width</applyto>
       <owner>gnotravex</owner>
       <type>int</type>
-      <default>51</default>
+      <default>600</default>
       <locale name="C">
-        <short>The size of a tile</short>
-        <long>The side length of an individual game tile. The minimum is 40, the maximum is set depending on screen height. The correct way to set this is by resizing the window.</long>
+        <short>The width of the window</short>
+        <long>The width of the playing window in pixels. At minimum it should be 320.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/gnotravex/height</key>
+      <applyto>/apps/gnotravex/height</applyto>
+      <owner>gnotravex</owner>
+      <type>int</type>
+      <default>380</default>
+      <locale name="C">
+        <short>The height of the window</short>
+        <long>The height of the playing window in pixels. At minimum it should be 240.</long>
       </locale>
     </schema>
 

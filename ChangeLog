@@ -1,3 +1,11 @@
+2003-08-02  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnotravex.schemas.in: 
+	* gnotravex.c: Reorganised the resizing code so that the window
+	size drives the tile size and not vice-versa. This is a lot
+	cleaner and a bit like what gnomine does. There are three fewer
+	functions, so it must be better right ?
+
 2003-07-09  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.desktop.in: Update name to fit HIG (bug 116916).

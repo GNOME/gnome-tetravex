@@ -31,13 +31,9 @@
 #define APPNAME "gnotravex"
 #define APPNAME_LONG "GNOME Tetravex"
 
-#define DEFAULT_TILE_SIZE 51
 /* This is based on the point where the numbers become unreadable on my
- * screen. - Callum */
+ * screen at 3x3. - Callum */
 #define MINIMUM_TILE_SIZE 40
-
-#define CORNER 25
-#define GAP 30
 
 #define RELEASE 4
 #define PRESS 3
@@ -46,13 +42,18 @@
 #define USED 0
 
 #define KEY_GRID_SIZE "/apps/gnotravex/grid_size"
-#define KEY_TILE_SIZE "/apps/gnotravex/tile_size"
+#define KEY_WINDOW_WIDTH "/apps/gnotravex/width"
+#define KEY_WINDOW_HEIGHT "/apps/gnotravex/height"
 
 GtkWidget *window;
 GtkWidget *statusbar;
 GtkWidget *space;
 GtkWidget *bit;
 GtkWidget *timer;
+
+int xborder;
+int yborder;
+int gap;
 
 GdkPixmap *buffer = NULL;
 
@@ -82,7 +83,7 @@ enum {
   playing,
 };
 
-gint SIZE = 3;
+gint size = 3;
 gint game_state = gameover;
 gint have_been_hinted = 0;
 gint solve_me = 0;
@@ -115,7 +116,6 @@ void get_pixeltilexy (gint, gint, gint *, gint *);
 void get_tilexy (gint, gint, gint *, gint *);
 void get_offsetxy (gint, gint, gint *, gint *);
 GdkColor *get_bg_color (void);
-void get_tile_size (void);
 
 void message (gchar *);
 void new_board (gint);
@@ -235,7 +235,7 @@ GnomeUIInfo main_menu[] = {
 static const struct poptOption options[] = {
   {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
   {NULL, 'y', POPT_ARG_INT, &session_ypos, 0, NULL, NULL},
-  { "size", 's', POPT_ARG_INT, &SIZE,0,
+  { "size", 's', POPT_ARG_INT, &size,0,
     N_("Size of board (2-6)"),
     N_("SIZE") },
   { NULL, '\0', 0, NULL, 0 }
@@ -271,12 +271,10 @@ main (int argc, char **argv)
 
   gconf_client = gconf_client_get_default();
 
-  SIZE = gconf_client_get_int (gconf_client, KEY_GRID_SIZE, NULL);
-  if (SIZE < 2 || SIZE > 6) 
-    SIZE = 3;
+  size = gconf_client_get_int (gconf_client, KEY_GRID_SIZE, NULL);
+  if (size < 2 || size > 6) 
+    size = 3;
 
-  get_tile_size ();
-  
   create_window ();
   create_menu ();
 
@@ -293,7 +291,7 @@ main (int argc, char **argv)
 
   new_game_cb (space,NULL);
   
-  gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (size_radio_list[SIZE-2].widget),TRUE);
+  gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (size_radio_list[size-2].widget),TRUE);
 
   gtk_main ();
   
@@ -321,16 +319,16 @@ void update_move_menu_sensitivity (void)
   n = w = e = s = TRUE;
 
   clear = TRUE;
-  for (x = 0; x < SIZE; x++) {
+  for (x = 0; x < size; x++) {
     if (tiles[0][x].status == USED)
       n = FALSE;
     if (tiles[x][0].status == USED)
       w = FALSE;
-    if (tiles[x][SIZE-1].status == USED)
+    if (tiles[x][size-1].status == USED)
       e = FALSE;
-    if (tiles[SIZE-1][x].status == USED)
+    if (tiles[size-1][x].status == USED)
       s = FALSE;
-    for (y = 0; y<SIZE; y++)
+    for (y = 0; y<size; y++)
       if (tiles[x][y].status == USED)
         clear = FALSE;
   }
@@ -345,27 +343,35 @@ void update_move_menu_sensitivity (void)
 }
 
 static gint
-get_space_width (void)
+get_window_width (void)
 {
-  return (CORNER*2 + GAP + SIZE * tile_size * 2);
+  int width;
+  int screen_width;
+  
+  width = gconf_client_get_int (gconf_client, KEY_WINDOW_WIDTH, NULL);
+  if (width < 320)
+    width = 320;
+  screen_width = gdk_screen_get_width (gtk_window_get_screen (GTK_WINDOW (window)));
+  if (width > screen_width)
+    width = screen_width;
+  
+  return width;
 }
 
 static gint
-get_space_min_width (void)
+get_window_height (void)
 {
-  return (CORNER*2 + GAP + SIZE * MINIMUM_TILE_SIZE * 2);
-}
+  int height;
+  int screen_height;
 
-static gint
-get_space_height (void)
-{
-  return (CORNER*2 + SIZE * tile_size);
-}
-
-static gint
-get_space_min_height (void)
-{
-  return (CORNER*2 + SIZE * MINIMUM_TILE_SIZE);
+  height = gconf_client_get_int (gconf_client, KEY_WINDOW_HEIGHT, NULL);
+  if (height < 240)
+    height = 240;
+  screen_height = gdk_screen_get_height (gtk_window_get_screen (GTK_WINDOW (window)));
+  if (height > screen_height)
+    height = screen_height;
+  
+  return height;
 }
 
 void
@@ -373,13 +379,9 @@ create_window (void)
 {
   window = gnome_app_new (APPNAME, N_(APPNAME_LONG));
   gtk_window_set_resizable (GTK_WINDOW (window), TRUE);
-  /* FIXME:
-   * This is a bit of a hack because I can't find a way to give a
-   * gtk_drawing_area (or any widget but a window) anything but a
-   * minimum size. The hardcoded 64 will come back and bite us, but
-   * the widgets we're allowing for haven't been allocated yet. */
-  gtk_window_set_default_size (GTK_WINDOW (window), get_space_width (),
-                               get_space_height () + 64);
+  gtk_widget_set_size_request (window, 320, 240);
+  gtk_window_set_default_size (GTK_WINDOW (window), get_window_width (),
+                               get_window_height ());
   gtk_widget_realize (window);
   g_signal_connect (G_OBJECT (window), "delete_event",
                     G_CALLBACK (quit_game_cb), NULL);
@@ -434,22 +436,13 @@ button_release_space (GtkWidget *widget, GdkEventButton *event)
 gint
 button_motion_space (GtkWidget *widget, GdkEventButton *event)
 {
-  static gint x = -1, y = -1;
-  gint newx, newy;
+  gint x,y;
   
   if (button_down == 1) {
-    /* This is convoluted but it minimises the number of gtk_window_clear
-     * calls that are made. This is important with remote X connections. */
-    newx = event->x - mover.xoff;
-    newy = event->y - mover.yoff;
-    gdk_window_move (mover.window, newx, newy);
-    if ((x < 0)
-        || (y < 0)
-        || (x > (get_space_width () - tile_size))
-        || (y > (get_space_height () - tile_size)))
-      gdk_window_clear (mover.window);
-    x = newx;
-    y = newy;
+    x = event->x - mover.xoff;
+    y = event->y - mover.yoff;
+    gdk_window_move (mover.window, x, y);
+    gdk_window_clear (mover.window);
   }
   return FALSE;
 }
@@ -588,8 +581,8 @@ gui_draw_pixmap (GdkPixmap *target, gint x, gint y)
   which = tiles[y][x].status;
 
   if (target == buffer) {
-    xadd = x * tile_size + CORNER + (x >= SIZE) * GAP;
-    yadd = y * tile_size + CORNER;
+    xadd = x * tile_size + xborder + (x >= size) * gap;
+    yadd = y * tile_size + yborder;
   }
 
   if (target == mover.pixmap) {
@@ -631,10 +624,10 @@ gui_draw_pixmap (GdkPixmap *target, gint x, gint y)
 void
 get_pixeltilexy (gint x, gint y, gint *xx, gint *yy)
 {
-  gint sumx = CORNER, sumy = CORNER;
+  gint sumx = xborder, sumy = yborder;
   
-  if (x >= SIZE)
-    sumx += GAP;
+  if (x >= size)
+    sumx += gap;
   
   sumx += x * tile_size;
   sumy += y * tile_size;
@@ -645,11 +638,11 @@ get_pixeltilexy (gint x, gint y, gint *xx, gint *yy)
 void
 get_tilexy (gint x, gint y, gint *xx, gint *yy)
 {
-  x = x - CORNER; y = y - CORNER;
-  if (x / tile_size < SIZE)
+  x = x - xborder; y = y - yborder;
+  if (x / tile_size < size)
     *xx = x / tile_size;
   else 
-    *xx = SIZE + (x - (GAP + tile_size * SIZE)) / tile_size;
+    *xx = size + (x - (gap + tile_size * size)) / tile_size;
   *yy = (y / tile_size);
 }
 
@@ -657,11 +650,11 @@ void
 get_offsetxy (gint x, gint y, gint *xoff, gint *yoff)
 {
 
-  x = x - CORNER; y = y - CORNER;
-  if (x / tile_size < SIZE)
+  x = x - xborder; y = y - yborder;
+  if (x / tile_size < size)
     *xoff = x % tile_size;
   else 
-    *xoff = (x - (GAP + tile_size * SIZE)) % tile_size;
+    *xoff = (x - (gap + tile_size * size)) % tile_size;
   *yoff = y % tile_size;
 }
 
@@ -675,7 +668,7 @@ setup_mover (gint x, gint y, gint status)
     get_offsetxy (x, y, &mover.xoff, &mover.yoff);
     if (tiles[yy][xx].status == UNUSED
         || mover.yoff < 0 || mover.xoff < 0
-        || yy >= SIZE || xx >= SIZE * 2)
+        || yy >= size || xx >= size * 2)
       return 0; /* No move */
 
     mover.xstart = xx; 
@@ -697,8 +690,8 @@ setup_mover (gint x, gint y, gint status)
                 y - mover.yoff + tile_size / 2,
                 &xx, &yy);
     if (tiles[yy][xx].status == UNUSED
-        && xx >= 0 && xx < SIZE * 2
-        && yy >= 0 && yy < SIZE
+        && xx >= 0 && xx < size * 2
+        && yy >= 0 && yy < size
         && valid_drop (xx, yy)) {
       tiles[yy][xx] = tiles[mover.ystart][mover.xstart];
       tiles[yy][xx].status = USED;
@@ -736,7 +729,7 @@ valid_drop (gint x, gint y)
   xx = mover.xstart;
   yy = mover.ystart;
 
-  if (x >= SIZE)
+  if (x >= size)
     return 1;
   
   /* West */
@@ -744,7 +737,7 @@ valid_drop (gint x, gint y)
       && tiles[y][x-1].e != tiles[yy][xx].w) 
     return 0; 
   /* East */
-  if (x != SIZE - 1 && tiles[y][x+1].status == USED 
+  if (x != size - 1 && tiles[y][x+1].status == USED 
       && tiles[y][x+1].w != tiles[yy][xx].e)
     return 0;
   /* North */
@@ -752,7 +745,7 @@ valid_drop (gint x, gint y)
       && tiles[y-1][x].s != tiles[yy][xx].n)
     return 0; 
   /* South */
-  if (y != SIZE - 1 && tiles[y+1][x].status == USED 
+  if (y != size - 1 && tiles[y+1][x].status == USED 
       && tiles[y+1][x].n != tiles[yy][xx].s)
     return 0;
 
@@ -772,38 +765,38 @@ move_column (unsigned char dir)
   gint x, y;
   switch (dir) {
   case 'n':
-    for (x = 0; x < SIZE; x++)
+    for (x = 0; x < size; x++)
       if (tiles[0][x].status == USED)
         return;
-    for (y = 1; y < SIZE; y++)
-      for (x = 0; x < SIZE; x++)
+    for (y = 1; y < size; y++)
+      for (x = 0; x < size; x++)
 	move_tile (x, y - 1, x, y); 
     redraw_left ();
     break;
   case 's':
-    for (x = 0; x < SIZE; x++)
-      if (tiles[SIZE-1][x].status == USED)
+    for (x = 0; x < size; x++)
+      if (tiles[size-1][x].status == USED)
         return;
-    for (y = SIZE - 2; y >= 0; y--)
-      for (x = 0; x < SIZE; x++)
+    for (y = size - 2; y >= 0; y--)
+      for (x = 0; x < size; x++)
 	move_tile (x, y + 1, x, y); 
     redraw_left ();
     break;
   case 'w':
-    for (y = 0; y < SIZE; y++)
+    for (y = 0; y < size; y++)
       if (tiles[y][0].status == USED)
         return;
-    for (y = 0; y < SIZE; y++)
-      for (x = 1; x < SIZE; x++)
+    for (y = 0; y < size; y++)
+      for (x = 1; x < size; x++)
 	move_tile (x - 1, y, x, y); 
     redraw_left ();
     break;
   case 'e':
-    for (y = 0; y < SIZE; y++)
-      if (tiles[y][SIZE-1].status == USED)
+    for (y = 0; y < size; y++)
+      if (tiles[y][size-1].status == USED)
         return;
-    for (y = 0; y < SIZE; y++)
-      for (x = SIZE - 2; x >= 0; x--)
+    for (y = 0; y < size; y++)
+      for (x = size - 2; x >= 0; x--)
 	move_tile (x + 1, y, x, y); 
     redraw_left ();
     break;
@@ -817,8 +810,8 @@ gint
 game_over (void)
 {
   gint x, y;
-  for (y = 0; y < SIZE; y++)
-    for (x = 0; x < SIZE; x++)
+  for (y = 0; y < size; y++)
+    for (x = 0; x < size; x++)
       if (tiles[y][x].status == UNUSED)
         return 0;
 
@@ -841,7 +834,7 @@ void
 score_cb (GtkWidget *widget, gpointer data)
 {
   gchar *level;
-  level = g_strdup_printf ("%dx%d", SIZE, SIZE);
+  level = g_strdup_printf ("%dx%d", size, size);
   show_score_dialog (level, 0);
   g_free (level);
 }
@@ -854,7 +847,7 @@ game_score (void)
   gfloat score;
   gchar *level;
   
-  level = g_strdup_printf ("%dx%d", SIZE, SIZE);
+  level = g_strdup_printf ("%dx%d", size, size);
   seconds = GAMES_CLOCK (timer)->stopped;
   games_clock_set_seconds (GAMES_CLOCK (timer), (int) seconds);
   score = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
@@ -873,7 +866,7 @@ update_score_state (void)
   gint top;
   gchar *level;
   
-  level = g_strdup_printf ("%dx%d", SIZE, SIZE);
+  level = g_strdup_printf ("%dx%d", size, size);
   
   top = gnome_score_get_notable (APPNAME, level, &names, &scores, &scoretimes);
   g_free (level);
@@ -884,33 +877,24 @@ update_score_state (void)
   g_free (scoretimes);
 }
 
-void
-get_tile_size (void)
-{
-  gint max;
-
-  if (tile_size == 0)
-    tile_size = gconf_client_get_int (gconf_client,
-                                      KEY_TILE_SIZE,
-                                      NULL);
-
-  /* 100 is really just a guess as to what the window border, menu and
-   * status bar might take up. */
-  max = (gdk_screen_get_height (gdk_screen_get_default ()) - 2 * GAP - 100) / SIZE;
-  if (tile_size < MINIMUM_TILE_SIZE || tile_size > max)
-    tile_size = DEFAULT_TILE_SIZE;
-}
 
 void
 update_tile_size (gint screen_width, gint screen_height)
 {
   gint xt_size, yt_size;
-
-  xt_size = (screen_width - 3 * GAP) / (2 * SIZE) ;
-  yt_size = (screen_height - 2 * GAP) / SIZE;
+  gint window_width, window_height;
+  
+  /* We aim for the gap and the corners to be 1/2 a tile wide. */
+  xt_size = (2 * screen_width) / (4 * size + 3);
+  yt_size = screen_height / (size + 1);
   tile_size = MIN (xt_size, yt_size);
+  gap = (screen_width - 2*size*tile_size) / 3;
+  xborder = gap;
+  yborder = (screen_height - size*tile_size) / 2;
 
-  gconf_client_set_int (gconf_client, KEY_TILE_SIZE, tile_size, NULL);
+  gtk_window_get_size (GTK_WINDOW (window), &window_width, &window_height);
+  gconf_client_set_int (gconf_client, KEY_WINDOW_WIDTH, window_width, NULL);
+  gconf_client_set_int (gconf_client, KEY_WINDOW_HEIGHT, window_height, NULL);
 }
 
 gint
@@ -946,8 +930,8 @@ redraw_all (void)
   gdk_color_free (bg_color);
   gdk_draw_rectangle (buffer, draw_gc, TRUE, 0, 0, -1, -1);
   gdk_window_clear (space->window);
-  for (y = 0; y < SIZE; y++)
-    for (x = 0; x < SIZE*2; x++)
+  for (y = 0; y < size; y++)
+    for (x = 0; x < size*2; x++)
       gui_draw_pixmap (buffer, x, y);
   if (draw_gc)
     g_object_unref (draw_gc);
@@ -961,15 +945,15 @@ redraw_left (void)
 {
   gint x, y;
   GdkRegion *region;
-  GdkRectangle rect = {CORNER, CORNER,
-                       tile_size * SIZE, tile_size * SIZE};
+  GdkRectangle rect = {xborder, yborder,
+                       tile_size * size, tile_size * size};
 
   region = gdk_region_rectangle (&rect);
 
   gdk_window_begin_paint_region (space->window, region); 
 
-  for (y = 0; y < SIZE; y++)
-    for (x = 0; x < SIZE; x++)
+  for (y = 0; y < size; y++)
+    for (x = 0; x < size; x++)
       gui_draw_pixmap (buffer, x, y);
 
   gdk_window_end_paint (space->window);
@@ -982,8 +966,6 @@ create_space (void)
   space = gtk_drawing_area_new ();
   gnome_app_set_contents (GNOME_APP (window), space);
 
-  gtk_widget_set_size_request (space, get_space_min_width (),
-                               get_space_min_height ());
   gtk_widget_set_events (space,
 			 GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK
 			 | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
@@ -1110,7 +1092,7 @@ new_board (gint size)
       tiles[y1][x1] = tiles[y][x];
       tiles[y][x] = tmp;
     }
-  } while (tiles[0][SIZE].e == tiles[0][SIZE+1].w && j++ < 8);
+  } while (tiles[0][size].e == tiles[0][size+1].w && j++ < 8);
 }
 
 GdkColor *
@@ -1168,12 +1150,12 @@ gui_draw_pause (void)
   region = gdk_drawable_get_clip_region (GDK_DRAWABLE (space->window));
   gdk_window_begin_paint_region (space->window, region);
 
-  for (y = 0; y < SIZE; y++) {
-    for (x = 0; x < SIZE*2; x++) {
+  for (y = 0; y < size; y++) {
+    for (x = 0; x < size*2; x++) {
       which = tiles[y][x].status;
 
-      xadd = x * tile_size + CORNER + (x >= SIZE)*GAP;
-      yadd = y * tile_size + CORNER;
+      xadd = x * tile_size + xborder + (x >= size)*gap;
+      yadd = y * tile_size + yborder;
       gc = space->style->black_gc;
 
       gui_draw_piece (buffer, gc, which, xadd, yadd);
@@ -1241,13 +1223,8 @@ new_game_cb (GtkWidget *widget, gpointer data)
   gchar *str;
   widget = space;
   
-  new_board (SIZE);
+  new_board (size);
   gtk_widget_freeze_child_notify (space);
-  /*
-  gtk_drawing_area_size (GTK_DRAWING_AREA (space),
-                         CORNER * 2 + GAP + SIZE * tile_size * 2,
-                         SIZE * tile_size + CORNER * 2);
-  */
   make_buffer (widget);
   redraw_all ();
   gtk_widget_thaw_child_notify (space);
@@ -1255,7 +1232,7 @@ new_game_cb (GtkWidget *widget, gpointer data)
   timer_start ();
   set_game_menu_items_sensitive (TRUE);
   update_move_menu_sensitivity ();
-  str = g_strdup_printf (_("Playing %dx%d board"), SIZE, SIZE);
+  str = g_strdup_printf (_("Playing %dx%d board"), size, size);
   message (str);
   g_free (str);
 }
@@ -1303,7 +1280,7 @@ save_state (GnomeClient *client, gint phase,
 void
 size_cb (GtkWidget *widget, gpointer data)
 {
-  gint size;
+  gint newsize;
   gint width, height;
 
   /* Ignore de-activation events. */
@@ -1311,13 +1288,13 @@ size_cb (GtkWidget *widget, gpointer data)
     return;
   
   gdk_drawable_get_size (space->window, &width, &height);
-  size = atoi ((gchar *)data);
-  if (size == SIZE)
+  newsize = atoi ((gchar *)data);
+  if (size == newsize)
     return;
-  SIZE = size;
+  size = newsize;
   update_tile_size (width, height);
   update_score_state ();
-  gconf_client_set_int (gconf_client, KEY_GRID_SIZE, SIZE, NULL);
+  gconf_client_set_int (gconf_client, KEY_GRID_SIZE, size, NULL);
   new_game_cb (space, NULL);
 }
 
@@ -1341,7 +1318,7 @@ compare_tile (tile *t1, tile *t2)
 void
 find_first_tile (gint status, gint *xx, gint *yy)
 {
-  gint x, y, size = SIZE;
+  gint x, y, size = size;
   for (y = 0; y < size; y++)
     for (x = size; x < size * 2; x++)
       if (tiles[y][x].status == status) {
@@ -1394,7 +1371,7 @@ hint_move (gint x1, gint y1, gint x2, gint y2)
 void
 hint_cb (GtkWidget *widget, gpointer data)
 {
-  gint x1, y1, x2 = 0, y2 = 0, x, y, size = SIZE;
+  gint x1, y1, x2 = 0, y2 = 0, x, y, size = size;
   tile hint_tile;
 
   if ((game_state != playing) || button_down || hint_moving)
@@ -1436,7 +1413,7 @@ hint_cb (GtkWidget *widget, gpointer data)
   }
 
   /* East */
-  if (x2 != SIZE-1 && tiles[y2][x2+1].status == USED
+  if (x2 != size-1 && tiles[y2][x2+1].status == USED
       && tiles[y2][x2+1].w != hint_tile.e) {
     find_first_tile (UNUSED, &x1, &y1);
     hint_move (x2 + 1, y2, x1, y1);
@@ -1452,7 +1429,7 @@ hint_cb (GtkWidget *widget, gpointer data)
   }
   
   /* South */
-  if (y2 != SIZE - 1 && tiles[y2+1][x2].status == USED
+  if (y2 != size - 1 && tiles[y2+1][x2].status == USED
       && tiles[y2+1][x2].n != hint_tile.s) {
     find_first_tile (UNUSED, &x1, &y1);
     hint_move (x2, y2 + 1, x1, y1);
