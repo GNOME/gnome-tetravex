@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Gnotravex
+Name[pt_BR]=Gnotravex
 Name[da]=Gnotravex
 Name[de]=Gnotravex
 Name[es]=Gnotravex
@@ -12,6 +13,7 @@ Name[no]=Gnotravex
 Name[ru]=çÎÏÔÒÁ×ÅËÓ
 Name[sv]=Gnotravex
 Comment=Gnome Tetravex game
+Comment[pt_BR]=Jogo Tetravex Gnome
 Comment[da]=Tetravex spil til Gnome
 Comment[de]=Gnome-Klon des Denkspiels Tetravex
 Comment[es]=Juego de reflexión clónico de Tetravex
