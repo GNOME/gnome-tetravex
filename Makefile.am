@@ -22,6 +22,8 @@ Games_DATA = gnotravex.desktop
 
 EXTRA_DIST = README gnotravex.desktop $(pixmap_DATA)
 
+SUBDIRS = help
+
 install-data-local:
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
 	-touch $(DESTDIR)$(scoredir)/gnotravex.2x2.scores

@@ -1,0 +1,232 @@
+<!DOCTYPE Article PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.1//EN"[
+<!ENTITY version "1.0.53">
+<!-- Template Version: 1.0.1 (do not remove this line) -->
+]>
+
+
+<article id="index">
+
+ <artheader>
+  <title>GNOME Tetravex Manual</title>
+  <copyright>
+   <year>2001</year>
+   <holder>Rob Bradford </holder>
+  </copyright>
+
+  <legalnotice id="legalnotice"> 
+   <para> 
+     Permission is granted to copy, distribute and/or
+     modify this document under the terms of the <citetitle>GNU Free
+     Documentation License</citetitle>, Version 1.1 or any later version
+     published by the Free Software Foundation with no Invariant
+     Sections, no Front-Cover Texts, and no Back-Cover Texts. You may
+     obtain a copy of the <citetitle>GNU Free Documentation
+     License</citetitle> from the Free Software Foundation by visiting
+     <ulink url="http://www.fsf.org" type="http">their Web site</ulink>
+     or by writing to: Free Software Foundation, Inc., 59 Temple Place -
+     Suite 330, Boston, MA 02111-1307, USA.
+   </para>
+   <para>
+     Many of the names used by companies to distinguish their products
+     and services are claimed as trademarks. Where those names appear in
+     any GNOME documentation, and those trademarks are made aware to the
+     members of the GNOME Documentation Project, the names have been
+     printed in caps or initial caps.
+   </para>
+  </legalnotice>
+
+  <releaseinfo>This is version 1.0 of GNOME Tetravex manual.  </releaseinfo>
+ </artheader>
+
+ <sect1 id="intro">
+  <title>Introduction</title>
+
+  <para>
+    <application>GNOME Tetravex</application> is a simple puzzle where
+    pieces must be positioned so that the same numbers are touching each other.
+    Your game is timed, these times are stored in a system-wide scoreboard.
+  </para>
+    
+  <para> 
+    To run <application>GNOME Tetravex</application>, select
+    <menuchoice>
+     <guisubmenu>Games</guisubmenu> 
+     <guimenuitem>Gnotravex</guimenuitem> 
+    </menuchoice>
+    from the <guimenu>Main Menu</guimenu>, or type 
+    <command>gnotravex</command> on the command line.
+  </para>
+
+  <para>
+    <application>GNOME Tetravex</application> is included in the
+    <filename>gnome-games</filename> package, which is part of the GNOME
+    desktop environment. This document describes version
+    &version; of <application>GNOME Tetravex</application>.
+  </para>
+ </sect1>
+
+ <sect1 id="usage"> 
+  <title>Playing GNOME Tetravex</title>
+
+  <para>
+    <application>GNOME Tetravex</application> is a simple puzzle
+    game, this section covers how to play the game.
+  </para>
+
+  <sect2 id="mainwin">
+   <title>Basic usage</title>
+   <sect3 id="playing">
+    <title>Playing the game</title> 
+    <para> 
+      Starting <application>GNOME Tetravex</application> opens the 
+      <interface>Main window</interface>, shown in 
+      <xref linkend="mainwindow-fig">. The window is divided into two boxes.
+      The right hand side contains a box containing the pieces you have yet
+      to place and the left hand box is where you arrange the pieces.
+     </para>
+
+     <figure id="mainwindow-fig">
+      <title>GNOME Tetravex Main Window</title> 
+      <screenshot>
+       <screeninfo>GNOME Tetravex Main Window</screeninfo> 
+       <graphic fileref="figures/gnotravex_mainwindow" format="png" srccredit="ME"></graphic>
+      </screenshot> 
+     </figure>
+
+     <para> 
+       You can start playing the game immediately, the time starts when you
+       move the first piece into a position. You may restart the game by
+       doing
+       <menuchoice>
+	<guisubmenu>File</guisubmenu>
+	<guimenuitem>New game</guimenuitem>
+       </menuchoice>
+	<xref linkend="playing-fig">
+	</para>
+      <figure id="playing-fig">
+       <title>A GNOME Tetravex Game</title> 
+       <screenshot> 
+        <screeninfo>A GNOME Tetravex Game</screeninfo> 
+        <graphic fileref="figures/gnotravex_game" format="png" srccredit="ME"></graphic> 
+       </screenshot>
+      </figure>
+     <para>
+       The tiles are divided into four, you must position them so that only
+       two numbers that are the same are next to each other. The game wil not
+       let you position the tiles so that different numbers are next to each
+       other. You position the pieces by dragging them from their current
+       position either in the right hand box or the main box to their new
+       position. These moves are not permanent and can be readily reversed.
+       You may also move the pieces by using the commands:
+	<menuchoice>
+	 <guisubmenu>Move</guisubmenu>
+         <guimenuitem>Left/Right/Up/Down</guimenuitem>
+	</menuchoice>
+     </para>
+    </sect3>
+    <sect3 id="winning">
+     <title>Winning the game</title> 
+     <para>
+       The game is completed when you have positioned all the squares in the
+       right positions. When you have completed the game you are shown your
+       ranking in the high scores table (if you get a high enough score), 
+       like this one.
+     </para>
+    </sect3>
+
+  </sect2>
+ </sect1>
+	
+ <sect1 id="prefs"> 
+  <title>Customization</title> 
+  <para> 
+    Customization is relativly limited, you can change the size of the grid
+by 
+    <menuchoice>
+     <guimenu>Settings</guimenu> 
+     <guimenuitem>2 x 2 etc.</guimenuitem>
+    </menuchoice>.  
+  </para>
+
+ </sect1>
+
+ <sect1 id="bugs">
+  <title>Known Bugs and Limitations</title> 
+  <para> 
+    Of course not, its perfect!
+  </para> 
+ </sect1>
+
+ <sect1 id="authors"> 
+  <title>Authors</title> 
+  <para> 
+    <application>GNOME Tetravex</application> was written by Lars Rydlinge
+    (<email>lars.rydlinge@hig.se</email>). <application>GNOME
+    Tetravex</application> is part of the gnome-games package which is a core
+    GNOME package, please visit the 
+    <ulink url="http://www.gnome.org" type="http">GNOME Web page</ulink> 
+     for details. Please send all comments, suggestions, and bug reports to the   
+    <ulink url="http://bugs.gnome.org" type="http">GNOME bug tracking
+    database</ulink>. 
+    (Instructions for submitting bug reports can be found
+    <ulink url="http://bugs.gnome.org/Reporting.html" type="http">
+    on-line</ulink>.) You can also use <application>Bug Report
+    Tool</application> (<command>bug-buddy</command>), available in the
+    <guisubmenu>Utilities</guisubmenu> submenu of <guimenu>Main
+    Menu</guimenu>, for submitting bug reports.
+  </para>
+
+  <para> 
+    This manual was written by Rob Bradford
+    (<email>rob@funky-penguin.co.uk</email>). Please send all comments and
+    suggestions regarding this manual to the <ulink
+    url="http://developer.gnome.org/projects/gdp" type="http">GNOME
+    Documentation Project</ulink> by sending an email to
+    <email>docs@gnome.org</email>. You can also add your comments online by
+    using the <ulink url="http://developer.gnome.org/projects/gdp/doctable/"
+    type="http">GNOME Documentation Status Table</ulink>.
+  </para>
+
+  <!-- For translations: uncomment this:
+  <para>
+    Latin translation was done by ME (<email>MYNAME@MYADDRESS</email>). 
+    Please send all comments and suggestions regarding this translation to
+    SOMEWHERE.
+  </para>
+   -->
+
+ </sect1>
+
+ <sect1 id="license"> 
+  <title>License</title> 
+  <para> 
+    This program is free software; you can redistribute it and/or modify it 
+    under the terms of the <citetitle>GNU General Public License</citetitle> 
+    as published by the Free Software Foundation; either version 2 of the 
+    License, or (at your option) any later version.
+  </para>
+  <para>
+    This program is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    <citetitle>GNU General Public License</citetitle> for more details.
+  </para>
+  <para>
+    A copy of the <citetitle>GNU General Public License</citetitle> is
+    included as an appendix to the <citetitle>GNOME Users
+    Guide</citetitle>.  You may also obtain a copy of the <citetitle>GNU
+    General Public License</citetitle> from the Free Software Foundation by
+    visiting <ulink url="http://www.fsf.org" type="http">their Web
+    site</ulink> or by writing to 
+    <address>
+      Free Software Foundation, Inc.  
+     <street>59 Temple Place</street>
+     - Suite 330 
+     <city>Boston</city>, 
+     <state>MA</state>
+     <postcode>02111-1307</postcode> 
+     <country>USA</country> 
+    </address>
+  </para> 
+ </sect1>
+</article>
