@@ -1,3 +1,8 @@
+2003-05-13  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnotravex.c: Fixed bug #78189. No more corruption of the tiles
+	if they are moved off the edge of the window.
+
 2003-05-05  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* Makefile.am: 

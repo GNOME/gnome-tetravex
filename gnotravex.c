@@ -296,6 +296,7 @@ gint button_release_space(GtkWidget *widget, GdkEventButton *event){
 gint button_motion_space(GtkWidget *widget, GdkEventButton *event){ 
   if(button_down == 1){
     gdk_window_move(mover.window,event->x-mover.xoff,event->y-mover.yoff);
+    gdk_window_clear(mover.window);
   }
   return FALSE;
 }
@@ -424,6 +425,7 @@ int setup_mover(int x,int y,int status){
     gdk_window_move(mover.window,x - mover.xoff,y - mover.yoff);
     gui_draw_pixmap(mover.pixmap,xx,yy);
     gdk_window_show(mover.window);
+
     tiles[yy][xx].status = UNUSED;
     gui_draw_pixmap(buffer,xx,yy);
     return 1;
