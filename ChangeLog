@@ -1,3 +1,8 @@
+2002-01-03  Josh Barrow  <drleary@mac.com>
+
+	* Makefile.am:
+	* gnotravex.c: (main), (create_window), (create_space):
+
 2001-12-31  Josh Barrow  <drleary@mac.com>
 
 	* gnotravex.c: (expose_space), (gui_draw_pixmap), (setup_mover),

@@ -16,6 +16,7 @@
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
+
 #include <config.h>
 #include <gnome.h>
 #include <libgnomeui/gnome-window-icon.h>
@@ -211,11 +212,10 @@ int main (int argc, char **argv){
   gnome_init_with_popt_table(APPNAME, VERSION, argc, argv, options, 0, NULL);
   gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/gnotravex/gnome-gnotravex.png");
   client = gnome_master_client();
-  gtk_object_ref(GTK_OBJECT(client));
-  gtk_object_sink(GTK_OBJECT(client));
+  g_object_ref(G_OBJECT(client));
   
-  gtk_signal_connect(GTK_OBJECT (client), "save_yourself", GTK_SIGNAL_FUNC (save_state), argv[0]);
-  gtk_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
+  g_signal_connect(G_OBJECT (client), "save_yourself", G_CALLBACK (save_state), argv[0]);
+  g_signal_connect(G_OBJECT(client), "die", G_CALLBACK(quit_game_cb), argv[0]);
 
   if(SIZE<2 || SIZE>6) SIZE=3;
   
@@ -234,7 +234,7 @@ int main (int argc, char **argv){
 
   new_game_cb(space,NULL);
   
-  gtk_check_menu_item_set_state(GTK_CHECK_MENU_ITEM(size_radio_list[SIZE-2].widget),TRUE);
+  gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM(size_radio_list[SIZE-2].widget),TRUE);
 
   gtk_main ();
   
@@ -245,7 +245,7 @@ void create_window(){
   window = gnome_app_new(APPNAME, N_(APPNAME_LONG));
   gtk_window_set_policy(GTK_WINDOW(window), FALSE, FALSE, TRUE);
   gtk_widget_realize(window);
-  gtk_signal_connect(GTK_OBJECT(window), "delete_event", GTK_SIGNAL_FUNC(quit_game_cb), NULL);
+  g_signal_connect(G_OBJECT(window), "delete_event", G_CALLBACK(quit_game_cb), NULL);
 }
 
 gint expose_space(GtkWidget *widget, GdkEventExpose *event){ 
@@ -581,16 +581,16 @@ void create_space(){
   gtk_widget_set_events(space, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
   gtk_widget_realize(space);
   
-  gtk_signal_connect(GTK_OBJECT(space), "expose_event", 
-		     GTK_SIGNAL_FUNC(expose_space), NULL);
-  gtk_signal_connect(GTK_OBJECT(space), "configure_event", 
-		     GTK_SIGNAL_FUNC(configure_space), NULL);
-  gtk_signal_connect(GTK_OBJECT(space), "button_press_event", 
-		     GTK_SIGNAL_FUNC(button_press_space), NULL);
-  gtk_signal_connect (GTK_OBJECT(space),"button_release_event",
-                      GTK_SIGNAL_FUNC(button_release_space), NULL);
-  gtk_signal_connect (GTK_OBJECT(space), "motion_notify_event",
-                      GTK_SIGNAL_FUNC(button_motion_space), NULL);
+  g_signal_connect (G_OBJECT(space), "expose_event", 
+		    G_CALLBACK(expose_space), NULL);
+  g_signal_connect (G_OBJECT(space), "configure_event", 
+		    G_CALLBACK(configure_space), NULL);
+  g_signal_connect (G_OBJECT(space), "button_press_event", 
+		   G_CALLBACK(button_press_space), NULL);
+  g_signal_connect (G_OBJECT(space),"button_release_event",
+                    G_CALLBACK(button_release_space), NULL);
+  g_signal_connect (G_OBJECT(space), "motion_notify_event",
+                    G_CALLBACK(button_motion_space), NULL);
   gtk_widget_show(space);
 }
 
