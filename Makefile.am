@@ -38,19 +38,9 @@ SUBDIRS = help
 
 install-data-local:
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
-	-touch $(DESTDIR)$(scoredir)/gnotravex.2x2.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnotravex.2x2.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnotravex.2x2.scores
-	-touch $(DESTDIR)$(scoredir)/gnotravex.3x3.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnotravex.3x3.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnotravex.3x3.scores
-	-touch $(DESTDIR)$(scoredir)/gnotravex.4x4.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnotravex.4x4.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnotravex.4x4.scores
-	-touch $(DESTDIR)$(scoredir)/gnotravex.5x5.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnotravex.5x5.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnotravex.5x5.scores
-	-touch $(DESTDIR)$(scoredir)/gnotravex.6x6.scores
-	-chown games.games $(DESTDIR)$(scoredir)/gnotravex.6x6.scores
-	-chmod 664 $(DESTDIR)$(scoredir)/gnotravex.6x6.scores
-	-chgrp games $(DESTDIR)$(bindir)/gnotravex && chmod 2555 $(DESTDIR)$(bindir)/gnotravex
+	-for i in 2 3 4 5 6 ; do \
+	   touch $(DESTDIR)$(scoredir)/gnotravex.$$ix$$i.scores; \
+	   chown $(scores_user).$(scores_group) $(DESTDIR)$(scoredir)/gnotravex.$$ix$$i.scores; \
+	   chmod 664 $(DESTDIR)$(scoredir)/gnotravex.$$ix$$i.scores; \
+	 done
+	-if test "x$(setgid)" = "xtrue"; then chgrp $(scores_group) $(DESTDIR)$(bindir)/gnotravex && chmod 2555 $(DESTDIR)$(bindir)/gnotravex ; fi
