@@ -1181,7 +1181,7 @@ new_game_cb (GtkWidget *widget, gpointer data)
   gtk_widget_thaw_child_notify (space);
   game_state = playing;
   timer_start ();
-  sprintf (str, _("Playing %dx%d board"), SIZE, SIZE);
+  sprintf (str, _("Playing %d \xc3\x97 %d board"), SIZE, SIZE);
   message (str);
 }
 

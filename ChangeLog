@@ -1,3 +1,8 @@
+2003-06-14  William Jon McCann  <mccannwj@localhost.localdomain>
+
+	* gnotravex.c (new_game_cb): Use multiplication symbol
+	in status bar too.
+
 2003-06-13  William Jon McCann  <mccann@jhu.edu>
 
 	* gnotravex.c: Use UTF-8 multiplication symbol in
