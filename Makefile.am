@@ -33,7 +33,7 @@ EXTRA_DIST = README \
 	$(sharedpixmap_DATA) \
 	$(schema_in_files)
 
-CLEANFILES = $(Games_DATA) $(schema_DATA)
+DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
 
 SUBDIRS = help
 
