@@ -43,7 +43,7 @@ endif
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
 	-for i in 2 3 4 5 6 ; do \
 	   touch $(DESTDIR)$(scoredir)/gnotravex."$$i"x"$$i".scores; \
-	   chown $(scores_user).$(scores_group) $(DESTDIR)$(scoredir)/gnotravex."$$i"x"$$i".scores; \
+	   chown $(scores_user):$(scores_group) $(DESTDIR)$(scoredir)/gnotravex."$$i"x"$$i".scores; \
 	   chmod 664 $(DESTDIR)$(scoredir)/gnotravex."$$i"x"$$i".scores; \
 	 done
 	-if test "x$(setgid)" = "xtrue"; then chgrp $(scores_group) $(DESTDIR)$(bindir)/gnotravex && chmod 2555 $(DESTDIR)$(bindir)/gnotravex ; fi
