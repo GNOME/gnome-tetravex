@@ -549,25 +549,50 @@ gui_draw_piece (GdkPixmap *target, GdkGC *gc,
   gdk_gc_set_foreground (gc, &fg_color);
 }
 
+/* Note that x and y are the *center* of the digit to be placed. */
 void
 gui_draw_text_int (GdkPixmap *target, GdkGC *gc,
                    gint value, gint x, gint y)
 {
   PangoLayout *layout;
   gchar *markup;
-  gint font_size;
+  PangoRectangle extent;
+  guint64 font_size;
 
   if (! target) 
     return;
   if (! space) 
     return;
 
+  /* FIXME: This is an awful, awful hack. */
+
+  /* FIXME: There is an excessive use of large integer math here. Be
+     careful. */
+
+  /* FIXME: There are two obvious bugs with this approach. One is that
+   * it assumes that the height of the digit is its longest
+   * dimension. The other is that is assumes that all digits are the
+   * same height (and if they aren't they will be made that way). */
+
+  /* An initial guess at the right size, good for 96 dpi screens. */
   font_size = (tile_size / 5) * PANGO_SCALE * 0.8;
   markup = g_strdup_printf ("<span size=\"%d\" weight=\"bold\" font_family=\"sans-serif\">%d</span>",
-                            font_size, value);
+                            (guint32)font_size, value);
   layout = gtk_widget_create_pango_layout (space, "");
   pango_layout_set_markup (layout, markup, -1);
-  
+
+  pango_layout_get_extents (layout, &extent, NULL);
+  g_free (markup); 
+
+  /* And now correct it to make it right based on the current font. */
+  font_size = (font_size*(guint)tile_size*(guint)PANGO_SCALE)/(5*(guint)extent.height);
+  markup = g_strdup_printf ("<span size=\"%d\" weight=\"bold\" font_family=\"sans-serif\">%d</span>",
+                            (guint32)font_size, value);
+  pango_layout_set_markup (layout, markup, -1);
+  pango_layout_get_extents (layout, NULL, &extent);
+  x = x - ((guint)extent.width)/(2*PANGO_SCALE);
+  y = y - ((guint)extent.height)/(2*PANGO_SCALE);
+
   gdk_draw_layout (target, gc, x, y, layout);
   g_object_unref (layout);
   g_free (markup);
@@ -582,8 +607,8 @@ gui_draw_pixmap (GdkPixmap *target, gint x, gint y)
   which = tiles[y][x].status;
 
   if (target == buffer) {
-    xadd = x * tile_size + xborder + (x >= size) * gap;
-    yadd = y * tile_size + yborder;
+    xadd = x * tile_size + xborder  + (x >= size) * gap;
+    yadd = y * tile_size + yborder; 
   }
 
   if (target == mover.pixmap) {
@@ -598,23 +623,23 @@ gui_draw_pixmap (GdkPixmap *target, gint x, gint y)
   if (which == USED) {
     /* North */
     gui_draw_text_int (target, gc, tiles[y][x].n,
-                       xadd + tile_size / 2 - tile_size / 12,
-                       yadd + tile_size / 9);
+                       xadd + tile_size / 2,
+                       yadd + tile_size / 5);
 
     /* South */
     gui_draw_text_int (target, gc, tiles[y][x].s,
-                       xadd + tile_size / 2 - tile_size / 12,
-                       yadd + tile_size * 2 / 3);
+                       xadd + tile_size / 2,
+                       yadd + tile_size * 4 / 5);
     
     /* West */
     gui_draw_text_int (target, gc, tiles[y][x].w,
-                       xadd + tile_size / 9,
-                       yadd + tile_size / 2 - tile_size / 9);
+                       xadd + tile_size / 5,
+                       yadd + tile_size / 2);
   
     /* East */
     gui_draw_text_int (target, gc, tiles[y][x].e,
-                       xadd + tile_size * 3 / 4,
-                       yadd + tile_size / 2 - tile_size / 9);
+                       xadd + tile_size * 4 / 5,
+                       yadd + tile_size / 2);
   }
   gtk_widget_queue_draw_area (space, xadd, yadd, tile_size, tile_size);
 
@@ -1164,23 +1189,23 @@ gui_draw_pause (void)
       if (which == USED) {
         /* North */
         gui_draw_text_int (buffer, gc, 0,
-                           xadd + tile_size / 2 - tile_size / 12,
-                           yadd + tile_size / 9);
+                           xadd + tile_size / 2,
+                           yadd + tile_size / 5);
         
         /* South */
         gui_draw_text_int (buffer, gc, 0,
-                           xadd + tile_size / 2 - tile_size / 12,
-                           yadd + tile_size * 2 / 3);
-
+                           xadd + tile_size / 2,
+                           yadd + tile_size * 4 / 5);
+        
         /* West */
         gui_draw_text_int (buffer, gc, 0,
-                           xadd + tile_size / 9,
-                           yadd + tile_size / 2 - tile_size / 9);
+                           xadd + tile_size / 5,
+                           yadd + tile_size / 2);
         
         /* East */
         gui_draw_text_int (buffer, gc, 0,
-                           xadd + tile_size * 3 / 4,
-                           yadd + tile_size / 2 - tile_size / 9);
+                           xadd + tile_size * 4 / 5,
+                           yadd + tile_size / 2);
       }
       
       gtk_widget_queue_draw_area (space, xadd, yadd, tile_size, tile_size);
