@@ -1,3 +1,7 @@
+2002-12-11  Ross Burton  <ross@burtonini.com>
+
+	* gnotravex.c: Rename game to "GNOME Tetravex".
+
 2002-11-21  Tim Musson  <trmusson@ihug.co.nz>
 
 	* gnotravex.c (about_cb): No more multiple About dialogs. (Bug #97320)

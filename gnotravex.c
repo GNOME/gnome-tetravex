@@ -25,7 +25,7 @@
 #include <time.h>
 
 #define APPNAME "gnotravex"
-#define APPNAME_LONG "Gnome Tetravex"
+#define APPNAME_LONG "GNOME Tetravex"
 #define GNOTRAVEX_VERSION "0.20"
 
 #define TILE_SIZE 51
