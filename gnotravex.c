@@ -614,8 +614,7 @@ void redraw_all(){
 void redraw_left(){
   int x,y;
   GdkRegion *region;
-  GdkRectangle rect ={x:CORNER, y:CORNER, width:TILE_SIZE*SIZE,
-		     height:TILE_SIZE*SIZE};
+  GdkRectangle rect ={CORNER, CORNER, TILE_SIZE*SIZE, TILE_SIZE*SIZE};
 
   region = gdk_region_rectangle(&rect);
 

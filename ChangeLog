@@ -1,3 +1,8 @@
+2003-04-06  Ross Burton  <ross@burtonini.com>
+
+	* gnotravex.c: Fix code which the Sun compiler doesn't
+	like. Thanks to Rick Burridge, closing #109992.
+
 2003-02-26  Theo van Klaveren  <t.vanklaveren@student.utwente.nl>
 
 	* gnotravex.c: Replace rand()/srand() usage with g_random_*().
