@@ -107,15 +107,14 @@ gint button_press_space (GtkWidget *, GdkEventButton *);
 gint button_release_space (GtkWidget *, GdkEventButton *);
 gint button_motion_space (GtkWidget *, GdkEventButton *);
 
-void gui_draw_piece (GdkPixmap *, GdkGC *, gboolean, gint, gint);
-void gui_draw_text_int (GdkPixmap *, GdkGC *, gint, gint, gint);
-void gui_draw_pixmap (GdkPixmap *, gint, gint);
+void gui_draw_piece (GdkPixmap *, GtkStateType, gboolean, gint, gint);
+void gui_draw_text_int (GdkPixmap *, gint, GtkStateType, gint, gint);
+void gui_draw_pixmap (GdkPixmap *, gint, gint, gboolean);
 void gui_draw_pause (void);
 
 void get_pixeltilexy (gint, gint, gint *, gint *);
 void get_tilexy (gint, gint, gint *, gint *);
 void get_offsetxy (gint, gint, gint *, gint *);
-GdkColor *get_bg_color (void);
 
 void message (gchar *);
 void new_board (gint);
@@ -433,53 +432,31 @@ button_release_space (GtkWidget *widget, GdkEventButton *event)
   return FALSE;
 }
 
-gint
-button_motion_space (GtkWidget *widget, GdkEventButton *event)
-{
-  gint x,y;
-  
-  if (button_down == 1) {
-    x = event->x - mover.xoff;
-    y = event->y - mover.yoff;
-    gdk_window_move (mover.window, x, y);
-    gdk_window_clear (mover.window);
-  }
-  return FALSE;
-}
-
 void
-gui_draw_piece (GdkPixmap *target, GdkGC *gc,
+gui_draw_piece (GdkPixmap *target, GtkStateType state,
                 gboolean which, gint xadd, gint yadd)
 {
+  GdkGC *fg;
+  GdkGC *bg;
+  GdkGC *highlight;
+  GdkGC *shadow;
+  GdkGC *whichgc;
   GtkStyle *style;
-  GdkColor fg_color;
-  GdkColor highlight_color;
-  GdkColor shadow_color;
-  GdkColormap *cmap;
   gint line_thickness = 3;
   gint shadow_offset;
   gint i;
-  GdkColor *bg_color;
 
   style = gtk_widget_get_style (space);
-  fg_color = style->fg[GTK_STATE_NORMAL];
-  gdk_color_parse ("white", &highlight_color);
-  gdk_color_parse ("#666666", &shadow_color);
-  cmap = gtk_widget_get_colormap (space);
-  gdk_colormap_alloc_color (cmap, &highlight_color,
-			    FALSE, TRUE);
-  gdk_colormap_alloc_color (cmap, &shadow_color,
-                            FALSE, TRUE);
+  fg = style->fg_gc[state];
+  bg = style->bg_gc[state];
+  highlight = style->light_gc[state];
+  shadow = style->dark_gc[state];
 
   /* Blank the piece */
-  bg_color = get_bg_color ();
-  gdk_gc_set_foreground (gc, bg_color);
-  gdk_color_free (bg_color);
-  gdk_draw_rectangle (target, gc, TRUE, xadd, yadd,
+  gdk_draw_rectangle (target, bg, TRUE, xadd, yadd,
                       tile_size, tile_size);
   /* Draw outline */
-  gdk_gc_set_foreground (gc, &fg_color);
-  gdk_draw_rectangle (target, gc, FALSE, xadd, yadd,
+  gdk_draw_rectangle (target, fg, FALSE, xadd, yadd,
                       tile_size-1, tile_size-1);
 
   /* shadow offset exposes fg color border around used pieces */
@@ -487,27 +464,25 @@ gui_draw_piece (GdkPixmap *target, GdkGC *gc,
 
   if (which == USED) {
     /* Draw crossed lines */
-    gdk_gc_set_foreground (gc, &shadow_color);
     for (i = 0; i < line_thickness; i++) {
-      gdk_draw_line (target, gc,
+      gdk_draw_line (target, shadow,
                      xadd + shadow_offset,
                      yadd + i + shadow_offset,
                      xadd + tile_size - 1 - i - shadow_offset,
                      yadd + tile_size - 1 - shadow_offset);
-      gdk_draw_line (target, gc,
+      gdk_draw_line (target, shadow,
                      xadd + shadow_offset,
                      yadd + tile_size - 1 - i - shadow_offset,
                      xadd + tile_size - 1 - i - shadow_offset,
                      yadd + shadow_offset);
     }
-    gdk_gc_set_foreground (gc, &highlight_color);
     for (i = 0; i < line_thickness; i++) {
-      gdk_draw_line (target, gc,
+      gdk_draw_line (target, highlight,
                      xadd + 1 + i + shadow_offset,
                      yadd + shadow_offset,
                      xadd + tile_size - 1 - shadow_offset,
                      yadd + tile_size - 2 - shadow_offset - i);
-      gdk_draw_line (target, gc,
+      gdk_draw_line (target, highlight,
                      xadd + 1 + shadow_offset+ i,
                      yadd + tile_size - 1 - shadow_offset,
                      xadd + tile_size - 1 - shadow_offset,
@@ -516,43 +491,74 @@ gui_draw_piece (GdkPixmap *target, GdkGC *gc,
   }
 
   /* Draw highlights */
-  gdk_gc_set_foreground (gc, (which == USED) ? &shadow_color : &highlight_color);
+  whichgc = which == USED ? shadow : highlight;
+
   for (i = 0; i < line_thickness; i++) {
     /* bottom edge */
-    gdk_draw_line (target, gc,
+    gdk_draw_line (target, whichgc,
                    xadd + shadow_offset,
                    yadd + tile_size - 1 - shadow_offset - i,
                    xadd + tile_size - 1 - shadow_offset,
                    yadd + tile_size - 1 - shadow_offset - i);
     /* right edge */
-    gdk_draw_line (target, gc,
+    gdk_draw_line (target, whichgc,
                    xadd + tile_size - 1 - shadow_offset - i,
                    yadd + shadow_offset,
                    xadd + tile_size - 1 - shadow_offset - i,
                    yadd + tile_size - 1 - shadow_offset);
   }
-  gdk_gc_set_foreground (gc, (which == USED) ? &highlight_color : &shadow_color);
+
+  whichgc = which == USED ? highlight : shadow;
+
   for (i = 0; i < line_thickness; i++) {
     /* top edge */
-    gdk_draw_line (target, gc,
+    gdk_draw_line (target, whichgc,
                    xadd + shadow_offset,
                    yadd + i + shadow_offset,
                    xadd + tile_size - 2 - i - shadow_offset, 
                    yadd + i + shadow_offset);
     /* left edge */
-    gdk_draw_line (target, gc,
+    gdk_draw_line (target, whichgc,
                    xadd + i + shadow_offset,
                    yadd + shadow_offset,
                    xadd + i + shadow_offset,
                    yadd + tile_size - 2 - i - shadow_offset);
   }
-  gdk_gc_set_foreground (gc, &fg_color);
+}
+
+gint
+button_motion_space (GtkWidget *widget, GdkEventButton *event)
+{
+  static int oldx = -1, oldy = -1;
+  gint x,y;
+
+  if (button_down == 1) {
+    x = event->x - mover.xoff;
+    y = event->y - mover.yoff;
+    gdk_window_move (mover.window, x, y);
+    gdk_window_clear (mover.window);
+  } else {
+    /* This code hilights pieces as the mouse moves over them
+     * in general imitation of "prelight" in GTK. */
+    get_tilexy (event->x, event->y, &x, &y);
+    if ((x != oldx) || (y != oldy)) {
+      if ((oldx != -1) && (tiles[oldy][oldx].status == USED)) {
+        gui_draw_pixmap (buffer, oldx, oldy, FALSE);
+      }
+      if ((x != -1) && (tiles[y][x].status == USED)) {
+        gui_draw_pixmap (buffer, x, y, TRUE);
+      }
+      oldx = x;
+      oldy = y;
+    }
+  }
+  return FALSE;
 }
 
 /* Note that x and y are the *center* of the digit to be placed. */
 void
-gui_draw_text_int (GdkPixmap *target, GdkGC *gc,
-                   gint value, gint x, gint y)
+gui_draw_text_int (GdkPixmap *target, gint value, GtkStateType state,
+                   gint x, gint y)
 {
   PangoLayout *layout;
   gchar *markup;
@@ -593,18 +599,20 @@ gui_draw_text_int (GdkPixmap *target, GdkGC *gc,
   x = x - ((guint)extent.width)/(2*PANGO_SCALE);
   y = y - ((guint)extent.height)/(2*PANGO_SCALE);
 
-  gdk_draw_layout (target, gc, x, y, layout);
+  gdk_draw_layout (target, space->style->text_gc[state], 
+                   x, y, layout);
   g_object_unref (layout);
   g_free (markup);
 }
 
 void
-gui_draw_pixmap (GdkPixmap *target, gint x, gint y)
+gui_draw_pixmap (GdkPixmap *target, gint x, gint y, gboolean prelight)
 {
   gint which, xadd = 0, yadd = 0;
-  GdkGC *gc = space->style->black_gc;
+  GtkStateType state;
 
   which = tiles[y][x].status;
+  state = GTK_STATE_NORMAL;
 
   if (target == buffer) {
     xadd = x * tile_size + xborder  + (x >= size) * gap;
@@ -614,37 +622,41 @@ gui_draw_pixmap (GdkPixmap *target, gint x, gint y)
   if (target == mover.pixmap) {
     xadd = 0;
     yadd = 0;
-    gc = gdk_gc_new (mover.pixmap);
     gdk_window_set_back_pixmap (mover.window, mover.pixmap, 0);
+    state = GTK_STATE_PRELIGHT;
   }
 
-  gui_draw_piece (target, gc, which, xadd, yadd);
+  if (prelight)
+    state = GTK_STATE_PRELIGHT;
+
+  gui_draw_piece (target, state, which, xadd, yadd);
 
   if (which == USED) {
     /* North */
-    gui_draw_text_int (target, gc, tiles[y][x].n,
+    gui_draw_text_int (target, tiles[y][x].n,
+                       state,
                        xadd + tile_size / 2,
                        yadd + tile_size / 5);
 
     /* South */
-    gui_draw_text_int (target, gc, tiles[y][x].s,
+    gui_draw_text_int (target, tiles[y][x].s,
+                       state,
                        xadd + tile_size / 2,
                        yadd + tile_size * 4 / 5);
     
     /* West */
-    gui_draw_text_int (target, gc, tiles[y][x].w,
+    gui_draw_text_int (target, tiles[y][x].w,
+                       state,
                        xadd + tile_size / 5,
                        yadd + tile_size / 2);
   
     /* East */
-    gui_draw_text_int (target, gc, tiles[y][x].e,
+    gui_draw_text_int (target, tiles[y][x].e,
+                       state,
                        xadd + tile_size * 4 / 5,
                        yadd + tile_size / 2);
   }
   gtk_widget_queue_draw_area (space, xadd, yadd, tile_size, tile_size);
-
-  if (target==mover.pixmap)
-    g_object_unref (gc);
 }
 
 void
@@ -661,15 +673,43 @@ get_pixeltilexy (gint x, gint y, gint *xx, gint *yy)
   *yy = sumy;
 }
 
+/* We use this slightly less strict version when dropping tiles. */
+static void
+get_tilexy_lazy (gint x, gint y, gint *xx, gint *yy)
+{
+  x = x - xborder; y = y - yborder;
+  if (x / tile_size < size)
+    *xx = x / tile_size;
+  else
+    *xx = size + (x - (gap + tile_size * size)) / tile_size;
+  *yy = (y / tile_size);
+}
+
 void
 get_tilexy (gint x, gint y, gint *xx, gint *yy)
 {
-  x = x - xborder; y = y - yborder;
+  /* We return -1, -1 if the location doesn't correspond to a tile. */
+
+  x = x - xborder; 
+  y = y - yborder;
+
+  if ((x < 0) || (y < 0) || 
+      ((x >= size*tile_size) && (x < size*tile_size + gap))) {
+    *xx = -1;
+    *yy = -1;
+    return;
+  }
+
   if (x / tile_size < size)
     *xx = x / tile_size;
   else 
     *xx = size + (x - (gap + tile_size * size)) / tile_size;
   *yy = (y / tile_size);
+
+  if ((*xx >= 2*size) || (*yy >= size)) {
+    *xx = -1;
+    *yy = -1;
+  }
 }
 
 void
@@ -691,41 +731,42 @@ setup_mover (gint x, gint y, gint status)
   
   if (status == PRESS) {
     get_tilexy (x, y, &xx, &yy);
-    get_offsetxy (x, y, &mover.xoff, &mover.yoff);
-    if (tiles[yy][xx].status == UNUSED
-        || mover.yoff < 0 || mover.xoff < 0
-        || yy >= size || xx >= size * 2)
+    if (x == -1)
       return 0; /* No move */
+    if (tiles[yy][xx].status == UNUSED)
+      return 0; /* No move */
+    get_offsetxy (x, y, &mover.xoff, &mover.yoff);
 
     mover.xstart = xx; 
     mover.ystart = yy;
     gdk_window_resize (mover.window, tile_size, tile_size);
-    mover.pixmap = gdk_pixmap_new (mover.window, tile_size,tile_size,
-                                   gdk_drawable_get_visual (mover.window)->depth);
+    /* We assume elsewhere that this has the same depth as the parent. */
+    mover.pixmap = gdk_pixmap_new (mover.window, tile_size,tile_size, -1);
+
     gdk_window_move (mover.window,x - mover.xoff,y - mover.yoff);
-    gui_draw_pixmap (mover.pixmap, xx, yy);
+    gui_draw_pixmap (mover.pixmap, xx, yy, FALSE);
     gdk_window_show (mover.window);
 
     tiles[yy][xx].status = UNUSED;
-    gui_draw_pixmap (buffer, xx, yy);
+    gui_draw_pixmap (buffer, xx, yy, FALSE);
     return 1;
   }
 
   if (status == RELEASE) {
-    get_tilexy (x - mover.xoff + tile_size / 2,
-                y - mover.yoff + tile_size / 2,
-                &xx, &yy);
+    get_tilexy_lazy (x - mover.xoff + tile_size / 2,
+                     y - mover.yoff + tile_size / 2,
+                     &xx, &yy);
     if (tiles[yy][xx].status == UNUSED
         && xx >= 0 && xx < size * 2
         && yy >= 0 && yy < size
         && valid_drop (xx, yy)) {
       tiles[yy][xx] = tiles[mover.ystart][mover.xstart];
       tiles[yy][xx].status = USED;
-      gui_draw_pixmap (buffer, xx, yy);
-      gui_draw_pixmap (buffer, mover.xstart, mover.ystart);
+      gui_draw_pixmap (buffer, xx, yy, FALSE);
+      gui_draw_pixmap (buffer, mover.xstart, mover.ystart, FALSE);
     } else {
       tiles[mover.ystart][mover.xstart].status = USED;
-      gui_draw_pixmap (buffer, mover.xstart, mover.ystart);
+      gui_draw_pixmap (buffer, mover.xstart, mover.ystart, FALSE);
     }
     gdk_window_hide (mover.window);
     if (mover.pixmap) 
@@ -941,26 +982,17 @@ void
 redraw_all (void)
 {
   guint x, y;
-  GdkGC *draw_gc;
   GdkRegion *region;
-  GdkColor *bg_color;
 
   region = gdk_drawable_get_clip_region (GDK_DRAWABLE (space->window));
   gdk_window_begin_paint_region (space->window, region); 
 
-  draw_gc = gdk_gc_new (space->window);
-  bg_color = get_bg_color ();
-  gdk_window_set_background (space->window, bg_color);
-  gdk_gc_set_background (draw_gc, bg_color);
-  gdk_gc_set_foreground (draw_gc, bg_color);
-  gdk_color_free (bg_color);
-  gdk_draw_rectangle (buffer, draw_gc, TRUE, 0, 0, -1, -1);
+  gdk_draw_rectangle (buffer, space->style->bg_gc[GTK_STATE_NORMAL], 
+                      TRUE, 0, 0, -1, -1);
   gdk_window_clear (space->window);
   for (y = 0; y < size; y++)
     for (x = 0; x < size*2; x++)
-      gui_draw_pixmap (buffer, x, y);
-  if (draw_gc)
-    g_object_unref (draw_gc);
+      gui_draw_pixmap (buffer, x, y, FALSE);
   
   gdk_window_end_paint (space->window);
   gdk_region_destroy (region);
@@ -980,7 +1012,7 @@ redraw_left (void)
 
   for (y = 0; y < size; y++)
     for (x = 0; x < size; x++)
-      gui_draw_pixmap (buffer, x, y);
+      gui_draw_pixmap (buffer, x, y, FALSE);
 
   gdk_window_end_paint (space->window);
   gdk_region_destroy (region);
@@ -1042,6 +1074,7 @@ create_mover (void)
 {
   GdkWindowAttr attributes;
 
+  /* The depth of mover.window must match the depth of space->window. */
   attributes.wclass = GDK_INPUT_OUTPUT;
   attributes.window_type = GDK_WINDOW_CHILD;
   attributes.event_mask = 0;
@@ -1121,16 +1154,6 @@ new_board (gint size)
   } while (tiles[0][size].e == tiles[0][size+1].w && j++ < 8);
 }
 
-GdkColor *
-get_bg_color (void) 
-{
-  GtkStyle *style;
-  GdkColor *color;
-  style = gtk_widget_get_style (space);
-  color = gdk_color_copy (&style->bg[GTK_STATE_NORMAL]);
-  return color;
-}
-
 void
 pause_game (void)
 {
@@ -1184,26 +1207,30 @@ gui_draw_pause (void)
       yadd = y * tile_size + yborder;
       gc = space->style->black_gc;
 
-      gui_draw_piece (buffer, gc, which, xadd, yadd);
+      gui_draw_piece (buffer, GTK_STATE_NORMAL, which, xadd, yadd);
 
       if (which == USED) {
         /* North */
-        gui_draw_text_int (buffer, gc, 0,
+        gui_draw_text_int (buffer, 0,
+                           GTK_STATE_NORMAL,
                            xadd + tile_size / 2,
                            yadd + tile_size / 5);
         
         /* South */
-        gui_draw_text_int (buffer, gc, 0,
+        gui_draw_text_int (buffer, 0,
+                           GTK_STATE_NORMAL,
                            xadd + tile_size / 2,
                            yadd + tile_size * 4 / 5);
         
         /* West */
-        gui_draw_text_int (buffer, gc, 0,
+        gui_draw_text_int (buffer, 0,
+                           GTK_STATE_NORMAL,
                            xadd + tile_size / 5,
                            yadd + tile_size / 2);
         
         /* East */
-        gui_draw_text_int (buffer, gc, 0,
+        gui_draw_text_int (buffer, 0,
+                           GTK_STATE_NORMAL,
                            xadd + tile_size * 4 / 5,
                            yadd + tile_size / 2);
       }
