@@ -75,6 +75,7 @@ int session_ypos = 0;
 int session_position  = 0;
 guint timer_timeout = 0;
 
+void make_buffer(GtkWidget *);
 void create_window();
 void create_menu();
 void create_space();
@@ -543,7 +544,8 @@ void game_score(){
 }
 
 gint configure_space(GtkWidget *widget, GdkEventConfigure *event){
-  new_game_cb(widget,event);
+  make_buffer(widget);
+  redraw_all();
   return(TRUE);
 }
 
@@ -758,16 +760,22 @@ void create_menu(){
   gnome_app_create_menus(GNOME_APP(window), main_menu);
 }
 
+void make_buffer (GtkWidget *widget) {
+
+  if(buffer)
+    gdk_pixmap_unref(buffer);
+  
+  buffer = gdk_pixmap_new(widget->window, widget->allocation.width, widget->allocation.height, -1);
+
+}
+
 void new_game_cb(GtkWidget *widget, gpointer data){
   char str[40];
   widget = space;
   
   new_board(SIZE);
   gtk_drawing_area_size(GTK_DRAWING_AREA(space),CORNER*2 + GAP+ SIZE*TILE_SIZE*2,SIZE*TILE_SIZE + CORNER*2);
-  if(buffer)
-    gdk_pixmap_unref(buffer);
-  
-  buffer = gdk_pixmap_new(widget->window, widget->allocation.width, widget->allocation.height, -1);
+  make_buffer(widget);
   redraw_all();
   paused = 0;
   timer_start();
