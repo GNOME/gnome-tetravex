@@ -99,6 +99,7 @@ void game_score();
 gint timer_cb();
 void timer_start();
 void pause_cb();
+void gui_draw_pause();
 static int save_state(GnomeClient*, gint, GnomeRestartStyle, gint, GnomeInteractStyle, gint, gpointer);
 
 
@@ -749,11 +750,86 @@ void pause_cb(){
   paused = !paused;
   if(paused){
     message(_("... Game paused ..."));
+    gui_draw_pause();
     games_clock_stop(GAMES_CLOCK(timer));
   } else {
     message("");
+    redraw_all();
     games_clock_start(GAMES_CLOCK(timer));
   }
+}
+
+void gui_draw_pause(){
+  guint x, y, xadd, yadd, which;
+  GdkRegion *region;
+  GdkGC *gc;
+
+  region = gdk_drawable_get_clip_region(GDK_DRAWABLE(space->window));
+  gdk_window_begin_paint_region(space->window, region);
+
+  for(y = 0; y < SIZE; y++) {
+    for(x = 0; x < SIZE*2; x++) {
+      which = tiles[y][x].status;
+
+      xadd = x * TILE_SIZE + CORNER + (x >= SIZE)*GAP;
+      yadd = y * TILE_SIZE + CORNER;
+      gc = space->style->black_gc;
+
+      gdk_draw_drawable(buffer, gc, tiles_pixmap,
+                      which * TILE_SIZE, 0, 
+                      xadd, yadd, TILE_SIZE, TILE_SIZE);
+
+      if(which == USED) {
+        /* North */
+        gdk_draw_drawable(buffer,
+                        gc,
+                        tiles_pixmap,
+                        0,
+                        TILE_SIZE+1, 
+                        xadd + TILE_SIZE/2-3,
+                        yadd + 5,
+                        9,
+                        13);
+
+        /* South */
+        gdk_draw_drawable(buffer,
+                        gc,
+                        tiles_pixmap,
+                        0,
+                        TILE_SIZE+1, 
+                        xadd + TILE_SIZE/2-3,
+                        yadd + TILE_SIZE-17,
+                        9,
+                        13);
+
+        /* West */
+	gdk_draw_drawable(buffer,
+                        gc,
+                        tiles_pixmap,
+                        0,
+                        TILE_SIZE+1, 
+                        xadd + 5,
+                        yadd + TILE_SIZE/2-6,
+                        9,
+                        13);
+ 
+        /* East */
+        gdk_draw_drawable(buffer,
+                        gc,
+                        tiles_pixmap,
+                        0,
+                        TILE_SIZE+1, 
+                        xadd + TILE_SIZE-13,
+                        yadd + TILE_SIZE/2-6,
+                        9,
+                        13);
+        }
+
+        gtk_widget_queue_draw_area (space, xadd, yadd, TILE_SIZE, TILE_SIZE);
+     }
+  }
+
+  gdk_window_end_paint(space->window);
 }
 
 void timer_start(){
