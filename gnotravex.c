@@ -442,7 +442,9 @@ int setup_mover(int x,int y,int status){
     mover.pixmap = NULL;
     if(game_over()){
       paused = 1;
+#if 0
       gtk_clock_stop(GTK_CLOCK(timer));
+#endif
       if(!have_been_hinted){
 	message(_("Puzzle solved! Well done!"));
 	game_score();
@@ -536,8 +538,12 @@ void game_score(){
   gchar level[5];
   
   sprintf(level,"%dx%d",SIZE,SIZE);
+#if 0
   seconds = GTK_CLOCK(timer)->stopped;
   gtk_clock_set_seconds(GTK_CLOCK(timer), (int) seconds);
+#else
+  seconds = 100;
+#endif
   score = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
   pos = gnome_score_log(score,level,FALSE);
   gnome_scores_display (_(APPNAME_LONG), APPNAME, level, pos);
@@ -603,10 +609,12 @@ void create_statusbar(){
   time_box = gtk_hbox_new(0, FALSE);
   time_label = gtk_label_new (_("Time:"));
   gtk_box_pack_start (GTK_BOX(time_box), time_label, FALSE, FALSE, 0);
+#if 0
   timer = gtk_clock_new (GTK_CLOCK_INCREASING);
   gtk_box_pack_start (GTK_BOX(time_box), timer, FALSE, FALSE, 0);
   gtk_widget_show (time_label);
   gtk_widget_show (timer);
+#endif
   gtk_widget_show (time_box);
 
   statusbar = gnome_appbar_new(FALSE, TRUE, GNOME_PREFERENCES_USER);
@@ -654,7 +662,7 @@ void load_image(){
 	    , fname);
     exit(1);
   }
-  image = gdk_pixbuf_new_from_file(fname);
+  image = gdk_pixbuf_new_from_file(fname, NULL);
 
   gdk_pixbuf_render_pixmap_and_mask (image, &tiles_pixmap, NULL, 127);
 
@@ -738,17 +746,23 @@ void pause_cb(){
   paused = !paused;
   if(paused){
     message(_("... Game paused ..."));
+#if 0   
     gtk_clock_stop(GTK_CLOCK(timer));
+#endif
   } else {
     message("");
+#if 0
     gtk_clock_start(GTK_CLOCK(timer));
+#endif
   }
 }
 
 void timer_start(){
+#if 0
   gtk_clock_stop(GTK_CLOCK(timer));
   gtk_clock_set_seconds(GTK_CLOCK(timer), 0);
   gtk_clock_start(GTK_CLOCK(timer));
+#endif
 }
 
 /* --------------------------- MENU --------------------- */
@@ -957,11 +971,18 @@ void about_cb(GtkWidget *widget, gpointer data){
   GtkWidget *about;
   
   const gchar *authors[] = { "Lars Rydlinge", NULL };
+  gchar *documenters[] = {
+                          NULL
+                          };
+  /* Translator credits */
+  gchar *translator_credits = _("");
   about = gnome_about_new(_(APPNAME_LONG), 
 			  GNOTRAVEX_VERSION, 
 			  "(C) 1998 Lars Rydlinge",
-			  (const char **)authors, 
 			  _("Tetravex clone\n(Comments to: Lars.Rydlinge@HIG.SE)"), 
+			  (const char **)authors,
+                          (const char **)documenters,
+                          (const char *)translator_credits, 
 			  NULL);
   gtk_widget_show(about);
 }

@@ -3,8 +3,9 @@ pixmapdir=$(datadir)/pixmaps/gnotravex
 Gamesdir=$(datadir)/gnome/apps/Games
 
 INCLUDES = 			\
+	$(GNOME_GAMES_CFLAGS)	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-I$(includedir) $(GNOME_INCLUDEDIR) $(GDK_PIXBUF_CFLAGS)
+	-I$(includedir)
 
 bin_PROGRAMS = gnotravex
 
@@ -12,9 +13,7 @@ gnotravex_SOURCES =	\
 	gnotravex.c
 
 gnotravex_LDADD = \
-	$(GNOME_LIBDIR)	\
-	$(GNOMEUI_LIBS)	\
-	$(GDK_PIXBUF_LIBS) \
+	$(GNOME_GAMES_LIBS) \
 	$(INTLLIBS) 
 
 pixmap_DATA = gnotravex.png gnome-gnotravex.png
