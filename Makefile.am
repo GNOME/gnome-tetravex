@@ -47,4 +47,4 @@ install-data-local:
 	-touch $(DESTDIR)$(scoredir)/gnotravex.6x6.scores
 	-chown games.games $(DESTDIR)$(scoredir)/gnotravex.6x6.scores
 	-chmod 664 $(DESTDIR)$(scoredir)/gnotravex.6x6.scores
-	-chgrp games $(DESTDIR)$(bindir)/gnotravex && chmod 2111 $(DESTDIR)$(bindir)/gnotravex
+	-chgrp games $(DESTDIR)$(bindir)/gnotravex && chmod 2555 $(DESTDIR)$(bindir)/gnotravex
