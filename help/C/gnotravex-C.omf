@@ -5,7 +5,7 @@
     rob@funky-penguin.co.uk (Rob Bradford)
    </creator>
      <maintainer>
-    Callum McKenzie <callum.otago.ac.nz>
+    callum.otago.ac.nz (Callum McKenzie)
    </maintainer>
      <title>
      GNOME Tetravex Manual
@@ -22,7 +22,7 @@
      user's guide
    </type>
      <format mime="text/xml" dtd="-//OASIS//DTD DocBook XML V4.1.2//EN"/>
-     <identifier url="file://usr/share/gnome/help/gnotravex/C/gnotravex.xml"/>
+     <identifier url="gnotravex.xml"/>
      <language code="C"/>
      <relation seriesid="fc3c32d8-6006-11d6-9adc-99ee72e79490"/>
      <rights type="GNU FDL" license.version="1.1" holder="Rob Bradford"/>
