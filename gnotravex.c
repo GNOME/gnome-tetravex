@@ -573,7 +573,7 @@ gui_draw_text_int (GdkPixmap *target, GdkGC *gc,
    * it assumes that the height of the digit is its longest
    * dimension. The other is that is assumes that all digits are the
    * same height (and if they aren't they will be made that way). */
-
+      
   /* An initial guess at the right size, good for 96 dpi screens. */
   font_size = (tile_size / 5) * PANGO_SCALE * 0.8;
   markup = g_strdup_printf ("<span size=\"%d\" weight=\"bold\" font_family=\"sans\">%d</span>",
@@ -1475,47 +1475,13 @@ solve_cb (GtkWidget *widget, gpointer data)
 void
 about_cb (GtkWidget *widget, gpointer data)
 {
-  static GtkWidget *about = NULL;
-  GdkPixbuf *pixbuf = NULL;
-  
   const gchar *authors[] = { "Lars Rydlinge", NULL };
-  gchar *documenters[] = {
-    NULL
-  };
-  /* Translator credits */
-  gchar *translator_credits = _("translator-credits");
-  
-  if (about != NULL) {
-    gtk_window_present (GTK_WINDOW (about));
-    return;
-  }
-  {
-    gchar *filename = NULL;
-    
-    filename = gnome_program_locate_file (NULL,
-                                          GNOME_FILE_DOMAIN_APP_PIXMAP,
-                                          "gnome-gnotravex.png",
-                                          TRUE, NULL);
-    if (filename != NULL)
-      {
-        pixbuf = gdk_pixbuf_new_from_file (filename, NULL);
-        g_free (filename);
-      }
-  }
-  
-  about = gnome_about_new (_(APPNAME_LONG), VERSION, 
-                           "Copyright \xc2\xa9 1998-2004 Lars Rydlinge",
-                           _("A Tetravex clone."), 
-                           (const gchar **)authors,
-                           (const gchar **)documenters,
-                           strcmp (translator_credits, "translator-credits") != 0 ? translator_credits : NULL,
-                           pixbuf);
-	
-  if (pixbuf != NULL)
-    gdk_pixbuf_unref (pixbuf);	  
-  
-  gtk_window_set_transient_for (GTK_WINDOW (about), GTK_WINDOW (window));
-  g_signal_connect (G_OBJECT (about), "destroy",
-                    G_CALLBACK (gtk_widget_destroyed), &about);
-  gtk_widget_show_all (about);
+
+  gtk_show_about_dialog (GTK_WINDOW (window),
+                         "name", _(APPNAME_LONG),
+                         "version", VERSION,
+                         "copyright", "Copyright \xc2\xa9 1999-2005 Lars Rydlinge",
+                         "authors", authors,
+                         "translator_credits", _("translator-credits"),
+                         NULL);
 }

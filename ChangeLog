@@ -1,8 +1,12 @@
+2005-03-14  Richard Hoelscher  <rah@rahga.com>
+
+	* gnotravex.c (about_cb): Updated about dialog, minus "clone" comment.
+
 2005-03-02  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/gnotravex.xml: Bump the app version number. No revisions.
 
-2005-01-12  Richard Hoelscher  <rahga@rahga.com>
+2005-01-12  Richard Hoelscher  <rah@rahga.com>
 
 	* gnome-gnotravex.png: Updated with a translucent background.
 
