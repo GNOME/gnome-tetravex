@@ -1,3 +1,8 @@
+2001-06-03  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* gnotravex.c (main): Don't try to free the gnome_master_client to
+	  silent a gtk warning on exit.
+
 2001-05-28  Juan Pablo Mendoza <pablo_juan@yahoo.com>
 
 	* gnotravex.c: Made the game area unsensitive when whe are moving

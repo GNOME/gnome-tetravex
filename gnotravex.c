@@ -236,8 +236,6 @@ int main (int argc, char **argv){
 
   gtk_main ();
   
-  gtk_object_unref(GTK_OBJECT(client));
-
   return 0;
 }
 
