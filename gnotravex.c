@@ -45,6 +45,9 @@
 #define UNUSED 1
 #define USED 0
 
+#define KEY_GRID_SIZE "/apps/gnotravex/grid_size"
+#define KEY_TILE_SIZE "/apps/gnotravex/tile_size"
+
 GtkWidget *window;
 GtkWidget *statusbar;
 GtkWidget *space;
@@ -268,9 +271,7 @@ main (int argc, char **argv)
 
   gconf_client = gconf_client_get_default();
 
-  SIZE = gconf_client_get_int (gconf_client,
-                               "/apps/gnotravex/grid_size", NULL);
-  
+  SIZE = gconf_client_get_int (gconf_client, KEY_GRID_SIZE, NULL);
   if (SIZE < 2 || SIZE > 6) 
     SIZE = 3;
 
@@ -839,9 +840,10 @@ show_score_dialog (const gchar *level, gint pos)
 void
 score_cb (GtkWidget *widget, gpointer data)
 {
-  gchar level[5];
-  sprintf (level,"%dx%d",SIZE,SIZE);
+  gchar *level;
+  level = g_strdup_printf ("%dx%d", SIZE, SIZE);
   show_score_dialog (level, 0);
+  g_free (level);
 }
 
 void
@@ -850,15 +852,16 @@ game_score (void)
   gint pos;
   time_t seconds;
   gfloat score;
-  gchar level[5];
+  gchar *level;
   
-  sprintf (level,"%dx%d",SIZE,SIZE);
+  level = g_strdup_printf ("%dx%d", SIZE, SIZE);
   seconds = GAMES_CLOCK (timer)->stopped;
   games_clock_set_seconds (GAMES_CLOCK (timer), (int) seconds);
   score = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
-  pos = gnome_score_log (score,level,FALSE);
+  pos = gnome_score_log (score, level, FALSE);
   update_score_state ();
   show_score_dialog (level, pos);
+  g_free (level);
 }
 
 void
@@ -868,11 +871,13 @@ update_score_state (void)
   gfloat *scores = NULL;
   time_t *scoretimes = NULL;
   gint top;
-  gchar level[5];
-
-  sprintf (level,"%dx%d",SIZE,SIZE);
-
+  gchar *level;
+  
+  level = g_strdup_printf ("%dx%d", SIZE, SIZE);
+  
   top = gnome_score_get_notable (APPNAME, level, &names, &scores, &scoretimes);
+  g_free (level);
+
   gtk_widget_set_sensitive (game_menu[6].widget, top > 0);
   g_strfreev (names);
   g_free (scores);
@@ -886,12 +891,12 @@ get_tile_size (void)
 
   if (tile_size == 0)
     tile_size = gconf_client_get_int (gconf_client,
-                                      "/apps/gnotravex/tile_size",
+                                      KEY_TILE_SIZE,
                                       NULL);
 
   /* 100 is really just a guess as to what the window border, menu and
    * status bar might take up. */
-  max = (gdk_screen_get_height (gdk_screen_get_default ()) - 2*GAP - 100)/SIZE;
+  max = (gdk_screen_get_height (gdk_screen_get_default ()) - 2 * GAP - 100) / SIZE;
   if (tile_size < MINIMUM_TILE_SIZE || tile_size > max)
     tile_size = DEFAULT_TILE_SIZE;
 }
@@ -905,8 +910,7 @@ update_tile_size (gint screen_width, gint screen_height)
   yt_size = (screen_height - 2 * GAP) / SIZE;
   tile_size = MIN (xt_size, yt_size);
 
-  gconf_client_set_int (gconf_client, "/apps/gnotravex/tile_size", tile_size,
-                        NULL);
+  gconf_client_set_int (gconf_client, KEY_TILE_SIZE, tile_size, NULL);
 }
 
 gint
@@ -1234,7 +1238,7 @@ make_buffer (GtkWidget *widget)
 void
 new_game_cb (GtkWidget *widget, gpointer data)
 {
-  char str[40];
+  gchar *str;
   widget = space;
   
   new_board (SIZE);
@@ -1251,8 +1255,9 @@ new_game_cb (GtkWidget *widget, gpointer data)
   timer_start ();
   set_game_menu_items_sensitive (TRUE);
   update_move_menu_sensitivity ();
-  sprintf (str, _("Playing %dx%d board"), SIZE, SIZE);
+  str = g_strdup_printf (_("Playing %dx%d board"), SIZE, SIZE);
   message (str);
+  g_free (str);
 }
 
 void
@@ -1312,7 +1317,7 @@ size_cb (GtkWidget *widget, gpointer data)
   SIZE = size;
   update_tile_size (width, height);
   update_score_state ();
-  gconf_client_set_int (gconf_client, "/apps/gnotravex/grid_size", SIZE, NULL);
+  gconf_client_set_int (gconf_client, KEY_GRID_SIZE, SIZE, NULL);
   new_game_cb (space, NULL);
 }
 

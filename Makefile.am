@@ -30,7 +30,10 @@ Games_in_files = gnotravex.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-EXTRA_DIST = README gnotravex.desktop.in $(sharedpixmap_DATA)
+EXTRA_DIST = README \
+	gnotravex.desktop.in \
+	$(sharedpixmap_DATA) \
+	$(schema_in_files)
 
 CLEANFILES = $(Games_DATA)
 
