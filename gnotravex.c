@@ -1125,10 +1125,9 @@ void about_cb(GtkWidget *widget, gpointer data){
 	  }
   }
 
-  about = gnome_about_new(_(APPNAME_LONG), 
-			  VERSION, 
-			  "(C) 1998 Lars Rydlinge",
-			  _("Tetravex clone\n(Comments to: Lars.Rydlinge@HIG.SE)"), 
+  about = gnome_about_new(_(APPNAME_LONG), VERSION, 
+			  "Copyright \xc2\xa9 1998-2003 Lars Rydlinge",
+			  _("A Tetravex clone."), 
 			  (const char **)authors,
                           (const char **)documenters,
                           strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
