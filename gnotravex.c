@@ -963,6 +963,7 @@ void solve_cb(GtkWidget *widget, gpointer data){
 
 void about_cb(GtkWidget *widget, gpointer data){
   GtkWidget *about;
+  GdkPixbuf *pixbuf = NULL;
   
   const gchar *authors[] = { "Lars Rydlinge", NULL };
   gchar *documenters[] = {
@@ -970,6 +971,21 @@ void about_cb(GtkWidget *widget, gpointer data){
                           };
   /* Translator credits */
   gchar *translator_credits = _("translator_credits");
+
+  {
+	  char *filename = NULL;
+
+	  filename = gnome_program_locate_file (NULL,
+			  GNOME_FILE_DOMAIN_PIXMAP,
+			  "gnotravex/gnome-gnotravex.png",
+			  TRUE, NULL);
+	  if (filename != NULL)
+	  {
+		  pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+		  g_free (filename);
+	  }
+  }
+
   about = gnome_about_new(_(APPNAME_LONG), 
 			  GNOTRAVEX_VERSION, 
 			  "(C) 1998 Lars Rydlinge",
@@ -977,7 +993,7 @@ void about_cb(GtkWidget *widget, gpointer data){
 			  (const char **)authors,
                           (const char **)documenters,
                           strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
-			  NULL);
+			  pixbuf);
   gtk_widget_show(about);
 }
 

@@ -1,3 +1,7 @@
+2002-06-03  Bastien Nocera  <hadess@hadess.net>
+
+	* gnotravex.c: (about_cb): add icon to the about dialog
+
 2002-05-05  Chris Lyttle <chris@wilddev.net>
 
 	* help/C/Makefile.am: updated for new format of SK 0.3.8.
