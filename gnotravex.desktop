@@ -2,9 +2,11 @@
 Name=Gnotravex
 Name[es]=Gnotravex
 Name[fr]=Gnotravex
+Name[ru]=Гнотравекс
 Comment=Gnome Tetravex game
 Comment[es]=Juego de reflexiСn clСnico de Tetravex
 Comment[fr]=Jeu Tetravex GNOME
+Comment[ru]=Игра Тетравекс для Gnome
 Exec=gnotravex
 Icon=gnome-gnotravex.png
 Terminal=0
