@@ -1504,7 +1504,7 @@ about_cb (GtkWidget *widget, gpointer data)
   }
   
   about = gnome_about_new (_(APPNAME_LONG), VERSION, 
-                           "Copyright \xc2\xa9 1998-2003 Lars Rydlinge",
+                           "Copyright \xc2\xa9 1998-2004 Lars Rydlinge",
                            _("A Tetravex clone."), 
                            (const gchar **)authors,
                            (const gchar **)documenters,
