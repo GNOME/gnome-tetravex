@@ -26,7 +26,6 @@
 
 #define APPNAME "gnotravex"
 #define APPNAME_LONG "GNOME Tetravex"
-#define GNOTRAVEX_VERSION "0.20"
 
 #define TILE_SIZE 51
 
@@ -1110,7 +1109,7 @@ void about_cb(GtkWidget *widget, gpointer data){
   }
 
   about = gnome_about_new(_(APPNAME_LONG), 
-			  GNOTRAVEX_VERSION, 
+			  VERSION, 
 			  "(C) 1998 Lars Rydlinge",
 			  _("Tetravex clone\n(Comments to: Lars.Rydlinge@HIG.SE)"), 
 			  (const char **)authors,
