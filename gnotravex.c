@@ -588,7 +588,7 @@ void load_image(){
   GdkImlibImage *image;
   GdkVisual *visual;
 
-  tmp = g_copy_strings("gnotravex/", "gnotravex.png", NULL);
+  tmp = g_strconcat("gnotravex/", "gnotravex.png", NULL);
   fname = gnome_unconditional_pixmap_file(tmp);
   g_free(tmp);
   if(!g_file_exists(fname)) {
