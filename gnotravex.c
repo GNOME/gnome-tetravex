@@ -102,12 +102,15 @@ void quit_game_cb(GtkWidget *, gpointer);
 void size_cb(GtkWidget *, gpointer);
 void move_cb(GtkWidget *, gpointer);
 void about_cb(GtkWidget *, gpointer);
+void score_cb(GtkWidget *, gpointer);
 
 GnomeUIInfo file_menu[] = {
   { GNOME_APP_UI_ITEM, N_("_New"), "Start a new game", new_game_cb, NULL, NULL,
     GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_NEW, 'n', GDK_CONTROL_MASK,NULL },
-  { GNOME_APP_UI_ITEM, N_("_Pause"), NULL, pause_cb, NULL, NULL,
+  { GNOME_APP_UI_ITEM, N_("Pause"), NULL, pause_cb, NULL, NULL,
     GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_TIMER_STOP, 0, GDK_CONTROL_MASK,NULL },
+  {GNOME_APP_UI_ITEM, N_("Scores"), NULL, score_cb, NULL, NULL,
+   GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_SCORES, 0, 0, NULL},
   GNOMEUIINFO_SEPARATOR,
   { GNOME_APP_UI_ITEM, N_("_Quit"), NULL, quit_game_cb, NULL, NULL,
     GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, 'q', GDK_CONTROL_MASK,NULL },
@@ -461,14 +464,21 @@ int game_over(){
   return 1;
 }
 
+void score_cb(GtkWidget *widget, gpointer data){
+  gchar level[5];
+  sprintf(level,"%dx%d",SIZE,SIZE);
+  gnome_scores_display (_(APPNAME_LONG), APPNAME, level, 0);
+}
+
 void game_score(){
-  gint pos,score;
+  gint pos;
+  gfloat score;
   gchar level[5];
   sprintf(level,"%dx%d",SIZE,SIZE);
   paused = 1;
-  score = SIZE*(3600-seconds);
-  pos = gnome_score_log(score,level,TRUE);
-  gnome_scores_display (_(APPNAME_LONG), APPNAME, level, 0);
+  score = (gfloat) (seconds/60) + (gfloat) (seconds % 60) / 100;
+  pos = gnome_score_log(score,level,FALSE);
+  gnome_scores_display (_(APPNAME_LONG), APPNAME, level, pos);
 }
 
 gint configure_space(GtkWidget *widget, GdkEventConfigure *event){
