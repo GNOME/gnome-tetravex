@@ -1,3 +1,8 @@
+2003-06-18  William Jon McCann  <mccann@jhu.edu>
+
+	* gnotravex.c: Include string.h and change
+	gtk_widget_set_uposition to gtk_window_move.
+
 2003-06-17  William Jon McCann  <mccann@jhu.edu>
 
 	* gnotravex.c: Fixed most of the compiler warnings.

@@ -21,6 +21,7 @@
 
 #include <config.h>
 #include <gnome.h>
+#include <string.h>
 #include <libgnomeui/gnome-window-icon.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <games-clock.h>
@@ -284,7 +285,7 @@ main (int argc, char **argv)
   update_score_state ();
 
   if (session_xpos >= 0 && session_ypos >= 0)
-    gtk_widget_set_uposition (window, session_xpos, session_ypos);
+    gtk_window_move (GTK_WINDOW (window), session_xpos, session_ypos);
     
   gtk_widget_show_all (window);
   create_mover ();
