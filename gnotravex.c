@@ -576,7 +576,7 @@ gui_draw_text_int (GdkPixmap *target, GdkGC *gc,
 
   /* An initial guess at the right size, good for 96 dpi screens. */
   font_size = (tile_size / 5) * PANGO_SCALE * 0.8;
-  markup = g_strdup_printf ("<span size=\"%d\" weight=\"bold\" font_family=\"sans-serif\">%d</span>",
+  markup = g_strdup_printf ("<span size=\"%d\" weight=\"bold\" font_family=\"sans\">%d</span>",
                             (guint32)font_size, value);
   layout = gtk_widget_create_pango_layout (space, "");
   pango_layout_set_markup (layout, markup, -1);
@@ -586,7 +586,7 @@ gui_draw_text_int (GdkPixmap *target, GdkGC *gc,
 
   /* And now correct it to make it right based on the current font. */
   font_size = (font_size*(guint)tile_size*(guint)PANGO_SCALE)/(5*(guint)extent.height);
-  markup = g_strdup_printf ("<span size=\"%d\" weight=\"bold\" font_family=\"sans-serif\">%d</span>",
+  markup = g_strdup_printf ("<span size=\"%d\" weight=\"bold\" font_family=\"sans\">%d</span>",
                             (guint32)font_size, value);
   pango_layout_set_markup (layout, markup, -1);
   pango_layout_get_extents (layout, NULL, &extent);

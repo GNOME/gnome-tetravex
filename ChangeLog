@@ -1,3 +1,9 @@
+2004-03-30  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnotravex.c (gui_draw_text_int): sans-serif -> sans. Apparently
+	pango on AIX doesn't like sans-serif. Sans looks like the most
+	generic name. Fixes bug #138410.
+
 2004-03-04  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/gnotravex.xml: Update version number. Nothing else has
