@@ -108,13 +108,6 @@ void score_cb(GtkWidget *, gpointer);
 void hint_cb(GtkWidget *, gpointer);
 void solve_cb(GtkWidget *, gpointer);
 
-GnomeUIInfo file_menu[] = {
-
-  GNOMEUIINFO_MENU_EXIT_ITEM(quit_game_cb, NULL),
-
-  GNOMEUIINFO_END
-};
-
 GnomeUIInfo game_menu[] = {
   GNOMEUIINFO_MENU_NEW_GAME_ITEM(new_game_cb, NULL),
 
@@ -131,6 +124,10 @@ GnomeUIInfo game_menu[] = {
   GNOMEUIINFO_SEPARATOR,
 
   GNOMEUIINFO_MENU_SCORES_ITEM(score_cb, NULL),
+
+  GNOMEUIINFO_SEPARATOR,
+
+  GNOMEUIINFO_MENU_EXIT_ITEM(quit_game_cb, NULL),
 
   GNOMEUIINFO_END
 };
@@ -182,7 +179,6 @@ GnomeUIInfo settings_menu[] = {
 };
 
 GnomeUIInfo main_menu[] = {
-  GNOMEUIINFO_MENU_FILE_TREE(file_menu),
   GNOMEUIINFO_MENU_GAME_TREE(game_menu),
   GNOMEUIINFO_SUBTREE(N_("_Move"), move_menu),
   GNOMEUIINFO_MENU_SETTINGS_TREE(settings_menu),
