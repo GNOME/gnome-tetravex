@@ -1,3 +1,9 @@
+2003-05-05  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* Makefile.am: 
+	* gnotravex.desktopn.in (Icon): Moved location of the icon to the
+	shared pixmap directory, closes bug #100950.
+
 2003-04-06  Ross Burton  <ross@burtonini.com>
 
 	* gnotravex.c: Fix code which the Sun compiler doesn't
