@@ -869,18 +869,14 @@ update_score_state (void)
   time_t *scoretimes = NULL;
   gint top;
   gchar level[5];
-  
+
   sprintf (level,"%dx%d",SIZE,SIZE);
-  
+
   top = gnome_score_get_notable (APPNAME, level, &names, &scores, &scoretimes);
-  if (top > 0) {
-    gtk_widget_set_sensitive (game_menu[6].widget, TRUE);
-    g_strfreev (names);
-    g_free (scores);
-    g_free (scoretimes);
-  } else {
-    gtk_widget_set_sensitive (game_menu[6].widget, FALSE);
-  }
+  gtk_widget_set_sensitive (game_menu[6].widget, top > 0);
+  g_strfreev (names);
+  g_free (scores);
+  g_free (scoretimes);
 }
 
 void
@@ -1304,8 +1300,15 @@ size_cb (GtkWidget *widget, gpointer data)
 {
   gint size;
   gint width, height;
+
+  /* Ignore de-activation events. */
+  if (!gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (widget)))
+    return;
+  
   gdk_drawable_get_size (space->window, &width, &height);
   size = atoi ((gchar *)data);
+  if (size == SIZE)
+    return;
   SIZE = size;
   update_tile_size (width, height);
   update_score_state ();

@@ -1,3 +1,9 @@
+2003-06-24  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnotravex.c Fix minor memory leaks and make sure that we don't
+	update the size when the menu item is de-selected (and also make
+	sure that we don't bother if the size doesn't change).
+
 2003-06-22  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.c: Space before punctuation fixes
