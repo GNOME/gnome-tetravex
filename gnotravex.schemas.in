@@ -8,7 +8,7 @@
       <type>int</type>
       <default>3</default>
       <locale name="C">
-        <short>The size of the playing grid.</short>
+        <short>The size of the playing grid</short>
         <long>The value of this key is used to decide the size of the playing grid. The valid values are 2 to 8, anything else gets set to 3.</long>
       </locale>
     </schema>
@@ -20,7 +20,7 @@
       <type>int</type>
       <default>51</default>
       <locale name="C">
-        <short>The size of a tile.</short>
+        <short>The size of a tile</short>
         <long>The side length of an individual game tile. The minimum is 40, the maximum is set depending on screen height. The correct way to set this is by resizing the window.</long>
       </locale>
     </schema>

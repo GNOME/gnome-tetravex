@@ -961,7 +961,9 @@ create_statusbar (void)
 {
   GtkWidget *time_label,*time_box;
   time_box = gtk_hbox_new (FALSE, 0);
-  time_label = gtk_label_new (_("Time : "));
+  time_label = gtk_label_new (_("Time:"));
+  gtk_box_pack_start (GTK_BOX (time_box), time_label, FALSE, FALSE, 0);
+  time_label = gtk_label_new (" ");
   gtk_box_pack_start (GTK_BOX (time_box), time_label, FALSE, FALSE, 0);
   timer = games_clock_new ();
   gtk_box_pack_start (GTK_BOX (time_box), timer, FALSE, FALSE, 0);
