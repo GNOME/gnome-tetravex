@@ -1318,7 +1318,7 @@ compare_tile (tile *t1, tile *t2)
 void
 find_first_tile (gint status, gint *xx, gint *yy)
 {
-  gint x, y, size = size;
+  gint x, y;
   for (y = 0; y < size; y++)
     for (x = size; x < size * 2; x++)
       if (tiles[y][x].status == status) {
@@ -1371,7 +1371,7 @@ hint_move (gint x1, gint y1, gint x2, gint y2)
 void
 hint_cb (GtkWidget *widget, gpointer data)
 {
-  gint x1, y1, x2 = 0, y2 = 0, x, y, size = size;
+  gint x1, y1, x2 = 0, y2 = 0, x, y;
   tile hint_tile;
 
   if ((game_state != playing) || button_down || hint_moving)
