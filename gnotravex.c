@@ -38,6 +38,9 @@
 #define UNUSED 1
 #define USED 0
 
+#define SPACE_WIDTH (CORNER*2 + GAP + SIZE*TILE_SIZE*2)
+#define SPACE_HEIGHT (CORNER*2 + SIZE*TILE_SIZE)
+
 GtkWidget *window;
 GtkWidget *statusbar;
 GtkWidget *space;
@@ -293,10 +296,23 @@ gint button_release_space(GtkWidget *widget, GdkEventButton *event){
   return FALSE;
 }
 
-gint button_motion_space(GtkWidget *widget, GdkEventButton *event){ 
+gint button_motion_space(GtkWidget *widget, GdkEventButton *event){
+  static gint x = -1, y = -1;
+  gint newx, newy;
+  
   if(button_down == 1){
-    gdk_window_move(mover.window,event->x-mover.xoff,event->y-mover.yoff);
-    gdk_window_clear(mover.window);
+    /* This is convoluted but it minimises the number of gtk_window_clear
+     * calls that are made. This is important with remote X connections. */
+    newx = event->x - mover.xoff;
+    newy = event->y - mover.yoff;
+    gdk_window_move (mover.window, newx, newy);
+    if ((x < 0)
+        || (y < 0)
+        || (x > (SPACE_WIDTH - TILE_SIZE))
+        || (y > (SPACE_HEIGHT - TILE_SIZE)))
+      gdk_window_clear (mover.window);
+    x = newx;
+    y = newy;
   }
   return FALSE;
 }
@@ -633,7 +649,7 @@ void redraw_left(){
 void create_space(){
   space = gtk_drawing_area_new();
   gnome_app_set_contents(GNOME_APP(window),space);
-  gtk_drawing_area_size(GTK_DRAWING_AREA(space),CORNER*2 + GAP+ SIZE*TILE_SIZE*2,SIZE*TILE_SIZE + CORNER*2);
+  gtk_drawing_area_size(GTK_DRAWING_AREA(space), SPACE_WIDTH, SPACE_HEIGHT);
   gtk_widget_set_events(space, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
   gtk_widget_realize(space);
   

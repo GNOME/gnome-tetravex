@@ -1,3 +1,9 @@
+2003-05-14  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnotravex.c: Optimisation of the fix for #78189. It should
+	improve performance over a remote X connection. Unfortunately I
+	haven't tested it yet to see if it actually helps.
+
 2003-05-13  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.c: Fixed bug #78189. No more corruption of the tiles
