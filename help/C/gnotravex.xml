@@ -1,4 +1,6 @@
-<!DOCTYPE Article PUBLIC "-//GNOME//DTD DocBook PNG Variant V1.1//EN"[
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+    "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
 <!ENTITY version "1.0.53">
 <!-- Template Version: 1.0.1 (do not remove this line) -->
 ]>
@@ -6,7 +8,7 @@
 
 <article id="index">
 
- <artheader>
+ <articleinfo>
   <title>GNOME Tetravex Manual</title>
   <copyright>
    <year>2001</year>
@@ -36,7 +38,7 @@
   </legalnotice>
 
   <releaseinfo>This is version 1.0 of GNOME Tetravex manual.  </releaseinfo>
- </artheader>
+ </articleinfo>
 
  <sect1 id="intro">
   <title>Introduction</title>
@@ -80,7 +82,7 @@
     <para> 
       Starting <application>GNOME Tetravex</application> opens the 
       <interface>Main window</interface>, shown in 
-      <xref linkend="mainwindow-fig">. The window is divided into two boxes.
+      <xref linkend="mainwindow-fig"/>. The window is divided into two boxes.
       The right hand side contains a box containing the pieces you have yet
       to place and the left hand box is where you arrange the pieces.
      </para>
@@ -88,8 +90,14 @@
      <figure id="mainwindow-fig">
       <title>GNOME Tetravex Main Window</title> 
       <screenshot>
-       <screeninfo>GNOME Tetravex Main Window</screeninfo> 
-       <graphic fileref="figures/gnotravex_mainwindow" format="png" srccredit="ME"></graphic>
+        <mediaobject> 
+    <imageobject>
+  <imagedata fileref="figures/gnotravex_mainwindow.png" format="PNG" srccredit="ME"/>
+  </imageobject>
+    <textobject> 
+      <phrase>GNOME Tetravex Main Window.</phrase> 
+    </textobject> 
+  </mediaobject>
       </screenshot> 
      </figure>
 
@@ -101,13 +109,19 @@
 	<guisubmenu>File</guisubmenu>
 	<guimenuitem>New game</guimenuitem>
        </menuchoice>
-	<xref linkend="playing-fig">
+	<xref linkend="playing-fig"/>
 	</para>
       <figure id="playing-fig">
        <title>A GNOME Tetravex Game</title> 
        <screenshot> 
-        <screeninfo>A GNOME Tetravex Game</screeninfo> 
-        <graphic fileref="figures/gnotravex_game" format="png" srccredit="ME"></graphic> 
+         <mediaobject> 
+    <imageobject>
+  <imagedata fileref="figures/gnotravex_game.png" format="PNG" srccredit="ME"/>
+  </imageobject>
+    <textobject> 
+      <phrase>A GNOME Tetravex Game.</phrase> 
+    </textobject> 
+  </mediaobject>
        </screenshot>
       </figure>
      <para>
