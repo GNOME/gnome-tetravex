@@ -1,3 +1,7 @@
+2004-09-09  callum  <callum@spooky-possum.org>
+
+	* help/C/gnotravex.xml: Bumped the version numbers for 2.8.
+
 2004-06-18  Jon Oberheide  <jon@focalhost.com>
 
         * gnotravex.c (hint_move): Trial variable initialization to fix
