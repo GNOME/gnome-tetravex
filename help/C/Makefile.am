@@ -1,6 +1,4 @@
-figs = \
-	figures/gnotravex_game.png	\
-	figures/gnotravex_mainwindow.png
+figdir = figures
 docname = gnotravex
 lang = C
 omffile = gnotravex-C.omf

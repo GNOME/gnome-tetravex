@@ -1,14 +1,30 @@
 <?xml version="1.0" standalone="no"?>
 <omf>
-  <resource>
-    <title>
-      GNOME Tetravex Manual
-    </title>
-    <subject>
-      <category>GNOME|Games</category>
-    </subject>
-    <format mime="text/xml"/>
-    <identifier url="gnotravex.xml"/>
-    <language code="C"/>
-  </resource>
-</omf>
+       <resource>
+       <creator>
+    rob@funky-penguin.co.uk (Rob Bradford)
+   </creator>
+     <maintainer>
+    chris@wilddev.net (Chris Lyttle)
+   </maintainer>
+     <title>
+     GNOME Tetravex Manual
+   </title>
+     <date>
+    2002-05-05
+   </date>
+     <version identifier="2.0" date="2002-05-05" description="Updated to full OMF format"/>
+     <subject category="GNOME|Games"/>
+     <description>
+    GNOME Tetravex is a simple puzzle where pieces must be positioned so that the same numbers are touching each other. Your game is timed, these times are stored in a system-wide scoreboard.
+   </description>
+     <type>
+     user's guide
+   </type>
+     <format mime="text/xml" dtd="-//OASIS//DTD DocBook XML V4.1.2//EN"/>
+     <identifier url="file://usr/share/gnome/help/gnotravex/C/gnotravex.xml"/>
+     <language code="C"/>
+     <relation seriesid="fc3c32d8-6006-11d6-9adc-99ee72e79490"/>
+     <rights type="GNU FDL" license.version="1.1" holder="Rob Bradford"/>
+     </resource>
+     </omf>
