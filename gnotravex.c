@@ -447,10 +447,10 @@ int setup_mover(int x,int y,int status){
       paused = 1;
       gtk_clock_stop(GTK_CLOCK(timer));
       if(!have_been_hinted){
-	message("Puzzle solved! Well done!");
+	message(_("Puzzle solved! Well done!"));
 	game_score();
       } else {
-	message("Puzzle solved!");
+	message(_("Puzzle solved!"));
       }
     }
     return 1;
@@ -743,7 +743,7 @@ void pause_cb(){
   if(game_over()) return;
   paused = !paused;
   if(paused){
-    message("... Game paused ...");
+    message(_("... Game paused ..."));
     gtk_clock_stop(GTK_CLOCK(timer));
   } else {
     message("");
