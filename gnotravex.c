@@ -174,6 +174,10 @@ int main (int argc, char **argv){
   GnomeClient *client;
 
   gnome_score_init(APPNAME);
+
+  bindtextdomain(PACKAGE, GNOMELOCALEDIR);
+  textdomain(PACKAGE);
+
   gnome_init_with_popt_table(APPNAME, VERSION, argc, argv, options, 0, NULL);
 
   client = gnome_master_client();
@@ -738,7 +742,7 @@ void new_game_cb(GtkWidget *widget, gpointer data){
   redraw_all();
   paused = 0;
   timer_start();
-  sprintf(str,"Playing %dx%d board",SIZE,SIZE);
+  sprintf(str,_("Playing %dx%d board"),SIZE,SIZE);
   message(str);
 }
 

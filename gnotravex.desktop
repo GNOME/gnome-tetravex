@@ -1,7 +1,9 @@
 [Desktop Entry]
 Name=Gnotravex
+Name[es]=Gnotravex
 Name[fr]=Gnotravex
 Comment=Gnome Tetravex game
+Comment[es]=Juego de reflexión clónico de Tetravex
 Comment[fr]=Jeu Tetravex GNOME
 Exec=gnotravex
 Icon=gnome-gnotravex.png
