@@ -1,3 +1,8 @@
+2004-03-04  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* help/C/gnotravex.xml: Update version number. Nothing else has
+	changed.
+
 2004-02-15  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.c: Make sure font scaling works regardless of display
