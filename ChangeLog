@@ -1,3 +1,8 @@
+2002-07-07  Ross Burton  <ross@burtonini.com>
+
+	* gnotravex.c(gui_draw_pause): Fix an identical memleak to the one
+	in redraw_all, thanks to David Westlund for pointing it out.
+
 2002-07-04  David Westlund  <daw@wlug.westbo.se>
  
 	* gnotravex.c: The tiles on the right don't disappear when moving

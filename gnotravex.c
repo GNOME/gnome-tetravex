@@ -835,6 +835,7 @@ void gui_draw_pause(){
   }
 
   gdk_window_end_paint(space->window);
+  gdk_region_destroy(region);
 }
 
 void timer_start(){
