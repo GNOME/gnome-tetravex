@@ -234,7 +234,7 @@ main (int argc, char **argv)
        		      GNOME_PARAM_POPT_TABLE, options,
        		      GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
      
-  gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/gnotravex/gnome-gnotravex.png");
+  gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/gnome-gnotravex.png");
   client = gnome_master_client ();
   g_object_ref (G_OBJECT (client));
   
@@ -1409,7 +1409,7 @@ about_cb (GtkWidget *widget, gpointer data)
     
     filename = gnome_program_locate_file (NULL,
                                           GNOME_FILE_DOMAIN_APP_PIXMAP,
-                                          "gnotravex/gnome-gnotravex.png",
+                                          "gnome-gnotravex.png",
                                           TRUE, NULL);
     if (filename != NULL)
       {

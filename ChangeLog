@@ -1,3 +1,13 @@
+2003-06-16  William Jon McCann  <mccann@jhu.edu>
+
+	* gnotravex.c (main): Look for game icon in GNOME_ICONDIR
+	instead of GNOME_ICONDIR"/gnotravex".  Actually, it wasn't
+	finding it in the subdirectory for some reason.  This makes it
+	work and we don't need a subdirectory anymore.
+
+	* gnome-gnotravex.png: Make background transparent and use
+	Vera font for numbers.
+	
 2003-06-15  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.c: Reverting Jon's changes until we can figure out how
