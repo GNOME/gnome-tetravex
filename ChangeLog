@@ -1,3 +1,15 @@
+2003-06-12  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnotravex.schemas.in: 
+	* Makefile.am: 
+	* gnotravex.c: Add gconf support to remember the game and tile
+	size. Let the window shrink from it's initial size. Also fixed
+	a minor redraw bug when it failed to distinguish between game over
+	and paused (paused has become the game_state variable).
+	
+	* Makefile.am (install-data-local): Fix unfortunate mistake with
+	misplacement of high score files.
+
 2003-06-11  William Jon McCann  <mccann@jhu.edu>
 
 	* gnotravex.png: Removed.

@@ -1,0 +1,29 @@
+<gconfschemafile>
+  <schemalist>
+
+    <schema>
+      <key>/schemas/apps/gnotravex/grid_size</key>
+      <applyto>/apps/gnotravex/grid_size</applyto>
+      <owner>gnotravex</owner>
+      <type>int</type>
+      <default>3</default>
+      <locale name="C">
+        <short>The size of the playing grid.</short>
+        <long>The value of this key is used to decide the size of the playing grid. The valid values are 2 to 8, anything else gets set to 3.</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/gnotravex/tile_size</key>
+      <applyto>/apps/gnotravex/tile_size</applyto>
+      <owner>gnotravex</owner>
+      <type>int</type>
+      <default>51</default>
+      <locale name="C">
+        <short>The width of the game widget.</short>
+        <long>The width of the widget (not the window). The correct way to set this is by resizing the window.</long>
+      </locale>
+    </schema>
+
+  </schemalist>
+</gconfschemafile>

@@ -25,11 +25,15 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <games-clock.h>
 #include <time.h>
+#include <gconf/gconf-client.h>
 
 #define APPNAME "gnotravex"
 #define APPNAME_LONG "GNOME Tetravex"
 
 #define DEFAULT_TILE_SIZE 51
+/* This is based on the point where the numbers become unreadable on my
+ * screen. - Callum */
+#define MINIMUM_TILE_SIZE 40
 
 #define CORNER 25
 #define GAP 30
@@ -49,6 +53,8 @@ GtkWidget *timer;
 GdkPixmap *buffer = NULL;
 GdkColor bg_color;
 
+GConfClient * gconf_client;
+
 typedef struct _mover {
   GdkWindow *window;
   GdkPixmap *pixmap;
@@ -67,8 +73,14 @@ typedef struct _tile {
 tile tiles[9][18];
 tile orig_tiles[9][9];
 
+enum {
+  gameover,
+  paused,
+  playing,
+};
+
 gint SIZE = 3;
-int paused = 0;
+int game_state = gameover;
 int have_been_hinted = 0;
 int solve_me = 0;
 int hint_moving = 0;
@@ -77,7 +89,7 @@ int session_xpos = 0;
 int session_ypos = 0;
 int session_position = 0;
 guint timer_timeout = 0;
-gint tile_size = DEFAULT_TILE_SIZE;
+gint tile_size = 0;
 
 void make_buffer (GtkWidget *);
 void create_window ();
@@ -86,6 +98,7 @@ void create_space ();
 void create_mover ();
 void create_statusbar ();
 void get_bg_color ();
+void get_tile_size ();
 void message (gchar *);
 void new_board (int);
 void redraw_all ();
@@ -224,8 +237,14 @@ int main (int argc, char **argv) {
   g_signal_connect (G_OBJECT (client), "save_yourself", G_CALLBACK (save_state), argv[0]);
   g_signal_connect (G_OBJECT (client), "die", G_CALLBACK (quit_game_cb), argv[0]);
 
+  gconf_client = gconf_client_get_default();
+
+  SIZE = gconf_client_get_int (gconf_client, "/apps/gnotravex/grid_size", NULL);
+  
   if (SIZE < 2 || SIZE > 6) 
     SIZE = 3;
+
+  get_tile_size ();
   
   create_window ();
   create_menu ();
@@ -254,13 +273,28 @@ gint get_space_width () {
   return (CORNER*2 + GAP + SIZE * tile_size * 2);
 }
 
+gint get_space_min_width () {
+  return (CORNER*2 + GAP + SIZE * MINIMUM_TILE_SIZE * 2);
+}
+
 gint get_space_height () {
   return (CORNER*2 + SIZE * tile_size);
+}
+
+gint get_space_min_height () {
+  return (CORNER*2 + SIZE * MINIMUM_TILE_SIZE);
 }
 
 void create_window () {
   window = gnome_app_new (APPNAME, N_(APPNAME_LONG));
   gtk_window_set_resizable (GTK_WINDOW (window), TRUE);
+  /* FIXME:
+   * This is a bit of a hack because I can't find a way to give a
+   * gtk_drawing_area (or any widget but a window) anything but a
+   * minimum size. The hardcoded 64 will come back and bite us, but
+   * the widgets we're allowing for haven't been allocated yet. */
+  gtk_window_set_default_size (GTK_WINDOW (window), get_space_width (),
+                               get_space_height () + 64);
   gtk_widget_realize (window);
   g_signal_connect (G_OBJECT (window), "delete_event",
                     G_CALLBACK (quit_game_cb), NULL);
@@ -278,7 +312,7 @@ gint expose_space (GtkWidget *widget, GdkEventExpose *event) {
 int button_down = 0;
 
 gint button_press_space (GtkWidget *widget, GdkEventButton *event) { 
-  if (!paused) {
+  if (game_state == playing) {
     if (event->button == 1) {
       if (button_down==1) {
 	setup_mover (event->x,event->y,RELEASE); /* Seen it happened */
@@ -560,7 +594,7 @@ int setup_mover (int x,int y,int status) {
     if (mover.pixmap) gdk_drawable_unref (mover.pixmap);
     mover.pixmap = NULL;
     if (game_over ()) {
-      paused = 1;
+      game_state = gameover;
       games_clock_stop (GAMES_CLOCK (timer));
       if (!have_been_hinted) {
 	message (_("Puzzle solved! Well done!"));
@@ -639,6 +673,7 @@ int game_over () {
   for (y=0;y<SIZE;y++)
     for (x=0;x<SIZE;x++)
       if (tiles[y][x].status == UNUSED) return 0;
+
   return 1;
 }
 
@@ -695,12 +730,30 @@ void update_score_state ()
   }
 }
 
+void get_tile_size (void)
+{
+  gint max;
+
+  if (tile_size == 0)
+    tile_size = gconf_client_get_int (gconf_client, "/apps/gnotravex/tile_size",
+                                      NULL);
+
+  /* 100 is really just a guess as to what the window border, menu and
+   * status bar might take up. */
+  max = (gdk_screen_get_height (gdk_screen_get_default ()) - 2*GAP - 100)/SIZE;
+  if (tile_size < MINIMUM_TILE_SIZE || tile_size > max)
+    tile_size = DEFAULT_TILE_SIZE;
+}
+
 void update_tile_size (gint screen_width, gint screen_height) {
   gint xt_size, yt_size;
 
   xt_size = (screen_width - 3 * GAP) / (2 * SIZE) ;
   yt_size = (screen_height - 2 * GAP) / SIZE;
   tile_size = MIN (xt_size, yt_size);
+
+  gconf_client_set_int (gconf_client, "/apps/gnotravex/tile_size", tile_size,
+                        NULL);
 }
 
 gint configure_space (GtkWidget *widget, GdkEventConfigure *event) {
@@ -708,9 +761,10 @@ gint configure_space (GtkWidget *widget, GdkEventConfigure *event) {
   update_tile_size (event->width, event->height);
   make_buffer (widget);
   redraw_all ();
-  if (paused)
+  if (game_state == paused)
     gui_draw_pause ();
   gtk_widget_thaw_child_notify (widget);
+  
   return FALSE;
 }
 
@@ -759,8 +813,9 @@ void redraw_left () {
 void create_space () {
   space = gtk_drawing_area_new ();
   gnome_app_set_contents (GNOME_APP (window), space);
-  gtk_drawing_area_size (GTK_DRAWING_AREA (space),
-			 get_space_width (), get_space_height ());
+
+  gtk_widget_set_size_request (space, get_space_min_width (),
+                               get_space_min_height ());
   gtk_widget_set_events (space,
 			 GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK
 			 | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
@@ -899,14 +954,16 @@ void get_bg_color () {
 }
 
 void pause_cb () {
-  if (game_over ())
+  if (game_state == gameover)
     return;
-  paused = !paused;
-  if (paused) {
+
+  if (game_state != paused) {
+    game_state = paused;
     message (_("Game paused"));
     gui_draw_pause ();
     games_clock_stop (GAMES_CLOCK (timer));
   } else {
+    game_state = playing;
     message ("");
     redraw_all ();
     games_clock_start (GAMES_CLOCK (timer));
@@ -996,7 +1053,7 @@ void new_game_cb (GtkWidget *widget, gpointer data) {
   make_buffer (widget);
   redraw_all ();
   gtk_widget_thaw_child_notify (space);
-  paused = 0;
+  game_state = playing;
   timer_start ();
   sprintf (str, _("Playing %dx%d board"), SIZE, SIZE);
   message (str);
@@ -1018,7 +1075,7 @@ static int save_state (GnomeClient *client,gint phase,
   char *argv[20];
   int i;
   int xpos, ypos;
-  
+
   gdk_window_get_origin (window->window, &xpos, &ypos);
   
   i = 0;
@@ -1046,6 +1103,7 @@ void size_cb (GtkWidget *widget, gpointer data) {
   SIZE = size;
   update_tile_size (width, height);
   update_score_state ();
+  gconf_client_set_int (gconf_client, "/apps/gnotravex/grid_size", SIZE, NULL);
   new_game_cb (space, NULL);
 }
 
@@ -1092,7 +1150,7 @@ void hint_move_cb () {
     setup_mover (hint_dest_x + 1,hint_dest_y + 1,RELEASE);
     gtk_timeout_remove (timer_timeout);
     gtk_widget_set_sensitive (GTK_WIDGET (space), TRUE);
-    if (paused) return;
+    if (game_state != playing) return;
     if (solve_me)
       hint_cb (NULL,NULL);
   }
@@ -1113,7 +1171,7 @@ void hint_cb (GtkWidget *widget, gpointer data) {
   int x1, y1, x2, y2, x, y, size = SIZE;
   tile hint_tile;
 
-  if (game_over () || button_down || paused || hint_moving) return;
+  if ((game_state != playing) || button_down || hint_moving) return;
   
   find_first_tile (USED,&x,&y);
   x1 = x; y1 = y;
