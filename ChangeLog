@@ -1,3 +1,8 @@
+2003-02-26  Theo van Klaveren  <t.vanklaveren@student.utwente.nl>
+
+	* gnotravex.c: Replace rand()/srand() usage with g_random_*().
+	Fixes #103832.
+
 2003-02-05  Ross Burton  <ross@burtonini.com>
 
 	* help/C/gnotravex.xml: Updated Rob's email.

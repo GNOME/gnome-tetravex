@@ -733,7 +733,7 @@ void new_board(int size){
     hint_moving = 0;
   }
 
-  srand(time(NULL)+myrand);
+  g_random_set_seed(time(NULL)+myrand);
 
   myrand += 17;
 
@@ -744,10 +744,10 @@ void new_board(int size){
   for(y=0;y<size;y++)
     for(x=size;x<size*2;x++){
       tiles[y][x].status = USED;
-      tiles[y][x].n = rand()%10;
-      tiles[y][x].s = rand()%10;
-      tiles[y][x].w = rand()%10;
-      tiles[y][x].e = rand()%10;
+      tiles[y][x].n = g_random_int()%10;
+      tiles[y][x].s = g_random_int()%10;
+      tiles[y][x].w = g_random_int()%10;
+      tiles[y][x].e = g_random_int()%10;
     }
 
   /* Sort */
@@ -767,10 +767,10 @@ void new_board(int size){
   j=0;
   do {
     for(i=0;i<size*size*size;i++){
-      x = rand() % size +size;
-      y = rand() % size;
-      x1 = rand() % size + size;
-      y1 = rand() % size;
+      x = g_random_int() % size +size;
+      y = g_random_int() % size;
+      x1 = g_random_int() % size + size;
+      y1 = g_random_int() % size;
       tmp = tiles[y1][x1];
       tiles[y1][x1] = tiles[y][x];
       tiles[y][x] = tmp;
