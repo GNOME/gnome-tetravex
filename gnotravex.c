@@ -40,7 +40,7 @@ GtkWidget *window;
 GtkWidget *statusbar;
 GtkWidget *space;
 GtkWidget *bit;
-GtkWidget *time_value;
+GtkWidget *timer;
 
 GdkPixmap *buffer = NULL;
 GdkPixmap *tiles_pixmap = NULL;
@@ -63,7 +63,6 @@ typedef struct _tile {
 
 tile tiles[9][18];
 
-guint seconds;
 gint statusbar_id;
 gint SIZE=3;
 int paused=0;
@@ -78,7 +77,6 @@ void create_space();
 void create_mover();
 void create_statusbar();
 void get_bg_color();
-void set_time();
 void message(gchar *);
 void load_image();
 void new_board(int);
@@ -92,7 +90,6 @@ int game_over();
 void game_score();
 gint timer_cb();
 void timer_start();
-void timer_stop();
 void pause_cb();
 static int save_state(GnomeClient*, gint, GnomeRestartStyle, gint, GnomeInteractStyle, gint, gpointer);
 
@@ -477,11 +474,16 @@ void score_cb(GtkWidget *widget, gpointer data){
 
 void game_score(){
   gint pos;
+  time_t seconds;
   gfloat score;
   gchar level[5];
+  
   sprintf(level,"%dx%d",SIZE,SIZE);
+  gtk_clock_stop(GTK_CLOCK(timer));
+  seconds = GTK_CLOCK(timer)->stopped;
+  gtk_clock_set_seconds(GTK_CLOCK(timer), (int) seconds);
   paused = 1;
-  score = (gfloat) (seconds/60) + (gfloat) (seconds % 60) / 100;
+  score = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
   pos = gnome_score_log(score,level,FALSE);
   gnome_scores_display (_(APPNAME_LONG), APPNAME, level, pos);
 }
@@ -545,10 +547,10 @@ void create_statusbar(){
   time_box = gtk_hbox_new(0, FALSE);
   time_label = gtk_label_new (_("Time:"));
   gtk_box_pack_start (GTK_BOX(time_box), time_label, FALSE, FALSE, 0);
-  time_value = gtk_label_new ("  0:00 ");
-  gtk_box_pack_start (GTK_BOX(time_box), time_value, FALSE, FALSE, 0);
+  timer = gtk_clock_new (GTK_CLOCK_INCREASING);
+  gtk_box_pack_start (GTK_BOX(time_box), timer, FALSE, FALSE, 0);
   gtk_widget_show (time_label);
-  gtk_widget_show (time_value);
+  gtk_widget_show (timer);
   gtk_widget_show (time_box);
 
   statusbar = gtk_statusbar_new();
@@ -659,39 +661,22 @@ void get_bg_color(){
   gdk_image_destroy(tmpimage);
 }
 
-void set_time () {
-  char str[8];
-  sprintf(str,"%3d:%02d ", seconds/60, seconds%60);
-  gtk_label_set(GTK_LABEL(time_value), str);
-}
-
-gint timer_cb(){
-  if(!paused)
-    seconds++;
-  set_time();
-  return seconds<3599; 
-}
-
 void pause_cb(){
   if(game_over()) return;
   paused = !paused;
-  if(paused)
+  if(paused){
     message("... Game paused ...");
-  else
+    gtk_clock_stop(GTK_CLOCK(timer));
+  } else {
     message("");
+    gtk_clock_start(GTK_CLOCK(timer));
+  }
 }
-guint timer_timeout = 0;
 
 void timer_start(){
-  if(timer_timeout) timer_stop();
-  seconds = 0;
-  set_time();
-  timer_timeout = gtk_timeout_add (1000, (GtkFunction) (timer_cb), NULL); 
-}
-
-void timer_stop (){
-  gtk_timeout_remove(timer_timeout);
-  timer_timeout = 0;
+  gtk_clock_stop(GTK_CLOCK(timer));
+  gtk_clock_set_seconds(GTK_CLOCK(timer), 0);
+  gtk_clock_start(GTK_CLOCK(timer));
 }
 
 /* --------------------------- MENU --------------------- */
@@ -702,6 +687,12 @@ void create_menu(){
 void new_game_cb(GtkWidget *widget, gpointer data){
   char str[40];
   widget = space;
+  
+  if(button_down==1){
+    setup_mover(0,0,RELEASE);
+    button_down = 0;
+  }
+
   new_board(SIZE);
   gtk_drawing_area_size(GTK_DRAWING_AREA(space),CORNER*2 + GAP+ SIZE*TILE_SIZE*2,SIZE*TILE_SIZE + CORNER*2);
   if(buffer)
@@ -716,7 +707,6 @@ void new_game_cb(GtkWidget *widget, gpointer data){
 }
 
 void quit_game_cb(GtkWidget *widget, gpointer data){
-  timer_stop();
   if(buffer)
     gdk_pixmap_unref(buffer);
   if(tiles_pixmap)
