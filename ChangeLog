@@ -1,3 +1,7 @@
+2003-06-13  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnotravex.c: Clarify the hints for the move menu.
+
 2003-06-12  William Jon McCann  <mccann@jhu.edu>
 
 	* gnotravex.c: Use standard function brace style so that 

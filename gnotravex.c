@@ -172,16 +172,16 @@ GnomeUIInfo size_radio_list[] = {
 };
 
 GnomeUIInfo move_menu[] = {
-  {GNOME_APP_UI_ITEM, N_("_Up"), N_("Move the selected piece up"),
+  {GNOME_APP_UI_ITEM, N_("_Up"), N_("Move the pieces up"),
    move_cb, "n", NULL, GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
 
-  {GNOME_APP_UI_ITEM, N_("_Left"), N_("Move the selected piece left"),
+  {GNOME_APP_UI_ITEM, N_("_Left"), N_("Move the pieces left"),
    move_cb, "w", NULL, GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
 
-  {GNOME_APP_UI_ITEM, N_("_Right"), N_("Move the selected piece right"),
+  {GNOME_APP_UI_ITEM, N_("_Right"), N_("Move the pieces right"),
    move_cb, "e", NULL, GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
 
-  {GNOME_APP_UI_ITEM, N_("_Down"), N_("Move the selected piece down"),
+  {GNOME_APP_UI_ITEM, N_("_Down"), N_("Move the pieces down"),
    move_cb, "s", NULL, GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
 
   GNOMEUIINFO_END
