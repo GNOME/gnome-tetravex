@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Gnotravex
+Comment=Gnome Tetravex game
+Exec=gnotravex
+Icon=gnome-gnotravex.png
+Terminal=0
+Type=Application
+
