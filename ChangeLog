@@ -1,3 +1,8 @@
+2004-02-11  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnotravex.c (about_cb): translator_credits ->
+	translator-credits.
+
 2003-11-19  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* Makefile.am (CLEANFILES): Make sure we clean up the generated

@@ -567,6 +567,7 @@ gui_draw_text_int (GdkPixmap *target, GdkGC *gc,
                             font_size, value);
   layout = gtk_widget_create_pango_layout (space, "");
   pango_layout_set_markup (layout, markup, -1);
+  
   gdk_draw_layout (target, gc, x, y, layout);
   g_object_unref (layout);
   g_free (markup);
@@ -1457,7 +1458,7 @@ about_cb (GtkWidget *widget, gpointer data)
     NULL
   };
   /* Translator credits */
-  gchar *translator_credits = _("translator_credits");
+  gchar *translator_credits = _("translator-credits");
   
   if (about != NULL) {
     gtk_window_present (GTK_WINDOW (about));
@@ -1482,7 +1483,7 @@ about_cb (GtkWidget *widget, gpointer data)
                            _("A Tetravex clone."), 
                            (const gchar **)authors,
                            (const gchar **)documenters,
-                           strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
+                           strcmp (translator_credits, "translator-credits") != 0 ? translator_credits : NULL,
                            pixbuf);
 	
   if (pixbuf != NULL)
