@@ -16,7 +16,6 @@
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
-
 #include <config.h>
 #include <gnome.h>
 #include <libgnomeui/gnome-window-icon.h>
@@ -123,7 +122,7 @@ GnomeUIInfo game_menu[] = {
 
   { GNOME_APP_UI_ITEM, N_("Sol_ve"), N_("Solve the game"),
     solve_cb, NULL, NULL,GNOME_APP_PIXMAP_STOCK,
-    GNOME_STOCK_MENU_REFRESH, 0, 0, NULL },
+    GTK_STOCK_REFRESH, 0, 0, NULL },
 
   GNOMEUIINFO_SEPARATOR,
 
@@ -250,7 +249,7 @@ void create_window(){
 }
 
 gint expose_space(GtkWidget *widget, GdkEventExpose *event){ 
-  gdk_draw_pixmap(widget->window, 
+  gdk_draw_drawable(widget->window, 
 		  widget->style->fg_gc[GTK_WIDGET_STATE(widget)], 
 		  buffer, event->area.x, event->area.y, 
 		  event->area.x, event->area.y, 
@@ -314,12 +313,12 @@ void gui_draw_pixmap(GdkPixmap *target, gint x, gint y){
     gdk_window_set_back_pixmap(mover.window, mover.pixmap, 0);
   }
 
-  gdk_draw_pixmap(target, gc, tiles_pixmap,
+  gdk_draw_drawable(target, gc, tiles_pixmap,
 		  which * TILE_SIZE, 0, 
 		  xadd, yadd, TILE_SIZE, TILE_SIZE);
   if(which == USED){
     /* North */
-    gdk_draw_pixmap(target,
+    gdk_draw_drawable(target,
 		    gc,
 		    tiles_pixmap,
 		    tiles[y][x].n * 10,
@@ -330,7 +329,7 @@ void gui_draw_pixmap(GdkPixmap *target, gint x, gint y){
 		    13);
   
     /* South */
-    gdk_draw_pixmap(target,
+    gdk_draw_drawable(target,
 		    gc,
 		    tiles_pixmap,
 		    tiles[y][x].s * 10,
@@ -341,7 +340,7 @@ void gui_draw_pixmap(GdkPixmap *target, gint x, gint y){
 		    13);
     
     /* West */
-    gdk_draw_pixmap(target,
+    gdk_draw_drawable(target,
 		    gc,
 		    tiles_pixmap,
 		    tiles[y][x].w * 10,
@@ -352,7 +351,7 @@ void gui_draw_pixmap(GdkPixmap *target, gint x, gint y){
 		    13);
   
     /* East */
-    gdk_draw_pixmap(target,
+    gdk_draw_drawable(target,
 		    gc,
 		    tiles_pixmap,
 		    tiles[y][x].e * 10,
@@ -369,7 +368,7 @@ void gui_draw_pixmap(GdkPixmap *target, gint x, gint y){
   gtk_widget_draw (space, &area);
 
   if(target==mover.pixmap)
-    gdk_gc_destroy(gc);
+    gdk_gc_unref(gc);
 }
 
 void get_pixeltilexy(int x,int y,int *xx,int *yy){
@@ -418,7 +417,7 @@ int setup_mover(int x,int y,int status){
     mover.xstart = xx; mover.ystart = yy;
     gdk_window_resize(mover.window, TILE_SIZE, TILE_SIZE);
     mover.pixmap = gdk_pixmap_new(mover.window, TILE_SIZE,TILE_SIZE,
-				  gdk_window_get_visual(mover.window)->depth);
+				  gdk_drawable_get_visual(mover.window)->depth);
     gdk_window_move(mover.window,x - mover.xoff,y - mover.yoff);
     gui_draw_pixmap(mover.pixmap,xx,yy);
     gdk_window_show(mover.window);
@@ -440,7 +439,7 @@ int setup_mover(int x,int y,int status){
       gui_draw_pixmap(buffer,mover.xstart,mover.ystart);
     }
     gdk_window_hide(mover.window);
-    if(mover.pixmap) gdk_pixmap_unref(mover.pixmap);
+    if(mover.pixmap) gdk_drawable_unref(mover.pixmap);
     mover.pixmap = NULL;
     if(game_over()){
       paused = 1;
@@ -576,11 +575,7 @@ void redraw_left(){
 }
 
 void create_space(){
-  gtk_widget_push_visual(gdk_rgb_get_visual());
-  gtk_widget_push_colormap(gdk_rgb_get_cmap());
   space = gtk_drawing_area_new();
-  gtk_widget_pop_colormap();
-  gtk_widget_pop_visual();
   gnome_app_set_contents(GNOME_APP(window),space);
   gtk_drawing_area_size(GTK_DRAWING_AREA(space),CORNER*2 + GAP+ SIZE*TILE_SIZE*2,SIZE*TILE_SIZE + CORNER*2);
   gtk_widget_set_events(space, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
@@ -634,8 +629,8 @@ void create_mover(){
   attributes.event_mask = 0;
   attributes.width = TILE_SIZE;
   attributes.height = TILE_SIZE;
-  attributes.colormap = gdk_window_get_colormap (space->window);
-  attributes.visual = gdk_window_get_visual (space->window);
+  attributes.colormap = gdk_drawable_get_colormap (space->window);
+  attributes.visual = gdk_drawable_get_visual (space->window);
   
   mover.window = gdk_window_new(space->window, &attributes,
 			 (GDK_WA_VISUAL | GDK_WA_COLORMAP));
@@ -649,9 +644,9 @@ void load_image(){
   GdkPixbuf *image;
 
   tmp = g_strconcat("gnotravex/", "gnotravex.png", NULL);
-  fname = gnome_unconditional_pixmap_file(tmp);
+  fname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_PIXMAP, (tmp), FALSE, NULL);
   g_free(tmp);
-  if(!g_file_exists(fname)) {
+  if(!g_file_test (fname, G_FILE_TEST_EXISTS)) {
     g_print(N_("Could not find \'%s\' pixmap file\n")\
 	    , fname);
     exit(1);
@@ -730,9 +725,9 @@ void new_board(int size){
 
 void get_bg_color(){
   GdkImage *tmpimage;
-  tmpimage = gdk_image_get(tiles_pixmap, 0, 0, 9, 6);
+  tmpimage = gdk_drawable_get_image(tiles_pixmap, 0, 0, 9, 6);
   bg_color.pixel = gdk_image_get_pixel(tmpimage, 8, 5);
-  gdk_image_destroy(tmpimage);
+  gdk_image_unref(tmpimage);
 }
 
 void pause_cb(){
@@ -761,7 +756,7 @@ void create_menu(){
 void make_buffer (GtkWidget *widget) {
 
   if(buffer)
-    gdk_pixmap_unref(buffer);
+    gdk_drawable_unref(buffer);
   
   buffer = gdk_pixmap_new(widget->window, widget->allocation.width, widget->allocation.height, -1);
 
@@ -783,18 +778,18 @@ void new_game_cb(GtkWidget *widget, gpointer data){
 
 void quit_game_cb(GtkWidget *widget, gpointer data){
   if(buffer)
-    gdk_pixmap_unref(buffer);
+    gdk_drawable_unref(buffer);
   if(tiles_pixmap)
-    gdk_pixmap_unref(tiles_pixmap);
+    gdk_drawable_unref(tiles_pixmap);
   if(mover.pixmap)
-    gdk_pixmap_unref(mover.pixmap);
+    gdk_drawable_unref(mover.pixmap);
 
   gtk_main_quit();
 }
 
 static char *nstr(int n){
   char buf[20]; sprintf(buf, "%d", n);
-  return strdup(buf);
+  return g_strdup(buf);
 }
 
 static int save_state(GnomeClient *client,gint phase, 

@@ -1,3 +1,10 @@
+2001-12-31  Josh Barrow  <drleary@mac.com>
+
+	* gnotravex.c: (expose_space), (gui_draw_pixmap), (setup_mover),
+	(create_space), (create_mover), (load_image), (get_bg_color),
+	(make_buffer), (quit_game_cb), (nstr):
+	Changed to not use deprecated functions.
+
 2001-12-23  Mark McLoughlin  <mark@skynet.ie>
 
 	* gnotravex.c: port from GtkClock to GamesClock.
