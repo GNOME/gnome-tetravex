@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=Gnotravex
-_Comment=Gnome Tetravex game
+_Comment=Tetravex game
 Exec=gnotravex
 Icon=gnotravex/gnome-gnotravex.png
 Terminal=0
