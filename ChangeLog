@@ -1,3 +1,7 @@
+2002-02-02  Zbigniew Chyla  <cyba@gnome.pl>
+
+	* gnotravex.c (about_cb): Don't try to translate empty string.
+
 2002-01-20  Juan Pablo Mendoza <jpablo@gnome.org>
 
 	Patch from Andreas Simon <yuipx@web.de>
