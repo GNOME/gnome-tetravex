@@ -1,9 +1,5 @@
-
-
-
-pixmapdir=$(datadir)/pixmaps/gnotravex
-sharedpixmapdir=$(datadir)/pixmaps
-Gamesdir=$(datadir)/applications
+sharedpixmapdir = $(datadir)/pixmaps
+Gamesdir = $(datadir)/applications
 
 INCLUDES = 			\
 	-I$(top_srcdir)/libgames-support \
@@ -23,14 +19,13 @@ gnotravex_LDADD = \
 	../libgames-support/libgames-support.la \
 	$(INTLLIBS) 
 
-pixmap_DATA = gnotravex.png 
 sharedpixmap_DATA = gnome-gnotravex.png
 
 Games_in_files = gnotravex.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-EXTRA_DIST = README gnotravex.desktop.in $(pixmap_DATA) $(sharedpixmap_DATA)
+EXTRA_DIST = README gnotravex.desktop.in $(sharedpixmap_DATA)
 
 CLEANFILES = $(Games_DATA)
 

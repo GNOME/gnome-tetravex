@@ -1,3 +1,14 @@
+2003-06-11  William Jon McCann  <mccann@jhu.edu>
+
+	* gnotravex.png: Removed.
+	
+	* Makefile.am: Removed now unused pixmap.
+
+	* gnotravex.c: Reworked to use drawing primatives and pango text
+	to draw pieces.  This allows the colors and text to follow the
+	default theme and for the size to be scalable.  Also tried to
+	make coding style self consistent.
+
 2003-06-11  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.c: i18n fixes from Christian Neumair (bug #114875).
