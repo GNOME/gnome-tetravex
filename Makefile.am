@@ -39,12 +39,14 @@ CLEANFILES = $(Games_DATA)
 
 SUBDIRS = help
 
+SCOREFILES = 2 3 4 5 6
+
 install-data-local:
 if GCONF_SCHEMAS_INSTALL
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(srcdir)/$(schema_DATA)
+	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/$(schema_DATA)
 endif
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
-	-for i in 2 3 4 5 6 ; do \
+	-for i in ${SCOREFILES} ; do \
 	   touch $(DESTDIR)$(scoredir)/gnotravex."$$i"x"$$i".scores; \
 	   chown $(scores_user):$(scores_group) $(DESTDIR)$(scoredir)/gnotravex."$$i"x"$$i".scores; \
 	   chmod 664 $(DESTDIR)$(scoredir)/gnotravex."$$i"x"$$i".scores; \

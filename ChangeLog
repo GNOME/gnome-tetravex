@@ -1,7 +1,13 @@
 2003-10-21  Callum McKenzie  <callum@physics.otago.ac.nz>
 
+	* Makefile.am (install-data-local): Change the way gconf files are
+	installed. This should improve things for people building outside
+	the source tree. Also consolidated the score files list under a
+	variable. See bug #123192.
+
 	* gnotravex.c: Converted the n x n strings to use the proper UTF-8
-	multiplication symbol. Also replaced some deprecated GTK+ functions.
+	multiplication symbol (see bug #115441). Also replaced some
+	deprecated GTK+ functions.
 
 2003-09-15  Callum McKenzie  <callum@physics.otago.ac.nz>
 
