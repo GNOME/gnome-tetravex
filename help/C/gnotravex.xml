@@ -2,12 +2,12 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
-  <!ENTITY appversion "2.0">
-  <!ENTITY manrevision "2.0">
+  <!ENTITY appversion "2.4">
+  <!ENTITY manrevision "2.4">
   <!ENTITY date "March 2002">
   <!ENTITY app "<application>GNOME Tetravex</application>">
   <!ENTITY appname "GNOME Tetravex">
-  <!ENTITY version "1.0.53">
+  <!ENTITY version "2.4">
 ]>
 
 <!-- 
@@ -169,7 +169,7 @@
      <para> 
        You can start playing the game immediately, the time starts when you
        move the first piece into a position. You may restart the game by
-       doing
+       selecting
        <menuchoice>
 	<guisubmenu>File</guisubmenu>
 	<guimenuitem>New game</guimenuitem>
@@ -196,7 +196,7 @@
        other. You position the pieces by dragging them from their current
        position either in the right hand box or the main box to their new
        position. These moves are not permanent and can be readily reversed.
-       You may also move the pieces by using the commands:
+       You may also move all the pieces in the left hand box at once by using the commands:
 	<menuchoice>
 	 <guisubmenu>Move</guisubmenu>
          <guimenuitem>Left/Right/Up/Down</guimenuitem>
@@ -208,8 +208,7 @@
      <para>
        The game is completed when you have positioned all the squares in the
        right positions. When you have completed the game you are shown your
-       ranking in the high scores table (if you get a high enough score), 
-       like this one.
+       ranking in the high scores table (if you get a high enough score). 
      </para>
     </sect3>
 
@@ -219,12 +218,9 @@
  <sect1 id="prefs"> 
   <title>Customization</title> 
   <para> 
-    Customization is relativly limited, you can change the size of the grid
-by 
-    <menuchoice>
-     <guimenu>Settings</guimenu> 
-     <guimenuitem>2 x 2 etc.</guimenuitem>
-    </menuchoice>.  
+    Under the <guimenuitem>Settings</guimenuitem> menu you can change the size of the grid from two
+  by two up to six by six. The default is three by three. If the tiles
+  are too small, resizing the window will change the size of the tiles.
   </para>
 
  </sect1>
