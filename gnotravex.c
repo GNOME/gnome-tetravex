@@ -573,13 +573,17 @@ void redraw_all(){
     gdk_gc_unref(draw_gc);
 
   gdk_window_end_paint(space->window);
+  gdk_region_destroy(region);
 }
 
 void redraw_left(){
   int x,y;
   GdkRegion *region;
+  GdkRectangle rect ={x:CORNER, y:CORNER, width:TILE_SIZE*SIZE,
+		     height:TILE_SIZE*SIZE};
 
-  region = gdk_drawable_get_clip_region(GDK_DRAWABLE(space->window));
+  region = gdk_region_rectangle(&rect);
+
   gdk_window_begin_paint_region(space->window, region); 
 
   for(y = 0; y < SIZE; y++)
@@ -587,6 +591,7 @@ void redraw_left(){
       gui_draw_pixmap(buffer, x, y);
 
   gdk_window_end_paint(space->window);
+  gdk_region_destroy(region);
 }
 
 void create_space(){

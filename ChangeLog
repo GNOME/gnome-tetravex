@@ -1,3 +1,9 @@
+2002-07-04  David Westlund  <daw@wlug.westbo.se>
+ 
+	* gnotravex.c: The tiles on the right don't disappear when moving
+	tiles from the menu (fixes #78189). Fixed a possible memory leak
+	in function redraw_all.
+
 2002-07-04  Ross Burton  <ross@burtonini.com>
 
 	* gnotravex.c: When the game is paused, hide the numbers so the
