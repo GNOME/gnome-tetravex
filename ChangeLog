@@ -1,3 +1,12 @@
+2003-06-26  William Jon McCann  <mccann@jhu.edu>
+
+	* Makefile.am (EXTRA_DIST): Added missing schemas.in.
+
+	* gnotravex.c: #define gconf keys.
+	(update_score_state): 
+	(game_score): 
+	(score_cb): Fixed sprintf into fixed length buffer.
+	
 2003-06-24  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.c Fix minor memory leaks and make sure that we don't
