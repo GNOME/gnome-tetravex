@@ -22,9 +22,11 @@ gnotravex_LDADD = \
 
 pixmap_DATA = gnotravex.png gnome-gnotravex.png
 
-Games_DATA = gnotravex.desktop
+Games_in_files = gnotravex.desktop.in
+Games_DATA = $(Games_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
-EXTRA_DIST = README gnotravex.desktop $(pixmap_DATA)
+EXTRA_DIST = README gnotravex.desktop.in $(pixmap_DATA)
 
 SUBDIRS = help
 
