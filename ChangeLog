@@ -1,3 +1,10 @@
+2002-01-20  Juan Pablo Mendoza <jpablo@gnome.org>
+
+	Patch from Andreas Simon <yuipx@web.de>
+
+	gnotravex.c: Remove some deprecated functions and
+	reduce flickering when changuing board size.
+
 2002-01-03  Josh Barrow  <drleary@mac.com>
 
 	* Makefile.am:

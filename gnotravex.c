@@ -296,7 +296,6 @@ gint button_motion_space(GtkWidget *widget, GdkEventButton *event){
 void gui_draw_pixmap(GdkPixmap *target, gint x, gint y){
   int which,xadd,yadd;
   GdkGC *gc;
-  GdkRectangle area;
 
   which = tiles[y][x].status;
 
@@ -361,11 +360,7 @@ void gui_draw_pixmap(GdkPixmap *target, gint x, gint y){
 		    9,
 		    13);
   }
-  area.x = xadd;
-  area.y = yadd;
-  area.width = TILE_SIZE;
-  area.height = TILE_SIZE;
-  gtk_widget_draw (space, &area);
+  gtk_widget_queue_draw_area (space, xadd, yadd, TILE_SIZE, TILE_SIZE);
 
   if(target==mover.pixmap)
     gdk_gc_unref(gc);
@@ -553,8 +548,13 @@ gint configure_space(GtkWidget *widget, GdkEventConfigure *event){
 void redraw_all(){
   guint x, y;
   GdkGC *draw_gc;
+  GdkRegion *region;
+
+  region = gdk_drawable_get_clip_region(GDK_DRAWABLE(space->window));
+  gdk_window_begin_paint_region(space->window, region); 
+
   draw_gc = gdk_gc_new(space->window);
-  get_bg_color(); 
+  get_bg_color();
   gdk_window_set_background(space->window, &bg_color);
   gdk_gc_set_background(draw_gc,&bg_color);
   gdk_gc_set_foreground(draw_gc,&bg_color);
@@ -565,13 +565,22 @@ void redraw_all(){
       gui_draw_pixmap(buffer, x, y);
   if(draw_gc)
     gdk_gc_unref(draw_gc);
+
+  gdk_window_end_paint(space->window);
 }
 
 void redraw_left(){
   int x,y;
+  GdkRegion *region;
+
+  region = gdk_drawable_get_clip_region(GDK_DRAWABLE(space->window));
+  gdk_window_begin_paint_region(space->window, region); 
+
   for(y = 0; y < SIZE; y++)
     for(x = 0; x < SIZE; x++)
       gui_draw_pixmap(buffer, x, y);
+
+  gdk_window_end_paint(space->window);
 }
 
 void create_space(){
@@ -767,9 +776,11 @@ void new_game_cb(GtkWidget *widget, gpointer data){
   widget = space;
   
   new_board(SIZE);
+  gtk_widget_freeze_child_notify(space);
   gtk_drawing_area_size(GTK_DRAWING_AREA(space),CORNER*2 + GAP+ SIZE*TILE_SIZE*2,SIZE*TILE_SIZE + CORNER*2);
   make_buffer(widget);
   redraw_all();
+  gtk_widget_thaw_child_notify(space);
   paused = 0;
   timer_start();
   sprintf(str,_("Playing %dx%d board"),SIZE,SIZE);
