@@ -153,19 +153,19 @@ GnomeUIInfo game_menu[] = {
 };
 
 GnomeUIInfo size_radio_list[] = {
-  { GNOME_APP_UI_ITEM, N_("_2x2"), N_("Play on a 2x2 board"),
+  { GNOME_APP_UI_ITEM, N_("_2 \xc3\x97 2"), N_("Play on a 2 \xc3\x97 2 board"),
     size_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
-  { GNOME_APP_UI_ITEM, N_("_3x3"), N_("Play on a 3x3 board"),
+  { GNOME_APP_UI_ITEM, N_("_3 \xc3\x97 3"), N_("Play on a 3 \xc3\x97 3 board"),
     size_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
-  { GNOME_APP_UI_ITEM, N_("_4x4"), N_("Play on a 4x4 board"),
+  { GNOME_APP_UI_ITEM, N_("_4 \xc3\x97 4"), N_("Play on a 4 \xc3\x97 4 board"),
     size_cb, "4", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
-  { GNOME_APP_UI_ITEM, N_("_5x5"), N_("Play on a 5x5 board"),
+  { GNOME_APP_UI_ITEM, N_("_5 \xc3\x97 5"), N_("Play on a 5 \xc3\x97 5 board"),
     size_cb, "5", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
-  { GNOME_APP_UI_ITEM, N_("_6x6"), N_("Play on a 6x6 board"),
+  { GNOME_APP_UI_ITEM, N_("_6 \xc3\x97 6"), N_("Play on a 6 \xc3\x97 6 board"),
     size_cb, "6", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
   GNOMEUIINFO_END

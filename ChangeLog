@@ -1,3 +1,8 @@
+2003-06-13  William Jon McCann  <mccann@jhu.edu>
+
+	* gnotravex.c: Use UTF-8 multiplication symbol in
+	settings menu.
+
 2003-06-13  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* .cvsignore: Add gnotravex.schemas.
