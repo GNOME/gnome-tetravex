@@ -13,7 +13,7 @@ gnotravex_SOURCES =	\
 
 gnotravex_LDADD = \
 	$(GNOME_LIBDIR)	\
-	$(GNOMEUI_LIBS)					
+	$(GNOMEUI_LIBS)	\
 	$(INTLLIBS) 
 
 pixmap_DATA = gnotravex.png gnome-gnotravex.png

@@ -1,3 +1,9 @@
+1999-09-25  Ian Peters  <itp@gnu.org>
+
+	* Makefile.am: Added a missing \, which caused $(INTLLIBS) not to be
+	  added to the link line, breaking it on IRIX (I'm told...).  Thanks to
+	  David Kaelbling @ SGI.
+
 1999-09-24  Michael Fulbright  <msf@grudge.redhat.com>
 
 	* gnotravex.c: Fixed bug which caused game to infinitely loop
