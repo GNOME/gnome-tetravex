@@ -64,7 +64,6 @@ typedef struct _tile {
 tile tiles[9][18];
 tile orig_tiles[9][9];
 
-gint statusbar_id;
 gint SIZE=3;
 int paused=0;
 int have_been_hinted=0;
@@ -110,53 +109,84 @@ void hint_cb(GtkWidget *, gpointer);
 void solve_cb(GtkWidget *, gpointer);
 
 GnomeUIInfo file_menu[] = {
-  { GNOME_APP_UI_ITEM, N_("_New"), "Start a new game", new_game_cb, NULL, NULL,
-    GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_NEW, 'n', GDK_CONTROL_MASK,NULL },
-  { GNOME_APP_UI_ITEM, N_("Pause"), NULL, pause_cb, NULL, NULL,
-    GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_TIMER_STOP, 0, GDK_CONTROL_MASK,NULL },
-  {GNOME_APP_UI_ITEM, N_("Scores"), NULL, score_cb, NULL, NULL,
-   GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_SCORES, 0, 0, NULL},
+
+  GNOMEUIINFO_MENU_EXIT_ITEM(quit_game_cb, NULL),
+
+  GNOMEUIINFO_END
+};
+
+GnomeUIInfo game_menu[] = {
+  GNOMEUIINFO_MENU_NEW_GAME_ITEM(new_game_cb, NULL),
+
+  GNOMEUIINFO_MENU_PAUSE_GAME_ITEM(pause_cb, NULL),
+
   GNOMEUIINFO_SEPARATOR,
-  { GNOME_APP_UI_ITEM, N_("_Hint"), NULL, hint_cb, NULL, NULL,GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_JUMP_TO, 'h', GDK_CONTROL_MASK, NULL },
-  { GNOME_APP_UI_ITEM, N_("Solve"), NULL, solve_cb, NULL, NULL,GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_REFRESH, 0, 0, NULL },
+
+  GNOMEUIINFO_MENU_HINT_ITEM(hint_cb, NULL),
+
+  { GNOME_APP_UI_ITEM, N_("Sol_ve"), N_("Solve the game"),
+    solve_cb, NULL, NULL,GNOME_APP_PIXMAP_STOCK,
+    GNOME_STOCK_MENU_REFRESH, 0, 0, NULL },
+
   GNOMEUIINFO_SEPARATOR,
-  { GNOME_APP_UI_ITEM, N_("_Quit"), NULL, quit_game_cb, NULL, NULL,
-    GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, 'q', GDK_CONTROL_MASK,NULL },
+
+  GNOMEUIINFO_MENU_SCORES_ITEM(score_cb, NULL),
+
   GNOMEUIINFO_END
 };
 
 GnomeUIInfo size_radio_list[] = {
-  { GNOME_APP_UI_ITEM, N_("2x2"), NULL, size_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-  { GNOME_APP_UI_ITEM, N_("3x3"), NULL, size_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-  { GNOME_APP_UI_ITEM, N_("4x4"), NULL, size_cb, "4", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-  { GNOME_APP_UI_ITEM, N_("5x5"), NULL, size_cb, "5", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-  { GNOME_APP_UI_ITEM, N_("6x6"), NULL, size_cb, "6", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-  GNOMEUIINFO_END
-};
+  { GNOME_APP_UI_ITEM, N_("_2x2"), N_("Play on a 2x2 board"),
+    size_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
-GnomeUIInfo size_menu[] = {
-  GNOMEUIINFO_RADIOLIST(size_radio_list),
+  { GNOME_APP_UI_ITEM, N_("_3x3"), N_("Play on a 3x3 board"),
+    size_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+  { GNOME_APP_UI_ITEM, N_("_4x4"), N_("Play on a 4x4 board"),
+    size_cb, "4", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+  { GNOME_APP_UI_ITEM, N_("_5x5"), N_("Play on a 5x5 board"),
+    size_cb, "5", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
+  { GNOME_APP_UI_ITEM, N_("_6x6"), N_("Play on a 6x6 board"),
+    size_cb, "6", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+
   GNOMEUIINFO_END
 };
 
 GnomeUIInfo move_menu[] = {
-  {GNOME_APP_UI_ITEM, N_("Up"), NULL, move_cb, "n", NULL,GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
-  {GNOME_APP_UI_ITEM, N_("Left"), NULL, move_cb, "w", NULL,GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
-  {GNOME_APP_UI_ITEM, N_("Right"), NULL, move_cb, "e", NULL,GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
-  {GNOME_APP_UI_ITEM, N_("Down"), NULL, move_cb, "s", NULL,GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
+  {GNOME_APP_UI_ITEM, N_("_Up"), N_("Move the selected piece up"),
+   move_cb, "n", NULL, GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
+
+  {GNOME_APP_UI_ITEM, N_("_Left"), N_("Move the selected piece left"),
+   move_cb, "w", NULL, GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
+
+  {GNOME_APP_UI_ITEM, N_("_Right"), N_("Move the selected piece right"),
+   move_cb, "e", NULL, GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
+
+  {GNOME_APP_UI_ITEM, N_("_Down"), N_("Move the selected piece down"),
+   move_cb, "s", NULL, GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
+
   GNOMEUIINFO_END
 };
 
 GnomeUIInfo help_menu[] = {
-  { GNOME_APP_UI_ITEM, N_("_About Gnotravex"), NULL, about_cb, NULL, NULL,GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
+  GNOMEUIINFO_HELP("gnotravex"),
+  GNOMEUIINFO_MENU_ABOUT_ITEM(about_cb, NULL),
+  GNOMEUIINFO_END
+};
+
+GnomeUIInfo settings_menu[] = {
+  GNOMEUIINFO_RADIOLIST(size_radio_list),
   GNOMEUIINFO_END
 };
 
 GnomeUIInfo main_menu[] = {
-  { GNOME_APP_UI_SUBTREE, N_("_Game"), NULL, file_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-  { GNOME_APP_UI_SUBTREE, N_("_Size"), NULL, size_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-  { GNOME_APP_UI_SUBTREE, N_("_Move"), NULL, move_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-  { GNOME_APP_UI_SUBTREE, N_("_Help"), NULL, help_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+  GNOMEUIINFO_MENU_FILE_TREE(file_menu),
+  GNOMEUIINFO_MENU_GAME_TREE(game_menu),
+  GNOMEUIINFO_SUBTREE(N_("_Move"), move_menu),
+  GNOMEUIINFO_MENU_SETTINGS_TREE(settings_menu),
+  GNOMEUIINFO_MENU_HELP_TREE(help_menu),
   GNOMEUIINFO_END
 };
 
@@ -581,16 +611,19 @@ void create_statusbar(){
   gtk_widget_show (timer);
   gtk_widget_show (time_box);
 
-  statusbar = gtk_statusbar_new();
-  statusbar_id =gtk_statusbar_get_context_id(GTK_STATUSBAR(statusbar),APPNAME);
+  statusbar = gnome_appbar_new(FALSE, TRUE, GNOME_PREFERENCES_USER);
   gtk_box_pack_end(GTK_BOX(statusbar), time_box, FALSE, FALSE, 0);
   gnome_app_set_statusbar(GNOME_APP(window), statusbar);
-  gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id,APPNAME_LONG);
+
+  gnome_app_install_menu_hints(GNOME_APP (window), main_menu);
+
+  /* FIXME */
+  /*  gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id,APPNAME_LONG); */
 }
 
 void message(gchar *message){
-  gtk_statusbar_pop(GTK_STATUSBAR(statusbar), statusbar_id);
-  gtk_statusbar_push(GTK_STATUSBAR(statusbar), statusbar_id, message);
+  gnome_appbar_pop(GNOME_APPBAR (statusbar));
+  gnome_appbar_push(GNOME_APPBAR (statusbar), message);
 }
 
 void create_mover(){

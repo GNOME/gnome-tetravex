@@ -1,0 +1,9 @@
+1999-01-10  Nat Friedman  <nat@nat.org>
+
+	* gnotravex.c (create_statusbar): Replaced the GtkStatusBar with a
+ 	GnomeAppBar.
+	(message): Use the appbar.
+
+	Standardized the menus.  Installed menu hints.
+	
+
