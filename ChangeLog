@@ -1,3 +1,8 @@
+2004-06-18  Jon Oberheide  <jon@focalhost.com>
+
+        * gnotravex.c (hint_move): Trial variable initialization to fix
+        compile with GCC 3.5.
+
 2004-03-30  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.c (gui_draw_text_int): sans-serif -> sans. Apparently

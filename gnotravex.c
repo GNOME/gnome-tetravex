@@ -1397,7 +1397,7 @@ hint_move (gint x1, gint y1, gint x2, gint y2)
 void
 hint_cb (GtkWidget *widget, gpointer data)
 {
-  gint x1, y1, x2 = 0, y2 = 0, x, y;
+  gint x1, y1, x2 = 0, y2 = 0, x = 0, y = 0;
   tile hint_tile;
 
   if ((game_state != playing) || button_down || hint_moving)
