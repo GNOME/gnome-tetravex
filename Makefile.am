@@ -28,6 +28,8 @@ Games_DATA = $(Games_in_files:.desktop.in=.desktop)
 
 EXTRA_DIST = README gnotravex.desktop.in $(pixmap_DATA)
 
+CLEANFILES = $(Games_DATA)
+
 SUBDIRS = help
 
 install-data-local:
