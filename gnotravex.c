@@ -17,12 +17,13 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#include <config.h>
 #include <gnome.h>
 #include <time.h>
 
 #define APPNAME "gnotravex"
 #define APPNAME_LONG "Gnome Tetravex"
-#define TETRAVEX_VERSION "0.01"
+#define GNOTRAVEX_VERSION "0.10"
 
 #define TILE_SIZE 51
 
@@ -103,22 +104,22 @@ void move_cb(GtkWidget *, gpointer);
 void about_cb(GtkWidget *, gpointer);
 
 GnomeUIInfo file_menu[] = {
-  { GNOME_APP_UI_ITEM, N_("_New"), NULL, new_game_cb, NULL, NULL,
-    GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_NEW, 'n', GDK_CONTROL_MASK },
+  { GNOME_APP_UI_ITEM, N_("_New"), "Start a new game", new_game_cb, NULL, NULL,
+    GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_NEW, 'n', GDK_CONTROL_MASK,NULL },
   { GNOME_APP_UI_ITEM, N_("_Pause"), NULL, pause_cb, NULL, NULL,
-    GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_TIMER_STOP, 0, GDK_CONTROL_MASK },
+    GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_TIMER_STOP, 0, GDK_CONTROL_MASK,NULL },
   GNOMEUIINFO_SEPARATOR,
   { GNOME_APP_UI_ITEM, N_("_Quit"), NULL, quit_game_cb, NULL, NULL,
-    GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, 'q', GDK_CONTROL_MASK },
+    GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, 'q', GDK_CONTROL_MASK,NULL },
   GNOMEUIINFO_END
 };
 
 GnomeUIInfo size_radio_list[] = {
-  GNOMEUIINFO_ITEM_DATA(N_("2x2"), NULL, size_cb, "2", NULL),
-  GNOMEUIINFO_ITEM_DATA(N_("3x3"), NULL, size_cb, "3", NULL),
-  GNOMEUIINFO_ITEM_DATA(N_("4x4"), NULL, size_cb, "4", NULL),
-  GNOMEUIINFO_ITEM_DATA(N_("5x5"), NULL, size_cb, "5", NULL),
-  GNOMEUIINFO_ITEM_DATA(N_("6x6"), NULL, size_cb, "6", NULL),
+  { GNOME_APP_UI_ITEM, N_("2x2"), NULL, size_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+  { GNOME_APP_UI_ITEM, N_("3x3"), NULL, size_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+  { GNOME_APP_UI_ITEM, N_("4x4"), NULL, size_cb, "4", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+  { GNOME_APP_UI_ITEM, N_("5x5"), NULL, size_cb, "5", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+  { GNOME_APP_UI_ITEM, N_("6x6"), NULL, size_cb, "6", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
   GNOMEUIINFO_END
 };
 
@@ -128,81 +129,52 @@ GnomeUIInfo size_menu[] = {
 };
 
 GnomeUIInfo move_menu[] = {
-  GNOMEUIINFO_ITEM_DATA(N_("Up"), NULL, move_cb, "n", NULL),
-  GNOMEUIINFO_ITEM_DATA(N_("Left"), NULL, move_cb, "w", NULL),
-  GNOMEUIINFO_ITEM_DATA(N_("Right"), NULL, move_cb, "e", NULL),
-  GNOMEUIINFO_ITEM_DATA(N_("Down"), NULL, move_cb, "s", NULL),
+  {GNOME_APP_UI_ITEM, N_("Up"), NULL, move_cb, "n", NULL,GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
+  {GNOME_APP_UI_ITEM, N_("Left"), NULL, move_cb, "w", NULL,GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
+  {GNOME_APP_UI_ITEM, N_("Right"), NULL, move_cb, "e", NULL,GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
+  {GNOME_APP_UI_ITEM, N_("Down"), NULL, move_cb, "s", NULL,GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
   GNOMEUIINFO_END
 };
 
 
 
 GnomeUIInfo help_menu[] = {
-  GNOMEUIINFO_ITEM_STOCK(N_("_About..."), NULL, about_cb, "Menu_About"),
+  { GNOME_APP_UI_ITEM, N_("_About Gnotravex"), NULL, about_cb, NULL, NULL,GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
   GNOMEUIINFO_END
 };
 
 GnomeUIInfo main_menu[] = {
-  GNOMEUIINFO_SUBTREE(N_("_Game"), file_menu),
-  GNOMEUIINFO_SUBTREE(N_("_Size"), size_menu),
-  GNOMEUIINFO_SUBTREE(N_("_Move"), move_menu),
-  GNOMEUIINFO_JUSTIFY_RIGHT,
-  GNOMEUIINFO_SUBTREE(N_("_Help"), help_menu),
+  { GNOME_APP_UI_SUBTREE, N_("_Game"), NULL, file_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+  { GNOME_APP_UI_SUBTREE, N_("_Size"), NULL, size_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+  { GNOME_APP_UI_SUBTREE, N_("_Move"), NULL, move_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
+  { GNOME_APP_UI_SUBTREE, N_("_Help"), NULL, help_menu, NULL, NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
   GNOMEUIINFO_END
 };
 
-static error_t arg_parse(int, char *, struct argp_state *);
-
-static struct argp_option options[] = {
-  { "size", 's', N_("NUMBER"), 0, N_("Size of board (2-6)"), 1 },
-  { NULL, 'x', N_("X"), OPTION_HIDDEN, NULL, 1 },
-  { NULL, 'y', N_("Y"), OPTION_HIDDEN, NULL, 1 },    
-  { NULL, 0, NULL, 0, NULL, 0 }
+static const struct poptOption options[] = {
+  {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
+  {NULL, 'y', POPT_ARG_INT, &session_ypos, 0, NULL, NULL},
+  { "size", 's', POPT_ARG_INT, &SIZE,0, N_("Size of board (2-6)"), N_("SIZE") },
+  { NULL, '\0', 0, NULL, 0 }
 };
-
-static struct argp parser = {
-  options, arg_parse, NULL, NULL, NULL, NULL, NULL
-};
-
-static error_t arg_parse(int key, char *arg, struct argp_state *state){
-  gint size;
-  switch(key){
-  case 's':
-    size = (gint) atoi(arg);
-    if(size>=2 && size<=6)
-      SIZE=size;
-    break;
-  case 'x':
-    session_flag |= 1;
-    session_xpos = atoi(arg);
-    break;
-  case 'y':
-    session_flag |= 2;
-    session_ypos = atoi(arg);
-    break;
-  case ARGP_KEY_SUCCESS:
-    if(session_flag == 3) session_position = 1;
-    break;
-  default:
-    return ARGP_ERR_UNKNOWN;
-  }
-  return 0;
-}
-
-
 
 /* ------------------------------------------------------- */
 
 
-int main (int argc, char *argv[]){
+int main (int argc, char **argv){
   GnomeClient *client;
 
-  client = gnome_client_new_default();
-  gtk_object_ref(GTK_OBJECT(client));
-  gtk_object_sink(GTK_OBJECT(client));
-  gnome_init(APPNAME, &parser, argc, argv, 0, NULL);
+  gnome_init_with_popt_table(APPNAME, VERSION, argc, argv, options, 0, NULL);
   gnome_score_init(APPNAME);
 
+  client = gnome_master_client();
+  gtk_object_ref(GTK_OBJECT(client));
+  gtk_object_sink(GTK_OBJECT(client));
+  
+  gtk_signal_connect(GTK_OBJECT(client), "die",GTK_SIGNAL_FUNC(quit_game_cb),argv[0]);
+
+  if(SIZE<2 || SIZE>6) SIZE=3;
+  
   create_window();
   create_menu();
   load_image();
@@ -210,9 +182,9 @@ int main (int argc, char *argv[]){
   create_space(); 
   create_statusbar();
 
-  if(session_position)
+  if(session_xpos >= 0 && session_ypos >= 0)
     gtk_widget_set_uposition(window, session_xpos, session_ypos);
-  
+    
   gtk_widget_show(window);
   create_mover();
 
@@ -596,7 +568,7 @@ void load_image(){
   GdkImlibImage *image;
   GdkVisual *visual;
 
-  tmp = g_copy_strings("tetra/", "tetravex.png", NULL);
+  tmp = g_copy_strings("gnotravex/", "gnotravex.png", NULL);
   fname = gnome_unconditional_pixmap_file(tmp);
   g_free(tmp);
   if(!g_file_exists(fname)) {
@@ -755,10 +727,10 @@ void about_cb(GtkWidget *widget, gpointer data){
   
   const gchar *authors[] = { "Lars Rydlinge", NULL };
   about = gnome_about_new(_(APPNAME_LONG), 
-			  TETRAVEX_VERSION, 
+			  GNOTRAVEX_VERSION, 
 			  "(C) 1998 Lars Rydlinge",
 			  (const char **)authors, 
-			  _("Send comments and bugreports to: Lars.Rydlinge@HIG.SE\n"), 
+			  _("Tetravex clone\n(Comments to: Lars.Rydlinge@HIG.SE)"), 
 			  NULL);
   gtk_widget_show(about);
 }
