@@ -1,6 +1,6 @@
 scoredir=$(localstatedir)/games
 pixmapdir=$(datadir)/pixmaps/gnotravex
-Gamesdir=$(datadir)/gnome/apps/Games
+Gamesdir=$(datadir)/applications
 
 INCLUDES = 			\
 	$(GNOME_GAMES_CFLAGS)	\

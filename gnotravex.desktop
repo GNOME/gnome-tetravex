@@ -39,4 +39,4 @@ Exec=gnotravex
 Icon=gnotravex/gnome-gnotravex.png
 Terminal=0
 Type=Application
-
+Categories=Application;Game;
