@@ -42,7 +42,6 @@ GtkWidget *space;
 GtkWidget *bit;
 GtkWidget *time_value;
 
-GdkGC *draw_gc = NULL;
 GdkPixmap *buffer = NULL;
 GdkPixmap *tiles_pixmap = NULL;
 GdkColor bg_color;
@@ -95,6 +94,8 @@ gint timer_cb();
 void timer_start();
 void timer_stop();
 void pause_cb();
+static int save_state(GnomeClient*, gint, GnomeRestartStyle, gint, GnomeInteractStyle, gint, gpointer);
+
 
 /* ------------------------- MENU ------------------------ */
 void new_game_cb(GtkWidget *, gpointer);
@@ -167,14 +168,15 @@ static const struct poptOption options[] = {
 int main (int argc, char **argv){
   GnomeClient *client;
 
-  gnome_init_with_popt_table(APPNAME, VERSION, argc, argv, options, 0, NULL);
   gnome_score_init(APPNAME);
+  gnome_init_with_popt_table(APPNAME, VERSION, argc, argv, options, 0, NULL);
 
   client = gnome_master_client();
   gtk_object_ref(GTK_OBJECT(client));
   gtk_object_sink(GTK_OBJECT(client));
   
-  gtk_signal_connect(GTK_OBJECT(client), "die",GTK_SIGNAL_FUNC(quit_game_cb),argv[0]);
+  gtk_signal_connect(GTK_OBJECT (client), "save_yourself", GTK_SIGNAL_FUNC (save_state), argv[0]);
+  gtk_signal_connect(GTK_OBJECT(client), "die", GTK_SIGNAL_FUNC(quit_game_cb), argv[0]);
 
   if(SIZE<2 || SIZE>6) SIZE=3;
   
@@ -327,6 +329,9 @@ void gui_draw_pixmap(GdkPixmap *target, gint x, gint y){
   area.width = TILE_SIZE;
   area.height = TILE_SIZE;
   gtk_widget_draw (space, &area);
+
+  if(target==mover.pixmap)
+    gdk_gc_destroy(gc);
 }
 
 void get_tilexy(int x,int y,int *xx,int *yy){
@@ -488,6 +493,8 @@ gint configure_space(GtkWidget *widget, GdkEventConfigure *event){
 
 void redraw_all(){
   guint x, y;
+  GdkGC *draw_gc;
+  draw_gc = gdk_gc_new(space->window);
   get_bg_color(); 
   gdk_window_set_background(space->window, &bg_color);
   gdk_gc_set_background(draw_gc,&bg_color);
@@ -497,6 +504,8 @@ void redraw_all(){
   for(y = 0; y < SIZE; y++)
     for(x = 0; x < SIZE*2; x++)
       gui_draw_pixmap(buffer, x, y);
+  if(draw_gc)
+    gdk_gc_unref(draw_gc);
 }
 
 void redraw_left(){
@@ -516,7 +525,6 @@ void create_space(){
   gtk_drawing_area_size(GTK_DRAWING_AREA(space),CORNER*2 + GAP+ SIZE*TILE_SIZE*2,SIZE*TILE_SIZE + CORNER*2);
   gtk_widget_set_events(space, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
   gtk_widget_realize(space);
-  draw_gc = gdk_gc_new(space->window);
   
   gtk_signal_connect(GTK_OBJECT(space), "expose_event", 
 		     GTK_SIGNAL_FUNC(expose_space), NULL);
@@ -715,11 +723,41 @@ void quit_game_cb(GtkWidget *widget, gpointer data){
     gdk_pixmap_unref(tiles_pixmap);
   if(mover.pixmap)
     gdk_pixmap_unref(mover.pixmap);
-  if(draw_gc)
-    gdk_gc_unref(draw_gc);
 
   gtk_main_quit();
 }
+
+static char *nstr(int n){
+  char buf[20]; sprintf(buf, "%d", n);
+  return strdup(buf);
+}
+
+static int save_state(GnomeClient *client,gint phase, 
+		      GnomeRestartStyle save_style, gint shutdown,
+		      GnomeInteractStyle interact_style, gint fast,
+		      gpointer client_data){
+  char *argv[20];
+  int i;
+  gint xpos, ypos;
+  
+  gdk_window_get_origin(window->window, &xpos, &ypos);
+  
+  i = 0;
+  argv[i++] = (char *)client_data;
+  argv[i++] = "-x";
+  argv[i++] = nstr(xpos);
+  argv[i++] = "-y";
+  argv[i++] = nstr(ypos);
+
+  gnome_client_set_restart_command(client, i, argv);
+  gnome_client_set_clone_command(client, 0, NULL);
+  
+  free(argv[2]);
+  free(argv[4]);
+  
+  return TRUE;
+}
+
 
 void size_cb(GtkWidget *widget, gpointer data){
   int size;
