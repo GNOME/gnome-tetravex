@@ -91,30 +91,52 @@ guint timer_timeout = 0;
 gint tile_size = 0;
 
 void make_buffer (GtkWidget *);
-void create_window ();
-void create_menu ();
-void create_space ();
-void create_mover ();
-void create_statusbar ();
-GdkColor *get_bg_color ();
-void get_tile_size ();
+void create_window (void);
+void create_menu (void);
+void create_space (void);
+void create_mover (void);
+void create_statusbar (void);
+
+gint expose_space (GtkWidget *, GdkEventExpose *);
+gint button_press_space (GtkWidget *, GdkEventButton *);
+gint button_release_space (GtkWidget *, GdkEventButton *);
+gint button_motion_space (GtkWidget *, GdkEventButton *);
+
+void gui_draw_piece (GdkPixmap *, GdkGC *, gboolean, gint, gint);
+void gui_draw_text_int (GdkPixmap *, GdkGC *, gint, gint, gint);
+void gui_draw_pixmap (GdkPixmap *, gint, gint);
+void gui_draw_pause (void);
+
+void get_pixeltilexy (gint, gint, gint *, gint *);
+void get_tilexy (gint, gint, gint *, gint *);
+void get_offsetxy (gint, gint, gint *, gint *);
+GdkColor *get_bg_color (void);
+void get_tile_size (void);
+
 void message (gchar *);
 void new_board (gint);
-void redraw_all ();
-void redraw_left ();
-void gui_draw_pixmap (GdkPixmap *, gint, gint);
+void redraw_all (void);
+void redraw_left (void);
 gint setup_mover (gint, gint, gint);
 gint valid_drop (gint, gint);
+
+void update_tile_size (gint, gint);
+gint configure_space (GtkWidget *, GdkEventConfigure *);
+gint compare_tile (tile *, tile *);
+void find_first_tile (gint, gint *, gint *);
+void move_tile (gint, gint, gint, gint);
 void move_column (unsigned char);
-gint game_over ();
-void game_score ();
-void update_score_state ();
-gint timer_cb ();
-void timer_start ();
-void pause_game ();
-void resume_game ();
-void pause_cb ();
-void gui_draw_pause ();
+gint game_over (void);
+void game_score (void);
+void update_score_state (void);
+gint timer_cb (void);
+void timer_start (void);
+void pause_game (void);
+void resume_game (void);
+void pause_cb (void);
+void hint_move_cb (void);
+void hint_move (gint, gint, gint, gint);
+void show_score_dialog (const gchar *, gint);
 static gint save_state (GnomeClient*, gint, GnomeRestartStyle,
                         gint, GnomeInteractStyle, gint, gpointer);
 
@@ -276,32 +298,32 @@ main (int argc, char **argv)
   return 0;
 }
 
-gint
-get_space_width ()
+static gint
+get_space_width (void)
 {
   return (CORNER*2 + GAP + SIZE * tile_size * 2);
 }
 
-gint
-get_space_min_width ()
+static gint
+get_space_min_width (void)
 {
   return (CORNER*2 + GAP + SIZE * MINIMUM_TILE_SIZE * 2);
 }
 
-gint
-get_space_height ()
+static gint
+get_space_height (void)
 {
   return (CORNER*2 + SIZE * tile_size);
 }
 
-gint
-get_space_min_height ()
+static gint
+get_space_min_height (void)
 {
   return (CORNER*2 + SIZE * MINIMUM_TILE_SIZE);
 }
 
 void
-create_window ()
+create_window (void)
 {
   window = gnome_app_new (APPNAME, N_(APPNAME_LONG));
   gtk_window_set_resizable (GTK_WINDOW (window), TRUE);
@@ -514,15 +536,14 @@ gui_draw_text_int (GdkPixmap *target, GdkGC *gc,
 void
 gui_draw_pixmap (GdkPixmap *target, gint x, gint y)
 {
-  gint which, xadd, yadd;
-  GdkGC *gc;
+  gint which, xadd = 0, yadd = 0;
+  GdkGC *gc = space->style->black_gc;
 
   which = tiles[y][x].status;
 
   if (target == buffer) {
     xadd = x * tile_size + CORNER + (x >= SIZE) * GAP;
     yadd = y * tile_size + CORNER;
-    gc = space->style->black_gc;
   }
 
   if (target == mover.pixmap) {
@@ -558,7 +579,7 @@ gui_draw_pixmap (GdkPixmap *target, gint x, gint y)
   gtk_widget_queue_draw_area (space, xadd, yadd, tile_size, tile_size);
 
   if (target==mover.pixmap)
-    gdk_gc_unref (gc);
+    g_object_unref (gc);
 }
 
 void
@@ -642,7 +663,8 @@ setup_mover (gint x, gint y, gint status)
       gui_draw_pixmap (buffer, mover.xstart, mover.ystart);
     }
     gdk_window_hide (mover.window);
-    if (mover.pixmap) gdk_drawable_unref (mover.pixmap);
+    if (mover.pixmap) 
+      g_object_unref (mover.pixmap);
     mover.pixmap = NULL;
     if (game_over ()) {
       game_state = gameover;
@@ -743,7 +765,7 @@ move_column (unsigned char dir)
 }
 
 gint
-game_over ()
+game_over (void)
 {
   gint x, y;
   for (y = 0; y < SIZE; y++)
@@ -775,7 +797,7 @@ score_cb (GtkWidget *widget, gpointer data)
 }
 
 void
-game_score ()
+game_score (void)
 {
   gint pos;
   time_t seconds;
@@ -792,7 +814,7 @@ game_score ()
 }
 
 void
-update_score_state ()
+update_score_state (void)
 {
   gchar **names = NULL;
   gfloat *scores = NULL;
@@ -858,7 +880,7 @@ configure_space (GtkWidget *widget, GdkEventConfigure *event)
 }
 
 void
-redraw_all ()
+redraw_all (void)
 {
   guint x, y;
   GdkGC *draw_gc;
@@ -880,14 +902,14 @@ redraw_all ()
     for (x = 0; x < SIZE*2; x++)
       gui_draw_pixmap (buffer, x, y);
   if (draw_gc)
-    gdk_gc_unref (draw_gc);
+    g_object_unref (draw_gc);
   
   gdk_window_end_paint (space->window);
   gdk_region_destroy (region);
 }
 
 void
-redraw_left ()
+redraw_left (void)
 {
   gint x, y;
   GdkRegion *region;
@@ -907,7 +929,7 @@ redraw_left ()
 }
 
 void
-create_space ()
+create_space (void)
 {
   space = gtk_drawing_area_new ();
   gnome_app_set_contents (GNOME_APP (window), space);
@@ -934,7 +956,7 @@ create_space ()
 
 
 void
-create_statusbar ()
+create_statusbar (void)
 {
   GtkWidget *time_label,*time_box;
   time_box = gtk_hbox_new (FALSE, 0);
@@ -958,7 +980,7 @@ message (gchar *message)
 }
 
 void
-create_mover ()
+create_mover (void)
 {
   GdkWindowAttr attributes;
 
@@ -1042,7 +1064,7 @@ new_board (gint size)
 }
 
 GdkColor *
-get_bg_color () 
+get_bg_color (void) 
 {
   GtkStyle *style;
   GdkColor *color;
@@ -1052,7 +1074,7 @@ get_bg_color ()
 }
 
 void
-pause_game ()
+pause_game (void)
 {
   if (game_state != paused) {
     game_state = paused;
@@ -1063,7 +1085,7 @@ pause_game ()
 }
 
 void
-resume_game ()
+resume_game (void)
 {
   if (game_state == paused) {
     game_state = playing;
@@ -1074,7 +1096,7 @@ resume_game ()
 }
 
 void
-pause_cb ()
+pause_cb (void)
 {
   if (game_state == gameover)
     return;
@@ -1087,7 +1109,7 @@ pause_cb ()
 }
 
 void
-gui_draw_pause ()
+gui_draw_pause (void)
 {
   guint x, y, xadd, yadd, which;
   GdkRegion *region;
@@ -1137,7 +1159,7 @@ gui_draw_pause ()
 }
 
 void
-timer_start ()
+timer_start (void)
 {
   games_clock_stop (GAMES_CLOCK (timer));
   games_clock_set_seconds (GAMES_CLOCK (timer), 0);
@@ -1146,7 +1168,7 @@ timer_start ()
 
 /* --------------------------- MENU --------------------- */
 void
-create_menu ()
+create_menu (void)
 {
   gnome_app_create_menus (GNOME_APP (window), main_menu);
 }
@@ -1156,7 +1178,7 @@ make_buffer (GtkWidget *widget)
 {
 
   if (buffer)
-    gdk_drawable_unref (buffer);
+    g_object_unref (buffer);
   
   buffer = gdk_pixmap_new (widget->window, widget->allocation.width,
                            widget->allocation.height, -1);
@@ -1189,9 +1211,9 @@ void
 quit_game_cb (GtkWidget *widget, gpointer data)
 {
   if (buffer)
-    gdk_drawable_unref (buffer);
+    g_object_unref (buffer);
   if (mover.pixmap)
-    gdk_drawable_unref (mover.pixmap);
+    g_object_unref (mover.pixmap);
 
   gtk_main_quit ();
 }
@@ -1274,7 +1296,7 @@ find_first_tile (gint status, gint *xx, gint *yy)
 gint hint_src_x, hint_src_y, hint_dest_x, hint_dest_y;
 
 void
-hint_move_cb ()
+hint_move_cb (void)
 {
   float dx, dy;
   static gint count = 0;
@@ -1312,7 +1334,7 @@ hint_move (gint x1, gint y1, gint x2, gint y2)
 void
 hint_cb (GtkWidget *widget, gpointer data)
 {
-  gint x1, y1, x2, y2, x, y, size = SIZE;
+  gint x1, y1, x2 = 0, y2 = 0, x, y, size = SIZE;
   tile hint_tile;
 
   if ((game_state != playing) || button_down || hint_moving)
