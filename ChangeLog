@@ -1,7 +1,8 @@
 2003-06-12  William Jon McCann  <mccann@jhu.edu>
 
 	* gnotravex.c: Use standard function brace style so that 
-	emacs will do changelogs correctly.
+	emacs will do changelogs correctly.  Tried to make spacing
+	style consistent.  Changed all ints to gints.
 	(get_bg_color): If we have a function to get the background 
 	color it may as well return the color instead of setting a 
 	g lobal variable.
