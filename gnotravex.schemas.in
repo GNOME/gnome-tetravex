@@ -20,8 +20,8 @@
       <type>int</type>
       <default>51</default>
       <locale name="C">
-        <short>The width of the game widget.</short>
-        <long>The width of the widget (not the window). The correct way to set this is by resizing the window.</long>
+        <short>The size of a tile.</short>
+        <long>The side length of an individual game tile. The minimum is 40, the maximum is set depending on screen height. The correct way to set this is by resizing the window.</long>
       </locale>
     </schema>
 
