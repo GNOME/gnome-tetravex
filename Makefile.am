@@ -1,6 +1,6 @@
 scoredir=$(localstatedir)/games
 pixmapdir=$(datadir)/pixmaps/gnotravex
-Gamesdir=$(datadir)/apps/Games
+Gamesdir=$(datadir)/gnome/apps/Games
 
 INCLUDES = 			\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
