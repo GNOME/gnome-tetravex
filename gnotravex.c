@@ -20,6 +20,7 @@
 #include <config.h>
 #include <gnome.h>
 #include <libgnomeui/gnome-window-icon.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <time.h>
 
 #define APPNAME "gnotravex"
@@ -573,8 +574,8 @@ void redraw_left(){
 }
 
 void create_space(){
-  gtk_widget_push_visual(gdk_imlib_get_visual());
-  gtk_widget_push_colormap(gdk_imlib_get_colormap());
+  gtk_widget_push_visual(gdk_rgb_get_visual());
+  gtk_widget_push_colormap(gdk_rgb_get_cmap());
   space = gtk_drawing_area_new();
   gtk_widget_pop_colormap();
   gtk_widget_pop_visual();
@@ -643,8 +644,7 @@ void load_image(){
 
   char *tmp;
   char *fname;
-  GdkImlibImage *image;
-  GdkVisual *visual;
+  GdkPixbuf *image;
 
   tmp = g_strconcat("gnotravex/", "gnotravex.png", NULL);
   fname = gnome_unconditional_pixmap_file(tmp);
@@ -654,16 +654,11 @@ void load_image(){
 	    , fname);
     exit(1);
   }
-  image = gdk_imlib_load_image(fname);
+  image = gdk_pixbuf_new_from_file(fname);
 
-  visual = gdk_imlib_get_visual();
-  if(visual->type != GDK_VISUAL_TRUE_COLOR) {
-    gdk_imlib_set_render_type(RT_PLAIN_PALETTE);
-  }
-  gdk_imlib_render(image, image->rgb_width, image->rgb_height);
-  tiles_pixmap = gdk_imlib_move_image(image);
-  
-  gdk_imlib_destroy_image(image);
+  gdk_pixbuf_render_pixmap_and_mask (image, &tiles_pixmap, NULL, 127);
+
+  gdk_pixbuf_unref (image);
   g_free(fname);
 }
 

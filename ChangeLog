@@ -1,3 +1,7 @@
+2001-06-16  Juan Pablo Mendoza <pablo_juan@yahoo.com>
+
+	* gnotravex.c: See you in hell imlib.
+
 2001-06-03  Juan Pablo Mendoza <pablo_juan@yahoo.com>
 
 	* gnotravex.c (main): Don't try to free the gnome_master_client to
