@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<omf>
+  <resource>
+    <title>
+      Manual de GNOME Tetravex
+    </title>
+    <subject>
+      <category>GNOME|Games</category>
+    </subject>
+    <format mime="text/sgml"/>
+    <identifier url="gnotravex.sgml"/>
+    <language code="es"/>
+  </resource>
+</omf>
