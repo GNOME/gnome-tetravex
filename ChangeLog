@@ -1,3 +1,7 @@
+2003-02-05  Ross Burton  <ross@burtonini.com>
+
+	* help/C/gnotravex.xml: Updated Rob's email.
+
 2002-12-11  Ross Burton  <ross@burtonini.com>
 
 	* gnotravex.c: Rename game to "GNOME Tetravex".
