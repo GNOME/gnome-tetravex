@@ -1,3 +1,8 @@
+2003-10-21  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* gnotravex.c: Converted the n x n strings to use the proper UTF-8
+	multiplication symbol. Also replaced some deprecated GTK+ functions.
+
 2003-09-15  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.c: Fix a crash in the hint code. Check everything

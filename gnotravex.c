@@ -179,19 +179,19 @@ GnomeUIInfo game_menu[] = {
 };
 
 GnomeUIInfo size_radio_list[] = {
-  { GNOME_APP_UI_ITEM, N_("_2x2"), N_("Play on a 2x2 board"),
+  { GNOME_APP_UI_ITEM, N_("_2\303\2272"), N_("Play on a 2\303\2272 board"),
     size_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
-  { GNOME_APP_UI_ITEM, N_("_3x3"), N_("Play on a 3x3 board"),
+  { GNOME_APP_UI_ITEM, N_("_3\303\2273"), N_("Play on a 3\303\2273 board"),
     size_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
-  { GNOME_APP_UI_ITEM, N_("_4x4"), N_("Play on a 4x4 board"),
+  { GNOME_APP_UI_ITEM, N_("_4\303\2274"), N_("Play on a 4\303\2274 board"),
     size_cb, "4", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
-  { GNOME_APP_UI_ITEM, N_("_5x5"), N_("Play on a 5x5 board"),
+  { GNOME_APP_UI_ITEM, N_("_5\303\2275"), N_("Play on a 5\303\2275 board"),
     size_cb, "5", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
-  { GNOME_APP_UI_ITEM, N_("_6x6"), N_("Play on a 6x6 board"),
+  { GNOME_APP_UI_ITEM, N_("_6\303\2276"), N_("Play on a 6\303\2276 board"),
     size_cb, "6", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
 
   GNOMEUIINFO_END
@@ -1040,7 +1040,7 @@ new_board (gint size)
   solve_me = 0;
 
   if (timer_timeout) {
-    gtk_timeout_remove (timer_timeout);
+    g_source_remove (timer_timeout);
     gtk_widget_set_sensitive (GTK_WIDGET (space), TRUE);
   }
   
@@ -1232,7 +1232,7 @@ new_game_cb (GtkWidget *widget, gpointer data)
   timer_start ();
   set_game_menu_items_sensitive (TRUE);
   update_move_menu_sensitivity ();
-  str = g_strdup_printf (_("Playing %dx%d board"), size, size);
+  str = g_strdup_printf (_("Playing %d\303\227%d board"), size, size);
   message (str);
   g_free (str);
 }
@@ -1348,7 +1348,7 @@ hint_move_cb (void)
     hint_moving = 0;
     count = 0;
     setup_mover (hint_dest_x + 1, hint_dest_y + 1, RELEASE);
-    gtk_timeout_remove (timer_timeout);
+    g_source_remove (timer_timeout);
     gtk_widget_set_sensitive (GTK_WIDGET (space), TRUE);
     if (game_state != playing) return;
     if (solve_me)
@@ -1365,7 +1365,7 @@ hint_move (gint x1, gint y1, gint x2, gint y2)
   setup_mover (hint_src_x + 1, hint_src_y + 1, PRESS);
   hint_moving = 1;
   gtk_widget_set_sensitive (GTK_WIDGET (space), FALSE);
-  timer_timeout = gtk_timeout_add (DELAY, (GtkFunction) (hint_move_cb), NULL);
+  timer_timeout = g_timeout_add (DELAY, (GSourceFunc) (hint_move_cb), NULL);
 }
 
 void
