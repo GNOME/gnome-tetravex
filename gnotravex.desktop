@@ -14,7 +14,7 @@ Comment[fr]=Jeu Tetravex GNOME
 Comment[no]=Tetravex spill for GNOME
 Comment[ru]=Игра Тетравекс для Gnome
 Exec=gnotravex
-Icon=gnome-gnotravex.png
+Icon=gnotravex/gnome-gnotravex.png
 Terminal=0
 Type=Application
 

@@ -16,7 +16,7 @@ gnotravex_LDADD = \
 	$(GNOMEUI_LIBS)					
 	$(INTLLIBS) 
 
-pixmap_DATA = gnotravex.png
+pixmap_DATA = gnotravex.png gnome-gnotravex.png
 
 Games_DATA = gnotravex.desktop
 
