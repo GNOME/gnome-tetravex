@@ -3,6 +3,7 @@ pixmapdir=$(datadir)/pixmaps/gnotravex
 Gamesdir=$(datadir)/applications
 
 INCLUDES = 			\
+	-I$(top_srcdir)/libgames-support \
 	$(GNOME_GAMES_CFLAGS)	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-I$(includedir)
@@ -14,6 +15,7 @@ gnotravex_SOURCES =	\
 
 gnotravex_LDADD = \
 	$(GNOME_GAMES_LIBS) \
+	../libgames-support/libgames-support.la \
 	$(INTLLIBS) 
 
 pixmap_DATA = gnotravex.png gnome-gnotravex.png

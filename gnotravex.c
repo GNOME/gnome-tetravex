@@ -21,6 +21,7 @@
 #include <gnome.h>
 #include <libgnomeui/gnome-window-icon.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <games-clock.h>
 #include <time.h>
 
 #define APPNAME "gnotravex"
@@ -443,9 +444,7 @@ int setup_mover(int x,int y,int status){
     mover.pixmap = NULL;
     if(game_over()){
       paused = 1;
-#if 0
-      gtk_clock_stop(GTK_CLOCK(timer));
-#endif
+      games_clock_stop(GAMES_CLOCK(timer));
       if(!have_been_hinted){
 	message(_("Puzzle solved! Well done!"));
 	game_score();
@@ -539,12 +538,8 @@ void game_score(){
   gchar level[5];
   
   sprintf(level,"%dx%d",SIZE,SIZE);
-#if 0
-  seconds = GTK_CLOCK(timer)->stopped;
-  gtk_clock_set_seconds(GTK_CLOCK(timer), (int) seconds);
-#else
-  seconds = 100;
-#endif
+  seconds = GAMES_CLOCK(timer)->stopped;
+  games_clock_set_seconds(GAMES_CLOCK(timer), (int) seconds);
   score = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
   pos = gnome_score_log(score,level,FALSE);
   gnome_scores_display (_(APPNAME_LONG), APPNAME, level, pos);
@@ -608,14 +603,12 @@ void create_space(){
 void create_statusbar(){
   GtkWidget *time_label,*time_box;
   time_box = gtk_hbox_new(0, FALSE);
-  time_label = gtk_label_new (_("Time:"));
+  time_label = gtk_label_new (_("Time : "));
   gtk_box_pack_start (GTK_BOX(time_box), time_label, FALSE, FALSE, 0);
-#if 0
-  timer = gtk_clock_new (GTK_CLOCK_INCREASING);
+  timer = games_clock_new ();
   gtk_box_pack_start (GTK_BOX(time_box), timer, FALSE, FALSE, 0);
   gtk_widget_show (time_label);
   gtk_widget_show (timer);
-#endif
   gtk_widget_show (time_box);
 
   statusbar = gnome_appbar_new(FALSE, TRUE, GNOME_PREFERENCES_USER);
@@ -747,23 +740,17 @@ void pause_cb(){
   paused = !paused;
   if(paused){
     message(_("... Game paused ..."));
-#if 0   
-    gtk_clock_stop(GTK_CLOCK(timer));
-#endif
+    games_clock_stop(GAMES_CLOCK(timer));
   } else {
     message("");
-#if 0
-    gtk_clock_start(GTK_CLOCK(timer));
-#endif
+    games_clock_start(GAMES_CLOCK(timer));
   }
 }
 
 void timer_start(){
-#if 0
-  gtk_clock_stop(GTK_CLOCK(timer));
-  gtk_clock_set_seconds(GTK_CLOCK(timer), 0);
-  gtk_clock_start(GTK_CLOCK(timer));
-#endif
+  games_clock_stop(GAMES_CLOCK(timer));
+  games_clock_set_seconds(GAMES_CLOCK(timer), 0);
+  games_clock_start(GAMES_CLOCK(timer));
 }
 
 /* --------------------------- MENU --------------------- */
