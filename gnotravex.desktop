@@ -1,10 +1,12 @@
 [Desktop Entry]
 Name=Gnotravex
 Name[es]=Gnotravex
+Name[fi]=Gnotravex
 Name[fr]=Gnotravex
 Name[ru]=Гнотравекс
 Comment=Gnome Tetravex game
 Comment[es]=Juego de reflexiСn clСnico de Tetravex
+Comment[fi]=Gnome-Tetravex-peli
 Comment[fr]=Jeu Tetravex GNOME
 Comment[ru]=Игра Тетравекс для Gnome
 Exec=gnotravex
