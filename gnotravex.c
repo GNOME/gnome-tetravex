@@ -658,7 +658,7 @@ void load_image(){
   GdkPixbuf *image;
 
   tmp = g_strconcat("gnotravex/", "gnotravex.png", NULL);
-  fname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_PIXMAP, (tmp), FALSE, NULL);
+  fname = gnome_program_locate_file (NULL, GNOME_FILE_DOMAIN_APP_PIXMAP, (tmp), FALSE, NULL);
   g_free(tmp);
   if(!g_file_test (fname, G_FILE_TEST_EXISTS)) {
     g_print(N_("Could not find \'%s\' pixmap file\n")\
@@ -976,7 +976,7 @@ void about_cb(GtkWidget *widget, gpointer data){
 	  char *filename = NULL;
 
 	  filename = gnome_program_locate_file (NULL,
-			  GNOME_FILE_DOMAIN_PIXMAP,
+			  GNOME_FILE_DOMAIN_APP_PIXMAP,
 			  "gnotravex/gnome-gnotravex.png",
 			  TRUE, NULL);
 	  if (filename != NULL)
@@ -994,6 +994,7 @@ void about_cb(GtkWidget *widget, gpointer data){
                           (const char **)documenters,
                           strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
 			  pixbuf);
+  gtk_window_set_transient_for (GTK_WINDOW (about), GTK_WINDOW (window));
   gtk_widget_show(about);
 }
 
