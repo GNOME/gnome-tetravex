@@ -4,3 +4,4 @@ Makefile.in
 gnotravex
 .libs
 gnotravex.desktop
+gnotravex.schemas
