@@ -23,7 +23,7 @@
 
 #define APPNAME "gnotravex"
 #define APPNAME_LONG "Gnome Tetravex"
-#define GNOTRAVEX_VERSION "0.10"
+#define GNOTRAVEX_VERSION "0.20"
 
 #define TILE_SIZE 51
 
@@ -62,14 +62,19 @@ typedef struct _tile {
 } tile;
 
 tile tiles[9][18];
+tile orig_tiles[9][9];
 
 gint statusbar_id;
 gint SIZE=3;
 int paused=0;
+int have_been_hinted=0;
+int solve_me=0;
+int hint_moving = 0;
 int session_flag = 0;
 int session_xpos = 0;
 int session_ypos = 0;
 int session_position  = 0;
+guint timer_timeout = 0;
 
 void create_window();
 void create_menu();
@@ -101,6 +106,8 @@ void size_cb(GtkWidget *, gpointer);
 void move_cb(GtkWidget *, gpointer);
 void about_cb(GtkWidget *, gpointer);
 void score_cb(GtkWidget *, gpointer);
+void hint_cb(GtkWidget *, gpointer);
+void solve_cb(GtkWidget *, gpointer);
 
 GnomeUIInfo file_menu[] = {
   { GNOME_APP_UI_ITEM, N_("_New"), "Start a new game", new_game_cb, NULL, NULL,
@@ -109,6 +116,9 @@ GnomeUIInfo file_menu[] = {
     GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_TIMER_STOP, 0, GDK_CONTROL_MASK,NULL },
   {GNOME_APP_UI_ITEM, N_("Scores"), NULL, score_cb, NULL, NULL,
    GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_SCORES, 0, 0, NULL},
+  GNOMEUIINFO_SEPARATOR,
+  { GNOME_APP_UI_ITEM, N_("_Hint"), NULL, hint_cb, NULL, NULL,GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_JUMP_TO, 'h', GDK_CONTROL_MASK, NULL },
+  { GNOME_APP_UI_ITEM, N_("Solve"), NULL, solve_cb, NULL, NULL,GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_REFRESH, 0, 0, NULL },
   GNOMEUIINFO_SEPARATOR,
   { GNOME_APP_UI_ITEM, N_("_Quit"), NULL, quit_game_cb, NULL, NULL,
     GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_EXIT, 'q', GDK_CONTROL_MASK,NULL },
@@ -136,8 +146,6 @@ GnomeUIInfo move_menu[] = {
   {GNOME_APP_UI_ITEM, N_("Down"), NULL, move_cb, "s", NULL,GNOME_APP_PIXMAP_NONE, NULL, 0, 0, NULL},
   GNOMEUIINFO_END
 };
-
-
 
 GnomeUIInfo help_menu[] = {
   { GNOME_APP_UI_ITEM, N_("_About Gnotravex"), NULL, about_cb, NULL, NULL,GNOME_APP_PIXMAP_STOCK, GNOME_STOCK_MENU_ABOUT, 0, 0, NULL },
@@ -331,6 +339,18 @@ void gui_draw_pixmap(GdkPixmap *target, gint x, gint y){
     gdk_gc_destroy(gc);
 }
 
+void get_pixeltilexy(int x,int y,int *xx,int *yy){
+  int sumx=CORNER,sumy=CORNER;
+  
+  if(x>=SIZE)
+    sumx += GAP;
+  
+  sumx += x*TILE_SIZE;
+  sumy += y*TILE_SIZE;
+  *xx = sumx;
+  *yy = sumy;
+}
+
 void get_tilexy(int x,int y,int *xx,int *yy){
   
   x = x - CORNER; y = y - CORNER;
@@ -390,8 +410,14 @@ int setup_mover(int x,int y,int status){
     if(mover.pixmap) gdk_pixmap_unref(mover.pixmap);
     mover.pixmap = NULL;
     if(game_over()){
-      message("Puzzle solved! Well done!");
-      game_score();
+      paused = 1;
+      gtk_clock_stop(GTK_CLOCK(timer));
+      if(!have_been_hinted){
+	message("Puzzle solved! Well done!");
+	game_score();
+      } else {
+	message("Puzzle solved!");
+      }
     }
     return 1;
   }
@@ -479,10 +505,8 @@ void game_score(){
   gchar level[5];
   
   sprintf(level,"%dx%d",SIZE,SIZE);
-  gtk_clock_stop(GTK_CLOCK(timer));
   seconds = GTK_CLOCK(timer)->stopped;
   gtk_clock_set_seconds(GTK_CLOCK(timer), (int) seconds);
-  paused = 1;
   score = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
   pos = gnome_score_log(score,level,FALSE);
   gnome_scores_display (_(APPNAME_LONG), APPNAME, level, pos);
@@ -614,6 +638,18 @@ void new_board(int size){
   int x,y,x1,y1,i,j;
   tile tmp;
 
+  have_been_hinted = 0;
+  solve_me = 0;
+
+  if(timer_timeout)
+    gtk_timeout_remove(timer_timeout);
+  
+  if(button_down || hint_moving){
+    setup_mover(0,0,RELEASE);
+    button_down = 0;
+    hint_moving = 0;
+  }
+
   srand(time(NULL)+myrand);
 
   myrand += 17;
@@ -639,6 +675,11 @@ void new_board(int size){
     for(x=size;x<size*2;x++)
       tiles[y][x].s = tiles[y+1][x].n;
 
+  /* Copy tiles to orig_tiles */
+  for(y=0; y<size; y++)
+    for(x=0; x<size; x++)
+      orig_tiles[y][x] = tiles[y][x+size];
+
   /* Unsort */
   j=0;
   do {
@@ -651,7 +692,7 @@ void new_board(int size){
       tiles[y1][x1] = tiles[y][x];
       tiles[y][x] = tmp;
     }
-  } while(tiles[0][SIZE].e == tiles[0][SIZE+1].w && j++ < 8); 
+  } while(tiles[0][SIZE].e == tiles[0][SIZE+1].w && j++ < 8);
 }
 
 void get_bg_color(){
@@ -688,11 +729,6 @@ void new_game_cb(GtkWidget *widget, gpointer data){
   char str[40];
   widget = space;
   
-  if(button_down==1){
-    setup_mover(0,0,RELEASE);
-    button_down = 0;
-  }
-
   new_board(SIZE);
   gtk_drawing_area_size(GTK_DRAWING_AREA(space),CORNER*2 + GAP+ SIZE*TILE_SIZE*2,SIZE*TILE_SIZE + CORNER*2);
   if(buffer)
@@ -760,6 +796,124 @@ void move_cb(GtkWidget *widget, gpointer data){
   move_column((unsigned char)*((gchar *) data));
 }
 
+int compare_tile(tile *t1, tile *t2){
+  if(t1->e == t2->e &&
+     t1->w == t2->w &&
+     t1->s == t2->s &&
+     t1->n == t2->n) return 0;
+  return 1;
+}
+
+void find_first_tile(int status, int *xx, int *yy){
+  int x,y,size = SIZE;
+  for(y=0;y<size;y++)
+    for(x=size;x<size*2;x++)
+      if(tiles[y][x].status == status){
+	*xx = x; *yy = y;
+	return;
+      }
+}
+
+#define COUNT 15
+#define DELAY 10
+
+int hint_src_x,hint_src_y,hint_dest_x,hint_dest_y;
+
+void hint_move_cb(){
+  float dx, dy;
+  static int count = 0;
+  dx = (float) (hint_src_x - hint_dest_x)/COUNT; 
+  dy = (float) (hint_src_y - hint_dest_y)/COUNT; 
+  if(count <= COUNT){
+    gdk_window_move(mover.window, hint_src_x - (int) (count*dx), (int) hint_src_y - (int) (count*dy));
+    count++;
+  }
+  if(count > COUNT){
+    hint_moving = 0;
+    count = 0;
+    setup_mover(hint_dest_x + 1,hint_dest_y + 1,RELEASE);
+    gtk_timeout_remove(timer_timeout);
+    if(paused) return;
+    if(solve_me)
+      hint_cb(NULL,NULL);
+  }
+}
+
+void hint_move(int x1,int y1, int x2, int y2){
+  have_been_hinted = 1;
+  get_pixeltilexy(x1,y1,&hint_src_x, &hint_src_y);
+  get_pixeltilexy(x2,y2,&hint_dest_x, &hint_dest_y);
+  setup_mover(hint_src_x + 1,hint_src_y + 1,PRESS);
+  hint_moving = 1;
+  timer_timeout = gtk_timeout_add (DELAY, (GtkFunction) (hint_move_cb), NULL);
+}
+
+void hint_cb(GtkWidget *widget, gpointer data){
+
+  int x1, y1, x2, y2, x, y, size = SIZE;
+  tile hint_tile;
+
+  if(game_over() || button_down || paused || hint_moving) return;
+  
+  find_first_tile(USED,&x,&y);
+  x1 = x; y1 = y;
+  hint_tile = tiles[y][x];
+
+  /* Find position in original map */
+  for(y=0;y<size;y++)
+    for(x=0;x<size;x++)
+      if(compare_tile(&hint_tile,&orig_tiles[y][x]) == 0){
+	if(tiles[y][x].status == USED && compare_tile(&hint_tile,&tiles[y][x])==0){
+	  /* Do Nothing */
+	} else {
+	  x2 = x; y2 = y;
+	  x=size; y=size;
+	}
+      }
+  
+  /* Tile I want to hint about is busy. Move the busy tile away! */
+  if(tiles[y2][x2].status == USED){
+    find_first_tile(UNUSED,&x1,&y1);
+    hint_move(x2,y2,x1,y1);
+    return;
+  }
+  
+  /* West */
+  if(x2!=0 && tiles[y2][x2-1].status == USED && tiles[y2][x2-1].e != hint_tile.w){
+    find_first_tile(UNUSED,&x1,&y1);
+    hint_move(x2-1,y2,x1,y1);
+    return;
+  }
+
+  /* East */
+  if(x2!=SIZE-1 && tiles[y2][x2+1].status == USED && tiles[y2][x2+1].w != hint_tile.e){
+    find_first_tile(UNUSED,&x1,&y1);
+    hint_move(x2+1,y2,x1,y1);
+    return;
+  }
+
+  /* North */
+  if(y2!=0 && tiles[y2-1][x2].status == USED && tiles[y2-1][x2].s != hint_tile.n){
+    find_first_tile(UNUSED,&x1,&y1);
+    hint_move(x2,y2-1,x1,y1);
+    return;
+  }
+  
+  /* South */
+  if(y2!=SIZE-1 && tiles[y2+1][x2].status == USED && tiles[y2+1][x2].n != hint_tile.s){
+    find_first_tile(UNUSED,&x1,&y1);
+    hint_move(x2,y2+1,x1,y1);
+    return;
+  }
+
+  hint_move(x1,y1,x2,y2);
+}
+
+void solve_cb(GtkWidget *widget, gpointer data){
+  solve_me = 1;
+  hint_cb(widget,NULL);
+}
+
 void about_cb(GtkWidget *widget, gpointer data){
   GtkWidget *about;
   
@@ -772,12 +926,6 @@ void about_cb(GtkWidget *widget, gpointer data){
 			  NULL);
   gtk_widget_show(about);
 }
-
-
-
-
-
-
 
 
 
