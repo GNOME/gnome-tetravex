@@ -528,10 +528,21 @@ int game_over(){
   return 1;
 }
 
+void show_score_dialog(const gchar *level, gint pos)
+{
+  GtkWidget *dialog;
+
+  dialog = gnome_scores_display (_(APPNAME_LONG), APPNAME, level, pos);
+  if (dialog != NULL) {
+    gtk_window_set_transient_for (GTK_WINDOW(dialog), GTK_WINDOW(window));
+    gtk_window_set_modal (GTK_WINDOW(dialog), TRUE);
+  }
+}
+
 void score_cb(GtkWidget *widget, gpointer data){
   gchar level[5];
   sprintf(level,"%dx%d",SIZE,SIZE);
-  gnome_scores_display (_(APPNAME_LONG), APPNAME, level, 0);
+  show_score_dialog (level, 0);
 }
 
 void game_score(){
@@ -546,7 +557,7 @@ void game_score(){
   score = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
   pos = gnome_score_log(score,level,FALSE);
   update_score_state ();
-  gnome_scores_display (_(APPNAME_LONG), APPNAME, level, pos);
+  show_score_dialog (level, pos);
 }
 
 void update_score_state ()
@@ -1070,7 +1081,7 @@ void solve_cb(GtkWidget *widget, gpointer data){
 }
 
 void about_cb(GtkWidget *widget, gpointer data){
-  GtkWidget *about;
+  static GtkWidget *about = NULL;
   GdkPixbuf *pixbuf = NULL;
   
   const gchar *authors[] = { "Lars Rydlinge", NULL };
@@ -1080,6 +1091,10 @@ void about_cb(GtkWidget *widget, gpointer data){
   /* Translator credits */
   gchar *translator_credits = _("translator_credits");
 
+  if (about != NULL) {
+    gtk_window_present (GTK_WINDOW(about));
+    return;
+  }
   {
 	  char *filename = NULL;
 
@@ -1103,6 +1118,7 @@ void about_cb(GtkWidget *widget, gpointer data){
                           strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
 			  pixbuf);
   gtk_window_set_transient_for (GTK_WINDOW (about), GTK_WINDOW (window));
+  g_signal_connect (G_OBJECT (about), "destroy", G_CALLBACK (gtk_widget_destroyed), &about);
   gtk_widget_show(about);
 }
 
