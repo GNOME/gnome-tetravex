@@ -96,6 +96,7 @@ int valid_drop(int,int);
 void move_column(unsigned char);
 int game_over();
 void game_score();
+void update_score_state ();
 gint timer_cb();
 void timer_start();
 void pause_cb();
@@ -231,6 +232,8 @@ int main (int argc, char **argv){
 
   create_space(); 
   create_statusbar();
+
+  update_score_state ();
 
   if(session_xpos >= 0 && session_ypos >= 0)
     gtk_widget_set_uposition(window, session_xpos, session_ypos);
@@ -542,7 +545,29 @@ void game_score(){
   games_clock_set_seconds(GAMES_CLOCK(timer), (int) seconds);
   score = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
   pos = gnome_score_log(score,level,FALSE);
+  update_score_state ();
   gnome_scores_display (_(APPNAME_LONG), APPNAME, level, pos);
+}
+
+void update_score_state ()
+{
+        gchar **names = NULL;
+        gfloat *scores = NULL;
+        time_t *scoretimes = NULL;
+	gint top;
+	gchar level[5];
+
+	sprintf(level,"%dx%d",SIZE,SIZE);
+
+	top = gnome_score_get_notable(APPNAME, level, &names, &scores, &scoretimes);
+	if (top > 0) {
+		gtk_widget_set_sensitive (game_menu[6].widget, TRUE);
+		g_strfreev(names);
+		g_free(scores);
+		g_free(scoretimes);
+	} else {
+		gtk_widget_set_sensitive (game_menu[6].widget, FALSE);
+	}
 }
 
 gint configure_space(GtkWidget *widget, GdkEventConfigure *event){
@@ -916,6 +941,7 @@ void size_cb(GtkWidget *widget, gpointer data){
   int size;
   size = atoi((gchar *)data);
   SIZE = size;
+  update_score_state ();
   new_game_cb(space,NULL);
 }
 
