@@ -1,3 +1,8 @@
+2002-04-15  Bastien Nocera  <hadess@hadess.net>
+
+	* gnotravex.c: (save_state): remove nstr(), patch from
+	r_kinder@yahoo.com (Richard Kinder)
+
 2002-02-17  Chris Lyttle  <chris@wilddev.net>
 
 	* help/C/gnotravex.xml: updated for new template.
