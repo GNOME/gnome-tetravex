@@ -299,6 +299,50 @@ main (int argc, char **argv)
   return 0;
 }
 
+/* Enable or disable the game menu items that are only relevant
+ * during a game. */
+static
+void set_game_menu_items_sensitive (gboolean state)
+{
+  gtk_widget_set_sensitive (game_menu[1].widget, state);
+  gtk_widget_set_sensitive (game_menu[3].widget, state);
+  gtk_widget_set_sensitive (game_menu[4].widget, state);
+}
+
+/* Show only valid options in the move menu. */
+static
+void update_move_menu_sensitivity (void)
+{
+  int x,y;
+  gboolean clear;
+  gboolean n, w, e, s;
+  
+  n = w = e = s = TRUE;
+
+  clear = TRUE;
+  for (x = 0; x < SIZE; x++) {
+    if (tiles[0][x].status == USED)
+      n = FALSE;
+    if (tiles[x][0].status == USED)
+      w = FALSE;
+    if (tiles[x][SIZE-1].status == USED)
+      e = FALSE;
+    if (tiles[SIZE-1][x].status == USED)
+      s = FALSE;
+    for (y = 0; y<SIZE; y++)
+      if (tiles[x][y].status == USED)
+        clear = FALSE;
+  }
+
+  if (clear) /* Can't move nothing. */
+    n = w = e = s = FALSE;
+  
+  gtk_widget_set_sensitive (move_menu[0].widget, n);
+  gtk_widget_set_sensitive (move_menu[1].widget, w);
+  gtk_widget_set_sensitive (move_menu[2].widget, e);
+  gtk_widget_set_sensitive (move_menu[3].widget, s);
+}
+
 static gint
 get_space_width (void)
 {
@@ -670,6 +714,7 @@ setup_mover (gint x, gint y, gint status)
     if (game_over ()) {
       game_state = gameover;
       games_clock_stop (GAMES_CLOCK (timer));
+      set_game_menu_items_sensitive (FALSE);
       if (! have_been_hinted) {
 	message (_("Puzzle solved! Well done!"));
 	game_score ();
@@ -677,6 +722,7 @@ setup_mover (gint x, gint y, gint status)
 	message (_("Puzzle solved!"));
       }
     }
+    update_move_menu_sensitivity ();
     return 1;
   }
   return 0;
@@ -763,6 +809,7 @@ move_column (unsigned char dir)
   default:
     break;
   }
+  update_move_menu_sensitivity ();
 }
 
 gint
@@ -1206,6 +1253,8 @@ new_game_cb (GtkWidget *widget, gpointer data)
   gtk_widget_thaw_child_notify (space);
   game_state = playing;
   timer_start ();
+  set_game_menu_items_sensitive (TRUE);
+  update_move_menu_sensitivity ();
   sprintf (str, _("Playing %dx%d board"), SIZE, SIZE);
   message (str);
 }

@@ -1,8 +1,10 @@
 2003-06-22  Callum McKenzie  <callum@physics.otago.ac.nz>
 
-	* gnotravex.c (create_statusbar): Space before punctuation fixes
+	* gnotravex.c: Space before punctuation fixes
 	as per bug #115694. Also enforce the space between the label and
-	the time via an extra blank label.
+	the time via an extra blank label (ugly, but doing it in the label
+	is worse from an i18n perspective). Also make sure that menu items
+	are only sensitive when need.
 
 	* gnotravex.schemas.in: Remove the period from the end of short
 	descriptions.
