@@ -45,6 +45,9 @@
 #define KEY_WINDOW_WIDTH "/apps/gnotravex/width"
 #define KEY_WINDOW_HEIGHT "/apps/gnotravex/height"
 
+/* i18n in-game numbers, replaceable with single-character local ideograms. */
+const char *translatable_number[10] = { N_("0"), N_("1"), N_("2"), N_("3"), N_("4"), N_("5"), N_("6"), N_("7"), N_("8"), N_("9") }; 
+
 GtkWidget *window;
 GtkWidget *statusbar;
 GtkWidget *space;
@@ -561,8 +564,11 @@ gui_draw_text_int (GdkPixmap *target, gint value, GtkStateType state,
                    gint x, gint y)
 {
   PangoLayout *layout;
-  gchar *markup;
+  PangoAttrList *alist;
+  PangoAttribute *attr;
+  PangoFontDescription *font_desc;
   PangoRectangle extent;
+  gchar *text;
   guint64 font_size;
 
   if (! target) 
@@ -570,39 +576,33 @@ gui_draw_text_int (GdkPixmap *target, gint value, GtkStateType state,
   if (! space) 
     return;
 
-  /* FIXME: This is an awful, awful hack. */
+  font_size = tile_size / 3.5 * PANGO_SCALE;
 
-  /* FIXME: There is an excessive use of large integer math here. Be
-     careful. */
+  text = _(translatable_number[value]);
+  layout = gtk_widget_create_pango_layout (space, text);
 
-  /* FIXME: There are two obvious bugs with this approach. One is that
-   * it assumes that the height of the digit is its longest
-   * dimension. The other is that is assumes that all digits are the
-   * same height (and if they aren't they will be made that way). */
-      
-  /* An initial guess at the right size, good for 96 dpi screens. */
-  font_size = (tile_size / 5) * PANGO_SCALE * 0.8;
-  markup = g_strdup_printf ("<span size=\"%d\" weight=\"bold\" font_family=\"sans\">%d</span>",
-                            (guint32)font_size, value);
-  layout = gtk_widget_create_pango_layout (space, "");
-  pango_layout_set_markup (layout, markup, -1);
+  font_desc = pango_font_description_new();
+  pango_font_description_set_family(font_desc, "Sans");
+  pango_font_description_set_absolute_size(font_desc, font_size);
+  pango_font_description_set_weight(font_desc, PANGO_WEIGHT_BOLD);
+  
+  alist = pango_attr_list_new ();
+  attr = pango_attr_font_desc_new(font_desc);
+  attr->start_index = 0;
+  attr->end_index = strlen(text);
+  pango_attr_list_insert (alist, attr);
+  pango_layout_set_attributes (layout, alist);
+  pango_attr_list_unref (alist);
 
-  pango_layout_get_extents (layout, &extent, NULL);
-  g_free (markup); 
-
-  /* And now correct it to make it right based on the current font. */
-  font_size = (font_size*(guint)tile_size*(guint)PANGO_SCALE)/(5*(guint)extent.height);
-  markup = g_strdup_printf ("<span size=\"%d\" weight=\"bold\" font_family=\"sans\">%d</span>",
-                            (guint32)font_size, value);
-  pango_layout_set_markup (layout, markup, -1);
   pango_layout_get_extents (layout, NULL, &extent);
   x = x - ((guint)extent.width)/(2*PANGO_SCALE);
   y = y - ((guint)extent.height)/(2*PANGO_SCALE);
 
   gdk_draw_layout (target, space->style->text_gc[state], 
                    x, y, layout);
+
+  pango_font_description_free(font_desc);
   g_object_unref (layout);
-  g_free (markup);
 }
 
 void
@@ -731,7 +731,7 @@ setup_mover (gint x, gint y, gint status)
   
   if (status == PRESS) {
     get_tilexy (x, y, &xx, &yy);
-    if (x == -1)
+    if (xx == -1)
       return 0; /* No move */
     if (tiles[yy][xx].status == UNUSED)
       return 0; /* No move */

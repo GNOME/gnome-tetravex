@@ -1,3 +1,9 @@
+2005-05-11  Richard Hoelscher  <rah@rahga.com>
+
+	* gnotravex.c (gui_draw_pixmap): Remove the pango absolute font size
+	workaround, and support localization of the numbers in the puzzle.
+	* (setup_mover): Fix a minor bug from previous patch. (#303836)
+
 2005-03-31  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.c: Hilight the movable objects as the mouse moves over
