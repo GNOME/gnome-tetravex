@@ -29,7 +29,7 @@
 #include <gconf/gconf-client.h>
 
 #define APPNAME "gnotravex"
-#define APPNAME_LONG "GNOME Tetravex"
+#define APPNAME_LONG "Tetravex"
 
 /* This is based on the point where the numbers become unreadable on my
  * screen at 3x3. - Callum */
