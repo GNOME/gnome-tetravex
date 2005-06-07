@@ -27,6 +27,7 @@
 #include <games-clock.h>
 #include <time.h>
 #include <gconf/gconf-client.h>
+#include <games-stock.h>
 
 #define APPNAME "gnotravex"
 #define APPNAME_LONG "Tetravex"
@@ -100,10 +101,9 @@ gint tile_size = 0;
 
 void make_buffer (GtkWidget *);
 void create_window (void);
-void create_menu (void);
-void create_space (void);
+GtkWidget * create_menu (GtkUIManager *);
 void create_mover (void);
-void create_statusbar (void);
+GtkWidget * create_statusbar (void);
 
 gint expose_space (GtkWidget *, GdkEventExpose *);
 gint button_press_space (GtkWidget *, GdkEventButton *);
@@ -146,93 +146,96 @@ void show_score_dialog (const gchar *, gint);
 static gint save_state (GnomeClient*, gint, GnomeRestartStyle,
                         gint, GnomeInteractStyle, gint, gpointer);
 
+GtkAction *new_game_action;
+GtkAction *pause_action;
+GtkAction *resume_action;
+GtkAction *hint_action;
+GtkAction *solve_action;
+GtkAction *scores_action;
+GtkAction *move_up_action;
+GtkAction *move_left_action;
+GtkAction *move_right_action;
+GtkAction *move_down_action;
+
 /* ------------------------- MENU ------------------------ */
-void new_game_cb (GtkWidget *, gpointer);
-void quit_game_cb (GtkWidget *, gpointer);
-void size_cb (GtkWidget *, gpointer);
-void move_cb (GtkWidget *, gpointer);
-void about_cb (GtkWidget *, gpointer);
-void score_cb (GtkWidget *, gpointer);
-void hint_cb (GtkWidget *, gpointer);
-void solve_cb (GtkWidget *, gpointer);
+void new_game_cb (GtkAction *, gpointer);
+void size_cb (GtkAction *, gpointer);
+void about_cb (GtkAction *, gpointer);
+void score_cb (GtkAction *, gpointer);
+void hint_cb (GtkAction *, gpointer);
+void solve_cb (GtkAction *, gpointer);
+void move_up_cb (GtkAction *, gpointer);
+void move_left_cb (GtkAction *, gpointer);
+void move_right_cb (GtkAction *, gpointer);
+void move_down_cb (GtkAction *, gpointer);
+void help_cb (GtkAction *, gpointer);
+void quit_game_cb (void);
 
-GnomeUIInfo game_menu[] = {
-  GNOMEUIINFO_MENU_NEW_GAME_ITEM (new_game_cb, NULL),
-
-  GNOMEUIINFO_MENU_PAUSE_GAME_ITEM (pause_cb, NULL),
-
-  GNOMEUIINFO_SEPARATOR,
-
-  GNOMEUIINFO_MENU_HINT_ITEM (hint_cb, NULL),
-
-  { GNOME_APP_UI_ITEM, N_("Sol_ve"), N_("Solve the game"),
-    solve_cb, NULL, NULL,GNOME_APP_PIXMAP_STOCK,
-    GTK_STOCK_REFRESH, 0, 0, NULL },
-
-  GNOMEUIINFO_SEPARATOR,
-
-  GNOMEUIINFO_MENU_SCORES_ITEM (score_cb, NULL),
-
-  GNOMEUIINFO_SEPARATOR,
-
-  GNOMEUIINFO_MENU_QUIT_ITEM (quit_game_cb, NULL),
-
-  GNOMEUIINFO_END
+const GtkActionEntry action_entry[] = {
+  { "GameMenu", NULL, N_("_Game") },
+  { "MoveMenu", NULL, N_("_Move") },
+  { "SizeMenu", NULL, N_("_Size") },
+  { "HelpMenu", NULL, N_("_Help") },
+  { "NewGame", GAMES_STOCK_NEW_GAME, NULL, NULL, NULL, G_CALLBACK (new_game_cb) },
+  { "PauseGame", GAMES_STOCK_PAUSE_GAME, NULL, NULL, NULL, G_CALLBACK (pause_cb) },
+  { "ResumeGame", GAMES_STOCK_RESUME_GAME, NULL, NULL, NULL, G_CALLBACK (pause_cb) },
+  { "Hint", GAMES_STOCK_HINT, NULL, NULL, NULL, G_CALLBACK (hint_cb) },
+  { "Solve", GTK_STOCK_REFRESH, N_("Sol_ve"), NULL, N_("Solve the game"), G_CALLBACK (solve_cb) },
+  { "Scores", GAMES_STOCK_SCORES, NULL, NULL, NULL, G_CALLBACK (score_cb) },
+  { "Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_game_cb) },
+  { "MoveUp", GTK_STOCK_GO_UP, N_("_Up"), NULL, N_("Move the pieces up"), G_CALLBACK (move_up_cb) },
+  { "MoveLeft", GTK_STOCK_GO_BACK, N_("_Left"), NULL, N_("Move the pieces left"), G_CALLBACK (move_left_cb) },
+  { "MoveRight", GTK_STOCK_GO_FORWARD, N_("_Right"), NULL, N_("Move the pieces right"), G_CALLBACK (move_right_cb) },
+  { "MoveDown", GTK_STOCK_GO_DOWN, N_("_Down"), NULL, N_("Move the pieces down"), G_CALLBACK (move_down_cb) },
+  { "Contents", GAMES_STOCK_CONTENTS, NULL, NULL, NULL, G_CALLBACK (help_cb) },
+  { "About", GTK_STOCK_ABOUT, NULL, NULL, NULL, G_CALLBACK (about_cb) }
 };
 
-GnomeUIInfo size_radio_list[] = {
-  { GNOME_APP_UI_ITEM, N_("_2\303\2272"), N_("Play on a 2\303\2272 board"),
-    size_cb, "2", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-
-  { GNOME_APP_UI_ITEM, N_("_3\303\2273"), N_("Play on a 3\303\2273 board"),
-    size_cb, "3", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-
-  { GNOME_APP_UI_ITEM, N_("_4\303\2274"), N_("Play on a 4\303\2274 board"),
-    size_cb, "4", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-
-  { GNOME_APP_UI_ITEM, N_("_5\303\2275"), N_("Play on a 5\303\2275 board"),
-    size_cb, "5", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-
-  { GNOME_APP_UI_ITEM, N_("_6\303\2276"), N_("Play on a 6\303\2276 board"),
-    size_cb, "6", NULL, GNOME_APP_PIXMAP_DATA, NULL, 0, 0, NULL },
-
-  GNOMEUIINFO_END
+const GtkRadioActionEntry size_action_entry[] = {
+  { "Size2x2", NULL, N_("_2\303\2272"), NULL, N_("Play on a 2\303\2272 board"), 2 },
+  { "Size3x3", NULL, N_("_3\303\2273"), NULL, N_("Play on a 3\303\2273 board"), 3 },
+  { "Size4x4", NULL, N_("_4\303\2274"), NULL, N_("Play on a 4\303\2274 board"), 4 },
+  { "Size5x5", NULL, N_("_5\303\2275"), NULL, N_("Play on a 5\303\2275 board"), 5 },
+  { "Size6x6", NULL, N_("_6\303\2276"), NULL, N_("Play on a 6\303\2276 board"), 6 }
 };
 
-GnomeUIInfo move_menu[] = {
-  {GNOME_APP_UI_ITEM, N_("_Up"), N_("Move the pieces up"),
-   move_cb, "n", NULL, GNOME_APP_PIXMAP_STOCK, GTK_STOCK_GO_UP, 0, 0, NULL},
+GtkAction *size_action[G_N_ELEMENTS(size_action_entry)];
 
-  {GNOME_APP_UI_ITEM, N_("_Left"), N_("Move the pieces left"),
-   move_cb, "w", NULL, GNOME_APP_PIXMAP_STOCK, GTK_STOCK_GO_BACK, 0, 0, NULL},
+const char *ui_description =
+"<ui>"
+"  <menubar name='MainMenu'>"
+"    <menu action='GameMenu'>"
+"      <menuitem action='NewGame'/>"
+"      <menuitem action='PauseGame'/>"
+"      <menuitem action='ResumeGame'/>"
+"      <separator/>"
+"      <menuitem action='Hint'/>"
+"      <menuitem action='Solve'/>"
+"      <separator/>"
+"      <menuitem action='Scores'/>"
+"      <separator/>"
+"      <menuitem action='Quit'/>"
+"    </menu>"
+"    <menu action='MoveMenu'>"
+"      <menuitem action='MoveUp'/>"
+"      <menuitem action='MoveLeft'/>"
+"      <menuitem action='MoveRight'/>"
+"      <menuitem action='MoveDown'/>"
+"    </menu>"
+"    <menu action='SizeMenu'>"
+"      <menuitem action='Size2x2'/>"
+"      <menuitem action='Size3x3'/>"
+"      <menuitem action='Size4x4'/>"
+"      <menuitem action='Size5x5'/>"
+"      <menuitem action='Size6x6'/>"
+"    </menu>"
+"    <menu action='HelpMenu'>"
+"      <menuitem action='Contents'/>"
+"      <menuitem action='About'/>"
+"    </menu>"
+"  </menubar>"
+"</ui>";
 
-  {GNOME_APP_UI_ITEM, N_("_Right"), N_("Move the pieces right"),
-   move_cb, "e", NULL, GNOME_APP_PIXMAP_STOCK, GTK_STOCK_GO_FORWARD, 0, 0, NULL},
-
-  {GNOME_APP_UI_ITEM, N_("_Down"), N_("Move the pieces down"),
-   move_cb, "s", NULL, GNOME_APP_PIXMAP_STOCK, GTK_STOCK_GO_DOWN, 0, 0, NULL},
-
-  GNOMEUIINFO_END
-};
-
-GnomeUIInfo help_menu[] = {
-  GNOMEUIINFO_HELP ("gnotravex"),
-  GNOMEUIINFO_MENU_ABOUT_ITEM (about_cb, NULL),
-  GNOMEUIINFO_END
-};
-
-GnomeUIInfo settings_menu[] = {
-  GNOMEUIINFO_RADIOLIST (size_radio_list),
-  GNOMEUIINFO_END
-};
-
-GnomeUIInfo main_menu[] = {
-  GNOMEUIINFO_MENU_GAME_TREE (game_menu),
-  GNOMEUIINFO_SUBTREE (N_("_Move"), move_menu),
-  GNOMEUIINFO_MENU_SETTINGS_TREE (settings_menu),
-  GNOMEUIINFO_MENU_HELP_TREE (help_menu),
-  GNOMEUIINFO_END
-};
 
 static const struct poptOption options[] = {
   {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
@@ -249,6 +252,11 @@ int
 main (int argc, char **argv)
 {
   GnomeClient *client;
+
+  GtkWidget *vbox;
+  GtkWidget *menubar;
+  GtkUIManager *ui_manager;
+  GtkAccelGroup *accel_group;  
 
   gnome_score_init (APPNAME);
 
@@ -271,6 +279,8 @@ main (int argc, char **argv)
   g_signal_connect (G_OBJECT (client), "die",
                     G_CALLBACK (quit_game_cb), argv[0]);
 
+  games_stock_init();
+
   gconf_client = gconf_client_get_default();
 
   size = gconf_client_get_int (gconf_client, KEY_GRID_SIZE, NULL);
@@ -278,10 +288,44 @@ main (int argc, char **argv)
     size = 3;
 
   create_window ();
-  create_menu ();
 
-  create_space (); 
-  create_statusbar ();
+  space = gtk_drawing_area_new ();
+
+
+  statusbar = create_statusbar ();
+
+  ui_manager = gtk_ui_manager_new ();
+  games_stock_prepare_for_statusbar_tooltips (ui_manager, statusbar);
+
+  menubar = create_menu (ui_manager);
+
+  vbox = gtk_vbox_new (FALSE, 0);
+
+  gnome_app_set_contents (GNOME_APP (window), vbox);
+  gtk_box_pack_start (GTK_BOX(vbox), menubar, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (vbox), space, TRUE, TRUE, 0);
+  gtk_box_pack_start (GTK_BOX(vbox), statusbar, FALSE, FALSE, 0);
+
+  accel_group = gtk_ui_manager_get_accel_group (ui_manager);
+  gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
+
+  gtk_widget_set_events (space,
+                         GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK
+                         | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
+  gtk_widget_realize (space);
+
+  g_signal_connect (G_OBJECT (space), "expose_event",
+                    G_CALLBACK (expose_space), NULL);
+  g_signal_connect (G_OBJECT (space), "configure_event",
+                    G_CALLBACK (configure_space), NULL);
+  g_signal_connect (G_OBJECT (space), "button_press_event",
+                    G_CALLBACK (button_press_space), NULL);
+  g_signal_connect (G_OBJECT (space),"button_release_event",
+                    G_CALLBACK (button_release_space), NULL);
+  g_signal_connect (G_OBJECT (space), "motion_notify_event",
+                    G_CALLBACK (button_motion_space), NULL);
+  gtk_widget_show (space);
+
 
   update_score_state ();
 
@@ -291,9 +335,9 @@ main (int argc, char **argv)
   gtk_widget_show_all (window);
   create_mover ();
 
-  new_game_cb (space,NULL);
-  
-  gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (size_radio_list[size-2].widget),TRUE);
+  gtk_action_activate (new_game_action);
+ 
+  gtk_action_activate (size_action[size-2]); 
 
   gtk_main ();
   
@@ -305,9 +349,9 @@ main (int argc, char **argv)
 static
 void set_game_menu_items_sensitive (gboolean state)
 {
-  gtk_widget_set_sensitive (game_menu[1].widget, state);
-  gtk_widget_set_sensitive (game_menu[3].widget, state);
-  gtk_widget_set_sensitive (game_menu[4].widget, state);
+  gtk_action_set_sensitive (pause_action, state);
+  gtk_action_set_sensitive (hint_action, state);
+  gtk_action_set_sensitive (solve_action, state);
 }
 
 /* Show only valid options in the move menu. */
@@ -335,13 +379,13 @@ void update_move_menu_sensitivity (void)
         clear = FALSE;
   }
 
-  if (clear) /* Can't move nothing. */
+  if (clear || (game_state == paused))
     n = w = e = s = FALSE;
   
-  gtk_widget_set_sensitive (move_menu[0].widget, n);
-  gtk_widget_set_sensitive (move_menu[1].widget, w);
-  gtk_widget_set_sensitive (move_menu[2].widget, e);
-  gtk_widget_set_sensitive (move_menu[3].widget, s);
+  gtk_action_set_sensitive (move_up_action, n);
+  gtk_action_set_sensitive (move_left_action, w);
+  gtk_action_set_sensitive (move_right_action, e);
+  gtk_action_set_sensitive (move_down_action, s);
 }
 
 static gint
@@ -405,9 +449,9 @@ gint button_down = 0;
 gint
 button_press_space (GtkWidget *widget, GdkEventButton *event)
 {
-  if (game_state == paused) {
-    resume_game ();
-  }
+  if (game_state == paused)
+    gtk_action_activate (resume_action);
+  
   if (game_state == playing) {
     if (event->button == 1) {
       if (button_down == 1) {
@@ -534,6 +578,9 @@ button_motion_space (GtkWidget *widget, GdkEventButton *event)
 {
   static int oldx = -1, oldy = -1;
   gint x,y;
+
+  if (game_state == paused)
+    return FALSE;
 
   if (button_down == 1) {
     x = event->x - mover.xoff;
@@ -898,7 +945,7 @@ show_score_dialog (const gchar *level, gint pos)
 }
 
 void
-score_cb (GtkWidget *widget, gpointer data)
+score_cb (GtkAction *action, gpointer data)
 {
   gchar *level;
   level = g_strdup_printf ("%dx%d", size, size);
@@ -938,7 +985,7 @@ update_score_state (void)
   top = gnome_score_get_notable (APPNAME, level, &names, &scores, &scoretimes);
   g_free (level);
 
-  gtk_widget_set_sensitive (game_menu[6].widget, top > 0);
+  gtk_action_set_sensitive (scores_action, top > 0);
   g_strfreev (names);
   g_free (scores);
   g_free (scoretimes);
@@ -1003,8 +1050,7 @@ redraw_left (void)
 {
   gint x, y;
   GdkRegion *region;
-  GdkRectangle rect = {xborder, yborder,
-                       tile_size * size, tile_size * size};
+  GdkRectangle rect = {xborder, yborder, tile_size * size, tile_size * size};
 
   region = gdk_region_rectangle (&rect);
 
@@ -1018,35 +1064,12 @@ redraw_left (void)
   gdk_region_destroy (region);
 }
 
-void
-create_space (void)
-{
-  space = gtk_drawing_area_new ();
-  gnome_app_set_contents (GNOME_APP (window), space);
 
-  gtk_widget_set_events (space,
-			 GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK
-			 | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
-  gtk_widget_realize (space);
-  
-  g_signal_connect (G_OBJECT (space), "expose_event", 
-                    G_CALLBACK (expose_space), NULL);
-  g_signal_connect (G_OBJECT (space), "configure_event", 
-                    G_CALLBACK (configure_space), NULL);
-  g_signal_connect (G_OBJECT (space), "button_press_event", 
-                    G_CALLBACK (button_press_space), NULL);
-  g_signal_connect (G_OBJECT (space),"button_release_event",
-                    G_CALLBACK (button_release_space), NULL);
-  g_signal_connect (G_OBJECT (space), "motion_notify_event",
-                    G_CALLBACK (button_motion_space), NULL);
-  gtk_widget_show (space);
-}
-
-
-void
+GtkWidget *
 create_statusbar (void)
 {
-  GtkWidget *time_label,*time_box;
+  GtkWidget *status_bar, *time_label, *time_box;
+
   time_box = gtk_hbox_new (FALSE, 0);
   time_label = gtk_label_new (_("Time:"));
   gtk_box_pack_start (GTK_BOX (time_box), time_label, FALSE, FALSE, 0);
@@ -1055,18 +1078,21 @@ create_statusbar (void)
   timer = games_clock_new ();
   gtk_box_pack_start (GTK_BOX (time_box), timer, FALSE, FALSE, 0);
 
-  statusbar = gnome_appbar_new (FALSE, TRUE, GNOME_PREFERENCES_USER);
-  gtk_box_pack_start (GTK_BOX (statusbar), time_box, FALSE, FALSE, 0);
-  gnome_app_set_statusbar (GNOME_APP (window), statusbar);
-
-  gnome_app_install_menu_hints (GNOME_APP (window), main_menu);
+  status_bar = gtk_statusbar_new();
+  gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR (status_bar), FALSE);
+  gtk_box_pack_start (GTK_BOX (status_bar), time_box, FALSE, FALSE, 0);
+ 
+  return status_bar; 
 }
 
 void
 message (gchar *message)
 {
-  gnome_appbar_pop (GNOME_APPBAR (statusbar));
-  gnome_appbar_push (GNOME_APPBAR (statusbar), message);
+  guint context_id;
+
+  context_id = gtk_statusbar_get_context_id (GTK_STATUSBAR (statusbar), "mesasge");
+  gtk_statusbar_pop (GTK_STATUSBAR (statusbar), context_id);
+  gtk_statusbar_push (GTK_STATUSBAR (statusbar), context_id, message);
 }
 
 void
@@ -1161,6 +1187,9 @@ pause_game (void)
     game_state = paused;
     message (_("Game paused"));
     gui_draw_pause ();
+    update_move_menu_sensitivity ();
+    gtk_action_set_sensitive (hint_action, FALSE);
+    gtk_action_set_sensitive (solve_action, FALSE);
     games_clock_stop (GAMES_CLOCK (timer));
   }
 }
@@ -1172,6 +1201,9 @@ resume_game (void)
     game_state = playing;
     message ("");
     redraw_all ();
+    update_move_menu_sensitivity ();
+    gtk_action_set_sensitive (hint_action, TRUE);
+    gtk_action_set_sensitive (solve_action, TRUE);
     games_clock_start (GAMES_CLOCK (timer));
   }
 }
@@ -1252,10 +1284,37 @@ timer_start (void)
 }
 
 /* --------------------------- MENU --------------------- */
-void
-create_menu (void)
+GtkWidget *
+create_menu (GtkUIManager *ui_manager)
 {
-  gnome_app_create_menus (GNOME_APP (window), main_menu);
+  gint i;
+  GtkActionGroup *action_group;
+
+  action_group = gtk_action_group_new ("actions");
+
+  gtk_action_group_set_translation_domain(action_group, GETTEXT_PACKAGE);
+  gtk_action_group_add_actions (action_group, action_entry, G_N_ELEMENTS (action_entry), window);
+  gtk_action_group_add_radio_actions (action_group, size_action_entry, G_N_ELEMENTS (size_action_entry), -1, G_CALLBACK(size_cb), NULL);
+
+  gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
+  gtk_ui_manager_add_ui_from_string (ui_manager, ui_description, -1, NULL);
+
+  new_game_action   = gtk_action_group_get_action (action_group, "NewGame");
+  pause_action      = gtk_action_group_get_action (action_group, "PauseGame");
+  resume_action     = gtk_action_group_get_action (action_group, "ResumeGame");
+  hint_action       = gtk_action_group_get_action (action_group, "Hint");
+  solve_action      = gtk_action_group_get_action (action_group, "Solve");
+  scores_action     = gtk_action_group_get_action (action_group, "Scores");
+  move_up_action    = gtk_action_group_get_action (action_group, "MoveUp");
+  move_left_action  = gtk_action_group_get_action (action_group, "MoveLeft");
+  move_right_action = gtk_action_group_get_action (action_group, "MoveRight");
+  move_down_action  = gtk_action_group_get_action (action_group, "MoveDown");
+
+  for (i = 0; i < G_N_ELEMENTS(size_action_entry); i++)
+    size_action[i] = gtk_action_group_get_action (action_group, size_action_entry[i].name);
+
+  games_stock_set_pause_actions (pause_action, resume_action);
+  return gtk_ui_manager_get_widget (ui_manager, "/MainMenu");
 }
 
 void
@@ -1271,14 +1330,13 @@ make_buffer (GtkWidget *widget)
 }
 
 void
-new_game_cb (GtkWidget *widget, gpointer data)
+new_game_cb (GtkAction *action, gpointer data)
 {
   gchar *str;
-  widget = space;
   
   new_board (size);
   gtk_widget_freeze_child_notify (space);
-  make_buffer (widget);
+  make_buffer (space);
   redraw_all ();
   gtk_widget_thaw_child_notify (space);
   game_state = playing;
@@ -1291,13 +1349,8 @@ new_game_cb (GtkWidget *widget, gpointer data)
 }
 
 void
-quit_game_cb (GtkWidget *widget, gpointer data)
+quit_game_cb (void)
 {
-  if (buffer)
-    g_object_unref (buffer);
-  if (mover.pixmap)
-    g_object_unref (mover.pixmap);
-
   gtk_main_quit ();
 }
 
@@ -1331,30 +1384,49 @@ save_state (GnomeClient *client, gint phase,
 
 
 void
-size_cb (GtkWidget *widget, gpointer data)
+size_cb (GtkAction *action, gpointer data)
 {
   gint newsize;
   gint width, height;
 
-  /* Ignore de-activation events. */
-  if (!gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (widget)))
-    return;
-  
+  newsize = gtk_radio_action_get_current_value (GTK_RADIO_ACTION (action));
+
   gdk_drawable_get_size (space->window, &width, &height);
-  newsize = atoi ((gchar *)data);
+
+  if (game_state == paused)
+    gtk_action_activate (resume_action);
+
   if (size == newsize)
     return;
   size = newsize;
   update_tile_size (width, height);
   update_score_state ();
   gconf_client_set_int (gconf_client, KEY_GRID_SIZE, size, NULL);
-  new_game_cb (space, NULL);
+  gtk_action_activate (new_game_action);
 }
 
 void
-move_cb (GtkWidget *widget, gpointer data)
+move_up_cb (GtkAction *action, gpointer data)
 {
-  move_column ((unsigned char)* ((gchar *) data));
+  move_column ('n');
+}
+
+void
+move_left_cb (GtkAction *action, gpointer data)
+{
+  move_column ('w');
+}
+
+void
+move_right_cb (GtkAction *action, gpointer data)
+{
+  move_column ('e');
+}
+
+void
+move_down_cb (GtkAction *action, gpointer data)
+{
+  move_column ('s');
 }
 
 gint
@@ -1405,7 +1477,7 @@ hint_move_cb (void)
     gtk_widget_set_sensitive (GTK_WIDGET (space), TRUE);
     if (game_state != playing) return;
     if (solve_me)
-      hint_cb (NULL,NULL);
+      gtk_action_activate (hint_action);
   }
 }
 
@@ -1422,7 +1494,7 @@ hint_move (gint x1, gint y1, gint x2, gint y2)
 }
 
 void
-hint_cb (GtkWidget *widget, gpointer data)
+hint_cb (GtkAction *action, gpointer data)
 {
   gint x1, y1, x2 = 0, y2 = 0, x = 0, y = 0;
   tile hint_tile;
@@ -1493,14 +1565,20 @@ hint_cb (GtkWidget *widget, gpointer data)
 }
 
 void
-solve_cb (GtkWidget *widget, gpointer data)
+solve_cb (GtkAction *action, gpointer data)
 {
   solve_me = 1;
-  hint_cb (widget, NULL);
+  gtk_action_activate (hint_action);
 }
 
 void
-about_cb (GtkWidget *widget, gpointer data)
+help_cb (GtkAction *action, gpointer data)
+{
+  gnome_help_display ("gnotravex.xml", NULL, NULL);
+}
+
+void
+about_cb (GtkAction *action, gpointer data)
 {
   const gchar *authors[] = { "Lars Rydlinge", NULL };
 

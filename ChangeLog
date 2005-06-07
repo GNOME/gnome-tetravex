@@ -1,3 +1,13 @@
+2005-06-05  Richard Hoelscher  <rah@rahga.com>
+
+	* gnotravex.c: Add support for GtkUIManager and Action-based menus.
+	(main): Move important parts of create_space() into main, updated
+	to support gtk+ widgets for statusbar and menubar. 
+	(create_menu): Support GtkAction
+	(button_motion_space): Bug fix, don't show original piece while 
+	highlighted and paused.
+	(create_statusbar): Use GtkStatusBar instead.
+
 2005-06-03  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* gnotravex.c: Debranding.
