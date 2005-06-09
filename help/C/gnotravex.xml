@@ -224,12 +224,18 @@
 
  </sect1>
 
+<!-- Do not try to be funny, it will only annoy users.  
+Use this section to manage user expectations if there are known problems like 
+slow animation.  Better to leave this section out than say something not 
+actually helpful.  
+
  <sect1 id="bugs">
   <title>Known Bugs and Limitations</title> 
   <para> 
     Of course not, its perfect!
   </para> 
  </sect1>
+-->
 
  <sect1 id="authors"> 
   <title>Authors</title> 
