@@ -1,3 +1,8 @@
+2005-05-09  Alan Horkan <horkana tcd ie>
+
+	* help/C/gnotravex.xml: Removed Known Bugs sections where not
+	needed.
+
 2005-06-05  Richard Hoelscher  <rah@rahga.com>
 
 	* gnotravex.c: Add support for GtkUIManager and Action-based menus.
