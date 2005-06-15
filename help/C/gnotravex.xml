@@ -3,11 +3,11 @@
     "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
   <!ENTITY legal SYSTEM "legal.xml">
   <!ENTITY appversion "2.10">
-  <!ENTITY manrevision "2.8">
-  <!ENTITY date "September 2004">
+  <!ENTITY manrevision "2.10">
+  <!ENTITY date "June 2005">
   <!ENTITY app "<application>GNOME Tetravex</application>">
   <!ENTITY appname "GNOME Tetravex">
-  <!ENTITY version "2.8">
+  <!ENTITY version "2.10">
 ]>
 
 <!-- 
@@ -207,7 +207,9 @@
      <para>
        The game is completed when you have positioned all the squares in the
        right positions. When you have completed the game you are shown your
-       ranking in the high scores table (if you get a high enough score). 
+       ranking in the high scores table, if you get a high enough score.
+       If you have used either Hint or Solve your score will not be included 
+       in the high scores table.  
      </para>
     </sect3>
 
@@ -218,7 +220,10 @@
   <title>Customization</title> 
   <para> 
     Under the <guimenuitem>Settings</guimenuitem> menu you can change the size of the grid from two
-  by two up to six by six. The default is three by three. If the tiles
+  by two up to six by six. The default is three by three. 
+  </para>
+  <para>
+  If the tiles
   are too small, resizing the window will change the size of the tiles.
   </para>
 
