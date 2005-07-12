@@ -201,7 +201,7 @@ const GtkRadioActionEntry size_action_entry[] = {
 
 GtkAction *size_action[G_N_ELEMENTS(size_action_entry)];
 
-const char *ui_description =
+const char ui_description[] =
 "<ui>"
 "  <menubar name='MainMenu'>"
 "    <menu action='GameMenu'>"

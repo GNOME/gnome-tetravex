@@ -1,3 +1,7 @@
+2005-07-11  Richard Hoelscher  <rah@rahga.com>
+
+	* gnotravex.c: Make ui_description readonly.
+
 2005-06-15  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/gnotravex.xml: More fixes from Alan Horkan.
