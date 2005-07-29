@@ -1,3 +1,9 @@
+2005-07-30  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* help/C/figures/*:
+	* help/C/gnotravex.xml: Bumped the version number and updated the
+	screenshots.
+
 2005-07-11  Richard Hoelscher  <rah@rahga.com>
 
 	* gnotravex.c: Make ui_description readonly.
