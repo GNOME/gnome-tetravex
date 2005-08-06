@@ -1,3 +1,8 @@
+2005-08-06  Callum McKenzie  <callum@physics.otago.ac.nz>
+
+	* help/C/gnotravex.xml:  Remove the mention of the
+	no-longer-existing bug reporting guidelines. See bug #312723.
+
 2005-07-30  Callum McKenzie  <callum@physics.otago.ac.nz>
 
 	* help/C/figures/*:
