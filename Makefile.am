@@ -18,8 +18,8 @@ gnotravex_SOURCES =	\
 	gnotravex.c
 
 gnotravex_LDADD = \
-	$(GNOME_GAMES_LIBS) \
 	../libgames-support/libgames-support.la \
+	$(GNOME_GAMES_LIBS) \
 	$(INTLLIBS) 
 
 sharedpixmap_DATA = gnome-gnotravex.png
