@@ -340,6 +340,8 @@ main (int argc, char **argv)
   gtk_action_activate (size_action[size-2]); 
 
   gtk_main ();
+
+  gnome_accelerators_sync();
   
   return 0;
 }
