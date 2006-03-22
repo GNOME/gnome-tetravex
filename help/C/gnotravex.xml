@@ -246,28 +246,11 @@ actually helpful.
   <title>Authors</title> 
   <para> 
     <application>GNOME Tetravex</application> was written by Lars Rydlinge
-    (<email>lars.rydlinge@hig.se</email>). <application>GNOME
-    Tetravex</application> is part of the gnome-games package which is a core
-    GNOME package, please visit the 
-    <ulink url="http://www.gnome.org" type="http">GNOME Web page</ulink> 
-     for details. Please send all comments, suggestions, and bug reports to the   
-    <ulink url="http://bugs.gnome.org" type="http">GNOME bug tracking
-    database</ulink>. 
-     You can also use <application>Bug Report
-    Tool</application> (<command>bug-buddy</command>), available in the
-    <guisubmenu>Utilities</guisubmenu> submenu of <guimenu>Main
-    Menu</guimenu>, for submitting bug reports.
-  </para>
-
-  <para> 
-    This manual was written by Rob Bradford
-    (<email>rob@funky-penguin.co.uk</email>). Please send all comments and
-    suggestions regarding this manual to the <ulink
-    url="http://developer.gnome.org/projects/gdp" type="http">GNOME
-    Documentation Project</ulink> by sending an email to
-    <email>docs@gnome.org</email>. You can also add your comments online by
-    using the <ulink url="http://developer.gnome.org/projects/gdp/doctable/"
-    type="http">GNOME Documentation Status Table</ulink>.
+    (<email>lars.rydlinge@hig.se</email>).     This manual was written by Rob Bradford
+    (<email>rob@funky-penguin.co.uk</email>).
+   To report a bug or make a suggestion regarding this application or
+   this manual, follow the directions in this 
+   <ulink url="ghelp:gnome-feedback" type="help">document</ulink>.
   </para>
 
   <!-- For translations: uncomment this:
