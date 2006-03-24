@@ -28,6 +28,8 @@
 #include <time.h>
 #include <gconf/gconf-client.h>
 #include <games-stock.h>
+#include <games-scores.h>
+#include <games-scores-dialog.h>
 
 #define APPNAME "gnotravex"
 #define APPNAME_LONG "Tetravex"
@@ -54,6 +56,19 @@ GtkWidget *statusbar;
 GtkWidget *space;
 GtkWidget *bit;
 GtkWidget *timer;
+
+static const GamesScoresCategory scorecats[] = {{"2x2", N_("2\303\2272")},
+                                                {"3x3", N_("3\303\2273")},
+                                                {"4x4", N_("4\303\2274")},
+                                                {"5x5", N_("5\303\2275")},
+                                                {"6x6", N_("6\303\2276")},
+                                                GAMES_SCORES_LAST_CATEGORY};
+static const GamesScoresDescription scoredesc = {scorecats,
+                                                 "3x3",
+                                                 "gnotravex",
+                                                 GAMES_SCORES_STYLE_TIME_ASCENDING};
+
+GamesScores *highscores;
 
 int xborder;
 int yborder;
@@ -134,7 +149,6 @@ void move_tile (gint, gint, gint, gint);
 void move_column (unsigned char);
 gint game_over (void);
 void game_score (void);
-void update_score_state (void);
 gint timer_cb (void);
 void timer_start (void);
 void pause_game (void);
@@ -142,7 +156,7 @@ void resume_game (void);
 void pause_cb (void);
 void hint_move_cb (void);
 void hint_move (gint, gint, gint, gint);
-void show_score_dialog (const gchar *, gint);
+void show_score_dialog (gint);
 static gint save_state (GnomeClient*, gint, GnomeRestartStyle,
                         gint, GnomeInteractStyle, gint, gpointer);
 
@@ -258,7 +272,7 @@ main (int argc, char **argv)
   GtkUIManager *ui_manager;
   GtkAccelGroup *accel_group;  
 
-  gnome_score_init (APPNAME);
+  setgid_io_init ();
 
   bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
@@ -269,6 +283,8 @@ main (int argc, char **argv)
        		      argc, argv,
        		      GNOME_PARAM_POPT_TABLE, options,
        		      GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
+
+  highscores = games_scores_new (&scoredesc);
      
   gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/gnome-gnotravex.png");
   client = gnome_master_client ();
@@ -326,8 +342,6 @@ main (int argc, char **argv)
                     G_CALLBACK (button_motion_space), NULL);
   gtk_widget_show (space);
 
-
-  update_score_state ();
 
   if (session_xpos >= 0 && session_ypos >= 0)
     gtk_window_move (GTK_WINDOW (window), session_xpos, session_ypos);
@@ -935,15 +949,28 @@ game_over (void)
 }
 
 void
-show_score_dialog (const gchar *level, gint pos)
+show_score_dialog (gint pos)
 {
-  GtkWidget *dialog;
+  static GtkWidget *scoresdialog = NULL;
+  gchar *message;
 
-  dialog = gnome_scores_display (_(APPNAME_LONG), APPNAME, level, pos);
-  if (dialog != NULL) {
-    gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (window));
-    gtk_window_set_modal (GTK_WINDOW (dialog), TRUE);
+  if (!scoresdialog) {
+    scoresdialog = games_scores_dialog_new (highscores, _("Tetravex Scores"));
+    games_scores_dialog_set_category_description (GAMES_SCORES_DIALOG (scoresdialog), _("Size:"));
   }
+  if (pos > 0) {
+    games_scores_dialog_set_hilight (GAMES_SCORES_DIALOG (scoresdialog), pos);
+    message = g_strdup_printf ("<b>%s</b>\n\n%s",
+                               _("Congratulations!"),
+                               _("Your score has made the top ten."));
+    games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog), message);
+    g_free (message);
+  } else {
+    games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog), NULL);
+  }
+  
+  gtk_dialog_run (GTK_DIALOG (scoresdialog));
+  gtk_widget_hide (scoresdialog);
 }
 
 void
@@ -951,7 +978,7 @@ score_cb (GtkAction *action, gpointer data)
 {
   gchar *level;
   level = g_strdup_printf ("%dx%d", size, size);
-  show_score_dialog (level, 0);
+  show_score_dialog (0);
   g_free (level);
 }
 
@@ -960,39 +987,14 @@ game_score (void)
 {
   gint pos;
   time_t seconds;
-  gfloat score;
-  gchar *level;
+  GamesScoreValue score;
   
-  level = g_strdup_printf ("%dx%d", size, size);
   seconds = GAMES_CLOCK (timer)->stopped;
   games_clock_set_seconds (GAMES_CLOCK (timer), (int) seconds);
-  score = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
-  pos = gnome_score_log (score, level, FALSE);
-  update_score_state ();
-  show_score_dialog (level, pos);
-  g_free (level);
+  score.time_double = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
+  pos = games_scores_add_score (highscores, score);
+  show_score_dialog (pos);
 }
-
-void
-update_score_state (void)
-{
-  gchar **names = NULL;
-  gfloat *scores = NULL;
-  time_t *scoretimes = NULL;
-  gint top;
-  gchar *level;
-  
-  level = g_strdup_printf ("%dx%d", size, size);
-  
-  top = gnome_score_get_notable (APPNAME, level, &names, &scores, &scoretimes);
-  g_free (level);
-
-  gtk_action_set_sensitive (scores_action, top > 0);
-  g_strfreev (names);
-  g_free (scores);
-  g_free (scoretimes);
-}
-
 
 void
 update_tile_size (gint screen_width, gint screen_height)
@@ -1402,7 +1404,7 @@ size_cb (GtkAction *action, gpointer data)
     return;
   size = newsize;
   update_tile_size (width, height);
-  update_score_state ();
+  games_scores_set_category (highscores, scorecats[size-2].key);
   gconf_client_set_int (gconf_client, KEY_GRID_SIZE, size, NULL);
   gtk_action_activate (new_game_action);
 }
