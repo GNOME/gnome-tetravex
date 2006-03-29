@@ -102,7 +102,7 @@ enum {
   playing,
 };
 
-gint size = 3;
+gint size = -1;
 gint game_state = gameover;
 gint have_been_hinted = 0;
 gint solve_me = 0;
@@ -251,13 +251,14 @@ const char ui_description[] =
 "</ui>";
 
 
-static const struct poptOption options[] = {
-  {NULL, 'x', POPT_ARG_INT, &session_xpos, 0, NULL, NULL},
-  {NULL, 'y', POPT_ARG_INT, &session_ypos, 0, NULL, NULL},
-  { "size", 's', POPT_ARG_INT, &size,0,
-    N_("Size of board (2-6)"),
-    N_("SIZE") },
-  { NULL, '\0', 0, NULL, 0 }
+static const GOptionEntry options[] = {
+  {"x", 'x', 0, G_OPTION_ARG_INT, &session_xpos, N_("X location of window"), 
+   N_("X")},
+  {"y", 'y', 0, G_OPTION_ARG_INT, &session_ypos, N_("Y location of window"), 
+   N_("Y")},
+  {"size", 's', 0, G_OPTION_ARG_INT, &size, N_("Size of board (2-6)"),
+    N_("SIZE")},
+  {NULL}
 };
 
 /* ------------------------------------------------------- */
@@ -266,7 +267,7 @@ int
 main (int argc, char **argv)
 {
   GnomeClient *client;
-
+  GOptionContext *context;
   GtkWidget *vbox;
   GtkWidget *menubar;
   GtkUIManager *ui_manager;
@@ -278,10 +279,12 @@ main (int argc, char **argv)
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
+  context = g_option_context_new ("");
+  g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   gnome_program_init (APPNAME, VERSION,
       		      LIBGNOMEUI_MODULE, 
        		      argc, argv,
-       		      GNOME_PARAM_POPT_TABLE, options,
+       		      GNOME_PARAM_GOPTION_CONTEXT, context,
        		      GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
 
   highscores = games_scores_new (&scoredesc);
@@ -299,7 +302,8 @@ main (int argc, char **argv)
 
   gconf_client = gconf_client_get_default();
 
-  size = gconf_client_get_int (gconf_client, KEY_GRID_SIZE, NULL);
+  if (size == -1)
+    size = gconf_client_get_int (gconf_client, KEY_GRID_SIZE, NULL);
   if (size < 2 || size > 6) 
     size = 3;
 

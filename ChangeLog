@@ -1,3 +1,8 @@
+2006-03-29  Callum McKenzie  <callum@spooky-possum.org>
+
+	* gnotravex.c: Port from popt to GOption. Make sure the size
+	argument is respected.
+
 2006-03-24  Callum McKenzie  <callum@spooky-possum.org>
 
 	* gnotravex.c: Use the new high scores code.
