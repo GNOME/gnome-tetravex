@@ -1,3 +1,10 @@
+2006-04-03  Callum McKenzie  <callum@spooky-possum.org>
+
+	* gnotravex.desktop.in: 
+	* Makefile.am:
+	* gnotravex.c: Update the icon handling to use icon themes. Rename
+	the icon from gnome-gnotravex.png to gnome-tetravex.png.
+
 2006-03-29  Callum McKenzie  <callum@spooky-possum.org>
 
 	* gnotravex.c: Port from popt to GOption. Make sure the size

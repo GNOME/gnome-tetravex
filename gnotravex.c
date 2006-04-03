@@ -22,7 +22,6 @@
 #include <config.h>
 #include <gnome.h>
 #include <string.h>
-#include <libgnomeui/gnome-window-icon.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <games-clock.h>
 #include <time.h>
@@ -289,7 +288,7 @@ main (int argc, char **argv)
 
   highscores = games_scores_new (&scoredesc);
      
-  gnome_window_icon_set_default_from_file (GNOME_ICONDIR"/gnome-gnotravex.png");
+  gtk_window_set_default_icon_name ("gnome-tetravex");
   client = gnome_master_client ();
   g_object_ref (G_OBJECT (client));
   
@@ -1596,5 +1595,6 @@ about_cb (GtkAction *action, gpointer data)
                          "copyright", "Copyright \xc2\xa9 1999-2005 Lars Rydlinge",
                          "authors", authors,
                          "translator_credits", _("translator-credits"),
+                         "logo-icon-name", "gnome-tetravex",
                          NULL);
 }

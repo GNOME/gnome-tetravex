@@ -1,4 +1,3 @@
-sharedpixmapdir = $(datadir)/pixmaps
 Gamesdir = $(datadir)/applications
 
 schemadir   = @GCONF_SCHEMA_FILE_DIR@
@@ -22,7 +21,8 @@ gnotravex_LDADD = \
 	$(GNOME_GAMES_LIBS) \
 	$(INTLLIBS) 
 
-sharedpixmap_DATA = gnome-gnotravex.png
+icondir = $(datadir)/icons/hicolor/48x48/apps/
+icon_DATA = gnome-tetravex.png
 
 Games_in_files = gnotravex.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)
@@ -30,7 +30,7 @@ Games_DATA = $(Games_in_files:.desktop.in=.desktop)
 
 EXTRA_DIST = README \
 	gnotravex.desktop.in \
-	$(sharedpixmap_DATA) \
+	$(icon_DATA) \
 	$(schema_in_files)
 
 DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
