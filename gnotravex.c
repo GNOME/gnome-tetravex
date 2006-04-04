@@ -266,6 +266,7 @@ int
 main (int argc, char **argv)
 {
   GnomeClient *client;
+  GnomeProgram *program;
   GOptionContext *context;
   GtkWidget *vbox;
   GtkWidget *menubar;
@@ -280,11 +281,11 @@ main (int argc, char **argv)
 
   context = g_option_context_new ("");
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
-  gnome_program_init (APPNAME, VERSION,
-      		      LIBGNOMEUI_MODULE, 
-       		      argc, argv,
-       		      GNOME_PARAM_GOPTION_CONTEXT, context,
-       		      GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
+  program = gnome_program_init (APPNAME, VERSION,
+                                LIBGNOMEUI_MODULE, 
+       		                argc, argv,
+       		                GNOME_PARAM_GOPTION_CONTEXT, context,
+       		                GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
 
   highscores = games_scores_new (&scoredesc);
      
@@ -359,6 +360,8 @@ main (int argc, char **argv)
   gtk_main ();
 
   gnome_accelerators_sync();
+
+  g_object_unref (program);
   
   return 0;
 }
