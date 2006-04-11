@@ -1592,12 +1592,21 @@ about_cb (GtkAction *action, gpointer data)
 {
   const gchar *authors[] = { "Lars Rydlinge", NULL };
 
+  const gchar *documenters[] = { "Rob Bradford", NULL };
+
   gtk_show_about_dialog (GTK_WINDOW (window),
                          "name", _(APPNAME_LONG),
                          "version", VERSION,
-                         "copyright", "Copyright \xc2\xa9 1999-2005 Lars Rydlinge",
+                         "comments", _("GNOME Tetravex is a simple puzzle where "
+					     "pieces must be positioned so that the "
+					     "same numbers are touching each other."),
+                         "copyright", "Copyright \xc2\xa9 1999-2006 Lars Rydlinge",
+                         "license", "GPL 2+",
                          "authors", authors,
+                         "documenters", documenters,
                          "translator_credits", _("translator-credits"),
                          "logo-icon-name", "gnome-tetravex",
+                         "website", "http://www.gnome.org/projects/gnome-games/",
+                         "wrap-license", TRUE,
                          NULL);
 }
