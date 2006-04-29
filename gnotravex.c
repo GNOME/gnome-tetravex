@@ -344,6 +344,9 @@ main (int argc, char **argv)
                     G_CALLBACK (button_release_space), NULL);
   g_signal_connect (G_OBJECT (space), "motion_notify_event",
                     G_CALLBACK (button_motion_space), NULL);
+  /* We do our own double-buffering. */
+  gtk_widget_set_double_buffered(space, FALSE);
+
   gtk_widget_show (space);
 
 
