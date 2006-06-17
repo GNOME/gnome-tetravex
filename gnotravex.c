@@ -196,10 +196,10 @@ const GtkActionEntry action_entry[] = {
   { "Solve", GTK_STOCK_REFRESH, N_("Sol_ve"), NULL, N_("Solve the game"), G_CALLBACK (solve_cb) },
   { "Scores", GAMES_STOCK_SCORES, NULL, NULL, NULL, G_CALLBACK (score_cb) },
   { "Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_game_cb) },
-  { "MoveUp", GTK_STOCK_GO_UP, N_("_Up"), NULL, N_("Move the pieces up"), G_CALLBACK (move_up_cb) },
-  { "MoveLeft", GTK_STOCK_GO_BACK, N_("_Left"), NULL, N_("Move the pieces left"), G_CALLBACK (move_left_cb) },
-  { "MoveRight", GTK_STOCK_GO_FORWARD, N_("_Right"), NULL, N_("Move the pieces right"), G_CALLBACK (move_right_cb) },
-  { "MoveDown", GTK_STOCK_GO_DOWN, N_("_Down"), NULL, N_("Move the pieces down"), G_CALLBACK (move_down_cb) },
+  { "MoveUp", GTK_STOCK_GO_UP, N_("_Up"), "<control>Up", N_("Move the pieces up"), G_CALLBACK (move_up_cb) },
+  { "MoveLeft", GTK_STOCK_GO_BACK, N_("_Left"), "<control>Left", N_("Move the pieces left"), G_CALLBACK (move_left_cb) },
+  { "MoveRight", GTK_STOCK_GO_FORWARD, N_("_Right"), "<control>Right", N_("Move the pieces right"), G_CALLBACK (move_right_cb) },
+  { "MoveDown", GTK_STOCK_GO_DOWN, N_("_Down"), "<control>Down", N_("Move the pieces down"), G_CALLBACK (move_down_cb) },
   { "Contents", GAMES_STOCK_CONTENTS, NULL, NULL, NULL, G_CALLBACK (help_cb) },
   { "About", GTK_STOCK_ABOUT, NULL, NULL, NULL, G_CALLBACK (about_cb) }
 };

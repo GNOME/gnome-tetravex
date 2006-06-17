@@ -1,3 +1,8 @@
+2006-06-15  Richard Hoelscher  <rah@rahga.com>
+
+	* gnotravex.c: Add accelerators for the move menu. Ctrl+arrow 
+	used, reserving standalone arrows for keyboard navigation.
+
 2006-04-29  Callum McKenzie  <callum@spooky-possum.org>
 
 	* gnotravex.c (main): DIsable GTK+ double-buffering since we do
