@@ -158,6 +158,9 @@ void hint_move (gint, gint, gint, gint);
 void show_score_dialog (gint);
 static gint save_state (GnomeClient*, gint, GnomeRestartStyle,
                         gint, GnomeInteractStyle, gint, gpointer);
+static void set_fullscreen_actions (gboolean is_fullscreen);
+static void fullscreen_cb (GtkAction *action);
+static void window_state_cb (GtkWidget *widget, GdkEventWindowState *event);
 
 GtkAction *new_game_action;
 GtkAction *pause_action;
@@ -169,6 +172,9 @@ GtkAction *move_up_action;
 GtkAction *move_left_action;
 GtkAction *move_right_action;
 GtkAction *move_down_action;
+GtkAction *fullscreen_action;
+GtkAction *leave_fullscreen_action;
+
 
 /* ------------------------- MENU ------------------------ */
 void new_game_cb (GtkAction *, gpointer);
@@ -186,6 +192,7 @@ void quit_game_cb (void);
 
 const GtkActionEntry action_entry[] = {
   { "GameMenu", NULL, N_("_Game") },
+  { "ViewMenu", NULL, N_("_View") },
   { "MoveMenu", NULL, N_("_Move") },
   { "SizeMenu", NULL, N_("_Size") },
   { "HelpMenu", NULL, N_("_Help") },
@@ -196,6 +203,9 @@ const GtkActionEntry action_entry[] = {
   { "Solve", GTK_STOCK_REFRESH, N_("Sol_ve"), NULL, N_("Solve the game"), G_CALLBACK (solve_cb) },
   { "Scores", GAMES_STOCK_SCORES, NULL, NULL, NULL, G_CALLBACK (score_cb) },
   { "Quit", GTK_STOCK_QUIT, NULL, NULL, NULL, G_CALLBACK (quit_game_cb) },
+  { "Fullscreen", GAMES_STOCK_FULLSCREEN, NULL, NULL, NULL, G_CALLBACK (fullscreen_cb) },
+  { "LeaveFullscreen", GAMES_STOCK_LEAVE_FULLSCREEN, NULL, NULL, NULL, G_CALLBACK (fullscreen_cb) },
+
   { "MoveUp", GTK_STOCK_GO_UP, N_("_Up"), "<control>Up", N_("Move the pieces up"), G_CALLBACK (move_up_cb) },
   { "MoveLeft", GTK_STOCK_GO_BACK, N_("_Left"), "<control>Left", N_("Move the pieces left"), G_CALLBACK (move_left_cb) },
   { "MoveRight", GTK_STOCK_GO_FORWARD, N_("_Right"), "<control>Right", N_("Move the pieces right"), G_CALLBACK (move_right_cb) },
@@ -228,6 +238,10 @@ const char ui_description[] =
 "      <menuitem action='Scores'/>"
 "      <separator/>"
 "      <menuitem action='Quit'/>"
+"    </menu>"
+"    <menu action='ViewMenu'>"
+"      <menuitem action='Fullscreen'/>"
+"      <menuitem action='LeaveFullscreen'/>"
 "    </menu>"
 "    <menu action='MoveMenu'>"
 "      <menuitem action='MoveUp'/>"
@@ -456,6 +470,9 @@ create_window (void)
   gtk_widget_realize (window);
   g_signal_connect (G_OBJECT (window), "delete_event",
                     G_CALLBACK (quit_game_cb), NULL);
+  g_signal_connect (G_OBJECT (window), "window_state_event",
+                    G_CALLBACK (window_state_cb), NULL);
+
 }
 
 gint
@@ -1322,6 +1339,12 @@ create_menu (GtkUIManager *ui_manager)
   move_left_action  = gtk_action_group_get_action (action_group, "MoveLeft");
   move_right_action = gtk_action_group_get_action (action_group, "MoveRight");
   move_down_action  = gtk_action_group_get_action (action_group, "MoveDown");
+  fullscreen_action = gtk_action_group_get_action (action_group, "Fullscreen");
+  leave_fullscreen_action = gtk_action_group_get_action (action_group, 
+							 "LeaveFullscreen");
+
+  set_fullscreen_actions (FALSE);
+
 
   for (i = 0; i < G_N_ELEMENTS(size_action_entry); i++)
     size_action[i] = gtk_action_group_get_action (action_group, size_action_entry[i].name);
@@ -1613,3 +1636,33 @@ about_cb (GtkAction *action, gpointer data)
                          "wrap-license", TRUE,
                          NULL);
 }
+
+static void 
+set_fullscreen_actions (gboolean is_fullscreen)
+{
+  gtk_action_set_sensitive (leave_fullscreen_action, is_fullscreen);
+  gtk_action_set_visible (leave_fullscreen_action, is_fullscreen);
+
+  gtk_action_set_sensitive (fullscreen_action, !is_fullscreen);
+  gtk_action_set_visible (fullscreen_action, !is_fullscreen);
+}
+
+static void 
+fullscreen_cb (GtkAction *action)
+{
+  if (action == fullscreen_action) {
+    gtk_window_fullscreen (GTK_WINDOW (window));
+  } else {
+    gtk_window_unfullscreen (GTK_WINDOW (window));
+  }
+}
+
+/* Just in case something else takes us to/from fullscreen. */
+static void 
+window_state_cb (GtkWidget *widget, GdkEventWindowState *event)
+{
+  if (event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN)
+    set_fullscreen_actions (event->new_window_state &
+                            GDK_WINDOW_STATE_FULLSCREEN);
+}
+

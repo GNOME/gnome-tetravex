@@ -1,3 +1,8 @@
+2006-06-21  Andreas Røsdal  <andrearo@stud.ntnu.no>
+
+	* gnotravex.c: Add fullscreen mode. 
+
+
 2006-06-15  Richard Hoelscher  <rah@rahga.com>
 
 	* gnotravex.c: Add accelerators for the move menu. Ctrl+arrow 
