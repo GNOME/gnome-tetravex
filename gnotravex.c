@@ -46,6 +46,7 @@
 #define KEY_GRID_SIZE "/apps/gnotravex/grid_size"
 #define KEY_WINDOW_WIDTH "/apps/gnotravex/width"
 #define KEY_WINDOW_HEIGHT "/apps/gnotravex/height"
+#define KEY_SHOW_COLOURS "/apps/gnotravex/colours"
 
 /* i18n in-game numbers, replaceable with single-character local ideograms. */
 const char *translatable_number[10] = { N_("0"), N_("1"), N_("2"), N_("3"), N_("4"), N_("5"), N_("6"), N_("7"), N_("8"), N_("9") }; 
@@ -112,6 +113,69 @@ gint session_ypos = 0;
 gint session_position = 0;
 guint timer_timeout = 0;
 gint tile_size = 0;
+gdouble tile_border_size = 3.0;
+gdouble coloured_tiles = FALSE;
+
+/* The vertices used in the tiles/sockets. These are built using gui_build_vertices() */
+gdouble vertices[21][2];
+gboolean rebuild_vertices = TRUE;
+
+/* The sector of a tile to mark quads with */
+#define NORTH 0
+#define SOUTH 1
+#define EAST  2
+#define WEST  3
+
+#define HIGHLIGHT 0
+#define BASE      1
+#define SHADOW    2
+#define TEXT      3
+
+/* The faces use to build a socket */
+static int socket_faces[4][7] =
+{
+   {NORTH, SHADOW,    4, 0, 1, 18, 17},
+   {WEST,  SHADOW,    4, 0, 3, 20, 17},
+   {EAST,  HIGHLIGHT, 4, 1, 2, 19, 18},
+   {SOUTH, HIGHLIGHT, 4, 2, 3, 20, 19},
+};
+
+/* The faces used to build a tile */
+static int tile_faces[16][7] =
+{
+   {NORTH, BASE,      3,  4,  5, 12,  0},
+   {SOUTH, BASE,      3,  8,  9, 14,  0},
+   {EAST,  BASE,      3,  6,  7, 13,  0},
+   {WEST,  BASE,      3, 10, 11, 15,  0},
+   {EAST,  SHADOW,    4,  1,  2,  7,  6},
+   {SOUTH, SHADOW,    4,  2,  3,  9,  8},
+   {WEST,  SHADOW,    4,  0, 16, 15, 11},
+   {NORTH, SHADOW,    4,  1, 16, 12,  5},
+   {SOUTH, SHADOW,    4,  2, 16, 14,  8},
+   {WEST,  SHADOW,    4,  3, 16, 15, 10},
+   {NORTH, HIGHLIGHT, 4,  0,  1,  5,  4},
+   {WEST,  HIGHLIGHT, 4,  0,  3, 10, 11},
+   {NORTH, HIGHLIGHT, 4,  0, 16, 12,  4},
+   {EAST,  HIGHLIGHT, 4,  1, 16, 13,  6},
+   {EAST,  HIGHLIGHT, 4,  2, 16, 13,  7},
+   {SOUTH, HIGHLIGHT, 4,  3, 16, 14,  9}
+};
+
+/* Tile segment colours (this is the resistor colour code) */
+static gdouble tile_colours[11][4][3] =
+{
+   {{ 46,  52,  54}, {  0,   0,   0}, {  0,   0,   0}, {255, 255, 255}}, /* 0 = black */
+   {{233, 185, 110}, {193, 125,  17}, {143,  89,   2}, {255, 255, 255}}, /* 1 = brown */
+   {{239,  41,  41}, {204,   0,   0}, {164,   0,   0}, {255, 255, 255}}, /* 2 = red */
+   {{252, 175,  62}, {245, 121,   0}, {206,  92,   0}, {255, 255, 255}}, /* 3 = orange */
+   {{252, 233,  79}, {237, 212,   0}, {196, 160,   0}, {  0,   0,   0}}, /* 4 = yellow */
+   {{138, 226,  52}, {115, 210,  22}, { 78, 154,   6}, {  0,   0,   0}}, /* 5 = green */
+   {{114, 159, 207}, { 52, 101, 164}, { 32,  74, 135}, {255, 255, 255}}, /* 6 = blue */
+   {{173, 127, 168}, {117,  80, 123}, { 92,  53, 102}, {255, 255, 255}}, /* 7 = violet */
+   {{211, 215, 207}, {186, 189, 182}, {136, 138, 133}, {  0,   0,   0}}, /* 8 = grey */
+   {{255, 255, 255}, {255, 255, 255}, {238, 238, 236}, {  0,   0,   0}}, /* 9 = white */
+   {{255, 255, 255}, {255, 255, 255}, {238, 238, 236}, {  0,   0,   0}}  /* 10 = standard */
+};
 
 void make_buffer (GtkWidget *);
 void create_window (void);
@@ -124,8 +188,12 @@ gint button_press_space (GtkWidget *, GdkEventButton *);
 gint button_release_space (GtkWidget *, GdkEventButton *);
 gint button_motion_space (GtkWidget *, GdkEventButton *);
 
-void gui_draw_piece (GdkPixmap *, GtkStateType, gboolean, gint, gint);
-void gui_draw_text_int (GdkPixmap *, gint, GtkStateType, gint, gint);
+void gui_build_vertices(void);
+void gui_update_colours(GtkStateType state);
+void gui_draw_faces (cairo_t *context, gint xadd, gint yadd, int quads[][7], int count, guint colours[4]);
+void gui_draw_socket (GdkPixmap *target, GtkStateType state, gint xadd, gint yadd);
+void gui_draw_number (cairo_t *context, gdouble x, gdouble y, guint number);
+void gui_draw_tile (GdkPixmap *target, GtkStateType state, gint xadd, gint yadd, gint north, gint south, gint east, gint west);
 void gui_draw_pixmap (GdkPixmap *, gint, gint, gboolean);
 void gui_draw_pause (void);
 
@@ -183,6 +251,7 @@ void about_cb (GtkAction *, gpointer);
 void score_cb (GtkAction *, gpointer);
 void hint_cb (GtkAction *, gpointer);
 void solve_cb (GtkAction *, gpointer);
+void show_colours_toggle_cb (GtkToggleAction *togglebutton, gpointer data);
 void move_up_cb (GtkAction *, gpointer);
 void move_left_cb (GtkAction *, gpointer);
 void move_right_cb (GtkAction *, gpointer);
@@ -222,6 +291,10 @@ const GtkRadioActionEntry size_action_entry[] = {
   { "Size6x6", NULL, N_("_6\303\2276"), NULL, N_("Play on a 6\303\2276 board"), 6 }
 };
 
+static const GtkToggleActionEntry toggles[] = {
+  { "Colours", NULL, N_("Tile _Colours"), NULL, "Colour the game tiles", G_CALLBACK (show_colours_toggle_cb) }
+};
+
 GtkAction *size_action[G_N_ELEMENTS(size_action_entry)];
 
 const char ui_description[] =
@@ -240,6 +313,7 @@ const char ui_description[] =
 "      <menuitem action='Quit'/>"
 "    </menu>"
 "    <menu action='ViewMenu'>"
+"      <menuitem action='Colours'/>"  
 "      <menuitem action='Fullscreen'/>"
 "      <menuitem action='LeaveFullscreen'/>"
 "    </menu>"
@@ -522,97 +596,219 @@ button_release_space (GtkWidget *widget, GdkEventButton *event)
 }
 
 void
-gui_draw_piece (GdkPixmap *target, GtkStateType state,
-                gboolean which, gint xadd, gint yadd)
+gui_build_vertices(void)
 {
-  GdkGC *fg;
-  GdkGC *bg;
-  GdkGC *highlight;
-  GdkGC *shadow;
-  GdkGC *whichgc;
-  GtkStyle *style;
-  gint line_thickness = 3;
-  gint shadow_offset;
-  gint i;
+   gdouble z, midx, midy, offset, far_offset;
+   
+   /* Vertices 0-3 are the border of the square */
+   vertices[0][0] = 0; vertices[0][1] = 0;
+   vertices[1][0] = tile_size; vertices[1][1] = 0;
+   vertices[2][0] = tile_size; vertices[2][1] = tile_size;
+   vertices[3][0] = 0; vertices[3][1] = tile_size;
+   
+   /* Calculate the intersection between the edge and the diagonal grooves */
+   z = 0.70711 * tile_border_size;
+   offset = tile_border_size + z;
+   far_offset = tile_size - offset;
 
+   /* Top edge */
+   vertices[4][0] = offset; vertices[4][1] = tile_border_size;
+   vertices[5][0] = far_offset; vertices[5][1] = tile_border_size;
+   
+   /* Right edge */
+   vertices[6][0] = tile_size - tile_border_size; vertices[6][1] = offset;
+   vertices[7][0] = tile_size - tile_border_size; vertices[7][1] = far_offset;
+   
+   /* Bottom edge */
+   vertices[8][0] = far_offset; vertices[8][1] = tile_size - tile_border_size;
+   vertices[9][0] = offset; vertices[9][1] = tile_size - tile_border_size;
+   
+   /* Left edge */
+   vertices[10][0] = tile_border_size; vertices[10][1] = far_offset;
+   vertices[11][0] = tile_border_size; vertices[11][1] = offset;
+   
+   midx = tile_size / 2.0;
+   midy = tile_size / 2.0;
+   
+   /* Inner edges */
+   vertices[12][0] = midx; vertices[12][1] = midy - z;
+   vertices[13][0] = midx + z; vertices[13][1] = midy;
+   vertices[14][0] = midx; vertices[14][1] = midy + z;
+   vertices[15][0] = midx - z; vertices[15][1] = midy;
+   
+   /* Centre point */
+   vertices[16][0] = midx; vertices[16][1] = midy;
+   
+   /* Edges for socket */
+   vertices[17][0] = tile_border_size; vertices[17][1] = tile_border_size;
+   vertices[18][0] = tile_size - tile_border_size; vertices[18][1] = tile_border_size;
+   vertices[19][0] = tile_size - tile_border_size; vertices[19][1] = tile_size - tile_border_size;
+   vertices[20][0] = tile_border_size; vertices[20][1] = tile_size - tile_border_size;
+}
+
+/* Convert the theme colours to cairo form. I'm sure there must be an easier way than this... */
+void
+gui_update_colours (GtkStateType state)
+{
+  GdkColor *bg;
+  GdkColor *highlight;
+  GdkColor *shadow;
+  GtkStyle *style;
+
+  /* Get the colours used by this style */
   style = gtk_widget_get_style (space);
-  fg = style->fg_gc[state];
-  bg = style->bg_gc[state];
-  highlight = style->light_gc[state];
-  shadow = style->dark_gc[state];
+  bg = &style->bg[state];
+  highlight = &style->light[state];
+  shadow = &style->dark[state];
+
+  /* Set the colours to the them default */
+  tile_colours[10][HIGHLIGHT][0] = highlight->red * 255.0 / 65535.0;
+  tile_colours[10][HIGHLIGHT][1] = highlight->green * 255.0 / 65535.0;
+  tile_colours[10][HIGHLIGHT][2] = highlight->blue * 255.0 / 65535.0;
+  tile_colours[10][BASE][0]      = bg->red * 255.0 / 65535.0;
+  tile_colours[10][BASE][1]      = bg->green * 255.0 / 65535.0;
+  tile_colours[10][BASE][2]      = bg->blue * 255.0 / 65535.0;
+  tile_colours[10][SHADOW][0]    = shadow->red * 255.0 / 65535.0;
+  tile_colours[10][SHADOW][1]    = shadow->green * 255.0 / 65535.0;
+  tile_colours[10][SHADOW][2]    = shadow->blue * 255.0 / 65535.0;
+}
+
+void
+gui_draw_faces (cairo_t *context, gint xadd, gint yadd, int quads[][7], int count, guint colours[4])
+{
+  int i, j, k;
+  int *quad;
+  guint face, level, n_vertices;
+  gdouble *colour;
+   
+  for(i = 0; i < count; i += 1)
+  {
+     quad = quads[i];
+     
+     /* Set the face colour */
+     face = quad[0];
+     level = quad[1];
+     n_vertices = quad[2];
+     colour = tile_colours[colours[face]][level];
+     cairo_set_source_rgba(context, colour[0] / 255.0, colour[1] / 255.0, colour[2] / 255.0, 1.0);
+
+     k = quad[3];
+     cairo_move_to(context, xadd + vertices[k][0], yadd + vertices[k][1]);
+     for(j = 1; j < n_vertices; j += 1)
+     {
+	k = quad[j + 3];
+	cairo_line_to(context, xadd + vertices[k][0], yadd + vertices[k][1]);
+     }
+     
+     cairo_close_path(context);
+     cairo_fill(context);
+  }
+}
+
+void
+gui_draw_socket (GdkPixmap *target, GtkStateType state, gint xadd, gint yadd)
+{
+  cairo_t *context;
+  gdouble *colour;
+  guint colours[4] = {10, 10, 10, 10};
+   
+  context = gdk_cairo_create(GDK_DRAWABLE(target));
+
+  /* Use the theme colours */
+  gui_update_colours(state);
+   
+  /* Only draw inside the allocated space */
+  cairo_rectangle(context, xadd, yadd, tile_size, tile_size);
+  cairo_clip(context);
 
   /* Blank the piece */
-  gdk_draw_rectangle (target, bg, TRUE, xadd, yadd,
-                      tile_size, tile_size);
+  colour = tile_colours[10][BASE];
+  cairo_set_source_rgba(context, colour[0] / 255.0, colour[1] / 255.0, colour[2] / 255.0, 1.0);
+  cairo_rectangle(context, xadd, yadd, tile_size, tile_size);
+  cairo_fill(context);
+
+  /* Build the co-ordinates used by the tiles */
+  if(rebuild_vertices)
+  {
+     gui_build_vertices();
+     rebuild_vertices = FALSE;
+  }
+
+  gui_draw_faces(context, xadd, yadd, socket_faces, 4, colours);
+
+  cairo_destroy(context);
+}
+
+void
+gui_draw_number (cairo_t *context, gdouble x, gdouble y, guint number)
+{
+  gchar *text;
+  cairo_text_extents_t extents;
+  gdouble *colour;
+   
+  text = _(translatable_number[number]);
+
+  if (coloured_tiles)
+     colour = tile_colours[number][TEXT];
+  else
+     colour = tile_colours[10][TEXT];
+  cairo_set_source_rgba(context, colour[0] / 255.0, colour[1] / 255.0, colour[2] / 255.0, 1.0);
+   
+  cairo_text_extents(context, text, &extents);
+  cairo_move_to(context, x - extents.width / 2.0, y + extents.height / 2.0);
+  cairo_show_text(context, text);
+}
+
+void
+gui_draw_tile (GdkPixmap *target, GtkStateType state, gint xadd, gint yadd, gint north, gint south, gint east, gint west)
+{
+  cairo_t *context;
+  gdouble *colour;
+  guint colours[4];
+   
+  context = gdk_cairo_create(GDK_DRAWABLE(target));
+
+  /* Use per sector colours or the theme colours */
+  gui_update_colours(state);
+  if (coloured_tiles)
+  {
+     colours[NORTH] = north;
+     colours[SOUTH] = south;
+     colours[EAST]  = east;
+     colours[WEST]  = west;
+  }
+  else
+     colours[0] = colours[1] = colours[2] = colours[3] = 10;
+   
+  /* Only draw inside the allocated space */
+  cairo_rectangle(context, xadd, yadd, tile_size, tile_size);
+  cairo_clip(context);
+
+  /* Build the co-ordinates used by the tiles */
+  if(rebuild_vertices)
+  {
+     gui_build_vertices();
+     rebuild_vertices = FALSE;
+  }
+   
+  gui_draw_faces(context, xadd, yadd, tile_faces, 16, colours);
+
   /* Draw outline */
-  gdk_draw_rectangle (target, fg, FALSE, xadd, yadd,
-                      tile_size-1, tile_size-1);
+  cairo_set_line_width(context, 1.0);
+  colour = tile_colours[10][TEXT];
+  cairo_set_source_rgba(context, colour[0] / 255.0, colour[1] / 255.0, colour[2] / 255.0, 1.0);
+  cairo_rectangle(context, xadd + 0.5, yadd + 0.5, tile_size - 1.0, tile_size - 1.0);
+  cairo_stroke(context);
+   
+  cairo_select_font_face(context, "Sans", CAIRO_FONT_SLANT_NORMAL, CAIRO_FONT_WEIGHT_BOLD);
+  cairo_set_font_size(context, tile_size / 3.5);
+  
+  gui_draw_number(context, xadd + tile_size / 2, yadd + tile_size / 5, north);
+  gui_draw_number(context, xadd + tile_size / 2, yadd + tile_size * 4 / 5, south);
+  gui_draw_number(context, xadd + tile_size * 4 / 5, yadd + tile_size / 2, east);
+  gui_draw_number(context, xadd + tile_size / 5, yadd + tile_size / 2, west);
 
-  /* shadow offset exposes fg color border around used pieces */
-  shadow_offset = (which == USED) ? 1 : 0;
-
-  if (which == USED) {
-    /* Draw crossed lines */
-    for (i = 0; i < line_thickness; i++) {
-      gdk_draw_line (target, shadow,
-                     xadd + shadow_offset,
-                     yadd + i + shadow_offset,
-                     xadd + tile_size - 1 - i - shadow_offset,
-                     yadd + tile_size - 1 - shadow_offset);
-      gdk_draw_line (target, shadow,
-                     xadd + shadow_offset,
-                     yadd + tile_size - 1 - i - shadow_offset,
-                     xadd + tile_size - 1 - i - shadow_offset,
-                     yadd + shadow_offset);
-    }
-    for (i = 0; i < line_thickness; i++) {
-      gdk_draw_line (target, highlight,
-                     xadd + 1 + i + shadow_offset,
-                     yadd + shadow_offset,
-                     xadd + tile_size - 1 - shadow_offset,
-                     yadd + tile_size - 2 - shadow_offset - i);
-      gdk_draw_line (target, highlight,
-                     xadd + 1 + shadow_offset+ i,
-                     yadd + tile_size - 1 - shadow_offset,
-                     xadd + tile_size - 1 - shadow_offset,
-                     yadd + 1 + shadow_offset + i);
-    }
-  }
-
-  /* Draw highlights */
-  whichgc = which == USED ? shadow : highlight;
-
-  for (i = 0; i < line_thickness; i++) {
-    /* bottom edge */
-    gdk_draw_line (target, whichgc,
-                   xadd + shadow_offset,
-                   yadd + tile_size - 1 - shadow_offset - i,
-                   xadd + tile_size - 1 - shadow_offset,
-                   yadd + tile_size - 1 - shadow_offset - i);
-    /* right edge */
-    gdk_draw_line (target, whichgc,
-                   xadd + tile_size - 1 - shadow_offset - i,
-                   yadd + shadow_offset,
-                   xadd + tile_size - 1 - shadow_offset - i,
-                   yadd + tile_size - 1 - shadow_offset);
-  }
-
-  whichgc = which == USED ? highlight : shadow;
-
-  for (i = 0; i < line_thickness; i++) {
-    /* top edge */
-    gdk_draw_line (target, whichgc,
-                   xadd + shadow_offset,
-                   yadd + i + shadow_offset,
-                   xadd + tile_size - 2 - i - shadow_offset, 
-                   yadd + i + shadow_offset);
-    /* left edge */
-    gdk_draw_line (target, whichgc,
-                   xadd + i + shadow_offset,
-                   yadd + shadow_offset,
-                   xadd + i + shadow_offset,
-                   yadd + tile_size - 2 - i - shadow_offset);
-  }
+  cairo_destroy(context);
 }
 
 gint
@@ -647,53 +843,6 @@ button_motion_space (GtkWidget *widget, GdkEventButton *event)
   return FALSE;
 }
 
-/* Note that x and y are the *center* of the digit to be placed. */
-void
-gui_draw_text_int (GdkPixmap *target, gint value, GtkStateType state,
-                   gint x, gint y)
-{
-  PangoLayout *layout;
-  PangoAttrList *alist;
-  PangoAttribute *attr;
-  PangoFontDescription *font_desc;
-  PangoRectangle extent;
-  gchar *text;
-  guint64 font_size;
-
-  if (! target) 
-    return;
-  if (! space) 
-    return;
-
-  font_size = tile_size / 3.5 * PANGO_SCALE;
-
-  text = _(translatable_number[value]);
-  layout = gtk_widget_create_pango_layout (space, text);
-
-  font_desc = pango_font_description_new();
-  pango_font_description_set_family(font_desc, "Sans");
-  pango_font_description_set_absolute_size(font_desc, font_size);
-  pango_font_description_set_weight(font_desc, PANGO_WEIGHT_BOLD);
-  
-  alist = pango_attr_list_new ();
-  attr = pango_attr_font_desc_new(font_desc);
-  attr->start_index = 0;
-  attr->end_index = strlen(text);
-  pango_attr_list_insert (alist, attr);
-  pango_layout_set_attributes (layout, alist);
-  pango_attr_list_unref (alist);
-
-  pango_layout_get_extents (layout, NULL, &extent);
-  x = x - ((guint)extent.width)/(2*PANGO_SCALE);
-  y = y - ((guint)extent.height)/(2*PANGO_SCALE);
-
-  gdk_draw_layout (target, space->style->text_gc[state], 
-                   x, y, layout);
-
-  pango_font_description_free(font_desc);
-  g_object_unref (layout);
-}
-
 void
 gui_draw_pixmap (GdkPixmap *target, gint x, gint y, gboolean prelight)
 {
@@ -718,33 +867,11 @@ gui_draw_pixmap (GdkPixmap *target, gint x, gint y, gboolean prelight)
   if (prelight)
     state = GTK_STATE_PRELIGHT;
 
-  gui_draw_piece (target, state, which, xadd, yadd);
-
-  if (which == USED) {
-    /* North */
-    gui_draw_text_int (target, tiles[y][x].n,
-                       state,
-                       xadd + tile_size / 2,
-                       yadd + tile_size / 5);
-
-    /* South */
-    gui_draw_text_int (target, tiles[y][x].s,
-                       state,
-                       xadd + tile_size / 2,
-                       yadd + tile_size * 4 / 5);
-    
-    /* West */
-    gui_draw_text_int (target, tiles[y][x].w,
-                       state,
-                       xadd + tile_size / 5,
-                       yadd + tile_size / 2);
-  
-    /* East */
-    gui_draw_text_int (target, tiles[y][x].e,
-                       state,
-                       xadd + tile_size * 4 / 5,
-                       yadd + tile_size / 2);
-  }
+  if (which == USED)  
+    gui_draw_tile (target, state, xadd, yadd, tiles[y][x].n, tiles[y][x].s, tiles[y][x].e, tiles[y][x].w);
+  else
+    gui_draw_socket (target, state, xadd, yadd);
+   
   gtk_widget_queue_draw_area (space, xadd, yadd, tile_size, tile_size);
 }
 
@@ -1035,6 +1162,16 @@ update_tile_size (gint screen_width, gint screen_height)
   gap = (screen_width - 2*size*tile_size) / 3;
   xborder = gap;
   yborder = (screen_height - size*tile_size) / 2;
+   
+  /* Set tile edge to a percentage of the tile size */
+  tile_border_size = 0.05 * tile_size;
+  if (tile_border_size < 1.0)
+    tile_border_size = 1.0;
+  else if (tile_border_size > 5.0)
+    tile_border_size = 5.0;
+ 
+  /* Rebuild the tile/socket vertices when required */
+  rebuild_vertices = TRUE;
 
   gtk_window_get_size (GTK_WINDOW (window), &window_width, &window_height);
   gconf_client_set_int (gconf_client, KEY_WINDOW_WIDTH, window_width, NULL);
@@ -1060,6 +1197,9 @@ redraw_all (void)
 {
   guint x, y;
   GdkRegion *region;
+   
+  if (!space->window)
+     return;
 
   region = gdk_drawable_get_clip_region (GDK_DRAWABLE (space->window));
   gdk_window_begin_paint_region (space->window, region); 
@@ -1257,6 +1397,9 @@ gui_draw_pause (void)
   guint x, y, xadd, yadd, which;
   GdkRegion *region;
   GdkGC *gc;
+   
+  if (!space->window)
+     return;
 
   region = gdk_drawable_get_clip_region (GDK_DRAWABLE (space->window));
   gdk_window_begin_paint_region (space->window, region);
@@ -1269,33 +1412,10 @@ gui_draw_pause (void)
       yadd = y * tile_size + yborder;
       gc = space->style->black_gc;
 
-      gui_draw_piece (buffer, GTK_STATE_NORMAL, which, xadd, yadd);
-
-      if (which == USED) {
-        /* North */
-        gui_draw_text_int (buffer, 0,
-                           GTK_STATE_NORMAL,
-                           xadd + tile_size / 2,
-                           yadd + tile_size / 5);
-        
-        /* South */
-        gui_draw_text_int (buffer, 0,
-                           GTK_STATE_NORMAL,
-                           xadd + tile_size / 2,
-                           yadd + tile_size * 4 / 5);
-        
-        /* West */
-        gui_draw_text_int (buffer, 0,
-                           GTK_STATE_NORMAL,
-                           xadd + tile_size / 5,
-                           yadd + tile_size / 2);
-        
-        /* East */
-        gui_draw_text_int (buffer, 0,
-                           GTK_STATE_NORMAL,
-                           xadd + tile_size * 4 / 5,
-                           yadd + tile_size / 2);
-      }
+      if (which == USED)
+	gui_draw_tile (buffer, GTK_STATE_NORMAL, xadd, yadd, tiles[y][x].n, tiles[y][x].s, tiles[y][x].e, tiles[y][x].w);
+      else
+	gui_draw_socket (buffer, GTK_STATE_NORMAL, xadd, yadd);
       
       gtk_widget_queue_draw_area (space, xadd, yadd, tile_size, tile_size);
     }
@@ -1319,6 +1439,7 @@ create_menu (GtkUIManager *ui_manager)
 {
   gint i;
   GtkActionGroup *action_group;
+  GtkAction *colour_toggle;
 
   action_group = gtk_action_group_new ("actions");
 
@@ -1345,6 +1466,9 @@ create_menu (GtkUIManager *ui_manager)
 
   set_fullscreen_actions (FALSE);
 
+  gtk_action_group_add_toggle_actions (action_group, toggles, G_N_ELEMENTS (toggles), NULL);
+  colour_toggle = gtk_action_group_get_action (action_group, "Colours");
+  gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (colour_toggle), gconf_client_get_bool (gconf_client, KEY_SHOW_COLOURS, NULL));
 
   for (i = 0; i < G_N_ELEMENTS(size_action_entry); i++)
     size_action[i] = gtk_action_group_get_action (action_group, size_action_entry[i].name);
@@ -1439,6 +1563,14 @@ size_cb (GtkAction *action, gpointer data)
   games_scores_set_category (highscores, scorecats[size-2].key);
   gconf_client_set_int (gconf_client, KEY_GRID_SIZE, size, NULL);
   gtk_action_activate (new_game_action);
+}
+
+void
+show_colours_toggle_cb (GtkToggleAction *togglebutton, gpointer data)
+{
+   coloured_tiles = gtk_toggle_action_get_active (togglebutton);
+   gconf_client_set_bool (gconf_client, KEY_SHOW_COLOURS, coloured_tiles, NULL);
+   redraw_all();
 }
 
 void
