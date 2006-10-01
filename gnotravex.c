@@ -1752,6 +1752,8 @@ about_cb (GtkAction *action, gpointer data)
 
   const gchar *documenters[] = { "Rob Bradford", NULL };
 
+  gchar *license = games_get_license (_(APPNAME_LONG));
+
   gtk_show_about_dialog (GTK_WINDOW (window),
                          "name", _(APPNAME_LONG),
                          "version", VERSION,
@@ -1759,7 +1761,7 @@ about_cb (GtkAction *action, gpointer data)
 					     "pieces must be positioned so that the "
 					     "same numbers are touching each other."),
                          "copyright", "Copyright \xc2\xa9 1999-2006 Lars Rydlinge",
-                         "license", "GPL 2+",
+                         "license", license,
                          "authors", authors,
                          "documenters", documenters,
                          "translator_credits", _("translator-credits"),
@@ -1767,6 +1769,7 @@ about_cb (GtkAction *action, gpointer data)
                          "website", "http://www.gnome.org/projects/gnome-games/",
                          "wrap-license", TRUE,
                          NULL);
+  g_free (license);
 }
 
 static void 
