@@ -43,10 +43,11 @@
 #define UNUSED 1
 #define USED 0
 
-#define KEY_GRID_SIZE "/apps/gnotravex/grid_size"
-#define KEY_WINDOW_WIDTH "/apps/gnotravex/width"
+#define KEY_GRID_SIZE     "/apps/gnotravex/grid_size"
+#define KEY_WINDOW_WIDTH  "/apps/gnotravex/width"
 #define KEY_WINDOW_HEIGHT "/apps/gnotravex/height"
-#define KEY_SHOW_COLOURS "/apps/gnotravex/colours"
+#define KEY_CLICK_MOVE    "/apps/gnotravex/click_to_move"
+#define KEY_SHOW_COLOURS  "/apps/gnotravex/colours"
 
 /* i18n in-game numbers, replaceable with single-character local ideograms. */
 const char *translatable_number[10] =
@@ -118,7 +119,8 @@ gint session_position = 0;
 guint timer_timeout = 0;
 gint tile_size = 0;
 gdouble tile_border_size = 3.0;
-gdouble coloured_tiles = FALSE;
+gboolean coloured_tiles = FALSE;
+gboolean click_to_move = FALSE;
 
 /* The vertices used in the tiles/sockets. These are built using gui_build_vertices() */
 gdouble vertices[21][2];
@@ -226,6 +228,7 @@ void pause_game (void);
 void resume_game (void);
 void pause_cb (void);
 void hint_move_cb (void);
+void clickmove_toggle_cb (GtkToggleAction *, gpointer);
 void hint_move (gint, gint, gint, gint);
 void show_score_dialog (gint);
 static gint save_state (GnomeClient *, gint, GnomeRestartStyle,
@@ -312,7 +315,9 @@ const GtkRadioActionEntry size_action_entry[] = {
 
 static const GtkToggleActionEntry toggles[] = {
   {"Colours", NULL, N_("Tile _Colours"), NULL, "Colour the game tiles",
-   G_CALLBACK (show_colours_toggle_cb)}
+   G_CALLBACK (show_colours_toggle_cb)},
+  {"ClickToMove", NULL, N_("_Click to Move"), NULL, "Pick up and drop tiles by clicking",
+   G_CALLBACK (clickmove_toggle_cb)}
 };
 
 GtkAction *size_action[G_N_ELEMENTS (size_action_entry)];
@@ -338,6 +343,8 @@ const char ui_description[] =
   "      <menuitem action='LeaveFullscreen'/>"
   "    </menu>"
   "    <menu action='MoveMenu'>"
+  "      <menuitem action='ClickToMove'/>"
+  "      <separator/>"
   "      <menuitem action='MoveUp'/>"
   "      <menuitem action='MoveLeft'/>"
   "      <menuitem action='MoveRight'/>"
@@ -589,24 +596,48 @@ button_press_space (GtkWidget * widget, GdkEventButton * event)
   if (game_state == paused)
     gtk_action_activate (resume_action);
 
-  if (game_state == playing) {
-    if (event->button == 1) {
-      if (button_down == 1) {
-	setup_mover (event->x, event->y, RELEASE);	/* Seen it happened */
-	button_down = 0;
-	return FALSE;
-      }
-      if (setup_mover (event->x, event->y, PRESS)) {
+  if (game_state != playing)
+    return FALSE;
+   
+  if (event->button != 1)
+    return FALSE;
+   
+  if (click_to_move) 
+  {
+    if (button_down) 
+    {
+      setup_mover (event->x,event->y, RELEASE); /* Seen it happened */
+      button_down = 0;
+      return FALSE;
+    }
+    else
+    {	       
+      if (setup_mover (event->x, event->y, PRESS))
 	button_down = 1;
-      }
     }
   }
+  else
+  {
+    if (button_down == 1) 
+    {
+      setup_mover (event->x,event->y, RELEASE); /* Seen it happened */
+      button_down = 0;
+      return FALSE;
+    }
+    if (setup_mover (event->x, event->y, PRESS))
+      button_down = 1;
+  }
+   
   return FALSE;
 }
 
 gint
 button_release_space (GtkWidget * widget, GdkEventButton * event)
 {
+  /* Ignore when using click to move mode */
+  if (click_to_move)
+    return FALSE;
+
   if (event->button == 1) {
     if (button_down == 1) {
       setup_mover (event->x, event->y, RELEASE);
@@ -1493,7 +1524,7 @@ create_menu (GtkUIManager * ui_manager)
 {
   gint i;
   GtkActionGroup *action_group;
-  GtkAction *colour_toggle;
+  GtkAction *action;
 
   action_group = gtk_action_group_new ("actions");
 
@@ -1526,10 +1557,15 @@ create_menu (GtkUIManager * ui_manager)
 
   gtk_action_group_add_toggle_actions (action_group, toggles,
 				       G_N_ELEMENTS (toggles), NULL);
-  colour_toggle = gtk_action_group_get_action (action_group, "Colours");
-  gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (colour_toggle),
+  action = gtk_action_group_get_action (action_group, "Colours");
+  gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
 				gconf_client_get_bool (gconf_client,
 						       KEY_SHOW_COLOURS,
+						       NULL));
+  action = gtk_action_group_get_action (action_group, "ClickToMove");
+  gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
+				gconf_client_get_bool (gconf_client,
+						       KEY_CLICK_MOVE,
 						       NULL));
 
   for (i = 0; i < G_N_ELEMENTS (size_action_entry); i++)
@@ -1635,6 +1671,14 @@ show_colours_toggle_cb (GtkToggleAction * togglebutton, gpointer data)
   gconf_client_set_bool (gconf_client, KEY_SHOW_COLOURS, coloured_tiles,
 			 NULL);
   redraw_all ();
+}
+
+void
+clickmove_toggle_cb(GtkToggleAction * togglebutton, gpointer data)
+{
+  click_to_move = gtk_toggle_action_get_active (togglebutton);
+   
+  gconf_client_set_bool (gconf_client, KEY_CLICK_MOVE, click_to_move, NULL);
 }
 
 void
