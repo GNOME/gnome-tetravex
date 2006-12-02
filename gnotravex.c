@@ -22,6 +22,7 @@
 #include <config.h>
 #include <gnome.h>
 #include <string.h>
+#include <math.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <games-clock.h>
 #include <time.h>
@@ -119,11 +120,12 @@ gint session_position = 0;
 guint timer_timeout = 0;
 gint tile_size = 0;
 gdouble tile_border_size = 3.0;
+gdouble arrow_border_size = 1.5;
 gboolean coloured_tiles = FALSE;
 gboolean click_to_move = FALSE;
 
 /* The vertices used in the tiles/sockets. These are built using gui_build_vertices() */
-gdouble vertices[21][2];
+gdouble vertices[27][2];
 gboolean rebuild_vertices = TRUE;
 
 /* The sector of a tile to mark quads with */
@@ -137,47 +139,54 @@ gboolean rebuild_vertices = TRUE;
 #define SHADOW    2
 #define TEXT      3
 
-/* The faces use to build a socket */
+/* The faces used to build a socket */
 static int socket_faces[4][7] = {
-  {NORTH, SHADOW, 4, 0, 1, 18, 17},
-  {WEST, SHADOW, 4, 0, 3, 20, 17},
-  {EAST, HIGHLIGHT, 4, 1, 2, 19, 18},
-  {SOUTH, HIGHLIGHT, 4, 2, 3, 20, 19},
+  {NORTH, SHADOW,    4, 0, 1, 18, 17},
+  {WEST,  SHADOW,    4, 0, 3, 20, 17},
+  {EAST,  HIGHLIGHT, 4, 1, 2, 19, 18},
+  {SOUTH, HIGHLIGHT, 4, 2, 3, 20, 19}
+};
+
+/* The faces used to build the arrow */
+static int arrow_faces[3][7] = {
+  {NORTH, SHADOW,    4, 21, 24, 25, 22},
+  {NORTH, SHADOW,    4, 21, 23, 26, 24},
+  {NORTH, HIGHLIGHT, 4, 23, 22, 25, 26}
 };
 
 /* The faces used to build a tile */
 static int tile_faces[16][7] = {
-  {NORTH, BASE, 3, 4, 5, 12, 0},
-  {SOUTH, BASE, 3, 8, 9, 14, 0},
-  {EAST, BASE, 3, 6, 7, 13, 0},
-  {WEST, BASE, 3, 10, 11, 15, 0},
-  {EAST, SHADOW, 4, 1, 2, 7, 6},
-  {SOUTH, SHADOW, 4, 2, 3, 9, 8},
-  {WEST, SHADOW, 4, 0, 16, 15, 11},
-  {NORTH, SHADOW, 4, 1, 16, 12, 5},
-  {SOUTH, SHADOW, 4, 2, 16, 14, 8},
-  {WEST, SHADOW, 4, 3, 16, 15, 10},
-  {NORTH, HIGHLIGHT, 4, 0, 1, 5, 4},
-  {WEST, HIGHLIGHT, 4, 0, 3, 10, 11},
-  {NORTH, HIGHLIGHT, 4, 0, 16, 12, 4},
-  {EAST, HIGHLIGHT, 4, 1, 16, 13, 6},
-  {EAST, HIGHLIGHT, 4, 2, 16, 13, 7},
-  {SOUTH, HIGHLIGHT, 4, 3, 16, 14, 9}
+  {NORTH, BASE,      3,  4,  5, 12,  0},
+  {SOUTH, BASE,      3,  8,  9, 14,  0},
+  {EAST,  BASE,      3,  6,  7, 13,  0},
+  {WEST,  BASE,      3, 10, 11, 15,  0},
+  {EAST,  SHADOW,    4,  1,  2,  7,  6},
+  {SOUTH, SHADOW,    4,  2,  3,  9,  8},
+  {WEST,  SHADOW,    4,  0, 16, 15, 11},
+  {NORTH, SHADOW,    4,  1, 16, 12,  5},
+  {SOUTH, SHADOW,    4,  2, 16, 14,  8},
+  {WEST,  SHADOW,    4,  3, 16, 15, 10},
+  {NORTH, HIGHLIGHT, 4,  0,  1,  5,  4},
+  {WEST,  HIGHLIGHT, 4,  0,  3, 10, 11},
+  {NORTH, HIGHLIGHT, 4,  0, 16, 12,  4},
+  {EAST,  HIGHLIGHT, 4,  1, 16, 13,  6},
+  {EAST,  HIGHLIGHT, 4,  2, 16, 13,  7},
+  {SOUTH, HIGHLIGHT, 4,  3, 16, 14,  9}
 };
 
 /* Tile segment colours (this is the resistor colour code) */
 static gdouble tile_colours[11][4][3] = {
-  {{46, 52, 54}, {0, 0, 0}, {0, 0, 0}, {255, 255, 255}},	/* 0 = black */
-  {{233, 185, 110}, {193, 125, 17}, {143, 89, 2}, {255, 255, 255}},	/* 1 = brown */
-  {{239, 41, 41}, {204, 0, 0}, {164, 0, 0}, {255, 255, 255}},	/* 2 = red */
-  {{252, 175, 62}, {245, 121, 0}, {206, 92, 0}, {255, 255, 255}},	/* 3 = orange */
-  {{252, 233, 79}, {237, 212, 0}, {196, 160, 0}, {0, 0, 0}},	/* 4 = yellow */
-  {{138, 226, 52}, {115, 210, 22}, {78, 154, 6}, {0, 0, 0}},	/* 5 = green */
-  {{114, 159, 207}, {52, 101, 164}, {32, 74, 135}, {255, 255, 255}},	/* 6 = blue */
-  {{173, 127, 168}, {117, 80, 123}, {92, 53, 102}, {255, 255, 255}},	/* 7 = violet */
-  {{211, 215, 207}, {186, 189, 182}, {136, 138, 133}, {0, 0, 0}},	/* 8 = grey */
-  {{255, 255, 255}, {255, 255, 255}, {238, 238, 236}, {0, 0, 0}},	/* 9 = white */
-  {{255, 255, 255}, {255, 255, 255}, {238, 238, 236}, {0, 0, 0}}	/* 10 = standard */
+  {{ 46,  52,  54}, {  0,   0,   0}, {  0,   0,   0}, {255, 255, 255}}, /* 0 = black */
+  {{233, 185, 110}, {193, 125,  17}, {143,  89,   2}, {255, 255, 255}}, /* 1 = brown */
+  {{239,  41,  41}, {204,   0,   0}, {164,   0,   0}, {255, 255, 255}}, /* 2 = red */
+  {{252, 175,  62}, {245, 121,   0}, {206,  92,   0}, {255, 255, 255}}, /* 3 = orange */
+  {{252, 233,  79}, {237, 212,   0}, {196, 160,   0}, {  0,   0,   0}}, /* 4 = yellow */
+  {{138, 226,  52}, {115, 210,  22}, { 78, 154,   6}, {  0,   0,   0}}, /* 5 = green */
+  {{114, 159, 207}, { 52, 101, 164}, { 32,  74, 135}, {255, 255, 255}}, /* 6 = blue */
+  {{173, 127, 168}, {117,  80, 123}, { 92,  53, 102}, {255, 255, 255}}, /* 7 = violet */
+  {{211, 215, 207}, {186, 189, 182}, {136, 138, 133}, {  0,   0,   0}}, /* 8 = grey */
+  {{255, 255, 255}, {255, 255, 255}, {238, 238, 236}, {  0,   0,   0}},	/* 9 = white */
+  {{255, 255, 255}, {255, 255, 255}, {238, 238, 236}, {  0,   0,   0}}  /* 10 = standard */
 };
 
 void make_buffer (GtkWidget *);
@@ -195,6 +204,7 @@ void gui_build_vertices (void);
 void gui_update_colours (GtkStateType state);
 void gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
 		     int count, guint colours[4]);
+void gui_draw_arrow (GdkPixmap * target);
 void gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd,
 		      gint yadd);
 void gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number);
@@ -651,6 +661,7 @@ void
 gui_build_vertices (void)
 {
   gdouble z, midx, midy, offset, far_offset;
+  gdouble z2, dx, dy, w, h, xoffset, yoffset;
 
   /* Vertices 0-3 are the border of the square */
   vertices[0][0] = 0;
@@ -717,6 +728,30 @@ gui_build_vertices (void)
   vertices[19][1] = tile_size - tile_border_size;
   vertices[20][0] = tile_border_size;
   vertices[20][1] = tile_size - tile_border_size;
+   
+  /* Edges for the arrow */
+  w = gap;
+  h = size * tile_size;
+  xoffset = w * 0.25;
+  yoffset = 0.5 * (h - 1.5 * tile_size);
+  vertices[21][0] = xoffset;
+  vertices[21][1] = h * 0.5;
+  vertices[22][0] = w - xoffset;
+  vertices[22][1] = yoffset;
+  vertices[23][0] = vertices[22][0];
+  vertices[23][1] = h - yoffset;
+   
+  /* Arrow inner edges */
+  dx = w - 2*xoffset;
+  dy = (h - 2*yoffset) * 0.5;
+  z = arrow_border_size * dy / sqrt(dx*dx + dy*dy);
+  z2 = (dy / dx) * (dx - arrow_border_size - z);
+  vertices[24][0] = vertices[21][0] + z;
+  vertices[24][1] = vertices[21][1];
+  vertices[25][0] = vertices[22][0] - arrow_border_size;
+  vertices[25][1] = vertices[21][1] - z2;
+  vertices[26][0] = vertices[25][0];
+  vertices[26][1] = vertices[21][1] + z2;
 }
 
 /* Convert the theme colours to cairo form. I'm sure there must be an easier way than this... */
@@ -776,6 +811,22 @@ gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
     cairo_close_path (context);
     cairo_fill (context);
   }
+}
+
+void
+gui_draw_arrow (GdkPixmap * target)
+{
+  cairo_t *context;
+  gdouble x, y;
+  guint colours[4] = { 10, 10, 10, 10 };
+   
+  context = gdk_cairo_create (GDK_DRAWABLE (buffer));
+     
+  x = xborder + size * tile_size;
+  y = yborder;
+  gui_draw_faces (context, x, y, arrow_faces, 3, colours);
+     
+  cairo_destroy (context);
 }
 
 void
@@ -1252,6 +1303,11 @@ update_tile_size (gint screen_width, gint screen_height)
   else if (tile_border_size > 5.0)
     tile_border_size = 5.0;
 
+  /* Make arrow less sunken */
+  arrow_border_size = 0.5 * tile_border_size;
+  if (arrow_border_size < 1.0)
+    arrow_border_size = 1.0; 
+
   /* Rebuild the tile/socket vertices when required */
   rebuild_vertices = TRUE;
 
@@ -1292,6 +1348,8 @@ redraw_all (void)
   for (y = 0; y < size; y++)
     for (x = 0; x < size * 2; x++)
       gui_draw_pixmap (buffer, x, y, FALSE);
+   
+  gui_draw_arrow(buffer);
 
   gdk_window_end_paint (space->window);
   gdk_region_destroy (region);
