@@ -60,6 +60,7 @@ GtkWidget *statusbar;
 GtkWidget *space;
 GtkWidget *bit;
 GtkWidget *timer;
+GdkGC *bg_gc;
 
 static const GamesScoresCategory scorecats[] = { {"2x2", N_("2\303\2272")},
 {"3x3", N_("3\303\2273")},
@@ -194,6 +195,7 @@ void create_window (void);
 GtkWidget *create_menu (GtkUIManager *);
 void create_mover (void);
 GtkWidget *create_statusbar (void);
+GdkPixmap *default_background_pixmap;
 
 gint expose_space (GtkWidget *, GdkEventExpose *);
 gint button_press_space (GtkWidget *, GdkEventButton *);
@@ -246,6 +248,7 @@ static gint save_state (GnomeClient *, gint, GnomeRestartStyle,
 static void set_fullscreen_actions (gboolean is_fullscreen);
 static void fullscreen_cb (GtkAction * action);
 static void window_state_cb (GtkWidget * widget, GdkEventWindowState * event);
+static void load_pixmaps (void);
 
 GtkAction *new_game_action;
 GtkAction *pause_action;
@@ -429,10 +432,10 @@ main (int argc, char **argv)
   if (size < 2 || size > 6)
     size = 3;
 
+  load_pixmaps ();
   create_window ();
 
   space = gtk_drawing_area_new ();
-
 
   statusbar = create_statusbar ();
 
@@ -455,6 +458,9 @@ main (int argc, char **argv)
 			 GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK
 			 | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
   gtk_widget_realize (space);
+  bg_gc = gdk_gc_new (space->window);
+  gdk_gc_set_tile (bg_gc, default_background_pixmap);
+  gdk_gc_set_fill (bg_gc, GDK_TILED);
 
   g_signal_connect (G_OBJECT (space), "expose_event",
 		    G_CALLBACK (expose_space), NULL);
@@ -833,22 +839,19 @@ void
 gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd)
 {
   cairo_t *context;
-  gdouble *colour;
   guint colours[4] = { 10, 10, 10, 10 };
+  
+  gdk_draw_rectangle (GDK_DRAWABLE(target), bg_gc, TRUE, xadd, yadd, 
+		      tile_size, tile_size);
 
   context = gdk_cairo_create (GDK_DRAWABLE (target));
-
-  /* Use the theme colours */
-  gui_update_colours (state);
 
   /* Only draw inside the allocated space */
   cairo_rectangle (context, xadd, yadd, tile_size, tile_size);
   cairo_clip (context);
 
   /* Blank the piece */
-  colour = tile_colours[10][BASE];
-  cairo_set_source_rgba (context, colour[0] / 255.0, colour[1] / 255.0,
-			 colour[2] / 255.0, 1.0);
+  cairo_set_source_rgba (context, 0, 0, 0, 0.2);
   cairo_rectangle (context, xadd, yadd, tile_size, tile_size);
   cairo_fill (context);
 
@@ -1342,9 +1345,9 @@ redraw_all (void)
   region = gdk_drawable_get_clip_region (GDK_DRAWABLE (space->window));
   gdk_window_begin_paint_region (space->window, region);
 
-  gdk_draw_rectangle (buffer, space->style->bg_gc[GTK_STATE_NORMAL],
-		      TRUE, 0, 0, -1, -1);
   gdk_window_clear (space->window);
+  gdk_draw_rectangle (space->window, bg_gc, TRUE, 0, 0, -1, -1);
+  gdk_draw_rectangle (buffer, bg_gc, TRUE, 0, 0, -1, -1);
   for (y = 0; y < size; y++)
     for (x = 0; x < size * 2; x++)
       gui_draw_pixmap (buffer, x, y, FALSE);
@@ -1545,6 +1548,7 @@ gui_draw_pause (void)
 
   region = gdk_drawable_get_clip_region (GDK_DRAWABLE (space->window));
   gdk_window_begin_paint_region (space->window, region);
+  gdk_draw_rectangle (space->window, bg_gc, TRUE, 0, 0, -1, -1);
 
   for (y = 0; y < size; y++) {
     for (x = 0; x < size * 2; x++) {
@@ -1965,3 +1969,40 @@ window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
     set_fullscreen_actions (event->new_window_state &
 			    GDK_WINDOW_STATE_FULLSCREEN);
 }
+
+static GdkPixmap *
+get_pixmap (const char *filename)
+{
+  GdkPixmap *ret;
+  GdkPixbuf *im;
+  char *fullname = gnome_program_locate_file (NULL,
+					      GNOME_FILE_DOMAIN_APP_PIXMAP,
+					      filename, TRUE, NULL);
+
+  if (fullname == NULL)
+    return NULL;
+
+  im = gdk_pixbuf_new_from_file (fullname, NULL);
+  if (im != NULL) {
+    gdk_pixbuf_render_pixmap_and_mask_for_colormap (im,
+						    gdk_colormap_get_system
+						    (), &ret, NULL, 127);
+    gdk_pixbuf_unref (im);
+  } else {
+    ret = NULL;
+  }
+  g_free (fullname);
+
+  return ret;
+}
+
+static void
+load_pixmaps (void)
+{
+  gchar *buffer;
+
+  buffer = g_build_filename (PIXMAPDIR, "gnotravex", "baize.png", NULL);
+  default_background_pixmap = get_pixmap (buffer);
+  g_free (buffer);
+}
+

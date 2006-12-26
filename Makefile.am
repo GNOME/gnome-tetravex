@@ -9,6 +9,7 @@ INCLUDES = 			\
 	-I$(top_srcdir)/libgames-support \
 	$(GNOME_GAMES_CFLAGS)	\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
+	-DPIXMAPDIR=\""$(datadir)/pixmaps"\"	\
 	-DDATADIR=\""$(datadir)"\"
 
 bin_PROGRAMS = gnotravex
@@ -35,7 +36,7 @@ EXTRA_DIST = README \
 
 DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
 
-SUBDIRS = help
+SUBDIRS = help pixmaps
 
 SCOREFILES = 2 3 4 5 6
 
