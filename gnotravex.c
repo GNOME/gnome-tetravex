@@ -122,7 +122,7 @@ guint timer_timeout = 0;
 gint tile_size = 0;
 gdouble tile_border_size = 3.0;
 gdouble arrow_border_size = 1.5;
-gboolean coloured_tiles = FALSE;
+gboolean coloured_tiles = TRUE;
 gboolean click_to_move = FALSE;
 
 /* The vertices used in the tiles/sockets. These are built using gui_build_vertices() */

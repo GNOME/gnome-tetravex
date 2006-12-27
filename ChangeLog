@@ -1,5 +1,9 @@
 2006-12-27  Andreas Røsdal  <andrearo@stud.ntnu.no>
 
+	* gnotravex.c: Enabled colours be default.
+
+2006-12-27  Andreas Røsdal  <andrearo@stud.ntnu.no>
+
 	* Makefile.am:
 	* gnotravex.c:
 	* pixmaps/Makefile.am:
