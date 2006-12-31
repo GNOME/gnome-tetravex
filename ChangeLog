@@ -1,3 +1,6 @@
+2006-12-31  Robert Ancell  <robert.ancell@gmail.com>
+	* Open high scores dialog on correct page.
+
 2006-12-27  Andreas Røsdal  <andrearo@stud.ntnu.no>
 
 	* gnotravex.c: Enabled colours be default.

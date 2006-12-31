@@ -431,6 +431,7 @@ main (int argc, char **argv)
     size = gconf_client_get_int (gconf_client, KEY_GRID_SIZE, NULL);
   if (size < 2 || size > 6)
     size = 3;
+  games_scores_set_category (highscores, scorecats[size - 2].key);
 
   load_pixmaps ();
   create_window ();
