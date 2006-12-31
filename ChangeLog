@@ -1,7 +1,7 @@
 2006-12-31  Robert Ancell  <robert.ancell@gmail.com>
-	* Open high scores dialog on correct page.
+	* Open high scores dialog on correct page (Bug #391216).
 	* Socket edges now blend with background.
-	* Fix bug where coloured tile and click to move options were not applied on startup
+	* Fix bug where coloured tile and click to move options were not applied on startup.
 	* Fill background of tiles to black before drawing - this removes artifacts when
 	  dragging tiles (Bug #390989).
 	* Resurrected tile highlighting.

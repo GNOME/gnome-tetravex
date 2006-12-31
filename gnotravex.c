@@ -437,7 +437,7 @@ main (int argc, char **argv)
   if (size < 2 || size > 6)
     size = 3;
   games_scores_set_category (highscores, scorecats[size - 2].key);
-   
+
   coloured_tiles = gconf_client_get_bool (gconf_client, KEY_SHOW_COLOURS, NULL);
   click_to_move = gconf_client_get_bool (gconf_client, KEY_CLICK_MOVE, NULL);
 
