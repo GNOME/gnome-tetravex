@@ -887,6 +887,10 @@ gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
   /* Only draw inside the allocated space */
   cairo_rectangle (context, xadd, yadd, tile_size, tile_size);
   cairo_clip (context);
+   
+  /* Clear background */
+  cairo_set_source_rgba (context, 0.0, 0.0, 0.0, 1.0);
+  cairo_paint (context);
 
   /* Build the co-ordinates used by the tiles */
   if (rebuild_vertices) {
@@ -935,7 +939,7 @@ button_motion_space (GtkWidget * widget, GdkEventButton * event)
     get_tilexy (event->x, event->y, &x, &y);
     if ((x != oldx) || (y != oldy)) {
       if ((oldx != -1) && (tiles[oldy][oldx].status == USED)) {
-	gui_draw_pixmap (buffer, oldx, oldy, FALSE);
+	 gui_draw_pixmap (buffer, oldx, oldy, FALSE);
       }
       if ((x != -1) && (tiles[y][x].status == USED)) {
 	gui_draw_pixmap (buffer, x, y, TRUE);
