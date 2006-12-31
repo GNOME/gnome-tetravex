@@ -210,13 +210,13 @@ gint button_motion_space (GtkWidget *, GdkEventButton *);
 
 void gui_build_vertices (void);
 void gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
-		     int count, guint colours[4]);
+		     int count, guint colours[4], gboolean prelight);
 void gui_draw_arrow (GdkPixmap * target);
 void gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd,
 		      gint yadd);
 void gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble *colour);
 void gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd,
-		    gint yadd, gint north, gint south, gint east, gint west);
+		    gint yadd, gint north, gint south, gint east, gint west, gboolean prelight);
 void gui_draw_pixmap (GdkPixmap *, gint, gint, gboolean);
 void gui_draw_pause (void);
 
@@ -771,7 +771,7 @@ gui_build_vertices (void)
 
 void
 gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
-		int count, guint colours[4])
+		int count, guint colours[4], gboolean prelight)
 {
   int i, j, k;
   int *quad;
@@ -784,6 +784,8 @@ gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
     /* Set the face colour */
     face = quad[0];
     level = quad[1];
+    if (prelight && level == BASE)
+       level = HIGHLIGHT;
     n_vertices = quad[2];
     colour = tile_colours[colours[face]][level];
     cairo_set_source_rgba (context, colour[0] / 255.0, colour[1] / 255.0,
@@ -812,7 +814,7 @@ gui_draw_arrow (GdkPixmap * target)
      
   x = xborder + size * tile_size;
   y = yborder;
-  gui_draw_faces (context, x, y, arrow_faces, 3, colours);
+  gui_draw_faces (context, x, y, arrow_faces, 3, colours, FALSE);
      
   cairo_destroy (context);
 }
@@ -845,7 +847,7 @@ gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd)
     rebuild_vertices = FALSE;
   }
 
-  gui_draw_faces (context, xadd, yadd, socket_faces, 4, colours);
+  gui_draw_faces (context, xadd, yadd, socket_faces, 4, colours, FALSE);
 
   cairo_destroy (context);
 }
@@ -868,7 +870,7 @@ gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble 
 
 void
 gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
-	       gint north, gint south, gint east, gint west)
+	       gint north, gint south, gint east, gint west, gboolean prelight)
 {
   cairo_t *context;
   guint colours[4];
@@ -898,7 +900,7 @@ gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
     rebuild_vertices = FALSE;
   }
 
-  gui_draw_faces (context, xadd, yadd, tile_faces, 16, colours);
+  gui_draw_faces (context, xadd, yadd, tile_faces, 16, colours, prelight);
 
   /* Draw outline */
   cairo_set_line_width (context, 1.0);
@@ -977,7 +979,7 @@ gui_draw_pixmap (GdkPixmap * target, gint x, gint y, gboolean prelight)
 
   if (which == USED)
     gui_draw_tile (target, state, xadd, yadd, tiles[y][x].n, tiles[y][x].s,
-		   tiles[y][x].e, tiles[y][x].w);
+		   tiles[y][x].e, tiles[y][x].w, state);
   else
     gui_draw_socket (target, state, xadd, yadd);
 
@@ -1536,7 +1538,7 @@ gui_draw_pause (void)
 
       if (which == USED)
 	gui_draw_tile (buffer, GTK_STATE_NORMAL, xadd, yadd, tiles[y][x].n,
-		       tiles[y][x].s, tiles[y][x].e, tiles[y][x].w);
+		       tiles[y][x].s, tiles[y][x].e, tiles[y][x].w, FALSE);
       else
 	gui_draw_socket (buffer, GTK_STATE_NORMAL, xadd, yadd);
 
