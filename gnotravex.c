@@ -176,19 +176,25 @@ static int tile_faces[16][7] = {
 };
 
 /* Tile segment colours (this is the resistor colour code) */
-static gdouble tile_colours[11][4][3] = {
-  {{ 46,  52,  54}, {  0,   0,   0}, {  0,   0,   0}, {255, 255, 255}}, /* 0 = black */
-  {{233, 185, 110}, {193, 125,  17}, {143,  89,   2}, {255, 255, 255}}, /* 1 = brown */
-  {{239,  41,  41}, {204,   0,   0}, {164,   0,   0}, {255, 255, 255}}, /* 2 = red */
-  {{252, 175,  62}, {245, 121,   0}, {206,  92,   0}, {255, 255, 255}}, /* 3 = orange */
-  {{252, 233,  79}, {237, 212,   0}, {196, 160,   0}, {  0,   0,   0}}, /* 4 = yellow */
-  {{138, 226,  52}, {115, 210,  22}, { 78, 154,   6}, {  0,   0,   0}}, /* 5 = green */
-  {{114, 159, 207}, { 52, 101, 164}, { 32,  74, 135}, {255, 255, 255}}, /* 6 = blue */
-  {{173, 127, 168}, {117,  80, 123}, { 92,  53, 102}, {255, 255, 255}}, /* 7 = violet */
-  {{211, 215, 207}, {186, 189, 182}, {136, 138, 133}, {  0,   0,   0}}, /* 8 = grey */
-  {{255, 255, 255}, {255, 255, 255}, {238, 238, 236}, {  0,   0,   0}},	/* 9 = white */
-  {{255, 255, 255}, {255, 255, 255}, {238, 238, 236}, {  0,   0,   0}}  /* 10 = standard */
+static gdouble tile_colours[11][4][4] = {
+  {{ 46,  52,  54, 255}, {  0,   0,   0, 255}, {  0,   0,   0, 255}, {255, 255, 255, 255}}, /* 0  = black */
+  {{233, 185, 110, 255}, {193, 125,  17, 255}, {143,  89,   2, 255}, {255, 255, 255, 255}}, /* 1  = brown */
+  {{239,  41,  41, 255}, {204,   0,   0, 255}, {164,   0,   0, 255}, {255, 255, 255, 255}}, /* 2  = red */
+  {{252, 175,  62, 255}, {245, 121,   0, 255}, {206,  92,   0, 255}, {255, 255, 255, 255}}, /* 3  = orange */
+  {{252, 233,  79, 255}, {237, 212,   0, 255}, {196, 160,   0, 255}, {  0,   0,   0, 255}}, /* 4  = yellow */
+  {{138, 226,  52, 255}, {115, 210,  22, 255}, { 78, 154,   6, 255}, {  0,   0,   0, 255}}, /* 5  = green */
+  {{114, 159, 207, 255}, { 52, 101, 164, 255}, { 32,  74, 135, 255}, {255, 255, 255, 255}}, /* 6  = blue */
+  {{173, 127, 168, 255}, {117,  80, 123, 255}, { 92,  53, 102, 255}, {255, 255, 255, 255}}, /* 7  = violet */
+  {{211, 215, 207, 255}, {186, 189, 182, 255}, {136, 138, 133, 255}, {  0,   0,   0, 255}}, /* 8  = grey */
+  {{255, 255, 255, 255}, {255, 255, 255, 255}, {238, 238, 236, 255}, {  0,   0,   0, 255}}, /* 9  = white */
+  {{255, 255, 255,  32}, {  0,   0,   0,  32}, {  0,   0,   0,  64}, {  0,   0,   0,   0}}  /* 10 = shadows */
 };
+
+/* The colour to use when tiles are not coloured */
+#define DEFAULT_COLOUR 8
+
+/* The colour to use when drawing the sockets */
+#define SOCKET_COLOUR 10
 
 void make_buffer (GtkWidget *);
 void create_window (void);
@@ -203,13 +209,12 @@ gint button_release_space (GtkWidget *, GdkEventButton *);
 gint button_motion_space (GtkWidget *, GdkEventButton *);
 
 void gui_build_vertices (void);
-void gui_update_colours (GtkStateType state);
 void gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
 		     int count, guint colours[4]);
 void gui_draw_arrow (GdkPixmap * target);
 void gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd,
 		      gint yadd);
-void gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number);
+void gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble *colour);
 void gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd,
 		    gint yadd, gint north, gint south, gint east, gint west);
 void gui_draw_pixmap (GdkPixmap *, gint, gint, gboolean);
@@ -432,6 +437,9 @@ main (int argc, char **argv)
   if (size < 2 || size > 6)
     size = 3;
   games_scores_set_category (highscores, scorecats[size - 2].key);
+   
+  coloured_tiles = gconf_client_get_bool (gconf_client, KEY_SHOW_COLOURS, NULL);
+  click_to_move = gconf_client_get_bool (gconf_client, KEY_CLICK_MOVE, NULL);
 
   load_pixmaps ();
   create_window ();
@@ -761,33 +769,6 @@ gui_build_vertices (void)
   vertices[26][1] = vertices[21][1] + z2;
 }
 
-/* Convert the theme colours to cairo form. I'm sure there must be an easier way than this... */
-void
-gui_update_colours (GtkStateType state)
-{
-  GdkColor *bg;
-  GdkColor *highlight;
-  GdkColor *shadow;
-  GtkStyle *style;
-
-  /* Get the colours used by this style */
-  style = gtk_widget_get_style (space);
-  bg = &style->bg[state];
-  highlight = &style->light[state];
-  shadow = &style->dark[state];
-
-  /* Set the colours to the them default */
-  tile_colours[10][HIGHLIGHT][0] = highlight->red * 255.0 / 65535.0;
-  tile_colours[10][HIGHLIGHT][1] = highlight->green * 255.0 / 65535.0;
-  tile_colours[10][HIGHLIGHT][2] = highlight->blue * 255.0 / 65535.0;
-  tile_colours[10][BASE][0] = bg->red * 255.0 / 65535.0;
-  tile_colours[10][BASE][1] = bg->green * 255.0 / 65535.0;
-  tile_colours[10][BASE][2] = bg->blue * 255.0 / 65535.0;
-  tile_colours[10][SHADOW][0] = shadow->red * 255.0 / 65535.0;
-  tile_colours[10][SHADOW][1] = shadow->green * 255.0 / 65535.0;
-  tile_colours[10][SHADOW][2] = shadow->blue * 255.0 / 65535.0;
-}
-
 void
 gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
 		int count, guint colours[4])
@@ -806,7 +787,7 @@ gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
     n_vertices = quad[2];
     colour = tile_colours[colours[face]][level];
     cairo_set_source_rgba (context, colour[0] / 255.0, colour[1] / 255.0,
-			   colour[2] / 255.0, 1.0);
+			   colour[2] / 255.0, colour[3] / 255.0);
 
     k = quad[3];
     cairo_move_to (context, xadd + vertices[k][0], yadd + vertices[k][1]);
@@ -825,7 +806,7 @@ gui_draw_arrow (GdkPixmap * target)
 {
   cairo_t *context;
   gdouble x, y;
-  guint colours[4] = { 10, 10, 10, 10 };
+  guint colours[4] = { SOCKET_COLOUR, SOCKET_COLOUR, SOCKET_COLOUR, SOCKET_COLOUR };
    
   context = gdk_cairo_create (GDK_DRAWABLE (buffer));
      
@@ -840,7 +821,8 @@ void
 gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd)
 {
   cairo_t *context;
-  guint colours[4] = { 10, 10, 10, 10 };
+  guint colours[4] = { SOCKET_COLOUR, SOCKET_COLOUR, SOCKET_COLOUR, SOCKET_COLOUR };
+  gdouble *colour;
   
   gdk_draw_rectangle (GDK_DRAWABLE(target), bg_gc, TRUE, xadd, yadd, 
 		      tile_size, tile_size);
@@ -852,7 +834,8 @@ gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd)
   cairo_clip (context);
 
   /* Blank the piece */
-  cairo_set_source_rgba (context, 0, 0, 0, 0.2);
+  colour = tile_colours[SOCKET_COLOUR][BASE];
+  cairo_set_source_rgba (context, colour[0] / 255.0, colour[1] / 255.0, colour[2] / 255.0, colour[3] / 255.0);
   cairo_rectangle (context, xadd, yadd, tile_size, tile_size);
   cairo_fill (context);
 
@@ -868,20 +851,15 @@ gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd)
 }
 
 void
-gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number)
+gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble *colour)
 {
   gchar *text;
   cairo_text_extents_t extents;
-  gdouble *colour;
 
   text = _(translatable_number[number]);
 
-  if (coloured_tiles)
-    colour = tile_colours[number][TEXT];
-  else
-    colour = tile_colours[10][TEXT];
   cairo_set_source_rgba (context, colour[0] / 255.0, colour[1] / 255.0,
-			 colour[2] / 255.0, 1.0);
+			 colour[2] / 255.0, colour[3] / 255.0);
 
   cairo_text_extents (context, text, &extents);
   cairo_move_to (context, x - extents.width / 2.0, y + extents.height / 2.0);
@@ -893,20 +871,18 @@ gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
 	       gint north, gint south, gint east, gint west)
 {
   cairo_t *context;
-  gdouble *colour;
   guint colours[4];
 
   context = gdk_cairo_create (GDK_DRAWABLE (target));
 
   /* Use per sector colours or the theme colours */
-  gui_update_colours (state);
   if (coloured_tiles) {
     colours[NORTH] = north;
     colours[SOUTH] = south;
     colours[EAST] = east;
     colours[WEST] = west;
   } else
-    colours[0] = colours[1] = colours[2] = colours[3] = 10;
+    colours[NORTH] = colours[SOUTH] = colours[EAST] = colours[WEST] = DEFAULT_COLOUR;
 
   /* Only draw inside the allocated space */
   cairo_rectangle (context, xadd, yadd, tile_size, tile_size);
@@ -922,9 +898,7 @@ gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
 
   /* Draw outline */
   cairo_set_line_width (context, 1.0);
-  colour = tile_colours[10][TEXT];
-  cairo_set_source_rgba (context, colour[0] / 255.0, colour[1] / 255.0,
-			 colour[2] / 255.0, 1.0);
+  cairo_set_source_rgba (context, 0.0, 0.0, 0.0, 1.0);
   cairo_rectangle (context, xadd + 0.5, yadd + 0.5, tile_size - 1.0,
 		   tile_size - 1.0);
   cairo_stroke (context);
@@ -933,13 +907,10 @@ gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
 			  CAIRO_FONT_WEIGHT_BOLD);
   cairo_set_font_size (context, tile_size / 3.5);
 
-  gui_draw_number (context, xadd + tile_size / 2, yadd + tile_size / 5,
-		   north);
-  gui_draw_number (context, xadd + tile_size / 2, yadd + tile_size * 4 / 5,
-		   south);
-  gui_draw_number (context, xadd + tile_size * 4 / 5, yadd + tile_size / 2,
-		   east);
-  gui_draw_number (context, xadd + tile_size / 5, yadd + tile_size / 2, west);
+  gui_draw_number (context, xadd + tile_size / 2, yadd + tile_size / 5, north, tile_colours[colours[NORTH]][TEXT]);
+  gui_draw_number (context, xadd + tile_size / 2, yadd + tile_size * 4 / 5, south, tile_colours[colours[SOUTH]][TEXT]);
+  gui_draw_number (context, xadd + tile_size * 4 / 5, yadd + tile_size / 2, east, tile_colours[colours[EAST]][TEXT]);
+  gui_draw_number (context, xadd + tile_size / 5, yadd + tile_size / 2, west, tile_colours[colours[WEST]][TEXT]);
 
   cairo_destroy (context);
 }
@@ -1621,15 +1592,9 @@ create_menu (GtkUIManager * ui_manager)
   gtk_action_group_add_toggle_actions (action_group, toggles,
 				       G_N_ELEMENTS (toggles), NULL);
   action = gtk_action_group_get_action (action_group, "Colours");
-  gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
-				gconf_client_get_bool (gconf_client,
-						       KEY_SHOW_COLOURS,
-						       NULL));
+  gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), coloured_tiles);
   action = gtk_action_group_get_action (action_group, "ClickToMove");
-  gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action),
-				gconf_client_get_bool (gconf_client,
-						       KEY_CLICK_MOVE,
-						       NULL));
+  gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), click_to_move);
 
   for (i = 0; i < G_N_ELEMENTS (size_action_entry); i++)
     size_action[i] =
