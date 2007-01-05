@@ -1,3 +1,8 @@
+2007-01-05  Andreas Røsdal  <andreasr@gnome.org>
+
+	* gnotravex.c: offer Quit / New Game with the end-of-game dialog.
+	Patch by Thomas Andersen in Bug #316361.
+
 2006-12-31  Robert Ancell  <robert.ancell@gmail.com>
 	* Open high scores dialog on correct page (Bug #391216).
 	* Socket edges now blend with background.

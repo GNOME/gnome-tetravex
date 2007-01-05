@@ -247,7 +247,8 @@ void pause_cb (void);
 void hint_move_cb (void);
 void clickmove_toggle_cb (GtkToggleAction *, gpointer);
 void hint_move (gint, gint, gint, gint);
-void show_score_dialog (gint);
+gint show_score_dialog (gint, gboolean);
+void new_game (void);
 static gint save_state (GnomeClient *, gint, GnomeRestartStyle,
 			gint, GnomeInteractStyle, gint, gpointer);
 static void set_fullscreen_actions (gboolean is_fullscreen);
@@ -1099,16 +1100,16 @@ setup_mover (gint x, gint y, gint status)
     if (mover.pixmap)
       g_object_unref (mover.pixmap);
     mover.pixmap = NULL;
-    if (game_over ()) {
+    if (game_over () && game_state != gameover) {
       game_state = gameover;
       games_clock_stop (GAMES_CLOCK (timer));
       set_game_menu_items_sensitive (FALSE);
       if (!have_been_hinted) {
 	message (_("Puzzle solved! Well done!"));
-	game_score ();
       } else {
 	message (_("Puzzle solved!"));
       }
+      game_score ();
     }
     update_move_menu_sensitivity ();
     return 1;
@@ -1212,11 +1213,12 @@ game_over (void)
   return 1;
 }
 
-void
-show_score_dialog (gint pos)
+gint
+show_score_dialog (gint pos, gboolean endofgame)
 {
   static GtkWidget *scoresdialog = NULL;
   gchar *message;
+  gint result;
 
   if (!scoresdialog) {
     scoresdialog = games_scores_dialog_new (highscores, _("Tetravex Scores"));
@@ -1236,8 +1238,18 @@ show_score_dialog (gint pos)
 				     NULL);
   }
 
-  gtk_dialog_run (GTK_DIALOG (scoresdialog));
+  if (endofgame) {
+    games_scores_dialog_set_buttons (GAMES_SCORES_DIALOG (scoresdialog),
+				     GAMES_SCORES_QUIT_BUTTON |
+				     GAMES_SCORES_NEW_GAME_BUTTON);
+  } else {
+    games_scores_dialog_set_buttons (GAMES_SCORES_DIALOG (scoresdialog), 0);
+  }
+
+  result = gtk_dialog_run (GTK_DIALOG (scoresdialog));
   gtk_widget_hide (scoresdialog);
+
+  return result;
 }
 
 void
@@ -1245,22 +1257,29 @@ score_cb (GtkAction * action, gpointer data)
 {
   gchar *level;
   level = g_strdup_printf ("%dx%d", size, size);
-  show_score_dialog (0);
+  show_score_dialog (0, FALSE);
   g_free (level);
 }
 
 void
 game_score (void)
 {
-  gint pos;
+  gint pos = 0;
   time_t seconds;
   GamesScoreValue score;
 
-  seconds = GAMES_CLOCK (timer)->stopped;
-  games_clock_set_seconds (GAMES_CLOCK (timer), (int) seconds);
-  score.time_double = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
-  pos = games_scores_add_score (highscores, score);
-  show_score_dialog (pos);
+  if (!have_been_hinted) {
+    seconds = GAMES_CLOCK (timer)->stopped;
+    games_clock_set_seconds (GAMES_CLOCK (timer), (int) seconds);
+    score.time_double = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
+    pos = games_scores_add_score (highscores, score);
+  }
+
+  if (show_score_dialog (pos, TRUE) == GTK_RESPONSE_REJECT) {
+    gtk_main_quit ();
+  } else {
+    new_game ();
+  }
 }
 
 void
@@ -1623,8 +1642,7 @@ make_buffer (GtkWidget * widget)
 }
 
 void
-new_game_cb (GtkAction * action, gpointer data)
-{
+new_game (){
   gchar *str;
 
   new_board (size);
@@ -1639,6 +1657,12 @@ new_game_cb (GtkAction * action, gpointer data)
   str = g_strdup_printf (_("Playing %d\303\227%d board"), size, size);
   message (str);
   g_free (str);
+}
+
+void
+new_game_cb (GtkAction * action, gpointer data)
+{
+  new_game ();
 }
 
 void
