@@ -1255,10 +1255,7 @@ show_score_dialog (gint pos, gboolean endofgame)
 void
 score_cb (GtkAction * action, gpointer data)
 {
-  gchar *level;
-  level = g_strdup_printf ("%dx%d", size, size);
   show_score_dialog (0, FALSE);
-  g_free (level);
 }
 
 void
