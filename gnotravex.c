@@ -232,7 +232,7 @@ gint setup_mover (gint, gint, gint);
 gint valid_drop (gint, gint);
 
 void update_tile_size (gint, gint);
-gint configure_space (GtkWidget *, GdkEventConfigure *);
+gboolean configure_space (GtkWidget *, GdkEventConfigure *);
 gint compare_tile (tile *, tile *);
 void find_first_tile (gint, gint *, gint *);
 void move_tile (gint, gint, gint, gint);
@@ -253,7 +253,7 @@ static gint save_state (GnomeClient *, gint, GnomeRestartStyle,
 			gint, GnomeInteractStyle, gint, gpointer);
 static void set_fullscreen_actions (gboolean is_fullscreen);
 static void fullscreen_cb (GtkAction * action);
-static void window_state_cb (GtkWidget * widget, GdkEventWindowState * event);
+static gboolean window_state_cb (GtkWidget * widget, GdkEventWindowState * event);
 static void load_pixmaps (void);
 
 GtkAction *new_game_action;
@@ -1313,7 +1313,7 @@ update_tile_size (gint screen_width, gint screen_height)
   gconf_client_set_int (gconf_client, KEY_WINDOW_HEIGHT, window_height, NULL);
 }
 
-gint
+gboolean
 configure_space (GtkWidget * widget, GdkEventConfigure * event)
 {
   gtk_widget_freeze_child_notify (widget);
@@ -1955,12 +1955,14 @@ fullscreen_cb (GtkAction * action)
 }
 
 /* Just in case something else takes us to/from fullscreen. */
-static void
+static gboolean
 window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
 {
   if (event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN)
     set_fullscreen_actions (event->new_window_state &
 			    GDK_WINDOW_STATE_FULLSCREEN);
+    
+  return FALSE;
 }
 
 static GdkPixmap *
