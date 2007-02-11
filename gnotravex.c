@@ -1221,7 +1221,7 @@ show_score_dialog (gint pos, gboolean endofgame)
   gint result;
 
   if (!scoresdialog) {
-    scoresdialog = games_scores_dialog_new (highscores, _("Tetravex Scores"));
+    scoresdialog = games_scores_dialog_new (GTK_WINDOW (window), highscores, _("Tetravex Scores"));
     games_scores_dialog_set_category_description (GAMES_SCORES_DIALOG
 						  (scoresdialog), _("Size:"));
   }
