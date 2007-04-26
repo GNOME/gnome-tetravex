@@ -23,6 +23,13 @@
 <!-- appropriate code -->
  <articleinfo>
   <title>&app; Manual V&manrevision;</title>
+
+    <abstract role="description">
+      <para>
+      GNOME Tetravex is a simple puzzle where pieces must be positioned so that the same numbers are touching each other. Your game is timed, these times are stored in a system-wide scoreboard.
+      </para>
+    </abstract>
+
   <copyright>
    <year>2001</year>
    <holder>Rob Bradford </holder>
@@ -48,7 +55,7 @@
 	any of this. -->
 
     <authorgroup> 
-      <author> 
+      <author role="maintainer"> 
 	<firstname>Rob</firstname> 
 	<surname>Bradford</surname> 
 	<affiliation> 
