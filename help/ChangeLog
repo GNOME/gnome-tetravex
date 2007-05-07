@@ -1,3 +1,13 @@
+2007-05-07  Jorge Gonzalez <jorgegonz@svn.gnome.org>
+
+	* es/es.po: Added Spanish translations.
+	* es/figures/*.png: Updated Spanish screenshots.
+	* es/gnotravex-es.omf: Deleted old translation.
+	* es/topic.dat: Deleted old translation.
+	* es/Makefile.am: Deleted old translation.
+	* es/gnotravex.sgml: Deleted old translation.
+	* Makefile.am: Added es to DOC_LINGUAS.
+
 2007-04-30  Daniel Nylander <po@danielnylander.se>
 
 	* sv/sv.po: Added Swedish translation.
