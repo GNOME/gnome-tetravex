@@ -22,16 +22,12 @@ gnotravex_LDADD = \
 	$(GNOME_GAMES_LIBS) \
 	$(INTLLIBS) 
 
-icondir = $(datadir)/icons/hicolor/48x48/apps/
-icon_DATA = gnome-tetravex.png
-
 Games_in_files = gnotravex.desktop.in
 Games_DATA = $(Games_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 EXTRA_DIST = README \
 	gnotravex.desktop.in \
-	$(icon_DATA) \
 	$(schema_in_files)
 
 DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
