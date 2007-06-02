@@ -57,8 +57,8 @@ EXTRA_DIST = \
 	$(schema_in_files) \
 	$(NULL)
 
-CLEANFILES = $(Games_DATA) $(schema_DATA)
-DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
+CLEANFILES = $(desktop_DATA) $(schema_DATA)
+DISTCLEANFILES = $(desktop_DATA) $(schema_DATA)
 
 install-schemas-local: $(schema_DATA)
 if GCONF_SCHEMAS_INSTALL
