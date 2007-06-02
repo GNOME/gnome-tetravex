@@ -1,45 +1,77 @@
-Gamesdir = $(datadir)/applications
-
-schemadir   = @GCONF_SCHEMA_FILE_DIR@
-schema_in_files = gnotravex.schemas.in
-schema_DATA = $(schema_in_files:.schemas.in=.schemas)
-@INTLTOOL_SCHEMAS_RULE@
-
-INCLUDES = 			\
-	-I$(top_srcdir)/libgames-support \
-	$(GNOME_GAMES_CFLAGS)	\
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
-	-DPIXMAPDIR=\""$(datadir)/pixmaps"\"	\
-	-DDATADIR=\""$(datadir)"\"
-
-bin_PROGRAMS = gnotravex
-
-gnotravex_SOURCES =	\
-	gnotravex.c
-
-gnotravex_LDADD = \
-	../libgames-support/libgames-support.la \
-	$(GNOME_GAMES_LIBS) \
-	$(INTLLIBS) 
-
-Games_in_files = gnotravex.desktop.in
-Games_DATA = $(Games_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
-
-EXTRA_DIST = README \
-	gnotravex.desktop.in \
-	$(schema_in_files)
-
-DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
+NULL =
 
 SUBDIRS = help pixmaps
 
+bin_PROGRAMS = gnotravex
+
+gnotravex_SOURCES = \
+	gnotravex.c \
+	$(NULL)
+
+gnotravex_CPPFLAGS = \
+	-I$(top_srcdir)				\
+	-I$(top_srcdir)/libgames-support	\
+	-DDATADIR="\"$(datadir)\""		\
+	-DPIXMAPDIR=\""$(datadir)/pixmaps"\"	\
+	-DSHAREDIR="\"$(pkgdatadir)\""		\
+	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"\
+	$(AM_CPPFLAGS)
+
+gnotravex_CFLAGS = \
+	$(GTK_CFLAGS)	\
+	$(AM_CFLAGS)
+
+gnotravex_LDADD =	\
+	$(top_builddir)/libgames-support/libgames-support.la \
+	$(GTK_LIBS)	\
+	$(INTLLIBS)	\
+	$(NULL)
+
+if HAVE_GNOME
+gnotravex_CFLAGS += $(GNOME_CFLAGS)
+gnotravex_LDADD += $(GNOME_LIBS)
+endif
+
+if HAVE_RSVG
+gnotravex_CFLAGS += $(RSVG_CFLAGS)
+gnotravex_LDADD += $(RSVG_LIBS)
+endif
+
+if WITH_GTHREAD
+gnotravex_CFLAGS += $(GHTREAD_CFLAGS)
+gnotravex_LDADD += $(GTHREAD_LIBS)
+endif
+
+desktop_in_files = gnotravex.desktop.in.in
+desktopdir = $(datadir)/applications
+desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
+
+schema_in_files = gnotravex.schemas.in
+schemadir = $(GCONF_SCHEMA_FILE_DIR)
+schema_DATA = $(schema_in_files:.schemas.in=.schemas)
+@INTLTOOL_SCHEMAS_RULE@
+
+EXTRA_DIST = \
+	README \
+	$(schema_in_files) \
+	$(NULL)
+
+CLEANFILES = $(Games_DATA) $(schema_DATA)
+DISTCLEANFILES = $(Games_DATA) $(schema_DATA)
+
+install-schemas-local: $(schema_DATA)
+if GCONF_SCHEMAS_INSTALL
+	if test -z "$(DESTDIR)" ; then \
+		for p in $^ ; do \
+			GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $$p 2>&1 > /dev/null; \
+		done \
+	fi
+endif
+
 SCOREFILES = 2 3 4 5 6
 
-install-data-local:
-if GCONF_SCHEMAS_INSTALL
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/gnotravex/$(schema_DATA)
-endif
+install-scorefiles-local:
 	-$(mkinstalldirs) $(DESTDIR)$(scoredir)
 	-for i in ${SCOREFILES} ; do \
 	   touch $(DESTDIR)$(scoredir)/gnotravex."$$i"x"$$i".scores; \
@@ -47,3 +79,5 @@ endif
 	   chmod 664 $(DESTDIR)$(scoredir)/gnotravex."$$i"x"$$i".scores; \
 	 done
 	-if test "x$(setgid)" = "xtrue"; then chgrp $(scores_group) $(DESTDIR)$(bindir)/gnotravex && chmod 2555 $(DESTDIR)$(bindir)/gnotravex ; fi
+
+install-data-local: install-schemas-local install-scorefiles-local

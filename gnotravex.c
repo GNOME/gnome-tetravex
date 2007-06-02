@@ -20,19 +20,19 @@
  */
 
 #include <config.h>
-#include <gnome.h>
 #include <string.h>
 #include <math.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <games-clock.h>
 #include <time.h>
 #include <gconf/gconf-client.h>
+#include <gnome.h>
 #include <games-stock.h>
 #include <games-scores.h>
 #include <games-scores-dialog.h>
 
 #define APPNAME "gnotravex"
-#define APPNAME_LONG "Tetravex"
+#define APPNAME_LONG N_("Tetravex")
 
 /* This is based on the point where the numbers become unreadable on my
  * screen at 3x3. - Callum */
@@ -51,16 +51,16 @@
 #define KEY_SHOW_COLOURS  "/apps/gnotravex/colours"
 
 /* i18n in-game numbers, replaceable with single-character local ideograms. */
-const char *translatable_number[10] =
+static const char *translatable_number[10] =
   { N_("0"), N_("1"), N_("2"), N_("3"), N_("4"), N_("5"), N_("6"), N_("7"),
 N_("8"), N_("9") };
 
-GtkWidget *window;
-GtkWidget *statusbar;
-GtkWidget *space;
-GtkWidget *bit;
-GtkWidget *timer;
-GdkGC *bg_gc;
+static GtkWidget *window;
+static GtkWidget *statusbar;
+static GtkWidget *space;
+static GtkWidget *bit;
+static GtkWidget *timer;
+static GdkGC *bg_gc;
 
 static const GamesScoresCategory scorecats[] = { {"2x2", N_("2\303\2272")},
 {"3x3", N_("3\303\2273")},
@@ -75,15 +75,15 @@ static const GamesScoresDescription scoredesc = { scorecats,
   GAMES_SCORES_STYLE_TIME_ASCENDING
 };
 
-GamesScores *highscores;
+static GamesScores *highscores;
 
-int xborder;
-int yborder;
-int gap;
+static int xborder;
+static int yborder;
+static int gap;
 
-GdkPixmap *buffer = NULL;
+static GdkPixmap *buffer = NULL;
 
-GConfClient *gconf_client;
+static GConfClient *gconf_client;
 
 typedef struct _mover {
   GdkWindow *window;
@@ -93,15 +93,15 @@ typedef struct _mover {
   gint xoff, yoff;
 } Mover;
 
-Mover mover;
+static Mover mover;
 
 typedef struct _tile {
   gint n, w, e, s;
   gint status;
 } tile;
 
-tile tiles[9][18];
-tile orig_tiles[9][9];
+static tile tiles[9][18];
+static tile orig_tiles[9][9];
 
 enum {
   gameover,
@@ -109,25 +109,25 @@ enum {
   playing,
 };
 
-gint size = -1;
-gint game_state = gameover;
-gint have_been_hinted = 0;
-gint solve_me = 0;
-gint hint_moving = 0;
-gint session_flag = 0;
-gint session_xpos = 0;
-gint session_ypos = 0;
-gint session_position = 0;
-guint timer_timeout = 0;
-gint tile_size = 0;
-gdouble tile_border_size = 3.0;
-gdouble arrow_border_size = 1.5;
-gboolean coloured_tiles = TRUE;
-gboolean click_to_move = FALSE;
+static gint size = -1;
+static gint game_state = gameover;
+static gint have_been_hinted = 0;
+static gint solve_me = 0;
+static gint hint_moving = 0;
+static gint session_flag = 0;
+static gint session_xpos = 0;
+static gint session_ypos = 0;
+static gint session_position = 0;
+static guint timer_timeout = 0;
+static gint tile_size = 0;
+static gdouble tile_border_size = 3.0;
+static gdouble arrow_border_size = 1.5;
+static gboolean coloured_tiles = TRUE;
+static gboolean click_to_move = FALSE;
 
 /* The vertices used in the tiles/sockets. These are built using gui_build_vertices() */
-gdouble vertices[27][2];
-gboolean rebuild_vertices = TRUE;
+static gdouble vertices[27][2];
+static gboolean rebuild_vertices = TRUE;
 
 /* The sector of a tile to mark quads with */
 #define NORTH 0
@@ -256,18 +256,18 @@ static void fullscreen_cb (GtkAction * action);
 static gboolean window_state_cb (GtkWidget * widget, GdkEventWindowState * event);
 static void load_pixmaps (void);
 
-GtkAction *new_game_action;
-GtkAction *pause_action;
-GtkAction *resume_action;
-GtkAction *hint_action;
-GtkAction *solve_action;
-GtkAction *scores_action;
-GtkAction *move_up_action;
-GtkAction *move_left_action;
-GtkAction *move_right_action;
-GtkAction *move_down_action;
-GtkAction *fullscreen_action;
-GtkAction *leave_fullscreen_action;
+static GtkAction *new_game_action;
+static GtkAction *pause_action;
+static GtkAction *resume_action;
+static GtkAction *hint_action;
+static GtkAction *solve_action;
+static GtkAction *scores_action;
+static GtkAction *move_up_action;
+static GtkAction *move_left_action;
+static GtkAction *move_right_action;
+static GtkAction *move_down_action;
+static GtkAction *fullscreen_action;
+static GtkAction *leave_fullscreen_action;
 
 
 /* ------------------------- MENU ------------------------ */
@@ -339,9 +339,9 @@ static const GtkToggleActionEntry toggles[] = {
    G_CALLBACK (clickmove_toggle_cb)}
 };
 
-GtkAction *size_action[G_N_ELEMENTS (size_action_entry)];
+static GtkAction *size_action[G_N_ELEMENTS (size_action_entry)];
 
-const char ui_description[] =
+static const char ui_description[] =
   "<ui>"
   "  <menubar name='MainMenu'>"
   "    <menu action='GameMenu'>"
@@ -404,19 +404,27 @@ main (int argc, char **argv)
   GtkUIManager *ui_manager;
   GtkAccelGroup *accel_group;
 
+#if defined(HAVE_GNOME) || defined(HAVE_RSVG_GNOMEVFS)
+  /* If we're going to use gnome-vfs, we need to init threads before
+   * calling any glib functions.
+   */
+  g_thread_init (NULL);
+#endif
+
   setgid_io_init ();
 
   bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
-  context = g_option_context_new ("");
+  context = g_option_context_new (NULL);
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   program = gnome_program_init (APPNAME, VERSION,
 				LIBGNOMEUI_MODULE,
 				argc, argv,
 				GNOME_PARAM_GOPTION_CONTEXT, context,
-				GNOME_PARAM_APP_DATADIR, DATADIR, NULL);
+				GNOME_PARAM_APP_DATADIR, DATADIR,
+                                NULL);
 
   highscores = games_scores_new (&scoredesc);
 
@@ -446,6 +454,9 @@ main (int argc, char **argv)
   create_window ();
 
   space = gtk_drawing_area_new ();
+  gtk_widget_set_events (space,
+                         GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK
+                         | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
 
   statusbar = create_statusbar ();
 
@@ -455,8 +466,8 @@ main (int argc, char **argv)
   menubar = create_menu (ui_manager);
 
   vbox = gtk_vbox_new (FALSE, 0);
+  gtk_container_add (GTK_CONTAINER (window), vbox);
 
-  gnome_app_set_contents (GNOME_APP (window), vbox);
   gtk_box_pack_start (GTK_BOX (vbox), menubar, FALSE, FALSE, 0);
   gtk_box_pack_start (GTK_BOX (vbox), space, TRUE, TRUE, 0);
   gtk_box_pack_start (GTK_BOX (vbox), statusbar, FALSE, FALSE, 0);
@@ -464,9 +475,6 @@ main (int argc, char **argv)
   accel_group = gtk_ui_manager_get_accel_group (ui_manager);
   gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
 
-  gtk_widget_set_events (space,
-			 GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK
-			 | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
   gtk_widget_realize (space);
   bg_gc = gdk_gc_new (space->window);
   gdk_gc_set_tile (bg_gc, default_background_pixmap);
@@ -590,7 +598,9 @@ get_window_height (void)
 void
 create_window (void)
 {
-  window = gnome_app_new (APPNAME, N_(APPNAME_LONG));
+  window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title (GTK_WINDOW (window), _(APPNAME_LONG));
+
   gtk_window_set_resizable (GTK_WINDOW (window), TRUE);
   gtk_widget_set_size_request (window, 320, 240);
   gtk_window_set_default_size (GTK_WINDOW (window), get_window_width (),
