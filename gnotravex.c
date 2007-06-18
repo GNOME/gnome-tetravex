@@ -25,11 +25,11 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <games-clock.h>
 #include <time.h>
-#include <gconf/gconf-client.h>
 #include <gnome.h>
 #include <games-stock.h>
 #include <games-scores.h>
 #include <games-scores-dialog.h>
+#include <games-conf.h>
 
 #define APPNAME "gnotravex"
 #define APPNAME_LONG N_("Tetravex")
@@ -44,11 +44,12 @@
 #define UNUSED 1
 #define USED 0
 
-#define KEY_GRID_SIZE     "/apps/gnotravex/grid_size"
-#define KEY_WINDOW_WIDTH  "/apps/gnotravex/width"
-#define KEY_WINDOW_HEIGHT "/apps/gnotravex/height"
-#define KEY_CLICK_MOVE    "/apps/gnotravex/click_to_move"
-#define KEY_SHOW_COLOURS  "/apps/gnotravex/colours"
+#define KEY_GRID_SIZE     "grid_size"
+#define KEY_CLICK_MOVE    "click_to_move"
+#define KEY_SHOW_COLOURS  "colours"
+
+#define DEFAULT_WIDTH 320
+#define DEFAULT_HEIGHT 240
 
 /* i18n in-game numbers, replaceable with single-character local ideograms. */
 static const char *translatable_number[10] =
@@ -82,8 +83,6 @@ static int yborder;
 static int gap;
 
 static GdkPixmap *buffer = NULL;
-
-static GConfClient *gconf_client;
 
 typedef struct _mover {
   GdkWindow *window;
@@ -428,6 +427,8 @@ main (int argc, char **argv)
 
   highscores = games_scores_new (&scoredesc);
 
+  games_conf_initialise ("Gnotravex");
+
   gtk_window_set_default_icon_name ("gnome-tetravex");
   client = gnome_master_client ();
   g_object_ref (G_OBJECT (client));
@@ -439,16 +440,14 @@ main (int argc, char **argv)
 
   games_stock_init ();
 
-  gconf_client = gconf_client_get_default ();
-
   if (size == -1)
-    size = gconf_client_get_int (gconf_client, KEY_GRID_SIZE, NULL);
+    size = games_conf_get_integer (NULL, KEY_GRID_SIZE, NULL);
   if (size < 2 || size > 6)
     size = 3;
   games_scores_set_category (highscores, scorecats[size - 2].key);
 
-  coloured_tiles = gconf_client_get_bool (gconf_client, KEY_SHOW_COLOURS, NULL);
-  click_to_move = gconf_client_get_bool (gconf_client, KEY_CLICK_MOVE, NULL);
+  coloured_tiles = games_conf_get_boolean (NULL, KEY_SHOW_COLOURS, NULL);
+  click_to_move = games_conf_get_boolean (NULL, KEY_CLICK_MOVE, NULL);
 
   load_pixmaps ();
   create_window ();
@@ -508,7 +507,7 @@ main (int argc, char **argv)
 
   gtk_main ();
 
-  gnome_accelerators_sync ();
+  games_conf_shutdown ();
 
   g_object_unref (program);
 
@@ -561,50 +560,18 @@ update_move_menu_sensitivity (void)
   gtk_action_set_sensitive (move_down_action, s);
 }
 
-static gint
-get_window_width (void)
-{
-  int width;
-  int screen_width;
-
-  width = gconf_client_get_int (gconf_client, KEY_WINDOW_WIDTH, NULL);
-  if (width < 320)
-    width = 320;
-  screen_width =
-    gdk_screen_get_width (gtk_window_get_screen (GTK_WINDOW (window)));
-  if (width > screen_width)
-    width = screen_width;
-
-  return width;
-}
-
-static gint
-get_window_height (void)
-{
-  int height;
-  int screen_height;
-
-  height = gconf_client_get_int (gconf_client, KEY_WINDOW_HEIGHT, NULL);
-  if (height < 240)
-    height = 240;
-  screen_height =
-    gdk_screen_get_height (gtk_window_get_screen (GTK_WINDOW (window)));
-  if (height > screen_height)
-    height = screen_height;
-
-  return height;
-}
 
 void
 create_window (void)
 {
   window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+
   gtk_window_set_title (GTK_WINDOW (window), _(APPNAME_LONG));
 
+  gtk_window_set_default_size (GTK_WINDOW (window), DEFAULT_WIDTH, DEFAULT_HEIGHT);
+  games_conf_add_window (GTK_WINDOW (window));
   gtk_window_set_resizable (GTK_WINDOW (window), TRUE);
-  gtk_widget_set_size_request (window, 320, 240);
-  gtk_window_set_default_size (GTK_WINDOW (window), get_window_width (),
-			       get_window_height ());
+
   gtk_widget_realize (window);
   g_signal_connect (G_OBJECT (window), "delete_event",
 		    G_CALLBACK (quit_game_cb), NULL);
@@ -1293,7 +1260,6 @@ void
 update_tile_size (gint screen_width, gint screen_height)
 {
   gint xt_size, yt_size;
-  gint window_width, window_height;
 
   /* We aim for the gap and the corners to be 1/2 a tile wide. */
   xt_size = (2 * screen_width) / (4 * size + 3);
@@ -1317,10 +1283,6 @@ update_tile_size (gint screen_width, gint screen_height)
 
   /* Rebuild the tile/socket vertices when required */
   rebuild_vertices = TRUE;
-
-  gtk_window_get_size (GTK_WINDOW (window), &window_width, &window_height);
-  gconf_client_set_int (gconf_client, KEY_WINDOW_WIDTH, window_width, NULL);
-  gconf_client_set_int (gconf_client, KEY_WINDOW_HEIGHT, window_height, NULL);
 }
 
 gboolean
@@ -1725,7 +1687,7 @@ size_cb (GtkAction * action, gpointer data)
   size = newsize;
   update_tile_size (width, height);
   games_scores_set_category (highscores, scorecats[size - 2].key);
-  gconf_client_set_int (gconf_client, KEY_GRID_SIZE, size, NULL);
+  games_conf_set_integer (NULL, KEY_GRID_SIZE, size);
   gtk_action_activate (new_game_action);
 }
 
@@ -1733,8 +1695,7 @@ void
 show_colours_toggle_cb (GtkToggleAction * togglebutton, gpointer data)
 {
   coloured_tiles = gtk_toggle_action_get_active (togglebutton);
-  gconf_client_set_bool (gconf_client, KEY_SHOW_COLOURS, coloured_tiles,
-			 NULL);
+  games_conf_set_boolean (NULL, KEY_SHOW_COLOURS, coloured_tiles);
   redraw_all ();
 }
 
@@ -1742,8 +1703,7 @@ void
 clickmove_toggle_cb(GtkToggleAction * togglebutton, gpointer data)
 {
   click_to_move = gtk_toggle_action_get_active (togglebutton);
-   
-  gconf_client_set_bool (gconf_client, KEY_CLICK_MOVE, click_to_move, NULL);
+  games_conf_set_boolean (NULL, KEY_CLICK_MOVE, click_to_move);
 }
 
 void
