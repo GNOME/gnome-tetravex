@@ -569,7 +569,7 @@ create_window (void)
   gtk_window_set_title (GTK_WINDOW (window), _(APPNAME_LONG));
 
   gtk_window_set_default_size (GTK_WINDOW (window), DEFAULT_WIDTH, DEFAULT_HEIGHT);
-  games_conf_add_window (GTK_WINDOW (window));
+  games_conf_add_window (GTK_WINDOW (window), NULL);
   gtk_window_set_resizable (GTK_WINDOW (window), TRUE);
 
   gtk_widget_realize (window);
