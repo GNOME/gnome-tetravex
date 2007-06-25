@@ -427,7 +427,7 @@ main (int argc, char **argv)
 
   highscores = games_scores_new (&scoredesc);
 
-  games_conf_initialise ("Gnotravex");
+  games_conf_initialise (APPNAME);
 
   gtk_window_set_default_icon_name ("gnome-tetravex");
   client = gnome_master_client ();
