@@ -14,30 +14,6 @@
     </schema>
 
     <schema>
-      <key>/schemas/apps/gnotravex/width</key>
-      <applyto>/apps/gnotravex/width</applyto>
-      <owner>gnotravex</owner>
-      <type>int</type>
-      <default>600</default>
-      <locale name="C">
-        <short>The width of the window</short>
-        <long>The width of the playing window in pixels. At minimum it should be 320.</long>
-      </locale>
-    </schema>
-
-    <schema>
-      <key>/schemas/apps/gnotravex/height</key>
-      <applyto>/apps/gnotravex/height</applyto>
-      <owner>gnotravex</owner>
-      <type>int</type>
-      <default>380</default>
-      <locale name="C">
-        <short>The height of the window</short>
-        <long>The height of the playing window in pixels. At minimum it should be 240.</long>
-      </locale>
-    </schema>
-
-    <schema>
       <key>/schemas/apps/gnotravex/colours</key>
       <applyto>/apps/gnotravex/colours</applyto>
       <owner>gnotravex</owner>
