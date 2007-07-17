@@ -460,6 +460,8 @@ main (int argc, char **argv)
   }
 #endif /* HAVE_GNOME */
 
+  g_set_application_name (_(APPNAME_LONG));
+
   games_conf_initialise (APPNAME);
 
   highscores = games_scores_new (&scoredesc);
@@ -1924,7 +1926,11 @@ about_cb (GtkAction * action, gpointer data)
   gchar *license = games_get_license (_(APPNAME_LONG));
 
   gtk_show_about_dialog (GTK_WINDOW (window),
+#if GTK_CHECK_VERSION (2, 11, 0)
+                         "program-name", _(APPNAME_LONG),
+#else
 			 "name", _(APPNAME_LONG),
+#endif
 			 "version", VERSION,
 			 "comments",
 			 _("GNOME Tetravex is a simple puzzle where "
@@ -1938,7 +1944,7 @@ about_cb (GtkAction * action, gpointer data)
 			 "documenters", documenters,
                          "translator_credits", _("translator-credits"),
                          "logo-icon-name", "gnome-tetravex",
-                         "website", "http://www.gnome.org/projects/gnome-games/",
+                         "website", "http://www.gnome.org/projects/gnome-games",
                          "website-label", _("GNOME Games web site"),
                          NULL);
   g_free (license);
