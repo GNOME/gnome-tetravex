@@ -1,3 +1,8 @@
+2007-06-29  Christian Persch <chpe@gnome.org>
+
+        * gnotravex.c:
+        * Makefile.am: Allow building glines with gtk-only platform.
+
 2007-01-05  Andreas Røsdal  <andreasr@gnome.org>
 
 	* gnotravex.c: offer Quit / New Game with the end-of-game dialog.

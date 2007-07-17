@@ -12,7 +12,7 @@ gnotravex_CPPFLAGS = \
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/libgames-support	\
 	-DDATADIR="\"$(datadir)\""		\
-	-DPIXMAPDIR=\""$(datadir)/pixmaps"\"	\
+	-DPIXMAPDIR=\""$(datadir)/pixmaps/gnotravex"\"	\
 	-DSHAREDIR="\"$(pkgdatadir)\""		\
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"\
 	$(AM_CPPFLAGS)

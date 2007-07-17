@@ -20,16 +20,25 @@
  */
 
 #include <config.h>
+
 #include <string.h>
 #include <math.h>
-#include <gdk-pixbuf/gdk-pixbuf.h>
-#include <games-clock.h>
 #include <time.h>
-#include <gnome.h>
+#include <stdlib.h>
+
+#include <glib/gi18n.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <gtk/gtk.h>
+
+#include <games-clock.h>
 #include <games-stock.h>
 #include <games-scores.h>
 #include <games-scores-dialog.h>
 #include <games-conf.h>
+
+#ifdef HAVE_GNOME
+#include <gnome.h>
+#endif /* HAVE_GNOME */
 
 #define APPNAME "gnotravex"
 #define APPNAME_LONG N_("Tetravex")
@@ -248,8 +257,10 @@ void clickmove_toggle_cb (GtkToggleAction *, gpointer);
 void hint_move (gint, gint, gint, gint);
 gint show_score_dialog (gint, gboolean);
 void new_game (void);
+#ifdef HAVE_GNOME
 static gint save_state (GnomeClient *, gint, GnomeRestartStyle,
 			gint, GnomeInteractStyle, gint, gpointer);
+#endif                     
 static void set_fullscreen_actions (gboolean is_fullscreen);
 static void fullscreen_cb (GtkAction * action);
 static gboolean window_state_cb (GtkWidget * widget, GdkEventWindowState * event);
@@ -395,13 +406,18 @@ static const GOptionEntry options[] = {
 int
 main (int argc, char **argv)
 {
-  GnomeClient *client;
-  GnomeProgram *program;
   GOptionContext *context;
   GtkWidget *vbox;
   GtkWidget *menubar;
   GtkUIManager *ui_manager;
   GtkAccelGroup *accel_group;
+#ifdef HAVE_GNOME
+  GnomeClient *client;
+  GnomeProgram *program;
+#else
+  gboolean retval;
+  GError *error = NULL;
+#endif
 
 #if defined(HAVE_GNOME) || defined(HAVE_RSVG_GNOMEVFS)
   /* If we're going to use gnome-vfs, we need to init threads before
@@ -418,27 +434,39 @@ main (int argc, char **argv)
 
   context = g_option_context_new (NULL);
   g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
+
+#ifdef HAVE_GNOME
   program = gnome_program_init (APPNAME, VERSION,
 				LIBGNOMEUI_MODULE,
 				argc, argv,
 				GNOME_PARAM_GOPTION_CONTEXT, context,
 				GNOME_PARAM_APP_DATADIR, DATADIR,
                                 NULL);
+  
+  client = gnome_master_client ();
+  g_signal_connect (client, "save_yourself",
+                    G_CALLBACK (save_state), argv[0]);
+  g_signal_connect (client, "die",
+                    G_CALLBACK (quit_game_cb), argv[0]);
+#else
+  g_option_context_add_group (context, gtk_get_option_group (TRUE));
 
-  highscores = games_scores_new (&scoredesc);
+  retval = g_option_context_parse (context, &argc, &argv, &error);
+  g_option_context_free (context);
+  if (!retval) {
+    g_print ("%s", error->message);
+    g_error_free (error);
+    exit (1);
+  }
+#endif /* HAVE_GNOME */
 
   games_conf_initialise (APPNAME);
 
-  gtk_window_set_default_icon_name ("gnome-tetravex");
-  client = gnome_master_client ();
-  g_object_ref (G_OBJECT (client));
-
-  g_signal_connect (G_OBJECT (client), "save_yourself",
-		    G_CALLBACK (save_state), argv[0]);
-  g_signal_connect (G_OBJECT (client), "die",
-		    G_CALLBACK (quit_game_cb), argv[0]);
+  highscores = games_scores_new (&scoredesc);
 
   games_stock_init ();
+
+  gtk_window_set_default_icon_name ("gnome-tetravex");
 
   if (size == -1)
     size = games_conf_get_integer (NULL, KEY_GRID_SIZE, NULL);
@@ -509,7 +537,9 @@ main (int argc, char **argv)
 
   games_conf_shutdown ();
 
+#ifdef HAVE_GNOME
   g_object_unref (program);
+#endif /* HAVE_GNOME */
 
   return 0;
 }
@@ -1640,6 +1670,8 @@ quit_game_cb (void)
   gtk_main_quit ();
 }
 
+#ifdef HAVE_GNOME
+
 static gint
 save_state (GnomeClient * client, gint phase,
 	    GnomeRestartStyle save_style, gint shutdown,
@@ -1668,6 +1700,7 @@ save_state (GnomeClient * client, gint phase,
   return TRUE;
 }
 
+#endif /* HAVE_GNOME */
 
 void
 size_cb (GtkAction * action, gpointer data)
@@ -1874,7 +1907,11 @@ solve_cb (GtkAction * action, gpointer data)
 void
 help_cb (GtkAction * action, gpointer data)
 {
+#ifdef HAVE_GNOME
   gnome_help_display ("gnotravex.xml", NULL, NULL);
+#else
+#warning need to port help to gtk-only!
+#endif /* HAVE_GNOME */
 }
 
 void
@@ -1895,12 +1932,15 @@ about_cb (GtkAction * action, gpointer data)
 			   "same numbers are touching each other."),
 			 "copyright",
 			 "Copyright \xc2\xa9 1999-2007 Lars Rydlinge",
-			 "license", license, "authors", authors,
-			 "documenters", documenters, "translator_credits",
-			 _("translator-credits"), "logo-icon-name",
-			 "gnome-tetravex", "website",
-			 "http://www.gnome.org/projects/gnome-games/",
-			 "wrap-license", TRUE, NULL);
+			 "license", license,
+                         "wrap-license", TRUE,
+                         "authors", authors,
+			 "documenters", documenters,
+                         "translator_credits", _("translator-credits"),
+                         "logo-icon-name", "gnome-tetravex",
+                         "website", "http://www.gnome.org/projects/gnome-games/",
+                         "website-label", _("GNOME Games web site"),
+                         NULL);
   g_free (license);
 }
 
@@ -1940,23 +1980,23 @@ get_pixmap (const char *filename)
 {
   GdkPixmap *ret;
   GdkPixbuf *im;
-  char *fullname = gnome_program_locate_file (NULL,
-					      GNOME_FILE_DOMAIN_APP_PIXMAP,
-					      filename, TRUE, NULL);
+  char *path;
+  GError *error = NULL;
 
-  if (fullname == NULL)
-    return NULL;
-
-  im = gdk_pixbuf_new_from_file (fullname, NULL);
+  path = g_build_filename (PIXMAPDIR, filename, NULL);
+  im = gdk_pixbuf_new_from_file (path, &error);
   if (im != NULL) {
     gdk_pixbuf_render_pixmap_and_mask_for_colormap (im,
 						    gdk_colormap_get_system
 						    (), &ret, NULL, 127);
     gdk_pixbuf_unref (im);
   } else {
+    g_warning ("Error loading file '%s': %s\n", path, error->message);
+    g_error_free (error);
+
     ret = NULL;
   }
-  g_free (fullname);
+  g_free (path);
 
   return ret;
 }
@@ -1964,10 +2004,6 @@ get_pixmap (const char *filename)
 static void
 load_pixmaps (void)
 {
-  gchar *buffer;
-
-  buffer = g_build_filename (PIXMAPDIR, "gnotravex", "baize.png", NULL);
-  default_background_pixmap = get_pixmap (buffer);
-  g_free (buffer);
+  default_background_pixmap = get_pixmap ("baize.png");
 }
 
