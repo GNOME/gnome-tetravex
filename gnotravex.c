@@ -1942,7 +1942,7 @@ about_cb (GtkAction * action, gpointer data)
                          "wrap-license", TRUE,
                          "authors", authors,
 			 "documenters", documenters,
-                         "translator_credits", _("translator-credits"),
+                         "translator-credits", _("translator-credits"),
                          "logo-icon-name", "gnome-tetravex",
                          "website", "http://www.gnome.org/projects/gnome-games",
                          "website-label", _("GNOME Games web site"),
