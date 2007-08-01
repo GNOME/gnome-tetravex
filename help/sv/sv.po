@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex doc\n"
 "POT-Creation-Date: 2007-04-30 03:22+0100\n"
-"PO-Revision-Date: 2007-04-30 13:18+0100\n"
+"PO-Revision-Date: 2007-08-02 00:07+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Handbok för <application>GNOME Tetravex</application> v2.10"
 
 #: C/gnotravex.xml:28(para)
 msgid "GNOME Tetravex is a simple puzzle where pieces must be positioned so that the same numbers are touching each other. Your game is timed, these times are stored in a system-wide scoreboard."
-msgstr ""
+msgstr "GNOME Tetravex är ett enkelt pussel där bitarna måste positioneras så att samma siffror rör vid varandra. Ditt spel går på tid och dessa tider lagras i en systembred poänglista."
 
 #: C/gnotravex.xml:34(year)
 msgid "2001"
@@ -100,7 +100,7 @@ msgstr "Återkoppling"
 
 #: C/gnotravex.xml:100(para)
 msgid "To report a bug or make a suggestion regarding the <application>GNOME Tetravex</application> application or this manual, follow the directions in the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
-msgstr ""
+msgstr "För att rapportera ett fel eller föreslå någonting angående programmet <application>GNOME Tetravex</application> eller den här handboken, följ anvisningarna på <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME:s återkopplingssida</ulink>."
 
 #: C/gnotravex.xml:110(primary)
 msgid "GNOME Tetravex"
@@ -112,67 +112,67 @@ msgstr "Introduktion"
 
 #: C/gnotravex.xml:118(para)
 msgid "<application>GNOME Tetravex</application> is a simple puzzle where pieces must be positioned so that the same numbers are touching each other. Your game is timed, these times are stored in a system-wide scoreboard."
-msgstr ""
+msgstr "<application>GNOME Tetravex</application> är ett enkelt pussel där bitarna måste positioneras så att samma siffror rör vid varandra. Ditt spel går på tid och dessa tider lagras i en systembred poänglista."
 
 #: C/gnotravex.xml:124(para)
 msgid "To run <application>GNOME Tetravex</application>, select <menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Gnotravex</guimenuitem></menuchoice> from the <guimenu>Main Menu</guimenu>, or type <command>gnotravex</command> on the command line."
-msgstr ""
+msgstr "För att köra <application>GNOME Tetravex</application>, välj <menuchoice><guisubmenu>Spel</guisubmenu><guimenuitem>Gnotravex</guimenuitem></menuchoice> från <guimenu>Huvudmenyn</guimenu>, eller ange <command>gnotravex</command> på kommandoraden."
 
 #: C/gnotravex.xml:134(para)
 msgid "<application>GNOME Tetravex</application> is included in the <filename>gnome-games</filename> package, which is part of the GNOME desktop environment. This document describes version 2.10 of <application>GNOME Tetravex</application>."
-msgstr ""
+msgstr "<application>GNOME Tetravex</application> är inkluderat i paketet <filename>gnome-games</filename>, som är en del av skrivbordsmiljön GNOME. Det här dokumentet beskriver version 2.10 av <application>GNOME Tetravex</application>."
 
 #: C/gnotravex.xml:143(title)
 msgid "Playing GNOME Tetravex"
-msgstr ""
+msgstr "Spela GNOME Tetravex"
 
 #: C/gnotravex.xml:145(para)
 msgid "<application>GNOME Tetravex</application> is a simple puzzle game, this section covers how to play the game."
-msgstr ""
+msgstr "<application>GNOME Tetravex</application> är ett enkelt pusselspel, det här avsnittet beskriver hur man spelar spelet."
 
 #: C/gnotravex.xml:151(title)
 msgid "Basic usage"
-msgstr ""
+msgstr "Grundläggande användning"
 
 #: C/gnotravex.xml:153(title)
 msgid "Playing the game"
-msgstr ""
+msgstr "Spela spelet"
 
 #: C/gnotravex.xml:154(para)
 msgid "Starting <application>GNOME Tetravex</application> opens the <interface>Main window</interface>, shown in <xref linkend=\"mainwindow-fig\"/>. The window is divided into two boxes. The right hand side contains a box containing the pieces you have yet to place and the left hand box is where you arrange the pieces."
-msgstr ""
+msgstr "Startar man <application>GNOME Tetravex</application> öppnas <interface>huvudfönstret</interface>, som visas i <xref linkend=\"mainwindow-fig\"/>. Fönstret är uppdelat i två delar. Högra sidan innehåller en ruta som innehåller delarna som du ska placera ut och den vänstra sidan är där du ska placera delarna."
 
 #: C/gnotravex.xml:163(title)
 msgid "GNOME Tetravex Main Window"
-msgstr ""
+msgstr "Huvudfönstret i GNOME Tetravex"
 
 #: C/gnotravex.xml:170(phrase)
 msgid "GNOME Tetravex Main Window."
-msgstr ""
+msgstr "Huvudfönstret i GNOME Tetravex."
 
 #: C/gnotravex.xml:176(para)
 msgid "You can start playing the game immediately. You may restart the game by selecting <menuchoice><guisubmenu>File</guisubmenu><guimenuitem>New game</guimenuitem></menuchoice><xref linkend=\"playing-fig\"/>"
-msgstr ""
+msgstr "Du kan påbörja spelet direkt. Du kan starta om spelet genom att välja <menuchoice><guisubmenu>Spel</guisubmenu><guimenuitem>Nytt</guimenuitem></menuchoice><xref linkend=\"playing-fig\"/>"
 
 #: C/gnotravex.xml:186(title)
 msgid "A GNOME Tetravex Game"
-msgstr ""
+msgstr "Ett GNOME Tetravex-spel"
 
 #: C/gnotravex.xml:193(phrase)
 msgid "A GNOME Tetravex Game."
-msgstr ""
+msgstr "Ett GNOME Tetravex-spel."
 
 #: C/gnotravex.xml:198(para)
 msgid "The tiles are divided into four, you must position them so that only two numbers that are the same are next to each other. The game wil not let you position the tiles so that different numbers are next to each other. You position the pieces by dragging them from their current position either in the right hand box or the main box to their new position. These moves are not permanent and can be readily reversed. You may also move all the pieces in the left hand box at once by using the commands: <menuchoice><guisubmenu>Move</guisubmenu><guimenuitem>Left/Right/Up/Down</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Brickorna är uppdelade i fyra, du måste positionera dem så att endast två lika siffror är bredvid varandra. Spelet kommer inte att låta dig positionera brickorna så att olika siffror är bredvid varandra. Du positionerar brickorna genom att dra dem från sina aktuella positioner på högra sidan eller huvudrutan till sin nya position. Dessa drag är inte permanenta och kan enkelt göras om. Du kan även flytta alla brickorna på vänstra sidan genom att använda kommandona: <menuchoice><guisubmenu>Flytta</guisubmenu><guimenuitem>Vänster/Höger/Upp/Ned</guimenuitem></menuchoice>"
 
 #: C/gnotravex.xml:213(title)
 msgid "Winning the game"
-msgstr ""
+msgstr "Vinna spelet"
 
 #: C/gnotravex.xml:214(para)
 msgid "The game is completed when you have positioned all the squares in the right positions. When you have completed the game you are shown your ranking in the high scores table, if you get a high enough score. If you have used either Hint or Solve your score will not be included in the high scores table."
-msgstr ""
+msgstr "Spelet är avklarat när du har positionerat alla fyrkanterna i de rätta positionerna. När du har klarat av spelet kommer du att få se din rankning i poänglistan, om du får en tillräckligt hög poängsumma. Om du har använt antingen Tips eller Lös kommer din poäng inte att inkluderas i poänglistan."
 
 #: C/gnotravex.xml:227(title)
 msgid "Customization"
@@ -180,11 +180,11 @@ msgstr "Anpassning"
 
 #: C/gnotravex.xml:228(para)
 msgid "Under the <guimenuitem>Settings</guimenuitem> menu you can change the size of the grid from two by two up to six by six. The default is three by three."
-msgstr ""
+msgstr "Under menyn <guimenuitem>Inställningar</guimenuitem> kan du ändra storleken på rutnätet från två gånger två upp till sex gånger sex. Standard är tre gånger tre."
 
 #: C/gnotravex.xml:232(para)
 msgid "If the tiles are too small, resizing the window will change the size of the tiles."
-msgstr ""
+msgstr "Om brickorna är för små kan du ändra storlek på fönstret för att ändra storleken på brickorna."
 
 #: C/gnotravex.xml:253(title)
 msgid "Authors"
@@ -192,7 +192,7 @@ msgstr "Upphovsmän"
 
 #: C/gnotravex.xml:254(para)
 msgid "<application>GNOME Tetravex</application> was written by Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). This manual was written by Rob Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
-msgstr ""
+msgstr "<application>GNOME Tetravex</application> skrevs av Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). Den här handboken skrevs av Rob Bradford (<email>rob@funky-penguin.co.uk</email>). För att rapportera ett fel eller föreslå någonting angående det här programmet eller den här handboken, följ anvisningarna i det här <ulink url=\"ghelp:gnome-feedback\" type=\"help\">dokumentet</ulink>."
 
 #: C/gnotravex.xml:274(title)
 msgid "License"
@@ -200,15 +200,15 @@ msgstr "Licens"
 
 #: C/gnotravex.xml:275(para)
 msgid "This program is free software; you can redistribute it and/or modify it under the terms of the <citetitle>GNU General Public License</citetitle> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version."
-msgstr ""
+msgstr "Det här programmet är fri programvara; du kan distribuera det och/eller ändra det under villkoren för <citetitle>GNU General Public License</citetitle> som publicerat av Free Software Foundation; antingen version 2 av licensen, eller (upp till dig) någon senare version."
 
 #: C/gnotravex.xml:281(para)
 msgid "This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the <citetitle>GNU General Public License</citetitle> for more details."
-msgstr ""
+msgstr "Det här programmet distribueras i hopp om att det ska vara användbart, men UTAN NÅGRA GARANTIER; även utan den underförstådda garantin för SÄLJBARHET eller LÄMPLIGHET FÖR ETT SPECIFIKT ÄNDAMÅL. Se <citetitle>GNU General Public License</citetitle> för mer information."
 
 #: C/gnotravex.xml:287(para)
 msgid "A copy of the <citetitle>GNU General Public License</citetitle> is included as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also obtain a copy of the <citetitle>GNU General Public License</citetitle> from the Free Software Foundation by visiting <ulink url=\"http://www.fsf.org\" type=\"http\">their Web site</ulink> or by writing to <address> Free Software Foundation, Inc. <street>59 Temple Place</street> - Suite 330 <city>Boston</city>, <state>MA</state><postcode>02111-1307</postcode><country>USA</country></address>"
-msgstr ""
+msgstr "En kopia av <citetitle>GNU General Public License</citetitle> finns inkluderad som en bilaga till <citetitle>Användarguide för GNOME</citetitle>. Du kan hämta få en kopia av <citetitle>GNU General Public License</citetitle> från Free Software Foundation genom att besöka <ulink url=\"http://www.fsf.org\" type=\"http\">deras webbplats</ulink> eller genom att skriva till <address> Free Software Foundation, Inc. <street>59 Temple Place</street> - Suite 330 <city>Boston</city>, <state>MA</state><postcode>02111-1307</postcode><country>USA</country></address>"
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
 #: C/gnotravex.xml:0(None)
