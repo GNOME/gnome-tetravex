@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnotravex 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-08-05 21:13+0100\n"
-"PO-Revision-Date: 2007-08-07 15:03+0100\n"
+"PO-Revision-Date: 2007-08-07 15:23+0100\n"
 "Last-Translator: Chris Mpountalis <mpounta@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"
@@ -149,7 +149,7 @@ msgstr "Παίζοντας το παιγνίδι"
 
 #: C/gnotravex.xml:154(para)
 msgid "Starting <application>GNOME Tetravex</application> opens the <interface>Main window</interface>, shown in <xref linkend=\"mainwindow-fig\"/>. The window is divided into two boxes. The right hand side contains a box containing the pieces you have yet to place and the left hand box is where you arrange the pieces."
-msgstr "Ξεκινώντας το <application>GNOME Tetravex</application ανοίγει το <interface>Κυρίως παράθυρο</interface>, όπως μπορείτε να δείτε παρακάτω <xref linkend=\"mainwindow-fig\"/>. Αυτό το παράθυρο χωρίζεται σε δύο κουτιά. Δεξιά είναι το κουτί που περιέχει τα κομμάτια που πρέπει να τοποθετήσετε και αριστερά είναι το κουτί όπου τοποθετείτε τα κομμάτια."
+msgstr "Ξεκινώντας το <application>GNOME Tetravex</application> ανοίγει το <interface>Κυρίως παράθυρο</interface>, όπως μπορείτε να δείτε παρακάτω <xref linkend=\"mainwindow-fig\"/>. Αυτό το παράθυρο χωρίζεται σε δύο κουτιά. Δεξιά είναι το κουτί που περιέχει τα κομμάτια που πρέπει να τοποθετήσετε και αριστερά είναι το κουτί όπου τοποθετείτε τα κομμάτια."
 
 #: C/gnotravex.xml:163(title)
 msgid "GNOME Tetravex Main Window"
