@@ -1,3 +1,7 @@
+2007-09-02  Thomas H.P. Andersen <phomes@gmail.com>
+
+        * gnotravex.c: Remove unused code
+
 2007-09-01  Thomas H.P. Andersen <phomes@gmail.com>
 
         * gnotravex.c: Blank bricks when paused.

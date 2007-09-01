@@ -1539,7 +1539,6 @@ gui_draw_pause (void)
 {
   guint x, y, xadd, yadd, which;
   GdkRegion *region;
-  GdkGC *gc;
 
   if (!space->window)
     return;
@@ -1554,7 +1553,6 @@ gui_draw_pause (void)
 
       xadd = x * tile_size + xborder + (x >= size) * gap;
       yadd = y * tile_size + yborder;
-      gc = space->style->black_gc;
 
       if (which == USED)
 	gui_draw_tile (buffer, GTK_STATE_NORMAL, xadd, yadd, 0, 0, 0, 0, 
