@@ -1,3 +1,8 @@
+2007-09-01  Thomas H.P. Andersen <phomes@gmail.com>
+
+        * gnotravex.c: Blank bricks when paused.
+	Patch by David Westlund. Fixes bug #85476
+
 2007-06-29  Christian Persch <chpe@gnome.org>
 
         * gnotravex.c:

@@ -1557,8 +1557,8 @@ gui_draw_pause (void)
       gc = space->style->black_gc;
 
       if (which == USED)
-	gui_draw_tile (buffer, GTK_STATE_NORMAL, xadd, yadd, tiles[y][x].n,
-		       tiles[y][x].s, tiles[y][x].e, tiles[y][x].w, FALSE);
+	gui_draw_tile (buffer, GTK_STATE_NORMAL, xadd, yadd, 0, 0, 0, 0, 
+		       FALSE);
       else
 	gui_draw_socket (buffer, GTK_STATE_NORMAL, xadd, yadd);
 
