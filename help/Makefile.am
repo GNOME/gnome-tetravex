@@ -1,6 +1,6 @@
 include $(top_srcdir)/gnome-doc-utils.make
 
-DOC_LINGUAS = el es fr oc sv
+DOC_LINGUAS = de el es fr oc sv
 
 DOC_MODULE = gnotravex
 
