@@ -1936,7 +1936,7 @@ about_cb (GtkAction * action, gpointer data)
 			   "same numbers are touching each other.\n\n"
 			   "Tetravex is a part of GNOME Games."),
 			 "copyright",
-			 "Copyright \xc2\xa9 1999-2007 Lars Rydlinge",
+			 "Copyright \xc2\xa9 1999-2008 Lars Rydlinge",
 			 "license", license,
                          "wrap-license", TRUE,
                          "authors", authors,
