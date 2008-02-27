@@ -1,5 +1,10 @@
 2008-02-27  Luca Ferretti  <elle.uca@libero.it>
 
+	* it/figures/*:
+	Added screenshots for Italian translation by Alessio Treglia.
+
+2008-02-27  Luca Ferretti  <elle.uca@libero.it>
+
 	* it/it.po:
 	* Makefile.am:
 	Added Italian translation by Alessio Treglia.
