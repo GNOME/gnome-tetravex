@@ -8,46 +8,48 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-05 21:13+0100\n"
-"PO-Revision-Date: 2007-08-07 15:23+0100\n"
-"Last-Translator: Chris Mpountalis <mpounta@gmail.com>\n"
+"POT-Creation-Date: 2008-03-11 20:40+0000\n"
+"PO-Revision-Date: 2008-03-17 13:53+0200\n"
+"Last-Translator: Χρήστος Μπούνταλης <mpounta@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-Country: GREECE\n"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnotravex.xml:167(None)
+#: C/gnotravex.xml:170(None)
 msgid "@@image: 'figures/gnotravex_mainwindow.png'; md5=e49d762a2dd5d6ba466e0c7cef7703ce"
 msgstr "@@image: 'figures/gnotravex_mainwindow.png'; md5=e49d762a2dd5d6ba466e0c7cef7703ce"
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnotravex.xml:190(None)
+#: C/gnotravex.xml:193(None)
 msgid "@@image: 'figures/gnotravex_game.png'; md5=4d0a4512ee72329134fa0f5a1a3205e9"
 msgstr "@@image: 'figures/gnotravex_game.png'; md5=4d0a4512ee72329134fa0f5a1a3205e9"
 
 #: C/gnotravex.xml:25(title)
-msgid "<application>GNOME Tetravex</application> Manual V2.10"
-msgstr "Τεκμηρίωση <application>GNOME Tetravex</application> V2.10"
+msgid "<application>Tetravex</application> Manual"
+msgstr "Τεκμηρίωση <application>Tetravex</application>"
 
 #: C/gnotravex.xml:28(para)
-msgid "GNOME Tetravex is a simple puzzle where pieces must be positioned so that the same numbers are touching each other. Your game is timed, these times are stored in a system-wide scoreboard."
-msgstr "Το GNOME Tetravex είναι ένα απλό παιγνίδι γρίφος, όπου τα κομμάτια πρέπει να τοποθετηθούν με τέτοιο τρόπο έτσι ώστε οι όμοιοι αριθμοί α εφάπτονται μεταξύ τους."
+msgid "Tetravex is a simple puzzle game in which pieces have numbers on each side. The pieces must be positioned so that the same numbers touch each other, during which you are being timed. The times are then stored in a system-wide scoreboard."
+msgstr "Το Tetravex είναι ένα απλό παιγνίδι γρίφος, όπου τα κομμάτια έχουν αριθμούς σε κάθε πλευρά τους. Πρέπει να τοποθετήσετε τα κομμάτια αυτά με τέτοιο τρόπο έτσι ώστε οι όμοιοι αριθμοί να εφάπτονται μεταξύ τους, ενώ κατά την διαρκεια αυτής της διαδικασίας χρονομετρήστε. Οι χρόνοι σας έπειτα αποθηκεύονται σε έναν γενικό πίνακα βαθμολογίας."
 
-#: C/gnotravex.xml:34(year)
+#: C/gnotravex.xml:37(year)
 msgid "2001"
 msgstr "2001"
 
-#: C/gnotravex.xml:35(holder)
+#: C/gnotravex.xml:38(holder)
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
-#: C/gnotravex.xml:49(publishername)
-#: C/gnotravex.xml:87(para)
+#: C/gnotravex.xml:52(publishername)
+#: C/gnotravex.xml:90(para)
 msgid "GNOME Documentation Project"
 msgstr "Έργο Τεκμηρίωσης GNOME"
 
@@ -75,152 +77,156 @@ msgstr "ΣΕ ΚΑΜΙΑ ΠΕΡΙΠΤΩΣΗ ΚΑΙ ΥΠΟ ΚΑΜΙΑ ΝΟΜΙΚΗ
 msgid "DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: <placeholder-1/>"
 msgstr "ΤΟ ΈΓΓΡΑΦΟ ΚΑΙ ΤΡΟΠΟΠΟΙΗΜΕΝΕΣ ΕΚΔΟΣΕΙΣ ΑΥΤΟΥ ΠΑΡΕΧΟΝΤΑΙ ΥΠΟ ΤΟΥΣ ΟΡΟΥΣ ΤΗΣ ΑΔΕΙΑΣ GNU FREE DOCUMENTATION ΜΕ ΤΗΝ ΠΕΡΑΙΤΕΡΩ ΔΙΕΥΚΡΙΝΙΣΗ ΟΤΙ: <placeholder-1/>"
 
-#: C/gnotravex.xml:59(firstname)
+#: C/gnotravex.xml:62(firstname)
 msgid "Rob"
 msgstr "Rob"
 
-#: C/gnotravex.xml:60(surname)
+#: C/gnotravex.xml:63(surname)
 msgid "Bradford"
 msgstr "Bradford"
 
-#: C/gnotravex.xml:62(email)
+#: C/gnotravex.xml:65(email)
 msgid "robster@debian.org"
 msgstr "robster@debian.org"
 
-#: C/gnotravex.xml:81(revnumber)
-msgid "GNOME Tetravex Manual V2.10"
-msgstr "Τεκμηρίωση GNOME Tetravex V2.10"
+#: C/gnotravex.xml:84(revnumber)
+msgid "Tetravex Manual V2.10"
+msgstr "Τεκμηρίωση Tetravex V2.10"
 
-#: C/gnotravex.xml:82(date)
+#: C/gnotravex.xml:85(date)
 msgid "June 2005"
-msgstr "June 2005"
+msgstr "Ιούνιος 2005"
 
-#: C/gnotravex.xml:84(para)
+#: C/gnotravex.xml:87(para)
 msgid "Rob Bradford <email>rob@funky-penguin.co.uk</email>"
 msgstr "Rob Bradford <email>rob@funky-penguin.co.uk</email>"
 
-#: C/gnotravex.xml:92(releaseinfo)
-msgid "This manual describes version 2.12 of GNOME Tetravex."
-msgstr "Αυτό το εγχειρίδιο περιγράφει την έκδοση 2.12 του GNOME Tetravex."
+#: C/gnotravex.xml:95(releaseinfo)
+msgid "This manual describes version 2.12 of Tetravex."
+msgstr "Αυτό το εγχειρίδιο περιγράφει την έκδοση 2.12 του Tetravex."
 
-#: C/gnotravex.xml:99(title)
+#: C/gnotravex.xml:102(title)
 msgid "Feedback"
 msgstr "Ανάδραση"
 
-#: C/gnotravex.xml:100(para)
-msgid "To report a bug or make a suggestion regarding the <application>GNOME Tetravex</application> application or this manual, follow the directions in the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
-msgstr "Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με το <application>GNOME Tetravex</application>  ή αυτή την τεκμηρίωση, ακολουθήστε τις οδηγίες στη σελίδα <ulink url=\"ghelp:gnome-feedback\" type=\"help\">ανάδρασης GNOME </ulink>."
+#: C/gnotravex.xml:103(para)
+msgid "To report a bug or make a suggestion regarding the <application>Tetravex</application> application or this manual, follow the directions in the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
+msgstr "Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με το <application>GNOME Tetravex</application>  ή αυτή την τεκμηρίωση, ακολουθήστε τις οδηγίες που περιγράφονται στη σελίδα <ulink url=\"ghelp:gnome-feedback\" type=\"help\">ανάδρασης GNOME </ulink>."
 
-#: C/gnotravex.xml:110(primary)
+#: C/gnotravex.xml:113(primary)
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: C/gnotravex.xml:116(title)
+#: C/gnotravex.xml:119(title)
 msgid "Introduction"
 msgstr "Εισαγωγή"
 
-#: C/gnotravex.xml:118(para)
+#: C/gnotravex.xml:121(para)
 msgid "<application>GNOME Tetravex</application> is a simple puzzle where pieces must be positioned so that the same numbers are touching each other. Your game is timed, these times are stored in a system-wide scoreboard."
 msgstr "Το <application>GNOME Tetravex</application> είναι ένα απλό παιγνίδι γρίφος, όπου τα κομμάτια πρέπει να τοποθετηθούν με τέτοιο τρόπο έτσι ώστε οι όμοιοι αριθμοί να εφάπτονται μεταξύ τους."
 
-#: C/gnotravex.xml:124(para)
+#: C/gnotravex.xml:127(para)
 msgid "To run <application>GNOME Tetravex</application>, select <menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Gnotravex</guimenuitem></menuchoice> from the <guimenu>Main Menu</guimenu>, or type <command>gnotravex</command> on the command line."
 msgstr "Για να τρέξετε το <application>GNOME Tetravex</application>, επιλέξτε <menuchoice><guisubmenu>Παιχνίδια</guisubmenu><guimenuitem>Gnotravex</guimenuitem></menuchoice> από το <guimenu>Κυρίως Μενού</guimenu>, ή πληκτρολογείστε <command>gnotravex</command> στην γραμμή εντολών."
 
-#: C/gnotravex.xml:134(para)
+#: C/gnotravex.xml:137(para)
 msgid "<application>GNOME Tetravex</application> is included in the <filename>gnome-games</filename> package, which is part of the GNOME desktop environment. This document describes version 2.10 of <application>GNOME Tetravex</application>."
 msgstr "To <application>GNOME Tetravex</application> συμπεριλαμβάνεται στο πακέτο <filename>gnome-games</filename>, το οποίο είναι κομμάτι του γραφικού περιβάλλοντος επιφάνειας εργασίας GNOME. Αυτό το κείμενο περιγράφει την έκδοση 2.10 του <application>GNOME Tetravex</application>."
 
-#: C/gnotravex.xml:143(title)
+#: C/gnotravex.xml:146(title)
 msgid "Playing GNOME Tetravex"
 msgstr "Παίζοντας Gnome Tetravex"
 
-#: C/gnotravex.xml:145(para)
+#: C/gnotravex.xml:148(para)
 msgid "<application>GNOME Tetravex</application> is a simple puzzle game, this section covers how to play the game."
 msgstr "Το <application>GNOME Tetravex</application> είναι ένα απλό παιγνίδι γρίφος, αυτό το εδάφιο καλύπτει το πως να παίξετε το παιγνίδι."
 
-#: C/gnotravex.xml:151(title)
+#: C/gnotravex.xml:154(title)
 msgid "Basic usage"
 msgstr "Βασική χρήση"
 
-#: C/gnotravex.xml:153(title)
+#: C/gnotravex.xml:156(title)
 msgid "Playing the game"
 msgstr "Παίζοντας το παιγνίδι"
 
-#: C/gnotravex.xml:154(para)
+#: C/gnotravex.xml:157(para)
 msgid "Starting <application>GNOME Tetravex</application> opens the <interface>Main window</interface>, shown in <xref linkend=\"mainwindow-fig\"/>. The window is divided into two boxes. The right hand side contains a box containing the pieces you have yet to place and the left hand box is where you arrange the pieces."
 msgstr "Ξεκινώντας το <application>GNOME Tetravex</application> ανοίγει το <interface>Κυρίως παράθυρο</interface>, όπως μπορείτε να δείτε παρακάτω <xref linkend=\"mainwindow-fig\"/>. Αυτό το παράθυρο χωρίζεται σε δύο κουτιά. Δεξιά είναι το κουτί που περιέχει τα κομμάτια που πρέπει να τοποθετήσετε και αριστερά είναι το κουτί όπου τοποθετείτε τα κομμάτια."
 
-#: C/gnotravex.xml:163(title)
+#: C/gnotravex.xml:166(title)
 msgid "GNOME Tetravex Main Window"
-msgstr "GNOME Tetravex Κυρίως Παράθυρο "
+msgstr "GNOME Tetravex Κυρίως παράθυρο "
 
-#: C/gnotravex.xml:170(phrase)
+#: C/gnotravex.xml:173(phrase)
 msgid "GNOME Tetravex Main Window."
-msgstr "GNOME Tetravex Κυρίως Παράθυρο."
+msgstr "GNOME Tetravex Κυρίως παράθυρο."
 
-#: C/gnotravex.xml:176(para)
+#: C/gnotravex.xml:179(para)
 msgid "You can start playing the game immediately. You may restart the game by selecting <menuchoice><guisubmenu>File</guisubmenu><guimenuitem>New game</guimenuitem></menuchoice><xref linkend=\"playing-fig\"/>"
 msgstr "Μπορείτε να ξεκινήσετε αμέσως να παίζετε. Μπορείτε να επανεκινήσετε  το παιγνίδι επιλέγοντας <menuchoice><guisubmenu>Αρχείο</guisubmenu><guimenuitem>Νέο παιγνίδι</guimenuitem></menuchoice><xref linkend=\"playing-fig\"/> "
 
-#: C/gnotravex.xml:186(title)
+#: C/gnotravex.xml:189(title)
 msgid "A GNOME Tetravex Game"
 msgstr "Παιγνίδι Gnome Tetravex"
 
-#: C/gnotravex.xml:193(phrase)
+#: C/gnotravex.xml:196(phrase)
 msgid "A GNOME Tetravex Game."
 msgstr "Παιγνίδι Gnome Tetravex."
 
-#: C/gnotravex.xml:198(para)
+#: C/gnotravex.xml:201(para)
 msgid "The tiles are divided into four, you must position them so that only two numbers that are the same are next to each other. The game wil not let you position the tiles so that different numbers are next to each other. You position the pieces by dragging them from their current position either in the right hand box or the main box to their new position. These moves are not permanent and can be readily reversed. You may also move all the pieces in the left hand box at once by using the commands: <menuchoice><guisubmenu>Move</guisubmenu><guimenuitem>Left/Right/Up/Down</guimenuitem></menuchoice>"
 msgstr "Τα πλακίδια χωρίζονται στα τέσσερα, πρέπει να τα τοποθετήσετε έτσι ώστε μόνο δύο ίδιοι αριθμοί να εφάπτονται. Το παιγνίδι δεν θα σας αφήσει να τοποθετήσετε τα πλακίδια έχοντας διαφορετικά νούμερα το ένα πλάι στο άλλο. Πρέπει να τοποθετήσετε τα κομμάτια σύροντας τα από την τρέχουσα θέση τους είτε στο δεξιό κουτί είτε στο κυρίως κουτί, στη νέα θέση τους. Αυτές οι κινήσεις δεν είναι μόνιμες και εύκολα  μπορούν να αλλάξουν. Μπορείτε επίσης να μετακινήσετε όλα τα κομμάτια στο αριστερό κουτί με την μία χρησιμοποιώντας τις εντολές <menuchoice><guisubmenu>Μετακινήση</guisubmenu><guimenuitem>Αριστερά/Δεξιά/Πάνω/Κάτω</guimenuitem></menuchoice> "
 
-#: C/gnotravex.xml:213(title)
+#: C/gnotravex.xml:216(title)
 msgid "Winning the game"
 msgstr "Νίκη του παιχνιδιού"
 
-#: C/gnotravex.xml:214(para)
+#: C/gnotravex.xml:217(para)
 msgid "The game is completed when you have positioned all the squares in the right positions. When you have completed the game you are shown your ranking in the high scores table, if you get a high enough score. If you have used either Hint or Solve your score will not be included in the high scores table."
 msgstr "Το παιγνίδι ολοκληρώνεται όταν έχετε τοποθετήσει όλα τα τετράγωνα στις σωστές θέσεις. Όταν ολοκληρώσετε το παιγνίδι μπορείτε να δείτε την κατάταξη σας στον πίνακα βαθμολογίας, εάν κάνετε μια αρκετά ψηλή βαθμολογία. Εάν χρησιμοποιήσατε το Υπόδειξη ή Λύση οι βαθμοί σας δεν θα συμπεριληφθούν στον πίνακα βαθμολογίας."
 
-#: C/gnotravex.xml:227(title)
+#: C/gnotravex.xml:230(title)
 msgid "Customization"
 msgstr "Προσαρμογή"
 
-#: C/gnotravex.xml:228(para)
+#: C/gnotravex.xml:231(para)
 msgid "Under the <guimenuitem>Settings</guimenuitem> menu you can change the size of the grid from two by two up to six by six. The default is three by three."
 msgstr "Κάτω από το μενού <guimenuitem>Ρυθμίσεις</guimenuitem> μπορείτε να αλλάξετε το μέγεθος του πλέγματος από δύο επί δύο έως έξι επί έξι. Η προεπιλεγμένη επιλογή είναι τρία επί τρία. "
 
-#: C/gnotravex.xml:232(para)
+#: C/gnotravex.xml:235(para)
 msgid "If the tiles are too small, resizing the window will change the size of the tiles."
 msgstr "Αν τα πλακίδια είναι πολύ μικρά, η αλλαγή μεγέθους στο παράθυρο θα αλλάξει και το μέγεθος των πλακιδίων."
 
-#: C/gnotravex.xml:253(title)
+#: C/gnotravex.xml:256(title)
 msgid "Authors"
 msgstr "Συγγραφείς"
 
-#: C/gnotravex.xml:254(para)
+#: C/gnotravex.xml:257(para)
 msgid "<application>GNOME Tetravex</application> was written by Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). This manual was written by Rob Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
-msgstr "To <application>GNOME Tetravex</application> δημιουργήθηκε από τον Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). Αυτή η τεκμηρίωση γράφτηκε από τον Rob Bradford (<email>rob@funky-penguin.co.uk</email>) .Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με το <application>GNOME Tetravex</application>  ή αυτή την τεκμηρίωση, ακολουθήστε τις οδηγίες στη σελίδα <ulink url=\"ghelp:gnome-feedback\" type=\"help\">ανάδρασης GNOME </ulink>."
+msgstr "To <application>GNOME Tetravex</application> δημιουργήθηκε από τον Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). Αυτή η τεκμηρίωση γράφτηκε από τον Rob Bradford (<email>rob@funky-penguin.co.uk</email>). Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με αυτή την εφαρμογή ή αυτή την τεκμηρίωση, ακολουθήστε τις οδηγίες που περιγράφονται σε αυτό το <ulink url=\"ghelp:gnome-feedback\" type=\"help\">έγγραφο</ulink>."
 
-#: C/gnotravex.xml:274(title)
+#: C/gnotravex.xml:277(title)
 msgid "License"
 msgstr "Άδεια χρήσης"
 
-#: C/gnotravex.xml:275(para)
+#: C/gnotravex.xml:278(para)
 msgid "This program is free software; you can redistribute it and/or modify it under the terms of the <citetitle>GNU General Public License</citetitle> as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version."
 msgstr "Αυτό το πρόγραμμα είναι ελεύθερο λογισμικό. Επιτρέπεται η αναδιανομή ή/και τροποποίησή του υπό τους όρους της Γενικής Άδειας Δημόσιας Χρήσης GNU (<citetitle>GNU General Public License</citetitle>) όπως αυτή δημοσιεύεται από το Ίδρυμα Ελεύθερου Λογισμικού (Free Software Foundation) - είτε της έκδοσης 2 της άδειας, είτε (κατ' επιλογήν) οποιασδήποτε μεταγενέστερης έκδοσης."
 
-#: C/gnotravex.xml:281(para)
+#: C/gnotravex.xml:284(para)
 msgid "This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the <citetitle>GNU General Public License</citetitle> for more details."
 msgstr "Αυτό το πρόγραμμα διανέμεται με την ελπίδα οτι θα είναι χρήσιμο, αλλά ΧΩΡΙΣ ΚΑΜΜΙΑ ΑΠΟΛΥΤΩΣ ΕΓΓΥΗΣΗ - χωρίς ακόμη και την έμμεση εγγύηση ΕΜΠΟΡΕΥΣΙΜΟΤΗΤΑΣ ή ΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΣΥΓΚΕΚΡΙΜΕΝΟ ΣΚΟΠΟ. Δείτε για περισσότερες λεπτομέρειες την Γενική Άδεια Δημόσιας Χρήσης GNU (<citetitle>GNU General Public License</citetitle>)."
 
-#: C/gnotravex.xml:287(para)
+#: C/gnotravex.xml:290(para)
 msgid "A copy of the <citetitle>GNU General Public License</citetitle> is included as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also obtain a copy of the <citetitle>GNU General Public License</citetitle> from the Free Software Foundation by visiting <ulink url=\"http://www.fsf.org\" type=\"http\">their Web site</ulink> or by writing to <address> Free Software Foundation, Inc. <street>59 Temple Place</street> - Suite 330 <city>Boston</city>, <state>MA</state><postcode>02111-1307</postcode><country>USA</country></address>"
 msgstr "Ένα αντίγραφο της Γενικής Δημόσιας Άδειας Χρήσης (<citetitle>GNU General Public License</citetitle>) συμπεριλαμβάνεται ως παράρτημα στον  <citetitle>Οδηγό Χρηστών GNOME </citetitle>. Μπορείτε επίσης να αποκτήσετε ένα αντίγραφο της Γενικής Δημόσιας Άδειας Χρήσης (<citetitle>GNU General Public License</citetitle>) από το Free Software Foundation επισκεπτόμενοι <ulink url=\"http://www.fsf.org\" type=\"http\"> την ιστοσελίδα τους</ulink> ή γράφωντας τους στο<address> Free Software Foundation, Inc. <street>59 Temple Place</street> - Suite 330 <city>Boston</city>, <state>MA</state><postcode>02111-1307</postcode><country>USA</country></address>"
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
 #: C/gnotravex.xml:0(None)
 msgid "translator-credits"
-msgstr "Χρήστος Μπούνταλης <mpounta@gmail.com>, 2007"
+msgstr ""
+"Ελληνική μεταφραστική ομάδα GNOME\n"
+"Χρήστος Μπούνταλης <mpounta@gmail.com>, 2007-2008\n"
+"\n"
+"Για περισσότερα δείτε http://www.gnome.gr/"
 
