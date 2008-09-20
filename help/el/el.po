@@ -226,7 +226,7 @@ msgstr "Ένα αντίγραφο της Γενικής Δημόσιας Άδε�
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
-"Χρήστος Μπούνταλης <mpounta@gmail.com>, 2007-2008\n"
+" Χρήστος Μπούνταλης <mpounta@gmail.com>, 2007-2008\n"
 "\n"
-"Για περισσότερα δείτε http://www.gnome.gr/"
+"Για περισσότερα δείτε http://www.gnome.gr/"
 
