@@ -69,7 +69,6 @@ N_("8"), N_("9") };
 static GtkWidget *window;
 static GtkWidget *statusbar;
 static GtkWidget *space;
-static GtkWidget *bit;
 static GtkWidget *timer;
 static GdkGC *bg_gc;
 
@@ -123,10 +122,8 @@ static gint game_state = gameover;
 static gint have_been_hinted = 0;
 static gint solve_me = 0;
 static gint hint_moving = 0;
-static gint session_flag = 0;
 static gint session_xpos = 0;
 static gint session_ypos = 0;
-static gint session_position = 0;
 static guint timer_timeout = 0;
 static gint tile_size = 0;
 static gdouble tile_border_size = 3.0;
