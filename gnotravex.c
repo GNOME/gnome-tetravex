@@ -1649,6 +1649,12 @@ make_buffer (GtkWidget * widget)
 void
 new_game (){
   gchar *str;
+    
+  /* Reset pause menu */
+  gtk_action_set_visible(pause_action, TRUE);
+  gtk_action_set_sensitive(pause_action, TRUE);
+  gtk_action_set_visible(resume_action, FALSE);
+  gtk_action_set_sensitive(resume_action, FALSE);
 
   new_board (size);
   gtk_widget_freeze_child_notify (space);
