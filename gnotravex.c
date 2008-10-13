@@ -224,7 +224,6 @@ void gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdo
 void gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd,
 		    gint yadd, gint north, gint south, gint east, gint west, gboolean prelight);
 void gui_draw_pixmap (GdkPixmap *, gint, gint, gboolean);
-void gui_draw_pause (void);
 
 void get_pixeltilexy (gint, gint, gint *, gint *);
 void get_tilexy (gint, gint, gint *, gint *);
@@ -954,10 +953,10 @@ button_motion_space (GtkWidget * widget, GdkEventButton * event)
     get_tilexy (event->x, event->y, &x, &y);
     if ((x != oldx) || (y != oldy)) {
       if ((oldx != -1) && (tiles[oldy][oldx].status == USED)) {
-	 gui_draw_pixmap (buffer, oldx, oldy, FALSE);
+        gui_draw_pixmap (buffer, oldx, oldy, FALSE);
       }
       if ((x != -1) && (tiles[y][x].status == USED)) {
-	gui_draw_pixmap (buffer, x, y, TRUE);
+        gui_draw_pixmap (buffer, x, y, TRUE);
       }
       oldx = x;
       oldy = y;
@@ -990,9 +989,13 @@ gui_draw_pixmap (GdkPixmap * target, gint x, gint y, gboolean prelight)
   if (prelight)
     state = GTK_STATE_PRELIGHT;
 
-  if (which == USED)
-    gui_draw_tile (target, state, xadd, yadd, tiles[y][x].n, tiles[y][x].s,
-		   tiles[y][x].e, tiles[y][x].w, state);
+  if (which == USED) {
+    if (game_state == paused)
+      gui_draw_tile (buffer, GTK_STATE_NORMAL, xadd, yadd, 0, 0, 0, 0, FALSE);    
+    else
+      gui_draw_tile (target, state, xadd, yadd, tiles[y][x].n, tiles[y][x].s,
+                     tiles[y][x].e, tiles[y][x].w, state);
+  }
   else
     gui_draw_socket (target, state, xadd, yadd);
 
@@ -1327,8 +1330,6 @@ configure_space (GtkWidget * widget, GdkEventConfigure * event)
   update_tile_size (event->width, event->height);
   make_buffer (widget);
   redraw_all ();
-  if (game_state == paused)
-    gui_draw_pause ();
   gtk_widget_thaw_child_notify (widget);
 
   return FALSE;
@@ -1352,7 +1353,7 @@ redraw_all (void)
   for (y = 0; y < size; y++)
     for (x = 0; x < size * 2; x++)
       gui_draw_pixmap (buffer, x, y, FALSE);
-   
+
   gui_draw_arrow(buffer);
 
   gdk_window_end_paint (space->window);
@@ -1502,7 +1503,7 @@ pause_game (void)
   if (game_state != paused) {
     game_state = paused;
     message (_("Game paused"));
-    gui_draw_pause ();
+    redraw_all ();
     update_move_menu_sensitivity ();
     gtk_action_set_sensitive (hint_action, FALSE);
     gtk_action_set_sensitive (solve_action, FALSE);
@@ -1535,40 +1536,6 @@ pause_cb (void)
   } else {
     resume_game ();
   }
-}
-
-void
-gui_draw_pause (void)
-{
-  guint x, y, xadd, yadd, which;
-  GdkRegion *region;
-
-  if (!space->window)
-    return;
-
-  region = gdk_drawable_get_clip_region (GDK_DRAWABLE (space->window));
-  gdk_window_begin_paint_region (space->window, region);
-  gdk_draw_rectangle (space->window, bg_gc, TRUE, 0, 0, -1, -1);
-
-  for (y = 0; y < size; y++) {
-    for (x = 0; x < size * 2; x++) {
-      which = tiles[y][x].status;
-
-      xadd = x * tile_size + xborder + (x >= size) * gap;
-      yadd = y * tile_size + yborder;
-
-      if (which == USED)
-	gui_draw_tile (buffer, GTK_STATE_NORMAL, xadd, yadd, 0, 0, 0, 0, 
-		       FALSE);
-      else
-	gui_draw_socket (buffer, GTK_STATE_NORMAL, xadd, yadd);
-
-      gtk_widget_queue_draw_area (space, xadd, yadd, tile_size, tile_size);
-    }
-  }
-
-  gdk_window_end_paint (space->window);
-  gdk_region_destroy (region);
 }
 
 void
@@ -1646,19 +1613,20 @@ make_buffer (GtkWidget * widget)
 void
 new_game (){
   gchar *str;
-    
+
   /* Reset pause menu */
   gtk_action_set_visible(pause_action, TRUE);
   gtk_action_set_sensitive(pause_action, TRUE);
   gtk_action_set_visible(resume_action, FALSE);
   gtk_action_set_sensitive(resume_action, FALSE);
+    
+  game_state = playing;
 
   new_board (size);
   gtk_widget_freeze_child_notify (space);
   make_buffer (space);
   redraw_all ();
   gtk_widget_thaw_child_notify (space);
-  game_state = playing;
   timer_start ();
   set_game_menu_items_sensitive (TRUE);
   update_move_menu_sensitivity ();
