@@ -27,19 +27,19 @@
 #include <stdlib.h>
 
 #include <glib/gi18n.h>
-#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gtk/gtk.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
-#include <games-clock.h>
-#include <games-stock.h>
-#include <games-scores.h>
-#include <games-scores-dialog.h>
-#include <games-conf.h>
-#include <games-runtime.h>
+#include <libgames-support/games-clock.h>
+#include <libgames-support/games-conf.h>
+#include <libgames-support/games-scores.h>
+#include <libgames-support/games-scores-dialog.h>
+#include <libgames-support/games-runtime.h>
+#include <libgames-support/games-stock.h>
 
-#ifdef HAVE_GNOME
-#include <gnome.h>
-#endif /* HAVE_GNOME */
+#ifdef WITH_SMCLIENT
+#include <libgames-support/eggsmclient.h>
+#endif /* WITH_SMCLIENT */
 
 #define APPNAME "gnotravex"
 #define APPNAME_LONG N_("Tetravex")
@@ -254,10 +254,11 @@ void clickmove_toggle_cb (GtkToggleAction *, gpointer);
 void hint_move (gint, gint, gint, gint);
 gint show_score_dialog (gint, gboolean);
 void new_game (void);
-#ifdef HAVE_GNOME
-static gint save_state (GnomeClient *, gint, GnomeRestartStyle,
-			gint, GnomeInteractStyle, gint, gpointer);
-#endif                     
+
+#ifdef WITH_SMCLIENT
+static int save_state_cb (EggSMClient *client, GKeyFile *keyfile, gpointer client_data);
+static int quit_cb (EggSMClient *client, gpointer client_data);
+#endif /* WITH_SMCLIENT */
 static void set_fullscreen_actions (gboolean is_fullscreen);
 static void fullscreen_cb (GtkAction * action);
 static gboolean window_state_cb (GtkWidget * widget, GdkEventWindowState * event);
@@ -408,13 +409,11 @@ main (int argc, char **argv)
   GtkWidget *menubar;
   GtkUIManager *ui_manager;
   GtkAccelGroup *accel_group;
-#ifdef HAVE_GNOME
-  GnomeClient *client;
-  GnomeProgram *program;
-#else
   gboolean retval;
   GError *error = NULL;
-#endif
+#ifdef WITH_SMCLIENT
+  EggSMClient *sm_client;
+#endif /* WITH_SMCLIENT */
 
 #if defined(HAVE_GNOME) || defined(HAVE_RSVG_GNOMEVFS)
   /* If we're going to use gnome-vfs, we need to init threads before
@@ -428,37 +427,28 @@ main (int argc, char **argv)
 
   setgid_io_init ();
 
-  bindtextdomain (GETTEXT_PACKAGE, GNOMELOCALEDIR);
+  bindtextdomain (GETTEXT_PACKAGE, games_runtime_get_directory (GAMES_RUNTIME_LOCALE_DIRECTORY));
   bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
   textdomain (GETTEXT_PACKAGE);
 
   context = g_option_context_new (NULL);
-  g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
-
-#ifdef HAVE_GNOME
-  program = gnome_program_init (APPNAME, VERSION,
-				LIBGNOMEUI_MODULE,
-				argc, argv,
-				GNOME_PARAM_GOPTION_CONTEXT, context,
-				GNOME_PARAM_APP_DATADIR, DATADIR,
-                                NULL);
-  
-  client = gnome_master_client ();
-  g_signal_connect (client, "save_yourself",
-                    G_CALLBACK (save_state), argv[0]);
-  g_signal_connect (client, "die",
-                    G_CALLBACK (quit_game_cb), argv[0]);
-#else
+#if GLIB_CHECK_VERSION (2, 12, 0)
+  g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
+#endif /* GLIB_CHECK_VERSION (2, 12, 0) */
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
+#ifdef WITH_SMCLIENT
+  g_option_context_add_group (context, egg_sm_client_get_option_group ());
+#endif /* WITH_SMCLIENT */
 
+  g_option_context_add_main_entries (context, options, GETTEXT_PACKAGE);
   retval = g_option_context_parse (context, &argc, &argv, &error);
+
   g_option_context_free (context);
   if (!retval) {
     g_print ("%s", error->message);
     g_error_free (error);
     exit (1);
   }
-#endif /* HAVE_GNOME */
 
   g_set_application_name (_(APPNAME_LONG));
 
@@ -469,6 +459,14 @@ main (int argc, char **argv)
   games_stock_init ();
 
   gtk_window_set_default_icon_name ("gnome-tetravex");
+
+#ifdef WITH_SMCLIENT
+  sm_client = egg_sm_client_get ();
+  g_signal_connect (sm_client, "save-state",
+		    G_CALLBACK (save_state_cb), NULL);
+  g_signal_connect (sm_client, "quit",
+                    G_CALLBACK (quit_cb), NULL);
+#endif /* WITH_SMCLIENT */
 
   if (size == -1)
     size = games_conf_get_integer (NULL, KEY_GRID_SIZE, NULL);
@@ -538,10 +536,6 @@ main (int argc, char **argv)
   gtk_main ();
 
   games_conf_shutdown ();
-
-#ifdef HAVE_GNOME
-  g_object_unref (program);
-#endif /* HAVE_GNOME */
 
   games_runtime_shutdown ();
 
@@ -1647,29 +1641,26 @@ quit_game_cb (void)
   gtk_main_quit ();
 }
 
-#ifdef HAVE_GNOME
-
-static gint
-save_state (GnomeClient * client, gint phase,
-	    GnomeRestartStyle save_style, gint shutdown,
-	    GnomeInteractStyle interact_style, gint fast,
+#ifdef WITH_SMCLIENT
+static int
+save_state_cb (EggSMClient *client,
+	    GKeyFile* keyfile,
 	    gpointer client_data)
 {
   gchar *argv[20];
-  gint i;
+  gint argc;
   gint xpos, ypos;
 
   gdk_window_get_origin (window->window, &xpos, &ypos);
 
-  i = 0;
-  argv[i++] = (char *) client_data;
-  argv[i++] = "-x";
-  argv[i++] = g_strdup_printf ("%d", xpos);
-  argv[i++] = "-y";
-  argv[i++] = g_strdup_printf ("%d", ypos);
+  argc = 0;
+  argv[argc++] = g_get_prgname ();
+  argv[argc++] = "-x";
+  argv[argc++] = g_strdup_printf ("%d", xpos);
+  argv[argc++] = "-y";
+  argv[argc++] = g_strdup_printf ("%d", ypos);
 
-  gnome_client_set_restart_command (client, i, argv);
-  gnome_client_set_clone_command (client, 0, NULL);
+  egg_sm_client_set_restart_command (client, argc, (const char **) argv);
 
   g_free (argv[2]);
   g_free (argv[4]);
@@ -1677,7 +1668,16 @@ save_state (GnomeClient * client, gint phase,
   return TRUE;
 }
 
-#endif /* HAVE_GNOME */
+static gint
+quit_cb (EggSMClient *client,
+         gpointer client_data)
+{
+  quit_game_cb ();
+
+  return FALSE;
+}
+
+#endif /* WITH_SMCLIENT */
 
 void
 size_cb (GtkAction * action, gpointer data)
