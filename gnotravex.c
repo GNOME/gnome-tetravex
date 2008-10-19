@@ -262,7 +262,7 @@ static int quit_cb (EggSMClient *client, gpointer client_data);
 static void set_fullscreen_actions (gboolean is_fullscreen);
 static void fullscreen_cb (GtkAction * action);
 static gboolean window_state_cb (GtkWidget * widget, GdkEventWindowState * event);
-static void load_pixmaps (void);
+static void load_default_background (void);
 
 static GtkAction *new_game_action;
 static GtkAction *pause_action;
@@ -477,7 +477,7 @@ main (int argc, char **argv)
   coloured_tiles = games_conf_get_boolean (NULL, KEY_SHOW_COLOURS, NULL);
   click_to_move = games_conf_get_boolean (NULL, KEY_CLICK_MOVE, NULL);
 
-  load_pixmaps ();
+  load_default_background ();
   create_window ();
 
   space = gtk_drawing_area_new ();
@@ -1972,35 +1972,34 @@ window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
   return FALSE;
 }
 
-static GdkPixmap *
-get_pixmap (const char *filename)
+static void
+load_default_background (void)
 {
-  GdkPixmap *ret;
-  GdkPixbuf *im;
+
+  GdkPixmap *pm;
+  GdkPixbuf *pb;
   char *path;
+  const char * filename = "baize.png";
   GError *error = NULL;
 
   path = g_build_filename (PIXMAPDIR, filename, NULL);
-  im = gdk_pixbuf_new_from_file (path, &error);
-  if (im != NULL) {
-    gdk_pixbuf_render_pixmap_and_mask_for_colormap (im,
-						    gdk_colormap_get_system
-						    (), &ret, NULL, 127);
-    gdk_pixbuf_unref (im);
-  } else {
+  pb = gdk_pixbuf_new_from_file (path, &error);
+  if (pb == NULL) {
     g_warning ("Error loading file '%s': %s\n", path, error->message);
     g_error_free (error);
 
-    ret = NULL;
+    pb = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
+                          FALSE, 
+                          8,1,1);
+    gdk_pixbuf_fill (pb, 0xffffffff);
   }
+  gdk_pixbuf_render_pixmap_and_mask_for_colormap (pb,
+                                                  gdk_colormap_get_system (), 
+                                                  &pm, NULL, 127);
+  gdk_pixbuf_unref (pb);
   g_free (path);
 
-  return ret;
-}
+  default_background_pixmap = pm; 
 
-static void
-load_pixmaps (void)
-{
-  default_background_pixmap = get_pixmap ("baize.png");
 }
 
