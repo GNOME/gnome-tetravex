@@ -1,5 +1,4 @@
-# FIXME: this really should be below $(pkgdatadir) !
-imagedir      = $(datadir)/pixmaps/gnotravex
+imagedir      = $(pkgdatadir)/pixmaps
 image_DATA    = baize.png
 
 EXTRA_DIST    = $(image_DATA) 

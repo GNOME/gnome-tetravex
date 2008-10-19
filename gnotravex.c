@@ -1979,10 +1979,12 @@ load_default_background (void)
   GdkPixmap *pm;
   GdkPixbuf *pb;
   char *path;
+  const char * dname; 
   const char * filename = "baize.png";
   GError *error = NULL;
 
-  path = g_build_filename (PIXMAPDIR, filename, NULL);
+  dname = games_runtime_get_directory (GAMES_RUNTIME_PIXMAP_DIRECTORY);
+  path = g_build_filename (dname, filename, NULL);
   pb = gdk_pixbuf_new_from_file (path, &error);
   if (pb == NULL) {
     g_warning ("Error loading file '%s': %s\n", path, error->message);
