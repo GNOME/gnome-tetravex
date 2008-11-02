@@ -1614,7 +1614,7 @@ new_game (){
   gtk_action_set_visible(resume_action, FALSE);
   gtk_action_set_sensitive(resume_action, FALSE);
 
-  game_state = playing;
+  game_state = gameover;
 
   new_board (size);
   gtk_widget_freeze_child_notify (space);
@@ -1627,6 +1627,8 @@ new_game (){
   str = g_strdup_printf (_("Playing %d\303\227%d board"), size, size);
   message (str);
   g_free (str);
+    
+  game_state = playing;
 }
 
 void
