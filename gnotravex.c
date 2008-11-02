@@ -217,13 +217,13 @@ gint button_motion_space (GtkWidget *, GdkEventButton *);
 
 void gui_build_vertices (void);
 void gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
-		     int count, guint colours[4], gboolean prelight);
+                     int count, guint colours[4], gboolean prelight);
 void gui_draw_arrow (GdkPixmap * target);
 void gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd,
-		      gint yadd);
+                      gint yadd);
 void gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble *colour);
 void gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd,
-		    gint yadd, gint north, gint south, gint east, gint west, gboolean prelight);
+                    gint yadd, gint north, gint south, gint east, gint west, gboolean prelight);
 void gui_draw_pixmap (GdkPixmap *, gint, gint, gboolean);
 
 void get_pixeltilexy (gint, gint, gint *, gint *);
@@ -464,7 +464,7 @@ main (int argc, char **argv)
 #ifdef WITH_SMCLIENT
   sm_client = egg_sm_client_get ();
   g_signal_connect (sm_client, "save-state",
-		    G_CALLBACK (save_state_cb), NULL);
+                    G_CALLBACK (save_state_cb), NULL);
   g_signal_connect (sm_client, "quit",
                     G_CALLBACK (quit_cb), NULL);
 #endif /* WITH_SMCLIENT */
@@ -509,15 +509,15 @@ main (int argc, char **argv)
   gdk_gc_set_fill (bg_gc, GDK_TILED);
 
   g_signal_connect (G_OBJECT (space), "expose_event",
-		    G_CALLBACK (expose_space), NULL);
+                    G_CALLBACK (expose_space), NULL);
   g_signal_connect (G_OBJECT (space), "configure_event",
-		    G_CALLBACK (configure_space), NULL);
+                    G_CALLBACK (configure_space), NULL);
   g_signal_connect (G_OBJECT (space), "button_press_event",
-		    G_CALLBACK (button_press_space), NULL);
+                    G_CALLBACK (button_press_space), NULL);
   g_signal_connect (G_OBJECT (space), "button_release_event",
-		    G_CALLBACK (button_release_space), NULL);
+                    G_CALLBACK (button_release_space), NULL);
   g_signal_connect (G_OBJECT (space), "motion_notify_event",
-		    G_CALLBACK (button_motion_space), NULL);
+                    G_CALLBACK (button_motion_space), NULL);
   /* We do our own double-buffering. */
   gtk_widget_set_double_buffered (space, FALSE);
 
@@ -577,7 +577,7 @@ update_move_menu_sensitivity (void)
       s = FALSE;
     for (y = 0; y < size; y++)
       if (tiles[x][y].status == USED)
-	clear = FALSE;
+        clear = FALSE;
   }
 
   if (clear || (game_state == paused))
@@ -603,20 +603,19 @@ create_window (void)
 
   gtk_widget_realize (window);
   g_signal_connect (G_OBJECT (window), "delete_event",
-		    G_CALLBACK (quit_game_cb), NULL);
+                    G_CALLBACK (quit_game_cb), NULL);
   g_signal_connect (G_OBJECT (window), "window_state_event",
-		    G_CALLBACK (window_state_cb), NULL);
-
+                    G_CALLBACK (window_state_cb), NULL);
 }
 
 gint
 expose_space (GtkWidget * widget, GdkEventExpose * event)
 {
   gdk_draw_drawable (widget->window,
-		     widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
-		     buffer, event->area.x, event->area.y,
-		     event->area.x, event->area.y,
-		     event->area.width, event->area.height);
+                     widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
+                     buffer, event->area.x, event->area.y,
+                     event->area.x, event->area.y,
+                     event->area.width, event->area.height);
   return FALSE;
 }
 
@@ -643,9 +642,9 @@ button_press_space (GtkWidget * widget, GdkEventButton * event)
       return FALSE;
     }
     else
-    {	       
+    {
       if (setup_mover (event->x, event->y, PRESS))
-	button_down = 1;
+        button_down = 1;
     }
   }
   else
@@ -778,7 +777,7 @@ gui_build_vertices (void)
 
 void
 gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
-		int count, guint colours[4], gboolean prelight)
+                int count, guint colours[4], gboolean prelight)
 {
   int i, j, k;
   int *quad;
@@ -796,7 +795,7 @@ gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
     n_vertices = quad[2];
     colour = tile_colours[colours[face]][level];
     cairo_set_source_rgba (context, colour[0] / 255.0, colour[1] / 255.0,
-			   colour[2] / 255.0, colour[3] / 255.0);
+                           colour[2] / 255.0, colour[3] / 255.0);
 
     k = quad[3];
     cairo_move_to (context, xadd + vertices[k][0], yadd + vertices[k][1]);
@@ -834,7 +833,7 @@ gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd)
   gdouble *colour;
   
   gdk_draw_rectangle (GDK_DRAWABLE(target), bg_gc, TRUE, xadd, yadd, 
-		      tile_size, tile_size);
+                      tile_size, tile_size);
 
   context = gdk_cairo_create (GDK_DRAWABLE (target));
 
@@ -868,7 +867,7 @@ gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble 
   text = _(translatable_number[number]);
 
   cairo_set_source_rgba (context, colour[0] / 255.0, colour[1] / 255.0,
-			 colour[2] / 255.0, colour[3] / 255.0);
+                         colour[2] / 255.0, colour[3] / 255.0);
 
   cairo_text_extents (context, text, &extents);
   cairo_move_to (context, x - extents.width / 2.0, y + extents.height / 2.0);
@@ -877,7 +876,7 @@ gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble 
 
 void
 gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
-	       gint north, gint south, gint east, gint west, gboolean prelight)
+               gint north, gint south, gint east, gint west, gboolean prelight)
 {
   cairo_t *context;
   guint colours[4];
@@ -913,11 +912,11 @@ gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
   cairo_set_line_width (context, 1.0);
   cairo_set_source_rgba (context, 0.0, 0.0, 0.0, 1.0);
   cairo_rectangle (context, xadd + 0.5, yadd + 0.5, tile_size - 1.0,
-		   tile_size - 1.0);
+                   tile_size - 1.0);
   cairo_stroke (context);
 
   cairo_select_font_face (context, "Sans", CAIRO_FONT_SLANT_NORMAL,
-			  CAIRO_FONT_WEIGHT_BOLD);
+                          CAIRO_FONT_WEIGHT_BOLD);
   cairo_set_font_size (context, tile_size / 3.5);
 
   gui_draw_number (context, xadd + tile_size / 2, yadd + tile_size / 5, north, tile_colours[colours[NORTH]][TEXT]);
@@ -1072,9 +1071,9 @@ setup_mover (gint x, gint y, gint status)
   if (status == PRESS) {
     get_tilexy (x, y, &xx, &yy);
     if (xx == -1)
-      return 0;			/* No move */
+      return 0; /* No move */
     if (tiles[yy][xx].status == UNUSED)
-      return 0;			/* No move */
+      return 0; /* No move */
     get_offsetxy (x, y, &mover.xoff, &mover.yoff);
 
     mover.xstart = xx;
@@ -1094,10 +1093,10 @@ setup_mover (gint x, gint y, gint status)
 
   if (status == RELEASE) {
     get_tilexy_lazy (x - mover.xoff + tile_size / 2,
-		     y - mover.yoff + tile_size / 2, &xx, &yy);
+                     y - mover.yoff + tile_size / 2, &xx, &yy);
     if (tiles[yy][xx].status == UNUSED
-	&& xx >= 0 && xx < size * 2
-	&& yy >= 0 && yy < size && valid_drop (xx, yy)) {
+        && xx >= 0 && xx < size * 2
+        && yy >= 0 && yy < size && valid_drop (xx, yy)) {
       tiles[yy][xx] = tiles[mover.ystart][mover.xstart];
       tiles[yy][xx].status = USED;
       gui_draw_pixmap (buffer, xx, yy, FALSE);
@@ -1115,9 +1114,9 @@ setup_mover (gint x, gint y, gint status)
       games_clock_stop (GAMES_CLOCK (timer));
       set_game_menu_items_sensitive (FALSE);
       if (!have_been_hinted) {
-	message (_("Puzzle solved! Well done!"));
+        message (_("Puzzle solved! Well done!"));
       } else {
-	message (_("Puzzle solved!"));
+        message (_("Puzzle solved!"));
       }
       game_score ();
     }
@@ -1172,37 +1171,37 @@ move_column (unsigned char dir)
   case 'n':
     for (x = 0; x < size; x++)
       if (tiles[0][x].status == USED)
-	return;
+        return;
     for (y = 1; y < size; y++)
       for (x = 0; x < size; x++)
-	move_tile (x, y - 1, x, y);
+        move_tile (x, y - 1, x, y);
     redraw_left ();
     break;
   case 's':
     for (x = 0; x < size; x++)
       if (tiles[size - 1][x].status == USED)
-	return;
+        return;
     for (y = size - 2; y >= 0; y--)
       for (x = 0; x < size; x++)
-	move_tile (x, y + 1, x, y);
+        move_tile (x, y + 1, x, y);
     redraw_left ();
     break;
   case 'w':
     for (y = 0; y < size; y++)
       if (tiles[y][0].status == USED)
-	return;
+        return;
     for (y = 0; y < size; y++)
       for (x = 1; x < size; x++)
-	move_tile (x - 1, y, x, y);
+        move_tile (x - 1, y, x, y);
     redraw_left ();
     break;
   case 'e':
     for (y = 0; y < size; y++)
       if (tiles[y][size - 1].status == USED)
-	return;
+        return;
     for (y = 0; y < size; y++)
       for (x = size - 2; x >= 0; x--)
-	move_tile (x + 1, y, x, y);
+        move_tile (x + 1, y, x, y);
     redraw_left ();
     break;
   default:
@@ -1218,7 +1217,7 @@ game_over (void)
   for (y = 0; y < size; y++)
     for (x = 0; x < size; x++)
       if (tiles[y][x].status == UNUSED)
-	return 0;
+        return 0;
 
   return 1;
 }
@@ -1233,25 +1232,25 @@ show_score_dialog (gint pos, gboolean endofgame)
   if (!scoresdialog) {
     scoresdialog = games_scores_dialog_new (GTK_WINDOW (window), highscores, _("Tetravex Scores"));
     games_scores_dialog_set_category_description (GAMES_SCORES_DIALOG
-						  (scoresdialog), _("Size:"));
+                                                  (scoresdialog), _("Size:"));
   }
   if (pos > 0) {
     games_scores_dialog_set_hilight (GAMES_SCORES_DIALOG (scoresdialog), pos);
     message = g_strdup_printf ("<b>%s</b>\n\n%s",
-			       _("Congratulations!"),
-			       _("Your score has made the top ten."));
+                               _("Congratulations!"),
+                               _("Your score has made the top ten."));
     games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog),
-				     message);
+                                     message);
     g_free (message);
   } else {
     games_scores_dialog_set_message (GAMES_SCORES_DIALOG (scoresdialog),
-				     NULL);
+                                     NULL);
   }
 
   if (endofgame) {
     games_scores_dialog_set_buttons (GAMES_SCORES_DIALOG (scoresdialog),
-				     GAMES_SCORES_QUIT_BUTTON |
-				     GAMES_SCORES_NEW_GAME_BUTTON);
+                                     GAMES_SCORES_QUIT_BUTTON |
+                                     GAMES_SCORES_NEW_GAME_BUTTON);
   } else {
     games_scores_dialog_set_buttons (GAMES_SCORES_DIALOG (scoresdialog), 0);
   }
@@ -1422,7 +1421,7 @@ create_mover (void)
   attributes.visual = gdk_drawable_get_visual (space->window);
 
   mover.window = gdk_window_new (space->window, &attributes,
-				 (GDK_WA_VISUAL | GDK_WA_COLORMAP));
+                                 (GDK_WA_VISUAL | GDK_WA_COLORMAP));
   mover.pixmap = NULL;
 }
 
@@ -1553,10 +1552,10 @@ create_menu (GtkUIManager * ui_manager)
 
   gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
   gtk_action_group_add_actions (action_group, action_entry,
-				G_N_ELEMENTS (action_entry), window);
+                                G_N_ELEMENTS (action_entry), window);
   gtk_action_group_add_radio_actions (action_group, size_action_entry,
-				      G_N_ELEMENTS (size_action_entry), -1,
-				      G_CALLBACK (size_cb), NULL);
+                                      G_N_ELEMENTS (size_action_entry), -1,
+                                      G_CALLBACK (size_cb), NULL);
 
   gtk_ui_manager_insert_action_group (ui_manager, action_group, 0);
   gtk_ui_manager_add_ui_from_string (ui_manager, ui_description, -1, NULL);
@@ -1579,7 +1578,7 @@ create_menu (GtkUIManager * ui_manager)
   set_fullscreen_actions (FALSE);
 
   gtk_action_group_add_toggle_actions (action_group, toggles,
-				       G_N_ELEMENTS (toggles), NULL);
+                                       G_N_ELEMENTS (toggles), NULL);
   action = gtk_action_group_get_action (action_group, "Colours");
   gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), coloured_tiles);
   action = gtk_action_group_get_action (action_group, "ClickToMove");
@@ -1601,7 +1600,7 @@ make_buffer (GtkWidget * widget)
     g_object_unref (buffer);
 
   buffer = gdk_pixmap_new (widget->window, widget->allocation.width,
-			   widget->allocation.height, -1);
+                           widget->allocation.height, -1);
 
 }
 
@@ -1614,7 +1613,7 @@ new_game (){
   gtk_action_set_sensitive(pause_action, TRUE);
   gtk_action_set_visible(resume_action, FALSE);
   gtk_action_set_sensitive(resume_action, FALSE);
-    
+
   game_state = playing;
 
   new_board (size);
@@ -1645,8 +1644,8 @@ quit_game_cb (void)
 #ifdef WITH_SMCLIENT
 static int
 save_state_cb (EggSMClient *client,
-	    GKeyFile* keyfile,
-	    gpointer client_data)
+               GKeyFile* keyfile,
+               gpointer client_data)
 {
   gchar *argv[20];
   gint argc;
@@ -1756,9 +1755,9 @@ find_first_tile (gint status, gint * xx, gint * yy)
   for (y = 0; y < size; y++)
     for (x = size; x < size * 2; x++)
       if (tiles[y][x].status == status) {
-	*xx = x;
-	*yy = y;
-	return;
+        *xx = x;
+        *yy = y;
+        return;
       }
 }
 
@@ -1776,7 +1775,7 @@ hint_move_cb (void)
   dy = (float) (hint_src_y - hint_dest_y) / COUNT;
   if (count <= COUNT) {
     gdk_window_move (mover.window, hint_src_x - (gint) (count * dx),
-		     (gint) hint_src_y - (gint) (count * dy));
+                     (gint) hint_src_y - (gint) (count * dy));
     count++;
   }
   if (count > COUNT) {
@@ -1822,15 +1821,15 @@ hint_cb (GtkAction * action, gpointer data)
   for (y = 0; y < size; y++)
     for (x = 0; x < size; x++)
       if (compare_tile (&hint_tile, &orig_tiles[y][x]) == 0) {
-	if (tiles[y][x].status == USED
-	    && compare_tile (&hint_tile, &tiles[y][x]) == 0) {
-	  /* Do Nothing */
-	} else {
-	  x2 = x;
-	  y2 = y;
-	  x = size;
-	  y = size;
-	}
+        if (tiles[y][x].status == USED
+            && compare_tile (&hint_tile, &tiles[y][x]) == 0) {
+        /* Do Nothing */
+        } else {
+          x2 = x;
+          y2 = y;
+          x = size;
+          y = size;
+        }
       }
 
   /* Tile I want to hint about is busy. Move the busy tile away! */
@@ -1901,20 +1900,20 @@ about_cb (GtkAction * action, gpointer data)
 #if GTK_CHECK_VERSION (2, 11, 0)
                          "program-name", _(APPNAME_LONG),
 #else
-			 "name", _(APPNAME_LONG),
+                         "name", _(APPNAME_LONG),
 #endif
-			 "version", VERSION,
-			 "comments",
-			 _("GNOME Tetravex is a simple puzzle where "
-			   "pieces must be positioned so that the "
-			   "same numbers are touching each other.\n\n"
-			   "Tetravex is a part of GNOME Games."),
-			 "copyright",
-			 "Copyright \xc2\xa9 1999-2008 Lars Rydlinge",
-			 "license", license,
+                         "version", VERSION,
+                         "comments",
+                         _("GNOME Tetravex is a simple puzzle where "
+                           "pieces must be positioned so that the "
+                           "same numbers are touching each other.\n\n"
+                           "Tetravex is a part of GNOME Games."),
+                         "copyright",
+                         "Copyright \xc2\xa9 1999-2008 Lars Rydlinge",
+                         "license", license,
                          "wrap-license", TRUE,
                          "authors", authors,
-			 "documenters", documenters,
+                         "documenters", documenters,
                          "translator-credits", _("translator-credits"),
                          "logo-icon-name", "gnome-tetravex",
                          "website", "http://www.gnome.org/projects/gnome-games",
@@ -1949,7 +1948,7 @@ window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
 {
   if (event->changed_mask & GDK_WINDOW_STATE_FULLSCREEN)
     set_fullscreen_actions (event->new_window_state &
-			    GDK_WINDOW_STATE_FULLSCREEN);
+                            GDK_WINDOW_STATE_FULLSCREEN);
     
   return FALSE;
 }
@@ -1957,7 +1956,6 @@ window_state_cb (GtkWidget * widget, GdkEventWindowState * event)
 static void
 load_default_background (void)
 {
-
   GdkPixmap *pm;
   GdkPixbuf *pb;
   char *path;
@@ -1973,8 +1971,8 @@ load_default_background (void)
     g_error_free (error);
 
     pb = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
-                          FALSE, 
-                          8,1,1);
+                         FALSE, 
+                         8,1,1);
     gdk_pixbuf_fill (pb, 0xffffffff);
   }
   gdk_pixbuf_render_pixmap_and_mask_for_colormap (pb,
