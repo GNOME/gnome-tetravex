@@ -9,12 +9,7 @@ gnotravex_SOURCES = \
 	$(NULL)
 
 gnotravex_CPPFLAGS = \
-	-I$(top_srcdir)				\
-	-I$(top_srcdir)/libgames-support	\
-	-DDATADIR="\"$(datadir)\""		\
-	-DPIXMAPDIR=\""$(datadir)/gnome-games/pixmaps"\"	\
-	-DSHAREDIR="\"$(pkgdatadir)\""		\
-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"\
+	-I$(top_srcdir) \
 	$(AM_CPPFLAGS)
 
 gnotravex_CFLAGS = \
