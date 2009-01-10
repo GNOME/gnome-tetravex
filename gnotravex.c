@@ -74,11 +74,11 @@ static GtkWidget *timer;
 static GdkGC *bg_gc;
 
 static const GamesScoresCategory scorecats[] = {
-{"2x2", N_("2\303\2272")},
-{"3x3", N_("3\303\2273")},
-{"4x4", N_("4\303\2274")},
-{"5x5", N_("5\303\2275")},
-{"6x6", N_("6\303\2276")}
+  { "2x2", N_("2\303\2272") },
+  { "3x3", N_("3\303\2273") },
+  { "4x4", N_("4\303\2274") },
+  { "5x5", N_("5\303\2275") },
+  { "6x6", N_("6\303\2276") }
 };
 
 static GamesScores *highscores;
