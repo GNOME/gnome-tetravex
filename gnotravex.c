@@ -62,10 +62,10 @@
 #define DEFAULT_WIDTH 320
 #define DEFAULT_HEIGHT 240
 
-/* i18n in-game numbers, replaceable with single-character local ideograms. */
-static const char *translatable_number[10] =
-  { N_("0"), N_("1"), N_("2"), N_("3"), N_("4"), N_("5"), N_("6"), N_("7"),
-N_("8"), N_("9") };
+static const char *translatable_number[10] = {
+  /* Translators: in-game numbers, replaceable with single-character local ideograms */
+  N_("0"), N_("1"), N_("2"), N_("3"), N_("4"), N_("5"), N_("6"), N_("7"), N_("8"), N_("9")
+};
 
 static GtkWidget *window;
 static GtkWidget *statusbar;
@@ -73,17 +73,12 @@ static GtkWidget *space;
 static GtkWidget *timer;
 static GdkGC *bg_gc;
 
-static const GamesScoresCategory scorecats[] = { {"2x2", N_("2\303\2272")},
+static const GamesScoresCategory scorecats[] = {
+{"2x2", N_("2\303\2272")},
 {"3x3", N_("3\303\2273")},
 {"4x4", N_("4\303\2274")},
 {"5x5", N_("5\303\2275")},
-{"6x6", N_("6\303\2276")},
-GAMES_SCORES_LAST_CATEGORY
-};
-static const GamesScoresDescription scoredesc = { scorecats,
-  "3x3",
-  "gnotravex",
-  GAMES_SCORES_STYLE_TIME_ASCENDING
+{"6x6", N_("6\303\2276")}
 };
 
 static GamesScores *highscores;
@@ -444,7 +439,11 @@ main (int argc, char **argv)
 
   games_conf_initialise (APPNAME);
 
-  highscores = games_scores_new (&scoredesc);
+  highscores = games_scores_new ("gnotravex",
+                                 scorecats, G_N_ELEMENTS (scorecats),
+                                 NULL, NULL,
+                                 1 /* default category */,
+                                 GAMES_SCORES_STYLE_TIME_ASCENDING);
 
   games_stock_init ();
 
