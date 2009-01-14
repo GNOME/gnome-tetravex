@@ -64,7 +64,16 @@
 
 static const char *translatable_number[10] = {
   /* Translators: in-game numbers, replaceable with single-character local ideograms */
-  N_("0"), N_("1"), N_("2"), N_("3"), N_("4"), N_("5"), N_("6"), N_("7"), N_("8"), N_("9")
+  NC_("number", "0"),
+  NC_("number", "1"),
+  NC_("number", "2"),
+  NC_("number", "3"),
+  NC_("number", "4"),
+  NC_("number", "5"),
+  NC_("number", "6"),
+  NC_("number", "7"),
+  NC_("number", "8"),
+  NC_("number", "9")
 };
 
 static GtkWidget *window;
@@ -852,7 +861,7 @@ gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble 
   gchar *text;
   cairo_text_extents_t extents;
 
-  text = _(translatable_number[number]);
+  text = g_dpgettext2 (NULL, "number", translatable_number[number]);
 
   cairo_set_source_rgba (context, colour[0] / 255.0, colour[1] / 255.0,
                          colour[2] / 255.0, colour[3] / 255.0);
