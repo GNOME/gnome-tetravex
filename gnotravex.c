@@ -858,7 +858,7 @@ gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd)
 void
 gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble *colour)
 {
-  gchar *text;
+  const gchar *text;
   cairo_text_extents_t extents;
 
   text = g_dpgettext2 (NULL, "number", translatable_number[number]);
