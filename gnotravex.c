@@ -1978,7 +1978,7 @@ load_default_background (void)
   gdk_pixbuf_render_pixmap_and_mask_for_colormap (pb,
                                                   gdk_colormap_get_system (), 
                                                   &pm, NULL, 127);
-  gdk_pixbuf_unref (pb);
+  g_object_unref (pb);
   g_free (path);
 
   default_background_pixmap = pm; 
