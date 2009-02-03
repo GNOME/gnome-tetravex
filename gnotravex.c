@@ -1603,7 +1603,7 @@ make_buffer (GtkWidget * widget)
 }
 
 void
-new_game (){
+new_game (void){
   gchar *str;
 
   /* Reset pause menu */
