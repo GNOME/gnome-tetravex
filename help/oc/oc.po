@@ -158,7 +158,7 @@ msgstr ""
 msgid ""
 "To report a bug or make a suggestion regarding the <application>GNOME "
 "Tetravex</application> application or this manual, follow the directions in "
-"the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</"
+"the <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</"
 "ulink>."
 msgstr ""
 
@@ -295,7 +295,7 @@ msgid ""
 "(<email>lars.rydlinge@hig.se</email>). This manual was written by Rob "
 "Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a "
 "suggestion regarding this application or this manual, follow the directions "
-"in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
+"in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
 msgstr ""
 
 #: C/gnotravex.xml:274(title)

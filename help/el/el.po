@@ -110,8 +110,8 @@ msgid "Feedback"
 msgstr "Ανάδραση"
 
 #: C/gnotravex.xml:103(para)
-msgid "To report a bug or make a suggestion regarding the <application>Tetravex</application> application or this manual, follow the directions in the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
-msgstr "Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με το <application>GNOME Tetravex</application>  ή αυτή την τεκμηρίωση, ακολουθήστε τις οδηγίες που περιγράφονται στη σελίδα <ulink url=\"ghelp:gnome-feedback\" type=\"help\">ανάδρασης GNOME </ulink>."
+msgid "To report a bug or make a suggestion regarding the <application>Tetravex</application> application or this manual, follow the directions in the <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
+msgstr "Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με το <application>GNOME Tetravex</application>  ή αυτή την τεκμηρίωση, ακολουθήστε τις οδηγίες που περιγράφονται στη σελίδα <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">ανάδρασης GNOME </ulink>."
 
 #: C/gnotravex.xml:113(primary)
 msgid "GNOME Tetravex"
@@ -202,8 +202,8 @@ msgid "Authors"
 msgstr "Συγγραφείς"
 
 #: C/gnotravex.xml:257(para)
-msgid "<application>GNOME Tetravex</application> was written by Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). This manual was written by Rob Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
-msgstr "To <application>GNOME Tetravex</application> δημιουργήθηκε από τον Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). Αυτή η τεκμηρίωση γράφτηκε από τον Rob Bradford (<email>rob@funky-penguin.co.uk</email>). Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με αυτή την εφαρμογή ή αυτή την τεκμηρίωση, ακολουθήστε τις οδηγίες που περιγράφονται σε αυτό το <ulink url=\"ghelp:gnome-feedback\" type=\"help\">έγγραφο</ulink>."
+msgid "<application>GNOME Tetravex</application> was written by Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). This manual was written by Rob Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
+msgstr "To <application>GNOME Tetravex</application> δημιουργήθηκε από τον Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). Αυτή η τεκμηρίωση γράφτηκε από τον Rob Bradford (<email>rob@funky-penguin.co.uk</email>). Για να αναφέρετε ένα σφάλμα ή να κάνετε μια πρόταση σχετικά με αυτή την εφαρμογή ή αυτή την τεκμηρίωση, ακολουθήστε τις οδηγίες που περιγράφονται σε αυτό το <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">έγγραφο</ulink>."
 
 #: C/gnotravex.xml:277(title)
 msgid "License"

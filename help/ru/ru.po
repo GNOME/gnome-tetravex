@@ -100,8 +100,8 @@ msgid "Feedback"
 msgstr "Обратная связь"
 
 #: C/gnotravex.xml:103(para) 
-msgid "To report a bug or make a suggestion regarding the <application>Tetravex</application> application or this manual, follow the directions in the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
-msgstr "Чтобы сообщить об ошибке или внести предложение относительно игры <application>Тетравекс</application> или данного руководства, следуйте ссылке <ulink url=\"ghelp:gnome-feedback\" type=\"help\">Страница обратной связи GNOME</ulink>."
+msgid "To report a bug or make a suggestion regarding the <application>Tetravex</application> application or this manual, follow the directions in the <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
+msgstr "Чтобы сообщить об ошибке или внести предложение относительно игры <application>Тетравекс</application> или данного руководства, следуйте ссылке <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">Страница обратной связи GNOME</ulink>."
 
 #: C/gnotravex.xml:113(primary) 
 msgid "GNOME Tetravex"
@@ -192,8 +192,8 @@ msgid "Authors"
 msgstr "Авторы"
 
 #: C/gnotravex.xml:257(para) 
-msgid "<application>GNOME Tetravex</application> was written by Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). This manual was written by Rob Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
-msgstr "<application>Тетравекс для среды GNOME</application> написан Ларсом Ридлингом (<email>lars.rydlinge@hig.se</email>). Это руководство написано Робом Брэдфордом (<email>rob@funky-penguin.co.uk</email>). Чтобы сообщить об ошибке или внести предложение относительно игры или данного руководства, следуйте ссылке в <ulink url=\"ghelp:gnome-feedback\" type=\"help\">этом документе</ulink>."
+msgid "<application>GNOME Tetravex</application> was written by Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). This manual was written by Rob Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
+msgstr "<application>Тетравекс для среды GNOME</application> написан Ларсом Ридлингом (<email>lars.rydlinge@hig.se</email>). Это руководство написано Робом Брэдфордом (<email>rob@funky-penguin.co.uk</email>). Чтобы сообщить об ошибке или внести предложение относительно игры или данного руководства, следуйте ссылке в <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">этом документе</ulink>."
 
 #: C/gnotravex.xml:277(title) 
 msgid "License"

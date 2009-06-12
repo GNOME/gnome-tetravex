@@ -106,8 +106,8 @@ msgid "Feedback"
 msgstr "Rückmeldungen"
 
 #: C/gnotravex.xml:103(para)
-msgid "To report a bug or make a suggestion regarding the <application>Tetravex</application> application or this manual, follow the directions in the <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME Feedback Page</ulink>."
-msgstr "Um einen Fehlerbericht zu erstellen oder einen Vorschlag für <application>GNOME Tetravex</application> oder dieses Handbuch zu machen, folgen Sie den Anweisungen auf der <ulink url=\"ghelp:gnome-feedback\" type=\"help\">GNOME-Feedback-Seite</ulink>."
+msgid "To report a bug or make a suggestion regarding the <application>Tetravex</application> application or this manual, follow the directions in the <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
+msgstr "Um einen Fehlerbericht zu erstellen oder einen Vorschlag für <application>GNOME Tetravex</application> oder dieses Handbuch zu machen, folgen Sie den Anweisungen auf der <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME-Feedback-Seite</ulink>."
 
 #: C/gnotravex.xml:113(primary)
 msgid "GNOME Tetravex"
@@ -198,7 +198,7 @@ msgid "Authors"
 msgstr "Autoren"
 
 #: C/gnotravex.xml:257(para)
-msgid "<application>GNOME Tetravex</application> was written by Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). This manual was written by Rob Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:gnome-feedback\" type=\"help\">document</ulink>."
+msgid "<application>GNOME Tetravex</application> was written by Lars Rydlinge (<email>lars.rydlinge@hig.se</email>). This manual was written by Rob Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a suggestion regarding this application or this manual, follow the directions in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
 msgstr "<application>GNOME-Tetravex</application> wurde von Lars Rydlinge (<email>lars.rydlinge@hig.se</email>) erstellt. Dieses Handbuch wurde von Rob Bradford (<email>rob@funky-penguin.co.uk</email>) geschrieben. Um einen Fehlerbericht zu erstellen oder einen Vorschlag für diese Anwendung oder dieses Handbuch zu machen, folgen Sie den Anweisungen in diesem <ulink url=\"ghelp:user-guide?feedback\" type=\"help\">Dokument</ulink>."
 
 #: C/gnotravex.xml:277(title)
