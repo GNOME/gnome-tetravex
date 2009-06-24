@@ -503,7 +503,7 @@ main (int argc, char **argv)
   gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
 
   gtk_widget_realize (space);
-  bg_gc = gdk_gc_new (space->window);
+  bg_gc = gdk_gc_new (gtk_widget_get_window (space));
   gdk_gc_set_tile (bg_gc, default_background_pixmap);
   gdk_gc_set_fill (bg_gc, GDK_TILED);
 
@@ -610,8 +610,8 @@ create_window (void)
 gint
 expose_space (GtkWidget * widget, GdkEventExpose * event)
 {
-  gdk_draw_drawable (widget->window,
-                     widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
+  gdk_draw_drawable (gtk_widget_get_window (widget),
+                     gtk_widget_get_style (widget)->fg_gc[GTK_STATE_NORMAL],
                      buffer, event->area.x, event->area.y,
                      event->area.x, event->area.y,
                      event->area.width, event->area.height);
@@ -1334,14 +1334,14 @@ redraw_all (void)
   guint x, y;
   GdkRegion *region;
 
-  if (!space->window)
+  if (!gtk_widget_get_window (space))
     return;
 
-  region = gdk_drawable_get_clip_region (GDK_DRAWABLE (space->window));
-  gdk_window_begin_paint_region (space->window, region);
+  region = gdk_drawable_get_clip_region (GDK_DRAWABLE (gtk_widget_get_window (space)));
+  gdk_window_begin_paint_region (gtk_widget_get_window (space), region);
 
-  gdk_window_clear (space->window);
-  gdk_draw_rectangle (space->window, bg_gc, TRUE, 0, 0, -1, -1);
+  gdk_window_clear (gtk_widget_get_window (space));
+  gdk_draw_rectangle (gtk_widget_get_window (space), bg_gc, TRUE, 0, 0, -1, -1);
   gdk_draw_rectangle (buffer, bg_gc, TRUE, 0, 0, -1, -1);
   for (y = 0; y < size; y++)
     for (x = 0; x < size * 2; x++)
@@ -1349,7 +1349,7 @@ redraw_all (void)
 
   gui_draw_arrow(buffer);
 
-  gdk_window_end_paint (space->window);
+  gdk_window_end_paint (gtk_widget_get_window (space));
   gdk_region_destroy (region);
 }
 
@@ -1363,13 +1363,13 @@ redraw_left (void)
 
   region = gdk_region_rectangle (&rect);
 
-  gdk_window_begin_paint_region (space->window, region);
+  gdk_window_begin_paint_region (gtk_widget_get_window (space), region);
 
   for (y = 0; y < size; y++)
     for (x = 0; x < size; x++)
       gui_draw_pixmap (buffer, x, y, FALSE);
 
-  gdk_window_end_paint (space->window);
+  gdk_window_end_paint (gtk_widget_get_window (space));
   gdk_region_destroy (region);
 }
 
@@ -1410,16 +1410,16 @@ create_mover (void)
 {
   GdkWindowAttr attributes;
 
-  /* The depth of mover.window must match the depth of space->window. */
+  /* The depth of mover.window must match the depth of gtk_widget_get_window (space). */
   attributes.wclass = GDK_INPUT_OUTPUT;
   attributes.window_type = GDK_WINDOW_CHILD;
   attributes.event_mask = 0;
   attributes.width = tile_size;
   attributes.height = tile_size;
-  attributes.colormap = gdk_drawable_get_colormap (space->window);
-  attributes.visual = gdk_drawable_get_visual (space->window);
+  attributes.colormap = gdk_drawable_get_colormap (gtk_widget_get_window (space));
+  attributes.visual = gdk_drawable_get_visual (gtk_widget_get_window (space));
 
-  mover.window = gdk_window_new (space->window, &attributes,
+  mover.window = gdk_window_new (gtk_widget_get_window (space), &attributes,
                                  (GDK_WA_VISUAL | GDK_WA_COLORMAP));
   mover.pixmap = NULL;
 }
@@ -1598,7 +1598,8 @@ make_buffer (GtkWidget * widget)
   if (buffer)
     g_object_unref (buffer);
 
-  buffer = gdk_pixmap_new (widget->window, widget->allocation.width,
+  buffer = gdk_pixmap_new (gtk_widget_get_window (widget),
+                           widget->allocation.width,
                            widget->allocation.height, -1);
 
 }
@@ -1652,7 +1653,7 @@ save_state_cb (EggSMClient *client,
   gint argc;
   gint xpos, ypos;
 
-  gdk_window_get_origin (window->window, &xpos, &ypos);
+  gdk_window_get_origin (gtk_widget_get_window (window), &xpos, &ypos);
 
   argc = 0;
   argv[argc++] = g_get_prgname ();
@@ -1688,7 +1689,7 @@ size_cb (GtkAction * action, gpointer data)
 
   newsize = gtk_radio_action_get_current_value (GTK_RADIO_ACTION (action));
 
-  gdk_drawable_get_size (space->window, &width, &height);
+  gdk_drawable_get_size (gtk_widget_get_window (space), &width, &height);
 
   if (game_state == paused)
     gtk_action_activate (resume_action);
