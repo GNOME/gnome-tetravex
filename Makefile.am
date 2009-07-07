@@ -1,6 +1,10 @@
-NULL =
+SUBDIRS = pixmaps
 
-SUBDIRS = help pixmaps
+if BUILD_HELP
+SUBDIRS += help
+endif
+
+NULL =
 
 bin_PROGRAMS = gnotravex
 
