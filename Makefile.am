@@ -47,8 +47,11 @@ desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 schema_in_files = gnotravex.schemas.in
+if HAVE_GNOME
 schemadir = $(GCONF_SCHEMA_FILE_DIR)
 schema_DATA = $(schema_in_files:.schemas.in=.schemas)
+endif
+
 @INTLTOOL_SCHEMAS_RULE@
 
 EXTRA_DIST = \
