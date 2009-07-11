@@ -423,7 +423,9 @@ main (int argc, char **argv)
   if (!games_runtime_init ("gnotravex"))
     return 1;
 
+#ifdef ENABLE_SETGID
   setgid_io_init ();
+#endif
 
   context = g_option_context_new (NULL);
 #if GLIB_CHECK_VERSION (2, 12, 0)
