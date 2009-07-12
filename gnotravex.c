@@ -1275,8 +1275,7 @@ game_score (void)
   GamesScoreValue score;
 
   if (!have_been_hinted) {
-    seconds = GAMES_CLOCK (timer)->stopped;
-    games_clock_set_seconds (GAMES_CLOCK (timer), (int) seconds);
+    seconds = games_clock_get_seconds (GAMES_CLOCK (timer));
     score.time_double = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
     pos = games_scores_add_score (highscores, score);
   }
@@ -1536,7 +1535,7 @@ void
 timer_start (void)
 {
   games_clock_stop (GAMES_CLOCK (timer));
-  games_clock_set_seconds (GAMES_CLOCK (timer), 0);
+  games_clock_reset (GAMES_CLOCK (timer));
   games_clock_start (GAMES_CLOCK (timer));
 }
 
