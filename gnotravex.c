@@ -32,6 +32,7 @@
 
 #include <libgames-support/games-clock.h>
 #include <libgames-support/games-conf.h>
+#include <libgames-support/games-gtk-compat.h>
 #include <libgames-support/games-help.h>
 #include <libgames-support/games-scores.h>
 #include <libgames-support/games-scores-dialog.h>
@@ -1594,14 +1595,15 @@ create_menu (GtkUIManager * ui_manager)
 void
 make_buffer (GtkWidget * widget)
 {
+  GtkAllocation allocation;
 
   if (buffer)
     g_object_unref (buffer);
 
+  gtk_widget_get_allocation (widget, &allocation);
   buffer = gdk_pixmap_new (gtk_widget_get_window (widget),
-                           widget->allocation.width,
-                           widget->allocation.height, -1);
-
+                           allocation.width,
+                           allocation.height, -1);
 }
 
 void
