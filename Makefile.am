@@ -54,9 +54,12 @@ endif
 
 @INTLTOOL_SCHEMAS_RULE@
 
+man_MANS = gnotravex.6
+
 EXTRA_DIST = \
 	README \
 	$(schema_in_files) \
+	$(man_MANS) \
 	$(NULL)
 
 CLEANFILES = $(desktop_DATA) $(schema_DATA)
