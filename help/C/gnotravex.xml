@@ -130,7 +130,7 @@
     To run <application>GNOME Tetravex</application>, select
     <menuchoice>
      <guisubmenu>Games</guisubmenu> 
-     <guimenuitem>Gnotravex</guimenuitem> 
+     <guimenuitem>Tetravex</guimenuitem>
     </menuchoice>
     from the <guimenu>Main Menu</guimenu>, or type 
     <command>gnotravex</command> on the command line.
@@ -231,7 +231,7 @@
  <sect1 id="prefs"> 
   <title>Customization</title> 
   <para> 
-    Under the <guimenuitem>Settings</guimenuitem> menu you can change the size of the grid from two
+    Under the <guimenuitem>Size</guimenuitem> menu you can change the size of the grid from two
   by two up to six by six. The default is three by three. 
   </para>
   <para>
