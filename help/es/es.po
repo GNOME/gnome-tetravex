@@ -1,10 +1,10 @@
-# translation of gnotravex.HEAD.po to Español
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008.
+# translation of gnotravex.master.po to Español
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnotravex.HEAD\n"
-"POT-Creation-Date: 2008-01-03 18:50+0000\n"
-"PO-Revision-Date: 2008-02-12 11:35+0100\n"
+"Project-Id-Version: gnotravex.master\n"
+"POT-Creation-Date: 2009-09-29 19:45+0000\n"
+"PO-Revision-Date: 2009-10-05 00:06+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnotravex.xml:170(None)
+#: C/gnotravex.xml:172(None)
 msgid ""
 "@@image: 'figures/gnotravex_mainwindow.png'; "
 "md5=e49d762a2dd5d6ba466e0c7cef7703ce"
@@ -25,7 +25,7 @@ msgstr ""
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnotravex.xml:193(None)
+#: C/gnotravex.xml:195(None)
 msgid "@@image: 'figures/gnotravex_game.png'; md5=4d0a4512ee72329134fa0f5a1a3205e9"
 msgstr "@@image: 'figures/gnotravex_game.png'; md5=4d0a4512ee72329134fa0f5a1a3205e9"
 
@@ -41,9 +41,9 @@ msgid ""
 "scoreboard."
 msgstr ""
 "Tetravex es un puzle simple donde las piezas tienen números en cada cara. "
-"Las piezas se deben posicionar de tal forma que los mismos números se toquen los unos "
-"con los otros y durante el juego se le cronometra. Los tiempos se almacenan en una pantalla "
-"de puntuaciones del sistema."
+"Las piezas se deben posicionar de tal forma que los mismos números se toquen "
+"los unos con los otros y durante el juego se le cronometra. Los tiempos se "
+"almacenan en una pantalla de puntuaciones del sistema."
 
 #: C/gnotravex.xml:37(year)
 msgid "2001"
@@ -53,7 +53,7 @@ msgstr "2001"
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
-#: C/gnotravex.xml:52(publishername) C/gnotravex.xml:90(para)
+#: C/gnotravex.xml:52(publishername) C/gnotravex.xml:92(para)
 msgid "GNOME Documentation Project"
 msgstr "Proyecto de documentación de GNOME"
 
@@ -176,45 +176,47 @@ msgstr "Bradford"
 msgid "robster@debian.org"
 msgstr "robster@debian.org"
 
-#: C/gnotravex.xml:84(revnumber)
+#: C/gnotravex.xml:86(revnumber)
 msgid "Tetravex Manual V2.10"
 msgstr "Manual de Tetravex V2.10"
 
-#: C/gnotravex.xml:85(date)
+#: C/gnotravex.xml:87(date)
 msgid "June 2005"
 msgstr "Junio de 2005"
 
-#: C/gnotravex.xml:87(para)
+#: C/gnotravex.xml:89(para)
 msgid "Rob Bradford <email>rob@funky-penguin.co.uk</email>"
 msgstr "Rob Bradford <email>rob@funky-penguin.co.uk</email>"
 
-#: C/gnotravex.xml:95(releaseinfo)
+#: C/gnotravex.xml:97(releaseinfo)
 msgid "This manual describes version 2.12 of Tetravex."
 msgstr "Este manual describe la versión 2.12 de Tetravex."
 
-#: C/gnotravex.xml:102(title)
+#: C/gnotravex.xml:104(title)
 msgid "Feedback"
 msgstr "Comentarios"
 
-#: C/gnotravex.xml:103(para)
+#: C/gnotravex.xml:105(para)
 msgid ""
 "To report a bug or make a suggestion regarding the <application>Tetravex</"
 "application> application or this manual, follow the directions in the <ulink "
-"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
+"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</"
+"ulink>."
 msgstr ""
-"Para informar de un fallo, o hacer alguna sugerencia concerniente la aplicación <application>Tetravex</"
-"application> o este manual, siga las indicaciones en la <ulink "
-"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">Página de comentarios de GNOME</ulink>."
+"Para informar de un fallo, o hacer alguna sugerencia concerniente la "
+"aplicación <application>Tetravex</application> o este manual, siga las "
+"indicaciones en la <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help"
+"\">Página de comentarios de GNOME</ulink>."
 
-#: C/gnotravex.xml:113(primary)
+#: C/gnotravex.xml:115(primary)
 msgid "GNOME Tetravex"
 msgstr "Tetravex"
 
-#: C/gnotravex.xml:119(title)
+#: C/gnotravex.xml:121(title)
 msgid "Introduction"
 msgstr "Introducción"
 
-#: C/gnotravex.xml:121(para)
+#: C/gnotravex.xml:123(para)
 msgid ""
 "<application>GNOME Tetravex</application> is a simple puzzle where pieces "
 "must be positioned so that the same numbers are touching each other. Your "
@@ -225,10 +227,15 @@ msgstr ""
 "con los otros. El juego tiene un temporizador, esos tiempos se almacenan en "
 "una pantalla de puntuaciones del sistema."
 
-#: C/gnotravex.xml:127(para)
+#: C/gnotravex.xml:129(para)
+#| msgid ""
+#| "To run <application>GNOME Tetravex</application>, select "
+#| "<menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Gnotravex</"
+#| "guimenuitem></menuchoice> from the <guimenu>Main Menu</guimenu>, or type "
+#| "<command>gnotravex</command> on the command line."
 msgid ""
 "To run <application>GNOME Tetravex</application>, select "
-"<menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Gnotravex</"
+"<menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Tetravex</"
 "guimenuitem></menuchoice> from the <guimenu>Main Menu</guimenu>, or type "
 "<command>gnotravex</command> on the command line."
 msgstr ""
@@ -237,7 +244,7 @@ msgstr ""
 "guimenuitem></menuchoice> del <guimenu>Menú principal</guimenu>, o escriba "
 "<command>gnotravex</command> en la línea de comandos."
 
-#: C/gnotravex.xml:137(para)
+#: C/gnotravex.xml:139(para)
 msgid ""
 "<application>GNOME Tetravex</application> is included in the <filename>gnome-"
 "games</filename> package, which is part of the GNOME desktop environment. "
@@ -249,11 +256,11 @@ msgstr ""
 "GNOME. Este documento describe la versión 2.10 de <application>Tetravex</"
 "application>."
 
-#: C/gnotravex.xml:146(title)
+#: C/gnotravex.xml:148(title)
 msgid "Playing GNOME Tetravex"
 msgstr "Jugar a Tetravex"
 
-#: C/gnotravex.xml:148(para)
+#: C/gnotravex.xml:150(para)
 msgid ""
 "<application>GNOME Tetravex</application> is a simple puzzle game, this "
 "section covers how to play the game."
@@ -261,15 +268,15 @@ msgstr ""
 "<application>Tetravex</application> es un juego tipo puzle, esta sección "
 "cubre cómo jugar al juego."
 
-#: C/gnotravex.xml:154(title)
+#: C/gnotravex.xml:156(title)
 msgid "Basic usage"
 msgstr "Uso básico"
 
-#: C/gnotravex.xml:156(title)
+#: C/gnotravex.xml:158(title)
 msgid "Playing the game"
 msgstr "Jugar al juego"
 
-#: C/gnotravex.xml:157(para)
+#: C/gnotravex.xml:159(para)
 msgid ""
 "Starting <application>GNOME Tetravex</application> opens the <interface>Main "
 "window</interface>, shown in <xref linkend=\"mainwindow-fig\"/>. The window "
@@ -283,15 +290,15 @@ msgstr ""
 "parte derecha contiene las piezas que aún tiene que colocar y la caja de la "
 "parte derecha es donde ordena las piezas."
 
-#: C/gnotravex.xml:166(title)
+#: C/gnotravex.xml:168(title)
 msgid "GNOME Tetravex Main Window"
 msgstr "Ventana principal de Tetravex"
 
-#: C/gnotravex.xml:173(phrase)
+#: C/gnotravex.xml:175(phrase)
 msgid "GNOME Tetravex Main Window."
 msgstr "Ventana principal de Tetravex."
 
-#: C/gnotravex.xml:179(para)
+#: C/gnotravex.xml:181(para)
 msgid ""
 "You can start playing the game immediately. You may restart the game by "
 "selecting <menuchoice><guisubmenu>File</guisubmenu><guimenuitem>New game</"
@@ -301,15 +308,15 @@ msgstr ""
 "<menuchoice><guisubmenu>Archivo</guisubmenu><guimenuitem>Nuevo juego</"
 "guimenuitem></menuchoice><xref linkend=\"playing-fig\"/>"
 
-#: C/gnotravex.xml:189(title)
+#: C/gnotravex.xml:191(title)
 msgid "A GNOME Tetravex Game"
 msgstr "Un juego Tetravex"
 
-#: C/gnotravex.xml:196(phrase)
+#: C/gnotravex.xml:198(phrase)
 msgid "A GNOME Tetravex Game."
 msgstr "Un juego Tetravex."
 
-#: C/gnotravex.xml:201(para)
+#: C/gnotravex.xml:203(para)
 msgid ""
 "The tiles are divided into four, you must position them so that only two "
 "numbers that are the same are next to each other. The game wil not let you "
@@ -331,11 +338,11 @@ msgstr ""
 "guisubmenu><guimenuitem>Izquierda/Derecha/Arriba/Abajo</guimenuitem></"
 "menuchoice>"
 
-#: C/gnotravex.xml:216(title)
+#: C/gnotravex.xml:218(title)
 msgid "Winning the game"
 msgstr "Ganar el juego"
 
-#: C/gnotravex.xml:217(para)
+#: C/gnotravex.xml:219(para)
 msgid ""
 "The game is completed when you have positioned all the squares in the right "
 "positions. When you have completed the game you are shown your ranking in "
@@ -349,20 +356,24 @@ msgstr ""
 "suficientemente alta. Si ha usado un consejo o la opción de resolver, su "
 "puntación no se incluirá entre los máximas puntuaciones de la tabla."
 
-#: C/gnotravex.xml:230(title)
+#: C/gnotravex.xml:232(title)
 msgid "Customization"
 msgstr "Personalizar"
 
-#: C/gnotravex.xml:231(para)
+#: C/gnotravex.xml:233(para)
+#| msgid ""
+#| "Under the <guimenuitem>Settings</guimenuitem> menu you can change the "
+#| "size of the grid from two by two up to six by six. The default is three "
+#| "by three."
 msgid ""
-"Under the <guimenuitem>Settings</guimenuitem> menu you can change the size "
-"of the grid from two by two up to six by six. The default is three by three."
+"Under the <guimenuitem>Size</guimenuitem> menu you can change the size of "
+"the grid from two by two up to six by six. The default is three by three."
 msgstr ""
-"Bajo el menú <guimenuitem>Ajustes</guimenuitem> puede cambiar el tamaño de "
+"Bajo el menú <guimenuitem>Tamaño</guimenuitem> puede cambiar el tamaño de "
 "la rejilla desde dos por dos hasta seis por seis. El tamaño predeterminado "
 "es tres por tres."
 
-#: C/gnotravex.xml:235(para)
+#: C/gnotravex.xml:237(para)
 msgid ""
 "If the tiles are too small, resizing the window will change the size of the "
 "tiles."
@@ -370,30 +381,31 @@ msgstr ""
 "Si las piezas son muy pequeñas, al redimensionar la ventana se cambiará el "
 "tamaña de las piezas."
 
-#: C/gnotravex.xml:256(title)
+#: C/gnotravex.xml:258(title)
 msgid "Authors"
 msgstr "Autores"
 
-#: C/gnotravex.xml:257(para)
+#: C/gnotravex.xml:259(para)
 msgid ""
 "<application>GNOME Tetravex</application> was written by Lars Rydlinge "
 "(<email>lars.rydlinge@hig.se</email>). This manual was written by Rob "
 "Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a "
 "suggestion regarding this application or this manual, follow the directions "
-"in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
+"in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help"
+"\">document</ulink>."
 msgstr ""
 "Lars Rydlinge (<email>lars.rydlinge@hig.se</email>) escribió "
 "<application>Tetravex</application>. Este manual lo escribió Rob Bradford "
 "(<email>rob@funky-penguin.co.uk</email>). Para informar de un fallo o hacer "
 "alguna sugerencia concerniente esta aplicación o este manual, siga las "
-"indicaciones en este <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help"
-"\">documento</ulink>."
+"indicaciones en este <ulink url=\"ghelp:user-guide?feedback-bugs\" type="
+"\"help\">documento</ulink>."
 
-#: C/gnotravex.xml:277(title)
+#: C/gnotravex.xml:279(title)
 msgid "License"
 msgstr "Licencia"
 
-#: C/gnotravex.xml:278(para)
+#: C/gnotravex.xml:280(para)
 msgid ""
 "This program is free software; you can redistribute it and/or modify it "
 "under the terms of the <citetitle>GNU General Public License</citetitle> as "
@@ -405,7 +417,7 @@ msgstr ""
 "como se publica por la Free Software Foundation; ya sea la versión 2 de la "
 "Licencia, o (a su elección) cualquier versión posterior."
 
-#: C/gnotravex.xml:284(para)
+#: C/gnotravex.xml:286(para)
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -417,7 +429,7 @@ msgstr ""
 "IDONEIDAD PARA UN PROPÓSITO PARTICULAR. Vea la <citetitle>Licencia Pública "
 "General GNU</citetitle> para más detalles."
 
-#: C/gnotravex.xml:290(para)
+#: C/gnotravex.xml:292(para)
 msgid ""
 "A copy of the <citetitle>GNU General Public License</citetitle> is included "
 "as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
@@ -433,11 +445,11 @@ msgstr ""
 "citetitle>. También puede obtener una copia de la <citetitle>Licencia "
 "Pública General GNU</citetitle> de la Free Software Foundation visitando "
 "<ulink url=\"http://www.fsf.org\" type=\"http\">su página web</ulink> o "
-"escribiendo a la <address>Free Software Foundation, Inc. <street>59 Temple Place</"
-"street> - Suite 330 <city>Boston</city>, <state>MA</state><postcode>02111-"
-"1307</postcode><country>USA</country></address>"
+"escribiendo a la <address>Free Software Foundation, Inc. <street>59 Temple "
+"Place</street> - Suite 330 <city>Boston</city>, <state>MA</"
+"state><postcode>02111-1307</postcode><country>USA</country></address>"
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/gnotravex.xml:0(None)
 msgid "translator-credits"
 msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2007-2008."
