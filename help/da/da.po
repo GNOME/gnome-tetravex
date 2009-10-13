@@ -4,13 +4,13 @@
 # Joe Hansen (joedalton2@yahoo.dk), 2009.
 #
 #  Bug 595771 er indsendt på den her vedrørende to ting
-#  Gnotravex -> Tretravex og Settings -> Size
+#  Gnotravex -> Tretravex og Settings -> Size (de er rettet)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"POT-Creation-Date: 2009-09-20 22:45+0200\n"
-"PO-Revision-Date: 2009-09-15 01:42+0000\n"
+"POT-Creation-Date: 2009-10-13 21:57+0200\n"
+"PO-Revision-Date: 2009-10-06 01:42+0000\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -125,7 +125,7 @@ msgstr ""
 #: ../C/gnotravex.xml:129(para)
 msgid ""
 "To run <application>GNOME Tetravex</application>, select "
-"<menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Gnotravex</"
+"<menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Tetravex</"
 "guimenuitem></menuchoice> from the <guimenu>Main Menu</guimenu>, or type "
 "<command>gnotravex</command> on the command line."
 msgstr ""
@@ -249,15 +249,10 @@ msgstr ""
 msgid "Customization"
 msgstr "Tilpasning"
 
-# Fejloversættelse i selve spillet settings -> opsætning
-# Det er en fejl i manualen. Menupunktet hedder "Size" på engelsk i
-# programmet. (det kan selvfølgelig være at det er blevet ændret på et
-# tidspunkt i fortiden og at manualen blot ikke er opdateret), føj det
-# gerne til fejlrapporten
 #: ../C/gnotravex.xml:233(para)
 msgid ""
-"Under the <guimenuitem>Settings</guimenuitem> menu you can change the size "
-"of the grid from two by two up to six by six. The default is three by three."
+"Under the <guimenuitem>Size</guimenuitem> menu you can change the size of "
+"the grid from two by two up to six by six. The default is three by three."
 msgstr ""
 "I menuen <guimenuitem>Størrelse</guimenuitem> kan du ændre størrelsen på "
 "nettet fra to - to op til seks - seks. Standarden er tre."
