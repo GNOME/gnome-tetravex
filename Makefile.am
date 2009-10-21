@@ -90,3 +90,5 @@ install-exec-hook:
 	fi
 
 install-data-local: install-schemas-local install-scorefiles-local
+
+-include $(top_srcdir)/git.mk
