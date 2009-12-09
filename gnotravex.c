@@ -215,7 +215,7 @@ void create_mover (void);
 GtkWidget *create_statusbar (void);
 GdkPixmap *default_background_pixmap;
 
-gint expose_space (GtkWidget *, GdkEventExpose *);
+gboolean expose_space (GtkWidget *, GdkEventExpose *);
 gint button_press_space (GtkWidget *, GdkEventButton *);
 gint button_release_space (GtkWidget *, GdkEventButton *);
 gint button_motion_space (GtkWidget *, GdkEventButton *);
@@ -608,7 +608,7 @@ create_window (void)
                     G_CALLBACK (window_state_cb), NULL);
 }
 
-gint
+gboolean
 expose_space (GtkWidget * widget, GdkEventExpose * event)
 {
   gdk_draw_drawable (gtk_widget_get_window (widget),
