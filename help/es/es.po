@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
 "POT-Creation-Date: 2010-02-13 19:33+0000\n"
-"PO-Revision-Date: 2010-02-14 20:43+0100\n"
+"PO-Revision-Date: 2010-02-14 21:31+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,10 +37,9 @@ msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
 #: C/winning.page:20(title)
-#, fuzzy
 #| msgid "Playing GNOME Tetravex"
 msgid "Win <app>GNOME Tetravex</app>"
-msgstr "Jugar a Tetravex"
+msgstr "Ganar <app>Tetravex</app>"
 
 #: C/winning.page:23(p)
 msgid ""
@@ -50,7 +49,7 @@ msgstr ""
 
 #: C/winning.page:30(title)
 msgid "Look for a single number"
-msgstr ""
+msgstr "Mirar un sólo número"
 
 #: C/winning.page:31(p)
 msgid ""
@@ -87,10 +86,9 @@ msgid "@@image: 'figures/tetravex.ogv'; md5=THIS FILE DOESN'T EXIST"
 msgstr "@@image: 'figures/tetravex.ogv'; md5=THIS FILE DOESN'T EXIST"
 
 #: C/usage.page:8(desc)
-#, fuzzy
 #| msgid "Playing GNOME Tetravex"
 msgid "How to play <app>GNOME Tetravex</app>."
-msgstr "Jugar a Tetravex"
+msgstr "Cómo jugar a <app>Tetravex</app>."
 
 #: C/usage.page:15(name) C/index.page:13(name)
 msgid "Rob Bradford"
@@ -101,10 +99,9 @@ msgid "robster@debian.org"
 msgstr "robster@debian.org"
 
 #: C/usage.page:23(title)
-#, fuzzy
 #| msgid "Playing GNOME Tetravex"
 msgid "Play <app>GNOME Tetravex</app>"
-msgstr "Jugar a Tetravex"
+msgstr "Jugar a <app>Tetravex</app>"
 
 #: C/usage.page:26(title)
 msgid "Basic usage"
@@ -145,7 +142,7 @@ msgstr ""
 
 #: C/usage.page:56(title)
 msgid "Video demonstration"
-msgstr ""
+msgstr "Videodemostración"
 
 #: C/usage.page:57(p)
 msgid ""
@@ -155,11 +152,11 @@ msgstr ""
 
 #: C/usage.page:61(media)
 msgid "Simple demonstration of a game"
-msgstr ""
+msgstr "Demostración simple de una partida"
 
 #: C/size.page:7(desc)
 msgid "Change the size of the game board."
-msgstr ""
+msgstr "Cambiar el tamaño del tablero de juego."
 
 #: C/size.page:17(title)
 msgid "Game board size"
@@ -179,7 +176,6 @@ msgid ""
 msgstr ""
 
 #: C/size.page:28(p)
-#, fuzzy
 #| msgid ""
 #| "If the tiles are too small, resizing the window will change the size of "
 #| "the tiles."
@@ -191,7 +187,7 @@ msgstr ""
 
 #: C/shortcut.page:8(desc)
 msgid "Use the keyboard to play the game."
-msgstr ""
+msgstr "Use el teclado para jugar al juego."
 
 #: C/shortcut.page:19(title)
 msgid "Keyboard shortcuts"
@@ -226,7 +222,7 @@ msgstr "N"
 
 #: C/shortcut.page:35(p)
 msgid "Start a new game."
-msgstr ""
+msgstr "Iniciar una partida nueva."
 
 #: C/shortcut.page:40(key)
 msgid "Pause"
@@ -234,7 +230,7 @@ msgstr "Pausar"
 
 #: C/shortcut.page:43(p)
 msgid "Pause or resume the game."
-msgstr ""
+msgstr "Pausar o resumir el juego."
 
 #: C/shortcut.page:49(key)
 msgid "Up"
@@ -242,7 +238,7 @@ msgstr "Arriba"
 
 #: C/shortcut.page:53(p)
 msgid "Move all the pieces in the left box up by one."
-msgstr ""
+msgstr "Mover arriba una posición todas las piezas en la caja de la izquierda."
 
 #: C/shortcut.page:58(key)
 msgid "Down"
@@ -250,7 +246,7 @@ msgstr "Abajo"
 
 #: C/shortcut.page:61(p)
 msgid "Move all the pieces in the left box down by one."
-msgstr ""
+msgstr "Mover abajo una posición todas las cajas de la izquierda."
 
 #: C/shortcut.page:66(key)
 msgid "Left"
@@ -342,6 +338,8 @@ msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
 msgstr ""
+"Este trabajo está distribuido bajo una licencia sin soporte CreativeCommons "
+"Compartir-Igual 3.o."
 
 #: C/license.page:20(p)
 msgid "You are free:"
@@ -494,7 +492,6 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/gameplay.page:32(None)
-#, fuzzy
 #| msgid ""
 #| "@@image: 'figures/gnotravex_mainwindow.png'; "
 #| "md5=e49d762a2dd5d6ba466e0c7cef7703ce"
@@ -502,8 +499,8 @@ msgid ""
 "@@image: 'figures/gnotravex-main-window.png'; "
 "md5=dd9c9be1bb7b724d6be5e76ffa6ee4d8"
 msgstr ""
-"@@image: 'figures/gnotravex_mainwindow.png'; "
-"md5=e49d762a2dd5d6ba466e0c7cef7703ce"
+"@@image: 'figures/gnotravex-main-window.png'; "
+"md5=dd9c9be1bb7b724d6be5e76ffa6ee4d8"
 
 #: C/gameplay.page:7(desc)
 msgid "Introduction to <app>GNOME Tetravex</app>."
