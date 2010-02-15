@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
 "POT-Creation-Date: 2010-02-13 19:33+0000\n"
-"PO-Revision-Date: 2010-02-15 12:16+0100\n"
+"PO-Revision-Date: 2010-02-15 18:13+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -46,6 +46,8 @@ msgid ""
 "The following tips will not assure you to win a game, they are intended as a "
 "simple aid."
 msgstr ""
+"Los siguientes consejos no aseguran que gane una partida, simplemente están "
+"como una ayuda."
 
 #: C/winning.page:30(title)
 msgid "Look for a single number"
@@ -458,10 +460,12 @@ msgid ""
 "If you use one of the following methods to complete the game, your scores "
 "will not be included among the high scores."
 msgstr ""
+"No se incluirán sus puntuaciones entre las mejores si usa uno de los "
+"siguientes métodos para completar la partida."
 
 #: C/hint.page:25(title)
 msgid "Use the hints system"
-msgstr ""
+msgstr "Usar las sugerencias del sistema"
 
 #: C/hint.page:27(p)
 msgid ""
@@ -516,7 +520,7 @@ msgstr ""
 
 #: C/gameplay.page:7(desc)
 msgid "Introduction to <app>GNOME Tetravex</app>."
-msgstr ""
+msgstr "Introducción a <app>Tetravex</app>."
 
 #: C/gameplay.page:18(title)
 msgid "Gameplay"
@@ -534,6 +538,8 @@ msgid ""
 "The game is timed, and these times are used as the score for the game. You "
 "have to move all the pieces in the least time possible."
 msgstr ""
+"La partida está cronometrada y esos tiempos se usan como la puntuación para "
+"la partida. Debe mover todas las piezas en el menor tiempo posible."
 
 #: C/gameplay.page:30(title)
 msgid "Main game window"
