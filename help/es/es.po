@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
 "POT-Creation-Date: 2010-02-13 19:33+0000\n"
-"PO-Revision-Date: 2010-02-14 21:31+0100\n"
+"PO-Revision-Date: 2010-02-15 12:16+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -327,7 +327,7 @@ msgstr ""
 
 #: C/license.page:8(desc)
 msgid "Legal information."
-msgstr ""
+msgstr "Información legal."
 
 #: C/license.page:11(title)
 msgid "License"
@@ -355,11 +355,11 @@ msgstr "Copiar, distribuir y transmitir el trabajo."
 
 #: C/license.page:29(em)
 msgid "To remix"
-msgstr "Mezclar."
+msgstr "Hacer obras derivadas"
 
 #: C/license.page:30(p)
 msgid "To adapt the work."
-msgstr "Adaptar el trabajo."
+msgstr "Adaptar la obra."
 
 #: C/license.page:33(p)
 msgid "Under the following conditions:"
@@ -376,6 +376,9 @@ msgid ""
 "licensor (but not in any way that suggests that they endorse you or your use "
 "of the work)."
 msgstr ""
+"Debe reconocer los créditos de la obra de la manera especificada por el "
+"autor o el licenciador (pero no de una manera que sugiera que tiene su apoyo "
+"o apoyan el uso que hace de su obra)."
 
 #: C/license.page:46(em)
 msgid "Share Alike"
@@ -386,6 +389,9 @@ msgid ""
 "If you alter, transform, or build upon this work, you may distribute the "
 "resulting work only under the same, similar or a compatible license."
 msgstr ""
+"Si transforma o modifica esta obra para crear una obra derivada, sólo puede "
+"distribuir la obra resultante bajo la misma licencia, una de similar o una "
+"de compatible."
 
 #: C/license.page:53(p)
 msgid ""
@@ -394,6 +400,10 @@ msgid ""
 "link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
 "sa/3.0/\">Commons Deed</link>."
 msgstr ""
+"Para ver el texto completo de la licencia consulte la <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode/\">página web de Creative "
+"Commons</link> o lea el<link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">Escrito de Commons</link>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -420,6 +430,8 @@ msgid ""
 "<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
 "\">GNOME Tetravex logo</media> GNOME Tetravex"
 msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
+"\">logotipo de Tetravex</media> Tetravex"
 
 #: C/index.page:31(title)
 msgid "Basic Gameplay &amp; Usage"
