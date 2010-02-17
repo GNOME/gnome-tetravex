@@ -58,7 +58,7 @@
       This small video shows how the game works, and what are the possible movements.
     </p>
     <p>
-      <media type="video" mime="application/ogg" src="figures/tetravex.ogv">
+      <media type="video" mime="application/ogg" src="figures/gnotravex-video.ogv">
       Simple demonstration of a game
       </media>
     </p>
