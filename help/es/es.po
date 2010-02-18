@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
-"POT-Creation-Date: 2010-02-13 19:33+0000\n"
-"PO-Revision-Date: 2010-02-15 20:20+0100\n"
+"POT-Creation-Date: 2010-02-17 21:39+0000\n"
+"PO-Revision-Date: 2010-02-18 08:51+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,6 @@ msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
 #: C/winning.page:20(title)
-#| msgid "Playing GNOME Tetravex"
 msgid "Win <app>GNOME Tetravex</app>"
 msgstr "Ganar <app>Tetravex</app>"
 
@@ -92,11 +91,15 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/usage.page:61(None)
-msgid "@@image: 'figures/tetravex.ogv'; md5=THIS FILE DOESN'T EXIST"
-msgstr "@@image: 'figures/tetravex.ogv'; md5=THIS FILE DOESN'T EXIST"
+#| msgid ""
+#| "@@image: 'figures/gnotravex-logo.png'; "
+#| "md5=daf379ccd659b42a71cd0f2661f651e4"
+msgid ""
+"@@image: 'figures/gnotravex-video.ogv'; md5=14cface4ec2b0c84aa5a925242694de0"
+msgstr ""
+"@@image: 'figures/gnotravex-video.ogv'; md5=14cface4ec2b0c84aa5a925242694de0"
 
 #: C/usage.page:8(desc)
-#| msgid "Playing GNOME Tetravex"
 msgid "How to play <app>GNOME Tetravex</app>."
 msgstr "Cómo jugar a <app>Tetravex</app>."
 
@@ -109,7 +112,6 @@ msgid "robster@debian.org"
 msgstr "robster@debian.org"
 
 #: C/usage.page:23(title)
-#| msgid "Playing GNOME Tetravex"
 msgid "Play <app>GNOME Tetravex</app>"
 msgstr "Jugar a <app>Tetravex</app>"
 
@@ -206,9 +208,6 @@ msgstr ""
 "tamaño predeterminado es 3x3."
 
 #: C/size.page:28(p)
-#| msgid ""
-#| "If the tiles are too small, resizing the window will change the size of "
-#| "the tiles."
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
@@ -412,7 +411,6 @@ msgid "Under the following conditions:"
 msgstr "Bajo las siguientes condiciones:"
 
 #: C/license.page:38(em)
-#| msgid "Introduction"
 msgid "Attribution"
 msgstr "Atribución"
 
@@ -454,9 +452,6 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/index.page:26(None)
-#| msgid ""
-#| "@@image: 'figures/gnotravex_game.png'; "
-#| "md5=4d0a4512ee72329134fa0f5a1a3205e9"
 msgid ""
 "@@image: 'figures/gnotravex-logo.png'; md5=daf379ccd659b42a71cd0f2661f651e4"
 msgstr ""
@@ -467,7 +462,6 @@ msgid "GNOME Tetravex"
 msgstr "Tetravex"
 
 #: C/index.page:10(desc)
-#| msgid "GNOME Tetravex"
 msgid "GNOME Tetravex help."
 msgstr "Ayuda de Tetravex"
 
@@ -544,7 +538,6 @@ msgstr ""
 "\">Sugerencia</gui></guiseq>."
 
 #: C/hint.page:52(title)
-#| msgid "Playing the game"
 msgid "Solve the game"
 msgstr "Resolver la partida."
 
@@ -561,9 +554,6 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/gameplay.page:32(None)
-#| msgid ""
-#| "@@image: 'figures/gnotravex_mainwindow.png'; "
-#| "md5=e49d762a2dd5d6ba466e0c7cef7703ce"
 msgid ""
 "@@image: 'figures/gnotravex-main-window.png'; "
 "md5=dd9c9be1bb7b724d6be5e76ffa6ee4d8"
@@ -602,12 +592,10 @@ msgid "Main game window"
 msgstr "Ventana principal del juego"
 
 #: C/gameplay.page:31(desc)
-#| msgid "GNOME Tetravex Main Window"
 msgid "<app>Tetravex</app> main window"
 msgstr "Ventana principal de <app>Tetravex</app>"
 
 #: C/gameplay.page:33(p)
-#| msgid "GNOME Tetravex Main Window."
 msgid "<app>Tetravex</app> main window."
 msgstr "Ventana principal de <app>Tetravex</app>."
 
@@ -615,3 +603,6 @@ msgstr "Ventana principal de <app>Tetravex</app>."
 #: C/index.page:0(None)
 msgid "translator-credits"
 msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2007-2010."
+
+#~ msgid "@@image: 'figures/tetravex.ogv'; md5=THIS FILE DOESN'T EXIST"
+#~ msgstr "@@image: 'figures/tetravex.ogv'; md5=THIS FILE DOESN'T EXIST"
