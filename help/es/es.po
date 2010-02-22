@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
-"POT-Creation-Date: 2010-02-17 21:39+0000\n"
-"PO-Revision-Date: 2010-02-18 08:51+0100\n"
+"POT-Creation-Date: 2010-02-22 20:25+0000\n"
+"PO-Revision-Date: 2010-02-22 22:17+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -91,9 +91,6 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/usage.page:61(None)
-#| msgid ""
-#| "@@image: 'figures/gnotravex-logo.png'; "
-#| "md5=daf379ccd659b42a71cd0f2661f651e4"
 msgid ""
 "@@image: 'figures/gnotravex-video.ogv'; md5=14cface4ec2b0c84aa5a925242694de0"
 msgstr ""
@@ -170,12 +167,15 @@ msgid "Video demonstration"
 msgstr "Videodemostración"
 
 #: C/usage.page:57(p)
+#| msgid ""
+#| "This small video shows how the game works, and what are the possible "
+#| "movements."
 msgid ""
-"This small video shows how the game works, and what are the possible "
+"This short video shows how the game works, and what are the possible "
 "movements."
 msgstr ""
-"Este pequeño vídeo muestra cómo funciona el juego y qué movimientos son "
-"posibles."
+"Este pequeño vídeo muestra cómo funciona el juego y cuáles son los "
+"movimientos posibles."
 
 #: C/usage.page:61(media)
 msgid "Simple demonstration of a game"
