@@ -18,7 +18,7 @@ DOC_PAGES = \
   usage.page \
   winning.page
 
-DOC_LINGUAS = ca cs da de el en_GB es eu fr it oc ru sl sr sv
+DOC_LINGUAS = ca cs da de el en_GB es eu fr it oc ru sl sr sr@latin sv
 
 dist-hook: doc-dist-hook
 
