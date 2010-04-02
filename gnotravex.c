@@ -99,16 +99,6 @@ static int gap;
 
 static GdkPixmap *buffer = NULL;
 
-typedef struct _mover {
-  GdkWindow *window;
-  GdkPixmap *pixmap;
-  gint xstart, ystart;
-  gint xtarget, ytarget;
-  gint xoff, yoff;
-} Mover;
-
-static Mover mover;
-
 typedef struct _tile {
   gint n, w, e, s;
   gint status;
@@ -116,6 +106,20 @@ typedef struct _tile {
 
 static tile tiles[9][18];
 static tile orig_tiles[9][9];
+
+typedef struct _mover {
+  GdkWindow *window;
+  GdkPixmap *pixmap;
+  tile heldtile;
+  gint xstart, ystart;
+  gint xend, yend;
+  gint xoff, yoff;
+  gint x, y;
+} Mover;
+
+static GdkWindowAttr windowattrib;
+static Mover mousemover;
+static Mover automover;
 
 enum {
   gameover,
@@ -127,7 +131,7 @@ static gint size = -1;
 static gint game_state = gameover;
 static gint have_been_hinted = 0;
 static gint solve_me = 0;
-static gint hint_moving = 0;
+static gint moving = 0;
 static gint session_xpos = 0;
 static gint session_ypos = 0;
 static guint timer_timeout = 0;
@@ -211,7 +215,7 @@ static gdouble tile_colours[11][4][4] = {
 void make_buffer (GtkWidget *);
 void create_window (void);
 GtkWidget *create_menu (GtkUIManager *);
-void create_mover (void);
+void init_window_attrib (void);
 GtkWidget *create_statusbar (void);
 GdkPixmap *default_background_pixmap;
 
@@ -229,7 +233,7 @@ void gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd,
 void gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble *colour);
 void gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd,
                     gint yadd, gint north, gint south, gint east, gint west, gboolean prelight);
-void gui_draw_pixmap (GdkPixmap *, gint, gint, gboolean);
+void gui_draw_pixmap (GdkPixmap *, gint, gint, gboolean, Mover*);
 
 void get_pixeltilexy (gint, gint, gint *, gint *);
 void get_tilexy (gint, gint, gint *, gint *);
@@ -239,8 +243,13 @@ void message (gchar *);
 void new_board (gint);
 void redraw_all (void);
 void redraw_left (void);
-gint setup_mover (gint, gint, gint);
-gint valid_drop (gint, gint);
+gint setup_mover (gint, gint, Mover*);
+void clear_mover(Mover*);
+void release_tile (gint, gint);
+void place_tile (gint, gint);
+void tile_tilexy (gint, gint, gint*, gint*);
+void swap_without_validation (gint, gint, gint, gint);
+gint valid_drop (gint, gint, gint, gint);
 
 void update_tile_size (gint, gint);
 gboolean configure_space (GtkWidget *, GdkEventConfigure *);
@@ -255,9 +264,11 @@ void timer_start (void);
 void pause_game (void);
 void resume_game (void);
 void pause_cb (void);
-void hint_move_cb (void);
+void move_cb (void);
 void clickmove_toggle_cb (GtkToggleAction *, gpointer);
 void hint_move (gint, gint, gint, gint);
+void move_tile_animate (gint, gint, gint, gint, gboolean);
+void move_held_animate (gint, gint, gint, gint);
 gint show_score_dialog (gint, gboolean);
 void new_game (void);
 
@@ -528,7 +539,7 @@ main (int argc, char **argv)
     gtk_window_move (GTK_WINDOW (window), session_xpos, session_ypos);
 
   gtk_widget_show_all (window);
-  create_mover ();
+  init_window_attrib ();
 
   gtk_action_activate (new_game_action);
 
@@ -637,13 +648,13 @@ button_press_space (GtkWidget * widget, GdkEventButton * event)
   {
     if (button_down) 
     {
-      setup_mover (event->x,event->y, RELEASE); /* Seen it happened */
+      release_tile (event->x,event->y); /* Seen it happened */
       button_down = 0;
       return FALSE;
     }
     else
     {
-      if (setup_mover (event->x, event->y, PRESS))
+      if (setup_mover (event->x, event->y, &mousemover))
         button_down = 1;
     }
   }
@@ -651,11 +662,11 @@ button_press_space (GtkWidget * widget, GdkEventButton * event)
   {
     if (button_down == 1) 
     {
-      setup_mover (event->x,event->y, RELEASE); /* Seen it happened */
+      release_tile (event->x,event->y); /* Seen it happened */
       button_down = 0;
       return FALSE;
     }
-    if (setup_mover (event->x, event->y, PRESS))
+    if (setup_mover (event->x, event->y, &mousemover))
       button_down = 1;
   }
    
@@ -671,7 +682,7 @@ button_release_space (GtkWidget * widget, GdkEventButton * event)
 
   if (event->button == 1) {
     if (button_down == 1) {
-      setup_mover (event->x, event->y, RELEASE);
+      release_tile (event->x, event->y);
     }
     button_down = 0;
   }
@@ -937,30 +948,38 @@ button_motion_space (GtkWidget * widget, GdkEventButton * event)
     return FALSE;
 
   if (button_down == 1) {
-    x = event->x - mover.xoff;
-    y = event->y - mover.yoff;
-    gdk_window_move (mover.window, x, y);
-    gdk_window_clear (mover.window);
-  } else {
-    /* This code hilights pieces as the mouse moves over them
-     * in general imitation of "prelight" in GTK. */
-    get_tilexy (event->x, event->y, &x, &y);
-    if ((x != oldx) || (y != oldy)) {
-      if ((oldx != -1) && (tiles[oldy][oldx].status == USED)) {
-        gui_draw_pixmap (buffer, oldx, oldy, FALSE);
-      }
-      if ((x != -1) && (tiles[y][x].status == USED)) {
-        gui_draw_pixmap (buffer, x, y, TRUE);
-      }
-      oldx = x;
-      oldy = y;
-    }
+    mousemover.x = event->x;
+    mousemover.y = event->y;
+    x = event->x - mousemover.xoff;
+    y = event->y - mousemover.yoff;
+    gdk_window_move (mousemover.window, x, y);
+    gdk_window_clear (mousemover.window);
   }
+
+  /* This code hilights pieces as the mouse moves over them
+   * in general imitation of "prelight" in GTK. Need to highlight
+   * differently depending on if we are holding a tile or not */
+  if(mousemover.window == NULL)
+    get_tilexy (event->x, event->y, &x, &y);
+  else
+    tile_tilexy (event->x, event->y, &x, &y);
+
+  if ((x != oldx) || (y != oldy)) {
+    if ((oldx != -1) && (tiles[oldy][oldx].status == USED)) {
+      gui_draw_pixmap (buffer, oldx, oldy, FALSE, NULL);
+    }
+    if ((x != -1) && (tiles[y][x].status == USED)) {
+      gui_draw_pixmap (buffer, x, y, TRUE, NULL);
+    }
+    oldx = x;
+    oldy = y;
+  }
+
   return FALSE;
 }
 
 void
-gui_draw_pixmap (GdkPixmap * target, gint x, gint y, gboolean prelight)
+gui_draw_pixmap (GdkPixmap * target, gint x, gint y, gboolean prelight, Mover *mover)
 {
   gint which, xadd = 0, yadd = 0;
   GtkStateType state;
@@ -973,10 +992,10 @@ gui_draw_pixmap (GdkPixmap * target, gint x, gint y, gboolean prelight)
     yadd = y * tile_size + yborder;
   }
 
-  if (target == mover.pixmap) {
+  if (mover != NULL && target == mover->pixmap) {
     xadd = 0;
     yadd = 0;
-    gdk_window_set_back_pixmap (mover.window, mover.pixmap, 0);
+    gdk_window_set_back_pixmap (mover->window, mover->pixmap, 0);
     state = GTK_STATE_PRELIGHT;
   }
 
@@ -1021,6 +1040,16 @@ get_tilexy_lazy (gint x, gint y, gint * xx, gint * yy)
   else
     *xx = size + (x - (gap + tile_size * size)) / tile_size;
   *yy = (y / tile_size);
+
+  /* Bounds checking */
+  if (*xx < 0)
+    *xx = 0;
+  else if (*xx >= size * 2)
+    *xx = size * 2 - 1;
+  if (y < 0)
+    *yy = 0;
+  else if (*yy >= size)
+    *yy = size - 1;
 }
 
 void
@@ -1064,93 +1093,134 @@ get_offsetxy (gint x, gint y, gint * xoff, gint * yoff)
 }
 
 gint
-setup_mover (gint x, gint y, gint status)
+setup_mover (gint x, gint y, Mover *mover)
 {
   gint xx, yy;
 
-  if (status == PRESS) {
-    get_tilexy (x, y, &xx, &yy);
-    if (xx == -1)
-      return 0; /* No move */
-    if (tiles[yy][xx].status == UNUSED)
-      return 0; /* No move */
-    get_offsetxy (x, y, &mover.xoff, &mover.yoff);
+  get_tilexy (x, y, &xx, &yy);
+  if (xx == -1)
+    return 0; /* No move */
+  if (tiles[yy][xx].status == UNUSED)
+    return 0; /* No move */
+  get_offsetxy (x, y, &mover->xoff, &mover->yoff);
+  
+  mover->heldtile = tiles[yy][xx];
+  mover->xstart = xx;
+  mover->ystart = yy;
 
-    mover.xstart = xx;
-    mover.ystart = yy;
-    gdk_window_resize (mover.window, tile_size, tile_size);
-    /* We assume elsewhere that this has the same depth as the parent. */
-    mover.pixmap = gdk_pixmap_new (mover.window, tile_size, tile_size, -1);
+  clear_mover(mover);
 
-    gdk_window_move (mover.window, x - mover.xoff, y - mover.yoff);
-    gui_draw_pixmap (mover.pixmap, xx, yy, FALSE);
-    gdk_window_show (mover.window);
+  /* We assume elsewhere that this has the same depth as the parent. */
+  windowattrib.width = tile_size;
+  windowattrib.height = tile_size;
+  mover->window = gdk_window_new (gtk_widget_get_window (space), &windowattrib, (GDK_WA_VISUAL | GDK_WA_COLORMAP));
+  mover->pixmap = gdk_pixmap_new (mover->window, tile_size, tile_size, -1);
+  gdk_window_move (mover->window, x - mover->xoff, y - mover->yoff);
+  gui_draw_pixmap (mover->pixmap, xx, yy, FALSE, mover);
+  gdk_window_show(mover->window);
+  /* Show held tile on top if swapping */
+  if(mover == &automover && mousemover.window != NULL)
+    gdk_window_show(mousemover.window);
+  
+  tiles[yy][xx].status = UNUSED;
+  gui_draw_pixmap (buffer, xx, yy, FALSE, NULL);
+  return 1;
+}
 
-    tiles[yy][xx].status = UNUSED;
-    gui_draw_pixmap (buffer, xx, yy, FALSE);
-    return 1;
+void
+clear_mover(Mover* mover)
+{
+  if(mover->window != NULL)
+    gdk_window_destroy(mover->window);
+  mover->window = NULL;
+  if (mover->pixmap)
+    g_object_unref (mover->pixmap);
+  mover->pixmap = NULL;
+}
+
+void
+release_tile(gint x, gint y) {
+  gint xx, yy;
+
+  tile_tilexy (x, y, &xx, &yy);
+  if (xx >= 0 && xx < size * 2 && yy >= 0 && yy < size) {
+    if (tiles[yy][xx].status == UNUSED && valid_drop (mousemover.xstart, mousemover.ystart, xx, yy)) {
+      move_held_animate (x, y, xx, yy);
+      return;
+    } else if (tiles[yy][xx].status == USED) {
+      swap_without_validation(xx, yy, mousemover.xstart, mousemover.ystart);
+      if(valid_drop (xx, yy, xx, yy) && valid_drop (mousemover.xstart, mousemover.ystart, mousemover.xstart, mousemover.ystart)) {
+        swap_without_validation (xx, yy, mousemover.xstart, mousemover.ystart);
+        move_tile_animate (xx, yy, mousemover.xstart, mousemover.ystart, TRUE);
+        return;
+      } else
+        swap_without_validation (xx, yy, mousemover.xstart, mousemover.ystart);
+    }
   }
+    
+  /* Tile needs to go back to its original position */
+  move_held_animate (x, y, mousemover.xstart, mousemover.ystart);
+}
 
-  if (status == RELEASE) {
-    get_tilexy_lazy (x - mover.xoff + tile_size / 2,
-                     y - mover.yoff + tile_size / 2, &xx, &yy);
-    if (tiles[yy][xx].status == UNUSED
-        && xx >= 0 && xx < size * 2
-        && yy >= 0 && yy < size && valid_drop (xx, yy)) {
-      tiles[yy][xx] = tiles[mover.ystart][mover.xstart];
-      tiles[yy][xx].status = USED;
-      gui_draw_pixmap (buffer, xx, yy, FALSE);
-      gui_draw_pixmap (buffer, mover.xstart, mover.ystart, FALSE);
+void
+place_tile (gint x, gint y)
+{
+  tiles[automover.yend][automover.xend] = automover.heldtile;
+  gui_draw_pixmap (buffer, automover.xend, automover.yend, FALSE, NULL);
+
+  clear_mover(&automover);
+  if (game_over () && game_state != gameover) {
+    game_state = gameover;
+    games_clock_stop (GAMES_CLOCK (timer));
+    set_game_menu_items_sensitive (FALSE);
+    if (!have_been_hinted) {
+      message (_("Puzzle solved! Well done!"));
     } else {
-      tiles[mover.ystart][mover.xstart].status = USED;
-      gui_draw_pixmap (buffer, mover.xstart, mover.ystart, FALSE);
+      message (_("Puzzle solved!"));
     }
-    gdk_window_hide (mover.window);
-    if (mover.pixmap)
-      g_object_unref (mover.pixmap);
-    mover.pixmap = NULL;
-    if (game_over () && game_state != gameover) {
-      game_state = gameover;
-      games_clock_stop (GAMES_CLOCK (timer));
-      set_game_menu_items_sensitive (FALSE);
-      if (!have_been_hinted) {
-        message (_("Puzzle solved! Well done!"));
-      } else {
-        message (_("Puzzle solved!"));
-      }
-      game_score ();
-    }
-    update_move_menu_sensitivity ();
-    return 1;
+    game_score ();
   }
-  return 0;
+  update_move_menu_sensitivity ();
+}
+
+void
+tile_tilexy (gint x, gint y, gint *xx, gint *yy)
+{
+  get_tilexy_lazy (x - mousemover.xoff + tile_size / 2,
+                   y - mousemover.yoff + tile_size / 2, xx, yy);
+}
+
+void
+swap_without_validation (gint x1, gint y1, gint x2, gint y2)
+{
+  tile swp = tiles[y1][x1];
+  tiles[y1][x1] = tiles[y2][x2];
+  tiles[y2][x2] = swp;
+  tiles[y1][x1].status = USED;
+  tiles[y2][x2].status = USED;
 }
 
 gint
-valid_drop (gint x, gint y)
+valid_drop (gint sx, gint sy, gint ex, gint ey)
 {
-  gint xx, yy;
-  xx = mover.xstart;
-  yy = mover.ystart;
-
-  if (x >= size)
+  if (ex >= size)
     return 1;
 
   /* West */
-  if (x != 0 && tiles[y][x - 1].status == USED
-      && tiles[y][x - 1].e != tiles[yy][xx].w)
+  if (ex != 0 && tiles[ey][ex - 1].status == USED
+      && tiles[ey][ex - 1].e != tiles[sy][sx].w)
     return 0;
   /* East */
-  if (x != size - 1 && tiles[y][x + 1].status == USED
-      && tiles[y][x + 1].w != tiles[yy][xx].e)
+  if (ex != size - 1 && tiles[ey][ex + 1].status == USED
+      && tiles[ey][ex + 1].w != tiles[sy][sx].e)
     return 0;
   /* North */
-  if (y != 0 && tiles[y - 1][x].status == USED
-      && tiles[y - 1][x].s != tiles[yy][xx].n)
+  if (ey != 0 && tiles[ey - 1][ex].status == USED
+      && tiles[ey - 1][ex].s != tiles[sy][sx].n)
     return 0;
   /* South */
-  if (y != size - 1 && tiles[y + 1][x].status == USED
-      && tiles[y + 1][x].n != tiles[yy][xx].s)
+  if (ey != size - 1 && tiles[ey + 1][ex].status == USED
+      && tiles[ey + 1][ex].n != tiles[sy][sx].s)
     return 0;
 
   return 1;
@@ -1346,7 +1416,7 @@ redraw_all (void)
   gdk_draw_rectangle (buffer, bg_gc, TRUE, 0, 0, -1, -1);
   for (y = 0; y < size; y++)
     for (x = 0; x < size * 2; x++)
-      gui_draw_pixmap (buffer, x, y, FALSE);
+      gui_draw_pixmap (buffer, x, y, FALSE, NULL);
 
   gui_draw_arrow(buffer);
 
@@ -1368,7 +1438,7 @@ redraw_left (void)
 
   for (y = 0; y < size; y++)
     for (x = 0; x < size; x++)
-      gui_draw_pixmap (buffer, x, y, FALSE);
+      gui_draw_pixmap (buffer, x, y, FALSE, NULL);
 
   gdk_window_end_paint (gtk_widget_get_window (space));
   gdk_region_destroy (region);
@@ -1407,22 +1477,17 @@ message (gchar * message)
 }
 
 void
-create_mover (void)
+init_window_attrib (void)
 {
-  GdkWindowAttr attributes;
 
   /* The depth of mover.window must match the depth of gtk_widget_get_window (space). */
-  attributes.wclass = GDK_INPUT_OUTPUT;
-  attributes.window_type = GDK_WINDOW_CHILD;
-  attributes.event_mask = 0;
-  attributes.width = tile_size;
-  attributes.height = tile_size;
-  attributes.colormap = gdk_drawable_get_colormap (gtk_widget_get_window (space));
-  attributes.visual = gdk_drawable_get_visual (gtk_widget_get_window (space));
-
-  mover.window = gdk_window_new (gtk_widget_get_window (space), &attributes,
-                                 (GDK_WA_VISUAL | GDK_WA_COLORMAP));
-  mover.pixmap = NULL;
+  windowattrib.wclass = GDK_INPUT_OUTPUT;
+  windowattrib.window_type = GDK_WINDOW_CHILD;
+  windowattrib.event_mask = 0;
+  windowattrib.width = tile_size;
+  windowattrib.height = tile_size;
+  windowattrib.colormap = gdk_drawable_get_colormap (gtk_widget_get_window (space));
+  windowattrib.visual = gdk_drawable_get_visual (gtk_widget_get_window (space));
 }
 
 void
@@ -1440,10 +1505,11 @@ new_board (gint size)
     gtk_widget_set_sensitive (GTK_WIDGET (space), TRUE);
   }
 
-  if (button_down || hint_moving) {
-    setup_mover (0, 0, RELEASE);
+  if (button_down || moving) {
+    clear_mover(&mousemover);
+    clear_mover(&automover);
     button_down = 0;
-    hint_moving = 0;
+    moving = 0;
   }
 
   g_random_set_seed (time (NULL) + myrand);
@@ -1765,29 +1831,38 @@ find_first_tile (gint status, gint * xx, gint * yy)
       }
 }
 
-#define COUNT 15
+#define LONG_COUNT 15
+#define SHORT_COUNT 5
 #define DELAY 10
 
-gint hint_src_x, hint_src_y, hint_dest_x, hint_dest_y;
+gint animcount;
+gboolean swapanim;
+gint move_src_x, move_src_y, move_dest_x, move_dest_y;
 
 void
-hint_move_cb (void)
+move_cb (void)
 {
   float dx, dy;
   static gint count = 0;
-  dx = (float) (hint_src_x - hint_dest_x) / COUNT;
-  dy = (float) (hint_src_y - hint_dest_y) / COUNT;
-  if (count <= COUNT) {
-    gdk_window_move (mover.window, hint_src_x - (gint) (count * dx),
-                     (gint) hint_src_y - (gint) (count * dy));
+  dx = (float) (move_src_x - move_dest_x) / animcount;
+  dy = (float) (move_src_y - move_dest_y) / animcount;
+  if (count <= animcount) {
+    gdk_window_move (automover.window, move_src_x - (gint) (count * dx),
+                 (gint) move_src_y - (gint) (count * dy));
     count++;
   }
-  if (count > COUNT) {
-    hint_moving = 0;
+  if (count > animcount) {
     count = 0;
-    setup_mover (hint_dest_x + 1, hint_dest_y + 1, RELEASE);
+    place_tile (move_dest_x + 1, move_dest_y + 1);
+    moving = 0;
     g_source_remove (timer_timeout);
     gtk_widget_set_sensitive (GTK_WIDGET (space), TRUE);
+
+    if(swapanim) {
+      move_held_animate (mousemover.x, mousemover.y, automover.xstart, automover.ystart);
+      return;
+    }
+
     if (game_state != playing)
       return;
     if (solve_me)
@@ -1799,12 +1874,49 @@ void
 hint_move (gint x1, gint y1, gint x2, gint y2)
 {
   have_been_hinted = 1;
-  get_pixeltilexy (x1, y1, &hint_src_x, &hint_src_y);
-  get_pixeltilexy (x2, y2, &hint_dest_x, &hint_dest_y);
-  setup_mover (hint_src_x + 1, hint_src_y + 1, PRESS);
-  hint_moving = 1;
+  move_tile_animate (x1, y1, x2, y2, FALSE);
+}
+
+void
+move_tile_animate (gint x1, gint y1, gint x2, gint y2, gboolean sa)
+{
+  get_pixeltilexy (x1, y1, &move_src_x, &move_src_y);
+  get_pixeltilexy (x2, y2, &move_dest_x, &move_dest_y);
+
+  setup_mover (move_src_x, move_src_y, &automover);
+  automover.xend = x2;
+  automover.yend = y2;
+  moving = 1;
+  animcount = LONG_COUNT;
+  swapanim = sa;
   gtk_widget_set_sensitive (GTK_WIDGET (space), FALSE);
-  timer_timeout = g_timeout_add (DELAY, (GSourceFunc) (hint_move_cb), NULL);
+  timer_timeout = g_timeout_add (DELAY, (GSourceFunc) (move_cb), NULL);
+}
+
+void
+move_held_animate (gint x, gint y, gint tx, gint ty) {
+  /* Need to take over movement from mouse mover to auto mover */
+  gint xx, yy;
+  move_src_x = x - mousemover.xoff;
+  move_src_y = y - mousemover.yoff;
+  get_tilexy (move_src_x, move_src_y, &xx, &yy);
+  get_pixeltilexy (tx, ty, &move_dest_x, &move_dest_y);
+
+  clear_mover(&automover);
+  automover = mousemover;
+  mousemover.window = NULL;
+  mousemover.pixmap = NULL;
+
+  automover.xend = tx;
+  automover.yend = ty;
+  moving = 1;
+  if(xx == tx && yy == ty)
+    animcount = SHORT_COUNT;
+  else
+    animcount = LONG_COUNT;
+  swapanim = FALSE;
+  gtk_widget_set_sensitive (GTK_WIDGET (space), FALSE);
+  timer_timeout = g_timeout_add (DELAY, (GSourceFunc) (move_cb), NULL);
 }
 
 void
@@ -1813,7 +1925,7 @@ hint_cb (GtkAction * action, gpointer data)
   gint x1, y1, x2 = 0, y2 = 0, x = 0, y = 0;
   tile hint_tile;
 
-  if ((game_state != playing) || button_down || hint_moving)
+  if ((game_state != playing) || button_down || moving)
     return;
 
   find_first_tile (USED, &x, &y);
@@ -1988,4 +2100,3 @@ load_default_background (void)
   default_background_pixmap = pm; 
 
 }
-
