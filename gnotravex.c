@@ -312,8 +312,8 @@ void quit_game_cb (void);
 
 const GtkActionEntry action_entry[] = {
   {"GameMenu", NULL, N_("_Game")},
-  {"ViewMenu", NULL, N_("_View")},
   {"MoveMenu", NULL, N_("_Move")},
+  {"SettingsMenu", NULL, N_("_Settings")},
   {"SizeMenu", NULL, N_("_Size")},
   {"HelpMenu", NULL, N_("_Help")},
   {"NewGame", GAMES_STOCK_NEW_GAME, NULL, NULL, NULL,
@@ -374,6 +374,12 @@ static const char ui_description[] =
   "      <menuitem action='PauseGame'/>"
   "      <menuitem action='ResumeGame'/>"
   "      <separator/>"
+  "      <menu action='MoveMenu'>"
+  "        <menuitem action='MoveUp'/>"
+  "        <menuitem action='MoveLeft'/>"
+  "        <menuitem action='MoveRight'/>"
+  "        <menuitem action='MoveDown'/>"
+  "      </menu>"
   "      <menuitem action='Hint'/>"
   "      <menuitem action='Solve'/>"
   "      <separator/>"
@@ -381,29 +387,25 @@ static const char ui_description[] =
   "      <separator/>"
   "      <menuitem action='Quit'/>"
   "    </menu>"
-  "    <menu action='ViewMenu'>"
+  "    <menu action='SettingsMenu'>"
   "      <menuitem action='Colours'/>"
   "      <menuitem action='Fullscreen'/>"
   "      <menuitem action='LeaveFullscreen'/>"
-  "    </menu>"
-  "    <menu action='MoveMenu'>"
   "      <menuitem action='ClickToMove'/>"
-  "      <separator/>"
-  "      <menuitem action='MoveUp'/>"
-  "      <menuitem action='MoveLeft'/>"
-  "      <menuitem action='MoveRight'/>"
-  "      <menuitem action='MoveDown'/>"
-  "    </menu>"
-  "    <menu action='SizeMenu'>"
-  "      <menuitem action='Size2x2'/>"
-  "      <menuitem action='Size3x3'/>"
-  "      <menuitem action='Size4x4'/>"
-  "      <menuitem action='Size5x5'/>"
-  "      <menuitem action='Size6x6'/>"
+  "      <menu action='SizeMenu'>"
+  "        <menuitem action='Size2x2'/>"
+  "        <menuitem action='Size3x3'/>"
+  "        <menuitem action='Size4x4'/>"
+  "        <menuitem action='Size5x5'/>"
+  "        <menuitem action='Size6x6'/>"
+  "      </menu>"
   "    </menu>"
   "    <menu action='HelpMenu'>"
   "      <menuitem action='Contents'/>"
-  "      <menuitem action='About'/>" "    </menu>" "  </menubar>" "</ui>";
+  "      <menuitem action='About'/>"
+  "    </menu>"
+  "  </menubar>"
+  "</ui>";
 
 
 static const GOptionEntry options[] = {
