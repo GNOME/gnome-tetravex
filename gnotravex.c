@@ -58,7 +58,6 @@
 
 #define KEY_GRID_SIZE     "grid_size"
 #define KEY_CLICK_MOVE    "click_to_move"
-#define KEY_SHOW_COLOURS  "colours"
 
 #define DEFAULT_WIDTH 320
 #define DEFAULT_HEIGHT 240
@@ -138,7 +137,6 @@ static guint timer_timeout = 0;
 static gint tile_size = 0;
 static gdouble tile_border_size = 3.0;
 static gdouble arrow_border_size = 1.5;
-static gboolean coloured_tiles = TRUE;
 static gboolean click_to_move = FALSE;
 
 /* The vertices used in the tiles/sockets. These are built using gui_build_vertices() */
@@ -205,9 +203,6 @@ static gdouble tile_colours[11][4][4] = {
   {{255, 255, 255, 255}, {255, 255, 255, 255}, {238, 238, 236, 255}, {  0,   0,   0, 255}}, /* 9  = white */
   {{255, 255, 255,  32}, {  0,   0,   0,  32}, {  0,   0,   0,  64}, {  0,   0,   0,   0}}  /* 10 = shadows */
 };
-
-/* The colour to use when tiles are not coloured */
-#define DEFAULT_COLOUR 8
 
 /* The colour to use when drawing the sockets */
 #define SOCKET_COLOUR 10
@@ -302,7 +297,6 @@ void about_cb (GtkAction *, gpointer);
 void score_cb (GtkAction *, gpointer);
 void hint_cb (GtkAction *, gpointer);
 void solve_cb (GtkAction *, gpointer);
-void show_colours_toggle_cb (GtkToggleAction * togglebutton, gpointer data);
 void move_up_cb (GtkAction *, gpointer);
 void move_left_cb (GtkAction *, gpointer);
 void move_right_cb (GtkAction *, gpointer);
@@ -358,8 +352,6 @@ const GtkRadioActionEntry size_action_entry[] = {
 };
 
 static const GtkToggleActionEntry toggles[] = {
-  {"Colours", NULL, N_("Tile _Colours"), NULL, "Colour the game tiles",
-   G_CALLBACK (show_colours_toggle_cb)},
   {"ClickToMove", NULL, N_("_Click to Move"), NULL, "Pick up and drop tiles by clicking",
    G_CALLBACK (clickmove_toggle_cb)}
 };
@@ -388,7 +380,6 @@ static const char ui_description[] =
   "      <menuitem action='Quit'/>"
   "    </menu>"
   "    <menu action='SettingsMenu'>"
-  "      <menuitem action='Colours'/>"
   "      <menuitem action='Fullscreen'/>"
   "      <menuitem action='LeaveFullscreen'/>"
   "      <menuitem action='ClickToMove'/>"
@@ -488,7 +479,6 @@ main (int argc, char **argv)
     size = 3;
   games_scores_set_category (highscores, scorecats[size - 2].key);
 
-  coloured_tiles = games_conf_get_boolean (NULL, KEY_SHOW_COLOURS, NULL);
   click_to_move = games_conf_get_boolean (NULL, KEY_CLICK_MOVE, NULL);
 
   load_default_background ();
@@ -896,14 +886,11 @@ gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
 
   context = gdk_cairo_create (GDK_DRAWABLE (target));
 
-  /* Use per sector colours or the theme colours */
-  if (coloured_tiles) {
-    colours[NORTH] = north;
-    colours[SOUTH] = south;
-    colours[EAST] = east;
-    colours[WEST] = west;
-  } else
-    colours[NORTH] = colours[SOUTH] = colours[EAST] = colours[WEST] = DEFAULT_COLOUR;
+  /* Use per sector colours */
+  colours[NORTH] = north;
+  colours[SOUTH] = south;
+  colours[EAST] = east;
+  colours[WEST] = west;
 
   /* Only draw inside the allocated space */
   cairo_rectangle (context, xadd, yadd, tile_size, tile_size);
@@ -1647,8 +1634,6 @@ create_menu (GtkUIManager * ui_manager)
 
   gtk_action_group_add_toggle_actions (action_group, toggles,
                                        G_N_ELEMENTS (toggles), NULL);
-  action = gtk_action_group_get_action (action_group, "Colours");
-  gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), coloured_tiles);
   action = gtk_action_group_get_action (action_group, "ClickToMove");
   gtk_toggle_action_set_active (GTK_TOGGLE_ACTION (action), click_to_move);
 
@@ -1771,14 +1756,6 @@ size_cb (GtkAction * action, gpointer data)
   games_scores_set_category (highscores, scorecats[size - 2].key);
   games_conf_set_integer (NULL, KEY_GRID_SIZE, size);
   gtk_action_activate (new_game_action);
-}
-
-void
-show_colours_toggle_cb (GtkToggleAction * togglebutton, gpointer data)
-{
-  coloured_tiles = gtk_toggle_action_get_active (togglebutton);
-  games_conf_set_boolean (NULL, KEY_SHOW_COLOURS, coloured_tiles);
-  redraw_all ();
 }
 
 void

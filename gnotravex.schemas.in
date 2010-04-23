@@ -14,18 +14,6 @@
     </schema>
 
     <schema>
-      <key>/schemas/apps/gnotravex/colours</key>
-      <applyto>/apps/gnotravex/colours</applyto>
-      <owner>gnotravex</owner>
-      <type>bool</type>
-      <default>TRUE</default>
-      <locale name="C">
-        <short>Control coloured tiles</short>
-        <long>A flag to enable coloured tiles.</long>
-      </locale>
-    </schema>
-    
-    <schema>
       <key>/schemas/apps/gnotravex/click_to_move</key>
       <applyto>/apps/gnotravex/click_to_move</applyto>
       <owner>gnotravex</owner>
