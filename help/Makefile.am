@@ -3,6 +3,7 @@ include $(top_srcdir)/gnome-doc-utils.make
 DOC_ID = gnotravex
 
 DOC_FIGURES = \
+	figures/gnotravex-logo.png \
 	figures/gnotravex-main-window.png \
 	figures/gnotravex-video.ogv
 
