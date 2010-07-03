@@ -1375,7 +1375,11 @@ void
 redraw_all (void)
 {
   guint x, y;
+#if GTK_CHECK_VERSION (2, 90, 5)
+  cairo_region_t *region;
+#else
   GdkRegion *region;
+#endif
 
   if (!gtk_widget_get_window (space))
     return;
@@ -1393,18 +1397,32 @@ redraw_all (void)
   gui_draw_arrow(buffer);
 
   gdk_window_end_paint (gtk_widget_get_window (space));
+
+#if GTK_CHECK_VERSION (2, 90, 5)
+  cairo_region_destroy (region);
+#else
   gdk_region_destroy (region);
+#endif
 }
 
 void
 redraw_left (void)
 {
   gint x, y;
+#if GTK_CHECK_VERSION (2, 90, 5)
+  cairo_region_t *region;
+  cairo_rectangle_int_t rect =
+#else
   GdkRegion *region;
   GdkRectangle rect =
+#endif
     { xborder, yborder, tile_size * size, tile_size * size };
 
+#if GTK_CHECK_VERSION (2, 90, 5)
+  region = cairo_region_create_rectangle (&rect);
+#else
   region = gdk_region_rectangle (&rect);
+#endif
 
   gdk_window_begin_paint_region (gtk_widget_get_window (space), region);
 
@@ -1413,7 +1431,12 @@ redraw_left (void)
       gui_draw_pixmap (buffer, x, y, FALSE, NULL);
 
   gdk_window_end_paint (gtk_widget_get_window (space));
+
+#if GTK_CHECK_VERSION (2, 90, 5)
+  cairo_region_destroy (region);
+#else
   gdk_region_destroy (region);
+#endif
 }
 
 
