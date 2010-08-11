@@ -100,7 +100,6 @@ static GtkWidget *window = NULL;
 static GtkWidget *statusbar = NULL;
 static GtkWidget *space = NULL;
 static GtkWidget *timer = NULL;
-static GdkGC *bg_gc = NULL;
 static GdkPixmap *background_pixmap = NULL;
 static GamesScores *highscores = NULL;
 static gint xborder = 0;
@@ -424,19 +423,20 @@ gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd)
   guint colours[4] = { SOCKET_COLOUR, SOCKET_COLOUR, SOCKET_COLOUR, SOCKET_COLOUR };
   gdouble *colour;
 
-  gdk_draw_rectangle (GDK_DRAWABLE(target), bg_gc, TRUE, xadd, yadd,
-                      tile_size, tile_size);
-
   context = gdk_cairo_create (GDK_DRAWABLE (target));
 
   /* Only draw inside the allocated space */
   cairo_rectangle (context, xadd, yadd, tile_size, tile_size);
-  cairo_clip (context);
+  cairo_clip_preserve (context);
+
+  /* Tile the background */
+  gdk_cairo_set_source_pixmap (context, background_pixmap, 0, 0);
+  cairo_pattern_set_extend (cairo_get_source (context), CAIRO_EXTEND_REPEAT);
+  cairo_fill_preserve (context);
 
   /* Blank the piece */
   colour = tile_colours[SOCKET_COLOUR][BASE];
   cairo_set_source_rgba (context, colour[0] / 255.0, colour[1] / 255.0, colour[2] / 255.0, colour[3] / 255.0);
-  cairo_rectangle (context, xadd, yadd, tile_size, tile_size);
   cairo_fill (context);
 
   /* Build the co-ordinates used by the tiles */
@@ -569,7 +569,8 @@ gui_draw_pixmap (GdkPixmap * target, gint x, gint y, gboolean prelight, Mover *m
 static void
 redraw_all (void)
 {
-  guint x, y;
+  gint x, y;
+  cairo_t *context;
 #if GTK_CHECK_VERSION (2, 90, 5)
   cairo_region_t *region;
 #else
@@ -581,10 +582,24 @@ redraw_all (void)
 
   region = gdk_drawable_get_clip_region (GDK_DRAWABLE (gtk_widget_get_window (space)));
   gdk_window_begin_paint_region (gtk_widget_get_window (space), region);
-
   gdk_window_clear (gtk_widget_get_window (space));
-  gdk_draw_rectangle (gtk_widget_get_window (space), bg_gc, TRUE, 0, 0, -1, -1);
-  gdk_draw_rectangle (buffer, bg_gc, TRUE, 0, 0, -1, -1);
+
+  gdk_drawable_get_size (gtk_widget_get_window (space), &x, &y);
+  context = gdk_cairo_create (gtk_widget_get_window (space));
+  cairo_rectangle (context, 0, 0, x, y);
+  gdk_cairo_set_source_pixmap (context, background_pixmap, 0, 0);
+  cairo_pattern_set_extend (cairo_get_source (context), CAIRO_EXTEND_REPEAT);
+  cairo_fill (context);
+  cairo_destroy (context);
+
+  gdk_drawable_get_size (buffer, &x, &y);
+  context = gdk_cairo_create (buffer);
+  cairo_rectangle (context, 0, 0, x, y);
+  gdk_cairo_set_source_pixmap (context, background_pixmap, 0, 0);
+  cairo_pattern_set_extend (cairo_get_source (context), CAIRO_EXTEND_REPEAT);
+  cairo_fill (context);
+  cairo_destroy (context);
+
   for (y = 0; y < size; y++)
     for (x = 0; x < size * 2; x++)
       gui_draw_pixmap (buffer, x, y, FALSE, NULL);
@@ -1037,11 +1052,14 @@ create_window (void)
 static gboolean
 expose_space (GtkWidget * widget, GdkEventExpose * event)
 {
-  gdk_draw_drawable (gtk_widget_get_window (widget),
-                     gtk_widget_get_style (widget)->fg_gc[GTK_STATE_NORMAL],
-                     buffer, event->area.x, event->area.y,
-                     event->area.x, event->area.y,
-                     event->area.width, event->area.height);
+  cairo_t *context;
+
+  context = gdk_cairo_create (gtk_widget_get_window (widget));
+  gdk_cairo_set_source_pixmap (context, buffer, 0, 0);
+  cairo_rectangle (context, event->area.x, event->area.y, event->area.width, event->area.height);
+  cairo_fill (context);
+  cairo_destroy (context);
+
   return FALSE;
 }
 
@@ -1911,12 +1929,6 @@ main (int argc, char **argv)
   gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
 
   gtk_widget_realize (space);
-  bg_gc = gdk_gc_new (gtk_widget_get_window (space));
-  if (background_pixmap)
-  {
-    gdk_gc_set_tile (bg_gc, background_pixmap);
-    gdk_gc_set_fill (bg_gc, GDK_TILED);
-  }
 
   g_signal_connect (G_OBJECT (space), "expose_event",
                     G_CALLBACK (expose_space), NULL);
