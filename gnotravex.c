@@ -1459,7 +1459,6 @@ create_statusbar (void)
   gtk_box_pack_start (GTK_BOX (time_box), timer, FALSE, FALSE, 0);
 
   status_bar = gtk_statusbar_new ();
-  gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR (status_bar), FALSE);
   gtk_box_pack_start (GTK_BOX (status_bar), time_box, FALSE, FALSE, 0);
 
   return status_bar;
