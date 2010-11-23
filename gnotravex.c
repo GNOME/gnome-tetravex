@@ -600,21 +600,12 @@ static void
 redraw_left (void)
 {
   gint x, y;
-  cairo_region_t *region;
-  cairo_rectangle_int_t rect =
-    { xborder, yborder, tile_size * size, tile_size * size };
-
-  region = cairo_region_create_rectangle (&rect);
-
-  gdk_window_begin_paint_region (gtk_widget_get_window (space), region);
 
   for (y = 0; y < size; y++)
     for (x = 0; x < size; x++)
       gui_draw_surface (buffer, x, y, FALSE, NULL);
 
-  gdk_window_end_paint (gtk_widget_get_window (space));
-
-  cairo_region_destroy (region);
+  gtk_widget_queue_draw_area (space, xborder, yborder, tile_size * size, tile_size * size);
 }
 
 /* Enable or disable the game menu items that are only relevant
