@@ -81,7 +81,7 @@ typedef struct
 typedef struct
 {
   GdkWindow *window;
-  GdkPixmap *pixmap;
+  cairo_surface_t *surface;
   Tile heldtile;
   gint xstart, ystart;
   gint xend, yend;
@@ -100,12 +100,12 @@ static GtkWidget *window = NULL;
 static GtkWidget *statusbar = NULL;
 static GtkWidget *space = NULL;
 static GtkWidget *timer = NULL;
-static GdkPixmap *background_pixmap = NULL;
+static GdkPixbuf *background_pixbuf = NULL;
 static GamesScores *highscores = NULL;
 static gint xborder = 0;
 static gint yborder = 0;
 static gint gap = 0;
-static GdkPixmap *buffer = NULL;
+static cairo_surface_t *buffer = NULL;
 static Tile tiles[9][18];
 static Tile orig_tiles[9][9];
 static GdkWindowAttr windowattrib;
@@ -401,13 +401,13 @@ gui_draw_faces (cairo_t * context, gint xadd, gint yadd, int quads[][7],
 }
 
 static void
-gui_draw_arrow (GdkPixmap * target)
+gui_draw_arrow (cairo_surface_t * target)
 {
   cairo_t *context;
   gdouble x, y;
   guint colours[4] = { SOCKET_COLOUR, SOCKET_COLOUR, SOCKET_COLOUR, SOCKET_COLOUR };
 
-  context = gdk_cairo_create (GDK_DRAWABLE (buffer));
+  context = cairo_create (buffer);
 
   x = xborder + size * tile_size;
   y = yborder;
@@ -417,20 +417,20 @@ gui_draw_arrow (GdkPixmap * target)
 }
 
 static void
-gui_draw_socket (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd)
+gui_draw_socket (cairo_surface_t * target, GtkStateType state, gint xadd, gint yadd)
 {
   cairo_t *context;
   guint colours[4] = { SOCKET_COLOUR, SOCKET_COLOUR, SOCKET_COLOUR, SOCKET_COLOUR };
   gdouble *colour;
 
-  context = gdk_cairo_create (GDK_DRAWABLE (target));
+  context = cairo_create (target);
 
   /* Only draw inside the allocated space */
   cairo_rectangle (context, xadd, yadd, tile_size, tile_size);
   cairo_clip_preserve (context);
 
   /* Tile the background */
-  gdk_cairo_set_source_pixmap (context, background_pixmap, 0, 0);
+  gdk_cairo_set_source_pixbuf (context, background_pixbuf, 0, 0);
   cairo_pattern_set_extend (cairo_get_source (context), CAIRO_EXTEND_REPEAT);
   cairo_fill_preserve (context);
 
@@ -480,13 +480,13 @@ gui_draw_number (cairo_t * context, gdouble x, gdouble y, guint number, gdouble 
 }
 
 static void
-gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
+gui_draw_tile (cairo_surface_t * target, GtkStateType state, gint xadd, gint yadd,
                gint north, gint south, gint east, gint west, gboolean prelight)
 {
   cairo_t *context;
   guint colours[4];
 
-  context = gdk_cairo_create (GDK_DRAWABLE (target));
+  context = cairo_create (target);
 
   /* Use per sector colours */
   colours[NORTH] = north;
@@ -513,8 +513,7 @@ gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
   /* Draw outline */
   cairo_set_line_width (context, 1.0);
   cairo_set_source_rgba (context, 0.0, 0.0, 0.0, 1.0);
-  cairo_rectangle (context, xadd + 0.5, yadd + 0.5, tile_size - 1.0,
-                   tile_size - 1.0);
+  cairo_rectangle (context, xadd + 0.5, yadd + 0.5, tile_size - 1.0, tile_size - 1.0);
   cairo_stroke (context);
 
   cairo_select_font_face (context, "Sans", CAIRO_FONT_SLANT_NORMAL,
@@ -530,7 +529,7 @@ gui_draw_tile (GdkPixmap * target, GtkStateType state, gint xadd, gint yadd,
 }
 
 static void
-gui_draw_pixmap (GdkPixmap * target, gint x, gint y, gboolean prelight, Mover *mover)
+gui_draw_surface (cairo_surface_t * target, gint x, gint y, gboolean prelight, Mover *mover)
 {
   gint which, xadd = 0, yadd = 0;
   GtkStateType state;
@@ -543,10 +542,13 @@ gui_draw_pixmap (GdkPixmap * target, gint x, gint y, gboolean prelight, Mover *m
     yadd = y * tile_size + yborder;
   }
 
-  if (mover != NULL && target == mover->pixmap) {
+  if (mover != NULL && target == mover->surface) {
+    cairo_pattern_t *pattern;
     xadd = 0;
     yadd = 0;
-    gdk_window_set_back_pixmap (mover->window, mover->pixmap, 0);
+    pattern = cairo_pattern_create_for_surface (mover->surface);
+    gdk_window_set_background_pattern (mover->window, pattern);
+    cairo_pattern_destroy (pattern);
     state = GTK_STATE_PRELIGHT;
   }
 
@@ -571,82 +573,48 @@ redraw_all (void)
 {
   gint x, y;
   cairo_t *context;
-#if GTK_CHECK_VERSION (2, 90, 5)
-  cairo_region_t *region;
-#else
-  GdkRegion *region;
-#endif
 
   if (!gtk_widget_get_window (space))
     return;
 
-  region = gdk_drawable_get_clip_region (GDK_DRAWABLE (gtk_widget_get_window (space)));
-  gdk_window_begin_paint_region (gtk_widget_get_window (space), region);
-  gdk_window_clear (gtk_widget_get_window (space));
+  x = gdk_window_get_width (gtk_widget_get_window (space));
+  y = gdk_window_get_height (gtk_widget_get_window (space));
 
-  gdk_drawable_get_size (gtk_widget_get_window (space), &x, &y);
-  context = gdk_cairo_create (gtk_widget_get_window (space));
+  context = cairo_create (buffer);
   cairo_rectangle (context, 0, 0, x, y);
-  gdk_cairo_set_source_pixmap (context, background_pixmap, 0, 0);
-  cairo_pattern_set_extend (cairo_get_source (context), CAIRO_EXTEND_REPEAT);
-  cairo_fill (context);
-  cairo_destroy (context);
-
-  gdk_drawable_get_size (buffer, &x, &y);
-  context = gdk_cairo_create (buffer);
-  cairo_rectangle (context, 0, 0, x, y);
-  gdk_cairo_set_source_pixmap (context, background_pixmap, 0, 0);
+  gdk_cairo_set_source_pixbuf (context, background_pixbuf, 0, 0);
   cairo_pattern_set_extend (cairo_get_source (context), CAIRO_EXTEND_REPEAT);
   cairo_fill (context);
   cairo_destroy (context);
 
   for (y = 0; y < size; y++)
     for (x = 0; x < size * 2; x++)
-      gui_draw_pixmap (buffer, x, y, FALSE, NULL);
+      gui_draw_surface (buffer, x, y, FALSE, NULL);
 
   gui_draw_arrow(buffer);
 
-  gdk_window_end_paint (gtk_widget_get_window (space));
-
-#if GTK_CHECK_VERSION (2, 90, 5)
-  cairo_region_destroy (region);
-#else
-  gdk_region_destroy (region);
-#endif
+  gtk_widget_queue_draw (space);
 }
 
 static void
 redraw_left (void)
 {
   gint x, y;
-#if GTK_CHECK_VERSION (2, 90, 5)
   cairo_region_t *region;
   cairo_rectangle_int_t rect =
-#else
-  GdkRegion *region;
-  GdkRectangle rect =
-#endif
     { xborder, yborder, tile_size * size, tile_size * size };
 
-#if GTK_CHECK_VERSION (2, 90, 5)
   region = cairo_region_create_rectangle (&rect);
-#else
-  region = gdk_region_rectangle (&rect);
-#endif
 
   gdk_window_begin_paint_region (gtk_widget_get_window (space), region);
 
   for (y = 0; y < size; y++)
     for (x = 0; x < size; x++)
-      gui_draw_pixmap (buffer, x, y, FALSE, NULL);
+      gui_draw_surface (buffer, x, y, FALSE, NULL);
 
   gdk_window_end_paint (gtk_widget_get_window (space));
 
-#if GTK_CHECK_VERSION (2, 90, 5)
   cairo_region_destroy (region);
-#else
-  gdk_region_destroy (region);
-#endif
 }
 
 /* Enable or disable the game menu items that are only relevant
@@ -699,9 +667,9 @@ clear_mover(Mover* mover)
   if(mover->window != NULL)
     gdk_window_destroy(mover->window);
   mover->window = NULL;
-  if (mover->pixmap)
-    g_object_unref (mover->pixmap);
-  mover->pixmap = NULL;
+  if (mover->surface)
+    cairo_surface_destroy (mover->surface);
+  mover->surface = NULL;
 }
 
 static void
@@ -845,17 +813,17 @@ setup_mover (gint x, gint y, Mover *mover)
   /* We assume elsewhere that this has the same depth as the parent. */
   windowattrib.width = tile_size;
   windowattrib.height = tile_size;
-  mover->window = gdk_window_new (gtk_widget_get_window (space), &windowattrib, (GDK_WA_VISUAL | GDK_WA_COLORMAP));
-  mover->pixmap = gdk_pixmap_new (mover->window, tile_size, tile_size, -1);
+  mover->window = gdk_window_new (gtk_widget_get_window (space), &windowattrib, 0);
+  mover->surface = gdk_window_create_similar_surface (mover->window, CAIRO_CONTENT_COLOR_ALPHA, tile_size, tile_size);
   gdk_window_move (mover->window, x - mover->xoff, y - mover->yoff);
-  gui_draw_pixmap (mover->pixmap, xx, yy, FALSE, mover);
+  gui_draw_surface (mover->surface, xx, yy, FALSE, mover);
   gdk_window_show(mover->window);
   /* Show held tile on top if swapping */
   if(mover == &automover && mousemover.window != NULL)
     gdk_window_show(mousemover.window);
 
   tiles[yy][xx].status = UNUSED;
-  gui_draw_pixmap (buffer, xx, yy, FALSE, NULL);
+  gui_draw_surface (buffer, xx, yy, FALSE, NULL);
   return TRUE;
 }
 
@@ -980,12 +948,13 @@ make_buffer (GtkWidget * widget)
   GtkAllocation allocation;
 
   if (buffer)
-    g_object_unref (buffer);
+    cairo_surface_destroy (buffer);
 
   gtk_widget_get_allocation (widget, &allocation);
-  buffer = gdk_pixmap_new (gtk_widget_get_window (widget),
+  buffer = gdk_window_create_similar_surface (gtk_widget_get_window (widget),
+                           CAIRO_CONTENT_COLOR_ALPHA,
                            allocation.width,
-                           allocation.height, -1);
+                           allocation.height);
 }
 
 static void
@@ -1007,10 +976,8 @@ new_game (void)
   game_state = GAME_OVER;
 
   new_board (size);
-  gtk_widget_freeze_child_notify (space);
   make_buffer (space);
   redraw_all ();
-  gtk_widget_thaw_child_notify (space);
   timer_start ();
   set_game_menu_items_sensitive (TRUE);
   update_move_menu_sensitivity ();
@@ -1050,15 +1017,10 @@ create_window (void)
 }
 
 static gboolean
-expose_space (GtkWidget * widget, GdkEventExpose * event)
+draw_space (GtkWidget * widget, cairo_t *context)
 {
-  cairo_t *context;
-
-  context = gdk_cairo_create (gtk_widget_get_window (widget));
-  gdk_cairo_set_source_pixmap (context, buffer, 0, 0);
-  cairo_rectangle (context, event->area.x, event->area.y, event->area.width, event->area.height);
-  cairo_fill (context);
-  cairo_destroy (context);
+  cairo_set_source_surface (context, buffer, 0, 0);
+  cairo_paint (context);
 
   return FALSE;
 }
@@ -1183,7 +1145,7 @@ static void
 place_tile (gint x, gint y)
 {
   tiles[automover.yend][automover.xend] = automover.heldtile;
-  gui_draw_pixmap (buffer, automover.xend, automover.yend, FALSE, NULL);
+  gui_draw_surface (buffer, automover.xend, automover.yend, FALSE, NULL);
 
   clear_mover(&automover);
   if (game_over () && game_state != GAME_OVER) {
@@ -1215,7 +1177,7 @@ move_held_animate (gint x, gint y, gint tx, gint ty)
   clear_mover(&automover);
   automover = mousemover;
   mousemover.window = NULL;
-  mousemover.pixmap = NULL;
+  mousemover.surface = NULL;
 
   automover.xend = tx;
   automover.yend = ty;
@@ -1373,7 +1335,6 @@ button_motion_space (GtkWidget * widget, GdkEventButton * event)
     x = event->x - mousemover.xoff;
     y = event->y - mousemover.yoff;
     gdk_window_move (mousemover.window, x, y);
-    gdk_window_clear (mousemover.window);
   }
 
   /* This code hilights pieces as the mouse moves over them
@@ -1386,10 +1347,10 @@ button_motion_space (GtkWidget * widget, GdkEventButton * event)
 
   if ((x != oldx) || (y != oldy)) {
     if ((oldx != -1) && (tiles[oldy][oldx].status == USED)) {
-      gui_draw_pixmap (buffer, oldx, oldy, FALSE, NULL);
+      gui_draw_surface (buffer, oldx, oldy, FALSE, NULL);
     }
     if ((x != -1) && (tiles[y][x].status == USED)) {
-      gui_draw_pixmap (buffer, x, y, TRUE, NULL);
+      gui_draw_surface (buffer, x, y, TRUE, NULL);
     }
     oldx = x;
     oldy = y;
@@ -1436,11 +1397,9 @@ update_tile_size (gint screen_width, gint screen_height)
 static gboolean
 configure_space (GtkWidget * widget, GdkEventConfigure * event)
 {
-  gtk_widget_freeze_child_notify (widget);
   update_tile_size (event->width, event->height);
   make_buffer (widget);
   redraw_all ();
-  gtk_widget_thaw_child_notify (widget);
 
   return FALSE;
 }
@@ -1473,8 +1432,7 @@ init_window_attrib (void)
   windowattrib.event_mask = 0;
   windowattrib.width = tile_size;
   windowattrib.height = tile_size;
-  windowattrib.colormap = gdk_drawable_get_colormap (gtk_widget_get_window (space));
-  windowattrib.visual = gdk_drawable_get_visual (gtk_widget_get_window (space));
+  windowattrib.visual = gdk_window_get_visual (gtk_widget_get_window (space));
 }
 
 static void
@@ -1683,7 +1641,8 @@ size_cb (GtkAction * action, gpointer data)
 
   newsize = gtk_radio_action_get_current_value (GTK_RADIO_ACTION (action));
 
-  gdk_drawable_get_size (gtk_widget_get_window (space), &width, &height);
+  width = gdk_window_get_width (gtk_widget_get_window (space));
+  height = gdk_window_get_height (gtk_widget_get_window (space));
 
   if (game_state == PAUSED)
     gtk_action_activate (pause_action);
@@ -1731,8 +1690,6 @@ move_down_cb (GtkAction * action, gpointer data)
 static void
 load_background (void)
 {
-  GdkPixmap *pm;
-  GdkPixbuf *pb;
   char *path;
   const char * dname;
   const char * filename = "baize.png";
@@ -1740,23 +1697,19 @@ load_background (void)
 
   dname = games_runtime_get_directory (GAMES_RUNTIME_PIXMAP_DIRECTORY);
   path = g_build_filename (dname, filename, NULL);
-  pb = gdk_pixbuf_new_from_file (path, &error);
-  if (pb == NULL) {
+  background_pixbuf = gdk_pixbuf_new_from_file (path, &error);
+  if (background_pixbuf == NULL) {
     g_warning ("Error loading file '%s': %s\n", path, error->message);
     g_error_free (error);
 
-    pb = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
-                         FALSE,
-                         8,1,1);
-    gdk_pixbuf_fill (pb, 0xffffffff);
+    background_pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB,
+                                        FALSE,
+                                        8,1,1);
+    gdk_pixbuf_fill (background_pixbuf, 0xffffffff);
   }
-  gdk_pixbuf_render_pixmap_and_mask_for_colormap (pb,
-                                                  gdk_colormap_get_system (),
-                                                  &pm, NULL, 127);
-  g_object_unref (pb);
+
   g_free (path);
 
-  background_pixmap = pm;
 }
 
 static GtkWidget *
@@ -1929,8 +1882,8 @@ main (int argc, char **argv)
 
   gtk_widget_realize (space);
 
-  g_signal_connect (G_OBJECT (space), "expose_event",
-                    G_CALLBACK (expose_space), NULL);
+  g_signal_connect (G_OBJECT (space), "draw",
+                    G_CALLBACK (draw_space), NULL);
   g_signal_connect (G_OBJECT (space), "configure_event",
                     G_CALLBACK (configure_space), NULL);
   g_signal_connect (G_OBJECT (space), "button_press_event",
