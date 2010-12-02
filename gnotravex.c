@@ -1588,11 +1588,7 @@ about_cb (GtkAction * action, gpointer data)
   gchar *license = games_get_license (_(APPNAME_LONG));
 
   gtk_show_about_dialog (GTK_WINDOW (window),
-#if GTK_CHECK_VERSION (2, 11, 0)
                          "program-name", _(APPNAME_LONG),
-#else
-                         "name", _(APPNAME_LONG),
-#endif
                          "version", VERSION,
                          "comments",
                          _("GNOME Tetravex is a simple puzzle where "
@@ -1798,9 +1794,7 @@ main (int argc, char **argv)
 #endif
 
   context = g_option_context_new (NULL);
-#if GLIB_CHECK_VERSION (2, 12, 0)
   g_option_context_set_translation_domain (context, GETTEXT_PACKAGE);
-#endif /* GLIB_CHECK_VERSION (2, 12, 0) */
   g_option_context_add_group (context, gtk_get_option_group (TRUE));
 #ifdef WITH_SMCLIENT
   g_option_context_add_group (context, egg_sm_client_get_option_group ());
