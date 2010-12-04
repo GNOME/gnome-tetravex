@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex doc fr\n"
-"POT-Creation-Date: 2010-03-13 14:52+0000\n"
+"POT-Creation-Date: 2010-03-28 15:36+0000\n"
 "PO-Revision-Date: 2010-03-14 10:55+0000\n"
 "Last-Translator: Laurent Coudeur <laurentc@iol.ie>\n"
 "Language-Team: Français <gnomefr@traduc.org>\n"
@@ -51,8 +51,8 @@ msgid ""
 "The following tips will not assure you to win a game, they are intended as a "
 "simple aid."
 msgstr ""
-"Vous n'êtes pas sûr de réussir à finir la partie en utilisant les astuces suivantes, elles "
-"sont là uniquement pour vous aider."
+"Vous n'êtes pas sûr de réussir à finir la partie en utilisant les astuces "
+"suivantes, elles sont là uniquement pour vous aider."
 
 #: C/winning.page:30(title)
 msgid "Look for a single number"
@@ -71,8 +71,8 @@ msgid ""
 "If you have one such number, that piece is a valid starting piece, since you "
 "know where it has to be placed."
 msgstr ""
-"Si un tel nombre existe, cette pièce est une bonne pièce de départ "
-"puisque vous savez où elle doit être positionnée."
+"Si un tel nombre existe, cette pièce est une bonne pièce de départ puisque "
+"vous savez où elle doit être positionnée."
 
 #: C/winning.page:39(p)
 msgid ""
@@ -214,8 +214,8 @@ msgstr ""
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
-"Si les pièces sont trop petites, un redimensionnement de la taille de la fenêtre modifiera "
-"leur taille."
+"Si les pièces sont trop petites, un redimensionnement de la taille de la "
+"fenêtre modifiera leur taille."
 
 #: C/shortcut.page:8(desc)
 msgid "Use the keyboard to play the game."
@@ -349,8 +349,9 @@ msgid ""
 "The pieces in the left box can be moved all at once in one direction. See "
 "<link xref=\"shortcut\"/> for more information."
 msgstr ""
-"Les pièces dans la boîte de gauche peuvent être déplacées toutes ensemble dans "
-"une direction. Consultez <link xref=\"shortcut\"/> pour plus d'informations."
+"Les pièces dans la boîte de gauche peuvent être déplacées toutes ensemble "
+"dans une direction. Consultez <link xref=\"shortcut\"/> pour plus "
+"d'informations."
 
 #: C/move.page:39(title)
 msgid "Avoid the click-and-hold"
@@ -363,9 +364,9 @@ msgid ""
 "click on a piece to move it, and click again to release it in its new "
 "position."
 msgstr ""
-"Si vous n'êtes pas à l'aise avec l'action de cliquer et de maintenir appuyé pour "
-"déplacer les pièces, il est possible de changer ce comportement pour que "
-"vous n'ayez qu'à cliquer sur une pièce pour la déplacer et cliquer de "
+"Si vous n'êtes pas à l'aise avec l'action de cliquer et de maintenir appuyé "
+"pour déplacer les pièces, il est possible de changer ce comportement pour "
+"que vous n'ayez qu'à cliquer sur une pièce pour la déplacer et cliquer de "
 "nouveau pour la déposer dans sa nouvelle position."
 
 #: C/move.page:45(p)
@@ -373,9 +374,8 @@ msgid ""
 "To do that, from the main menu bar, choose <gui style=\"menu\">Move</gui>, "
 "and select <gui style=\"checkbox\">Click to Move</gui>."
 msgstr ""
-"Pour cela, dans la barre de menu, choisissez <gui style=\"menu"
-"\">Déplacer</gui> et sélectionnez <gui style=\"checkbox\">Cliquer pour "
-"déplacer</gui>."
+"Pour cela, dans la barre de menu, choisissez <gui style=\"menu\">Déplacer</"
+"gui> et sélectionnez <gui style=\"checkbox\">Cliquer pour déplacer</gui>."
 
 #: C/license.page:8(desc)
 msgid "Legal information."
@@ -390,12 +390,12 @@ msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
 msgstr ""
-"Cet ouvrage est distribué sous une licence Paternité-Partage des Conditions "
-"Initiales à l'Identique 3.0 Unported (Creative Commons)."
+"Cette œuvre est distribuée sous licence Creative Commons Paternité-Partage "
+"des Conditions Initiales à l'Identique 3.0 Unported." 
 
 #: C/license.page:20(p)
 msgid "You are free:"
-msgstr "Vous êtes libres :"
+msgstr "Vous êtes libre :"
 
 #: C/license.page:25(em)
 msgid "To share"
@@ -403,7 +403,7 @@ msgstr "de partager"
 
 #: C/license.page:26(p)
 msgid "To copy, distribute and transmit the work."
-msgstr "de reproduire, distribuer et communiquer cette création."
+msgstr "de reproduire, distribuer et communiquer cette création"
 
 #: C/license.page:29(em)
 msgid "To remix"
@@ -411,7 +411,7 @@ msgstr "de modifier"
 
 #: C/license.page:30(p)
 msgid "To adapt the work."
-msgstr "d'adapter cette création."
+msgstr "d'adapter cette création,"
 
 #: C/license.page:33(p)
 msgid "Under the following conditions:"
@@ -419,7 +419,7 @@ msgstr "selon les conditions suivantes :"
 
 #: C/license.page:38(em)
 msgid "Attribution"
-msgstr "Attribution"
+msgstr "Paternité"
 
 #: C/license.page:39(p)
 msgid ""
@@ -441,9 +441,9 @@ msgid ""
 "If you alter, transform, or build upon this work, you may distribute the "
 "resulting work only under the same, similar or a compatible license."
 msgstr ""
-"Si vous transformez ou modifiez cette œuvre pour en créer une nouvelle, vous "
-"devez la distribuer selon les termes du même contrat ou avec une licence "
-"similaire ou compatible."
+"Si vous modifiez, transformez ou adaptez cette création, vous n'avez le "
+"droit de distribuer la création qui en résulte que sous un contrat "
+"identique à celui-ci." 
 
 #: C/license.page:53(p)
 msgid ""
@@ -452,10 +452,10 @@ msgid ""
 "link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
 "sa/3.0/\">Commons Deed</link>."
 msgstr ""
-"Pour lire le texte complet de la licence, consultez le <link href=\"http://"
-"creativecommons.org/licenses/by-sa/3.0/legalcode\">site Web de CreativeCommons</"
-"link>, ou lisez <link href=\"http://creativecommons.org/licenses/by-sa/3.0/"
-"\">le contrat complet de Commons</link>."
+"Pour prendre connaissance du texte complet de la licence, consultez le "
+"<link href=\"http://creativecommons.org/licenses/by-sa/3.0/legalcode\">site Web "
+"CreativeCommons</link> ou lisez in extenso le <link href=\"http://creativecommons"
+".org/licenses/by-sa/3.0/\">contrat Commons</link>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -526,8 +526,8 @@ msgid ""
 "The system will move one piece from the right box to its correct position "
 "into the left box."
 msgstr ""
-"Le système déplace une pièce de la boîte de droite à la bonne place "
-"dans la boîte de gauche."
+"Le système déplace une pièce de la boîte de droite à la bonne place dans la "
+"boîte de gauche."
 
 #: C/hint.page:35(p)
 msgid "To use the hints system, perform one of the following:"
@@ -584,9 +584,9 @@ msgid ""
 "various pieces from one side of the board to the other side, so that the "
 "same numbers depicted on the pieces are touching each other."
 msgstr ""
-"<app>GNOME Tetravex</app> est un jeu de puzzle simple dont le but est de déplacer "
-"les diverses pièces d'un coté du plateau vers l'autre de façon à ce que les nombres "
-"identiques marqués sur les pièces se touchent."
+"<app>GNOME Tetravex</app> est un jeu de puzzle simple dont le but est de "
+"déplacer les diverses pièces d'un coté du plateau vers l'autre de façon à ce "
+"que les nombres identiques marqués sur les pièces se touchent."
 
 #: C/gameplay.page:25(p)
 msgid ""
@@ -615,5 +615,3 @@ msgstr ""
 "Bruno Brouard <annoa.b@gmail.com>, 2007,2010\n"
 "Claude Paroz <claude@2xlibre.net>, 2007-2009\n"
 "Laurent Coudeur <laurentc@iol.ie>, 2010"
-
-
