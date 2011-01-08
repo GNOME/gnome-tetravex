@@ -1466,6 +1466,17 @@ save_state_cb (EggSMClient *client,
   return TRUE;
 }
 
+static gint
+quit_cb (EggSMClient *client,
+         gpointer client_data)
+{
+  quit_game_cb ();
+
+  return FALSE;
+}
+
+#endif /* WITH_SMCLIENT */
+
 static void
 find_first_tile (gint status, gint * xx, gint * yy)
 {
@@ -1608,17 +1619,6 @@ about_cb (GtkAction * action, gpointer data)
                          NULL);
   g_free (license);
 }
-
-static gint
-quit_cb (EggSMClient *client,
-         gpointer client_data)
-{
-  quit_game_cb ();
-
-  return FALSE;
-}
-
-#endif /* WITH_SMCLIENT */
 
 static void
 size_cb (GtkAction * action, gpointer data)
