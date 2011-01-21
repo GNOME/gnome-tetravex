@@ -1117,12 +1117,10 @@ game_score (void)
 {
   gint pos = 0;
   time_t seconds;
-  GamesScoreValue score;
 
   if (!have_been_hinted) {
     seconds = games_clock_get_seconds (GAMES_CLOCK (timer));
-    score.time_double = (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100;
-    pos = games_scores_add_score (highscores, score);
+    pos = games_scores_add_time_score (highscores, (gfloat) (seconds / 60) + (gfloat) (seconds % 60) / 100);
   }
 
   if (show_score_dialog (pos, TRUE) == GTK_RESPONSE_REJECT) {
