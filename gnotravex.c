@@ -1773,7 +1773,7 @@ int
 main (int argc, char **argv)
 {
   GOptionContext *context;
-  GtkWidget *vbox;
+  GtkWidget *grid;
   GtkWidget *menubar;
   GtkUIManager *ui_manager;
   GtkAccelGroup *accel_group;
@@ -1841,6 +1841,8 @@ main (int argc, char **argv)
   create_window ();
 
   space = gtk_drawing_area_new ();
+  gtk_widget_set_hexpand (space, TRUE);
+  gtk_widget_set_vexpand (space, TRUE);
   gtk_widget_set_events (space,
                          GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK
                          | GDK_POINTER_MOTION_MASK | GDK_BUTTON_RELEASE_MASK);
@@ -1852,12 +1854,12 @@ main (int argc, char **argv)
 
   menubar = create_menu (ui_manager);
 
-  vbox = gtk_vbox_new (FALSE, 0);
-  gtk_container_add (GTK_CONTAINER (window), vbox);
+  grid = gtk_grid_new ();
+  gtk_container_add (GTK_CONTAINER (window), grid);
 
-  gtk_box_pack_start (GTK_BOX (vbox), menubar, FALSE, FALSE, 0);
-  gtk_box_pack_start (GTK_BOX (vbox), space, TRUE, TRUE, 0);
-  gtk_box_pack_start (GTK_BOX (vbox), statusbar, FALSE, FALSE, 0);
+  gtk_grid_attach (GTK_GRID (grid), menubar, 0, 0, 1, 1);
+  gtk_grid_attach (GTK_GRID (grid), space, 0, 1, 1, 1);
+  gtk_grid_attach (GTK_GRID (grid), statusbar, 0, 2, 1, 1);
 
   accel_group = gtk_ui_manager_get_accel_group (ui_manager);
   gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
