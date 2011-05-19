@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <page xmlns="http://projectmallard.org/1.0/"
-  type="guide"
-  id="usage">
+      type="guide" version="1.0 ttml/1.0"
+      id="usage">
 
   <info>
     <link type="guide" xref="index#play" group="one"/>
@@ -57,10 +58,23 @@
     <p>
       This short video shows how the game works, and what are the possible movements.
     </p>
-    <p>
-      <media type="video" mime="application/ogg" src="figures/gnotravex-video.ogv">
-      Simple demonstration of a game
-      </media>
-    </p>
+    <media type="video" mime="application/ogg" src="figures/gnotravex-video.ogv">
+      <p>Demo</p>
+      <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+        <tt:body>
+          <tt:div begin="1s" end="6s">
+            <tt:p>Drag pieces from the right to the left, making sure that
+            adjacent edjes have the same number and color.</tt:p>
+          </tt:div>
+          <tt:div begin="6s" end="14s">
+            <tt:p>Hold down <key>Ctrl</key> and press the arrow keys to move
+            all placed pieces at once.</tt:p>
+          </tt:div>
+          <tt:div begin="14s" end="22s">
+            <tt:p>Continue dragging pieces until they all fit together on the left.</tt:p>
+          </tt:div>
+        </tt:body>
+      </tt:tt>
+    </media>
   </section>
 </page>
