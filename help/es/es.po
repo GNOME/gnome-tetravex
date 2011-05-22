@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
-"POT-Creation-Date: 2010-02-22 20:25+0000\n"
+"POT-Creation-Date: 2011-05-19 23:33+0000\n"
 "PO-Revision-Date: 2010-02-22 22:17+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
@@ -17,20 +17,20 @@ msgstr ""
 msgid "Simple tips on how to possibly win a game."
 msgstr "Consejos sencillos acerca de posibilidades de cómo ganar un juego."
 
-#: C/winning.page:12(name) C/usage.page:11(name) C/size.page:10(name)
+#: C/winning.page:12(name) C/usage.page:12(name) C/size.page:10(name)
 #: C/shortcut.page:11(name) C/multiplayer.page:10(name) C/move.page:11(name)
 #: C/index.page:17(name) C/hint.page:10(name) C/gameplay.page:10(name)
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
-#: C/winning.page:13(email) C/usage.page:12(email) C/size.page:11(email)
+#: C/winning.page:13(email) C/usage.page:13(email) C/size.page:11(email)
 #: C/shortcut.page:12(email) C/multiplayer.page:11(email)
 #: C/move.page:12(email) C/index.page:18(email) C/hint.page:11(email)
 #: C/gameplay.page:11(email)
 msgid "milo@ubuntu.com"
 msgstr "milo@ubuntu.com"
 
-#: C/winning.page:16(p) C/usage.page:19(p) C/size.page:14(p)
+#: C/winning.page:16(p) C/usage.page:20(p) C/size.page:14(p)
 #: C/shortcut.page:15(p) C/multiplayer.page:14(p) C/move.page:15(p)
 #: C/index.page:21(p) C/gameplay.page:14(p)
 msgid "Creative Commons Share Alike 3.0"
@@ -96,27 +96,27 @@ msgid ""
 msgstr ""
 "@@image: 'figures/gnotravex-video.ogv'; md5=14cface4ec2b0c84aa5a925242694de0"
 
-#: C/usage.page:8(desc)
+#: C/usage.page:9(desc)
 msgid "How to play <app>GNOME Tetravex</app>."
 msgstr "Cómo jugar a <app>Tetravex</app>."
 
-#: C/usage.page:15(name) C/index.page:13(name)
+#: C/usage.page:16(name) C/index.page:13(name)
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
-#: C/usage.page:16(email) C/index.page:14(email)
+#: C/usage.page:17(email) C/index.page:14(email)
 msgid "robster@debian.org"
 msgstr "robster@debian.org"
 
-#: C/usage.page:23(title)
+#: C/usage.page:24(title)
 msgid "Play <app>GNOME Tetravex</app>"
 msgstr "Jugar a <app>Tetravex</app>"
 
-#: C/usage.page:26(title)
+#: C/usage.page:27(title)
 msgid "Basic usage"
 msgstr "Uso básico"
 
-#: C/usage.page:27(p)
+#: C/usage.page:28(p)
 msgid ""
 "The game window is divided into two boxes: the one on the right side of the "
 "window contains the pieces that needs to be arranged; the one on the left "
@@ -130,7 +130,7 @@ msgstr ""
 "moverán. Cada pieza se divide en cuatro pequeños triángulos que contienen un "
 "número."
 
-#: C/usage.page:34(p)
+#: C/usage.page:35(p)
 msgid ""
 "The scope of the game is to position the pieces so that only two identical "
 "numbers are next to each other."
@@ -138,7 +138,7 @@ msgstr ""
 "La finalidad del juego es posicionar las piezas de tal forma que sólo dos "
 "números idénticos están juntos."
 
-#: C/usage.page:38(p)
+#: C/usage.page:39(p)
 msgid ""
 "It is not possible to position the pieces so that different number are next "
 "to each other."
@@ -146,7 +146,7 @@ msgstr ""
 "No es posible posicionar las piezas de tal forma que números diferentes "
 "están juntos."
 
-#: C/usage.page:42(p)
+#: C/usage.page:43(p)
 msgid ""
 "The game is completed when you have positioned all the pieces in their right "
 "positions."
@@ -154,7 +154,7 @@ msgstr ""
 "La partida finaliza cuando ha posicionado todas las piezas en sus posiciones "
 "correctas."
 
-#: C/usage.page:47(p)
+#: C/usage.page:48(p)
 msgid ""
 "When you start <app>GNOME Tetravex</app>, the game will start immediately, "
 "and the time will start counting."
@@ -162,14 +162,11 @@ msgstr ""
 "Al iniciar <app>Tetravex</app> la partida comenzará inmediatamente y el "
 "cronómetro comenzará a contar."
 
-#: C/usage.page:56(title)
+#: C/usage.page:57(title)
 msgid "Video demonstration"
 msgstr "Videodemostración"
 
-#: C/usage.page:57(p)
-#| msgid ""
-#| "This small video shows how the game works, and what are the possible "
-#| "movements."
+#: C/usage.page:58(p)
 msgid ""
 "This short video shows how the game works, and what are the possible "
 "movements."
@@ -177,9 +174,29 @@ msgstr ""
 "Este pequeño vídeo muestra cómo funciona el juego y cuáles son los "
 "movimientos posibles."
 
-#: C/usage.page:61(media)
-msgid "Simple demonstration of a game"
-msgstr "Demostración simple de una partida"
+#: C/usage.page:62(p)
+msgid "Demo"
+msgstr "Demostración"
+
+#: C/usage.page:66(p)
+msgid ""
+"Drag pieces from the right to the left, making sure that adjacent edjes have "
+"the same number and color."
+msgstr ""
+"Arrastre piezas de la derecha a la izquierda, haciéndo que sus bordes "
+"adyacentes tengan el mismo número y color."
+
+#: C/usage.page:70(p)
+msgid ""
+"Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
+"at once."
+msgstr ""
+"Mantenga pulsada la tecla <key>Ctrl</key> y pulse las teclas de flechas para "
+"mover todas las piezas colocadas a la vez."
+
+#: C/usage.page:74(p)
+msgid "Continue dragging pieces until they all fit together on the left."
+msgstr "Continue arrastrando las piezas hasta que casen todas en la izquierda."
 
 #: C/size.page:7(desc)
 msgid "Change the size of the game board."
@@ -602,7 +619,10 @@ msgstr "Ventana principal de <app>Tetravex</app>."
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/index.page:0(None)
 msgid "translator-credits"
-msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2007-2010."
+msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2007-2011"
+
+#~ msgid "Simple demonstration of a game"
+#~ msgstr "Demostración simple de una partida"
 
 #~ msgid "@@image: 'figures/tetravex.ogv'; md5=THIS FILE DOESN'T EXIST"
 #~ msgstr "@@image: 'figures/tetravex.ogv'; md5=THIS FILE DOESN'T EXIST"
