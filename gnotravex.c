@@ -28,11 +28,11 @@
 #include <gtk/gtk.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <libgames-support/games-clock.h>
-#include <libgames-support/games-conf.h>
 #include <libgames-support/games-help.h>
 #include <libgames-support/games-scores.h>
 #include <libgames-support/games-scores-dialog.h>
 #include <libgames-support/games-runtime.h>
+#include <libgames-support/games-settings.h>
 #include <libgames-support/games-stock.h>
 #include <libgames-support/games-pause-action.h>
 #include <libgames-support/games-fullscreen-action.h>
@@ -54,8 +54,8 @@
 #define SHORT_COUNT 5
 #define DELAY 10
 
-#define KEY_GRID_SIZE     "grid_size"
-#define KEY_CLICK_MOVE    "click_to_move"
+#define KEY_GRID_SIZE     "grid-size"
+#define KEY_CLICK_MOVE    "click-to-move"
 
 #define DEFAULT_WIDTH 320
 #define DEFAULT_HEIGHT 240
@@ -95,6 +95,7 @@ typedef enum
   PLAYING,
 } GameState;
 
+static GSettings *settings;
 static GtkWidget *window = NULL;
 static GtkWidget *statusbar = NULL;
 static GtkWidget *space = NULL;
@@ -998,7 +999,7 @@ create_window (void)
   gtk_window_set_title (GTK_WINDOW (window), _(APPNAME_LONG));
 
   gtk_window_set_default_size (GTK_WINDOW (window), DEFAULT_WIDTH, DEFAULT_HEIGHT);
-  games_conf_add_window (GTK_WINDOW (window), NULL);
+  games_settings_bind_window_state ("/org/gnome/gnotravex/", GTK_WINDOW (window));
   gtk_window_set_resizable (GTK_WINDOW (window), TRUE);
 
   gtk_widget_realize (window);
@@ -1636,7 +1637,7 @@ size_cb (GtkAction * action, gpointer data)
   size = newsize;
   update_tile_size (width, height);
   games_scores_set_category (highscores, scorecats[size - 2].key);
-  games_conf_set_integer (NULL, KEY_GRID_SIZE, size);
+  g_settings_set_int (settings, KEY_GRID_SIZE, size);
   gtk_action_activate (new_game_action);
 }
 
@@ -1644,7 +1645,7 @@ static void
 clickmove_toggle_cb(GtkToggleAction * togglebutton, gpointer data)
 {
   click_to_move = gtk_toggle_action_get_active (togglebutton);
-  games_conf_set_boolean (NULL, KEY_CLICK_MOVE, click_to_move);
+  g_settings_set_boolean (settings, KEY_CLICK_MOVE, click_to_move);
 }
 
 static void
@@ -1809,7 +1810,7 @@ main (int argc, char **argv)
 
   g_set_application_name (_(APPNAME_LONG));
 
-  games_conf_initialise (APPNAME);
+  settings = g_settings_new ("org.gnome.gnotravex");
 
   highscores = games_scores_new ("gnotravex",
                                  scorecats, G_N_ELEMENTS (scorecats),
@@ -1830,12 +1831,12 @@ main (int argc, char **argv)
 #endif /* WITH_SMCLIENT */
 
   if (size == -1)
-    size = games_conf_get_integer (NULL, KEY_GRID_SIZE, NULL);
+    size = g_settings_get_int (settings, KEY_GRID_SIZE);
   if (size < 2 || size > 6)
     size = 3;
   games_scores_set_category (highscores, scorecats[size - 2].key);
 
-  click_to_move = games_conf_get_boolean (NULL, KEY_CLICK_MOVE, NULL);
+  click_to_move = g_settings_get_boolean (settings, KEY_CLICK_MOVE);
 
   load_background ();
   create_window ();
@@ -1893,7 +1894,7 @@ main (int argc, char **argv)
 
   gtk_main ();
 
-  games_conf_shutdown ();
+  g_settings_sync();
 
   games_runtime_shutdown ();
 

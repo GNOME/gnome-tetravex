@@ -46,33 +46,21 @@ desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-schema_in_files = gnotravex.schemas.in
-if HAVE_GNOME
-schemadir = $(GCONF_SCHEMA_FILE_DIR)
-schema_DATA = $(schema_in_files:.schemas.in=.schemas)
-endif
-
-@INTLTOOL_SCHEMAS_RULE@
+gsettings_in_file = org.gnome.gnotravex.gschema.xml.in
+gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
+@INTLTOOL_XML_NOMERGE_RULE@
+@GSETTINGS_RULES@
 
 man_MANS = gnotravex.6
 
 EXTRA_DIST = \
 	README \
-	$(schema_in_files) \
+	$(gsettings_in_file) \
 	$(man_MANS) \
 	$(NULL)
 
-CLEANFILES = $(desktop_DATA) $(schema_DATA)
-DISTCLEANFILES = $(desktop_DATA) $(schema_DATA)
-
-install-schemas-local: $(schema_DATA)
-if GCONF_SCHEMAS_INSTALL
-	if test -z "$(DESTDIR)" ; then \
-		for p in $^ ; do \
-			GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $$p 2>&1 > /dev/null; \
-		done \
-	fi
-endif
+CLEANFILES = $(desktop_DATA) $(gsettings_SCHEMAS)
+DISTCLEANFILES = $(desktop_DATA) $(gsettings_SCHEMAS)
 
 SCOREFILES = 2 3 4 5 6
 
@@ -89,6 +77,6 @@ install-exec-hook:
 	  chgrp $(scores_group) $(DESTDIR)$(bindir)/gnotravex && chmod 2555 $(DESTDIR)$(bindir)/gnotravex ;\
 	fi
 
-install-data-local: install-schemas-local install-scorefiles-local
+install-data-local: install-scorefiles-local
 
 -include $(top_srcdir)/git.mk
