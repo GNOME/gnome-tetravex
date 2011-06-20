@@ -1398,7 +1398,7 @@ create_statusbar (void)
 {
   GtkWidget *status_bar, *time_label, *time_box;
 
-  time_box = gtk_hbox_new (FALSE, 0);
+  time_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
   time_label = gtk_label_new (_("Time:"));
   gtk_box_pack_start (GTK_BOX (time_box), time_label, FALSE, FALSE, 0);
   time_label = gtk_label_new (" ");
