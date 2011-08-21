@@ -1,442 +1,624 @@
 # Traducció de la documentació del blackjack de l'equip de Softcatalà.
 # Copyright © 2007, 2008 Free Software Foundation, Inc.
 # Joan Duran <jodufi@gmail.com>, 2007, 2008.
+# Carles Ferrando Garcia <carles.ferrando@gmail.com>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex\n"
-"POT-Creation-Date: 2008-01-03 18:50+0000\n"
-"PO-Revision-Date: 2008-08-03 18:23+0100\n"
-"Last-Translator: Joan Duran <jodufi@gmail.com>\n"
+"POT-Creation-Date: 2011-08-11 03:40+0000\n"
+"PO-Revision-Date: 2011-08-21 17:29+0200\n"
+"Last-Translator: Carles Ferrando Garcia <carles.ferrando@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: C/winning.page:9(desc)
+msgid "Simple tips on how to possibly win a game."
+msgstr "Consells senzills de com podeu guanyar el joc."
+
+#: C/winning.page:12(name) C/usage.page:12(name) C/size.page:10(name)
+#: C/shortcut.page:11(name) C/multiplayer.page:10(name) C/move.page:11(name)
+#: C/index.page:17(name) C/hint.page:10(name) C/gameplay.page:10(name)
+msgid "Milo Casagrande"
+msgstr "Milo Casagrande"
+
+#: C/winning.page:13(email) C/usage.page:13(email) C/size.page:11(email)
+#: C/shortcut.page:12(email) C/multiplayer.page:11(email)
+#: C/move.page:12(email) C/index.page:18(email) C/hint.page:11(email)
+#: C/gameplay.page:11(email)
+msgid "milo@ubuntu.com"
+msgstr "milo@ubuntu.com"
+
+#: C/winning.page:16(p) C/usage.page:20(p) C/size.page:14(p)
+#: C/shortcut.page:15(p) C/multiplayer.page:14(p) C/move.page:15(p)
+#: C/index.page:21(p) C/gameplay.page:14(p)
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons compartir igual 3.0"
+
+#: C/winning.page:20(title)
+msgid "Win <app>GNOME Tetravex</app>"
+msgstr "Guanyeu al <app>GNOME Tetravex</app>"
+
+#: C/winning.page:23(p)
+msgid ""
+"The following tips will not assure you to win a game, they are intended as a "
+"simple aid."
+msgstr ""
+"Els consells següents no us asseguraran la victòria, són una simple ajuda."
+
+#: C/winning.page:30(title)
+msgid "Look for a single number"
+msgstr "Cerqueu un nombre únic"
+
+#: C/winning.page:31(p)
+msgid ""
+"When you start a new game, look for a single number, or a number that has no "
+"similar numbers that can be placed next to it."
+msgstr ""
+"Quan comenceu un joc nou, cerqueu un nombre únic, o un nombre que no tingui "
+"números similars que es puguin col·locar al seu costat."
+
+#: C/winning.page:35(p)
+msgid ""
+"If you have one such number, that piece is a valid starting piece, since you "
+"know where it has to be placed."
+msgstr ""
+"Si el trobeu, la fitxa on està és un bon començament, ja que sabeu on es pot "
+"col·locar."
+
+#: C/winning.page:39(p)
+msgid ""
+"Note that the bigger the size of the board, the harder is to find such a "
+"number."
+msgstr ""
+"Tingueu en compte que com més gran sigui el tauler, més complicat serà "
+"trobar un nombre."
+
+#: C/winning.page:46(title)
+msgid "Have a tip to share?"
+msgstr "Teniu un consell per compartir?"
+
+#: C/winning.page:47(p)
+msgid ""
+"If you have a tip to share about <app>GNOME Tetravex</app>, or any other "
+"GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
+msgstr ""
+"Si teniu un consell per compartir sobre el <app>GNOME Tetravex</app>, o "
+"qualsevol altre joc del GNOME, escriviu-nos a gnome-doc-list@gnome.org i "
+"l'afegirem aquí."
+
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnotravex.xml:170(None)
+#: C/usage.page:61(None)
 msgid ""
-"@@image: 'figures/gnotravex_mainwindow.png'; "
-"md5=e49d762a2dd5d6ba466e0c7cef7703ce"
+"@@image: 'figures/gnotravex-video.ogv'; md5=14cface4ec2b0c84aa5a925242694de0"
 msgstr ""
-"@@image: 'figures/gnotravex_mainwindow.png'; "
-"md5=e49d762a2dd5d6ba466e0c7cef7703ce"
+"@@image: 'figures/gnotravex-video.ogv'; md5=14cface4ec2b0c84aa5a925242694de0"
 
-#. When image changes, this message will be marked fuzzy or untranslated for you.
-#. It doesn't matter what you translate it to: it's not used at all.
-#: C/gnotravex.xml:193(None)
-msgid ""
-"@@image: 'figures/gnotravex_game.png'; md5=4d0a4512ee72329134fa0f5a1a3205e9"
-msgstr ""
-"@@image: 'figures/gnotravex_game.png'; md5=4d0a4512ee72329134fa0f5a1a3205e9"
+#: C/usage.page:9(desc)
+msgid "How to play <app>GNOME Tetravex</app>."
+msgstr "Com jugar al <app>GNOME Tetravex</app>."
 
-#: C/gnotravex.xml:25(title)
-msgid "<application>Tetravex</application> Manual"
-msgstr "Manual del <application>Tetravex</application>"
-
-#: C/gnotravex.xml:28(para)
-msgid ""
-"Tetravex is a simple puzzle game in which pieces have numbers on each side. "
-"The pieces must be positioned so that the same numbers touch each other, "
-"during which you are being timed. The times are then stored in a system-wide "
-"scoreboard."
-msgstr ""
-"El Tetravex és un trencaclosques senzill on les fitxes tenen números a cada "
-"cara. Les fitxes s'han de situar de manera que els números iguals es toquin "
-"els uns amb els altres, la partida és cronometrada. El temps obtingut es "
-"desa en una taula de puntuacions de tot el sistema."
-
-#: C/gnotravex.xml:37(year)
-msgid "2001"
-msgstr "2001"
-
-#: C/gnotravex.xml:38(holder)
+#: C/usage.page:16(name) C/index.page:13(name)
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
-#: C/gnotravex.xml:52(publishername) C/gnotravex.xml:90(para)
-msgid "GNOME Documentation Project"
-msgstr "Projecte de documentació del GNOME"
-
-#: C/gnotravex.xml:2(para)
-msgid ""
-"Permission is granted to copy, distribute and/or modify this document under "
-"the terms of the GNU Free Documentation License (GFDL), Version 1.1 or any "
-"later version published by the Free Software Foundation with no Invariant "
-"Sections, no Front-Cover Texts, and no Back-Cover Texts. You can find a copy "
-"of the GFDL at this <ulink type=\"help\" url=\"ghelp:fdl\">link</ulink> or "
-"in the file COPYING-DOCS distributed with this manual."
-msgstr ""
-"Teniu permís per a copiar, distribuir i/o modificar aquest document, sota "
-"els termes de la Llicència de documentació lliure GNU (GFDL), versió 1.1 o "
-"qualsevol versió publicada posteriorment per la Free Software Foundation, "
-"sense seccions invariants, sense texts de portada i sense texts de "
-"contraportada. Podeu trobar una còpia de la GFDL en aquest <ulink type=\"help"
-"\" url=\"ghelp:fdl\">enllaç</ulink> o en el fitxer COPYING-DOCS distribuït "
-"amb aquest manual."
-
-#: C/gnotravex.xml:12(para)
-msgid ""
-"This manual is part of a collection of GNOME manuals distributed under the "
-"GFDL. If you want to distribute this manual separately from the collection, "
-"you can do so by adding a copy of the license to the manual, as described in "
-"section 6 of the license."
-msgstr ""
-"Aquest manual forma part d'una col·lecció de manuals del GNOME distribuïts "
-"sota la GFDL. Si voleu distribuir aquest manual independentment de la "
-"col·lecció, podeu fer-ho afegint una còpia de la llicència al manual, tal "
-"com es descriu a la secció 6 de la llicència."
-
-#: C/gnotravex.xml:19(para)
-msgid ""
-"Many of the names used by companies to distinguish their products and "
-"services are claimed as trademarks. Where those names appear in any GNOME "
-"documentation, and the members of the GNOME Documentation Project are made "
-"aware of those trademarks, then the names are in capital letters or initial "
-"capital letters."
-msgstr ""
-"Molts dels noms que les empreses utilitzen per a distingir els seus "
-"productes i serveis es consideren marques comercials. Quan aquests noms "
-"apareguin en qualsevol documentació del GNOME, si els membres del Projecte "
-"de documentació del GNOME han estat avisats pel que fa a les marques, els "
-"noms apareixeran en majúscules o amb les inicials en majúscules."
-
-#: C/gnotravex.xml:35(para)
-msgid ""
-"DOCUMENT IS PROVIDED ON AN \"AS IS\" BASIS, WITHOUT WARRANTY OF ANY KIND, "
-"EITHER EXPRESSED OR IMPLIED, INCLUDING, WITHOUT LIMITATION, WARRANTIES THAT "
-"THE DOCUMENT OR MODIFIED VERSION OF THE DOCUMENT IS FREE OF DEFECTS "
-"MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE "
-"RISK AS TO THE QUALITY, ACCURACY, AND PERFORMANCE OF THE DOCUMENT OR "
-"MODIFIED VERSION OF THE DOCUMENT IS WITH YOU. SHOULD ANY DOCUMENT OR "
-"MODIFIED VERSION PROVE DEFECTIVE IN ANY RESPECT, YOU (NOT THE INITIAL "
-"WRITER, AUTHOR OR ANY CONTRIBUTOR) ASSUME THE COST OF ANY NECESSARY "
-"SERVICING, REPAIR OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN "
-"ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY DOCUMENT OR MODIFIED VERSION "
-"OF THE DOCUMENT IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER; AND"
-msgstr ""
-"EL DOCUMENT S'OFEREIX «TAL COM ÉS», SENSE CAP TIPUS DE GARANTIA, NI "
-"EXPLÍCITA NI IMPLÍCITA; AIXÒ INCLOU, SENSE LIMITAR-S'HI, LES GARANTIES QUE "
-"EL DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT NO TINGUI DEFECTES, SIGUI "
-"COMERCIALITZABLE, SIGUI ADEQUAT PER A UN ÚS CONCRET O NO INFRINGEIXI CAP "
-"LLEI. TOT EL RISC PEL QUE FA A LA QUALITAT, EXACTITUD I RENDIMENT DEL "
-"DOCUMENT O LA VERSIÓ MODIFICADA DEL DOCUMENT ÉS VOSTRE. EN CAS QUE EL "
-"DOCUMENT RESULTÉS DEFECTUÓS EN QUALSEVOL ASPECTE, VÓS (NO PAS L'ESCRIPTOR "
-"INICIAL, L'AUTOR O CAP ALTRE COL·LABORADOR) ASSUMIU TOT EL COST DE "
-"MANTENIMENT, REPARACIÓ O CORRECCIÓ. AQUESTA RENÚNCIA DE GARANTIA CONSTITUEIX "
-"UNA PART ESSENCIAL D'AQUESTA LLICÈNCIA. NO S'AUTORITZA L'ÚS DE CAP DOCUMENT "
-"O VERSIÓ MODIFICADA DEL DOCUMENT EXCEPTE SOTA AQUESTA RENÚNCIA DE GARANTIA; "
-"I "
-
-#: C/gnotravex.xml:55(para)
-msgid ""
-"UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY, WHETHER IN TORT (INCLUDING "
-"NEGLIGENCE), CONTRACT, OR OTHERWISE, SHALL THE AUTHOR, INITIAL WRITER, ANY "
-"CONTRIBUTOR, OR ANY DISTRIBUTOR OF THE DOCUMENT OR MODIFIED VERSION OF THE "
-"DOCUMENT, OR ANY SUPPLIER OF ANY OF SUCH PARTIES, BE LIABLE TO ANY PERSON "
-"FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF "
-"ANY CHARACTER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF GOODWILL, "
-"WORK STOPPAGE, COMPUTER FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER DAMAGES "
-"OR LOSSES ARISING OUT OF OR RELATING TO USE OF THE DOCUMENT AND MODIFIED "
-"VERSIONS OF THE DOCUMENT, EVEN IF SUCH PARTY SHALL HAVE BEEN INFORMED OF THE "
-"POSSIBILITY OF SUCH DAMAGES."
-msgstr ""
-"EN CAP CAS I SOTA CAP INTERPRETACIÓ LEGAL, JA SIGUI PER AGREUJAMENT "
-"(INCLOENT-HI LA NEGLIGÈNCIA), CONTRACTE O ALTRE CAS, L'AUTOR, L'ESCRIPTOR "
-"ORIGINAL, QUALSEVOL DELS COL·LABORADORS O DISTRIBUÏDORS DEL DOCUMENT O UNA "
-"VERSIÓ MODIFICADA DEL DOCUMENT NI CAP PROVEÏDOR D'AQUESTES PARTS NO SERAN "
-"RESPONSABLES DAVANT DE NINGÚ PER CAP DANY DIRECTE, INDIRECTE, ESPECIAL, "
-"ACCIDENTAL O CONSECUTIU DE QUALSEVOL TIPUS; AIXÒ INCLOU, SENSE LIMITAR-S'HI, "
-"ELS DANYS PER PÈRDUA DE CLIENTS, INTERRUPCIONS DE LA FEINA, FALLADA O "
-"MALFUNCIONAMENT DE L'ORDINADOR, O QUALSEVOL ALTRA PÈRDUA O DANY RELACIONAT "
-"AMB L'ÚS DEL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT, FINS I TOT SI "
-"S'HA INFORMAT AQUESTA PART DE LA POSSIBILITAT D'AQUESTS DANYS."
-
-#: C/gnotravex.xml:28(para)
-msgid ""
-"DOCUMENT AND MODIFIED VERSIONS OF THE DOCUMENT ARE PROVIDED UNDER THE TERMS "
-"OF THE GNU FREE DOCUMENTATION LICENSE WITH THE FURTHER UNDERSTANDING THAT: "
-"<placeholder-1/>"
-msgstr ""
-"EL DOCUMENT I LES VERSIONS MODIFICADES DEL DOCUMENT S'OFEREIXEN SOTA ELS "
-"TERMES DE LA LLICÈNCIA DE DOCUMENTACIÓ LLIURE DE GNU, TENINT EN COMPTE QUE: "
-"<placeholder-1/>"
-
-#: C/gnotravex.xml:62(firstname)
-msgid "Rob"
-msgstr "Rob"
-
-#: C/gnotravex.xml:63(surname)
-msgid "Bradford"
-msgstr "Bradford"
-
-#: C/gnotravex.xml:65(email)
+#: C/usage.page:17(email) C/index.page:14(email)
 msgid "robster@debian.org"
 msgstr "robster@debian.org"
 
-#: C/gnotravex.xml:84(revnumber)
-msgid "Tetravex Manual V2.10"
-msgstr "Manual del Tetravex (versió 2.10)"
+#: C/usage.page:24(title)
+msgid "Play <app>GNOME Tetravex</app>"
+msgstr "Jugueu al <app>GNOME Tetravex</app>"
 
-#: C/gnotravex.xml:85(date)
-msgid "June 2005"
-msgstr "Juny de 2005"
-
-#: C/gnotravex.xml:87(para)
-msgid "Rob Bradford <email>rob@funky-penguin.co.uk</email>"
-msgstr "Rob Bradford <email>rob@funky-penguin.co.uk</email>"
-
-#: C/gnotravex.xml:95(releaseinfo)
-msgid "This manual describes version 2.12 of Tetravex."
-msgstr "Aquest manual descriu la versió 2.12 del Tetravex."
-
-#: C/gnotravex.xml:102(title)
-msgid "Feedback"
-msgstr "Comentaris"
-
-#: C/gnotravex.xml:103(para)
-msgid ""
-"To report a bug or make a suggestion regarding the <application>Tetravex</"
-"application> application or this manual, follow the directions in the <ulink "
-"url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">GNOME Feedback Page</ulink>."
-msgstr ""
-"Per a informar d'un error o fer algun suggeriment sobre el "
-"<application>Tetravex</application> o aquest manual, seguiu les indicacions "
-"a la <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">pàgina de comentaris "
-"del GNOME</ulink>."
-
-#: C/gnotravex.xml:113(primary)
-msgid "GNOME Tetravex"
-msgstr "Tetravex"
-
-#: C/gnotravex.xml:119(title)
-msgid "Introduction"
-msgstr "Introducció"
-
-#: C/gnotravex.xml:121(para)
-msgid ""
-"<application>GNOME Tetravex</application> is a simple puzzle where pieces "
-"must be positioned so that the same numbers are touching each other. Your "
-"game is timed, these times are stored in a system-wide scoreboard."
-msgstr ""
-"El <application>Tetravex</application> és un trencaclosques senzill on s'han "
-"de situar les fitxes de manera que els mateixos números es toquin els uns "
-"amb els altres. La partida és cronometrada, el temps obtinguts es desen en "
-"la pantalla de puntuacions."
-
-#: C/gnotravex.xml:127(para)
-msgid ""
-"To run <application>GNOME Tetravex</application>, select "
-"<menuchoice><guisubmenu>Games</guisubmenu><guimenuitem>Gnotravex</"
-"guimenuitem></menuchoice> from the <guimenu>Main Menu</guimenu>, or type "
-"<command>gnotravex</command> on the command line."
-msgstr ""
-"Per a executar el <application>Tetravex</application>, seleccioneu "
-"<menuchoice><guimenu>Jocs</guimenu><guimenuitem>Tetravex</guimenuitem></"
-"menuchoice> en el <guimenu>Menú principal</guimenu> o introduïu "
-"<command>gnotravex</command> en la línia d'ordres."
-
-#: C/gnotravex.xml:137(para)
-msgid ""
-"<application>GNOME Tetravex</application> is included in the <filename>gnome-"
-"games</filename> package, which is part of the GNOME desktop environment. "
-"This document describes version 2.10 of <application>GNOME Tetravex</"
-"application>."
-msgstr ""
-"El <application>Tetravex</application> està inclòs en el paquet "
-"<filename>gnome-games</filename>, el qual és part de l'entorn d'escriptori "
-"GNOME. Aquest document descriu la versió 2.10 del <application>Tetravex</"
-"application>."
-
-#: C/gnotravex.xml:146(title)
-msgid "Playing GNOME Tetravex"
-msgstr "Jugar al Tetravex"
-
-#: C/gnotravex.xml:148(para)
-msgid ""
-"<application>GNOME Tetravex</application> is a simple puzzle game, this "
-"section covers how to play the game."
-msgstr ""
-"El <application>Tetravex</application> és un joc de trencaclosques senzill, "
-"aquesta secció descriu com jugar al joc."
-
-#: C/gnotravex.xml:154(title)
+#: C/usage.page:27(title)
 msgid "Basic usage"
 msgstr "Utilització bàsica"
 
-#: C/gnotravex.xml:156(title)
-msgid "Playing the game"
-msgstr "Jugar una partida"
-
-#: C/gnotravex.xml:157(para)
+#: C/usage.page:28(p)
 msgid ""
-"Starting <application>GNOME Tetravex</application> opens the <interface>Main "
-"window</interface>, shown in <xref linkend=\"mainwindow-fig\"/>. The window "
-"is divided into two boxes. The right hand side contains a box containing the "
-"pieces you have yet to place and the left hand box is where you arrange the "
-"pieces."
+"The game window is divided into two boxes: the one on the right side of the "
+"window contains the pieces that needs to be arranged; the one on the left "
+"side of the window is where the pieces from the right box will be arranged "
+"and moved. Each piece is divided into four little triangles containing a "
+"number."
 msgstr ""
-"En iniciar el <application>Tetravex</application> s'obrirà la "
-"<interface>finestra principal</interface>, com es mostra a <xref linkend="
-"\"mainwindow-fig\"/>. La finestra està dividida en dos caixes. La caixa de "
-"la dreta conté les fitxes que encara heu d'ubicar, i la caixa de l'esquerra "
-"és on ordeneu les fitxes."
+"La finestra de joc està dividida en dues caixes: la de la part dreta de la "
+"finestra conté les fitxes que cal ordenar, la del costat esquerre és on "
+"s'han d'ordenar i moure les fitxes del costat dret. Cada fitxa està dividida "
+"en quatre triangles que contenen un nombre."
 
-#: C/gnotravex.xml:166(title)
-msgid "GNOME Tetravex Main Window"
-msgstr "Finestra principal del Tetravex"
-
-#: C/gnotravex.xml:173(phrase)
-msgid "GNOME Tetravex Main Window."
-msgstr "Finestra principal del Tetravex."
-
-#: C/gnotravex.xml:179(para)
+#: C/usage.page:35(p)
 msgid ""
-"You can start playing the game immediately. You may restart the game by "
-"selecting <menuchoice><guisubmenu>File</guisubmenu><guimenuitem>New game</"
-"guimenuitem></menuchoice><xref linkend=\"playing-fig\"/>"
+"The scope of the game is to position the pieces so that only two identical "
+"numbers are next to each other."
 msgstr ""
-"Podeu començar a jugar la partida immediatament. Podeu reiniciar la partida "
-"si seleccioneu <menuchoice><guisubmenu>Partida</"
-"guisubmenu><guimenuitem>Nova</guimenuitem></menuchoice><xref linkend="
-"\"playing-fig\"/>"
+"L'objectiu del joc és posar les fitxes de forma que sols dos nombres "
+"idèntics estiguin tocant-se."
 
-#: C/gnotravex.xml:189(title)
-msgid "A GNOME Tetravex Game"
-msgstr "Una partida del Tetravex"
-
-#: C/gnotravex.xml:196(phrase)
-msgid "A GNOME Tetravex Game."
-msgstr "Una partida del Tetravex."
-
-#: C/gnotravex.xml:201(para)
+#: C/usage.page:39(p)
 msgid ""
-"The tiles are divided into four, you must position them so that only two "
-"numbers that are the same are next to each other. The game wil not let you "
-"position the tiles so that different numbers are next to each other. You "
-"position the pieces by dragging them from their current position either in "
-"the right hand box or the main box to their new position. These moves are "
-"not permanent and can be readily reversed. You may also move all the pieces "
-"in the left hand box at once by using the commands: "
-"<menuchoice><guisubmenu>Move</guisubmenu><guimenuitem>Left/Right/Up/Down</"
-"guimenuitem></menuchoice>"
-msgstr ""
-"Les fitxes estan dividides en quatre, heu de situar-les de manera que només "
-"dos números iguals estiguin junts. El joc no us permetrà situar juntes les "
-"peces que tenen números diferents. Podeu situar les fitxes arrossegant-les "
-"des de la posició actual, en la caixa de la dreta o en la caixa principal, a "
-"la posició nova. Aquests moviments no són permanents i poden desfer-se. "
-"També podeu moure de cop totes les peces en la caixa esquerra utilitzant les "
-"ordres: <menuchoice><guisubmenu>Mou</guisubmenu><guimenuitem>Esquerra/Dreta/"
-"Amunt/Avall</guimenuitem></menuchoice>"
+"It is not possible to position the pieces so that different number are next "
+"to each other."
+msgstr "No és poden posar les fitxes de forma que nombres diferents es toquin."
 
-#: C/gnotravex.xml:216(title)
-msgid "Winning the game"
-msgstr "Guanyar la partida"
-
-#: C/gnotravex.xml:217(para)
+#: C/usage.page:43(p)
 msgid ""
-"The game is completed when you have positioned all the squares in the right "
-"positions. When you have completed the game you are shown your ranking in "
-"the high scores table, if you get a high enough score. If you have used "
-"either Hint or Solve your score will not be included in the high scores "
-"table."
+"The game is completed when you have positioned all the pieces in their right "
+"positions."
 msgstr ""
-"La partida s'acaba quan heu situat totes les fitxes en les posicions "
-"correctes. Quan acabeu la partida es mostrarà la vostra posició en la taula "
-"de puntuacions, si aconseguiu suficient puntuació. La puntuació no "
-"s'inclourà en la taula de puntuacions si heu utilitzat Pista o Resol."
+"El joc es completa quan col·loqueu totes les fitxes a les respectives "
+"posicions."
 
-#: C/gnotravex.xml:230(title)
-msgid "Customization"
-msgstr "Personalització"
-
-#: C/gnotravex.xml:231(para)
+#: C/usage.page:48(p)
 msgid ""
-"Under the <guimenuitem>Settings</guimenuitem> menu you can change the size "
-"of the grid from two by two up to six by six. The default is three by three."
+"When you start <app>GNOME Tetravex</app>, the game will start immediately, "
+"and the time will start counting."
 msgstr ""
-"En el menú <guimenuitem>Paràmetres</guimenuitem> podeu canviar la mida de la "
-"graella de dos per dos fins a sis per sis. Per defecte és tres per tres."
+"Quan inicieu el <app>GNOME Tetravex</app>, el joc començarà de seguida i el "
+"temps començarà a comptar."
 
-#: C/gnotravex.xml:235(para)
+#: C/usage.page:57(title)
+msgid "Video demonstration"
+msgstr "Vídeo de demostració"
+
+#: C/usage.page:58(p)
 msgid ""
-"If the tiles are too small, resizing the window will change the size of the "
-"tiles."
+"This short video shows how the game works, and what are the possible "
+"movements."
 msgstr ""
-"Si les fitxes són massa petites, en canviar la mida de la finestra canviarà "
-"la mida de les fitxes."
+"Aquest vídeo curt us mostra com funciona el joc, i quins són els possibles "
+"moviments."
 
-#: C/gnotravex.xml:256(title)
-msgid "Authors"
-msgstr "Autors"
+#: C/usage.page:62(p)
+msgid "Demo"
+msgstr "Demostració"
 
-#: C/gnotravex.xml:257(para)
+#: C/usage.page:66(p)
 msgid ""
-"<application>GNOME Tetravex</application> was written by Lars Rydlinge "
-"(<email>lars.rydlinge@hig.se</email>). This manual was written by Rob "
-"Bradford (<email>rob@funky-penguin.co.uk</email>). To report a bug or make a "
-"suggestion regarding this application or this manual, follow the directions "
-"in this <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help\">document</ulink>."
+"Drag pieces from the right to the left, making sure that adjacent edjes have "
+"the same number and color."
 msgstr ""
-"En Lars Rydlinge (<email>lars.rydlinge@hig.se</email>) ha escrit el "
-"<application>Tetravex</application>. En Rob Bradford (<email>rob@funky-"
-"penguin.co.uk</email>) ha escrit aquest manual. Per a informar d'un error o "
-"fer algun suggeriment d'aquesta aplicació o aquest manual, seguiu les "
-"indicacions d'aquest <ulink url=\"ghelp:user-guide?feedback-bugs\" type=\"help"
-"\">document</ulink>."
+"Arrossegeu les peces de la dreta a l'esquerra assegurant-vos que els costats "
+"adjacents tenen el mateix color i número."
 
-#: C/gnotravex.xml:277(title)
+#: C/usage.page:70(p)
+msgid ""
+"Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
+"at once."
+msgstr ""
+"Mantingueu premuda la tecla <key>Ctrl</key> i premeu les tecles de cursor per "
+"moure totes peces ja disposades conjuntament."
+
+#: C/usage.page:74(p)
+msgid "Continue dragging pieces until they all fit together on the left."
+msgstr ""
+"Continueu arrossegant les peces fins que totes encaixin correctament a l'esquerra."
+
+#: C/size.page:7(desc)
+msgid "Change the size of the game board."
+msgstr "Canvieu la mida del tauler de joc."
+
+#: C/size.page:17(title)
+msgid "Game board size"
+msgstr "Mida del tauler de joc"
+
+#: C/size.page:19(p)
+msgid ""
+"To change the size of the game board, in order to increase or decrease the "
+"complexity of the game, choose <gui>Size</gui> from the main menu bar, and "
+"then select the dimension of the board."
+msgstr ""
+"Per canviar la mida del tauler de joc, per augmentar-ne o disminuir-ne la "
+"complexitat, escolliu <gui>Mida</gui> al menú principal i seleccioneu la "
+"dimensió del tauler."
+
+#: C/size.page:24(p)
+msgid ""
+"You can select from five different dimension, from 2×2 to 6×6. The default "
+"one is 3×3."
+msgstr ""
+"Podeu seleccionar cinc dimensions diferents: des de 2x2 fins a 6x6. La mida "
+"per defecte és de 3x3."
+
+#: C/size.page:28(p)
+msgid ""
+"If the pieces are too small, resizing the window will change their size."
+msgstr ""
+"Si les fitxes són massa petites, canvieu la mida de la finestra i així també "
+"canviarà la mida de les fitxes."
+
+#: C/shortcut.page:8(desc)
+msgid "Use the keyboard to play the game."
+msgstr "Utilitzeu el teclat per jugar al joc."
+
+#: C/shortcut.page:19(title)
+msgid "Keyboard shortcuts"
+msgstr "Dreceres de teclat"
+
+#: C/shortcut.page:22(title)
+msgid "Game shortcuts"
+msgstr "Dreceres del joc"
+
+#: C/shortcut.page:23(p)
+msgid ""
+"The following table groups the most useful shortcuts for playing <app>GNOME "
+"Tetravex</app>."
+msgstr ""
+"La taula següent agrupa la majoria de dreceres útils per jugar al <app>GNOME "
+"Tetravex</app>."
+
+#: C/shortcut.page:28(p)
+msgid "Shortcut"
+msgstr "Drecera"
+
+#: C/shortcut.page:28(p)
+msgid "Description"
+msgstr "Descripció"
+
+#: C/shortcut.page:32(key) C/shortcut.page:49(key) C/shortcut.page:58(key)
+#: C/shortcut.page:66(key) C/shortcut.page:74(key)
+msgid "Ctrl"
+msgstr "Ctrl"
+
+#: C/shortcut.page:32(key)
+msgid "N"
+msgstr "N"
+
+#: C/shortcut.page:35(p)
+msgid "Start a new game."
+msgstr "Comenceu una partida nova."
+
+#: C/shortcut.page:40(key)
+msgid "Pause"
+msgstr "Pausa"
+
+#: C/shortcut.page:43(p)
+msgid "Pause or resume the game."
+msgstr "Feu una pausa o continueu el joc."
+
+#: C/shortcut.page:49(key)
+msgid "Up"
+msgstr "Amunt"
+
+#: C/shortcut.page:53(p)
+msgid "Move all the pieces in the left box up by one."
+msgstr "Moveu totes les fitxes a la caixa esquerra una posició cap amunt."
+
+#: C/shortcut.page:58(key)
+msgid "Down"
+msgstr "Avall"
+
+#: C/shortcut.page:61(p)
+msgid "Move all the pieces in the left box down by one."
+msgstr "Moveu totes les fitxes a la caixa esquerra una posició cap avall."
+
+#: C/shortcut.page:66(key)
+msgid "Left"
+msgstr "Esquerra"
+
+#: C/shortcut.page:69(p)
+msgid "Move all the pieces in the left box left by one."
+msgstr ""
+"Moveu totes les fitxes a la caixa esquerra una posició cap a l'esquerra."
+
+#: C/shortcut.page:74(key)
+msgid "Right"
+msgstr "Dreta"
+
+#: C/shortcut.page:77(p)
+msgid "Move all the pieces in the left box right by one."
+msgstr "Moveu totes les fitxes a la caixa esquerra una posició cap a la dreta."
+
+#: C/multiplayer.page:7(desc)
+msgid "How to play with other people."
+msgstr "Com es pot jugar amb altres persones."
+
+#: C/multiplayer.page:18(title)
+msgid "Play with other people"
+msgstr "Jugueu amb altres persones"
+
+#: C/multiplayer.page:20(p)
+msgid ""
+"With <app>GNOME Tetravex</app> it is not possible to play with or against "
+"other people over the Internet or a local network."
+msgstr ""
+"Encara no es pot jugar contra una altra persona, ja sigui per Internet o en "
+"la xarxa local amb el <app>GNOME Tetravex</app>."
+
+#: C/move.page:8(desc)
+msgid "How to move the pieces on the game board."
+msgstr "Com moure les fitxes sobre el tauler de joc."
+
+#: C/move.page:19(title)
+msgid "Move the pieces"
+msgstr "Moviment les fitxes"
+
+#: C/move.page:22(title)
+msgid "Move a piece"
+msgstr "Moviment d'una fitxa"
+
+#: C/move.page:23(p)
+msgid ""
+"To move a piece, you need to click-and-hold on it, drag it from its current "
+"position to its new position, either on the right box or on the left box, "
+"and release the mouse button."
+msgstr ""
+"Per moure una fitxa, us cal prémer sobre la fitxa, arrossegar-la des de la "
+"posició antiga fins la nova, a qualsevol lloc a la caixa dreta o a la caixa "
+"esquerra, i alliberar el botó de ratolí."
+
+#: C/move.page:28(p)
+msgid "These moves are not permanent and can be reversed."
+msgstr "Aquests moviments no són permanents i poden ser desfets."
+
+#: C/move.page:32(p)
+msgid ""
+"The pieces in the left box can be moved all at once in one direction. See "
+"<link xref=\"shortcut\"/> for more information."
+msgstr ""
+"Les fitxes de la caixa esquerra poden moure's de cop en una direcció. Per "
+"més informació mireu <link xref=\"shortcut\"/>."
+
+#: C/move.page:39(title)
+msgid "Avoid the click-and-hold"
+msgstr "Eviteu el prèmer i deixar anar"
+
+#: C/move.page:40(p)
+msgid ""
+"If you do not feel comfortable with the click-and-hold action to move the "
+"pieces, it is possible to change that behavior so that you only have to "
+"click on a piece to move it, and click again to release it in its new "
+"position."
+msgstr ""
+"Si no us és còmode l'acció de prèmer i deixar anar per moure les fitxes, es "
+"possible canviar aquest comportament de forma que només hagueu de prèmer en "
+"una fitxa per moure-la, i després prèmer per alliberar-la a la nova posició."
+
+#: C/move.page:45(p)
+msgid ""
+"To do that, from the main menu bar, choose <gui style=\"menu\">Move</gui>, "
+"and select <gui style=\"checkbox\">Click to Move</gui>."
+msgstr ""
+"Per fer això, des del menú principal, trieu <gui style=\"menu\">Mou</gui> i "
+"seleccioneu <gui style=\"checkbox\">Prem per moure</gui>."
+
+#: C/license.page:8(desc)
+msgid "Legal information."
+msgstr "Informació legal."
+
+#: C/license.page:11(title)
 msgid "License"
 msgstr "Llicència"
 
-#: C/gnotravex.xml:278(para)
+#: C/license.page:12(p)
 msgid ""
-"This program is free software; you can redistribute it and/or modify it "
-"under the terms of the <citetitle>GNU General Public License</citetitle> as "
-"published by the Free Software Foundation; either version 2 of the License, "
-"or (at your option) any later version."
+"This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
+"Unported license."
 msgstr ""
-"Aquest programa és programari lliure; podeu redistribuir-lo i/o modificar-lo "
-"sota els termes de la <citetitle>Llicència pública general de GNU</"
-"citetitle> tal com publica la Free Software Foundation; tant en la versió 2 "
-"de la llicència, o (a la vostra opció) una versió posterior."
+"Aquest treball és distribueix sota la llicència Creative Commons atribució "
+"compartir igual 3.0 llicència no portada."
 
-#: C/gnotravex.xml:284(para)
+#: C/license.page:20(p)
+msgid "You are free:"
+msgstr "Sou lliure de:"
+
+#: C/license.page:25(em)
+msgid "To share"
+msgstr "Compartir"
+
+#: C/license.page:26(p)
+msgid "To copy, distribute and transmit the work."
+msgstr "Copiar, distribuir i transmetre el treball."
+
+#: C/license.page:29(em)
+msgid "To remix"
+msgstr "Refer"
+
+#: C/license.page:30(p)
+msgid "To adapt the work."
+msgstr "Adaptar el treball."
+
+#: C/license.page:33(p)
+msgid "Under the following conditions:"
+msgstr "Sota les següents condicions:"
+
+#: C/license.page:38(em)
+msgid "Attribution"
+msgstr "Atribució"
+
+#: C/license.page:39(p)
 msgid ""
-"This program is distributed in the hope that it will be useful, but WITHOUT "
-"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
-"FITNESS FOR A PARTICULAR PURPOSE. See the <citetitle>GNU General Public "
-"License</citetitle> for more details."
+"You must attribute the work in the manner specified by the author or "
+"licensor (but not in any way that suggests that they endorse you or your use "
+"of the work)."
 msgstr ""
-"Aquest programa es distribueix amb l'esperança de que sigui útil, però SENSE "
-"CAP GARANTIA; fins i tot sense la garantia implícita de COMERCIALITZACIÓ o "
-"ADEQUACIÓ A UN ÚS CONCRET. Per a més detalls vegeu la <citetitle>Llicència "
-"pública general de GNU</citetitle>."
+"Heu d'atribuir la feina en la manera especificada per l'autor o llicenciador "
+"(però no de manera que suggereixi que teniu la seva aprovació o el vostre ús "
+"de la feina)."
 
-#: C/gnotravex.xml:290(para)
+#: C/license.page:46(em)
+msgid "Share Alike"
+msgstr "Compartir igual"
+
+#: C/license.page:47(p)
 msgid ""
-"A copy of the <citetitle>GNU General Public License</citetitle> is included "
-"as an appendix to the <citetitle>GNOME Users Guide</citetitle>. You may also "
-"obtain a copy of the <citetitle>GNU General Public License</citetitle> from "
-"the Free Software Foundation by visiting <ulink url=\"http://www.fsf.org\" "
-"type=\"http\">their Web site</ulink> or by writing to <address> Free "
-"Software Foundation, Inc. <street>59 Temple Place</street> - Suite 330 "
-"<city>Boston</city>, <state>MA</state><postcode>02111-1307</"
-"postcode><country>USA</country></address>"
+"If you alter, transform, or build upon this work, you may distribute the "
+"resulting work only under the same, similar or a compatible license."
 msgstr ""
-"S'inclou una còpia de la <citetitle>Llicència pública general de GNU</"
-"citetitle> en l'apèndix de la <citetitle>Guia d'usuaris del GNOME</"
-"citetitle>. També podeu obtenir una copia de la <citetitle>Llicència pública "
-"general de GNU</citetitle> de la Free Software Foundation visitant el <ulink "
-"type=\"http\" url=\"http://www.fsf.org\">seu lloc web</ulink> o escrivint a "
-"<address> Free Software Foundation, Inc. <street>59 Temple Place</street> - "
-"Suite 330 <city>Boston</city>, <state>MA</state><postcode>02111-1307</"
-"postcode><country>USA</country></address>"
+"Si altereu, transformeu, o construïu sobre aquest treball, podeu distribuir "
+"el treball resultant sota la mateixa llicència, una de similar o una de "
+"compatible."
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
-#: C/gnotravex.xml:0(None)
+#: C/license.page:53(p)
+msgid ""
+"For the full text of the license, see the <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
+"link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">Commons Deed</link>."
+msgstr ""
+"Per veure el text de la llicència completa, aneu al <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">lloc web de "
+"CreativeCommons</link> o llegiu la pàgina <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/\">Commons Deed</link>."
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/index.page:26(None)
+msgid ""
+"@@image: 'figures/gnotravex-logo.png'; md5=daf379ccd659b42a71cd0f2661f651e4"
+msgstr ""
+"@@image: 'figures/gnotravex-logo.png'; md5=daf379ccd659b42a71cd0f2661f651e4"
+
+#: C/index.page:8(title) C/index.page:9(title)
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#: C/index.page:10(desc)
+msgid "GNOME Tetravex help."
+msgstr "Ajuda del GNOME Tetravex."
+
+#: C/index.page:25(title)
+msgid ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
+"\">GNOME Tetravex logo</media> GNOME Tetravex"
+msgstr ""
+"<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
+"\">icona delGNOME Tetravex </media> GNOME Tetravex"
+
+#: C/index.page:31(title)
+msgid "Basic Gameplay &amp; Usage"
+msgstr "Instruccions del joc &amp; normes"
+
+#: C/index.page:35(title)
+msgid "Multiplayer Game"
+msgstr "Joc multijugador"
+
+#: C/index.page:39(title)
+msgid "Tips &amp; Tricks"
+msgstr "Consells &amp; trucs"
+
+#: C/hint.page:7(desc)
+msgid "Use hints or solve the game automatically."
+msgstr "Utilitzeu pistes o resoleu el joc de forma automàtica."
+
+#: C/hint.page:14(title)
+msgid "Hints"
+msgstr "Pistes"
+
+#: C/hint.page:17(p)
+msgid ""
+"If you use one of the following methods to complete the game, your scores "
+"will not be included among the high scores."
+msgstr ""
+"Si utilitzeu un d'aquests mètodes per completar el joc, no s'inclourà la "
+"vostra puntuació entre les puntuacions altes."
+
+#: C/hint.page:25(title)
+msgid "Use the hints system"
+msgstr "Utilització del sistema de pistes"
+
+#: C/hint.page:27(p)
+msgid ""
+"At any time in the game, if you do not know how to start it, or where to "
+"move a piece, it is possible to use the built-in hints system."
+msgstr ""
+"En qualsevol moment del joc, si no sabeu per on començar o on moure una "
+"fitxa, podeu utilitzar el sistema de pistes integrat."
+
+#: C/hint.page:31(p)
+msgid ""
+"The system will move one piece from the right box to its correct position "
+"into the left box."
+msgstr ""
+"El sistema mourà una fitxa des de la caixa dreta a la seva posició correcta "
+"a la caixa esquerra."
+
+#: C/hint.page:35(p)
+msgid "To use the hints system, perform one of the following:"
+msgstr "Per utilitzar el sistema de pistes, feu alguna d'aquestes coses:"
+
+#: C/hint.page:40(p)
+msgid "Press <keyseq><key>Ctrl</key><key>H</key></keyseq>."
+msgstr "Premeu <keyseq><key>Ctrl</key><key>H</key></keyseq>."
+
+#: C/hint.page:45(p)
+msgid ""
+"Choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Hint</"
+"gui></guiseq>."
+msgstr ""
+"Trieu <guiseq><gui style=\"menu\">Joc</gui><gui style=\"menuitem\">Pista</"
+"gui></guiseq>."
+
+#: C/hint.page:52(title)
+msgid "Solve the game"
+msgstr "Resoleu una partida"
+
+#: C/hint.page:53(p)
+msgid ""
+"If you get stuck in the game, or you want to solve it automatically, choose "
+"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
+"guiseq>."
+msgstr ""
+"Si us encalleu en una partida o si voleu resoldre-la de forma automàtica, "
+"trieu <guiseq><gui style=\"menu\">Partida</gui><gui style=\"menuitem"
+"\">Resol</gui></guiseq>"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: C/gameplay.page:32(None)
+msgid ""
+"@@image: 'figures/gnotravex-main-window.png'; "
+"md5=dd9c9be1bb7b724d6be5e76ffa6ee4d8"
+msgstr ""
+"@@image: 'figures/gnotravex-main-window.png'; "
+"md5=dd9c9be1bb7b724d6be5e76ffa6ee4d8"
+
+#: C/gameplay.page:7(desc)
+msgid "Introduction to <app>GNOME Tetravex</app>."
+msgstr "Introducció al <app>GNOME Tetravex</app>."
+
+#: C/gameplay.page:18(title)
+msgid "Gameplay"
+msgstr "Instruccions del joc"
+
+#: C/gameplay.page:20(p)
+msgid ""
+"<app>GNOME Tetravex</app> is a simple puzzle game which scope is to move the "
+"various pieces from one side of the board to the other side, so that the "
+"same numbers depicted on the pieces are touching each other."
+msgstr ""
+"El <app>GNOME Tetravex</app> és un senzill joc de trencaclosques l'objectiu "
+"del qual és moure les diverses fitxes d'un costat del tauler a l'altre, de "
+"forma que els mateixos nombres situats a les fitxes estiguin tocant-se entre "
+"si."
+
+#: C/gameplay.page:25(p)
+msgid ""
+"The game is timed, and these times are used as the score for the game. You "
+"have to move all the pieces in the least time possible."
+msgstr ""
+"El joc és cronometrat i aquests temps són utilitzats en la puntuació pel "
+"joc. Heu de moure totes les fitxes amb el menor temps possible."
+
+#: C/gameplay.page:30(title)
+msgid "Main game window"
+msgstr "Finestra principal del joc"
+
+#: C/gameplay.page:31(desc)
+msgid "<app>Tetravex</app> main window"
+msgstr "Finestra principal del <app>Tetravex</app>"
+
+#: C/gameplay.page:33(p)
+msgid "<app>Tetravex</app> main window."
+msgstr "Finestra principal del <app>Tetravex</app>."
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: C/index.page:0(None)
 msgid "translator-credits"
-msgstr "Joan Duran <jodufi@gmail.com>, 2007, 2008"
+msgstr ""
+"Joan Duran <jodufi@gmail.com>, 2007, 2008\n"
+"Carles Ferrando Garcia <carles.ferrando@gmail.com>, 2010"
