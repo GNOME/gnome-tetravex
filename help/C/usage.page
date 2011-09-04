@@ -64,7 +64,7 @@
         <tt:body>
           <tt:div begin="1s" end="6s">
             <tt:p>Drag pieces from the right to the left, making sure that
-            adjacent edjes have the same number and color.</tt:p>
+            adjacent edges have the same number and color.</tt:p>
           </tt:div>
           <tt:div begin="6s" end="14s">
             <tt:p>Hold down <key>Ctrl</key> and press the arrow keys to move
