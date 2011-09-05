@@ -1,17 +1,18 @@
 # translation of gnotravex.master.po to Español
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
-"POT-Creation-Date: 2011-05-19 23:33+0000\n"
-"PO-Revision-Date: 2010-02-22 22:17+0100\n"
+"POT-Creation-Date: 2011-09-04 22:43+0000\n"
+"PO-Revision-Date: 2011-09-05 08:12+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: C/winning.page:9(desc)
 msgid "Simple tips on how to possibly win a game."
@@ -179,11 +180,14 @@ msgid "Demo"
 msgstr "Demostración"
 
 #: C/usage.page:66(p)
+#| msgid ""
+#| "Drag pieces from the right to the left, making sure that adjacent edjes "
+#| "have the same number and color."
 msgid ""
-"Drag pieces from the right to the left, making sure that adjacent edjes have "
+"Drag pieces from the right to the left, making sure that adjacent edges have "
 "the same number and color."
 msgstr ""
-"Arrastre piezas de la derecha a la izquierda, haciéndo que sus bordes "
+"Arrastre piezas de la derecha a la izquierda, asegurándose de que sus bordes "
 "adyacentes tengan el mismo número y color."
 
 #: C/usage.page:70(p)
