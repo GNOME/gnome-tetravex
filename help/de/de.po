@@ -2,12 +2,13 @@
 # Thomas Konstantinides <gntr1@tkonstantinides.de>, 2007.
 # Mario Blättermann <mariobl@freenet.de>, 2008-2011.
 # Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex documentation de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-19 23:33+0000\n"
-"PO-Revision-Date: 2011-06-08 17:22+0100\n"
+"POT-Creation-Date: 2011-09-04 22:43+0000\n"
+"PO-Revision-Date: 2011-09-08 20:11+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@freenet.de>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -184,7 +185,7 @@ msgstr "Demo"
 
 #: C/usage.page:66(p)
 msgid ""
-"Drag pieces from the right to the left, making sure that adjacent edjes have "
+"Drag pieces from the right to the left, making sure that adjacent edges have "
 "the same number and color."
 msgstr ""
 "Ziehen Sie Spielsteine von rechts nach links, wobei es notwendig ist, dass "
@@ -633,4 +634,3 @@ msgstr ""
 "Thomas Konstantinides <gntr1@tkonstantinides.de>, 2007\n"
 "Mario Blättermann <mariobl@freenet.de>, 2008-2011\n"
 "Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010"
-
