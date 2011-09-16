@@ -1,42 +1,41 @@
 # French translation of gnotravex documentation.
-# Copyright (C) 2007 Free Software Foundation, Inc.
+# Copyright (C) 2007-2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnotravex documentation package.
 #
-#
 # Bruno Brouard <annoa.b@gmail.com>, 2007,2010.
-# Claude Paroz <claude@2xlibre.net>, 2007.
+# Claude Paroz <claude@2xlibre.net>, 2007, 2011.
 # Laurent Coudeur <laurentc@iol.ie>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex doc fr\n"
-"POT-Creation-Date: 2010-03-28 15:36+0000\n"
+"POT-Creation-Date: 2011-09-04 22:43+0000\n"
 "PO-Revision-Date: 2010-03-14 10:55+0000\n"
-"Last-Translator: Laurent Coudeur <laurentc@iol.ie>\n"
-"Language-Team: Français <gnomefr@traduc.org>\n"
+"Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
+"Language-Team: GNOME French team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: C/winning.page:9(desc)
 msgid "Simple tips on how to possibly win a game."
 msgstr "Astuces simples pour réussir le jeu."
 
-#: C/winning.page:12(name) C/usage.page:11(name) C/size.page:10(name)
+#: C/winning.page:12(name) C/usage.page:12(name) C/size.page:10(name)
 #: C/shortcut.page:11(name) C/multiplayer.page:10(name) C/move.page:11(name)
 #: C/index.page:17(name) C/hint.page:10(name) C/gameplay.page:10(name)
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
-#: C/winning.page:13(email) C/usage.page:12(email) C/size.page:11(email)
+#: C/winning.page:13(email) C/usage.page:13(email) C/size.page:11(email)
 #: C/shortcut.page:12(email) C/multiplayer.page:11(email)
 #: C/move.page:12(email) C/index.page:18(email) C/hint.page:11(email)
 #: C/gameplay.page:11(email)
 msgid "milo@ubuntu.com"
 msgstr "milo@ubuntu.com"
 
-#: C/winning.page:16(p) C/usage.page:19(p) C/size.page:14(p)
+#: C/winning.page:16(p) C/usage.page:20(p) C/size.page:14(p)
 #: C/shortcut.page:15(p) C/multiplayer.page:14(p) C/move.page:15(p)
 #: C/index.page:21(p) C/gameplay.page:14(p)
 msgid "Creative Commons Share Alike 3.0"
@@ -103,27 +102,27 @@ msgid ""
 msgstr ""
 "@@image: 'figures/gnotravex-video.ogv'; md5=14cface4ec2b0c84aa5a925242694de0"
 
-#: C/usage.page:8(desc)
+#: C/usage.page:9(desc)
 msgid "How to play <app>GNOME Tetravex</app>."
 msgstr "Comment jouer à <app>GNOME Tetravex</app>."
 
-#: C/usage.page:15(name) C/index.page:13(name)
+#: C/usage.page:16(name) C/index.page:13(name)
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
-#: C/usage.page:16(email) C/index.page:14(email)
+#: C/usage.page:17(email) C/index.page:14(email)
 msgid "robster@debian.org"
 msgstr "robster@debian.org"
 
-#: C/usage.page:23(title)
+#: C/usage.page:24(title)
 msgid "Play <app>GNOME Tetravex</app>"
 msgstr "Jeu <app>GNOME Tetravex</app>"
 
-#: C/usage.page:26(title)
+#: C/usage.page:27(title)
 msgid "Basic usage"
 msgstr "Utilisation de base"
 
-#: C/usage.page:27(p)
+#: C/usage.page:28(p)
 msgid ""
 "The game window is divided into two boxes: the one on the right side of the "
 "window contains the pieces that needs to be arranged; the one on the left "
@@ -136,7 +135,7 @@ msgstr ""
 "doivent être ordonnées et déplacées. Chaque pièce est divisée en 4 petits "
 "triangles qui contiennent un nombre."
 
-#: C/usage.page:34(p)
+#: C/usage.page:35(p)
 msgid ""
 "The scope of the game is to position the pieces so that only two identical "
 "numbers are next to each other."
@@ -144,7 +143,7 @@ msgstr ""
 "Le but du jeu est de placer les pièces pour que les nombres identiques "
 "soient positionnés les uns à côtés des autres."
 
-#: C/usage.page:38(p)
+#: C/usage.page:39(p)
 msgid ""
 "It is not possible to position the pieces so that different number are next "
 "to each other."
@@ -152,7 +151,7 @@ msgstr ""
 "Il n'est pas possible de placer des pièces avec des nombres différents les "
 "uns à côtés des autres."
 
-#: C/usage.page:42(p)
+#: C/usage.page:43(p)
 msgid ""
 "The game is completed when you have positioned all the pieces in their right "
 "positions."
@@ -160,7 +159,7 @@ msgstr ""
 "Le jeu se termine quand vous avez placé toutes les pièces dans la bonne "
 "position."
 
-#: C/usage.page:47(p)
+#: C/usage.page:48(p)
 msgid ""
 "When you start <app>GNOME Tetravex</app>, the game will start immediately, "
 "and the time will start counting."
@@ -168,11 +167,11 @@ msgstr ""
 "Quand vous lancez <app>GNOME Tetravex</app>, le jeu commence immédiatement "
 "et le chronomètre est lancé."
 
-#: C/usage.page:56(title)
+#: C/usage.page:57(title)
 msgid "Video demonstration"
 msgstr "Démonstration vidéo"
 
-#: C/usage.page:57(p)
+#: C/usage.page:58(p)
 msgid ""
 "This short video shows how the game works, and what are the possible "
 "movements."
@@ -180,9 +179,31 @@ msgstr ""
 "Cette courte vidéo montre le fonctionnement du jeu et les mouvements "
 "possibles."
 
-#: C/usage.page:61(media)
-msgid "Simple demonstration of a game"
-msgstr "Démonstration simple du jeu"
+#: C/usage.page:62(p)
+msgid "Demo"
+msgstr "Démonstration"
+
+#: C/usage.page:66(p)
+msgid ""
+"Drag pieces from the right to the left, making sure that adjacent edges have "
+"the same number and color."
+msgstr ""
+"Faites glisser les pièces de la droite vers la gauche, en prenant garde à ce "
+"que les côtés qui se touchent soient de la même couleur avec le même numéro."
+
+#: C/usage.page:70(p)
+msgid ""
+"Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
+"at once."
+msgstr ""
+"En maintenant enfoncée la touche <key>Ctrl</key>, appuyez sur les touches flèches "
+"pour déplacer toutes les pièces déjà placées en un seul mouvement."
+
+#: C/usage.page:74(p)
+msgid "Continue dragging pieces until they all fit together on the left."
+msgstr ""
+"Continuez de déplacer les pièces jusqu'à ce qu'elles soient toutes placées "
+"dans la grille de gauche."
 
 #: C/size.page:7(desc)
 msgid "Change the size of the game board."
@@ -391,7 +412,7 @@ msgid ""
 "Unported license."
 msgstr ""
 "Cette œuvre est distribuée sous licence Creative Commons Paternité-Partage "
-"des Conditions Initiales à l'Identique 3.0 Unported." 
+"des Conditions Initiales à l'Identique 3.0 Unported."
 
 #: C/license.page:20(p)
 msgid "You are free:"
@@ -442,8 +463,8 @@ msgid ""
 "resulting work only under the same, similar or a compatible license."
 msgstr ""
 "Si vous modifiez, transformez ou adaptez cette création, vous n'avez le "
-"droit de distribuer la création qui en résulte que sous un contrat "
-"identique à celui-ci." 
+"droit de distribuer la création qui en résulte que sous un contrat identique "
+"à celui-ci."
 
 #: C/license.page:53(p)
 msgid ""
@@ -452,10 +473,10 @@ msgid ""
 "link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
 "sa/3.0/\">Commons Deed</link>."
 msgstr ""
-"Pour prendre connaissance du texte complet de la licence, consultez le "
-"<link href=\"http://creativecommons.org/licenses/by-sa/3.0/legalcode\">site Web "
-"CreativeCommons</link> ou lisez in extenso le <link href=\"http://creativecommons"
-".org/licenses/by-sa/3.0/\">contrat Commons</link>."
+"Pour prendre connaissance du texte complet de la licence, consultez le <link "
+"href=\"http://creativecommons.org/licenses/by-sa/3.0/legalcode\">site Web "
+"CreativeCommons</link> ou lisez in extenso le <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/\">contrat Commons</link>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -613,5 +634,5 @@ msgstr "Fenêtre principale de <app>Tetravex</app>."
 msgid "translator-credits"
 msgstr ""
 "Bruno Brouard <annoa.b@gmail.com>, 2007,2010\n"
-"Claude Paroz <claude@2xlibre.net>, 2007-2009\n"
+"Claude Paroz <claude@2xlibre.net>, 2007-2011\n"
 "Laurent Coudeur <laurentc@iol.ie>, 2010"
