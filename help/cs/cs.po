@@ -6,42 +6,41 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games master\n"
-"POT-Creation-Date: 2011-02-08 00:22+0000\n"
-"PO-Revision-Date: 2011-04-01 10:45+0200\n"
+"Project-Id-Version: gnome-games\n"
+"POT-Creation-Date: 2011-09-26 20:09+0000\n"
+"PO-Revision-Date: 2011-09-27 07:47+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
-"Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: C/winning.page:9(desc)
 msgid "Simple tips on how to possibly win a game."
 msgstr "Pár jednoduchých fíglů, jak vyhrát hru."
 
-#: C/winning.page:12(name) C/usage.page:11(name) C/size.page:10(name)
+#: C/winning.page:12(name) C/usage.page:12(name) C/size.page:10(name)
 #: C/shortcut.page:11(name) C/multiplayer.page:10(name) C/move.page:11(name)
 #: C/index.page:17(name) C/hint.page:10(name) C/gameplay.page:10(name)
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
-#: C/winning.page:13(email) C/usage.page:12(email) C/size.page:11(email)
+#: C/winning.page:13(email) C/usage.page:13(email) C/size.page:11(email)
 #: C/shortcut.page:12(email) C/multiplayer.page:11(email)
 #: C/move.page:12(email) C/index.page:18(email) C/hint.page:11(email)
 #: C/gameplay.page:11(email)
 msgid "milo@ubuntu.com"
 msgstr "milo@ubuntu.com"
 
-#: C/winning.page:16(p) C/usage.page:19(p) C/size.page:14(p)
+#: C/winning.page:16(p) C/usage.page:20(p) C/size.page:14(p)
 #: C/shortcut.page:15(p) C/multiplayer.page:14(p) C/move.page:15(p)
 #: C/index.page:21(p) C/gameplay.page:14(p)
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
 #: C/winning.page:20(title)
-#| msgid "Playing GNOME Tetravex"
 msgid "Win <app>GNOME Tetravex</app>"
 msgstr "Vyhrajte <app>GNOME Tetravex</app>"
 
@@ -96,37 +95,32 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/usage.page:61(None)
-#| msgid ""
-#| "@@image: 'figures/gnotravex_game.png'; "
-#| "md5=4d0a4512ee72329134fa0f5a1a3205e9"
 msgid ""
 "@@image: 'figures/gnotravex-video.ogv'; md5=14cface4ec2b0c84aa5a925242694de0"
 msgstr ""
 "@@image: 'figures/gnotravex-video.ogv'; md5=14cface4ec2b0c84aa5a925242694de0"
 
-#: C/usage.page:8(desc)
-#| msgid "Playing GNOME Tetravex"
+#: C/usage.page:9(desc)
 msgid "How to play <app>GNOME Tetravex</app>."
 msgstr "Jak hrát <app>GNOME Tetravex</app>"
 
-#: C/usage.page:15(name) C/index.page:13(name)
+#: C/usage.page:16(name) C/index.page:13(name)
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
-#: C/usage.page:16(email) C/index.page:14(email)
+#: C/usage.page:17(email) C/index.page:14(email)
 msgid "robster@debian.org"
 msgstr "robster@debian.org"
 
-#: C/usage.page:23(title)
-#| msgid "Playing GNOME Tetravex"
+#: C/usage.page:24(title)
 msgid "Play <app>GNOME Tetravex</app>"
 msgstr "Hraní <app>GNOME Tetravex</app>"
 
-#: C/usage.page:26(title)
+#: C/usage.page:27(title)
 msgid "Basic usage"
 msgstr "Základy použití"
 
-#: C/usage.page:27(p)
+#: C/usage.page:28(p)
 msgid ""
 "The game window is divided into two boxes: the one on the right side of the "
 "window contains the pieces that needs to be arranged; the one on the left "
@@ -139,26 +133,26 @@ msgstr ""
 "pole. Každý kámen je rozdělen na čtyři malé trojúhelníky, které obsahují "
 "čísla."
 
-#: C/usage.page:34(p)
+#: C/usage.page:35(p)
 msgid ""
 "The scope of the game is to position the pieces so that only two identical "
 "numbers are next to each other."
 msgstr ""
 "Cílem hry je umístit kameny tak, aby se navzájem dotýkaly stejnými čísly."
 
-#: C/usage.page:38(p)
+#: C/usage.page:39(p)
 msgid ""
 "It is not possible to position the pieces so that different number are next "
 "to each other."
 msgstr "Umístit kameny tak, aby se dotýkaly různými čísly není možné."
 
-#: C/usage.page:42(p)
+#: C/usage.page:43(p)
 msgid ""
 "The game is completed when you have positioned all the pieces in their right "
 "positions."
 msgstr "Hra končí ve chvíli, kdy máte všechny kameny na správných místech."
 
-#: C/usage.page:47(p)
+#: C/usage.page:48(p)
 msgid ""
 "When you start <app>GNOME Tetravex</app>, the game will start immediately, "
 "and the time will start counting."
@@ -166,19 +160,40 @@ msgstr ""
 "Když spustíte aplikaci <app>GNOME Tetravex</app>, hra ihned započne a ihned "
 "se také začne odpočítávat čas."
 
-#: C/usage.page:56(title)
+#: C/usage.page:57(title)
 msgid "Video demonstration"
 msgstr "Videoukázka"
 
-#: C/usage.page:57(p)
+#: C/usage.page:58(p)
 msgid ""
 "This short video shows how the game works, and what are the possible "
 "movements."
 msgstr "Toto krátké video ukazuje, jak se hra hraje a jaké tahy jsou možné."
 
-#: C/usage.page:61(media)
-msgid "Simple demonstration of a game"
-msgstr "Jednoduchá ukázka hry"
+#: C/usage.page:62(p)
+msgid "Demo"
+msgstr "Demo"
+
+#: C/usage.page:66(p)
+msgid ""
+"Drag pieces from the right to the left, making sure that adjacent edges have "
+"the same number and color."
+msgstr ""
+"Přetahujte kameny zprava doleva tak, aby se navzájem dotýkaly vždy hranami "
+"se stejným číslem a barvou."
+
+#: C/usage.page:70(p)
+msgid ""
+"Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
+"at once."
+msgstr ""
+"Držte klávesu <key>Ctrl</key> zmáčknutou a mačkáním šipek přesouvejte "
+"všechny kameny naráz."
+
+#: C/usage.page:74(p)
+msgid "Continue dragging pieces until they all fit together on the left."
+msgstr ""
+"Přetahujte kameny, dokud je nebudete mít všechny nalevo a správně srovnané."
 
 #: C/size.page:7(desc)
 msgid "Change the size of the game board."
@@ -207,9 +222,6 @@ msgstr ""
 "3×3."
 
 #: C/size.page:28(p)
-#| msgid ""
-#| "If the tiles are too small, resizing the window will change the size of "
-#| "the tiles."
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
@@ -411,7 +423,6 @@ msgid "Under the following conditions:"
 msgstr "Za následujících podmínek:"
 
 #: C/license.page:38(em)
-#| msgid "Introduction"
 msgid "Attribution"
 msgstr "Označení"
 
@@ -451,9 +462,6 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/index.page:26(None)
-#| msgid ""
-#| "@@image: 'figures/gnotravex_game.png'; "
-#| "md5=4d0a4512ee72329134fa0f5a1a3205e9"
 msgid ""
 "@@image: 'figures/gnotravex-logo.png'; md5=daf379ccd659b42a71cd0f2661f651e4"
 msgstr ""
@@ -464,7 +472,6 @@ msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
 #: C/index.page:10(desc)
-#| msgid "GNOME Tetravex"
 msgid "GNOME Tetravex help."
 msgstr "Nápověda hry GNOME Tetravex."
 
@@ -541,7 +548,6 @@ msgstr ""
 "gui></guiseq>."
 
 #: C/hint.page:52(title)
-#| msgid "Playing the game"
 msgid "Solve the game"
 msgstr "Řešení hry"
 
@@ -558,9 +564,6 @@ msgstr ""
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
 #: C/gameplay.page:32(None)
-#| msgid ""
-#| "@@image: 'figures/gnotravex_mainwindow.png'; "
-#| "md5=e49d762a2dd5d6ba466e0c7cef7703ce"
 msgid ""
 "@@image: 'figures/gnotravex-main-window.png'; "
 "md5=dd9c9be1bb7b724d6be5e76ffa6ee4d8"
@@ -599,17 +602,14 @@ msgid "Main game window"
 msgstr "Hlavní okno hry"
 
 #: C/gameplay.page:31(desc)
-#| msgid "GNOME Tetravex Main Window"
 msgid "<app>Tetravex</app> main window"
 msgstr "Hlavní okno <app>Tetravex</app>"
 
 #: C/gameplay.page:33(p)
-#| msgid "GNOME Tetravex Main Window."
 msgid "<app>Tetravex</app> main window."
 msgstr "Hlavní okno hry <app>Tetravex</app>."
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/index.page:0(None)
 msgid "translator-credits"
-msgstr "Marek Černocký <marek@manet.cz>, 2009 – 2011."
-
+msgstr "Marek Černocký <marek@manet.cz>"
