@@ -4,9 +4,6 @@ if BUILD_HELP
 SUBDIRS += help
 endif
 
-EXTRA_DIST = \
-	README
-
 SCOREFILES = 2 3 4 5 6
 
 install-scorefiles-local:
