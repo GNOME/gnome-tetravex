@@ -1,6 +1,3 @@
-imagedir = $(pkgdatadir)/pixmaps
-image_DATA = baize.png
-
 desktop_in_files = gnotravex.desktop.in.in
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
@@ -14,7 +11,6 @@ gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
 man_MANS = gnotravex.6
 
 EXTRA_DIST = \
-	$(image_DATA) \
 	$(gsettings_in_file) \
 	$(man_MANS)
     

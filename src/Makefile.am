@@ -1,13 +1,26 @@
 bin_PROGRAMS = gnotravex
 
 gnotravex_SOURCES = \
-	gnotravex.c
+	config.vapi \
+	gnotravex.vala \
+	puzzle.vala \
+	puzzle-view.vala \
+	theme.vala
 
-gnotravex_CPPFLAGS = \
-	-I$(top_srcdir) \
-	$(AM_CPPFLAGS)
+gnotravex_VALAFLAGS = \
+	--pkg posix \
+	--pkg gtk+-3.0 \
+	--vapidir $(top_srcdir)/libgames-support \
+	--pkg GnomeGamesSupport-1.0
+
+if ENABLE_SETGID
+gnotravex_VALAFLAGS += -D ENABLE_SETGID
+endif
 
 gnotravex_CFLAGS = \
+	-I$(top_srcdir)/libgames-support \
+	-DVERSION=\"$(VERSION)\" \
+	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
 	$(GTK_CFLAGS)	\
 	$(AM_CFLAGS)
 
