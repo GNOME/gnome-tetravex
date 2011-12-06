@@ -22,7 +22,8 @@ gnotravex_CFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
 	$(GTK_CFLAGS)	\
-	$(AM_CFLAGS)
+	$(AM_CFLAGS)	\
+	-Wno-unused
 
 gnotravex_LDADD =	\
 	$(top_builddir)/libgames-support/libgames-support.la \
