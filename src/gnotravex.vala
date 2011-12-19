@@ -134,8 +134,8 @@ public class Gnotravex : Gtk.Window
         var grid = new Gtk.Grid ();
         grid.show ();
         add (grid);
-        
-        var toolbar = ui_manager.get_widget ("/Toolbar");
+
+        var toolbar = (Gtk.Toolbar) ui_manager.get_widget ("/Toolbar");
         toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
         toolbar.show ();
         grid.attach (toolbar, 0, 0, 1, 1);
@@ -152,14 +152,18 @@ public class Gnotravex : Gtk.Window
         view.show ();
         grid.attach (view, 0, 1, 1, 1);
 
-        var statusbar = new Gtk.Statusbar ();
-        statusbar.show ();
-        GnomeGamesSupport.stock_prepare_for_statusbar_tooltips (ui_manager, statusbar);
-        grid.attach (statusbar, 0, 2, 1, 1);
+        var time_item = new Gtk.ToolItem ();
+        time_item.set_expand (true);
+        time_item.show ();
+        toolbar.insert (time_item, -1);
+
+        var time_align = new Gtk.Alignment (1.0f, 0.5f, 0.0f, 0.0f);
+        time_align.show ();
+        time_item.add (time_align);
 
         var time_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
         time_box.show ();
-        statusbar.pack_start (time_box, false, false, 0);
+        time_align.add (time_box);
 
         var time_label = new Gtk.Label (_("Time:"));
         time_label.show ();
