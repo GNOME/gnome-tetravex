@@ -224,7 +224,7 @@ public class Gnotravex : Gtk.Application
         scores_dialog.set_message ("<b>%s</b>\n\n%s".printf (_("Congratulations!"), pos == 1 ? _("Your score is the best!") : _("Your score has made the top ten.")));
         scores_dialog.set_buttons (GnomeGamesSupport.ScoresButtons.QUIT_BUTTON | GnomeGamesSupport.ScoresButtons.NEW_GAME_BUTTON);
         if (scores_dialog.run () == Gtk.ResponseType.REJECT)
-            Gtk.main_quit ();
+            window.destroy ();
         else
             new_game ();
         scores_dialog.destroy ();
@@ -237,7 +237,7 @@ public class Gnotravex : Gtk.Application
 
     private void quit_cb (Gtk.Action action)
     {
-        Gtk.main_quit ();
+        window.destroy ();
     }
 
     private void scores_cb (Gtk.Action action)
