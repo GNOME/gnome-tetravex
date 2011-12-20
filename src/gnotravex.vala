@@ -141,14 +141,14 @@ public class Gnotravex : Gtk.Application
         grid.show ();
         window.add (grid);
 
-        var toolbar = (Gtk.Toolbar) ui_manager.get_widget ("/Toolbar");
-        toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
-        toolbar.show ();
-        grid.attach (toolbar, 0, 0, 1, 1);
-
         var menubar = ui_manager.get_widget ("/MainMenu");
         menubar.show ();
         grid.attach (menubar, 0, 0, 1, 1);
+
+        var toolbar = (Gtk.Toolbar) ui_manager.get_widget ("/Toolbar");
+        toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
+        toolbar.show ();
+        grid.attach (toolbar, 0, 1, 1, 1);
 
         view = new PuzzleView ();
         view.hexpand = true;
@@ -156,7 +156,7 @@ public class Gnotravex : Gtk.Application
         view.click_to_move = settings.get_boolean (KEY_CLICK_MOVE);
         view.button_press_event.connect (view_button_press_event);
         view.show ();
-        grid.attach (view, 0, 1, 1, 1);
+        grid.attach (view, 0, 2, 1, 1);
 
         var time_item = new Gtk.ToolItem ();
         time_item.set_expand (true);
