@@ -80,14 +80,44 @@ public class Gnotravex : Gtk3.Application
         "    <toolitem action='LeaveFullscreen'/>" +
         "  </toolbar>" +
         "</ui>";
-        
+
     public Gnotravex ()
     {
         Object (application_id: "org.gnome.gnotravex", flags: ApplicationFlags.FLAGS_NONE);
+    }
+
+    protected override void startup ()
+    {
+        base.startup ();
+
+        if (!GnomeGamesSupport.runtime_init ("gnotravex"))
+            Posix.exit (Posix.EXIT_FAILURE);
+
+#if ENABLE_SETGID
+        GnomeGamesSupport.setgid_io_init ();
+#endif
+
+        Environment.set_application_name (_("Tetravex"));
+        GnomeGamesSupport.stock_init ();
+        Gtk.Window.set_default_icon_name ("gnome-tetravex");
 
         settings = new Settings ("org.gnome.gnotravex");
 
         highscores = new GnomeGamesSupport.Scores ("gnotravex", scorecats, null, null, 0, GnomeGamesSupport.ScoreStyle.TIME_ASCENDING);
+    }
+
+    protected override void shutdown () {
+        GnomeGamesSupport.runtime_shutdown ();
+
+        base.shutdown ();
+    }
+
+    protected override void activate ()
+    {
+        if (window != null) {
+            window.present ();
+            return;
+        }
 
         window = new Gtk.Window ();
         window.title = _("Tetravex");
@@ -178,10 +208,7 @@ public class Gnotravex : Gtk3.Application
         time_box.pack_start (clock, false, false, 0);
 
         new_game ();
-    }
 
-    public override void activate ()
-    {
         window.show ();
     }
 
@@ -362,35 +389,7 @@ public class Gnotravex : Gtk3.Application
 
     public static int main (string[] args)
     {
-        if (!GnomeGamesSupport.runtime_init ("gnotravex"))
-            return Posix.EXIT_FAILURE;
-
-#if ENABLE_SETGID
-        GnomeGamesSupport.setgid_io_init ();
-#endif
-
-        var context = new OptionContext ("");
-        context.set_translation_domain (GETTEXT_PACKAGE);
-        context.add_group (Gtk.get_option_group (true));
-        try
-        {
-            context.parse (ref args);
-        }
-        catch (Error e)
-        {
-            stderr.printf ("%s\n", e.message);
-            return Posix.EXIT_FAILURE;
-        }
-
-        Environment.set_application_name (_("Tetravex"));
-        GnomeGamesSupport.stock_init ();
-        Gtk.Window.set_default_icon_name ("gnome-tetravex");
-
         var app = new Gnotravex ();
-        var result = app.run ();
-
-        GnomeGamesSupport.runtime_shutdown ();
-
-        return result;
+        return app.run (args);
     }
 }
