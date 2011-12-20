@@ -5,7 +5,8 @@ gnotravex_SOURCES = \
 	gnotravex.vala \
 	puzzle.vala \
 	puzzle-view.vala \
-	theme.vala
+	theme.vala \
+	fixes.vapi
 
 gnotravex_VALAFLAGS = \
 	--pkg posix \

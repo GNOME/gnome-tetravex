@@ -1,4 +1,4 @@
-public class Gnotravex : Gtk.Application
+public class Gnotravex : Gtk3.Application
 {
     private const int LONG_COUNT = 15;
     private const int SHORT_COUNT = 5;
