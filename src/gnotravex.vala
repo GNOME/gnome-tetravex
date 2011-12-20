@@ -1,4 +1,4 @@
-public class Gnotravex : Gtk.Window
+public class Gnotravex : Gtk.Application
 {
     private const int LONG_COUNT = 15;
     private const int SHORT_COUNT = 5;
@@ -32,6 +32,7 @@ public class Gnotravex : Gtk.Window
         {"Size6x6", null, N_("_6×6"), null, N_("Play on a 6×6 board"), 6}
     };
 
+    private Gtk.Window window;
     private Gtk.Action new_game_action;
     private GnomeGamesSupport.PauseAction pause_action;
     private Gtk.Action solve_action;
@@ -84,12 +85,16 @@ public class Gnotravex : Gtk.Window
         
     public Gnotravex ()
     {
+        Object (application_id: "org.gnome.gnotravex", flags: ApplicationFlags.FLAGS_NONE);
+
         settings = new Settings ("org.gnome.gnotravex");
 
         highscores = new GnomeGamesSupport.Scores ("gnotravex", scorecats, null, null, 0, GnomeGamesSupport.ScoreStyle.TIME_ASCENDING);
 
-        title = _("Tetravex");
-        GnomeGamesSupport.settings_bind_window_state ("/org/gnome/gnotravex/", this);
+        window = new Gtk.Window ();
+        window.title = _("Tetravex");
+        GnomeGamesSupport.settings_bind_window_state ("/org/gnome/gnotravex/", window);
+        add_window (window);
 
         var ui_manager = new Gtk.UIManager ();
         var action_group = new Gtk.ActionGroup ("actions");
@@ -98,6 +103,7 @@ public class Gnotravex : Gtk.Window
         action_group.add_radio_actions (size_action_entry, -1, size_cb);
         action_group.add_toggle_actions (toggles, this);
         ui_manager.insert_action_group (action_group, 0);
+        window.add_accel_group (ui_manager.get_accel_group ());
 
         try
         {
@@ -119,9 +125,9 @@ public class Gnotravex : Gtk.Window
         pause_action.is_important = true;
         pause_action.state_changed.connect (pause_cb);
         action_group.add_action_with_accel (pause_action, null);
-        var fullscreen_action = new GnomeGamesSupport.FullscreenAction ("Fullscreen", this);
+        var fullscreen_action = new GnomeGamesSupport.FullscreenAction ("Fullscreen", window);
         action_group.add_action_with_accel (fullscreen_action, null);
-        var leave_fullscreen_action = new GnomeGamesSupport.FullscreenAction ("LeaveFullscreen", this);
+        var leave_fullscreen_action = new GnomeGamesSupport.FullscreenAction ("LeaveFullscreen", window);
         action_group.add_action_with_accel (leave_fullscreen_action, null);
         var action = (Gtk.ToggleAction) action_group.get_action ("ClickToMove");
         action.active = settings.get_boolean (KEY_CLICK_MOVE);
@@ -133,7 +139,7 @@ public class Gnotravex : Gtk.Window
 
         var grid = new Gtk.Grid ();
         grid.show ();
-        add (grid);
+        window.add (grid);
 
         var toolbar = (Gtk.Toolbar) ui_manager.get_widget ("/Toolbar");
         toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
@@ -177,9 +183,12 @@ public class Gnotravex : Gtk.Window
         clock.show ();
         time_box.pack_start (clock, false, false, 0);
 
-        add_accel_group (ui_manager.get_accel_group ());
-
         new_game ();
+    }
+
+    public override void activate ()
+    {
+        window.show ();
     }
 
     private void new_game ()
@@ -209,7 +218,7 @@ public class Gnotravex : Gtk.Window
         var seconds = clock.get_seconds ();
         var pos = highscores.add_time_score ((seconds / 60) * 1.0 + (seconds % 60) / 100.0);
 
-        var scores_dialog = new GnomeGamesSupport.ScoresDialog (this, highscores, _("Tetravex Scores"));
+        var scores_dialog = new GnomeGamesSupport.ScoresDialog (window, highscores, _("Tetravex Scores"));
         scores_dialog.set_category_description (_("Size:"));
         scores_dialog.set_hilight (pos);
         scores_dialog.set_message ("<b>%s</b>\n\n%s".printf (_("Congratulations!"), pos == 1 ? _("Your score is the best!") : _("Your score has made the top ten.")));
@@ -233,7 +242,7 @@ public class Gnotravex : Gtk.Window
 
     private void scores_cb (Gtk.Action action)
     {
-        var scores_dialog = new GnomeGamesSupport.ScoresDialog (this, highscores, _("Tetravex Scores"));
+        var scores_dialog = new GnomeGamesSupport.ScoresDialog (window, highscores, _("Tetravex Scores"));
         scores_dialog.set_category_description (_("Size:"));
         scores_dialog.run ();
         scores_dialog.destroy ();
@@ -282,7 +291,7 @@ public class Gnotravex : Gtk.Window
 
     private void help_cb (Gtk.Action action)
     {
-        GnomeGamesSupport.help_display (this, "gnotravex", null);
+        GnomeGamesSupport.help_display (window, "gnotravex", null);
     }
 
     private void about_cb (Gtk.Action action)
@@ -290,7 +299,7 @@ public class Gnotravex : Gtk.Window
         string[] authors = { "Lars Rydlinge", "Robert Ancell", null };
         string[] documenters = { "Rob Bradford", null };
         var license = GnomeGamesSupport.get_license (_("Tetravex"));
-        Gtk.show_about_dialog (this,
+        Gtk.show_about_dialog (window,
                                "program-name", _("Tetravex"),
                                "version", VERSION,
                                "comments",
@@ -348,7 +357,7 @@ public class Gnotravex : Gtk.Window
     {
         puzzle.move_down ();
     }
-   
+
     private const Gtk.ActionEntry[] action_entry =
     {
         {"GameMenu", null, N_("_Game")},
@@ -399,19 +408,10 @@ public class Gnotravex : Gtk.Window
         Gtk.Window.set_default_icon_name ("gnome-tetravex");
 
         var app = new Gnotravex ();
-        app.delete_event.connect (window_delete_event_cb);
-        app.show ();
-
-        Gtk.main ();
+        var result = app.run ();
 
         GnomeGamesSupport.runtime_shutdown ();
 
-        return Posix.EXIT_SUCCESS;
-    }
-
-    private static bool window_delete_event_cb (Gtk.Widget widget, Gdk.EventAny event)
-    {
-        Gtk.main_quit ();
-        return false;
+        return result;
     }
 }
