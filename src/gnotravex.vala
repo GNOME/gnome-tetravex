@@ -5,7 +5,6 @@ public class Gnotravex : Gtk.Application
     private const int DELAY = 10;
 
     private const string KEY_GRID_SIZE = "grid-size";
-    private const string KEY_CLICK_MOVE = "click-to-move";
 
     private Settings settings;
 
@@ -63,7 +62,6 @@ public class Gnotravex : Gtk.Application
         "        </menu>" +
         "        <menu action='SettingsMenu'>" +
         "            <menuitem action='Fullscreen'/>" +
-        "            <menuitem action='ClickToMove'/>" +
         "            <separator/>" +
         "            <menuitem action='Size2x2'/>" +
         "            <menuitem action='Size3x3'/>" +
@@ -101,7 +99,6 @@ public class Gnotravex : Gtk.Application
         action_group.set_translation_domain (GETTEXT_PACKAGE);
         action_group.add_actions (action_entry, this);
         action_group.add_radio_actions (size_action_entry, -1, size_cb);
-        action_group.add_toggle_actions (toggles, this);
         ui_manager.insert_action_group (action_group, 0);
         window.add_accel_group (ui_manager.get_accel_group ());
 
@@ -129,8 +126,6 @@ public class Gnotravex : Gtk.Application
         action_group.add_action_with_accel (fullscreen_action, null);
         var leave_fullscreen_action = new GnomeGamesSupport.FullscreenAction ("LeaveFullscreen", window);
         action_group.add_action_with_accel (leave_fullscreen_action, null);
-        var action = (Gtk.ToggleAction) action_group.get_action ("ClickToMove");
-        action.active = settings.get_boolean (KEY_CLICK_MOVE);
         var size = settings.get_int (KEY_GRID_SIZE);
         if (size < 2 || size > 6)
             size = 3;
@@ -153,7 +148,6 @@ public class Gnotravex : Gtk.Application
         view = new PuzzleView ();
         view.hexpand = true;
         view.vexpand = true;
-        view.click_to_move = settings.get_boolean (KEY_CLICK_MOVE);
         view.button_press_event.connect (view_button_press_event);
         view.show ();
         grid.attach (view, 0, 2, 1, 1);
@@ -327,17 +321,6 @@ public class Gnotravex : Gtk.Application
         new_game ();
     }
 
-    private void clickmove_toggle_cb (Gtk.Action action)
-    {
-        var click_to_move = ((Gtk.ToggleAction) action).active;
-
-        if (click_to_move == settings.get_boolean (KEY_CLICK_MOVE))
-            return;
-
-        settings.set_boolean (KEY_CLICK_MOVE, click_to_move);
-        view.click_to_move = click_to_move;
-    }
-
     private void move_up_cb (Gtk.Action action)
     {
         puzzle.move_up ();
@@ -375,10 +358,6 @@ public class Gnotravex : Gtk.Application
         {"MoveDown", Gtk.Stock.GO_DOWN, N_("_Down"), "<control>Down",  N_("Move the pieces down"), move_down_cb},
         {"Contents", GnomeGamesSupport.STOCK_CONTENTS, null, null, null, help_cb},
         {"About", Gtk.Stock.ABOUT, null, null, null, about_cb}
-    };
-    private const Gtk.ToggleActionEntry toggles[] =
-    {
-        {"ClickToMove", null, N_("_Click to Move"), null, "Pick up and drop tiles by clicking", clickmove_toggle_cb}
     };
 
     public static int main (string[] args)

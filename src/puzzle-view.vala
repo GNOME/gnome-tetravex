@@ -64,10 +64,11 @@ public class PuzzleView : Gtk.DrawingArea
     /* Theme */
     private Theme theme;
 
-    public bool click_to_move = false;
-
     /* Tile being controlled by the mouse */
     private TileImage? selected_tile = null;
+
+    /* Timeout to detect if a click is a selection or a drag */
+    private uint selection_timeout = 0;
 
     /* The position inside the tile where the cursor is */
     private double selected_x_offset;
@@ -367,8 +368,18 @@ public class PuzzleView : Gtk.DrawingArea
                 selected_tile = image;
                 selected_x_offset = x - image.x;
                 selected_y_offset = y - image.y;
+
+                if (selection_timeout != 0)
+                    Source.remove (selection_timeout);
+                selection_timeout = Timeout.add (200, selection_timeout_cb);
             }
         }
+    }
+    
+    private bool selection_timeout_cb ()
+    {
+        selection_timeout = 0;
+        return false;
     }
 
     private void drop_tile (double x, double y)
@@ -425,7 +436,7 @@ public class PuzzleView : Gtk.DrawingArea
         {
             if (selected_tile == null)
                 pick_tile (event.x, event.y);
-            else if (click_to_move)
+            else if (selected_tile != null)
                 drop_tile (event.x, event.y);
         }
 
@@ -434,9 +445,13 @@ public class PuzzleView : Gtk.DrawingArea
 
     public override bool button_release_event (Gdk.EventButton event)
     {
-        if (event.button == 1 && selected_tile != null && !click_to_move)
+        if (event.button == 1 && selected_tile != null && selection_timeout == 0)
             drop_tile (event.x, event.y);
             
+        if (selection_timeout != 0)
+            Source.remove (selection_timeout);
+        selection_timeout = 0;
+
         return false;
     }
 
