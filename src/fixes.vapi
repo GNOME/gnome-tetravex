@@ -49,8 +49,8 @@ namespace GLib2 {
 	[CCode (cheader_filename = "gio/gio.h")]
 	public interface ActionMap : GLib.ActionGroup, GLib.Object {
 		public abstract void add_action (GLib.Action action);
-		public void add_action_entries (GLib.ActionEntry[] entries);
-		public abstract GLib.Action lookup_action (string action_name);
+		public void add_action_entries (GLib2.ActionEntry[] entries, void* user_data);
+		public abstract unowned GLib.Action lookup_action (string action_name);
 		public abstract void remove_action (string action_name);
 	}
 	[CCode (cheader_filename = "gio/gio.h")]
@@ -132,6 +132,18 @@ namespace GLib2 {
 		[HasEmitter]
 		public virtual signal void items_changed (int p0, int p1, int p2);
 	}
+	public delegate void SimpleActionActivateCallback (GLib.SimpleAction action, GLib.Variant? parameter);
+	public delegate void SimpleActionChangeStateCallback (GLib.SimpleAction action, GLib.Variant value);
+	[CCode (cheader_filename = "gio/gio.h")]
+	public struct ActionEntry {
+		public weak string name;
+		[CCode (delegate_target = false)]
+		public SimpleActionActivateCallback activate;
+		public weak string parameter_type;
+		public weak string state;
+		[CCode (delegate_target = false)]
+		public SimpleActionChangeStateCallback change_state;
+	}
 }
 
 [CCode (cprefix = "Gtk", gir_namespace = "Gtk", gir_version = "3.0", lower_case_cprefix = "gtk_")]
@@ -153,5 +165,13 @@ namespace Gtk3 {
 		public GLib2.MenuModel menubar { get; set; }
 		public virtual signal void window_added (Gtk.Window window);
 		public virtual signal void window_removed (Gtk.Window window);
+	}
+	[CCode (cheader_filename = "gtk/gtk.h")]
+	public class ApplicationWindow : Gtk.Window, Atk.Implementor, Gtk.Buildable, GLib.ActionGroup, GLib2.ActionMap {
+		[CCode (has_construct_function = false, type = "GtkWidget*")]
+		public ApplicationWindow (Gtk3.Application application);
+		public bool get_show_menubar ();
+		public void set_show_menubar (bool show_menubar);
+		public bool show_menubar { get; set construct; }
 	}
 }

@@ -1,9 +1,5 @@
 public class Gnotravex : Gtk3.Application
 {
-    private const int LONG_COUNT = 15;
-    private const int SHORT_COUNT = 5;
-    private const int DELAY = 10;
-
     private const string KEY_GRID_SIZE = "grid-size";
 
     private Settings settings;
@@ -13,8 +9,7 @@ public class Gnotravex : Gtk3.Application
     private GnomeGamesSupport.Scores highscores;
 
     private PuzzleView view;
-    private const GnomeGamesSupport.ScoresCategory scorecats[] =
-    {
+    private const GnomeGamesSupport.ScoresCategory scorecats[] = {
         { "2x2", N_("2×2") },
         { "3x3", N_("3×3") },
         { "4x4", N_("4×4") },
@@ -22,72 +17,15 @@ public class Gnotravex : Gtk3.Application
         { "6x6", N_("6×6") }
     };
 
-    const Gtk.RadioActionEntry size_action_entry[] =
-    {
-        {"Size2x2", null, N_("_2×2"), null, N_("Play on a 2×2 board"), 2},
-        {"Size3x3", null, N_("_3×3"), null, N_("Play on a 3×3 board"), 3},
-        {"Size4x4", null, N_("_4×4"), null, N_("Play on a 4×4 board"), 4},
-        {"Size5x5", null, N_("_5×5"), null, N_("Play on a 5×5 board"), 5},
-        {"Size6x6", null, N_("_6×6"), null, N_("Play on a 6×6 board"), 6}
-    };
-
     private Gtk.Window window;
-    private Gtk.Action new_game_action;
-    private GnomeGamesSupport.PauseAction pause_action;
-    private Gtk.Action solve_action;
-    private Gtk.Action scores_action;
-    private Gtk.Action move_up_action;
-    private Gtk.Action move_left_action;
-    private Gtk.Action move_right_action;
-    private Gtk.Action move_down_action;
+    private SimpleAction pause;
+    private SimpleAction solve;
 
-    private const string ui_description =
-        "<ui>" +
-        "    <menubar name='MainMenu'>" +
-        "        <menu action='GameMenu'>" +
-        "            <menuitem action='NewGame'/>" +
-        "            <menuitem action='PauseGame'/>" +
-        "            <separator/>" +
-        "            <menu action='MoveMenu'>" +
-        "                <menuitem action='MoveUp'/>" +
-        "                <menuitem action='MoveLeft'/>" +
-        "                <menuitem action='MoveRight'/>" +
-        "                <menuitem action='MoveDown'/>" +
-        "            </menu>" +
-        "            <menuitem action='Solve'/>" +
-        "            <separator/>" +
-        "            <menuitem action='Scores'/>" +
-        "            <separator/>" +
-        "            <menuitem action='Quit'/>" +
-        "        </menu>" +
-        "        <menu action='SettingsMenu'>" +
-        "            <menuitem action='Fullscreen'/>" +
-        "            <separator/>" +
-        "            <menuitem action='Size2x2'/>" +
-        "            <menuitem action='Size3x3'/>" +
-        "            <menuitem action='Size4x4'/>" +
-        "            <menuitem action='Size5x5'/>" +
-        "            <menuitem action='Size6x6'/>" +
-        "        </menu>" +
-        "        <menu action='HelpMenu'>" +
-        "            <menuitem action='Contents'/>" +
-        "            <menuitem action='About'/>" +
-        "        </menu>" +
-        "    </menubar>" +
-        "  <toolbar name='Toolbar'>" +
-        "    <toolitem action='NewGame'/>" +
-        "    <toolitem action='PauseGame'/>" +
-        "    <toolitem action='LeaveFullscreen'/>" +
-        "  </toolbar>" +
-        "</ui>";
-
-    public Gnotravex ()
-    {
+    public Gnotravex () {
         Object (application_id: "org.gnome.gnotravex", flags: ApplicationFlags.FLAGS_NONE);
     }
 
-    protected override void startup ()
-    {
+    protected override void startup () {
         base.startup ();
 
         if (!GnomeGamesSupport.runtime_init ("gnotravex"))
@@ -101,86 +39,43 @@ public class Gnotravex : Gtk3.Application
         GnomeGamesSupport.stock_init ();
         Gtk.Window.set_default_icon_name ("gnome-tetravex");
 
+        add_action_entries (action_entries, this);
+        pause = lookup_action ("pause") as SimpleAction;
+        solve = lookup_action ("solve") as SimpleAction;
+
+        try {
+            var builder = new Gtk.Builder ();
+            builder.add_from_string (menu_description, -1);
+            app_menu = (GLib2.MenuModel) builder.get_object ("app-menu");
+        } catch (Error e) {
+            error ("Unable to build menus: %s", e.message);
+        }
+
         settings = new Settings ("org.gnome.gnotravex");
 
         highscores = new GnomeGamesSupport.Scores ("gnotravex", scorecats, null, null, 0, GnomeGamesSupport.ScoreStyle.TIME_ASCENDING);
-    }
 
-    protected override void shutdown () {
-        GnomeGamesSupport.runtime_shutdown ();
-
-        base.shutdown ();
-    }
-
-    protected override void activate ()
-    {
-        if (window != null) {
-            window.present ();
-            return;
-        }
-
-        window = new Gtk.Window ();
+        window = new Gtk3.ApplicationWindow (this);
         window.title = _("Tetravex");
         GnomeGamesSupport.settings_bind_window_state ("/org/gnome/gnotravex/", window);
-        add_window (window);
 
-        var ui_manager = new Gtk.UIManager ();
-        var action_group = new Gtk.ActionGroup ("actions");
-        action_group.set_translation_domain (GETTEXT_PACKAGE);
-        action_group.add_actions (action_entry, this);
-        action_group.add_radio_actions (size_action_entry, -1, size_cb);
-        ui_manager.insert_action_group (action_group, 0);
-        window.add_accel_group (ui_manager.get_accel_group ());
-
-        try
-        {
-            ui_manager.add_ui_from_string (ui_description, -1);
-        }
-        catch (Error e)
-        {
-            critical ("Failed to parse UI: %s", e.message);
-        }
-
-        new_game_action = action_group.get_action ("NewGame");
-        solve_action = action_group.get_action ("Solve");
-        scores_action = action_group.get_action ("Scores");
-        move_up_action = action_group.get_action ("MoveUp");
-        move_left_action = action_group.get_action ("MoveLeft");
-        move_right_action = action_group.get_action ("MoveRight");
-        move_down_action = action_group.get_action ("MoveDown");
-        pause_action = new GnomeGamesSupport.PauseAction ("PauseGame");
-        pause_action.is_important = true;
-        pause_action.state_changed.connect (pause_cb);
-        action_group.add_action_with_accel (pause_action, null);
-        var fullscreen_action = new GnomeGamesSupport.FullscreenAction ("Fullscreen", window);
-        action_group.add_action_with_accel (fullscreen_action, null);
-        var leave_fullscreen_action = new GnomeGamesSupport.FullscreenAction ("LeaveFullscreen", window);
-        action_group.add_action_with_accel (leave_fullscreen_action, null);
-        var size = settings.get_int (KEY_GRID_SIZE);
-        if (size < 2 || size > 6)
-            size = 3;
-        var size_action = (Gtk.RadioAction) action_group.get_action (size_action_entry[size-2].name);
-        size_action.active = true;
+        (lookup_action ("size") as SimpleAction).set_state ("%d".printf (settings.get_int (KEY_GRID_SIZE)));
 
         var grid = new Gtk.Grid ();
         grid.show ();
         window.add (grid);
 
-        var menubar = ui_manager.get_widget ("/MainMenu");
-        menubar.show ();
-        grid.attach (menubar, 0, 0, 1, 1);
-
-        var toolbar = (Gtk.Toolbar) ui_manager.get_widget ("/Toolbar");
+        var toolbar = new Gtk.Toolbar ();
         toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
         toolbar.show ();
-        grid.attach (toolbar, 0, 1, 1, 1);
+        grid.attach (toolbar, 0, 0, 1, 1);
 
         view = new PuzzleView ();
         view.hexpand = true;
         view.vexpand = true;
         view.button_press_event.connect (view_button_press_event);
         view.show ();
-        grid.attach (view, 0, 2, 1, 1);
+        grid.attach (view, 0, 1, 1, 1);
 
         var time_item = new Gtk.ToolItem ();
         time_item.set_expand (true);
@@ -202,38 +97,40 @@ public class Gnotravex : Gtk3.Application
         var label = new Gtk.Label (" ");
         label.show ();
         time_box.pack_start (label, false, false, 0);
-
         clock = new GnomeGamesSupport.Clock ();
         clock.show ();
         time_box.pack_start (clock, false, false, 0);
 
         new_game ();
-
-        window.show ();
     }
 
-    private void new_game ()
-    {
-        if (puzzle != null)
-            SignalHandler.disconnect_by_func (puzzle, null, this);
+    protected override void shutdown () {
+        GnomeGamesSupport.runtime_shutdown ();
 
-        pause_action.sensitive = true;
+        base.shutdown ();
+    }
+
+    protected override void activate () {
+        window.present ();
+    }
+
+    private void new_game () {
+        if (puzzle != null) {
+            SignalHandler.disconnect_by_func (puzzle, null, this);
+        }
 
         var size = settings.get_int (KEY_GRID_SIZE);
-        if (size < 2 || size > 6)
-            size = 3;
         highscores.set_category (scorecats[size - 2].key);
         puzzle = new Puzzle (size);
         puzzle.solved.connect (solved_cb);
         view.puzzle = puzzle;
-        view.is_paused = false;
 
+        pause.change_state (false);
         clock.reset ();
         clock.start ();
     }
 
-    private void solved_cb (Puzzle puzzle)
-    {
+    private void solved_cb (Puzzle puzzle) {
         clock.stop ();
 
         var seconds = clock.get_seconds ();
@@ -251,71 +148,58 @@ public class Gnotravex : Gtk3.Application
         scores_dialog.destroy ();
     }
 
-    private void new_game_cb (Gtk.Action action)
-    {
+    private void new_game_cb () {
         new_game ();
     }
 
-    private void quit_cb (Gtk.Action action)
-    {
+    private void quit_cb () {
         window.destroy ();
     }
 
-    private void scores_cb (Gtk.Action action)
-    {
+    private void scores_cb () {
         var scores_dialog = new GnomeGamesSupport.ScoresDialog (window, highscores, _("Tetravex Scores"));
         scores_dialog.set_category_description (_("Size:"));
         scores_dialog.run ();
         scores_dialog.destroy ();
     }
 
-    private bool view_button_press_event (Gtk.Widget widget, Gdk.EventButton event)
-    {
+    private bool view_button_press_event (Gtk.Widget widget, Gdk.EventButton event) {
         /* Cancel pause on click */
-        if (view.is_paused)
+        if ((bool) pause.get_state ())
         {
-            toggle_pause ();
+            pause.change_state (false);
             return true;
         }
 
         return false;
     }
 
-    private void pause_cb (Gtk.Action action)
+    private void pause_changed (SimpleAction action, Variant state)
     {
-        toggle_pause ();
-    }
+        var paused = (bool) state;
+        solve.set_enabled (!paused);
+        view.is_paused = paused;
 
-    private void toggle_pause ()
-    {
-        if (view.is_paused)
-        {
-            pause_action.set_is_paused (false);
-            solve_action.sensitive = true;
-            clock.start ();
-            view.is_paused = false;
-        }
-        else
-        {
-            pause_action.set_is_paused (true);
-            solve_action.sensitive = false;
+        if (paused)
             clock.stop ();
-            view.is_paused = true;
-        }
+        else
+            clock.start ();
+
+        action.set_state (state);
     }
 
-    private void solve_cb (Gtk.Action action)
+    private void solve_cb ()
     {
         puzzle.solve ();
         clock.stop ();
     }
 
-    private void help_cb (Gtk.Action action)
+    private void help_cb ()
     {
         GnomeGamesSupport.help_display (window, "gnotravex", null);
     }
 
-    private void about_cb (Gtk.Action action)
+    private void about_cb ()
     {
         string[] authors = { "Lars Rydlinge", "Robert Ancell", null };
         string[] documenters = { "Rob Bradford", null };
@@ -338,57 +222,94 @@ public class Gnotravex : Gtk3.Application
                                null);
     }
 
-    private void size_cb (Gtk.Action action)
-    {
-        var size = ((Gtk.RadioAction) action).get_current_value ();
+    private void size_changed (SimpleAction action, Variant value) {
+        var size = ((string) value)[0] - '0';
 
         if (size == settings.get_int (KEY_GRID_SIZE))
             return;
         settings.set_int (KEY_GRID_SIZE, size);
+        action.set_state (value);
         new_game ();
     }
 
-    private void move_up_cb (Gtk.Action action)
-    {
+    private void move_up_cb () {
         puzzle.move_up ();
     }
 
-    private void move_left_cb (Gtk.Action action)
-    {
+    private void move_left_cb () {
         puzzle.move_left ();
     }
 
-    private void move_right_cb (Gtk.Action action)
-    {
+    private void move_right_cb () {
         puzzle.move_right ();
     }
 
-    private void move_down_cb (Gtk.Action action)
-    {
+    private void move_down_cb () {
         puzzle.move_down ();
     }
 
-    private const Gtk.ActionEntry[] action_entry =
-    {
-        {"GameMenu", null, N_("_Game")},
-        {"MoveMenu", null, N_("_Move")},
-        {"SettingsMenu", null, N_("_Settings")},
-        {"SizeMenu", null, N_("_Size")},
-        {"HelpMenu", null, N_("_Help")},
-        {"NewGame", GnomeGamesSupport.STOCK_NEW_GAME, null, null, null, new_game_cb},
-        {"Solve", Gtk.Stock.REFRESH, N_("Sol_ve"), null, N_("Solve the game"), solve_cb},
-        {"Scores", GnomeGamesSupport.STOCK_SCORES, null, null, null, scores_cb},
-        {"Quit", Gtk.Stock.QUIT, null, null, null, quit_cb},
-        {"MoveUp", Gtk.Stock.GO_UP, N_("_Up"), "<control>Up",  N_("Move the pieces up"), move_up_cb},
-        {"MoveLeft", Gtk.Stock.GO_BACK, N_("_Left"), "<control>Left", N_("Move the pieces left"), move_left_cb},
-        {"MoveRight", Gtk.Stock.GO_FORWARD, N_("_Right"), "<control>Right", N_("Move the pieces right"), move_right_cb},
-        {"MoveDown", Gtk.Stock.GO_DOWN, N_("_Down"), "<control>Down",  N_("Move the pieces down"), move_down_cb},
-        {"Contents", GnomeGamesSupport.STOCK_CONTENTS, null, null, null, help_cb},
-        {"About", Gtk.Stock.ABOUT, null, null, null, about_cb}
+    private void toggle_cb (SimpleAction action, Variant? parameter) {
+        action.change_state (!(bool) action.get_state ());
+    }
+
+    private void radio_cb (SimpleAction action, Variant? parameter) {
+        action.change_state (parameter);
+    }
+
+    private const GLib2.ActionEntry[] action_entries = {
+        { "new-game",      new_game_cb                                            },
+        { "pause",         toggle_cb,    null, "false",     pause_changed         },
+        { "solve",         solve_cb                                               },
+        { "scores",        scores_cb                                              },
+        { "quit",          quit_cb                                                },
+        { "move-up",       move_up_cb                                             },
+        { "move-down",     move_down_cb                                           },
+        { "move-left",     move_left_cb                                           },
+        { "move-right",    move_right_cb                                          },
+        { "size",          radio_cb,      "s",  "'2'",      size_changed          },
+        { "help",          help_cb                                                },
+        { "about",         about_cb                                               }
     };
 
-    public static int main (string[] args)
-    {
+    private const string menu_description =
+        "<interface>" +
+          "<menu id='app-menu'>" +
+            "<section>" +
+              "<item label='_New Game' action='app.new-game' accel='<Primary>n'/>" +
+              "<item label='_Pause' action='app.pause' accel='p'/>" +
+              "<item label='_Solve' action='app.solve'/>" +
+               "<submenu label='_Move'>" +
+                 "<section>" +
+                   "<item label='_Up' action='app.move-up' accel='<Primary>Up'/>" +
+                   "<item label='_Left' action='app.move-left' accel='<Primary>Left'/>" +
+                   "<item label='_Right' action='app.move-right' accel='<Primary>Right'/>" +
+                   "<item label='_Down' action='app.move-down' accel='<Primary>Down'/>" +
+                 "</section>" +
+               "</submenu>" +
+              "<item label='_Scores' action='app.scores'/>" +
+             "</section>" +
+             "<section>" +
+               "<submenu label='_Size'>" +
+                 "<section>" +
+                   "<item label='_2×2' action='app.size' target='2'/>" +
+                   "<item label='_3×3' action='app.size' target='3'/>" +
+                   "<item label='_4×4' action='app.size' target='4'/>" +
+                   "<item label='_5×5' action='app.size' target='5'/>" +
+                   "<item label='_6×6' action='app.size' target='6'/>" +
+                 "</section>" +
+               "</submenu>" +
+             "</section>" +
+             "<section>" +
+               "<item label='_Help' action='app.help'/>" +
+               "<item label='_About' action='app.about'/>" +
+             "</section>" +
+             "<section>" +
+               "<item label='_Quit' action='app.quit'/>" +
+             "</section>" +
+           "</menu>" +
+         "</interface>";
+
+    public static int main (string[] args) {
         var app = new Gnotravex ();
         return app.run (args);
     }
