@@ -1,18 +1,19 @@
 # translation of gnotravex.master.po to Español
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
-"POT-Creation-Date: 2011-09-04 22:43+0000\n"
-"PO-Revision-Date: 2011-09-05 08:12+0200\n"
-"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"POT-Creation-Date: 2011-12-22 07:27+0000\n"
+"PO-Revision-Date: 2011-12-23 14:23+0100\n"
+"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: C/winning.page:9(desc)
 msgid "Simple tips on how to possibly win a game."
@@ -180,9 +181,6 @@ msgid "Demo"
 msgstr "Demostración"
 
 #: C/usage.page:66(p)
-#| msgid ""
-#| "Drag pieces from the right to the left, making sure that adjacent edjes "
-#| "have the same number and color."
 msgid ""
 "Drag pieces from the right to the left, making sure that adjacent edges have "
 "the same number and color."
@@ -346,19 +344,17 @@ msgstr "Mover una pieza"
 
 #: C/move.page:23(p)
 msgid ""
-"To move a piece, you need to click-and-hold on it, drag it from its current "
-"position to its new position, either on the right box or on the left box, "
-"and release the mouse button."
+"To move a piece, you can either click on it to select it, and click on the "
+"square to place it or drag it to the new square."
 msgstr ""
-"Para mover una pieza necesita pulsarla y mantenerla pulsada, arrástrela "
-"desde su posición actual a su nueva posición, tanto en la caja de la derecha "
-"como en la caja de la izquierda, y suelte el botón del ratón."
+"Para mover una pieza, puede pulsar sobre ella para seleccionarla y pulsar "
+"sobre el cuadrado donde situarla o arrastrarla y soltarla al cuadrado nuevo"
 
-#: C/move.page:28(p)
+#: C/move.page:26(p)
 msgid "These moves are not permanent and can be reversed."
 msgstr "Estos movimientos no son permanentes y se pueden deshacer."
 
-#: C/move.page:32(p)
+#: C/move.page:30(p)
 msgid ""
 "The pieces in the left box can be moved all at once in one direction. See "
 "<link xref=\"shortcut\"/> for more information."
@@ -366,30 +362,6 @@ msgstr ""
 "Las piezas en la caja de la izquierda se pueden mover a la ven en una "
 "dirección. Para obtener más información consulte la <link xref=\"shortcut\"/"
 ">."
-
-#: C/move.page:39(title)
-msgid "Avoid the click-and-hold"
-msgstr "Evitar la pulsación mantenida"
-
-#: C/move.page:40(p)
-msgid ""
-"If you do not feel comfortable with the click-and-hold action to move the "
-"pieces, it is possible to change that behavior so that you only have to "
-"click on a piece to move it, and click again to release it in its new "
-"position."
-msgstr ""
-"Si no se siente a gusto con la acción de pulsar y mantener para mover las "
-"piezas, es posible cambiar el comportamiento para que sólo tenga que pulsar "
-"en una pieza para moverla y volver a pulsar para dejarla en su nueva "
-"posición."
-
-#: C/move.page:45(p)
-msgid ""
-"To do that, from the main menu bar, choose <gui style=\"menu\">Move</gui>, "
-"and select <gui style=\"checkbox\">Click to Move</gui>."
-msgstr ""
-"Para ello, desde la barra de menú, elija <gui style=\"menu\">Mover</gui> y "
-"seleccione <gui style=\"checkbox\">Pulsar para mover</gui>."
 
 #: C/license.page:8(desc)
 msgid "Legal information."
@@ -515,54 +487,21 @@ msgid "Hints"
 msgstr "Sugerencias"
 
 #: C/hint.page:17(p)
+#| msgid ""
+#| "If you use one of the following methods to complete the game, your scores "
+#| "will not be included among the high scores."
 msgid ""
-"If you use one of the following methods to complete the game, your scores "
-"will not be included among the high scores."
+"If you use the following method to complete the game, your score will not be "
+"included among the high scores."
 msgstr ""
-"No se incluirán sus puntuaciones entre las mejores si usa uno de los "
-"siguientes métodos para completar la partida."
+"Si usa uno de los siguientes métodos para completar la partida, sus "
+"puntuaciones no se incluirán entre las mejores."
 
-#: C/hint.page:25(title)
-msgid "Use the hints system"
-msgstr "Usar las sugerencias del sistema"
-
-#: C/hint.page:27(p)
-msgid ""
-"At any time in the game, if you do not know how to start it, or where to "
-"move a piece, it is possible to use the built-in hints system."
-msgstr ""
-"En cualquier momento de la partida, si no sabe cómo empezarla o dónde mover "
-"una pieza, es posible usar las sugerencias integradas del sistema."
-
-#: C/hint.page:31(p)
-msgid ""
-"The system will move one piece from the right box to its correct position "
-"into the left box."
-msgstr ""
-"El sistema moverá una pieza de la caja de la derecha a su posición correcta "
-"en la caja de la izquierda."
-
-#: C/hint.page:35(p)
-msgid "To use the hints system, perform one of the following:"
-msgstr "Para usar las sugerencias del sistema haga una de las siguientes:"
-
-#: C/hint.page:40(p)
-msgid "Press <keyseq><key>Ctrl</key><key>H</key></keyseq>."
-msgstr "Pulse <keyseq><key>Ctrl</key><key>H</key></keyseq>."
-
-#: C/hint.page:45(p)
-msgid ""
-"Choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Hint</"
-"gui></guiseq>."
-msgstr ""
-"Elija <guiseq><gui style=\"menu\">Juego</gui><gui style=\"menuitem"
-"\">Sugerencia</gui></guiseq>."
-
-#: C/hint.page:52(title)
+#: C/hint.page:24(title)
 msgid "Solve the game"
 msgstr "Resolver la partida."
 
-#: C/hint.page:53(p)
+#: C/hint.page:25(p)
 msgid ""
 "If you get stuck in the game, or you want to solve it automatically, choose "
 "<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
@@ -624,6 +563,66 @@ msgstr "Ventana principal de <app>Tetravex</app>."
 #: C/index.page:0(None)
 msgid "translator-credits"
 msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2007-2011"
+
+#~ msgid ""
+#~ "To move a piece, you need to click-and-hold on it, drag it from its "
+#~ "current position to its new position, either on the right box or on the "
+#~ "left box, and release the mouse button."
+#~ msgstr ""
+#~ "Para mover una pieza necesita pulsarla y mantenerla pulsada, arrástrela "
+#~ "desde su posición actual a su nueva posición, tanto en la caja de la "
+#~ "derecha como en la caja de la izquierda, y suelte el botón del ratón."
+
+#~ msgid "Avoid the click-and-hold"
+#~ msgstr "Evitar la pulsación mantenida"
+
+#~ msgid ""
+#~ "If you do not feel comfortable with the click-and-hold action to move the "
+#~ "pieces, it is possible to change that behavior so that you only have to "
+#~ "click on a piece to move it, and click again to release it in its new "
+#~ "position."
+#~ msgstr ""
+#~ "Si no se siente a gusto con la acción de pulsar y mantener para mover las "
+#~ "piezas, es posible cambiar el comportamiento para que sólo tenga que "
+#~ "pulsar en una pieza para moverla y volver a pulsar para dejarla en su "
+#~ "nueva posición."
+
+#~ msgid ""
+#~ "To do that, from the main menu bar, choose <gui style=\"menu\">Move</"
+#~ "gui>, and select <gui style=\"checkbox\">Click to Move</gui>."
+#~ msgstr ""
+#~ "Para ello, desde la barra de menú, elija <gui style=\"menu\">Mover</gui> "
+#~ "y seleccione <gui style=\"checkbox\">Pulsar para mover</gui>."
+
+#~ msgid "Use the hints system"
+#~ msgstr "Usar las sugerencias del sistema"
+
+#~ msgid ""
+#~ "At any time in the game, if you do not know how to start it, or where to "
+#~ "move a piece, it is possible to use the built-in hints system."
+#~ msgstr ""
+#~ "En cualquier momento de la partida, si no sabe cómo empezarla o dónde "
+#~ "mover una pieza, es posible usar las sugerencias integradas del sistema."
+
+#~ msgid ""
+#~ "The system will move one piece from the right box to its correct position "
+#~ "into the left box."
+#~ msgstr ""
+#~ "El sistema moverá una pieza de la caja de la derecha a su posición "
+#~ "correcta en la caja de la izquierda."
+
+#~ msgid "To use the hints system, perform one of the following:"
+#~ msgstr "Para usar las sugerencias del sistema haga una de las siguientes:"
+
+#~ msgid "Press <keyseq><key>Ctrl</key><key>H</key></keyseq>."
+#~ msgstr "Pulse <keyseq><key>Ctrl</key><key>H</key></keyseq>."
+
+#~ msgid ""
+#~ "Choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem"
+#~ "\">Hint</gui></guiseq>."
+#~ msgstr ""
+#~ "Elija <guiseq><gui style=\"menu\">Juego</gui><gui style=\"menuitem"
+#~ "\">Sugerencia</gui></guiseq>."
 
 #~ msgid "Simple demonstration of a game"
 #~ msgstr "Demostración simple de una partida"
