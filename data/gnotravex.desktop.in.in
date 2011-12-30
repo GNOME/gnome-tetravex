@@ -2,7 +2,7 @@
 _Name=Tetravex
 _Comment=Complete the puzzle by matching numbered tiles
 Exec=gnotravex
-Icon=gnome-tetravex
+Icon=gnotravex
 Terminal=false
 Type=Application
 Categories=GNOME;GTK;Game;LogicGame;

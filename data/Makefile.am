@@ -1,3 +1,5 @@
+SUBDIRS = icons
+
 desktop_in_files = gnotravex.desktop.in.in
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)

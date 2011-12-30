@@ -37,7 +37,7 @@ public class Gnotravex : Gtk3.Application
 
         Environment.set_application_name (_("Tetravex"));
         GnomeGamesSupport.stock_init ();
-        Gtk.Window.set_default_icon_name ("gnome-tetravex");
+        Gtk.Window.set_default_icon_name ("gnotravex");
 
         add_action_entries (action_entries, this);
         pause = lookup_action ("pause") as SimpleAction;
@@ -216,7 +216,7 @@ public class Gnotravex : Gtk3.Application
                                "authors", authors,
                                "documenters", documenters,
                                "translator-credits", _("translator-credits"),
-                               "logo-icon-name", "gnome-tetravex",
+                               "logo-icon-name", "gnotravex",
                                "website", "http://www.gnome.org/projects/gnome-games",
                                "website-label", _("GNOME Games web site"),
                                null);
