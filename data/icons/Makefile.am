@@ -11,3 +11,5 @@ icon24_DATA = 24x24/gnotravex.png
 icon32_DATA = 32x32/gnotravex.png
 icon48_DATA = 48x48/gnotravex.png
 iconscalable_DATA = scalable/gnotravex.svg
+
+EXTRA_DIST = $(icon16_DATA) $(icon22_DATA) $(icon24_DATA) $(icon32_DATA) $(icon48_DATA) $(iconscalable_DATA)
