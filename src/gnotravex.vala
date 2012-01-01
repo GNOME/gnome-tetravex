@@ -31,13 +31,6 @@ public class Gnotravex : Gtk3.Application
     {
         base.startup ();
 
-        if (!GnomeGamesSupport.runtime_init ("gnotravex"))
-            Posix.exit (Posix.EXIT_FAILURE);
-
-#if ENABLE_SETGID
-        GnomeGamesSupport.setgid_io_init ();
-#endif
-
         Environment.set_application_name (_("Tetravex"));
         GnomeGamesSupport.stock_init ();
         Gtk.Window.set_default_icon_name ("gnotravex");
@@ -112,8 +105,6 @@ public class Gnotravex : Gtk3.Application
 
     protected override void shutdown ()
     {
-        GnomeGamesSupport.runtime_shutdown ();
-
         base.shutdown ();
     }
 

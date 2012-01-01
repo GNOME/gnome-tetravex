@@ -14,10 +14,6 @@ gnotravex_VALAFLAGS = \
 	--vapidir $(top_srcdir)/libgames-support \
 	--pkg GnomeGamesSupport-1.0
 
-if ENABLE_SETGID
-gnotravex_VALAFLAGS += -D ENABLE_SETGID
-endif
-
 gnotravex_CFLAGS = \
 	-I$(top_srcdir)/libgames-support \
 	-DVERSION=\"$(VERSION)\" \
