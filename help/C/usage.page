@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <page xmlns="http://projectmallard.org/1.0/"
-      type="guide" version="1.0 ttml/1.0"
+      type="guide"
       id="usage">
 
   <info>
-    <link type="guide" xref="index#play" group="one"/>
+    <link type="guide" xref="index#play" />
     <link type="seealso" xref="gameplay"/>
     <desc>How to play <app>GNOME Tetravex</app>.</desc>
     <revision pkgversion="2.30" version="0.1" date="2009-12-17" status="draft"/>
