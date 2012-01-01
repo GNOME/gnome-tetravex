@@ -209,7 +209,14 @@ public class Gnotravex : Gtk3.Application
 
     private void help_cb ()
     {
-        GnomeGamesSupport.help_display (window, "gnotravex", null);
+        try
+        {
+            Gtk.show_uri (window.get_screen (), "ghelp:gnotravex", Gtk.get_current_event_time ());
+        }
+        catch (Error e)
+        {
+            warning ("Failed to show help: %s", e.message);
+        }
     }
 
     private void about_cb ()
