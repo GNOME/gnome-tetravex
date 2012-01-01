@@ -27,11 +27,6 @@ gnotravex_LDADD =	\
 	$(GTK_LIBS)	\
 	$(INTLLIBS)
 
-if HAVE_GNOME
-gnotravex_CFLAGS += $(GNOME_CFLAGS)
-gnotravex_LDADD += $(GNOME_LIBS)
-endif
-
 if HAVE_RSVG
 gnotravex_CFLAGS += $(RSVG_CFLAGS)
 gnotravex_LDADD += $(RSVG_LIBS)
