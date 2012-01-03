@@ -32,11 +32,6 @@ gnotravex_CFLAGS += $(RSVG_CFLAGS)
 gnotravex_LDADD += $(RSVG_LIBS)
 endif
 
-if WITH_GTHREAD
-gnotravex_CFLAGS += $(GHTREAD_CFLAGS)
-gnotravex_LDADD += $(GTHREAD_LIBS)
-endif
-
 install-exec-hook:
 	-if test "$(setgid)" = "true"; then \
 	  chgrp $(scores_group) $(DESTDIR)$(bindir)/gnotravex && chmod 2555 $(DESTDIR)$(bindir)/gnotravex ;\
