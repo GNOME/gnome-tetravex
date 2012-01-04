@@ -8,12 +8,10 @@ DOC_FIGURES = \
 	figures/gnotravex-video.ogv
 
 DOC_PAGES = \
-  gameplay.page \
   hint.page \
   index.page \
   license.page \
   move.page \
-  multiplayer.page \
   shortcut.page \
   size.page \
   usage.page \
