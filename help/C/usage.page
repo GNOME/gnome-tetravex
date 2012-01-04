@@ -5,7 +5,6 @@
 
   <info>
     <link type="guide" xref="index#play" />
-    <link type="seealso" xref="gameplay"/>
     <desc>How to play <app>GNOME Tetravex</app>.</desc>
     <revision pkgversion="2.30" version="0.1" date="2009-12-17" status="draft"/>
     <credit type="author">

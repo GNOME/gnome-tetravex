@@ -26,6 +26,16 @@
     GNOME Tetravex
   </title>
 
+  <p>
+    <app>GNOME Tetravex</app> is a simple puzzle game which scope is to move
+    the various pieces from one side of the board to the other side, so that the 
+    same numbers depicted on the pieces are touching each other.
+  </p>
+  <p>
+    The game is timed, and these times are used as the score for the game. You have
+    to move all the pieces in the least time possible.
+  </p>
+
   <section id="play" style="2column">
     <title>Basic Gameplay &amp; Usage</title>
   </section>
