@@ -37,4 +37,8 @@ install-exec-hook:
 	  chgrp $(scores_group) $(DESTDIR)$(bindir)/gnotravex && chmod 2555 $(DESTDIR)$(bindir)/gnotravex ;\
 	fi
 
+CLEANFILES = \
+	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
+	*_vala.stamp
+
 -include $(top_srcdir)/git.mk
