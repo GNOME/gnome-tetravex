@@ -330,6 +330,7 @@ public class Gnotravex : Gtk3.Application
 
     public static int main (string[] args)
     {
+        GnomeGamesSupport.scores_startup ();
         var app = new Gnotravex ();
         return app.run (args);
     }
