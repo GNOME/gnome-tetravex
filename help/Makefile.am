@@ -1,24 +1,20 @@
-include $(top_srcdir)/gnome-doc-utils.make
+@YELP_HELP_RULES@
+HELP_ID = gnotravex
 
-DOC_ID = gnotravex
-
-DOC_FIGURES = \
+HELP_MEDIA = \
 	figures/gnotravex-logo.png \
-	figures/gnotravex-main-window.png \
 	figures/gnotravex-video.ogv
 
-DOC_PAGES = \
-  hint.page \
-  index.page \
-  license.page \
-  move.page \
-  shortcut.page \
-  size.page \
-  usage.page \
-  winning.page
+HELP_FILES = \
+	hint.page \
+	index.page \
+	license.page \
+	move.page \
+	shortcut.page \
+	size.page \
+	usage.page \
+	winning.page
 
-DOC_LINGUAS = ca cs da de el en_GB es eu fr it oc ru sl sr sr@latin sv zh_CN
-
-dist-hook: doc-dist-hook
+HELP_LINGUAS = ca cs da de el en_GB es eu fr it oc ru sl sr sr@latin sv zh_CN
 
 -include $(top_srcdir)/git.mk
