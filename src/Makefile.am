@@ -18,6 +18,7 @@ gnotravex_CFLAGS = \
 	-I$(top_srcdir)/libgames-support \
 	-DVERSION=\"$(VERSION)\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
+	-DLOCALEDIR=\"$(datadir)/locale\" \
 	$(GTK_CFLAGS)	\
 	$(AM_CFLAGS)	\
 	-Wno-unused

@@ -330,6 +330,11 @@ public class Gnotravex : Gtk3.Application
 
     public static int main (string[] args)
     {
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
+
         GnomeGamesSupport.scores_startup ();
         var app = new Gnotravex ();
         return app.run (args);
