@@ -1,4 +1,4 @@
-public class Gnotravex : Gtk3.Application
+public class Gnotravex : Gtk.Application
 {
     private const string KEY_GRID_SIZE = "grid-size";
 
@@ -43,7 +43,7 @@ public class Gnotravex : Gtk3.Application
         {
             var builder = new Gtk.Builder ();
             builder.add_from_string (menu_description, -1);
-            app_menu = (GLib2.MenuModel) builder.get_object ("app-menu");
+            app_menu = (GLib.MenuModel) builder.get_object ("app-menu");
         }
         catch (Error e)
         {
@@ -54,7 +54,7 @@ public class Gnotravex : Gtk3.Application
 
         highscores = new GnomeGamesSupport.Scores ("gnotravex", scorecats, null, null, 0, GnomeGamesSupport.ScoreStyle.TIME_ASCENDING);
 
-        window = new Gtk3.ApplicationWindow (this);
+        window = new Gtk.ApplicationWindow (this);
         window.title = _("Tetravex");
         GnomeGamesSupport.settings_bind_window_state ("/org/gnome/gnotravex/", window);
 
@@ -274,7 +274,7 @@ public class Gnotravex : Gtk3.Application
         action.change_state (parameter);
     }
 
-    private const GLib2.ActionEntry[] action_entries =
+    private const GLib.ActionEntry[] action_entries =
     {
         { "new-game",      new_game_cb                                            },
         { "pause",         toggle_cb,    null, "false",     pause_changed         },
