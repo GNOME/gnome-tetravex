@@ -17,9 +17,10 @@ gnotravex_CFLAGS = \
 	-I$(top_srcdir)/libgames-support \
 	-DVERSION=\"$(VERSION)\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
+	-DDATA_DIRECTORY=\"$(datadir)/gnotravex\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
-	$(GTK_CFLAGS)	\
-	$(AM_CFLAGS)	\
+	$(GTK_CFLAGS) \
+	$(AM_CFLAGS) \
 	-Wno-unused
 
 gnotravex_LDADD =	\

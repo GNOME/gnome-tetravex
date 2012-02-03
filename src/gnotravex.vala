@@ -42,8 +42,8 @@ public class Gnotravex : Gtk.Application
         try
         {
             var builder = new Gtk.Builder ();
-            builder.add_from_string (menu_description, -1);
-            set_app_menu ((GLib.MenuModel) builder.get_object ("app-menu"));
+            builder.add_from_file (Path.build_filename (DATA_DIRECTORY, "gnotravex.ui"));
+            set_app_menu ((MenuModel)builder.get_object ("gnotravex-menu"));
         }
         catch (Error e)
         {
@@ -289,44 +289,6 @@ public class Gnotravex : Gtk.Application
         { "help",          help_cb                                                },
         { "about",         about_cb                                               }
     };
-
-    private const string menu_description =
-        "<interface>" +
-          "<menu id='app-menu'>" +
-            "<section>" +
-              "<item label='_New Game' action='app.new-game' accel='<Primary>n'/>" +
-              "<item label='_Pause' action='app.pause' accel='p'/>" +
-              "<item label='_Solve' action='app.solve'/>" +
-               "<submenu label='_Move'>" +
-                 "<section>" +
-                   "<item label='_Up' action='app.move-up' accel='<Primary>Up'/>" +
-                   "<item label='_Left' action='app.move-left' accel='<Primary>Left'/>" +
-                   "<item label='_Right' action='app.move-right' accel='<Primary>Right'/>" +
-                   "<item label='_Down' action='app.move-down' accel='<Primary>Down'/>" +
-                 "</section>" +
-               "</submenu>" +
-              "<item label='_Scores' action='app.scores'/>" +
-             "</section>" +
-             "<section>" +
-               "<submenu label='_Size'>" +
-                 "<section>" +
-                   "<item label='_2×2' action='app.size' target='2'/>" +
-                   "<item label='_3×3' action='app.size' target='3'/>" +
-                   "<item label='_4×4' action='app.size' target='4'/>" +
-                   "<item label='_5×5' action='app.size' target='5'/>" +
-                   "<item label='_6×6' action='app.size' target='6'/>" +
-                 "</section>" +
-               "</submenu>" +
-             "</section>" +
-             "<section>" +
-               "<item label='_Help' action='app.help'/>" +
-               "<item label='_About' action='app.about'/>" +
-             "</section>" +
-             "<section>" +
-               "<item label='_Quit' action='app.quit'/>" +
-             "</section>" +
-           "</menu>" +
-         "</interface>";
 
     public static int main (string[] args)
     {
