@@ -43,7 +43,7 @@ public class Gnotravex : Gtk.Application
         {
             var builder = new Gtk.Builder ();
             builder.add_from_string (menu_description, -1);
-            app_menu = (GLib.MenuModel) builder.get_object ("app-menu");
+            set_app_menu ((GLib.MenuModel) builder.get_object ("app-menu"));
         }
         catch (Error e)
         {
