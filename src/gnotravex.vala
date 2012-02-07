@@ -41,16 +41,16 @@ public class Gnotravex : Gtk.Application
         pause = lookup_action ("pause") as SimpleAction;
         solve = lookup_action ("solve") as SimpleAction;
 
+        var builder = new Gtk.Builder ();
         try
         {
-            var builder = new Gtk.Builder ();
             builder.add_from_file (Path.build_filename (DATA_DIRECTORY, "gnotravex.ui"));
-            set_app_menu ((MenuModel)builder.get_object ("gnotravex-menu"));
         }
         catch (Error e)
         {
             error ("Unable to build menus: %s", e.message);
         }
+        set_app_menu (builder.get_object ("gnotravex-menu") as MenuModel);
 
         settings = new Settings ("org.gnome.gnotravex");
 
