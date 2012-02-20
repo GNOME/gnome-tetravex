@@ -24,6 +24,38 @@ public class Gnotravex : Gtk.Application
     private GnomeGamesSupport.FullscreenAction fullscreen_action;
     private GnomeGamesSupport.PauseAction pause_action;
 
+    private const GLib.ActionEntry[] action_entries =
+    {
+        { "new-game",      new_game_cb                                            },
+        { "pause",         toggle_cb,    null, "false",     pause_changed         },
+        { "solve",         solve_cb                                               },
+        { "scores",        scores_cb                                              },
+        { "quit",          quit_cb                                                },
+        { "move-up",       move_up_cb                                             },
+        { "move-down",     move_down_cb                                           },
+        { "move-left",     move_left_cb                                           },
+        { "move-right",    move_right_cb                                          },
+        { "size",          radio_cb,      "s",  "'2'",      size_changed          },
+        { "help",          help_cb                                                },
+        { "about",         about_cb                                               }
+    };
+
+    private const Gtk.ActionEntry actions[] =
+    {
+        {"NewGame", GnomeGamesSupport.STOCK_NEW_GAME, null, null, N_("Start a new game"), new_game_cb},
+        {"Solve", null, N_("Solve"), null, N_("Solve the game"), solve_cb}
+    };
+
+    private const string ui_description =
+        "<ui>" +
+        "    <toolbar name='Toolbar'>" +
+        "        <toolitem action='NewGame'/>" +
+        "        <toolitem action='Solve'/>" +
+        "        <toolitem action='PauseGame'/>" +
+        "        <toolitem action='Fullscreen'/>" +
+        "    </toolbar>" +
+        "</ui>";
+
     public Gnotravex ()
     {
         Object (application_id: "org.gnome.gnotravex", flags: ApplicationFlags.FLAGS_NONE);
@@ -304,38 +336,6 @@ public class Gnotravex : Gtk.Application
     {
         action.change_state (parameter);
     }
-
-    private const GLib.ActionEntry[] action_entries =
-    {
-        { "new-game",      new_game_cb                                            },
-        { "pause",         toggle_cb,    null, "false",     pause_changed         },
-        { "solve",         solve_cb                                               },
-        { "scores",        scores_cb                                              },
-        { "quit",          quit_cb                                                },
-        { "move-up",       move_up_cb                                             },
-        { "move-down",     move_down_cb                                           },
-        { "move-left",     move_left_cb                                           },
-        { "move-right",    move_right_cb                                          },
-        { "size",          radio_cb,      "s",  "'2'",      size_changed          },
-        { "help",          help_cb                                                },
-        { "about",         about_cb                                               }
-    };
-
-    private const Gtk.ActionEntry actions[] =
-    {
-        {"NewGame", GnomeGamesSupport.STOCK_NEW_GAME, null, null, N_("Start a new game"), new_game_cb},
-        {"Solve", null, N_("Solve"), null, N_("Solve the game"), solve_cb}
-    };
-
-    private const string ui_description =
-        "<ui>" +
-        "    <toolbar name='Toolbar'>" +
-        "        <toolitem action='NewGame'/>" +
-        "        <toolitem action='Solve'/>" +
-        "        <toolitem action='PauseGame'/>" +
-        "        <toolitem action='Fullscreen'/>" +
-        "    </toolbar>" +
-        "</ui>";
 
     public static int main (string[] args)
     {
