@@ -20,18 +20,15 @@ gnotravex_CFLAGS = \
 	-DDATA_DIRECTORY=\"$(datadir)/gnotravex\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	$(GTK_CFLAGS) \
+	$(RSVG_CFLAGS) \
 	$(AM_CFLAGS) \
 	-Wno-unused
 
-gnotravex_LDADD =	\
+gnotravex_LDADD = \
 	$(top_builddir)/libgames-support/libgames-support.la \
 	$(GTK_LIBS)	\
+	$(RSVG_LIBS) \
 	$(INTLLIBS)
-
-if HAVE_RSVG
-gnotravex_CFLAGS += $(RSVG_CFLAGS)
-gnotravex_LDADD += $(RSVG_LIBS)
-endif
 
 install-exec-hook:
 	-if test "$(setgid)" = "true"; then \
