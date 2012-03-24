@@ -371,6 +371,7 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/usage.page:60(media)
+#, fuzzy
 msgctxt "_"
 msgid ""
 "external ref='figures/gnotravex-video.ogv' "
