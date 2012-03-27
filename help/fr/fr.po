@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex doc fr\n"
 "POT-Creation-Date: 2012-01-22 20:08+0000\n"
-"PO-Revision-Date: 2012-03-24 15:23+0100\n"
+"PO-Revision-Date: 2012-03-27 17:54+0200\n"
 "Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -371,7 +371,6 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/usage.page:60(media)
-#, fuzzy
 msgctxt "_"
 msgid ""
 "external ref='figures/gnotravex-video.ogv' "
