@@ -122,8 +122,8 @@ msgid ""
 "If you use the following method to complete the game, your score will not be "
 "included among the high scores."
 msgstr ""
-"Si vous utilisez la méthode suivante pour terminer le puzzle, votre "
-"score ne sera pas comptabilisés parmi les meilleurs scores."
+"Si vous utilisez la méthode suivante pour terminer le puzzle, votre score ne "
+"sera pas comptabilisés parmi les meilleurs scores."
 
 #: C/hint.page:24(section/title)
 msgid "Solve the game"
@@ -236,9 +236,9 @@ msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
 msgstr ""
-"Pour déplacer une pièce, vous pouvez soit cliquer dessus pour la sélectionner "
-"et cliquer "
-"sur le carré pour la placer ou la faire glisser vers le nouveau carré."
+"Pour déplacer une pièce, vous pouvez soit cliquer dessus pour la "
+"sélectionner et cliquer sur le carré pour la placer ou la faire glisser vers "
+"le nouveau carré."
 
 #: C/move.page:26(section/p)
 msgid "These moves are not permanent and can be reversed."
@@ -530,4 +530,3 @@ msgstr ""
 "Si vous avez une astuce à partager à propos de <app>GNOME Tetravex</app> ou "
 "de n'importe quel jeu GNOME, écrivez nous à l'adresse gnome-doc-list@gnome."
 "org. Nous les ajouterons ici !"
-
