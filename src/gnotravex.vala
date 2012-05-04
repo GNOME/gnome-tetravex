@@ -198,7 +198,8 @@ public class Gnotravex : Gtk.Application
         var scores_dialog = new GnomeGamesSupport.ScoresDialog (window, highscores, _("Tetravex Scores"));
         scores_dialog.set_category_description (_("Size:"));
         scores_dialog.set_hilight (pos);
-        scores_dialog.set_message ("<b>%s</b>\n\n%s".printf (_("Congratulations!"), pos == 1 ? _("Your score is the best!") : _("Your score has made the top ten.")));
+        if (pos > 0)
+            scores_dialog.set_message ("<b>%s</b>\n\n%s".printf (_("Congratulations!"), pos == 1 ? _("Your score is the best!") : _("Your score has made the top ten.")));
         scores_dialog.set_buttons (GnomeGamesSupport.ScoresButtons.QUIT_BUTTON | GnomeGamesSupport.ScoresButtons.NEW_GAME_BUTTON);
         if (scores_dialog.run () == Gtk.ResponseType.REJECT)
             window.destroy ();
