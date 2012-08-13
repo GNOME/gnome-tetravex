@@ -1,12 +1,12 @@
-# Hungarian translation for gnome-games.
-# Copyright (C) 2012 gnome-games's COPYRIGHT HOLDER
+# Hungarian translation for gnotravex_help.
+# Copyright (C) 2012. Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 #
-# László Ádám Kohajda <kla.kohi@gmail.com>, 2012.
+# László Ádám Kohajda <kla.kohi at gmail dot com>, 2012.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games gnome-3-4\n"
+"Project-Id-Version: gnotravex_help master\n"
 "POT-Creation-Date: 2012-06-22 05:23+0000\n"
 "PO-Revision-Date: 2012-08-12 22:33+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
