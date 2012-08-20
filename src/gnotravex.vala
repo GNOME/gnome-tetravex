@@ -5,7 +5,7 @@ public class Gnotravex : Gtk.Application
     private Settings settings;
 
     private Puzzle puzzle;
-    private GnomeGamesSupport.Clock clock;
+    private Gtk.Label clock_label;
     private GnomeGamesSupport.Scores highscores;
 
     private PuzzleView view;
@@ -148,16 +148,10 @@ public class Gnotravex : Gtk.Application
         time_box.show ();
         time_align.add (time_box);
 
-        var time_label = new Gtk.Label (_("Time:"));
-        time_label.show ();
-        time_box.pack_start (time_label, false, false, 0);
-
-        var label = new Gtk.Label (" ");
-        label.show ();
-        time_box.pack_start (label, false, false, 0);
-        clock = new GnomeGamesSupport.Clock ();
-        clock.show ();
-        time_box.pack_start (clock, false, false, 0);
+        clock_label = new Gtk.Label ("");
+        clock_label.show ();
+        time_box.pack_start (clock_label, false, false, 0);
+        tick_cb ();
 
         new_game ();
     }
@@ -180,19 +174,27 @@ public class Gnotravex : Gtk.Application
         var size = settings.get_int (KEY_GRID_SIZE);
         highscores.set_category (scorecats[size - 2].key);
         puzzle = new Puzzle (size);
+        puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
         view.puzzle = puzzle;
 
         pause.change_state (false);
-        clock.reset ();
-        clock.start ();
+    }
+
+    private void tick_cb ()
+    {
+        var elapsed = 0;
+        if (puzzle != null)
+            elapsed = (int) (puzzle.elapsed + 0.5);
+        var hours = elapsed / 3600;
+        var minutes = (elapsed - hours * 3600) / 60;
+        var seconds = elapsed - hours * 3600 - minutes * 60;
+        clock_label.set_text ("%s: %02d:%02d:%02d".printf (_("Time"), hours, minutes, seconds));
     }
 
     private void solved_cb (Puzzle puzzle)
     {
-        clock.stop ();
-
-        var seconds = clock.get_seconds ();
+        var seconds = (int) (puzzle.elapsed + 0.5);
         var pos = highscores.add_time_score ((seconds / 60) * 1.0 + (seconds % 60) / 100.0);
 
         var scores_dialog = new GnomeGamesSupport.ScoresDialog (window, highscores, _("Tetravex Scores"));
@@ -246,19 +248,12 @@ public class Gnotravex : Gtk.Application
     private void solve_cb ()
     {
         puzzle.solve ();
-        clock.stop ();
     }
     
     private void pause_cb ()
     {
         solve.set_enabled (!pause_action.get_is_paused ());
-        view.is_paused = pause_action.get_is_paused ();
-
-        if (pause_action.get_is_paused ())
-            clock.stop ();
-        else
-            clock.start ();
-
+        puzzle.paused = pause_action.get_is_paused ();
         pause.set_state (pause_action.get_is_paused ());
     }
 

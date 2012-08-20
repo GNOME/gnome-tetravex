@@ -57,6 +57,7 @@ public class PuzzleView : Gtk.DrawingArea
                 }
             }
             _puzzle.tile_moved.connect (tile_moved_cb);
+            _puzzle.paused_changed.connect (() => { queue_draw (); });
             queue_resize ();
         }
     }
@@ -80,17 +81,6 @@ public class PuzzleView : Gtk.DrawingArea
     /* Animation timer */
     private Timer animation_timer;
     private uint animation_timeout = 0;
-
-    private bool _is_paused = false;
-    public bool is_paused
-    {
-        get { return _is_paused; }
-        set
-        {
-            _is_paused = value;
-            queue_draw ();
-        }
-    }
 
     public PuzzleView ()
     {
@@ -296,7 +286,7 @@ public class PuzzleView : Gtk.DrawingArea
 
             context.save ();
             context.translate ((int) (image.x + 0.5), (int) (image.y + 0.5));
-            if (is_paused)
+            if (puzzle.paused)
                 theme.draw_paused_tile (context, size);
             else
                 theme.draw_tile (context, size, tile);
@@ -317,7 +307,7 @@ public class PuzzleView : Gtk.DrawingArea
 
             context.save ();
             context.translate ((int) (image.x + 0.5), (int) (image.y + 0.5));
-            if (is_paused)
+            if (puzzle.paused)
                 theme.draw_paused_tile (context, size);
             else
                 theme.draw_tile (context, size, tile);
@@ -325,7 +315,7 @@ public class PuzzleView : Gtk.DrawingArea
         }
 
         /* Draw pause overlay */
-        if (is_paused)
+        if (puzzle.paused)
         {
             context.set_source_rgba (0, 0, 0, 0.75);
             context.paint ();
@@ -425,7 +415,7 @@ public class PuzzleView : Gtk.DrawingArea
 
     public override bool button_press_event (Gdk.EventButton event)
     {
-        if (is_paused)
+        if (puzzle.paused)
             return false;
 
         /* Ignore double click events */

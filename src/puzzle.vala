@@ -25,9 +25,44 @@ public class Puzzle
         get { return _size; }
     }
     private Tile[,] board;
+
+    /* Game timer */
+    private double clock_elapsed;
+    private Timer? clock;
+    private uint clock_timeout;
+
+    public double elapsed
+    {
+        get
+        {
+            if (clock == null)
+                return 0.0;
+            return clock_elapsed + clock.elapsed ();
+        }
+    }
+
+    private bool _paused = false;
+    public bool paused
+    {
+        set
+        {
+            _paused = value;
+            if (clock != null)
+            {
+                if (value)
+                    stop_clock ();
+                else
+                    continue_clock ();
+            }
+            paused_changed ();
+        }
+        get { return _paused; }
+    }
     
     public signal void tile_moved (Tile tile, uint x, uint y);    
     public signal void solved ();
+    public signal void paused_changed ();
+    public signal void tick ();
     
     public bool is_solved
     {
@@ -161,7 +196,9 @@ public class Puzzle
     public void switch_tiles (uint x0, uint y0, uint x1, uint y1)
     {
         if (x0 == x1 && y0 == y1)
-            return;            
+            return;
+
+        start_clock ();
 
         var t0 = board[x0, y0];
         var t1 = board[x1, y1];
@@ -174,7 +211,10 @@ public class Puzzle
             tile_moved (t1, x0, y0);
 
         if (is_solved)
+        {
+            stop_clock ();
             solved ();
+        }
     }
 
     public bool can_move_up
@@ -276,5 +316,45 @@ public class Puzzle
             board[tile.x, tile.y] = tile;
             tile_moved (tile, tile.x, tile.y);
         }
+    }
+
+    private void start_clock ()
+    {
+        if (clock == null)
+            clock = new Timer ();
+        timeout_cb ();
+    }
+
+    private void stop_clock ()
+    {
+        if (clock == null)
+            return;
+        if (clock_timeout != 0)
+            Source.remove (clock_timeout);
+        clock_timeout = 0;
+        clock.stop ();
+        tick ();
+    }
+
+    private void continue_clock ()
+    {
+        if (clock == null)
+            clock = new Timer ();
+        else
+            clock.continue ();
+        timeout_cb ();
+    }
+
+    private bool timeout_cb ()
+    {
+        /* Notify on the next tick */
+        var elapsed = clock.elapsed ();
+        var next = (int) (elapsed + 1.0);
+        var wait = next - elapsed;
+        clock_timeout = Timeout.add ((int) (wait * 1000), timeout_cb);
+
+        tick ();
+
+        return false;
     }
 }
