@@ -6,5 +6,21 @@
       <_summary>The size of the playing grid</_summary>
       <_description>The value of this key is used to decide the size of the playing grid.</_description>
     </key>
+    <key name="window-width" type="i">
+      <default>600</default>
+      <_summary>Width of the window in pixels</_summary>
+    </key>
+    <key name="window-height" type="i">
+      <default>400</default>
+      <_summary>Height of the window in pixels</_summary>
+    </key>
+    <key name="window-is-maximized" type="b">
+      <default>false</default>
+      <_summary>true if the window is maximized</_summary>
+    </key>
+    <key name="window-is-fullscreen" type="b">
+      <default>false</default>
+      <_summary>true if the window is fullscren</_summary>
+    </key>
   </schema>
 </schemalist>
