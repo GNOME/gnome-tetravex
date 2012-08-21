@@ -19,15 +19,17 @@ public class Gnotravex : Gtk.Application
     };
 
     private Gtk.Window window;
-    private SimpleAction pause;
-    private SimpleAction solve;
-    private GnomeGamesSupport.FullscreenAction fullscreen_action;
-    private GnomeGamesSupport.PauseAction pause_action;
+    private bool is_fullscreen;
+    private bool is_maximized;
+
+    Gtk.ToolButton pause_button;
+    Gtk.ToolButton fullscreen_button;
 
     private const GLib.ActionEntry[] action_entries =
     {
         { "new-game",      new_game_cb                                            },
-        { "pause",         toggle_cb,    null, "false",     pause_changed         },
+        { "pause",         pause_cb,                                              },
+        { "fullscreen",    fullscreen_cb                                          },
         { "solve",         solve_cb                                               },
         { "scores",        scores_cb                                              },
         { "quit",          quit_cb                                                },
@@ -39,22 +41,6 @@ public class Gnotravex : Gtk.Application
         { "help",          help_cb                                                },
         { "about",         about_cb                                               }
     };
-
-    private const Gtk.ActionEntry actions[] =
-    {
-        {"NewGame", GnomeGamesSupport.STOCK_NEW_GAME, null, null, N_("Start a new game"), new_game_cb},
-        {"Solve", null, N_("Solve"), null, N_("Solve the game"), solve_cb}
-    };
-
-    private const string ui_description =
-        "<ui>" +
-        "    <toolbar name='Toolbar'>" +
-        "        <toolitem action='NewGame'/>" +
-        "        <toolitem action='Solve'/>" +
-        "        <toolitem action='PauseGame'/>" +
-        "        <toolitem action='Fullscreen'/>" +
-        "    </toolbar>" +
-        "</ui>";
 
     public Gnotravex ()
     {
@@ -70,8 +56,6 @@ public class Gnotravex : Gtk.Application
         Gtk.Window.set_default_icon_name ("gnotravex");
 
         add_action_entries (action_entries, this);
-        pause = lookup_action ("pause") as SimpleAction;
-        solve = lookup_action ("solve") as SimpleAction;
 
         var builder = new Gtk.Builder ();
         try
@@ -90,6 +74,7 @@ public class Gnotravex : Gtk.Application
 
         window = new Gtk.ApplicationWindow (this);
         window.title = _("Tetravex");
+        window.window_state_event.connect (window_state_event_cb);
         GnomeGamesSupport.settings_bind_window_state ("/org/gnome/gnotravex/", window);
 
         (lookup_action ("size") as SimpleAction).set_state ("%d".printf (settings.get_int (KEY_GRID_SIZE)));
@@ -98,35 +83,33 @@ public class Gnotravex : Gtk.Application
         grid.show ();
         window.add (grid);
 
-        var action_group = new Gtk.ActionGroup ("group");
-        action_group.set_translation_domain (GETTEXT_PACKAGE);
-        action_group.add_actions (actions, this);
-
-        var ui_manager = new Gtk.UIManager ();
-        ui_manager.insert_action_group (action_group, 0);
-        try
-        {
-            ui_manager.add_ui_from_string (ui_description, -1);
-        }
-        catch (Error e)
-        {
-            warning ("Failed to load UI: %s", e.message);
-        }
-        action_group.get_action ("NewGame").is_important = true;
-        action_group.get_action ("Solve").is_important = true;
-
-        fullscreen_action = new GnomeGamesSupport.FullscreenAction ("Fullscreen", window);
-        action_group.add_action_with_accel (fullscreen_action, null);
-
-        pause_action = new GnomeGamesSupport.PauseAction ("PauseGame");
-        pause_action.state_changed.connect (pause_cb);
-        action_group.add_action_with_accel (pause_action, null);
-
-        var toolbar = (Gtk.Toolbar) ui_manager.get_widget ("/Toolbar");
+        var toolbar = new Gtk.Toolbar ();
         toolbar.show_arrow = false;
         toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
         toolbar.show ();
         grid.attach (toolbar, 0, 0, 1, 1);
+
+        var new_game_button = new Gtk.ToolButton.from_stock (GnomeGamesSupport.STOCK_NEW_GAME);
+        new_game_button.action_name = "app.new-game";
+        new_game_button.is_important = true;
+        new_game_button.show ();
+        toolbar.insert (new_game_button, -1);
+
+        var solve_button = new Gtk.ToolButton (null, _("Solve"));
+        solve_button.action_name = "app.solve";
+        solve_button.is_important = true;
+        solve_button.show ();
+        toolbar.insert (solve_button, -1);
+
+        pause_button = new Gtk.ToolButton.from_stock (GnomeGamesSupport.STOCK_PAUSE_GAME);
+        pause_button.action_name = "app.pause";
+        pause_button.show ();
+        toolbar.insert (pause_button, -1);
+
+        fullscreen_button = new Gtk.ToolButton.from_stock (GnomeGamesSupport.STOCK_FULLSCREEN);
+        fullscreen_button.action_name = "app.fullscreen";
+        fullscreen_button.show ();
+        toolbar.insert (fullscreen_button, -1);
 
         view = new PuzzleView ();
         view.hexpand = true;
@@ -156,6 +139,21 @@ public class Gnotravex : Gtk.Application
         new_game ();
     }
 
+    private bool window_state_event_cb (Gdk.EventWindowState event)
+    {
+        if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
+            is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+        if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
+        {
+            is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
+            if (is_fullscreen)
+                fullscreen_button.stock_id = GnomeGamesSupport.STOCK_LEAVE_FULLSCREEN;
+            else
+                fullscreen_button.stock_id = GnomeGamesSupport.STOCK_FULLSCREEN;
+        }
+        return false;
+    }
+
     protected override void shutdown ()
     {
         base.shutdown ();
@@ -178,6 +176,7 @@ public class Gnotravex : Gtk.Application
         puzzle.solved.connect (solved_cb);
         view.puzzle = puzzle;
 
+        var pause = lookup_action ("pause") as SimpleAction;
         pause.change_state (false);
     }
 
@@ -231,18 +230,13 @@ public class Gnotravex : Gtk.Application
     private bool view_button_press_event (Gtk.Widget widget, Gdk.EventButton event)
     {
         /* Cancel pause on click */
-        if ((bool) pause.get_state ())
+        if (puzzle.paused)
         {
-            pause.change_state (false);
+            puzzle.paused = false;
             return true;
         }
 
         return false;
-    }
-
-    private void pause_changed (SimpleAction action, Variant state)
-    {
-        pause_action.set_is_paused ((bool) state);
     }
 
     private void solve_cb ()
@@ -250,13 +244,6 @@ public class Gnotravex : Gtk.Application
         puzzle.solve ();
     }
     
-    private void pause_cb ()
-    {
-        solve.set_enabled (!pause_action.get_is_paused ());
-        puzzle.paused = pause_action.get_is_paused ();
-        pause.set_state (pause_action.get_is_paused ());
-    }
-
     private void help_cb ()
     {
         try
@@ -323,9 +310,23 @@ public class Gnotravex : Gtk.Application
         puzzle.move_down ();
     }
 
-    private void toggle_cb (SimpleAction action, Variant? parameter)
+    private void pause_cb (SimpleAction action, Variant? parameter)
     {
-        action.change_state (!(bool) action.get_state ());
+        puzzle.paused = !puzzle.paused;
+        var solve = lookup_action ("solve") as SimpleAction;
+        solve.set_enabled (!puzzle.paused);
+        if (puzzle.paused)
+            pause_button.stock_id = GnomeGamesSupport.STOCK_RESUME_GAME;
+        else
+            pause_button.stock_id = GnomeGamesSupport.STOCK_PAUSE_GAME;
+    }
+
+    private void fullscreen_cb ()
+    {
+        if (is_fullscreen)
+            window.unfullscreen ();
+        else
+            window.fullscreen ();
     }
 
     private void radio_cb (SimpleAction action, Variant? parameter)
