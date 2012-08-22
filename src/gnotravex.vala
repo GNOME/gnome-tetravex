@@ -30,7 +30,7 @@ public class Gnotravex : Gtk.Application
     private const GLib.ActionEntry[] action_entries =
     {
         { "new-game",      new_game_cb                                            },
-        { "pause",         pause_cb,                                              },
+        { "pause",         pause_cb                                               },
         { "fullscreen",    fullscreen_cb                                          },
         { "solve",         solve_cb                                               },
         { "scores",        scores_cb                                              },
