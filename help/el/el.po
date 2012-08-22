@@ -9,17 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-02 07:38+0000\n"
-"PO-Revision-Date: 2012-07-03 13:52+0200\n"
+"POT-Creation-Date: 2012-08-05 09:25+0000\n"
+"PO-Revision-Date: 2012-08-22 02:32+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
-"X-Poedit-Language: Greek\n"
-"X-Poedit-Country: GREECE\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -51,16 +50,16 @@ msgstr ""
 #: C/index.page:7(info/title)
 msgctxt "link"
 msgid "GNOME Tetravex"
-msgstr "GNOME Tetravex"
+msgstr "Τετραβέξ"
 
 #: C/index.page:8(info/title)
 msgctxt "text"
 msgid "GNOME Tetravex"
-msgstr "GNOME Tetravex"
+msgstr "Τετραβέξ"
 
 #: C/index.page:9(info/desc)
 msgid "GNOME Tetravex help."
-msgstr "Βοήθεια του GNOME Τετραβέξ"
+msgstr "Βοήθεια του Τετραβέξ"
 
 #: C/index.page:12(credit/name) C/usage.page:15(credit/name)
 msgid "Rob Bradford"
@@ -94,7 +93,7 @@ msgid ""
 "same numbers depicted on the pieces are touching each other."
 msgstr ""
 "Το <app>GNOME Τετραβέξ</app> είναι ένα απλό παιχνίδι γρίφου, σκοπός του "
-"οποίου είναι να μετακινήσετε τα κομμάτια από ένα μέρος του ταμπλώ στο άλλο, "
+"οποίου είναι να μετακινήσετε τα κομμάτια από ένα μέρος του ταμπλό στο άλλο, "
 "ώστε οι ίδιοι αριθμοί που εικονίζονται στα κομμάτια να εφάπτονται."
 
 #: C/index.page:34(page/p)
@@ -223,7 +222,7 @@ msgstr ""
 
 #: C/move.page:8(info/desc)
 msgid "How to move the pieces on the game board."
-msgstr "Πώς να μετακινείτε τα κομμάτια στο ταμπλώ."
+msgstr "Πώς να μετακινείτε τα κομμάτια στο ταμπλό."
 
 #: C/move.page:19(page/title)
 msgid "Move the pieces"
@@ -339,11 +338,11 @@ msgstr ""
 
 #: C/size.page:7(info/desc)
 msgid "Change the size of the game board."
-msgstr "Αλλάξτε το μέγεθος του ταμπλώ."
+msgstr "Αλλάξτε το μέγεθος του ταμπλό."
 
 #: C/size.page:17(page/title)
 msgid "Game board size"
-msgstr "Μέγεθος του ταμπλώ"
+msgstr "Μέγεθος του ταμπλό"
 
 #: C/size.page:19(page/p)
 msgid ""
@@ -351,9 +350,9 @@ msgid ""
 "complexity of the game, choose <gui>Size</gui> from the main menu bar, and "
 "then select the dimension of the board."
 msgstr ""
-"Για να αλλάξετε το μέγεθος του ταμπλώ ώστε να αυξήσετε ή να μειώσετε την "
+"Για να αλλάξετε το μέγεθος του ταμπλό ώστε να αυξήσετε ή να μειώσετε την "
 "πολυπλοκότητα του παιχνιδιού, επιλέξτε <gui>Μέγεθος</gui> από την κύρια "
-"γραμμή μενού, και μετά επιλέξτε το μέγεθος του ταμπλώ."
+"γραμμή μενού, και μετά επιλέξτε το μέγεθος του ταμπλό."
 
 #: C/size.page:24(page/p)
 msgid ""
@@ -385,11 +384,11 @@ msgstr ""
 
 #: C/usage.page:8(info/desc)
 msgid "How to play <app>GNOME Tetravex</app>."
-msgstr "Πώς παίζεται το <app>GNOME Τετραβέξ</app>."
+msgstr "Πώς παίζεται το <app>Τετραβέξ</app>."
 
 #: C/usage.page:23(page/title)
 msgid "Play <app>GNOME Tetravex</app>"
-msgstr "Παίξτε <app>GNOME Τετραβέξ</app>"
+msgstr "Παίξτε <app>Τετραβέξ</app>"
 
 #: C/usage.page:26(section/title)
 msgid "Basic usage"
@@ -437,7 +436,7 @@ msgid ""
 "When you start <app>GNOME Tetravex</app>, the game will start immediately, "
 "and the time will start counting."
 msgstr ""
-"Το παιχνίδι ξεκινά αμέσως μόλις εκκινήσετε <app>GNOME Τετραβέξ</app>, και ο "
+"Το παιχνίδι ξεκινά αμέσως μόλις εκκινήσετε το <app>Τετραβέξ</app>, και ο "
 "χρόνος αρχίζει να μετρά."
 
 #: C/usage.page:56(section/title)
@@ -483,7 +482,7 @@ msgstr "Απλές συμβουλές για να κερδίσετε στο πα
 
 #: C/winning.page:20(page/title)
 msgid "Win <app>GNOME Tetravex</app>"
-msgstr "Κερδίστε στο <app>GNOME Τετραβέξ</app>"
+msgstr "Κερδίστε στο <app>Τετραβέξ</app>"
 
 #: C/winning.page:23(note/p)
 msgid ""
