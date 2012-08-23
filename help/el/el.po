@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gnotravex 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-05 09:25+0000\n"
-"PO-Revision-Date: 2012-08-22 02:32+0200\n"
+"PO-Revision-Date: 2012-08-23 13:59+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "Language: el\n"
@@ -92,9 +92,9 @@ msgid ""
 "various pieces from one side of the board to the other side, so that the "
 "same numbers depicted on the pieces are touching each other."
 msgstr ""
-"Το <app>GNOME Τετραβέξ</app> είναι ένα απλό παιχνίδι γρίφου, σκοπός του "
-"οποίου είναι να μετακινήσετε τα κομμάτια από ένα μέρος του ταμπλό στο άλλο, "
-"ώστε οι ίδιοι αριθμοί που εικονίζονται στα κομμάτια να εφάπτονται."
+"Το <app>Τετραβέξ</app> είναι ένα απλό παιχνίδι γρίφου, σκοπός του οποίου "
+"είναι να μετακινήσετε τα κομμάτια από ένα μέρος του ταμπλό στο άλλο, ώστε οι "
+"ίδιοι αριθμοί που εικονίζονται στα κομμάτια να εφάπτονται."
 
 #: C/index.page:34(page/p)
 msgid ""
@@ -172,7 +172,7 @@ msgstr "Να αντιγράψετε, να διανείμετε και να με�
 
 #: C/license.page:29(item/title)
 msgid "<em>To remix</em>"
-msgstr "<em>Να τροποιήσετε</em>"
+msgstr "<em>Να τροποποιήσετε</em>"
 
 #: C/license.page:30(item/p)
 msgid "To adapt the work."
@@ -271,8 +271,8 @@ msgid ""
 "The following table groups the most useful shortcuts for playing <app>GNOME "
 "Tetravex</app>."
 msgstr ""
-"Ο ακόλουθος πίνακας συνοψίζει τις πιο χρήσιμες συντομεύσεις για το παίξιμο "
-"του <app>GNOME Τετραβέξ</app>."
+"Ο ακόλουθος πίνακας συνοψίζει τις πιο χρήσιμες συντομεύσεις για να παίξετε "
+"το <app>Τετραβέξ</app>."
 
 #: C/shortcut.page:28(td/p)
 msgid "Shortcut"
@@ -384,7 +384,7 @@ msgstr ""
 
 #: C/usage.page:8(info/desc)
 msgid "How to play <app>GNOME Tetravex</app>."
-msgstr "Πώς παίζεται το <app>Τετραβέξ</app>."
+msgstr "Πώς να παίξετε το <app>Τετραβέξ</app>."
 
 #: C/usage.page:23(page/title)
 msgid "Play <app>GNOME Tetravex</app>"
@@ -517,7 +517,7 @@ msgid ""
 "Note that the bigger the size of the board, the harder is to find such a "
 "number."
 msgstr ""
-"Σημειώστε ότι όσο μεγαλύτερο είναι το ταμπλώ τόσο πιο δύσκολο είναι να "
+"Σημειώστε ότι όσο μεγαλύτερο είναι το ταμπλό τόσο πιο δύσκολο είναι να "
 "βρείτε έναν τέτοιο αριθμό."
 
 #: C/winning.page:46(section/title)
@@ -529,7 +529,7 @@ msgid ""
 "If you have a tip to share about <app>GNOME Tetravex</app>, or any other "
 "GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
 msgstr ""
-"Αν έχετε να μοιραστείτε μια συμβουλή για το <app>GNOME Τετραβέξ</app> ή για "
+"Αν έχετε να μοιραστείτε μια συμβουλή για το <app>Τετραβέξ</app> ή για "
 "οποιοδήποτε άλλο παιχνίδι του GNOME, γράψτε μας στο gnome-doc-list@gnome."
 "org. Θα την προσθέσουμε εδώ!"
 
