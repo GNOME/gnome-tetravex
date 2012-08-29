@@ -54,10 +54,14 @@ public class Gnotravex : Gtk.Application
         base.startup ();
 
         Environment.set_application_name (_("Tetravex"));
-        GnomeGamesSupport.stock_init ();
         Gtk.Window.set_default_icon_name ("gnotravex");
 
         add_action_entries (action_entries, this);
+        add_accelerator ("<Primary>n", "app.new-game", null);
+        add_accelerator ("Pause", "app.pause", null);
+        add_accelerator ("F11", "app.fullscreen", null);
+        add_accelerator ("F1", "app.help", null);
+        add_accelerator ("<Primary>q", "app.quit", null);
 
         var builder = new Gtk.Builder ();
         try
@@ -96,7 +100,9 @@ public class Gnotravex : Gtk.Application
         toolbar.show ();
         grid.attach (toolbar, 0, 0, 1, 1);
 
-        var new_game_button = new Gtk.ToolButton.from_stock (GnomeGamesSupport.STOCK_NEW_GAME);
+        var new_game_button = new Gtk.ToolButton (null, _("_New"));
+        new_game_button.use_underline = true;
+        new_game_button.icon_name = "document-new";
         new_game_button.action_name = "app.new-game";
         new_game_button.is_important = true;
         new_game_button.show ();
@@ -108,12 +114,16 @@ public class Gnotravex : Gtk.Application
         solve_button.show ();
         toolbar.insert (solve_button, -1);
 
-        pause_button = new Gtk.ToolButton.from_stock (GnomeGamesSupport.STOCK_PAUSE_GAME);
+        pause_button = new Gtk.ToolButton (null, _("_Pause"));
+        pause_button.icon_name = "media-playback-pause";
+        pause_button.use_underline = true;
         pause_button.action_name = "app.pause";
         pause_button.show ();
         toolbar.insert (pause_button, -1);
 
-        fullscreen_button = new Gtk.ToolButton.from_stock (GnomeGamesSupport.STOCK_FULLSCREEN);
+        fullscreen_button = new Gtk.ToolButton (null, _("_Fullscreen"));
+        fullscreen_button.icon_name = "view-fullscreen";
+        fullscreen_button.use_underline = true;
         fullscreen_button.action_name = "app.fullscreen";
         fullscreen_button.show ();
         toolbar.insert (fullscreen_button, -1);
@@ -165,9 +175,15 @@ public class Gnotravex : Gtk.Application
         {
             is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
             if (is_fullscreen)
-                fullscreen_button.stock_id = GnomeGamesSupport.STOCK_LEAVE_FULLSCREEN;
+            {
+                fullscreen_button.label = _("_Leave Fullscreen");
+                fullscreen_button.icon_name = "view-restore";
+            }
             else
-                fullscreen_button.stock_id = GnomeGamesSupport.STOCK_FULLSCREEN;
+            {
+                fullscreen_button.label = _("_Fullscreen");            
+                fullscreen_button.icon_name = "view-fullscreen";
+            }
         }
         return false;
     }
@@ -340,9 +356,15 @@ public class Gnotravex : Gtk.Application
         var solve = lookup_action ("solve") as SimpleAction;
         solve.set_enabled (!puzzle.paused);
         if (puzzle.paused)
-            pause_button.stock_id = GnomeGamesSupport.STOCK_RESUME_GAME;
+        {
+            pause_button.icon_name = "media-playback-start";
+            pause_button.label = _("Res_ume");
+        }
         else
-            pause_button.stock_id = GnomeGamesSupport.STOCK_PAUSE_GAME;
+        {
+            pause_button.icon_name = "media-playback-pause";
+            pause_button.label = _("_Pause");
+        }
     }
 
     private void fullscreen_cb ()
