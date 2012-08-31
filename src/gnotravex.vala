@@ -215,6 +215,7 @@ public class Gnotravex : Gtk.Application
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
         view.puzzle = puzzle;
+        tick_cb ();
 
         var pause = lookup_action ("pause") as SimpleAction;
         pause.change_state (false);
