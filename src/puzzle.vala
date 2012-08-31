@@ -316,6 +316,8 @@ public class Puzzle
             board[tile.x, tile.y] = tile;
             tile_moved (tile, tile.x, tile.y);
         }
+        
+        stop_clock ();
     }
 
     private void start_clock ()
