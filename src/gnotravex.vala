@@ -6,17 +6,9 @@ public class Gnotravex : Gtk.Application
 
     private Puzzle puzzle;
     private Gtk.Label clock_label;
-    private GnomeGamesSupport.Scores highscores;
+    private History history;
 
     private PuzzleView view;
-    private const GnomeGamesSupport.ScoresCategory scorecats[] =
-    {
-        { "2x2", N_("2×2") },
-        { "3x3", N_("3×3") },
-        { "4x4", N_("4×4") },
-        { "5x5", N_("5×5") },
-        { "6x6", N_("6×6") }
-    };
 
     private Gtk.Window window;
     private int window_width;
@@ -76,7 +68,8 @@ public class Gnotravex : Gtk.Application
 
         settings = new Settings ("org.gnome.gnotravex");
 
-        highscores = new GnomeGamesSupport.Scores ("gnotravex", scorecats, null, null, 0, GnomeGamesSupport.ScoreStyle.TIME_ASCENDING);
+        history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnotravex", "history"));
+        history.load ();
 
         window = new Gtk.ApplicationWindow (this);
         window.title = _("Tetravex");
@@ -210,7 +203,6 @@ public class Gnotravex : Gtk.Application
             SignalHandler.disconnect_by_func (puzzle, null, this);
 
         var size = settings.get_int (KEY_GRID_SIZE);
-        highscores.set_category (scorecats[size - 2].key);
         puzzle = new Puzzle (size);
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
@@ -234,20 +226,28 @@ public class Gnotravex : Gtk.Application
 
     private void solved_cb (Puzzle puzzle)
     {
-        var seconds = (int) (puzzle.elapsed + 0.5);
-        var pos = highscores.add_time_score ((seconds / 60) * 1.0 + (seconds % 60) / 100.0);
+        var date = new DateTime.now_local ();
+        var duration = (uint) (puzzle.elapsed + 0.5);
+        var entry = new HistoryEntry (date, puzzle.size, duration);
+        history.add (entry);
+        history.save ();
 
-        var scores_dialog = new GnomeGamesSupport.ScoresDialog (window, highscores, _("Tetravex Scores"));
-        scores_dialog.set_category_description (_("Size:"));
-        scores_dialog.set_hilight (pos);
-        if (pos > 0)
-            scores_dialog.set_message ("<b>%s</b>\n\n%s".printf (_("Congratulations!"), pos == 1 ? _("Your score is the best!") : _("Your score has made the top ten.")));
-        scores_dialog.set_buttons (GnomeGamesSupport.ScoresButtons.QUIT_BUTTON | GnomeGamesSupport.ScoresButtons.NEW_GAME_BUTTON);
-        if (scores_dialog.run () == Gtk.ResponseType.REJECT)
+        if (show_scores (entry, true) == Gtk.ResponseType.CLOSE)
             window.destroy ();
         else
             new_game ();
-        scores_dialog.destroy ();
+    }
+
+    private int show_scores (HistoryEntry? selected_entry = null, bool show_quit = false)
+    {
+        var dialog = new ScoreDialog (history, selected_entry, show_quit);
+        dialog.modal = true;
+        dialog.transient_for = window;
+
+        var result = dialog.run ();
+        dialog.destroy ();
+
+        return result;
     }
 
     private void new_game_cb ()
@@ -262,10 +262,7 @@ public class Gnotravex : Gtk.Application
 
     private void scores_cb ()
     {
-        var scores_dialog = new GnomeGamesSupport.ScoresDialog (window, highscores, _("Tetravex Scores"));
-        scores_dialog.set_category_description (_("Size:"));
-        scores_dialog.run ();
-        scores_dialog.destroy ();
+        show_scores ();    
     }
 
     private bool view_button_press_event (Gtk.Widget widget, Gdk.EventButton event)
@@ -388,8 +385,161 @@ public class Gnotravex : Gtk.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        GnomeGamesSupport.scores_startup ();
         var app = new Gnotravex ();
         return app.run (args);
+    }
+}
+
+public class ScoreDialog : Gtk.Dialog
+{
+    private History history;
+    private HistoryEntry? selected_entry = null;
+    private Gtk.ListStore size_model;
+    private Gtk.ListStore score_model;
+    private Gtk.ComboBox size_combo;
+
+    public ScoreDialog (History history, HistoryEntry? selected_entry = null, bool show_quit = false)
+    {
+        this.history = history;
+        history.entry_added.connect (entry_added_cb);
+        this.selected_entry = selected_entry;
+
+        if (show_quit)
+        {
+            add_button (Gtk.Stock.QUIT, Gtk.ResponseType.CLOSE);
+            add_button (_("New Game"), Gtk.ResponseType.OK);
+        }
+        else
+            add_button (Gtk.Stock.OK, Gtk.ResponseType.DELETE_EVENT);
+        set_size_request (200, 300);
+
+        var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 5);
+        vbox.border_width = 6;
+        vbox.show ();
+        get_content_area ().pack_start (vbox, true, true, 0);
+
+        var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6);
+        hbox.show ();
+        vbox.pack_start (hbox, false, false, 0);
+
+        var label = new Gtk.Label (_("Size:"));
+        label.show ();
+        hbox.pack_start (label, false, false, 0);
+
+        size_model = new Gtk.ListStore (2, typeof (string), typeof (int));
+
+        size_combo = new Gtk.ComboBox ();
+        size_combo.changed.connect (size_changed_cb);
+        size_combo.model = size_model;
+        var renderer = new Gtk.CellRendererText ();
+        size_combo.pack_start (renderer, true);
+        size_combo.add_attribute (renderer, "text", 0);
+        size_combo.show ();
+        hbox.pack_start (size_combo, true, true, 0);
+
+        var scroll = new Gtk.ScrolledWindow (null, null);
+        scroll.shadow_type = Gtk.ShadowType.ETCHED_IN;
+        scroll.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
+        scroll.show ();
+        vbox.pack_start (scroll, true, true, 0);
+
+        score_model = new Gtk.ListStore (3, typeof (string), typeof (string), typeof (int));
+
+        var scores = new Gtk.TreeView ();
+        renderer = new Gtk.CellRendererText ();
+        scores.insert_column_with_attributes (-1, _("Date"), renderer, "text", 0, "weight", 2);
+        renderer = new Gtk.CellRendererText ();
+        renderer.xalign = 1.0f;
+        scores.insert_column_with_attributes (-1, _("Time"), renderer, "text", 1, "weight", 2);
+        scores.model = score_model;
+        scores.show ();
+        scroll.add (scores);
+
+        foreach (var entry in history.entries)
+            entry_added_cb (entry);
+    }
+
+    public void set_size (uint size)
+    {
+        score_model.clear ();
+
+        var entries = history.entries.copy ();
+        entries.sort (compare_entries);
+
+        foreach (var entry in entries)
+        {
+            if (entry.size != size)
+                continue;
+
+            var date_label = entry.date.format ("%d/%m/%Y");
+
+            var time_label = "%us".printf (entry.duration);
+            if (entry.duration >= 60)
+                time_label = "%um %us".printf (entry.duration / 60, entry.duration % 60);
+
+            int weight = Pango.Weight.NORMAL;
+            if (entry == selected_entry)
+                weight = Pango.Weight.BOLD;
+
+            Gtk.TreeIter iter;
+            score_model.append (out iter);
+            score_model.set (iter, 0, date_label, 1, time_label, 2, weight);
+        }
+    }
+
+    private static int compare_entries (HistoryEntry a, HistoryEntry b)
+    {
+        if (a.size != b.size)
+            return (int) a.size - (int) b.size;
+        if (a.duration != b.duration)
+            return (int) a.duration - (int) b.duration;
+        return a.date.compare (b.date);
+    }
+
+    private void size_changed_cb (Gtk.ComboBox combo)
+    {
+        Gtk.TreeIter iter;
+        if (!combo.get_active_iter (out iter))
+            return;
+
+        int size;
+        combo.model.get (iter, 1, out size);
+        set_size ((uint) size);
+    }
+
+    private void entry_added_cb (HistoryEntry entry)
+    {
+        /* Ignore if already have an entry for this */
+        Gtk.TreeIter iter;
+        var have_size_entry = false;
+        if (size_model.get_iter_first (out iter))
+        {
+            do
+            {
+                int size, height, n_mines;
+                size_model.get (iter, 1, out size, 2, out height, 3, out n_mines);
+                if (size == entry.size)
+                {
+                    have_size_entry = true;
+                    break;
+                }
+            } while (size_model.iter_next (ref iter));
+        }
+
+        if (!have_size_entry)
+        {
+            var label = "%u × %u".printf (entry.size, entry.size);
+
+            size_model.append (out iter);
+            size_model.set (iter, 0, label, 1, entry.size);
+    
+            /* Select this entry if don't have any */
+            if (size_combo.get_active () == -1)
+                size_combo.set_active_iter (iter);
+
+            /* Select this entry if the same category as the selected one */
+            if (selected_entry != null && entry.size == selected_entry.size)
+                size_combo.set_active_iter (iter);
+        }
     }
 }
