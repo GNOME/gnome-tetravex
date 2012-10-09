@@ -1,9 +1,9 @@
 @YELP_HELP_RULES@
-HELP_ID = gnotravex
+HELP_ID = gnome-tetravex
 
 HELP_MEDIA = \
-	figures/gnotravex-logo.png \
-	figures/gnotravex-video.ogv
+	figures/gnome-tetravex-logo.png \
+	figures/gnome-tetravex-video.ogv
 
 HELP_FILES = \
 	hint.page \

@@ -1,31 +1,27 @@
-bin_PROGRAMS = gnotravex
+bin_PROGRAMS = gnome-tetravex
 
-gnotravex_SOURCES = \
+gnome_tetravex_SOURCES = \
 	config.vapi \
-	gnotravex.vala \
+	gnome-tetravex.vala \
 	history.vala \
 	puzzle.vala \
 	puzzle-view.vala \
 	theme.vala
 
-gnotravex_VALAFLAGS = \
+gnome_tetravex_VALAFLAGS = \
 	--pkg posix \
 	--pkg gtk+-3.0
 
-gnotravex_CFLAGS = \
+gnome_tetravex_CFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
 	-DGETTEXT_PACKAGE=\"$(GETTEXT_PACKAGE)\" \
-	-DDATA_DIRECTORY=\"$(datadir)/gnotravex\" \
+	-DDATA_DIRECTORY=\"$(datadir)/gnome-tetravex\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
-	$(GTK_CFLAGS) \
-	$(RSVG_CFLAGS) \
-	$(AM_CFLAGS) \
+	$(GNOME_TETRAVEX_CFLAGS) \
 	-Wno-unused
 
-gnotravex_LDADD = \
-	$(GTK_LIBS)	\
-	$(RSVG_LIBS) \
-	$(INTLLIBS)
+gnome_tetravex_LDADD = \
+	$(GNOME_TETRAVEX_LIBS)
 
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \

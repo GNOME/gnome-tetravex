@@ -1,4 +1,4 @@
-public class Gnotravex : Gtk.Application
+public class Tetravex : Gtk.Application
 {
     private const string KEY_GRID_SIZE = "grid-size";
 
@@ -36,9 +36,9 @@ public class Gnotravex : Gtk.Application
         { "about",         about_cb                                               }
     };
 
-    public Gnotravex ()
+    public Tetravex ()
     {
-        Object (application_id: "org.gnome.gnotravex", flags: ApplicationFlags.FLAGS_NONE);
+        Object (application_id: "org.gnome.tetravex", flags: ApplicationFlags.FLAGS_NONE);
     }
 
     protected override void startup ()
@@ -46,7 +46,7 @@ public class Gnotravex : Gtk.Application
         base.startup ();
 
         Environment.set_application_name (_("Tetravex"));
-        Gtk.Window.set_default_icon_name ("gnotravex");
+        Gtk.Window.set_default_icon_name ("gnome-tetravex");
 
         add_action_entries (action_entries, this);
         add_accelerator ("<Primary>n", "app.new-game", null);
@@ -58,17 +58,17 @@ public class Gnotravex : Gtk.Application
         var builder = new Gtk.Builder ();
         try
         {
-            builder.add_from_file (Path.build_filename (DATA_DIRECTORY, "gnotravex.ui"));
+            builder.add_from_file (Path.build_filename (DATA_DIRECTORY, "gnome-tetravex.ui"));
         }
         catch (Error e)
         {
             error ("Unable to build menus: %s", e.message);
         }
-        set_app_menu (builder.get_object ("gnotravex-menu") as MenuModel);
+        set_app_menu (builder.get_object ("gnome-tetravex-menu") as MenuModel);
 
-        settings = new Settings ("org.gnome.gnotravex");
+        settings = new Settings ("org.gnome.tetravex");
 
-        history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnotravex", "history"));
+        history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history"));
         history.load ();
 
         window = new Gtk.ApplicationWindow (this);
@@ -286,7 +286,7 @@ public class Gnotravex : Gtk.Application
     {
         try
         {
-            Gtk.show_uri (window.get_screen (), "help:gnotravex", Gtk.get_current_event_time ());
+            Gtk.show_uri (window.get_screen (), "help:gnome-tetravex", Gtk.get_current_event_time ());
         }
         catch (Error e)
         {
@@ -311,7 +311,7 @@ public class Gnotravex : Gtk.Application
                                "authors", authors,
                                "documenters", documenters,
                                "translator-credits", _("translator-credits"),
-                               "logo-icon-name", "gnotravex",
+                               "logo-icon-name", "gnome-tetravex",
                                "website", "http://www.gnome.org/projects/gnome-games",
                                "website-label", _("GNOME Games web site"),
                                null);
@@ -385,7 +385,7 @@ public class Gnotravex : Gtk.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        var app = new Gnotravex ();
+        var app = new Tetravex ();
         return app.run (args);
     }
 }

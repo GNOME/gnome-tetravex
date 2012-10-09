@@ -1,19 +1,19 @@
 SUBDIRS = icons
 
-uidir = $(datadir)/gnotravex
-ui_DATA = gnotravex.ui
+uidir = $(datadir)/gnome-tetravex
+ui_DATA = gnome-tetravex.ui
 
-desktop_in_files = gnotravex.desktop.in.in
+desktop_in_files = gnome-tetravex.desktop.in.in
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
-gsettings_in_file = org.gnome.gnotravex.gschema.xml.in
+gsettings_in_file = org.gnome.tetravex.gschema.xml.in
 gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
 @INTLTOOL_XML_NOMERGE_RULE@
 @GSETTINGS_RULES@
 
-man_MANS = gnotravex.6
+man_MANS = gnome-tetravex.6
 
 EXTRA_DIST = \
 	$(ui_DATA) \
