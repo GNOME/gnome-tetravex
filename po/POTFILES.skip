@@ -1,5 +1,5 @@
-gnotravex/data/gnotravex.desktop.in
-gnotravex/src/gnotravex.c
-gnotravex/src/puzzle.c
-gnotravex/src/puzzle-view.c
-gnotravex/src/theme.c
+data/gnome-tetravex.desktop.in
+src/gnome-tetravex.c
+src/puzzle.c
+src/puzzle-view.c
+src/theme.c

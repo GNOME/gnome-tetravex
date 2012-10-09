@@ -1,10 +1,10 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
 [encoding: UTF-8]
-gnotravex/data/gnotravex.desktop.in.in
-[type: gettext/glade]gnotravex/data/gnotravex.ui
-gnotravex/data/org.gnome.gnotravex.gschema.xml.in
-gnotravex/src/gnotravex.vala
-gnotravex/src/puzzle.vala
-gnotravex/src/puzzle-view.vala
-gnotravex/src/theme.vala
+data/gnome-tetravex.desktop.in.in
+[type: gettext/glade]data/gnome-tetravex.ui
+data/org.gnome.tetravex.gschema.xml.in
+src/gnome-tetravex.vala
+src/puzzle.vala
+src/puzzle-view.vala
+src/theme.vala
