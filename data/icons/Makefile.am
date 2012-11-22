@@ -5,11 +5,11 @@ icon32dir=$(datadir)/icons/hicolor/32x32/apps
 icon48dir=$(datadir)/icons/hicolor/48x48/apps
 iconscalabledir=$(datadir)/icons/hicolor/scalable/apps
 
-icon16_DATA = 16x16/gnotravex.png
-icon22_DATA = 22x22/gnotravex.png
-icon24_DATA = 24x24/gnotravex.png
-icon32_DATA = 32x32/gnotravex.png
-icon48_DATA = 48x48/gnotravex.png
-iconscalable_DATA = scalable/gnotravex.svg
+icon16_DATA = 16x16/gnome-tetravex.png
+icon22_DATA = 22x22/gnome-tetravex.png
+icon24_DATA = 24x24/gnome-tetravex.png
+icon32_DATA = 32x32/gnome-tetravex.png
+icon48_DATA = 48x48/gnome-tetravex.png
+iconscalable_DATA = scalable/gnome-tetravex.svg
 
 EXTRA_DIST = $(icon16_DATA) $(icon22_DATA) $(icon24_DATA) $(icon32_DATA) $(icon48_DATA) $(iconscalable_DATA)
