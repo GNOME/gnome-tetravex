@@ -5,18 +5,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
-"POT-Creation-Date: 2012-01-22 20:08+0000\n"
-"PO-Revision-Date: 2012-01-23 14:30+0100\n"
+"POT-Creation-Date: 2012-12-02 22:25+0000\n"
+"PO-Revision-Date: 2012-12-16 20:18+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Gtranslator 2.91.5\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
-#| msgid "translator-credits"
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
@@ -33,25 +33,24 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/index.page:25(media)
+#| msgctxt "_"
 #| msgid ""
-#| "@@image: 'figures/gnotravex-logo.png'; "
-#| "md5=daf379ccd659b42a71cd0f2661f651e4"
+#| "external ref='figures/gnotravex-logo.png' "
+#| "md5='daf379ccd659b42a71cd0f2661f651e4'"
 msgctxt "_"
 msgid ""
-"external ref='figures/gnotravex-logo.png' "
+"external ref='figures/gnome-tetravex-logo.png' "
 "md5='daf379ccd659b42a71cd0f2661f651e4'"
 msgstr ""
-"external ref='figures/gnotravex-logo.png' "
+"external ref='figures/gnome-tetravex-logo.png' "
 "md5='daf379ccd659b42a71cd0f2661f651e4'"
 
 #: C/index.page:7(info/title)
-#| msgid "GNOME Tetravex"
 msgctxt "link"
 msgid "GNOME Tetravex"
 msgstr "Tetravex"
 
 #: C/index.page:8(info/title)
-#| msgid "GNOME Tetravex"
 msgctxt "text"
 msgid "GNOME Tetravex"
 msgstr "Tetravex"
@@ -78,12 +77,15 @@ msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
 #: C/index.page:24(page/title)
+#| msgid ""
+#| "<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
+#| "\">GNOME Tetravex logo</media> GNOME Tetravex"
 msgid ""
-"<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
-"\">GNOME Tetravex logo</media> GNOME Tetravex"
+"<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-logo."
+"png\">GNOME Tetravex logo</media> GNOME Tetravex"
 msgstr ""
-"<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
-"\">logotipo de Tetravex</media> Tetravex"
+"<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-logo."
+"png\">logotipo de GNOME Tetravex</media> GNOME Tetravex"
 
 #: C/index.page:29(page/p)
 msgid ""
@@ -162,7 +164,6 @@ msgid "You are free:"
 msgstr "Es libre de:"
 
 #: C/license.page:25(item/title)
-#| msgid "To share"
 msgid "<em>To share</em>"
 msgstr "<em>Compartir</em>"
 
@@ -171,7 +172,6 @@ msgid "To copy, distribute and transmit the work."
 msgstr "Copiar, distribuir y transmitir el trabajo."
 
 #: C/license.page:29(item/title)
-#| msgid "To remix"
 msgid "<em>To remix</em>"
 msgstr "<em>Hacer obras derivadas</em>"
 
@@ -184,7 +184,6 @@ msgid "Under the following conditions:"
 msgstr "Bajo las siguientes condiciones:"
 
 #: C/license.page:38(item/title)
-#| msgid "Attribution"
 msgid "<em>Attribution</em>"
 msgstr "<em>Atribución</em>"
 
@@ -199,7 +198,6 @@ msgstr ""
 "o apoyan el uso que hace de su obra)."
 
 #: C/license.page:46(item/title)
-#| msgid "Share Alike"
 msgid "<em>Share Alike</em>"
 msgstr "<em>Compartir igual</em>"
 
@@ -286,7 +284,6 @@ msgid "Description"
 msgstr "Descripción"
 
 #: C/shortcut.page:32(td/p)
-#| msgid "Press <keyseq><key>Ctrl</key><key>H</key></keyseq>."
 msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 
@@ -303,7 +300,6 @@ msgid "Pause or resume the game."
 msgstr "Pausar o resumir el juego."
 
 #: C/shortcut.page:48(td/p)
-#| msgid "Press <keyseq><key>Ctrl</key><key>H</key></keyseq>."
 msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
 
@@ -312,7 +308,6 @@ msgid "Move all the pieces in the left box up by one."
 msgstr "Mover arriba una posición todas las piezas en la caja de la izquierda."
 
 #: C/shortcut.page:58(td/p)
-#| msgid "Press <keyseq><key>Ctrl</key><key>H</key></keyseq>."
 msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Abajo</key></keyseq>"
 
@@ -321,7 +316,6 @@ msgid "Move all the pieces in the left box down by one."
 msgstr "Mover abajo una posición todas piezas en la caja de la izquierda."
 
 #: C/shortcut.page:66(td/p)
-#| msgid "Press <keyseq><key>Ctrl</key><key>H</key></keyseq>."
 msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Izquierda</key></keyseq>"
 
@@ -330,7 +324,6 @@ msgid "Move all the pieces in the left box left by one."
 msgstr "Movera la izquierda todas las piezas en la caja de la izquierda."
 
 #: C/shortcut.page:74(td/p)
-#| msgid "Press <keyseq><key>Ctrl</key><key>H</key></keyseq>."
 msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Derecha</key></keyseq>"
 
@@ -376,15 +369,16 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/usage.page:60(media)
+#| msgctxt "_"
 #| msgid ""
-#| "@@image: 'figures/gnotravex-video.ogv'; "
-#| "md5=14cface4ec2b0c84aa5a925242694de0"
+#| "external ref='figures/gnotravex-video.ogv' "
+#| "md5='14cface4ec2b0c84aa5a925242694de0'"
 msgctxt "_"
 msgid ""
-"external ref='figures/gnotravex-video.ogv' "
+"external ref='figures/gnome-tetravex-video.ogv' "
 "md5='14cface4ec2b0c84aa5a925242694de0'"
 msgstr ""
-"external ref='figures/gnotravex-video.ogv' "
+"external ref='figures/gnome-tetravex-video.ogv' "
 "md5='14cface4ec2b0c84aa5a925242694de0'"
 
 #: C/usage.page:8(info/desc)
