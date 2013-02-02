@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-02 22:22+0000\n"
-"PO-Revision-Date: 2011-11-09 16:10+0900\n"
-"Last-Translator: Gheyret Kenji<gheyret@yahoo.com>\n"
+"POT-Creation-Date: 2013-01-28 23:14+0000\n"
+"PO-Revision-Date: 2013-02-02 12:37+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,10 @@ msgstr "Tetravex"
 #: ../data/gnome-tetravex.desktop.in.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "رەقەملىك ئۇرۇقلارنى ماسلاشتۇرۇش ئارقىلىق تېپىشماقنى تاماملاڭ"
+
+#: ../data/gnome-tetravex.desktop.in.in.h:3
+msgid "game;logic;board;"
+msgstr "game؛logic؛board؛ئويۇن؛لوگىكىلىق؛تاختا؛"
 
 #: ../data/gnome-tetravex.ui.h:1
 msgid "_New Game"
@@ -110,12 +114,10 @@ msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "بۇ كۇنۇپكىنىڭ قىممىتى ئوينايدىغان سېتكىنىڭ چوڭلۇقىنى بەلگىلەشكە ئىشلىتىلىدۇ."
 
 #: ../data/org.gnome.tetravex.gschema.xml.in.h:3
-#| msgid "The width of the main window in pixels."
 msgid "Width of the window in pixels"
 msgstr "كۆزنەكنىڭ پىكسېل  بىلەن ئىپادىلەنگەن كەڭلىكى"
 
 #: ../data/org.gnome.tetravex.gschema.xml.in.h:4
-#| msgid "The height of the main window in pixels."
 msgid "Height of the window in pixels"
 msgstr "كۆزنەكنىڭ پىكسېل  بىلەن ئىپادىلەنگەن ئېگىزلىكى"
 
@@ -160,13 +162,7 @@ msgstr "Tetravex بولسا گىنوم ئويۇنلىرىنىڭ بىر قىسم�
 msgid "translator-credits"
 msgstr "Gheyret Kenji <gheyret@gmail.com>\n"
 "Sahran<sahran@live.com>\n"
-"Muhemmed Erdem <misran_erdem@hotmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Abdumomin.Kadir https://launchpad.net/~abdumomin-kadir\n"
-"  Gheyret T.Kenji https://launchpad.net/~gheyret\n"
-"  Gheyret T.Kenji https://launchpad.net/~gheyretkenji\n"
-"  Sahran https://launchpad.net/~sahran"
+"Muhemmed Erdem <misran_erdem@hotmail.com>"
 
 #: ../src/gnome-tetravex.vala:316
 msgid "GNOME Games web site"
