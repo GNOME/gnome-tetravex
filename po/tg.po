@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Victor Ibragimov <victor.ibragimov@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Tajik Gnome\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"tetravex&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-01-28 23:14+0000\n"
+"PO-Revision-Date: 2013-01-19 18:13+0500\n"
+"Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
+"Language-Team: \n"
+"Language: Tajik\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:48
+#: ../src/gnome-tetravex.vala:75 ../src/gnome-tetravex.vala:303
+msgid "Tetravex"
+msgstr ""
+
+#: ../data/gnome-tetravex.desktop.in.in.h:2
+msgid "Complete the puzzle by matching numbered tiles"
+msgstr ""
+
+#: ../data/gnome-tetravex.desktop.in.in.h:3
+msgid "game;logic;board;"
+msgstr ""
+
+#: ../data/gnome-tetravex.ui.h:1
+msgid "_New Game"
+msgstr "_Бозии нав"
+
+#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:110
+#: ../src/gnome-tetravex.vala:364
+msgid "_Pause"
+msgstr "_Таваққуф"
+
+#: ../data/gnome-tetravex.ui.h:3
+msgid "_Solve"
+msgstr ""
+
+#: ../data/gnome-tetravex.ui.h:4
+msgid "_Move"
+msgstr "_Лағв кардани ҳаракат"
+
+#: ../data/gnome-tetravex.ui.h:5
+msgid "_Up"
+msgstr "_Ба боло"
+
+#: ../data/gnome-tetravex.ui.h:6
+msgid "_Left"
+msgstr "_Чап"
+
+#: ../data/gnome-tetravex.ui.h:7
+msgid "_Right"
+msgstr "_Рост"
+
+#: ../data/gnome-tetravex.ui.h:8
+msgid "_Down"
+msgstr "_Ба поён"
+
+#: ../data/gnome-tetravex.ui.h:9
+msgid "_Scores"
+msgstr ""
+
+#: ../data/gnome-tetravex.ui.h:10
+msgid "_Size"
+msgstr "_Андоза"
+
+#: ../data/gnome-tetravex.ui.h:11
+msgid "_2x2"
+msgstr "_2x2"
+
+#: ../data/gnome-tetravex.ui.h:12
+msgid "_3x3"
+msgstr "_3x3"
+
+#: ../data/gnome-tetravex.ui.h:13
+msgid "_4x4"
+msgstr "_4x4"
+
+#: ../data/gnome-tetravex.ui.h:14
+msgid "_5x5"
+msgstr "_5x5"
+
+#: ../data/gnome-tetravex.ui.h:15
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../data/gnome-tetravex.ui.h:16
+msgid "_Help"
+msgstr "_Кӯмак"
+
+#: ../data/gnome-tetravex.ui.h:17
+msgid "_About"
+msgstr "_Дар бораи барнома"
+
+#: ../data/gnome-tetravex.ui.h:18
+msgid "_Quit"
+msgstr "_Баромад"
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+msgid "The size of the playing grid"
+msgstr ""
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+msgid "The value of this key is used to decide the size of the playing grid."
+msgstr ""
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+msgid "Width of the window in pixels"
+msgstr ""
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+msgid "Height of the window in pixels"
+msgstr ""
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+msgid "true if the window is maximized"
+msgstr ""
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
+msgid "true if the window is fullscren"
+msgstr ""
+
+#: ../src/gnome-tetravex.vala:96
+msgid "_New"
+msgstr "_Нав"
+
+#: ../src/gnome-tetravex.vala:104
+msgid "Solve"
+msgstr ""
+
+#: ../src/gnome-tetravex.vala:117 ../src/gnome-tetravex.vala:177
+msgid "_Fullscreen"
+msgstr "_Экрани пурра"
+
+#: ../src/gnome-tetravex.vala:172
+msgid "_Leave Fullscreen"
+msgstr ""
+
+#: ../src/gnome-tetravex.vala:224 ../src/gnome-tetravex.vala:453
+#, c-format
+msgid "Time"
+msgstr "Вақт"
+
+#: ../src/gnome-tetravex.vala:306
+msgid ""
+"GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
+"the same numbers are touching each other.\n"
+"\n"
+"Tetravex is a part of GNOME Games."
+msgstr ""
+
+#: ../src/gnome-tetravex.vala:313
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/gnome-tetravex.vala:316
+msgid "GNOME Games web site"
+msgstr ""
+
+#: ../src/gnome-tetravex.vala:359
+msgid "Res_ume"
+msgstr ""
+
+#: ../src/gnome-tetravex.vala:410
+msgid "New Game"
+msgstr "Бозии нав"
+
+#: ../src/gnome-tetravex.vala:425
+msgid "Size:"
+msgstr "Андоза:"
+
+#: ../src/gnome-tetravex.vala:450
+msgid "Date"
+msgstr "Сана"
+
+#: ../src/puzzle-view.vala:326
+msgid "Paused"
+msgstr "Таваққуфшуда"
