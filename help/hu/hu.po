@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the gnome-games package.
 #
 # László Ádám Kohajda <kla.kohi at gmail dot com>, 2012.
-# Gabor Kelemen <kelemeng at gnome dot hu>, 2012.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex_help master\n"
-"POT-Creation-Date: 2012-06-22 05:23+0000\n"
-"PO-Revision-Date: 2012-08-12 22:33+0200\n"
+"POT-Creation-Date: 2012-12-02 22:25+0000\n"
+"PO-Revision-Date: 2013-03-21 10:57+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
-"Language-Team: Magyar <gnome-hu-list at gnome dot org>\n"
+"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.4\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -33,12 +33,16 @@ msgstr "Kohajda László Ádám <kla.kohi at gmail dot com>, 2012"
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/index.page:25(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/gnotravex-logo.png' "
+#| "md5='daf379ccd659b42a71cd0f2661f651e4'"
 msgctxt "_"
 msgid ""
-"external ref='figures/gnotravex-logo.png' "
+"external ref='figures/gnome-tetravex-logo.png' "
 "md5='daf379ccd659b42a71cd0f2661f651e4'"
 msgstr ""
-"external ref='figures/gnotravex-logo.png' "
+"external ref='figures/gnome-tetravex-logo.png' "
 "md5='daf379ccd659b42a71cd0f2661f651e4'"
 
 #: C/index.page:7(info/title)
@@ -73,12 +77,16 @@ msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
 #: C/index.page:24(page/title)
+#| msgid ""
+#| "<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
+#| "\">GNOME Tetravex logo</media> GNOME Tetravex"
 msgid ""
-"<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
-"\">GNOME Tetravex logo</media> GNOME Tetravex"
+"<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-logo."
+"png\">GNOME Tetravex logo</media> GNOME Tetravex"
 msgstr ""
-"<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
-"\">GNOME Tetravex logó</media> GNOME Tetravex"
+"<media type=\"image\" mime=\"image/png\" "
+"src=\"figures/gnome-tetravex-logo.png\">GNOME Tetravex logó</media> GNOME "
+"Tetravex"
 
 #: C/index.page:29(page/p)
 msgid ""
@@ -359,12 +367,16 @@ msgstr ""
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
 #: C/usage.page:60(media)
+#| msgctxt "_"
+#| msgid ""
+#| "external ref='figures/gnotravex-video.ogv' "
+#| "md5='14cface4ec2b0c84aa5a925242694de0'"
 msgctxt "_"
 msgid ""
-"external ref='figures/gnotravex-video.ogv' "
+"external ref='figures/gnome-tetravex-video.ogv' "
 "md5='14cface4ec2b0c84aa5a925242694de0'"
 msgstr ""
-"external ref='figures/gnotravex-video.ogv' "
+"external ref='figures/gnome-tetravex-video.ogv' "
 "md5='14cface4ec2b0c84aa5a925242694de0'"
 
 #: C/usage.page:8(info/desc)
@@ -397,8 +409,8 @@ msgid ""
 "The scope of the game is to position the pieces so that only two identical "
 "numbers are next to each other."
 msgstr ""
-"A játék célja a darabok elhelyezése úgy, hogy az azonos számok egymás "
-"mellé kerüljenek."
+"A játék célja a darabok elhelyezése úgy, hogy az azonos számok egymás mellé "
+"kerüljenek."
 
 #: C/usage.page:38(section/p)
 msgid ""
@@ -459,8 +471,8 @@ msgstr ""
 #: C/usage.page:73(div/p)
 msgid "Continue dragging pieces until they all fit together on the left."
 msgstr ""
-"Folytassa a darabok rakosgatását, amíg a bal oldalon az összes nincs "
-"a helyén."
+"Folytassa a darabok rakosgatását, amíg a bal oldalon az összes nincs a "
+"helyén."
 
 #: C/winning.page:9(info/desc)
 msgid "Simple tips on how to possibly win a game."
@@ -475,8 +487,8 @@ msgid ""
 "The following tips will not assure you to win a game, they are intended as a "
 "simple aid."
 msgstr ""
-"A következő tippek nem biztosítják a győzelmet, csupán egyszerű "
-"segítségként szolgálnak."
+"A következő tippek nem biztosítják a győzelmet, csupán egyszerű segítségként "
+"szolgálnak."
 
 #: C/winning.page:30(section/title)
 msgid "Look for a single number"
@@ -488,8 +500,7 @@ msgid ""
 "similar numbers that can be placed next to it."
 msgstr ""
 "Amikor új játékot kezd, keressen egy egyszer előforduló számot, vagy egy "
-"olyan számot, "
-"amelyhez nem illeszthetők más számok."
+"olyan számot, amelyhez nem illeszthetők más számok."
 
 #: C/winning.page:35(section/p)
 msgid ""
@@ -517,6 +528,6 @@ msgid ""
 "GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
 msgstr ""
 "Ha van egy tippje a <app>GNOME Tetravexszel</app>, vagy bármelyik GNOME "
-"játékkal kapcsolatban, amelyet szívesen megosztana, akkor írjon a "
-"gnome-doc-list@gnome.org címre. Mi majd közzétesszük itt!"
+"játékkal kapcsolatban, amelyet szívesen megosztana, akkor írjon a gnome-doc-"
+"list@gnome.org címre. Mi majd közzétesszük itt!"
 
