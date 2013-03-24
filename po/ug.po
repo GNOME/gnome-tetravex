@@ -29,6 +29,7 @@ msgid "Complete the puzzle by matching numbered tiles"
 msgstr "رەقەملىك ئۇرۇقلارنى ماسلاشتۇرۇش ئارقىلىق تېپىشماقنى تاماملاڭ"
 
 #: ../data/gnome-tetravex.desktop.in.in.h:3
+#, fuzzy
 msgid "game;logic;board;"
 msgstr "game؛logic؛board؛ئويۇن؛لوگىكىلىق؛تاختا؛"
 
