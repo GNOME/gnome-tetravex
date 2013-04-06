@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-28 23:14+0000\n"
-"PO-Revision-Date: 2013-02-02 12:37+0900\n"
+"POT-Creation-Date: 2013-03-27 16:43+0000\n"
+"PO-Revision-Date: 2013-04-06 18:40+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
@@ -29,9 +29,8 @@ msgid "Complete the puzzle by matching numbered tiles"
 msgstr "رەقەملىك ئۇرۇقلارنى ماسلاشتۇرۇش ئارقىلىق تېپىشماقنى تاماملاڭ"
 
 #: ../data/gnome-tetravex.desktop.in.in.h:3
-#, fuzzy
 msgid "game;logic;board;"
-msgstr "game؛logic؛board؛ئويۇن؛لوگىكىلىق؛تاختا؛"
+msgstr "game;logic;board;ئويۇن;لوگىكىلىق;تاختا;"
 
 #: ../data/gnome-tetravex.ui.h:1
 msgid "_New Game"
