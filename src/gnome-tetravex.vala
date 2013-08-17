@@ -313,7 +313,7 @@ public class Tetravex : Gtk.Application
                                "program-name", _("Tetravex"),
                                "version", VERSION,
                                "comments",
-                               _("GNOME Tetravex is a simple puzzle where pieces must be positioned so that the same numbers are touching each other.\n\nTetravex is a part of GNOME Games."),
+                               _("Position pieces so that the same numbers are touching each other\n\nTetravex is a part of GNOME Games."),
                                "copyright",
                                "Copyright \xc2\xa9 1999-2008 Lars Rydlinge",
                                "license", license,
