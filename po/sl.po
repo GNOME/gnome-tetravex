@@ -4,29 +4,29 @@
 #
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
-# Matic Žgur <mr.zgur@gmail.com>, 2006 - 2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007 - 2013.
+# Matic Žgur <mr.zgur@gmail.com>, 2006-2007.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007-2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-28 23:14+0000\n"
-"PO-Revision-Date: 2012-09-06 20:58+0100\n"
+"POT-Creation-Date: 2013-08-17 23:20+0000\n"
+"PO-Revision-Date: 2013-08-18 14:48+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
-"Language: \n"
+"Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
-"X-Poedit-Country: SLOVENIA\n"
-"X-Poedit-Language: Slovenian\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:48
-#: ../src/gnome-tetravex.vala:75 ../src/gnome-tetravex.vala:303
+#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
+#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -42,8 +42,8 @@ msgstr "igra;logika;tabla;plošča;"
 msgid "_New Game"
 msgstr "_Nova Igra"
 
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:110
-#: ../src/gnome-tetravex.vala:364
+#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
+#: ../src/gnome-tetravex.vala:374
 msgid "_Pause"
 msgstr "_Premor"
 
@@ -135,40 +135,38 @@ msgstr "prav, če je okno razpeto."
 msgid "true if the window is fullscren"
 msgstr "prav, če je okno razpeto čez celoten zaslon"
 
-#: ../src/gnome-tetravex.vala:96
+#: ../src/gnome-tetravex.vala:106
 msgid "_New"
 msgstr "_Nova"
 
-#: ../src/gnome-tetravex.vala:104
+#: ../src/gnome-tetravex.vala:114
 msgid "Solve"
 msgstr "Reši"
 
-#: ../src/gnome-tetravex.vala:117 ../src/gnome-tetravex.vala:177
+#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
 msgid "_Fullscreen"
 msgstr "_Celozaslonski način"
 
-#: ../src/gnome-tetravex.vala:172
+#: ../src/gnome-tetravex.vala:182
 msgid "_Leave Fullscreen"
 msgstr "_Zapusti celozaslonski način"
 
-#: ../src/gnome-tetravex.vala:224 ../src/gnome-tetravex.vala:453
+#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
 #, c-format
 msgid "Time"
 msgstr "Čas"
 
-#: ../src/gnome-tetravex.vala:306
+#: ../src/gnome-tetravex.vala:316
 msgid ""
-"GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-"the same numbers are touching each other.\n"
+"Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"GNOME Tetravex je enostavna sestavljanka, kjer morate ploščice postavljati "
-"tako, da se številke na njih dotikajo ena druge.\n"
+"Postavljanje ploščic, da se številke na njih dotikajo ena druge.\n"
 "\n"
 "Igra Tetravex je del iger GNOME namizja."
 
-#: ../src/gnome-tetravex.vala:313
+#: ../src/gnome-tetravex.vala:323
 msgid "translator-credits"
 msgstr ""
 "Matic Žgur <mr.zgur@gmail.com>\n"
@@ -176,26 +174,26 @@ msgstr ""
 "Tadej Janež <tadej_janez@email.si>\n"
 "Matej Urbančič <mateju@svn.gnome.org>"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/gnome-tetravex.vala:326
 msgid "GNOME Games web site"
 msgstr "Spletna stran iger GNOME"
 
-#: ../src/gnome-tetravex.vala:359
+#: ../src/gnome-tetravex.vala:369
 msgid "Res_ume"
 msgstr "Na_daljuj"
 
-#: ../src/gnome-tetravex.vala:410
+#: ../src/gnome-tetravex.vala:420
 msgid "New Game"
 msgstr "Nova igra"
 
-#: ../src/gnome-tetravex.vala:425
+#: ../src/gnome-tetravex.vala:435
 msgid "Size:"
 msgstr "Velikost:"
 
-#: ../src/gnome-tetravex.vala:450
+#: ../src/gnome-tetravex.vala:460
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/puzzle-view.vala:326
+#: ../src/puzzle-view.vala:336
 msgid "Paused"
 msgstr "Premor"
