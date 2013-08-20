@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-02 23:37+0100\n"
-"PO-Revision-Date: 2013-02-02 23:38+0100\n"
+"POT-Creation-Date: 2013-08-21 00:09+0200\n"
+"PO-Revision-Date: 2013-08-21 00:10+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -34,8 +34,8 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:48
-#: ../src/gnome-tetravex.vala:75 ../src/gnome-tetravex.vala:303
+#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
+#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -51,8 +51,8 @@ msgstr "gra;gierka;logiczna;logika;planszowa;plansza;"
 msgid "_New Game"
 msgstr "_Nowa gra"
 
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:110
-#: ../src/gnome-tetravex.vala:364
+#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
+#: ../src/gnome-tetravex.vala:374
 msgid "_Pause"
 msgstr "_Wstrzymaj"
 
@@ -144,40 +144,39 @@ msgstr "Wartość \"true\" oznacza, że okno jest zmaksymalizowane"
 msgid "true if the window is fullscren"
 msgstr "Wartość \"true\" oznacza, że okno jest pełnoekranowe"
 
-#: ../src/gnome-tetravex.vala:96
+#: ../src/gnome-tetravex.vala:106
 msgid "_New"
 msgstr "_Nowa"
 
-#: ../src/gnome-tetravex.vala:104
+#: ../src/gnome-tetravex.vala:114
 msgid "Solve"
 msgstr "Rozwiąż"
 
-#: ../src/gnome-tetravex.vala:117 ../src/gnome-tetravex.vala:177
+#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
 msgid "_Fullscreen"
 msgstr "_Pełny ekran"
 
-#: ../src/gnome-tetravex.vala:172
+#: ../src/gnome-tetravex.vala:182
 msgid "_Leave Fullscreen"
 msgstr "_Opuść tryb pełnoekranowy"
 
-#: ../src/gnome-tetravex.vala:224 ../src/gnome-tetravex.vala:453
+#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
 #, c-format
 msgid "Time"
 msgstr "Czas"
 
-#: ../src/gnome-tetravex.vala:306
+#: ../src/gnome-tetravex.vala:316
 msgid ""
-"GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-"the same numbers are touching each other.\n"
+"Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"GNOME Tetravex to prosta łamigłówka polegająca na układaniu poszczególnych "
-"elementów w taki sposób, by te same numery stykały się ze sobą.\n"
+"Łamigłówka polegająca na układaniu poszczególnych elementów\n"
+"w taki sposób, by te same numery stykały się ze sobą\n"
 "\n"
 "Gra Tetravex jest częścią gier GNOME."
 
-#: ../src/gnome-tetravex.vala:313
+#: ../src/gnome-tetravex.vala:323
 msgid "translator-credits"
 msgstr ""
 "Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002\n"
@@ -194,26 +193,26 @@ msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2010-2013\n"
 "Aviary.pl <gnomepl@aviary.pl>, 2007-2013"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/gnome-tetravex.vala:326
 msgid "GNOME Games web site"
 msgstr "Witryna gier GNOME"
 
-#: ../src/gnome-tetravex.vala:359
+#: ../src/gnome-tetravex.vala:369
 msgid "Res_ume"
 msgstr "_Ponów"
 
-#: ../src/gnome-tetravex.vala:410
+#: ../src/gnome-tetravex.vala:420
 msgid "New Game"
 msgstr "Nowa gra"
 
-#: ../src/gnome-tetravex.vala:425
+#: ../src/gnome-tetravex.vala:435
 msgid "Size:"
 msgstr "Rozmiar:"
 
-#: ../src/gnome-tetravex.vala:450
+#: ../src/gnome-tetravex.vala:460
 msgid "Date"
 msgstr "Data"
 
-#: ../src/puzzle-view.vala:326
+#: ../src/puzzle-view.vala:336
 msgid "Paused"
 msgstr "Wstrzymano"
