@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Гномове игре\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-28 23:14+0000\n"
-"PO-Revision-Date: 2013-01-30 10:56+0200\n"
+"POT-Creation-Date: 2013-08-17 23:20+0000\n"
+"PO-Revision-Date: 2013-09-05 10:49+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -24,8 +24,8 @@ msgstr ""
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:48
-#: ../src/gnome-tetravex.vala:75 ../src/gnome-tetravex.vala:303
+#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
+#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
 msgid "Tetravex"
 msgstr "Слагалица"
 
@@ -41,8 +41,8 @@ msgstr "игра;логика;табла;"
 msgid "_New Game"
 msgstr "_Нова игра"
 
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:110
-#: ../src/gnome-tetravex.vala:364
+#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
+#: ../src/gnome-tetravex.vala:374
 msgid "_Pause"
 msgstr "_Пауза"
 
@@ -134,68 +134,72 @@ msgstr "изабрано ако је прозор увећан"
 msgid "true if the window is fullscren"
 msgstr "изабрано ако је прозор преко целог екрана"
 
-#: ../src/gnome-tetravex.vala:96
+#: ../src/gnome-tetravex.vala:106
 msgid "_New"
 msgstr "_Нова"
 
-#: ../src/gnome-tetravex.vala:104
+#: ../src/gnome-tetravex.vala:114
 msgid "Solve"
 msgstr "Реши"
 
-#: ../src/gnome-tetravex.vala:117 ../src/gnome-tetravex.vala:177
+#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
 msgid "_Fullscreen"
 msgstr "_Цео екран"
 
-#: ../src/gnome-tetravex.vala:172
+#: ../src/gnome-tetravex.vala:182
 msgid "_Leave Fullscreen"
 msgstr "_Напусти цео екран"
 
-#: ../src/gnome-tetravex.vala:224 ../src/gnome-tetravex.vala:453
+#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
 #, c-format
 msgid "Time"
 msgstr "Време"
 
-#: ../src/gnome-tetravex.vala:306
+#: ../src/gnome-tetravex.vala:316
+#| msgid ""
+#| "GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
+#| "the same numbers are touching each other.\n"
+#| "\n"
+#| "Tetravex is a part of GNOME Games."
 msgid ""
-"GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-"the same numbers are touching each other.\n"
+"Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"Гномова слагалица је игра у којој делови слагалице морају бити намештени "
-"тако да се исти бројеви додирују.\n"
+"Ређање делова слагалице тако да се исти бројеви додирују.\n"
 "\n"
 "Слагалица је део Гномових игара."
 
-#: ../src/gnome-tetravex.vala:313
+#: ../src/gnome-tetravex.vala:323
 msgid "translator-credits"
 msgstr ""
 "Душан Марјановић <madafaka@root.co.yu>\n"
 "Милош Поповић <gpopac@gmail.com>\n"
 "Бранко Кокановић <branko.kokanovic@gmail.com>\n"
+"Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "\n"
 "http://prevod.org — превод на српски језик"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/gnome-tetravex.vala:326
 msgid "GNOME Games web site"
 msgstr "Веб сајт Гномових игара"
 
-#: ../src/gnome-tetravex.vala:359
+#: ../src/gnome-tetravex.vala:369
 msgid "Res_ume"
 msgstr "На_стави"
 
-#: ../src/gnome-tetravex.vala:410
+#: ../src/gnome-tetravex.vala:420
 msgid "New Game"
 msgstr "Нова игра"
 
-#: ../src/gnome-tetravex.vala:425
+#: ../src/gnome-tetravex.vala:435
 msgid "Size:"
 msgstr "Величина:"
 
-#: ../src/gnome-tetravex.vala:450
+#: ../src/gnome-tetravex.vala:460
 msgid "Date"
 msgstr "Датум"
 
-#: ../src/puzzle-view.vala:326
+#: ../src/puzzle-view.vala:336
 msgid "Paused"
 msgstr "Паузирано"
