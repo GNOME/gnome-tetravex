@@ -1,14 +1,14 @@
 # Ales Nyakhaychyk <nab@mail.by>, 2003.
-# Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2011.
+# Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2011, 2013.
 # Kasia Bondarava <kasia.bondarava@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-28 23:14+0000\n"
+"POT-Creation-Date: 2013-08-17 23:20+0000\n"
 "PO-Revision-Date: 2012-09-07 18:13+0300\n"
-"Last-Translator: Kasia Bondarava <kasia.bondarava@gmail.com>\n"
+"Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
@@ -19,8 +19,8 @@ msgstr ""
 "X-Generator: Virtaal 0.7.0\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:48
-#: ../src/gnome-tetravex.vala:75 ../src/gnome-tetravex.vala:303
+#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
+#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -36,8 +36,8 @@ msgstr "гульня;логіка;лагічная гульня;настольн
 msgid "_New Game"
 msgstr "_Новая гульня"
 
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:110
-#: ../src/gnome-tetravex.vala:364
+#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
+#: ../src/gnome-tetravex.vala:374
 msgid "_Pause"
 msgstr "_Паўза"
 
@@ -129,66 +129,63 @@ msgstr "Уключана, калі акно максімалізавана"
 msgid "true if the window is fullscren"
 msgstr "Уключана, калі акно разгорнута на ўвесь экран"
 
-#: ../src/gnome-tetravex.vala:96
+#: ../src/gnome-tetravex.vala:106
 msgid "_New"
 msgstr "_Новая партыя"
 
-#: ../src/gnome-tetravex.vala:104
+#: ../src/gnome-tetravex.vala:114
 msgid "Solve"
 msgstr "Вырашыць"
 
-#: ../src/gnome-tetravex.vala:117 ../src/gnome-tetravex.vala:177
+#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
 msgid "_Fullscreen"
 msgstr "_На ўвесь экран"
 
-#: ../src/gnome-tetravex.vala:172
+#: ../src/gnome-tetravex.vala:182
 msgid "_Leave Fullscreen"
 msgstr "_Выйсці з поўнаэкраннага рэжыму"
 
-#: ../src/gnome-tetravex.vala:224 ../src/gnome-tetravex.vala:453
+#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
 #, c-format
 msgid "Time"
 msgstr "Час"
 
-#: ../src/gnome-tetravex.vala:306
+#: ../src/gnome-tetravex.vala:316
 msgid ""
-"GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-"the same numbers are touching each other.\n"
+"Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"Гэта простая галаваломка, у якой фішкі трэба размяшчаць такім чынам, каб "
-"аднолькавыя лічбы судакраналіся адно аднаго.\n"
+"Перастаўляй фішкі такім чынам, каб аднолькавыя лічбы судакраналіся.\n"
 "\n"
 "Гульня \"Tetravex\" з'яўляецца складовай часткай пакунка гульняў GNOME."
 
-#: ../src/gnome-tetravex.vala:313
+#: ../src/gnome-tetravex.vala:323
 msgid "translator-credits"
 msgstr ""
 "Ales Nyakhaychyk <nab@mail.by>\n"
 "Ihar Hrachyshka <ihar.hrachyshka@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/gnome-tetravex.vala:326
 msgid "GNOME Games web site"
 msgstr "Сеціўная пляцоўка гульняў GNOME"
 
-#: ../src/gnome-tetravex.vala:359
+#: ../src/gnome-tetravex.vala:369
 msgid "Res_ume"
 msgstr "_Працягнуць"
 
-#: ../src/gnome-tetravex.vala:410
+#: ../src/gnome-tetravex.vala:420
 msgid "New Game"
 msgstr "Новая гульня"
 
-#: ../src/gnome-tetravex.vala:425
+#: ../src/gnome-tetravex.vala:435
 msgid "Size:"
 msgstr "Памер:"
 
-#: ../src/gnome-tetravex.vala:450
+#: ../src/gnome-tetravex.vala:460
 msgid "Date"
 msgstr "Дата"
 
-#: ../src/puzzle-view.vala:326
+#: ../src/puzzle-view.vala:336
 msgid "Paused"
 msgstr "Паўза"
-
