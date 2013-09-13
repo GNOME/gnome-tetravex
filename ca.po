@@ -1,0 +1,203 @@
+# gnome-games Catalan translation.
+# Copyright © 2002-2008 Free Software Foundation, Inc.
+# Jordi Vila <gnome@softcatala.net>, 2002.
+# Jordi Mallach <jordi@sindominio.net>, 2002, 2003, 2005.
+# Jordi Mas i Hernàndez <jmas@softcatala.org> 2003.
+# Xavier Conde Rueda <xavi.conde@gmail.com>, 2004.
+# Jesús Corrius <jesus@softcatala.org>, 2005.
+# Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2007.
+# Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012, 2013.
+# Carles Ferrando <carles.ferrando@gmail.com>, 2010.
+# Jordi Serratosa <jordis@softcatala.cat>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"tetravex&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-08-17 23:20+0000\n"
+"PO-Revision-Date: 2013-09-14 00:14+0200\n"
+"Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
+"Language-Team: Catalan <tradgnome@softcatala.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bits\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
+#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+msgid "Tetravex"
+msgstr "Tetravex"
+
+#: ../data/gnome-tetravex.desktop.in.in.h:2
+msgid "Complete the puzzle by matching numbered tiles"
+msgstr "Completeu el trencaclosques fent coincidint les fitxes"
+
+#: ../data/gnome-tetravex.desktop.in.in.h:3
+msgid "game;logic;board;"
+msgstr "joc;lògica;tauler;"
+
+#: ../data/gnome-tetravex.ui.h:1
+msgid "_New Game"
+msgstr "Partida _nova"
+
+#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
+#: ../src/gnome-tetravex.vala:374
+msgid "_Pause"
+msgstr "Fes una _pausa"
+
+#: ../data/gnome-tetravex.ui.h:3
+msgid "_Solve"
+msgstr "_Resol"
+
+#
+#: ../data/gnome-tetravex.ui.h:4
+msgid "_Move"
+msgstr "_Mou"
+
+#: ../data/gnome-tetravex.ui.h:5
+msgid "_Up"
+msgstr "_Amunt"
+
+#: ../data/gnome-tetravex.ui.h:6
+msgid "_Left"
+msgstr "_Esquerra"
+
+#: ../data/gnome-tetravex.ui.h:7
+msgid "_Right"
+msgstr "_Dreta"
+
+#: ../data/gnome-tetravex.ui.h:8
+msgid "_Down"
+msgstr "A_vall"
+
+#: ../data/gnome-tetravex.ui.h:9
+msgid "_Scores"
+msgstr "Puntuacion_s"
+
+#: ../data/gnome-tetravex.ui.h:10
+msgid "_Size"
+msgstr "_Mida"
+
+#: ../data/gnome-tetravex.ui.h:11
+msgid "_2x2"
+msgstr "_2x2"
+
+#: ../data/gnome-tetravex.ui.h:12
+msgid "_3x3"
+msgstr "_3x3"
+
+#: ../data/gnome-tetravex.ui.h:13
+msgid "_4x4"
+msgstr "_4x4"
+
+#: ../data/gnome-tetravex.ui.h:14
+msgid "_5x5"
+msgstr "_5x5"
+
+#: ../data/gnome-tetravex.ui.h:15
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../data/gnome-tetravex.ui.h:16
+msgid "_Help"
+msgstr "A_juda"
+
+#: ../data/gnome-tetravex.ui.h:17
+msgid "_About"
+msgstr "_Quant a"
+
+#: ../data/gnome-tetravex.ui.h:18
+msgid "_Quit"
+msgstr "S_urt"
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+msgid "The size of the playing grid"
+msgstr "La mida de la graella de joc"
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+msgid "The value of this key is used to decide the size of the playing grid."
+msgstr ""
+"El valor d'aquesta clau s'utilitza per decidir la mida de la graella de joc."
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+msgid "Width of the window in pixels"
+msgstr "L'amplada, en píxels, de la finestra"
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+msgid "Height of the window in pixels"
+msgstr "L'alçada, en píxels, de la finestra"
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+msgid "true if the window is maximized"
+msgstr "«true» (cert) si la finestra està maximitzada"
+
+#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
+msgid "true if the window is fullscren"
+msgstr "«true» (cert) si la finestra està a pantalla completa"
+
+#: ../src/gnome-tetravex.vala:106
+msgid "_New"
+msgstr "_Nova"
+
+#: ../src/gnome-tetravex.vala:114
+msgid "Solve"
+msgstr "Resol"
+
+#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
+msgid "_Fullscreen"
+msgstr "_Pantalla completa"
+
+#: ../src/gnome-tetravex.vala:182
+msgid "_Leave Fullscreen"
+msgstr "Surt de la panta_lla completa"
+
+#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
+#, c-format
+msgid "Time"
+msgstr "Temps"
+
+#: ../src/gnome-tetravex.vala:316
+msgid ""
+"Position pieces so that the same numbers are touching each other\n"
+"\n"
+"Tetravex is a part of GNOME Games."
+msgstr ""
+"Col·loqueu les peces de manera que els mateixos nombres es toquin.\n"
+"\n"
+"El Tetravex forma part dels jocs del GNOME."
+
+#: ../src/gnome-tetravex.vala:323
+msgid "translator-credits"
+msgstr ""
+"Jordi Vila <gnome@softcatala.net>\n"
+"Jordi Mallach <jordi@sindominio.net>\n"
+"Xavier Conde <xaviconde@eresmas.com>\n"
+"Jesús Corrius <jesus@softcatala.org>\n"
+"Josep Puigdemont <josep.puigdemont@gmail.com>\n"
+"David Planella <david.planella@gmail.com>"
+
+#: ../src/gnome-tetravex.vala:326
+msgid "GNOME Games web site"
+msgstr "Lloc web dels jocs del GNOME"
+
+#: ../src/gnome-tetravex.vala:369
+msgid "Res_ume"
+msgstr "Contin_ua"
+
+#: ../src/gnome-tetravex.vala:420
+msgid "New Game"
+msgstr "Partida nova"
+
+#: ../src/gnome-tetravex.vala:435
+msgid "Size:"
+msgstr "Mida:"
+
+#: ../src/gnome-tetravex.vala:460
+msgid "Date"
+msgstr "Data"
+
+#: ../src/puzzle-view.vala:336
+msgid "Paused"
+msgstr "Aturat"
