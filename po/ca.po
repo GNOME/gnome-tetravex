@@ -6,7 +6,7 @@
 # Xavier Conde Rueda <xavi.conde@gmail.com>, 2004.
 # Jesús Corrius <jesus@softcatala.org>, 2005.
 # Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2007.
-# Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012.
+# Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012, 2013.
 # Carles Ferrando <carles.ferrando@gmail.com>, 2010.
 # Jordi Serratosa <jordis@softcatala.cat>, 2012.
 #
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-08-17 23:20+0000\n"
-"PO-Revision-Date: 2012-09-18 20:37+0200\n"
+"PO-Revision-Date: 2013-09-14 01:02+0200\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
@@ -159,19 +159,12 @@ msgid "Time"
 msgstr "Temps"
 
 #: ../src/gnome-tetravex.vala:316
-#, fuzzy
-#| msgid ""
-#| "GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-#| "the same numbers are touching each other.\n"
-#| "\n"
-#| "Tetravex is a part of GNOME Games."
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"El GNOME Tetravex és un trencaclosques simple on les peces s'han de situar "
-"de manera que els mateixos nombres es toquin.\n"
+"Col·loqueu les peces de manera que els mateixos nombres es toquin.\n"
 "\n"
 "El Tetravex forma part dels jocs del GNOME."
 
