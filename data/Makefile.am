@@ -8,6 +8,9 @@ desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
+appdatadir = $(datadir)/appdata
+appdata_DATA = gnome-tetravex.appdata.xml
+
 gsettings_in_file = org.gnome.tetravex.gschema.xml.in
 gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
 @INTLTOOL_XML_NOMERGE_RULE@
@@ -16,6 +19,7 @@ gsettings_SCHEMAS = $(gsettings_in_file:.xml.in=.xml)
 man_MANS = gnome-tetravex.6
 
 EXTRA_DIST = \
+	$(appdata_DATA) \
 	$(ui_DATA) \
 	$(gsettings_in_file) \
 	$(man_MANS)
