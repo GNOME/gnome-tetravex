@@ -7,7 +7,7 @@
 # Dirgita <dirgitadevina@yahoo.co.id>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-tetravex gnome-3-8\n"
+"Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-09-13 22:27+0000\n"
@@ -174,7 +174,7 @@ msgstr ""
 
 #: ../src/gnome-tetravex.vala:326
 msgid "GNOME Games web site"
-msgstr "Situa web Permainan GNOME"
+msgstr "Situs web Permainan GNOME"
 
 #: ../src/gnome-tetravex.vala:369
 msgid "Res_ume"
