@@ -15,7 +15,7 @@
   </_p>
  </description>
  <screenshots>
-  <_screenshot type="default" width="602" height="440">https://wiki.gnome.org/Tetravex?action=AttachFile&#x26;do=get&#x26;target=tetravex.png</_screenshot>
+  <_screenshot type="default" width="602" height="440">https://people.gnome.org/~mcatanzaro/gnome-tetravex.png</_screenshot>
  </screenshots>
  <url type="homepage">https://wiki.gnome.org/Tetravex</url>
  <updatecontact>games_list_at_gnome.org</updatecontact>
