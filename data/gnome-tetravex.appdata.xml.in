@@ -2,20 +2,20 @@
 <application>
  <id type="desktop">gnome-tetravex.desktop</id>
  <licence>CC0</licence>
- <name>GNOME Tetravex</name>
+ <_name>GNOME Tetravex</_name>
  <description>
-  <p>
+  <_p>
    Each square piece has a number on each side. Position the pieces on the left
    side of the board so that the same numbers are next to each other. If the
    numbers don't match, you can't put the piece there. Move quickly: you're
    being timed!
-  </p>
-  <p>
+  </_p>
+  <_p>
    You can make the game easier or harder by changing the size of the board.
-  </p>
+  </_p>
  </description>
  <screenshots>
-  <screenshot type="default" width="602" height="440">https://wiki.gnome.org/Tetravex?action=AttachFile&#x26;do=get&#x26;target=tetravex.png</screenshot>
+  <_screenshot type="default" width="602" height="440">https://wiki.gnome.org/Tetravex?action=AttachFile&#x26;do=get&#x26;target=tetravex.png</_screenshot>
  </screenshots>
  <url type="homepage">https://wiki.gnome.org/Tetravex</url>
  <updatecontact>games_list_at_gnome.org</updatecontact>

@@ -9,7 +9,9 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 appdatadir = $(datadir)/appdata
-appdata_DATA = gnome-tetravex.appdata.xml
+appdata_in_files = gnome-tetravex.appdata.xml.in
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+@INTLTOOL_XML_RULE@
 
 gsettings_SCHEMAS = org.gnome.tetravex.gschema.xml
 @GSETTINGS_RULES@
@@ -17,13 +19,15 @@ gsettings_SCHEMAS = org.gnome.tetravex.gschema.xml
 man_MANS = gnome-tetravex.6
 
 EXTRA_DIST = \
-	$(appdata_DATA) \
+	$(appdata_in_files) \
 	$(desktop_in_files) \
 	$(ui_DATA) \
 	$(gsettings_SCHEMAS) \
 	$(man_MANS)
     
-CLEANFILES = $(desktop_DATA)
+CLEANFILES = \
+	$(appdata_DATA) \
+	$(desktop_DATA)
 
 check-local: $(appdata_DATA) $(desktop_DATA)
 	$(APPDATA_VALIDATE) $(appdata_DATA)
