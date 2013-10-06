@@ -3,9 +3,9 @@ SUBDIRS = icons
 uidir = $(datadir)/gnome-tetravex
 ui_DATA = gnome-tetravex.ui
 
-desktop_in_files = gnome-tetravex.desktop.in.in
+desktop_in_files = gnome-tetravex.desktop.in
 desktopdir = $(datadir)/applications
-desktop_DATA = $(desktop_in_files:.desktop.in.in=.desktop)
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 appdatadir = $(datadir)/appdata
@@ -20,12 +20,13 @@ man_MANS = gnome-tetravex.6
 
 EXTRA_DIST = \
 	$(appdata_DATA) \
+	$(desktop_in_files) \
 	$(ui_DATA) \
 	$(gsettings_in_file) \
 	$(man_MANS)
     
 CLEANFILES = $(desktop_DATA) $(gsettings_SCHEMAS)
-DISTCLEANFILES = $(desktop_DATA) $(gsettings_SCHEMAS)
+DISTCLEANFILES = $(gsettings_SCHEMAS)
 
 check-local: $(appdata_DATA) $(desktop_DATA)
 	$(APPDATA_VALIDATE) $(appdata_DATA)
