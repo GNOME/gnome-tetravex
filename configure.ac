@@ -14,11 +14,9 @@ dnl Dependencies
 dnl ###########################################################################
 
 GTK_REQUIRED=3.4.0
-RSVG_REQUIRED=2.32.0
 
 PKG_CHECK_MODULES(GNOME_TETRAVEX, [
   gtk+-3.0 >= $GTK_REQUIRED
-  librsvg-2.0 >= $RSVG_REQUIRED
 ])
 
 AC_PATH_PROG(APPDATA_VALIDATE, appdata-validate)
