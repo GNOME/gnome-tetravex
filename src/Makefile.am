@@ -34,7 +34,7 @@ gnome-tetravex-resources.c: gnome-tetravex.gresource.xml $(shell $(GLIB_COMPILE_
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source gnome-tetravex.gresource.xml
 
 EXTRA_DIST = \
-	five-or-more.gresource.xml
+	gnome-tetravex.gresource.xml
 
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
