@@ -1,12 +1,19 @@
 bin_PROGRAMS = gnome-tetravex
 
+BUILT_SOURCES = \
+	gnome-tetravex-resources.c
+
 gnome_tetravex_SOURCES = \
 	config.vapi \
 	gnome-tetravex.vala \
 	history.vala \
 	puzzle.vala \
 	puzzle-view.vala \
-	theme.vala
+	theme.vala \
+	$(BUILT_SOURCES)
+
+UI_FILES = \
+	gnome-tetravex.ui
 
 gnome_tetravex_VALAFLAGS = \
 	--pkg posix \
@@ -22,6 +29,12 @@ gnome_tetravex_CFLAGS = \
 
 gnome_tetravex_LDADD = \
 	$(GNOME_TETRAVEX_LIBS)
+
+gnome-tetravex-resources.c: gnome-tetravex.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies gnome-tetravex.gresource.xml)
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source gnome-tetravex.gresource.xml
+
+EXTRA_DIST = \
+	five-or-more.gresource.xml
 
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \

@@ -1,8 +1,5 @@
 SUBDIRS = icons
 
-uidir = $(datadir)/gnome-tetravex
-ui_DATA = gnome-tetravex.ui
-
 desktop_in_files = gnome-tetravex.desktop.in
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
@@ -21,7 +18,6 @@ man_MANS = gnome-tetravex.6
 EXTRA_DIST = \
 	$(appdata_in_files) \
 	$(desktop_in_files) \
-	$(ui_DATA) \
 	$(gsettings_SCHEMAS) \
 	$(man_MANS)
     

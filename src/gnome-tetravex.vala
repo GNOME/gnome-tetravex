@@ -68,7 +68,7 @@ public class Tetravex : Gtk.Application
         var builder = new Gtk.Builder ();
         try
         {
-            builder.add_from_file (Path.build_filename (DATA_DIRECTORY, "gnome-tetravex.ui"));
+            builder.add_from_resource ("/org/gnome/tetravex/gnome-tetravex.ui");
         }
         catch (Error e)
         {
