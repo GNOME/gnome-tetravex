@@ -28,7 +28,8 @@ gnome_tetravex_CFLAGS = \
 	-Wno-unused
 
 gnome_tetravex_LDADD = \
-	$(GNOME_TETRAVEX_LIBS)
+	$(GNOME_TETRAVEX_LIBS) \
+	-lm
 
 gnome-tetravex-resources.c: gnome-tetravex.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies gnome-tetravex.gresource.xml)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source gnome-tetravex.gresource.xml
