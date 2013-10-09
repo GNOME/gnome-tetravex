@@ -3,8 +3,8 @@
 [encoding: UTF-8]
 data/gnome-tetravex.appdata.xml.in
 data/gnome-tetravex.desktop.in
-[type: gettext/glade]data/gnome-tetravex.ui
 data/org.gnome.tetravex.gschema.xml
+[type: gettext/glade]src/gnome-tetravex.ui
 src/gnome-tetravex.vala
 src/puzzle.vala
 src/puzzle-view.vala
