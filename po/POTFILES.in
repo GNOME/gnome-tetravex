@@ -4,6 +4,7 @@
 data/gnome-tetravex.appdata.xml.in
 data/gnome-tetravex.desktop.in
 data/org.gnome.tetravex.gschema.xml
+[type: gettext/glade]src/app-menu.ui
 [type: gettext/glade]src/gnome-tetravex.ui
 src/gnome-tetravex.vala
 src/puzzle.vala
