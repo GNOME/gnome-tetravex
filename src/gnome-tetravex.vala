@@ -27,6 +27,8 @@ public class Tetravex : Gtk.Application
     private bool is_maximized;
 
     Gtk.Button pause_button;
+    Gtk.Image pause_image;
+    Gtk.Label pause_label;
     Gtk.Button fullscreen_button;
 
     private const GLib.ActionEntry[] action_entries =
@@ -102,6 +104,7 @@ public class Tetravex : Gtk.Application
         window.set_titlebar (headerbar);
 
         fullscreen_button = new Gtk.Button.from_icon_name ("view-fullscreen-symbolic", Gtk.IconSize.BUTTON);
+        fullscreen_button.valign = Gtk.Align.CENTER;
         fullscreen_button.action_name = "app.fullscreen";
         fullscreen_button.show ();
         headerbar.pack_start (fullscreen_button);
@@ -115,19 +118,51 @@ public class Tetravex : Gtk.Application
         view.show ();
         grid.attach (view, 0, 0, 3, 1);
 
-        var new_game_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.BUTTON);
+        var size = new Gtk.SizeGroup (Gtk.SizeGroupMode.BOTH);
+
+        var new_game_button = new Gtk.Button ();
+        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+        var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
+        box.pack_start (image);
+        var label = new Gtk.Label.with_mnemonic (_("Play _Again"));
+        box.pack_start (label);
+        new_game_button.add (box);
+        new_game_button.valign = Gtk.Align.CENTER;
+        new_game_button.halign = Gtk.Align.CENTER;
+        new_game_button.relief = Gtk.ReliefStyle.NONE;
         new_game_button.action_name = "app.new-game";
-        new_game_button.show ();
+        new_game_button.show_all ();
+        size.add_widget (new_game_button);
         grid.attach (new_game_button, 0, 1, 1, 1);
 
-        pause_button = new Gtk.Button.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+        pause_button = new Gtk.ToggleButton ();
+        box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+        pause_image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.DIALOG);
+        box.pack_start (pause_image);
+        pause_label = new Gtk.Label.with_mnemonic (_("_Pause"));
+        box.pack_start (pause_label);
+        pause_button.add (box);
+        pause_button.valign = Gtk.Align.CENTER;
+        pause_button.halign = Gtk.Align.CENTER;
+        pause_button.relief = Gtk.ReliefStyle.NONE;
         pause_button.action_name = "app.pause";
-        pause_button.show ();
+        pause_button.show_all ();
+        size.add_widget (pause_button);
         grid.attach (pause_button, 1, 1, 1, 1);
 
-        var solve_button = new Gtk.Button.from_icon_name ("dialog-question-symbolic", Gtk.IconSize.BUTTON);
+        var solve_button = new Gtk.Button ();
+        box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+        image = new Gtk.Image.from_icon_name ("dialog-question-symbolic", Gtk.IconSize.DIALOG);
+        box.pack_start (image);
+        label = new Gtk.Label.with_mnemonic (_("_Resolve"));
+        box.pack_start (label);
+        solve_button.add (box);
+        solve_button.valign = Gtk.Align.CENTER;
+        solve_button.halign = Gtk.Align.CENTER;
+        solve_button.relief = Gtk.ReliefStyle.NONE;
         solve_button.action_name = "app.solve";
-        solve_button.show ();
+        solve_button.show_all ();
+        size.add_widget (solve_button);
         grid.attach (solve_button, 2, 1, 1, 1);
 
         clock_label = new Gtk.Label ("");
@@ -342,11 +377,16 @@ public class Tetravex : Gtk.Application
         solve.set_enabled (!puzzle.paused);
         if (puzzle.paused)
         {
-            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.BUTTON);
+            if (pause_button.get_direction () == Gtk.TextDirection.RTL)
+                pause_image.icon_name = "media-playback-start-rtl-symbolic";
+            else
+                pause_image.icon_name = "media-playback-start-symbolic";
+            pause_label.label = _("Res_ume");
         }
         else
         {
-            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+            pause_image.icon_name = "media-playback-pause-symbolic";
+            pause_label.label = _("_Pause");
         }
     }
 
