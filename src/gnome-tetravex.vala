@@ -20,14 +20,14 @@ public class Tetravex : Gtk.Application
 
     private PuzzleView view;
 
-    private Gtk.Window window;
+    private Gtk.ApplicationWindow window;
     private int window_width;
     private int window_height;
     private bool is_fullscreen;
     private bool is_maximized;
 
-    Gtk.ToolButton pause_button;
-    Gtk.ToolButton fullscreen_button;
+    Gtk.Button pause_button;
+    Gtk.Button fullscreen_button;
 
     private const GLib.ActionEntry[] action_entries =
     {
@@ -69,11 +69,13 @@ public class Tetravex : Gtk.Application
         try
         {
             builder.add_from_resource ("/org/gnome/tetravex/gnome-tetravex.ui");
+            builder.add_from_resource ("/org/gnome/tetravex/app-menu.ui");
         }
         catch (Error e)
         {
             error ("Unable to build menus: %s", e.message);
         }
+
         set_app_menu (builder.get_object ("gnome-tetravex-menu") as MenuModel);
 
         settings = new Settings ("org.gnome.tetravex");
@@ -81,8 +83,8 @@ public class Tetravex : Gtk.Application
         history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history"));
         history.load ();
 
-        window = new Gtk.ApplicationWindow (this);
-        window.title = _("Tetravex");
+        window = builder.get_object ("gnome-tetravex-window") as Gtk.ApplicationWindow;
+        this.add_window (window);
         window.configure_event.connect (window_configure_event_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));        
@@ -93,68 +95,45 @@ public class Tetravex : Gtk.Application
 
         (lookup_action ("size") as SimpleAction).set_state ("%d".printf (settings.get_int (KEY_GRID_SIZE)));
 
-        var grid = new Gtk.Grid ();
-        grid.show ();
-        window.add (grid);
+        var headerbar = new Gtk.HeaderBar ();
+        headerbar.title = _("Tetravex");
+        headerbar.show_close_button = true;
+        headerbar.show ();
+        window.set_titlebar (headerbar);
 
-        var toolbar = new Gtk.Toolbar ();
-        toolbar.show_arrow = false;
-        toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
-        toolbar.show ();
-        grid.attach (toolbar, 0, 0, 1, 1);
-
-        var new_game_button = new Gtk.ToolButton (null, _("_New"));
-        new_game_button.use_underline = true;
-        new_game_button.icon_name = "document-new";
-        new_game_button.action_name = "app.new-game";
-        new_game_button.is_important = true;
-        new_game_button.show ();
-        toolbar.insert (new_game_button, -1);
-
-        var solve_button = new Gtk.ToolButton (null, _("Solve"));
-        solve_button.action_name = "app.solve";
-        solve_button.is_important = true;
-        solve_button.show ();
-        toolbar.insert (solve_button, -1);
-
-        pause_button = new Gtk.ToolButton (null, _("_Pause"));
-        pause_button.icon_name = "media-playback-pause";
-        pause_button.use_underline = true;
-        pause_button.action_name = "app.pause";
-        pause_button.show ();
-        toolbar.insert (pause_button, -1);
-
-        fullscreen_button = new Gtk.ToolButton (null, _("_Fullscreen"));
-        fullscreen_button.icon_name = "view-fullscreen";
-        fullscreen_button.use_underline = true;
+        fullscreen_button = new Gtk.Button.from_icon_name ("view-fullscreen-symbolic", Gtk.IconSize.BUTTON);
         fullscreen_button.action_name = "app.fullscreen";
         fullscreen_button.show ();
-        toolbar.insert (fullscreen_button, -1);
+        headerbar.pack_start (fullscreen_button);
+
+        var grid = builder.get_object ("grid") as Gtk.Grid;
 
         view = new PuzzleView ();
         view.hexpand = true;
         view.vexpand = true;
         view.button_press_event.connect (view_button_press_event);
         view.show ();
-        grid.attach (view, 0, 1, 1, 1);
+        grid.attach (view, 0, 0, 3, 1);
 
-        var time_item = new Gtk.ToolItem ();
-        time_item.set_expand (true);
-        time_item.show ();
-        toolbar.insert (time_item, -1);
+        var new_game_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.BUTTON);
+        new_game_button.action_name = "app.new-game";
+        new_game_button.show ();
+        grid.attach (new_game_button, 0, 1, 1, 1);
 
-        var time_align = new Gtk.Alignment (1.0f, 0.5f, 0.0f, 0.0f);
-        time_align.show ();
-        time_item.add (time_align);
+        pause_button = new Gtk.Button.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
+        pause_button.action_name = "app.pause";
+        pause_button.show ();
+        grid.attach (pause_button, 1, 1, 1, 1);
 
-        var time_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        time_box.show ();
-        time_align.add (time_box);
+        var solve_button = new Gtk.Button.from_icon_name ("dialog-question-symbolic", Gtk.IconSize.BUTTON);
+        solve_button.action_name = "app.solve";
+        solve_button.show ();
+        grid.attach (solve_button, 2, 1, 1, 1);
 
         clock_label = new Gtk.Label ("");
         clock_label.show ();
-        time_box.pack_start (clock_label, false, false, 0);
         tick_cb ();
+        grid.attach (clock_label, 1, 2, 1, 1);
 
         new_game ();
     }
@@ -179,13 +158,11 @@ public class Tetravex : Gtk.Application
             is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
             if (is_fullscreen)
             {
-                fullscreen_button.label = _("_Leave Fullscreen");
-                fullscreen_button.icon_name = "view-restore";
+                fullscreen_button.image = new Gtk.Image.from_icon_name ("view-restore-symbolic", Gtk.IconSize.BUTTON);
             }
             else
             {
-                fullscreen_button.label = _("_Fullscreen");            
-                fullscreen_button.icon_name = "view-fullscreen";
+                fullscreen_button.image = new Gtk.Image.from_icon_name ("view-fullscreen-symbolic", Gtk.IconSize.BUTTON);
             }
         }
         return false;
@@ -231,7 +208,7 @@ public class Tetravex : Gtk.Application
         var hours = elapsed / 3600;
         var minutes = (elapsed - hours * 3600) / 60;
         var seconds = elapsed - hours * 3600 - minutes * 60;
-        clock_label.set_text ("%s: %02d:%02d:%02d".printf (_("Time"), hours, minutes, seconds));
+        clock_label.set_text ("%02d:%02d:%02d".printf (hours, minutes, seconds));
     }
 
     private void solved_cb (Puzzle puzzle)
@@ -365,13 +342,11 @@ public class Tetravex : Gtk.Application
         solve.set_enabled (!puzzle.paused);
         if (puzzle.paused)
         {
-            pause_button.icon_name = "media-playback-start";
-            pause_button.label = _("Res_ume");
+            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.BUTTON);
         }
         else
         {
-            pause_button.icon_name = "media-playback-pause";
-            pause_button.label = _("_Pause");
+            pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
         }
     }
 

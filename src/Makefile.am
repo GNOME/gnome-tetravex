@@ -13,7 +13,8 @@ gnome_tetravex_SOURCES = \
 	$(BUILT_SOURCES)
 
 UI_FILES = \
-	gnome-tetravex.ui
+	gnome-tetravex.ui \
+	app-menu.ui
 
 gnome_tetravex_VALAFLAGS = \
 	--pkg posix \
