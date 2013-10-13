@@ -399,11 +399,11 @@ public class ScoreDialog : Gtk.Dialog
 
         if (show_quit)
         {
-            add_button (Gtk.Stock.QUIT, Gtk.ResponseType.CLOSE);
+            add_button (_("Quit"), Gtk.ResponseType.CLOSE);
             add_button (_("New Game"), Gtk.ResponseType.OK);
         }
         else
-            add_button (Gtk.Stock.OK, Gtk.ResponseType.DELETE_EVENT);
+            add_button (_("OK"), Gtk.ResponseType.DELETE_EVENT);
         set_size_request (200, 300);
 
         var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 5);
