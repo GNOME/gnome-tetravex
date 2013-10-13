@@ -4,169 +4,172 @@
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # Gil 'Dolfin' Osher <dolfin@rpg.org.il>, 2002,2003
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2010.
+# Yosef Or Boczko <yoseforb@gmail.com>, 2013.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-02 11:54+0200\n"
-"PO-Revision-Date: 2013-02-02 11:55+0200\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Gezer (Hebrew)\n"
+"POT-Creation-Date: 2013-10-13 14:04+0300\n"
+"PO-Revision-Date: 2013-10-13 14:07+0300\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
+"Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.6.1\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-Launchpad-Export-Date: 2008-01-13 04:36+0000\n"
 "X-Poedit-Language: Hebrew\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1
-#: ../src/gnome-tetravex.vala:48
-#: ../src/gnome-tetravex.vala:75
-#: ../src/gnome-tetravex.vala:303
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#, fuzzy
+msgid "GNOME Tetravex"
+msgstr "ארבע צלעות Tetravex"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
+msgid "https://people.gnome.org/~mcatanzaro/gnome-tetravex.png"
+msgstr ""
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:95
+#: ../src/gnome-tetravex.vala:301
 msgid "Tetravex"
 msgstr "ארבע צלעות Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "פתרון התצרף על ידי התאמת האריחים הממוספרים"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "משחק;הגיון;היגיון;לוח;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "_משחק חדש"
-
-#: ../data/gnome-tetravex.ui.h:2
-#: ../src/gnome-tetravex.vala:110
-#: ../src/gnome-tetravex.vala:364
-msgid "_Pause"
-msgstr "ה_שהייה"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "_פתרון"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "ה_זזה"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "מ_עלה"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "_שמאלה"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "_ימינה"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "מ_טה"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_תוצאות"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_גודל"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2x2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3x3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4x4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5x5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6x6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "ע_זרה"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "על _אודות"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "י_ציאה"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "The size of the playing grid"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "The value of this key is used to decide the size of the playing grid."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Width of the window in pixels"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Height of the window in pixels"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "true if the window is maximized"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "true if the window is fullscren"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "_משחק חדש"
 
-#: ../src/gnome-tetravex.vala:96
-msgid "_New"
-msgstr "_חדש"
+#: ../src/app-menu.ui.h:2 ../src/gnome-tetravex.vala:130
+#: ../src/gnome-tetravex.vala:365
+msgid "_Pause"
+msgstr "ה_שהייה"
 
-#: ../src/gnome-tetravex.vala:104
-msgid "Solve"
-msgstr "פתרון"
+#: ../src/app-menu.ui.h:3
+msgid "_Solve"
+msgstr "_פתרון"
 
-#: ../src/gnome-tetravex.vala:117
-#: ../src/gnome-tetravex.vala:177
-msgid "_Fullscreen"
-msgstr "מסך מ_לא"
+#: ../src/app-menu.ui.h:4
+msgid "_Move"
+msgstr "ה_זזה"
 
-#: ../src/gnome-tetravex.vala:172
-msgid "_Leave Fullscreen"
-msgstr "י_ציאה ממסך מלא"
+#: ../src/app-menu.ui.h:5
+msgid "_Up"
+msgstr "מ_עלה"
 
-#: ../src/gnome-tetravex.vala:224
-#: ../src/gnome-tetravex.vala:453
-#, c-format
-msgid "Time"
-msgstr "זמן"
+#: ../src/app-menu.ui.h:6
+msgid "_Left"
+msgstr "_שמאלה"
 
-#: ../src/gnome-tetravex.vala:306
+#: ../src/app-menu.ui.h:7
+msgid "_Right"
+msgstr "_ימינה"
+
+#: ../src/app-menu.ui.h:8
+msgid "_Down"
+msgstr "מ_טה"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Scores"
+msgstr "_תוצאות"
+
+#: ../src/app-menu.ui.h:10
+msgid "_Size"
+msgstr "_גודל"
+
+#: ../src/app-menu.ui.h:11
+msgid "_2x2"
+msgstr "_2x2"
+
+#: ../src/app-menu.ui.h:12
+msgid "_3x3"
+msgstr "_3x3"
+
+#: ../src/app-menu.ui.h:13
+msgid "_4x4"
+msgstr "_4x4"
+
+#: ../src/app-menu.ui.h:14
+msgid "_5x5"
+msgstr "_5x5"
+
+#: ../src/app-menu.ui.h:15
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../src/app-menu.ui.h:16
+msgid "_Help"
+msgstr "ע_זרה"
+
+#: ../src/app-menu.ui.h:17
+msgid "_About"
+msgstr "על _אודות"
+
+#: ../src/app-menu.ui.h:18
+msgid "_Quit"
+msgstr "י_ציאה"
+
+#: ../src/gnome-tetravex.vala:115
+msgid "Play _Again"
+msgstr "לשחק _שוב"
+
+#: ../src/gnome-tetravex.vala:145
+msgid "_Resolve"
+msgstr "_פתרון"
+
+#: ../src/gnome-tetravex.vala:304
 msgid ""
-"GNOME Tetravex is a simple puzzle where pieces must be positioned so that the same numbers are touching each other.\n"
+"Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"ארבע צלעות (GNOME Tetravex) הוא תצרף בו יש למקם את החלקים כך שמספרים זהים יהיו צמודים אחד אל השני.\n"
-"ארבע צלעות הוא חלק מחבילת משחקי GNOME."
+"תצרף בו יש למקם את החלקים כך שמספרים זהים יהיו צמודים אחד אל השני.\n"
+"ארבע צלעות Tetravex הוא חלק מחבילת משחקי GNOME."
 
-#: ../src/gnome-tetravex.vala:313
+#: ../src/gnome-tetravex.vala:311
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -176,33 +179,53 @@ msgstr ""
 "‏Yaniv Abir https://launchpad.net/~yanivabir\n"
 "‏dod_basim https://launchpad.net/~yoav-prat\n"
 "ירון שהרבני <sh.yaron@gmail.com>\n"
+"יוסף אור בוצ׳קו <yoseforb@gmail.com>\n"
 "\n"
 "פרויקט תרגום GNOME לעברית:\n"
 "‏http://gnome-il.berlios.de"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/gnome-tetravex.vala:314
 msgid "GNOME Games web site"
 msgstr "אתר משחקי GNOME"
 
-#: ../src/gnome-tetravex.vala:359
+#: ../src/gnome-tetravex.vala:360
 msgid "Res_ume"
 msgstr "המש_ך"
 
-#: ../src/gnome-tetravex.vala:410
+#: ../src/gnome-tetravex.vala:403
 msgid "New Game"
 msgstr "משחק חדש"
 
-#: ../src/gnome-tetravex.vala:425
+#: ../src/gnome-tetravex.vala:418
 msgid "Size:"
 msgstr "גודל:"
 
-#: ../src/gnome-tetravex.vala:450
+#: ../src/gnome-tetravex.vala:443
 msgid "Date"
 msgstr "תאריך"
 
-#: ../src/puzzle-view.vala:326
+#: ../src/gnome-tetravex.vala:446
+msgid "Time"
+msgstr "זמן"
+
+#: ../src/puzzle-view.vala:336
 msgid "Paused"
 msgstr "הושהה"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "true if the window is fullscren"
+
+#~ msgid "_New"
+#~ msgstr "_חדש"
+
+#~ msgid "Solve"
+#~ msgstr "פתרון"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "מסך מ_לא"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "י_ציאה ממסך מלא"
 
 #~ msgid "Chess"
 #~ msgstr "שחמט"
@@ -330,9 +353,6 @@ msgstr "הושהה"
 #~ msgid "Preferences"
 #~ msgstr "העדפות"
 
-#~ msgid "Play as:"
-#~ msgstr "לשחק בתור:"
-
 #~ msgid "Opposing Player:"
 #~ msgstr "המתמודד מולך:"
 
@@ -380,28 +400,28 @@ msgstr "הושהה"
 
 #~ msgid "_Appearance"
 #~ msgstr "מ_ראה"
-#~ msgctxt "difficulty"
 
+#~ msgctxt "difficulty"
 #~ msgid "Easy"
 #~ msgstr "קל"
-#~ msgctxt "difficulty"
 
+#~ msgctxt "difficulty"
 #~ msgid "Normal"
 #~ msgstr "רגיל"
-#~ msgctxt "difficulty"
 
+#~ msgctxt "difficulty"
 #~ msgid "Hard"
 #~ msgstr "קשה"
-#~ msgctxt "chess-opponent"
 
+#~ msgctxt "chess-opponent"
 #~ msgid "Human"
 #~ msgstr "אנושי"
-#~ msgctxt "chess-player"
 
+#~ msgctxt "chess-player"
 #~ msgid "White"
 #~ msgstr "לבן"
-#~ msgctxt "chess-player"
 
+#~ msgctxt "chess-player"
 #~ msgid "Black"
 #~ msgstr "שחור"
 
@@ -428,56 +448,56 @@ msgstr "הושהה"
 
 #~ msgid "Fancy"
 #~ msgstr "מהודר"
-#~ msgctxt "chess-side"
 
+#~ msgctxt "chess-side"
 #~ msgid "White Side"
 #~ msgstr "צד לבן"
-#~ msgctxt "chess-side"
 
+#~ msgctxt "chess-side"
 #~ msgid "Black Side"
 #~ msgstr "צד שחור"
-#~ msgctxt "chess-side"
 
+#~ msgctxt "chess-side"
 #~ msgid "Human Side"
 #~ msgstr "צד אנושי"
-#~ msgctxt "chess-side"
 
+#~ msgctxt "chess-side"
 #~ msgid "Current Player"
 #~ msgstr "השחקן הנוכחי"
-#~ msgctxt "chess-side"
 
+#~ msgctxt "chess-side"
 #~ msgid "Face to Face"
 #~ msgstr "פנים מול פנים"
-#~ msgctxt "chess-move-format"
 
+#~ msgctxt "chess-move-format"
 #~ msgid "Human"
 #~ msgstr "בן אדם"
-#~ msgctxt "chess-move-format"
 
+#~ msgctxt "chess-move-format"
 #~ msgid "Standard Algebraic"
 #~ msgstr "אלגברי רגיל"
-#~ msgctxt "chess-move-format"
 
+#~ msgctxt "chess-move-format"
 #~ msgid "Figurine"
 #~ msgstr "דמות"
-#~ msgctxt "chess-move-format"
 
+#~ msgctxt "chess-move-format"
 #~ msgid "Long Algebraic"
 #~ msgstr "אלגברי ארוך"
-#~ msgctxt "chess-piece"
 
+#~ msgctxt "chess-piece"
 #~ msgid "Queen"
 #~ msgstr "מלכה"
-#~ msgctxt "chess-piece"
 
+#~ msgctxt "chess-piece"
 #~ msgid "Knight"
 #~ msgstr "אביר"
-#~ msgctxt "chess-piece"
 
+#~ msgctxt "chess-piece"
 #~ msgid "Rook"
 #~ msgstr "צריח"
-#~ msgctxt "chess-piece"
 
+#~ msgctxt "chess-piece"
 #~ msgid "Bishop"
 #~ msgstr "רץ"
 
@@ -753,19 +773,16 @@ msgstr "הושהה"
 #~ msgstr "_שמירת המשחק למועד מאוחר יותר"
 
 #~ msgid "second"
-
 #~ msgid_plural "seconds"
 #~ msgstr[0] "שנייה"
 #~ msgstr[1] "שניות"
 
 #~ msgid "minute"
-
 #~ msgid_plural "minutes"
 #~ msgstr[0] "דקה"
 #~ msgstr[1] "דקות"
 
 #~ msgid "hour"
-
 #~ msgid_plural "hours"
 #~ msgstr[0] "שעה"
 #~ msgstr[1] "שעות"
@@ -1022,16 +1039,16 @@ msgstr "הושהה"
 #~ msgstr ""
 #~ "You should have received a copy of the GNU General Public License along "
 #~ "with this program.  If not, see <http://www.gnu.org/licenses/>."
-#~ msgctxt "board size"
 
+#~ msgctxt "board size"
 #~ msgid "Small"
 #~ msgstr "קטן"
-#~ msgctxt "board size"
 
+#~ msgctxt "board size"
 #~ msgid "Medium"
 #~ msgstr "בינוני"
-#~ msgctxt "board size"
 
+#~ msgctxt "board size"
 #~ msgid "Large"
 #~ msgstr "גדול"
 
@@ -1401,36 +1418,36 @@ msgstr "הושהה"
 
 #~ msgid "Your score has made the top ten."
 #~ msgstr "נכנסת לעשרת הגדולים!"
-#~ msgctxt "game speed"
 
+#~ msgctxt "game speed"
 #~ msgid "Beginner"
 #~ msgstr "מתחיל"
-#~ msgctxt "game speed"
 
+#~ msgctxt "game speed"
 #~ msgid "Slow"
 #~ msgstr "איטי"
-#~ msgctxt "game speed"
 
+#~ msgctxt "game speed"
 #~ msgid "Medium"
 #~ msgstr "בינוני"
-#~ msgctxt "game speed"
 
+#~ msgctxt "game speed"
 #~ msgid "Fast"
 #~ msgstr "מהיר"
-#~ msgctxt "game speed"
 
+#~ msgctxt "game speed"
 #~ msgid "Beginner with Fakes"
 #~ msgstr "מתחיל עם זיופים"
-#~ msgctxt "game speed"
 
+#~ msgctxt "game speed"
 #~ msgid "Slow with Fakes"
 #~ msgstr "איטי עם זיופים"
-#~ msgctxt "game speed"
 
+#~ msgctxt "game speed"
 #~ msgid "Medium with Fakes"
 #~ msgstr "בינוני עם זיופים"
-#~ msgctxt "game speed"
 
+#~ msgctxt "game speed"
 #~ msgid "Fast with Fakes"
 #~ msgstr "מהיר עם זיופים"
 
@@ -1833,36 +1850,36 @@ msgstr "הושהה"
 
 #~ msgid "Disassemble a pile of tiles by removing matching pairs"
 #~ msgstr "פרק ערמת אריחים על-ידי הסרת זוגות תואמים"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "The Ziggurat"
 #~ msgstr "הזיגוראט"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Four Bridges"
 #~ msgstr "ארבע הגשרים"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Cloud"
 #~ msgstr "ענן"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Tic-Tac-Toe"
 #~ msgstr "איקס-מיקס-דריקס"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Red Dragon"
 #~ msgstr "דרקון אדום"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Pyramid's Walls"
 #~ msgstr "קירות פירמידה"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Confounding Cross"
 #~ msgstr "צלב מעורבב"
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Difficult"
 #~ msgstr "קשה"
 
@@ -2026,13 +2043,11 @@ msgstr "הושהה"
 #~ msgstr "קשה מאד"
 
 #~ msgid "Last played %(n)s second ago"
-
 #~ msgid_plural "Last played %(n)s seconds ago"
 #~ msgstr[0] "משחק אחרון לפני שנייה %(n)s"
 #~ msgstr[1] "משחק אחרון לפני %(n)s שניות"
 
 #~ msgid "Last played %(n)s minute ago"
-
 #~ msgid_plural "Last played %(n)s minutes ago"
 #~ msgstr[0] "משחק אחרון לפני דקה %(n)s"
 #~ msgstr[1] "משחק אחרון לפני %(n)s דקות"
@@ -2062,19 +2077,16 @@ msgstr "הושהה"
 #~ msgstr "לוח קשה מאוד"
 
 #~ msgid "Played for %d hour"
-
 #~ msgid_plural "Played for %d hours"
 #~ msgstr[0] "משחק למשך שעה %d"
 #~ msgstr[1] "משחק למשך %d שעות"
 
 #~ msgid "Played for %d minute"
-
 #~ msgid_plural "Played for %d minutes"
 #~ msgstr[0] "משחק למשך דקה %d"
 #~ msgstr[1] "משחק למשך %d דקות"
 
 #~ msgid "Played for %d second"
-
 #~ msgid_plural "Played for %d seconds"
 #~ msgstr[0] "משחק למשך שנייה %d"
 #~ msgstr[1] "משחק למשך %d שניות"
@@ -2147,19 +2159,16 @@ msgstr "הושהה"
 #~ msgstr "_סמן בצבעים את השורה, הטור והתיבה הנוכחיים"
 
 #~ msgid "You completed the puzzle in %d second"
-
 #~ msgid_plural "You completed the puzzle in %d seconds"
 #~ msgstr[0] "השלמת את הלוח תוך שנייה %d "
 #~ msgstr[1] "השלמת את הלוח תוך %d שניות"
 
 #~ msgid "%d minute"
-
 #~ msgid_plural "%d minutes"
 #~ msgstr[0] "דקה %d"
 #~ msgstr[1] "%d דקות"
 
 #~ msgid "%d second"
-
 #~ msgid_plural "%d seconds"
 #~ msgstr[0] "שנייה %d "
 #~ msgstr[1] "%d שניות"
@@ -2168,7 +2177,6 @@ msgstr "הושהה"
 #~ msgstr "השלמת את הלוח תוך %(minute)s ו־%(second)s"
 
 #~ msgid "%d hour"
-
 #~ msgid_plural "%d hours"
 #~ msgstr[0] "שעה %d"
 #~ msgstr[1] "%d שעות"
@@ -2177,13 +2185,11 @@ msgstr "הושהה"
 #~ msgstr "השלמת את הלוח תוך %(hour)s, %(minute)s ו־%(second)s"
 
 #~ msgid "You got %(n)s hint."
-
 #~ msgid_plural "You got %(n)s hints."
 #~ msgstr[0] "השתמשת ברמז אחד."
 #~ msgstr[1] "השתמשת ב־%(n)s רמזים."
 
 #~ msgid "You had %(n)s impossibility pointed out."
-
 #~ msgid_plural "You had %(n)s impossibilities pointed out."
 #~ msgstr[0] "הייתה לך אי היתכנות אחת."
 #~ msgstr[1] "היו לך %(n)s אי היתכנויות."
@@ -2317,8 +2323,8 @@ msgstr "הושהה"
 
 #~ msgid "Size of the board (0-2 = small-large, 3=custom)"
 #~ msgstr "Size of the board (0-2 = small-large, 3=custom)"
-#~ msgctxt "board size"
 
+#~ msgctxt "board size"
 #~ msgid "Custom"
 #~ msgstr "מותאם אישית"
 
@@ -2341,7 +2347,6 @@ msgstr "הושהה"
 #~ msgstr "ל_שחק במשחק"
 
 #~ msgid "<b>%d</b> mine"
-
 #~ msgid_plural "<b>%d</b> mines"
 #~ msgstr[0] "מוקש <b>אחד</b>"
 #~ msgstr[1] "<b>%d</b> מוקשים"
@@ -2644,12 +2649,12 @@ msgstr "הושהה"
 
 #~ msgid "Number of trials for each roll for the computer"
 #~ msgstr "Number of trials for each roll for the computer"
-#~ msgctxt "game type"
 
+#~ msgctxt "game type"
 #~ msgid "Regular"
 #~ msgstr "רגיל"
-#~ msgctxt "game type"
 
+#~ msgctxt "game type"
 #~ msgid "Colors"
 #~ msgstr "צבעים"
 
@@ -2666,7 +2671,6 @@ msgstr "הושהה"
 #~ msgstr "תוצאות טאלי"
 
 #~ msgid "%s wins the game with %d point"
-
 #~ msgid_plural "%s wins the game with %d points"
 #~ msgstr[0] "%s זוכה במשחק עם נקודה אחת"
 #~ msgstr[1] "%s זוכה במשחק עם %d נקודות"
@@ -2727,8 +2731,8 @@ msgstr "הושהה"
 
 #~ msgid "_Difficulty:"
 #~ msgstr "רמת קו_שי:"
-#~ msgctxt "difficulty"
 
+#~ msgctxt "difficulty"
 #~ msgid "Medium"
 #~ msgstr "בינוני"
 
@@ -2872,20 +2876,20 @@ msgstr "הושהה"
 
 #~ msgid "_Tile set:"
 #~ msgstr "_ערכת אריחים:"
-#~ msgctxt "score-dialog"
 
+#~ msgctxt "score-dialog"
 #~ msgid "Time"
 #~ msgstr "זמן"
-#~ msgctxt "score-dialog"
 
+#~ msgctxt "score-dialog"
 #~ msgid "Score"
 #~ msgstr "ניקוד"
-#~ msgctxt "score-dialog"
 
+#~ msgctxt "score-dialog"
 #~ msgid "%1$dm %2$ds"
 #~ msgstr "%1$dדק׳ %2$dשנ׳"
-#~ msgctxt "score-dialog"
 
+#~ msgctxt "score-dialog"
 #~ msgid "Name"
 #~ msgstr "שם"
 
@@ -3113,7 +3117,6 @@ msgstr "הושהה"
 #~ msgstr "פינוי המסך על ידי הסרת קבוצות של אריחים צבעוניים ובעלי צורה"
 
 #~ msgid "%u point"
-
 #~ msgid_plural "%u points"
 #~ msgstr[0] "נקודה אחת"
 #~ msgstr[1] "%u נקודות"
@@ -3591,44 +3594,44 @@ msgstr "הושהה"
 
 #~ msgid "SIZE"
 #~ msgstr "SIZE"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "0"
 #~ msgstr "0"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "1"
 #~ msgstr "1"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "2"
 #~ msgstr "2"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "3"
 #~ msgstr "3"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "4"
 #~ msgstr "4"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "5"
 #~ msgstr "5"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "6"
 #~ msgstr "6"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "7"
 #~ msgstr "7"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "8"
 #~ msgstr "8"
-#~ msgctxt "number"
 
+#~ msgctxt "number"
 #~ msgid "9"
 #~ msgstr "9"
 
@@ -3669,8 +3672,8 @@ msgstr "הושהה"
 
 #~ msgid "Remove matching pairs of tiles."
 #~ msgstr "הסר זוגות של אריחים תואמים."
-#~ msgctxt "mahjongg map name"
 
+#~ msgctxt "mahjongg map name"
 #~ msgid "Easy"
 #~ msgstr "קל"
 
@@ -3776,12 +3779,12 @@ msgstr "הושהה"
 #~ "Aisleriot cannot load the file “%s”. Please check your Aisleriot "
 #~ "installation."
 #~ msgstr "‏Aisleriot לא יכול לטעון את הקובץ “%s”. אנא בדוק את ההתקנה של המשחק."
-#~ msgctxt "slot type"
 
+#~ msgctxt "slot type"
 #~ msgid "tableau"
 #~ msgstr "שולחן המשחק"
-#~ msgctxt "slot hint"
 
+#~ msgctxt "slot hint"
 #~ msgid "%s on tableau"
 #~ msgstr "%s על השולחן"
 
@@ -4390,8 +4393,8 @@ msgstr "הושהה"
 
 #~ msgid "Display cards with “%s” card theme"
 #~ msgstr "הצגת קלפים עם ערכת הנושא \"%s\""
-#~ msgctxt "score"
 
+#~ msgctxt "score"
 #~ msgid "%6d"
 #~ msgstr "%6d"
 
@@ -4466,60 +4469,60 @@ msgstr "הושהה"
 
 #~ msgid "Cannot start the game “%s”"
 #~ msgstr "לא ניתן להתחיל את המשחק “%s”"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "JOKER"
 #~ msgstr "ג׳וקר"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "A"
 #~ msgstr "A"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "2"
 #~ msgstr "2"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "3"
 #~ msgstr "3"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "4"
 #~ msgstr "4"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "5"
 #~ msgstr "5"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "6"
 #~ msgstr "6"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "7"
 #~ msgstr "7"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "8"
 #~ msgstr "8"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "9"
 #~ msgstr "9"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "J"
 #~ msgstr "J"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "Q"
 #~ msgstr "Q"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "K"
 #~ msgstr "K"
-#~ msgctxt "card symbol"
 
+#~ msgctxt "card symbol"
 #~ msgid "1"
 #~ msgstr "1"
 
@@ -5497,92 +5500,92 @@ msgstr "הושהה"
 
 #~ msgid "AI (%s)"
 #~ msgstr "בינה מלאכותית (%s)"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "a"
 #~ msgstr "א"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "b"
 #~ msgstr "ב"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "c"
 #~ msgstr "ג"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "d"
 #~ msgstr "ד"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "e"
 #~ msgstr "ה"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "f"
 #~ msgstr "ו"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "g"
 #~ msgstr "ז"
-#~ msgctxt "chess-file"
 
+#~ msgctxt "chess-file"
 #~ msgid "h"
 #~ msgstr "ח"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "1"
 #~ msgstr "1"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "2"
 #~ msgstr "2"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "3"
 #~ msgstr "3"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "4"
 #~ msgstr "4"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "5"
 #~ msgstr "5"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "6"
 #~ msgstr "6"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "7"
 #~ msgstr "7"
-#~ msgctxt "chess-rank"
 
+#~ msgctxt "chess-rank"
 #~ msgid "8"
 #~ msgstr "8"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "P"
 #~ msgstr "P"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "N"
 #~ msgstr "N"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "B"
 #~ msgstr "B"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "R"
 #~ msgstr "R"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "Q"
 #~ msgstr "Q"
-#~ msgctxt "chess-notation"
 
+#~ msgctxt "chess-notation"
 #~ msgid "K"
 #~ msgstr "K"
 
@@ -5663,25 +5666,21 @@ msgstr "הושהה"
 #~ msgstr "לוח ברמה %(level)s"
 
 #~ msgid "%(n)s year"
-
 #~ msgid_plural "%(n)s years"
 #~ msgstr[0] "שנה אחת"
 #~ msgstr[1] "%(n)s שנים"
 
 #~ msgid "%(n)s month"
-
 #~ msgid_plural "%(n)s months"
 #~ msgstr[0] "חודש אחד"
 #~ msgstr[1] "%(n)s חודשים"
 
 #~ msgid "%(n)s week"
-
 #~ msgid_plural "%(n)s weeks"
 #~ msgstr[0] "שבוע אחד"
 #~ msgstr[1] "%(n)s שבועות"
 
 #~ msgid "%(n)s day"
-
 #~ msgid_plural "%(n)s days"
 #~ msgstr[0] "יום אחד"
 #~ msgstr[1] "%(n)s ימים"
