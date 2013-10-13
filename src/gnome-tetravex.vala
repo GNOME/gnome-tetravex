@@ -94,7 +94,6 @@ public class Tetravex : Gtk.Application
         var headerbar = new Gtk.HeaderBar ();
         headerbar.title = _("Tetravex");
         headerbar.show_close_button = true;
-        headerbar.show ();
         window.set_titlebar (headerbar);
 
         var grid = builder.get_object ("grid") as Gtk.Grid;
@@ -103,7 +102,6 @@ public class Tetravex : Gtk.Application
         view.hexpand = true;
         view.vexpand = true;
         view.button_press_event.connect (view_button_press_event);
-        view.show ();
         grid.attach (view, 0, 0, 3, 1);
 
         var size = new Gtk.SizeGroup (Gtk.SizeGroupMode.BOTH);
@@ -119,7 +117,6 @@ public class Tetravex : Gtk.Application
         new_game_button.halign = Gtk.Align.CENTER;
         new_game_button.relief = Gtk.ReliefStyle.NONE;
         new_game_button.action_name = "app.new-game";
-        new_game_button.show_all ();
         size.add_widget (new_game_button);
         grid.attach (new_game_button, 0, 1, 1, 1);
 
@@ -134,7 +131,6 @@ public class Tetravex : Gtk.Application
         pause_button.halign = Gtk.Align.CENTER;
         pause_button.relief = Gtk.ReliefStyle.NONE;
         pause_button.action_name = "app.pause";
-        pause_button.show_all ();
         size.add_widget (pause_button);
         grid.attach (pause_button, 1, 1, 1, 1);
 
@@ -149,15 +145,24 @@ public class Tetravex : Gtk.Application
         solve_button.halign = Gtk.Align.CENTER;
         solve_button.relief = Gtk.ReliefStyle.NONE;
         solve_button.action_name = "app.solve";
-        solve_button.show_all ();
         size.add_widget (solve_button);
         grid.attach (solve_button, 2, 1, 1, 1);
 
+        box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 2);
+        box.spacing = 8;
+        image = new Gtk.Image.from_icon_name ("preferences-system-time-symbolic", Gtk.IconSize.MENU);
+        box.add (image);
         clock_label = new Gtk.Label ("");
-        clock_label.show ();
-        tick_cb ();
-        grid.attach (clock_label, 1, 2, 1, 1);
+        box.add (clock_label);
+        box.halign = Gtk.Align.CENTER;
+        box.valign = Gtk.Align.BASELINE;
+        box.set_margin_top (20);
+        box.set_margin_bottom (20);
+        grid.attach (box, 0, 2, 3, 1);
 
+        window.show_all ();
+
+        tick_cb ();
         new_game ();
     }
 
@@ -219,7 +224,10 @@ public class Tetravex : Gtk.Application
         var hours = elapsed / 3600;
         var minutes = (elapsed - hours * 3600) / 60;
         var seconds = elapsed - hours * 3600 - minutes * 60;
-        clock_label.set_text ("%02d:%02d:%02d".printf (hours, minutes, seconds));
+        if (hours > 0)
+          clock_label.set_text ("%02d:%02d:%02d".printf (hours, minutes, seconds));
+        else
+          clock_label.set_text ("%02d:%02d".printf (minutes, seconds));
     }
 
     private void solved_cb (Puzzle puzzle)
