@@ -23,17 +23,14 @@ public class Tetravex : Gtk.Application
     private Gtk.ApplicationWindow window;
     private int window_width;
     private int window_height;
-    private bool is_fullscreen;
     private bool is_maximized;
 
     Gtk.Button pause_button;
-    Gtk.Button fullscreen_button;
 
     private const GLib.ActionEntry[] action_entries =
     {
         { "new-game",      new_game_cb                                            },
         { "pause",         pause_cb                                               },
-        { "fullscreen",    fullscreen_cb                                          },
         { "solve",         solve_cb                                               },
         { "scores",        scores_cb                                              },
         { "quit",          quit_cb                                                },
@@ -61,7 +58,6 @@ public class Tetravex : Gtk.Application
         add_action_entries (action_entries, this);
         add_accelerator ("<Primary>n", "app.new-game", null);
         add_accelerator ("Pause", "app.pause", null);
-        add_accelerator ("F11", "app.fullscreen", null);
         add_accelerator ("F1", "app.help", null);
         add_accelerator ("<Primary>q", "app.quit", null);
 
@@ -88,9 +84,7 @@ public class Tetravex : Gtk.Application
         window.configure_event.connect (window_configure_event_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));        
-        if (settings.get_boolean ("window-is-fullscreen"))
-            window.fullscreen ();
-        else if (settings.get_boolean ("window-is-maximized"))
+        if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
         (lookup_action ("size") as SimpleAction).set_state ("%d".printf (settings.get_int (KEY_GRID_SIZE)));
@@ -100,11 +94,6 @@ public class Tetravex : Gtk.Application
         headerbar.show_close_button = true;
         headerbar.show ();
         window.set_titlebar (headerbar);
-
-        fullscreen_button = new Gtk.Button.from_icon_name ("view-fullscreen-symbolic", Gtk.IconSize.BUTTON);
-        fullscreen_button.action_name = "app.fullscreen";
-        fullscreen_button.show ();
-        headerbar.pack_start (fullscreen_button);
 
         var grid = builder.get_object ("grid") as Gtk.Grid;
 
@@ -140,7 +129,7 @@ public class Tetravex : Gtk.Application
 
     private bool window_configure_event_cb (Gdk.EventConfigure event)
     {
-        if (!is_maximized && !is_fullscreen)
+        if (!is_maximized)
         {
             window_width = event.width;
             window_height = event.height;
@@ -153,18 +142,7 @@ public class Tetravex : Gtk.Application
     {
         if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
             is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
-        if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
-        {
-            is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
-            if (is_fullscreen)
-            {
-                fullscreen_button.image = new Gtk.Image.from_icon_name ("view-restore-symbolic", Gtk.IconSize.BUTTON);
-            }
-            else
-            {
-                fullscreen_button.image = new Gtk.Image.from_icon_name ("view-fullscreen-symbolic", Gtk.IconSize.BUTTON);
-            }
-        }
+
         return false;
     }
 
@@ -176,7 +154,6 @@ public class Tetravex : Gtk.Application
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
-        settings.set_boolean ("window-is-fullscreen", is_fullscreen);
     }
 
     protected override void activate ()
@@ -348,14 +325,6 @@ public class Tetravex : Gtk.Application
         {
             pause_button.image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.BUTTON);
         }
-    }
-
-    private void fullscreen_cb ()
-    {
-        if (is_fullscreen)
-            window.unfullscreen ();
-        else
-            window.fullscreen ();
     }
 
     private void radio_cb (SimpleAction action, Variant? parameter)
