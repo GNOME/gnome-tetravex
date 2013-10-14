@@ -19,7 +19,8 @@ UI_FILES = \
 
 gnome_tetravex_VALAFLAGS = \
 	--pkg posix \
-	--pkg gtk+-3.0
+	--pkg gtk+-3.0 \
+    --target-glib 2.36
 
 gnome_tetravex_CFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
