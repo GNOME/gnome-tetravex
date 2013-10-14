@@ -10,6 +10,7 @@ gnome_tetravex_SOURCES = \
 	puzzle.vala \
 	puzzle-view.vala \
 	theme.vala \
+	score-dialog.vala \
 	$(BUILT_SOURCES)
 
 UI_FILES = \
