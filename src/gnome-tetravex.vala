@@ -120,7 +120,7 @@ public class Tetravex : Gtk.Application
         size.add_widget (new_game_button);
         grid.attach (new_game_button, 0, 1, 1, 1);
 
-        pause_button = new Gtk.ToggleButton ();
+        pause_button = new Gtk.Button ();
         box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
         pause_image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.DIALOG);
         box.pack_start (pause_image);
@@ -214,6 +214,8 @@ public class Tetravex : Gtk.Application
 
         var pause = lookup_action ("pause") as SimpleAction;
         pause.change_state (false);
+
+        update_button_states ();
     }
 
     private void tick_cb ()
@@ -277,6 +279,7 @@ public class Tetravex : Gtk.Application
         if (puzzle.paused)
         {
             puzzle.paused = false;
+            update_button_states ();
             return true;
         }
 
@@ -357,6 +360,11 @@ public class Tetravex : Gtk.Application
     private void pause_cb (SimpleAction action, Variant? parameter)
     {
         puzzle.paused = !puzzle.paused;
+        update_button_states ();
+    }
+
+    private void update_button_states ()
+    {
         var solve = lookup_action ("solve") as SimpleAction;
         solve.set_enabled (!puzzle.paused);
         if (puzzle.paused)
