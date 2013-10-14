@@ -28,7 +28,7 @@ gnome_tetravex_CFLAGS = \
 	-DDATA_DIRECTORY=\"$(datadir)/gnome-tetravex\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	$(GNOME_TETRAVEX_CFLAGS) \
-	-Wno-unused
+	-w
 
 gnome_tetravex_LDADD = \
 	$(GNOME_TETRAVEX_LIBS) \
