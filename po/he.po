@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-13 14:04+0300\n"
-"PO-Revision-Date: 2013-10-13 14:07+0300\n"
+"POT-Creation-Date: 2013-10-15 01:04+0300\n"
+"PO-Revision-Date: 2013-10-15 01:05+0300\n"
 "Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
@@ -24,9 +24,8 @@ msgstr ""
 "X-Poedit-Language: Hebrew\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#, fuzzy
 msgid "GNOME Tetravex"
-msgstr "ארבע צלעות Tetravex"
+msgstr "‏GNOME ארבע צלעות Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
 msgid ""
@@ -47,7 +46,7 @@ msgstr ""
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
 #: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:95
-#: ../src/gnome-tetravex.vala:301
+#: ../src/gnome-tetravex.vala:312
 msgid "Tetravex"
 msgstr "ארבע צלעות Tetravex"
 
@@ -83,8 +82,8 @@ msgstr "true if the window is maximized"
 msgid "_New Game"
 msgstr "_משחק חדש"
 
-#: ../src/app-menu.ui.h:2 ../src/gnome-tetravex.vala:130
-#: ../src/gnome-tetravex.vala:365
+#: ../src/app-menu.ui.h:2 ../src/gnome-tetravex.vala:127
+#: ../src/gnome-tetravex.vala:381
 msgid "_Pause"
 msgstr "ה_שהייה"
 
@@ -152,15 +151,15 @@ msgstr "על _אודות"
 msgid "_Quit"
 msgstr "י_ציאה"
 
-#: ../src/gnome-tetravex.vala:115
+#: ../src/gnome-tetravex.vala:113
 msgid "Play _Again"
 msgstr "לשחק _שוב"
 
-#: ../src/gnome-tetravex.vala:145
+#: ../src/gnome-tetravex.vala:141
 msgid "_Resolve"
 msgstr "_פתרון"
 
-#: ../src/gnome-tetravex.vala:304
+#: ../src/gnome-tetravex.vala:315
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -169,7 +168,7 @@ msgstr ""
 "תצרף בו יש למקם את החלקים כך שמספרים זהים יהיו צמודים אחד אל השני.\n"
 "ארבע צלעות Tetravex הוא חלק מחבילת משחקי GNOME."
 
-#: ../src/gnome-tetravex.vala:311
+#: ../src/gnome-tetravex.vala:322
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -184,33 +183,41 @@ msgstr ""
 "פרויקט תרגום GNOME לעברית:\n"
 "‏http://gnome-il.berlios.de"
 
-#: ../src/gnome-tetravex.vala:314
+#: ../src/gnome-tetravex.vala:325
 msgid "GNOME Games web site"
 msgstr "אתר משחקי GNOME"
 
-#: ../src/gnome-tetravex.vala:360
+#: ../src/gnome-tetravex.vala:376
 msgid "Res_ume"
 msgstr "המש_ך"
-
-#: ../src/gnome-tetravex.vala:403
-msgid "New Game"
-msgstr "משחק חדש"
-
-#: ../src/gnome-tetravex.vala:418
-msgid "Size:"
-msgstr "גודל:"
-
-#: ../src/gnome-tetravex.vala:443
-msgid "Date"
-msgstr "תאריך"
-
-#: ../src/gnome-tetravex.vala:446
-msgid "Time"
-msgstr "זמן"
 
 #: ../src/puzzle-view.vala:336
 msgid "Paused"
 msgstr "הושהה"
+
+#: ../src/score-dialog.vala:27
+msgid "Quit"
+msgstr "יציאה"
+
+#: ../src/score-dialog.vala:28
+msgid "New Game"
+msgstr "משחק חדש"
+
+#: ../src/score-dialog.vala:31
+msgid "OK"
+msgstr "אישור"
+
+#: ../src/score-dialog.vala:43
+msgid "Size:"
+msgstr "גודל:"
+
+#: ../src/score-dialog.vala:68
+msgid "Date"
+msgstr "תאריך"
+
+#: ../src/score-dialog.vala:71
+msgid "Time"
+msgstr "זמן"
 
 #~ msgid "true if the window is fullscren"
 #~ msgstr "true if the window is fullscren"
@@ -5137,9 +5144,6 @@ msgstr "הושהה"
 
 #~ msgid "_Close"
 #~ msgstr "_סגירה"
-
-#~ msgid "_OK"
-#~ msgstr "_אישור"
 
 #~ msgid "%s: option `%s' is ambiguous\n"
 #~ msgstr "%s: option `%s' is ambiguous\n"
