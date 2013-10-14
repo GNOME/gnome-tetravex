@@ -9,4 +9,5 @@ data/org.gnome.tetravex.gschema.xml
 src/gnome-tetravex.vala
 src/puzzle.vala
 src/puzzle-view.vala
+src/score-dialog.vala
 src/theme.vala
