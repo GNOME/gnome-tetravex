@@ -283,6 +283,7 @@ public class Tetravex : Gtk.Application
         if (puzzle.paused)
         {
             puzzle.paused = false;
+            update_button_states ();
             return true;
         }
 
