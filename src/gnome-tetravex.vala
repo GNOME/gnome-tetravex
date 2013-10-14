@@ -221,6 +221,8 @@ public class Tetravex : Gtk.Application
 
         var pause = lookup_action ("pause") as SimpleAction;
         pause.change_state (false);
+
+        update_button_states ();
     }
 
     private void tick_cb ()
@@ -361,6 +363,11 @@ public class Tetravex : Gtk.Application
     private void pause_cb (SimpleAction action, Variant? parameter)
     {
         puzzle.paused = !puzzle.paused;
+        update_button_states ();
+    }
+
+    private void update_button_states ()
+    {
         var solve = lookup_action ("solve") as SimpleAction;
         solve.set_enabled (!puzzle.paused);
         if (puzzle.paused)
