@@ -134,8 +134,8 @@ public class ScoreDialog : Gtk.Dialog
         {
             do
             {
-                int size, height, n_mines;
-                size_model.get (iter, 1, out size, 2, out height, 3, out n_mines);
+                int size;
+                size_model.get (iter, 1, out size, -1);
                 if (size == entry.size)
                 {
                     have_size_entry = true;
