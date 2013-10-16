@@ -20,7 +20,7 @@ UI_FILES = \
 gnome_tetravex_VALAFLAGS = \
 	--pkg posix \
 	--pkg gtk+-3.0 \
-    --target-glib 2.36
+	--target-glib 2.36
 
 gnome_tetravex_CFLAGS = \
 	-DVERSION=\"$(VERSION)\" \
@@ -38,6 +38,7 @@ gnome-tetravex-resources.c: gnome-tetravex.gresource.xml $(shell $(GLIB_COMPILE_
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source gnome-tetravex.gresource.xml
 
 EXTRA_DIST = \
+	$(UI_FILES) \
 	gnome-tetravex.gresource.xml
 
 CLEANFILES = \
