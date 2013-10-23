@@ -7,15 +7,6 @@
         <attribute name="accel">&lt;Primary&gt;n</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_Pause</attribute>
-        <attribute name="action">app.pause</attribute>
-        <attribute name="accel">p</attribute>
-      </item>
-      <item>
-        <attribute name="label" translatable="yes">_Solve</attribute>
-        <attribute name="action">app.solve</attribute>
-      </item>
-      <item>
         <attribute name="label" translatable="yes">_Scores</attribute>
         <attribute name="action">app.scores</attribute>
       </item>
