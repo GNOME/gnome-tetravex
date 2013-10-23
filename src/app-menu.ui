@@ -15,31 +15,6 @@
         <attribute name="label" translatable="yes">_Solve</attribute>
         <attribute name="action">app.solve</attribute>
       </item>
-      <submenu>
-        <attribute name="label" translatable="yes">_Move</attribute>
-        <section>
-          <item>
-            <attribute name="label" translatable="yes">_Up</attribute>
-            <attribute name="action">app.move-up</attribute>
-            <attribute name="accel">&lt;Primary&gt;Up</attribute>
-          </item>
-          <item>
-            <attribute name="label" translatable="yes">_Left</attribute>
-            <attribute name="action">app.move-left</attribute>
-            <attribute name="accel">&lt;Primary&gt;Left</attribute>
-          </item>
-          <item>
-            <attribute name="label" translatable="yes">_Right</attribute>
-            <attribute name="action">app.move-right</attribute>
-            <attribute name="accel">&lt;Primary&gt;Right</attribute>
-          </item>
-          <item>
-            <attribute name="label" translatable="yes">_Down</attribute>
-            <attribute name="action">app.move-down</attribute>
-            <attribute name="accel">&lt;Primary&gt;Down</attribute>
-          </item>
-        </section>
-      </submenu>
       <item>
         <attribute name="label" translatable="yes">_Scores</attribute>
         <attribute name="action">app.scores</attribute>
