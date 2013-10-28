@@ -1,3 +1,19 @@
+GNOME Tetravex 3.11.1
+=====================
+
+Dependencies:
+
+glib >= 2.36
+GTK+ >= 3.10
+librsvg dependency dropped
+
+* The UI has undergone a significant redesign
+* Fix Pause button image getting out of sync after starting a new game
+* Appdata is now translatable
+* Translation updates
+
+Contributors: Robert Ancell, Thomas Andersen, Yosef Or Boczko, Michael Catanzaro
+
 gnome-tetravex 3.9.92
 =====================
 
