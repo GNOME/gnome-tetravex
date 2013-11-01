@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games-master-po-gl-54590\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-27 03:33+0200\n"
-"PO-Revision-Date: 2013-08-27 03:34+0200\n"
+"POT-Creation-Date: 2013-11-01 16:58+0100\n"
+"PO-Revision-Date: 2013-11-01 17:01+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -27,139 +27,120 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+msgid "GNOME Tetravex"
+msgstr "Tetravex de GNOME"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+"Cada peza cadrada ten un número no seu lado. Dispoña as pezas na parte "
+"esquerda do taboleiro para que os números iguais estean ao carón. Se os "
+"números non coinciden non poderá poñer a peza no lugar. Móvase rápido: hai "
+"unha conta atrás!"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"Pode facer máis doado ou máis difícil o xogo cambiando o tamaño do "
+"taboleiro."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:95
+#: ../src/gnome-tetravex.vala:312
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Complete o quebracabezas facendo coincidir as pezas numeradas"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "xogo;lóxica;taboleiro;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "Xogo _novo"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
-msgid "_Pause"
-msgstr "_Pausa"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "_Solucionar"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "_Moverse"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "_Arriba"
-
-# (pofilter) accelerators: accelerator _ is missing from translation
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "_Esquerda"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "_Dereita"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "A_baixo"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Puntuacións"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_Tamaño"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2x2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3x3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4x4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5x5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6x6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "_Axuda"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "So_bre"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "_Saír"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "Tamaño da grella de xogo"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "O valor desta chave úsase para decidir o tamaño da grella de xogo."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Largura da xanela en píxeles"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Altura da xanela en píxeles"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "verdadeiro se a xanela está maximizada"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "verdadeiro se a xanela está en en pantalla completa"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "Xogo _novo"
 
-#: ../src/gnome-tetravex.vala:106
-msgid "_New"
-msgstr "_Novo"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Puntuacións"
 
-#: ../src/gnome-tetravex.vala:114
-msgid "Solve"
-msgstr "Solucionar"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "_Tamaño"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
-msgid "_Fullscreen"
-msgstr "_Pantalla completa"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2x2"
 
-#: ../src/gnome-tetravex.vala:182
-msgid "_Leave Fullscreen"
-msgstr "_Saír da pantalla completa"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3x3"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
-msgid "Time"
-msgstr "Tempo"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4x4"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5x5"
+
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "_Axuda"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "So_bre"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "_Saír"
+
+#: ../src/gnome-tetravex.vala:113
+msgid "Play _Again"
+msgstr "Xogar _de novo"
+
+#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:381
+msgid "_Pause"
+msgstr "_Pausa"
+
+#: ../src/gnome-tetravex.vala:141
+msgid "_Resolve"
+msgstr "_Solucionar"
+
+#: ../src/gnome-tetravex.vala:315
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -169,15 +150,15 @@ msgstr ""
 "\n"
 "O Tetravex forma parte do GNOME Games."
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/gnome-tetravex.vala:322
 msgid "translator-credits"
 msgstr ""
 "Fran Diéguez <frandieguez@ubuntu.com>, 2009-2013.\n"
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.\n"
 "Antón Méixome <meixome@mancomun.org>, 2009.\n"
 "Suso Baleato <suso.baleato@xunta.es>, 2009.\n"
-"Mancomún - Centro de Referencia e Servizos de Software Libre "
-"<g11n@mancomun.org>, 2009.\n"
+"Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun."
+"org>, 2009.\n"
 "Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2008.\n"
 "Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.\n"
 "Jesús Bravo Álvarez <jba@pobox.com>, 2000.\n"
@@ -185,29 +166,72 @@ msgstr ""
 "Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas\n"
 "colaborar connosco, podes atopar máis información en http://www.trasno.net"
 
-#: ../src/gnome-tetravex.vala:326
+#: ../src/gnome-tetravex.vala:325
 msgid "GNOME Games web site"
 msgstr "Sitio web do GNOME Games"
 
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:376
 msgid "Res_ume"
 msgstr "C_ontinuar"
-
-#: ../src/gnome-tetravex.vala:420
-msgid "New Game"
-msgstr "Xogo novo"
-
-#: ../src/gnome-tetravex.vala:435
-msgid "Size:"
-msgstr "Tamaño:"
-
-#: ../src/gnome-tetravex.vala:460
-msgid "Date"
-msgstr "Data"
 
 #: ../src/puzzle-view.vala:336
 msgid "Paused"
 msgstr "Detido"
+
+#: ../src/score-dialog.vala:27
+msgid "Quit"
+msgstr "Saír"
+
+#: ../src/score-dialog.vala:28
+msgid "New Game"
+msgstr "Xogo novo"
+
+#: ../src/score-dialog.vala:31
+msgid "OK"
+msgstr "Aceptar"
+
+#: ../src/score-dialog.vala:43
+msgid "Size:"
+msgstr "Tamaño:"
+
+#: ../src/score-dialog.vala:68
+msgid "Date"
+msgstr "Data"
+
+#: ../src/score-dialog.vala:71
+msgid "Time"
+msgstr "Tempo"
+
+#~ msgid "_Move"
+#~ msgstr "_Moverse"
+
+#~ msgid "_Up"
+#~ msgstr "_Arriba"
+
+# (pofilter) accelerators: accelerator _ is missing from translation
+#~ msgid "_Left"
+#~ msgstr "_Esquerda"
+
+#~ msgid "_Right"
+#~ msgstr "_Dereita"
+
+#~ msgid "_Down"
+#~ msgstr "A_baixo"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "verdadeiro se a xanela está en en pantalla completa"
+
+#~ msgid "_New"
+#~ msgstr "_Novo"
+
+#~ msgid "Solve"
+#~ msgstr "Solucionar"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Pantalla completa"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "_Saír da pantalla completa"
 
 #~ msgid "Chess"
 #~ msgstr "Xadrez"
@@ -336,9 +360,6 @@ msgstr "Detido"
 
 #~ msgid "Preferences"
 #~ msgstr "Preferencias"
-
-#~ msgid "Play as:"
-#~ msgstr "Xogar como:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Opoñente:"
@@ -5242,9 +5263,6 @@ msgstr "Detido"
 
 #~ msgid "_Close"
 #~ msgstr "Pecha_r"
-
-#~ msgid "_OK"
-#~ msgstr "_Aceptar"
 
 #~ msgid "Qua"
 #~ msgstr "Qua"
