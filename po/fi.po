@@ -10,14 +10,15 @@
 # Ilkka Tuohela <hile@iki.fi>, 2005-2009.
 # Timo Jyrinki <timo.jyrinki@iki.fi>, 2008.
 # Jiri Grönroos <jiri.gronroos@iki.fi>, 2012, 2013.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-28 23:14+0000\n"
-"PO-Revision-Date: 2013-03-23 15:25+0200\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
+"POT-Creation-Date: 2013-03-27 16:43+0000\n"
+"PO-Revision-Date: 2013-10-28 16:32+0200\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -119,11 +120,8 @@ msgid "The size of the playing grid"
 msgstr "Pelialueen koko"
 
 #: ../data/org.gnome.tetravex.gschema.xml.in.h:2
-#, fuzzy
 msgid "The value of this key is used to decide the size of the playing grid."
-msgstr ""
-"Tämän avaimen arvoa käytetään pelialueen koon määrittelyyn. Sallittuja "
-"arvoja ovat 2-8, muut arvot asetetaan 3:ksi."
+msgstr "Tämän avaimen arvoa käytetään pelialueen koon määrittelyyn."
 
 #: ../data/org.gnome.tetravex.gschema.xml.in.h:3
 msgid "Width of the window in pixels"
@@ -135,11 +133,11 @@ msgstr "Ikkunan korkeus kuvapisteinä"
 
 #: ../data/org.gnome.tetravex.gschema.xml.in.h:5
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "tosi jos ikkuna on suurennettu"
 
 #: ../data/org.gnome.tetravex.gschema.xml.in.h:6
 msgid "true if the window is fullscren"
-msgstr ""
+msgstr "tosi jos ikkuna on koko näytön tilassa"
 
 #: ../src/gnome-tetravex.vala:96
 msgid "_New"
