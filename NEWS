@@ -1,3 +1,9 @@
+GNOME Tetravex 3.11.2
+=====================
+
+* Check for *-validate before using it, Run autoupdate
+* Translation updates (Spanish, Galician)
+
 GNOME Tetravex 3.11.1
 =====================
 
