@@ -35,165 +35,145 @@ msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-28 23:14+0000\n"
-"PO-Revision-Date: 2013-03-09 05:14+0300\n"
+"POT-Creation-Date: 2013-11-19 04:23+0000\n"
+"PO-Revision-Date: 2013-11-19 10:09+0300\n"
 "Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
-"Language-Team: team@gnome.gr\n"
+"Language-Team: team@lists.gnome.gr\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Virtaal 0.7.0\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:48
-#: ../src/gnome-tetravex.vala:75 ../src/gnome-tetravex.vala:303
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+msgid "GNOME Tetravex"
+msgstr "Τετραβέξ GNOME"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+"Κάθε τετράγωνο κομμάτι έχει έναν αριθμό σε κάθε πλευρά. Τοποθετήστε τα "
+"κομμάτια στα αριστερά του πίνακα έτσι ώστε οι ίδιοι αριθμοί να είναι δίπλα "
+"μεταξύ τους. Αν οι αριθμοί δεν ταιριάζουν, δεν μπορείτε να βάλετε το κομμάτι "
+"εκεί. Πιο γρήγορα: χρονομετρείστε!"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"Μπορείτε να διευκολύνετε το παιχνίδι ή να το δυσκολέψετε αλλάζοντας το "
+"μέγεθος του πίνακα."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:95
+#: ../src/gnome-tetravex.vala:312
 msgid "Tetravex"
 msgstr "Τετραβέξ"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Ολοκληρώστε το πρόβλημα ταιριάζοντας αριθμημένα πλακίδια"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "παιχνίδι;λογική;πίνακας;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "_Νέο παιχνίδι"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:110
-#: ../src/gnome-tetravex.vala:364
-msgid "_Pause"
-msgstr "Π_αύση"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "Επί_λυση"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "_Μετακίνηση"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "_Πάνω"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "_Αριστερά"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "_Δεξιά"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "_Κάτω"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Βαθμολογίες"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_Μέγεθος"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2x2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3x3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4x4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5x5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6x6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "_Βοήθεια"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "_Περί"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "Έ_ξοδος"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "Το μέγεθος του πλέγματος του παιχνιδιού"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
 "Η τιμή αυτού του κλειδιού χρησιμοποιείται για να αποφασιστεί το μέγεθος του "
 "πλέγματος του παιχνιδιού."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Το πλάτος του παραθύρου σε εικονοστοιχεία"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Το ύψος του παραθύρου σε εικονοστοιχεία"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "αληθής αν το παράθυρο είναι μεγιστοποιημένο"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "αληθής αν το παράθυρο είναι σε πλήρη οθόνη"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "_Νέο παιχνίδι"
 
-#: ../src/gnome-tetravex.vala:96
-msgid "_New"
-msgstr "_Νέο"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Βαθμολογίες"
 
-#: ../src/gnome-tetravex.vala:104
-msgid "Solve"
-msgstr "Επίλυση"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "_Μέγεθος"
 
-#: ../src/gnome-tetravex.vala:117 ../src/gnome-tetravex.vala:177
-msgid "_Fullscreen"
-msgstr "_Πλήρης οθόνη"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2x2"
 
-#: ../src/gnome-tetravex.vala:172
-msgid "_Leave Fullscreen"
-msgstr "Έ_ξοδος από πλήρη οθόνη"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3x3"
 
-#: ../src/gnome-tetravex.vala:224 ../src/gnome-tetravex.vala:453
-#, c-format
-msgid "Time"
-msgstr "Χρόνος"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4x4"
 
-#: ../src/gnome-tetravex.vala:306
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5x5"
+
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "_Βοήθεια"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "_Περί"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "Έ_ξοδος"
+
+#: ../src/gnome-tetravex.vala:113
+msgid "Play _Again"
+msgstr "Παίξτε _ξανά"
+
+#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:381
+msgid "_Pause"
+msgstr "Π_αύση"
+
+#: ../src/gnome-tetravex.vala:141
+msgid "_Resolve"
+msgstr "Επί_λυση"
+
+#: ../src/gnome-tetravex.vala:315
 msgid ""
-"GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-"the same numbers are touching each other.\n"
+"Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"Το Τετραβέξ GNOME είναι ένας απλός γρίφος, όπου τα κομμάτια πρέπει να "
-"τοποθετηθούν με τέτοιο τρόπο, ώστε οι όμοιοι αριθμοί να εφάπτονται μεταξύ "
+"Τοποθετήστε τα κομμάτια έτσι ώστε οι ίδιοι αριθμοί να εφάπτονται μεταξύ "
 "τους.\n"
 "\n"
 "Το Τετραβέξ είναι μέρος των παιχνιδιών του GNOME."
 
-#: ../src/gnome-tetravex.vala:313
+#: ../src/gnome-tetravex.vala:322
 msgid "translator-credits"
 msgstr ""
 "Δημήτρης Σπίγγος <dmtrs32@gmail.com>\n"
@@ -202,29 +182,71 @@ msgstr ""
 "Κώστας Παπαδήμας <pkst@gmx.net>\n"
 "Τζένη Πετούμενου <epetoumenou@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/gnome-tetravex.vala:325
 msgid "GNOME Games web site"
 msgstr "Ιστοσελίδα των παιχνιδιών του GNOME"
 
-#: ../src/gnome-tetravex.vala:359
+#: ../src/gnome-tetravex.vala:376
 msgid "Res_ume"
 msgstr "_Συνέχιση"
 
-#: ../src/gnome-tetravex.vala:410
+#: ../src/puzzle-view.vala:336
+msgid "Paused"
+msgstr "Παύση"
+
+#: ../src/score-dialog.vala:28
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: ../src/score-dialog.vala:29
 msgid "New Game"
 msgstr "Νέο Παιχνίδι"
 
-#: ../src/gnome-tetravex.vala:425
+#: ../src/score-dialog.vala:32
+msgid "OK"
+msgstr "Εντάξει"
+
+#: ../src/score-dialog.vala:44
 msgid "Size:"
 msgstr "Μέγεθος:"
 
-#: ../src/gnome-tetravex.vala:450
+#: ../src/score-dialog.vala:69
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: ../src/puzzle-view.vala:326
-msgid "Paused"
-msgstr "Παύση"
+#: ../src/score-dialog.vala:72
+msgid "Time"
+msgstr "Χρόνος"
+
+#~ msgid "_Move"
+#~ msgstr "_Μετακίνηση"
+
+#~ msgid "_Up"
+#~ msgstr "_Πάνω"
+
+#~ msgid "_Left"
+#~ msgstr "_Αριστερά"
+
+#~ msgid "_Right"
+#~ msgstr "_Δεξιά"
+
+#~ msgid "_Down"
+#~ msgstr "_Κάτω"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "αληθής αν το παράθυρο είναι σε πλήρη οθόνη"
+
+#~ msgid "_New"
+#~ msgstr "_Νέο"
+
+#~ msgid "Solve"
+#~ msgstr "Επίλυση"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Πλήρης οθόνη"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "Έ_ξοδος από πλήρη οθόνη"
 
 #~ msgid "Chess"
 #~ msgstr "Σκάκι"
@@ -357,9 +379,6 @@ msgstr "Παύση"
 
 #~ msgid "Preferences"
 #~ msgstr "Προτιμήσεις"
-
-#~ msgid "Play as:"
-#~ msgstr "Παίζετε ως:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Αντίπαλος παίχτης:"
