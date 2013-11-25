@@ -14,7 +14,7 @@ dnl Dependencies
 dnl ###########################################################################
 
 GLIB_REQUIRED=2.36.0
-GTK_REQUIRED=3.10.0
+GTK_REQUIRED=3.11.2
 
 PKG_CHECK_MODULES(GNOME_TETRAVEX, [
   gio-2.0 >= $GLIB_REQUIRED
