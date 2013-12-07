@@ -18,6 +18,6 @@
  <screenshots>
   <screenshot type="default" width="1176" height="650">https://people.gnome.org/~mcatanzaro/gnome-tetravex.png</screenshot>
  </screenshots>
- <url type="homepage">https://wiki.gnome.org/Tetravex</url>
+ <url type="homepage">https://wiki.gnome.org/Apps/Tetravex</url>
  <updatecontact>games_list_at_gnome.org</updatecontact>
 </application>
