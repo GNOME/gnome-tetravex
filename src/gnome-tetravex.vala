@@ -94,7 +94,6 @@ public class Tetravex : Gtk.Application
         var headerbar = new Gtk.HeaderBar ();
         headerbar.title = _("Tetravex");
         headerbar.show_close_button = true;
-        headerbar.show_fallback_app_menu = true;
         window.set_titlebar (headerbar);
 
         var grid = builder.get_object ("grid") as Gtk.Grid;
