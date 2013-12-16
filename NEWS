@@ -1,3 +1,12 @@
+GNOME Tetravex 3.11.3
+=====================
+
+* Scores dialog: autoscroll to new score
+* Move the fallback app menu into the headerbar, standardize Help/About/Quit
+* Changed dependencies (Vala 0.22, GTK+ 3.10)
+* appdata: update homepage
+* Translation updates (Greek)
+
 GNOME Tetravex 3.11.2
 =====================
 
