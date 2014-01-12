@@ -321,8 +321,7 @@ public class Tetravex : Gtk.Application
                                "documenters", documenters,
                                "translator-credits", _("translator-credits"),
                                "logo-icon-name", "gnome-tetravex",
-                               "website", "http://www.gnome.org/projects/gnome-games",
-                               "website-label", _("GNOME Games web site"),
+                               "website", "https://wiki.gnome.org/Apps/Tetravex",
                                null);
     }
 
