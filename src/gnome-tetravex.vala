@@ -29,6 +29,8 @@ public class Tetravex : Gtk.Application
     Gtk.Image pause_image;
     Gtk.Label pause_label;
 
+    Gtk.Stack new_game_solve_stack;
+
     private const GLib.ActionEntry[] action_entries =
     {
         { "new-game",      new_game_cb                                            },
@@ -106,6 +108,8 @@ public class Tetravex : Gtk.Application
 
         var size = new Gtk.SizeGroup (Gtk.SizeGroupMode.BOTH);
 
+        new_game_solve_stack = new Gtk.Stack ();
+
         var new_game_button = new Gtk.Button ();
         var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
         var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
@@ -118,7 +122,6 @@ public class Tetravex : Gtk.Application
         new_game_button.relief = Gtk.ReliefStyle.NONE;
         new_game_button.action_name = "app.new-game";
         size.add_widget (new_game_button);
-        grid.attach (new_game_button, 0, 1, 1, 1);
 
         pause_button = new Gtk.Button ();
         box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
@@ -132,7 +135,7 @@ public class Tetravex : Gtk.Application
         pause_button.relief = Gtk.ReliefStyle.NONE;
         pause_button.action_name = "app.pause";
         size.add_widget (pause_button);
-        grid.attach (pause_button, 1, 1, 1, 1);
+        grid.attach (pause_button, 0, 1, 1, 1);
 
         var solve_button = new Gtk.Button ();
         box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
@@ -146,7 +149,10 @@ public class Tetravex : Gtk.Application
         solve_button.relief = Gtk.ReliefStyle.NONE;
         solve_button.action_name = "app.solve";
         size.add_widget (solve_button);
-        grid.attach (solve_button, 2, 1, 1, 1);
+
+        new_game_solve_stack.add_named(solve_button, "solve");
+        new_game_solve_stack.add_named(new_game_button, "new-game");
+        grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
         box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 2);
         box.spacing = 8;
@@ -158,7 +164,7 @@ public class Tetravex : Gtk.Application
         box.valign = Gtk.Align.BASELINE;
         box.set_margin_top (20);
         box.set_margin_bottom (20);
-        grid.attach (box, 0, 2, 3, 1);
+        grid.attach (box, 1, 1, 1, 1);
 
         window.show_all ();
 
@@ -214,6 +220,7 @@ public class Tetravex : Gtk.Application
 
         var pause = lookup_action ("pause") as SimpleAction;
         pause.change_state (false);
+        new_game_solve_stack.set_visible_child_name ("solve");
 
         update_button_states ();
     }
@@ -289,6 +296,7 @@ public class Tetravex : Gtk.Application
     private void solve_cb ()
     {
         puzzle.solve ();
+        new_game_solve_stack.set_visible_child_name ("new-game");
     }
     
     private void help_cb ()
