@@ -208,6 +208,11 @@ public class Tetravex : Gtk.Application
 
     private void new_game ()
     {
+        var pause = lookup_action ("pause") as SimpleAction;
+        pause.change_state (false);
+        pause.set_enabled (false);
+        new_game_solve_stack.set_visible_child_name ("solve");
+
         if (puzzle != null)
             SignalHandler.disconnect_by_func (puzzle, null, this);
 
@@ -215,13 +220,9 @@ public class Tetravex : Gtk.Application
         puzzle = new Puzzle (size);
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
+        puzzle.tile_moved.connect (() => pause.set_enabled (true));
         view.puzzle = puzzle;
         tick_cb ();
-
-        var pause = lookup_action ("pause") as SimpleAction;
-        pause.change_state (false);
-        pause.set_enabled (true);
-        new_game_solve_stack.set_visible_child_name ("solve");
 
         update_button_states ();
     }

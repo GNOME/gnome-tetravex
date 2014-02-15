@@ -92,6 +92,9 @@ public class PuzzleView : Gtk.DrawingArea
     private Timer animation_timer;
     private uint animation_timeout = 0;
 
+    /* Emitted when a tile is moved */
+    public signal void tile_moved ();
+
     public PuzzleView ()
     {
         set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.POINTER_MOTION_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK);
@@ -229,6 +232,7 @@ public class PuzzleView : Gtk.DrawingArea
     private void tile_moved_cb (Puzzle puzzle, Tile tile, uint x, uint y)
     {
         move_tile_to_location (tiles.lookup (tile), x, y, 0.2);
+        tile_moved ();
     }
     
     public override bool configure_event (Gdk.EventConfigure event)
