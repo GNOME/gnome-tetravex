@@ -154,8 +154,7 @@ public class Tetravex : Gtk.Application
         new_game_solve_stack.add_named(new_game_button, "new-game");
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
-        box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 2);
-        box.spacing = 8;
+        box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
         image = new Gtk.Image.from_icon_name ("preferences-system-time-symbolic", Gtk.IconSize.MENU);
         box.add (image);
         clock_label = new Gtk.Label ("");
