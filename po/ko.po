@@ -8,7 +8,7 @@
 #
 # Updated for gnome-tetravex:
 #
-# Changwoo Ryu <cwryu@debian.org>, 2013.
+# Changwoo Ryu <cwryu@debian.org>, 2013-2014.
 #
 #
 # 새로 번역하신 분은 아래 "translator-credits"에 추가하세요.
@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-13 22:27+0000\n"
-"PO-Revision-Date: 2013-09-14 21:25+0900\n"
+"POT-Creation-Date: 2014-03-07 08:45+0000\n"
+"PO-Revision-Date: 2014-03-08 05:03+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: Korean\n"
@@ -31,138 +31,114 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+msgid "GNOME Tetravex"
+msgstr "그놈 테트라벡스"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr "각 사각형 조각은 각 변마다 번호가 붙어 있습니다. 조각을 왼쪽에 놓아서 같은 번호가 마주보도록 만드십시오. 번호가 맞지 않으면 조각을 그 위치에 둘 수 없습니다. 시간이 가니 빨리 움직이십시오!"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr "게임판 크기를 바꿔서 게임을 더 쉽거나 더 어렵게 만들 수 있습니다."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
+#: ../src/gnome-tetravex.vala:324
 msgid "Tetravex"
 msgstr "테트라벡스"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "조각의 번호를 맞춰서 퍼즐을 풉니다"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "game;게임;logic;논리;로직;board;보드;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "새 게임(_N)"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
-msgid "_Pause"
-msgstr "일시 중지(_P)"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "풀이(_S)"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "이동(_M)"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "위(_U)"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "왼쪽(_L)"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "오른쪽(_R)"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "아래(_D)"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "점수(_S)"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "크기(_S)"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2x2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3x3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4x4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5x5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6x6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "도움말(_H)"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "정보(_A)"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "끝내기(_Q)"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "플레이하는 격자의 크기"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "이 키는 플레이 격자의 크기를 결정합니다."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "창의 너비, 픽셀 단위."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "창의 높이, 픽셀 단위."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "참이면 창을 최대화"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "참이면 창을 전체 화면"
-
-#: ../src/gnome-tetravex.vala:106
-msgid "_New"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
 msgstr "새 게임(_N)"
 
-#: ../src/gnome-tetravex.vala:114
-msgid "Solve"
-msgstr "풀이"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "점수(_S)"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
-msgid "_Fullscreen"
-msgstr "전체 화면(_F)"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "크기(_S)"
 
-#: ../src/gnome-tetravex.vala:182
-msgid "_Leave Fullscreen"
-msgstr "전체 화면 나가기(_L)"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2x2"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
-msgid "Time"
-msgstr "시간"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3x3"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4x4"
+
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5x5"
+
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "도움말(_H)"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "정보(_A)"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "끝내기(_Q)"
+
+#: ../src/gnome-tetravex.vala:118
+msgid "Play _Again"
+msgstr "다시 플레이(_A)"
+
+#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
+msgid "_Pause"
+msgstr "일시 중지(_P)"
+
+#: ../src/gnome-tetravex.vala:145
+msgid "_Resolve"
+msgstr "풀이(_R)"
+
+#: ../src/gnome-tetravex.vala:327
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -172,30 +148,38 @@ msgstr ""
 "\n"
 "테트라벡스는 그놈 게임의 일부입니다."
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/gnome-tetravex.vala:334
 msgid "translator-credits"
 msgstr "류창우 <cwryu@debian.org>"
 
-#: ../src/gnome-tetravex.vala:326
-msgid "GNOME Games web site"
-msgstr "그놈 게임 웹사이트"
-
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:387
 msgid "Res_ume"
 msgstr "다시 시작(_U)"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/puzzle-view.vala:340
+msgid "Paused"
+msgstr "일시 중지"
+
+#: ../src/score-dialog.vala:28
+msgid "Quit"
+msgstr "끝내기"
+
+#: ../src/score-dialog.vala:29
 msgid "New Game"
 msgstr "새 게임"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/score-dialog.vala:32
+msgid "OK"
+msgstr "확인"
+
+#: ../src/score-dialog.vala:44
 msgid "Size:"
 msgstr "크기:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/score-dialog.vala:69
 msgid "Date"
 msgstr "시각"
 
-#: ../src/puzzle-view.vala:336
-msgid "Paused"
-msgstr "일시 중지"
+#: ../src/score-dialog.vala:72
+msgid "Time"
+msgstr "시간"
