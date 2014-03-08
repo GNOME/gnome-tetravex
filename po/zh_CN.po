@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-21 02:00+0000\n"
+"POT-Creation-Date: 2014-03-08 08:46+0000\n"
 "PO-Revision-Date: 2012-03-23 17:59+0800\n"
-"Last-Translator: tuhaihe <wangdianjin@linuxdeepin.com>\n"
+"Last-Translator: Wylmer Wang <wantinghard@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#| msgid "Tetravex"
 msgid "GNOME Tetravex"
 msgstr "GNOME 四邻"
 
@@ -29,16 +28,17 @@ msgid ""
 "side of the board so that the same numbers are next to each other. If the "
 "numbers don't match, you can't put the piece there. Move quickly: you're "
 "being timed!"
-msgstr ""
+msgstr "每个方块四面都有数字。将方块放在左侧的棋盘上，让相同的数字相邻。数字不匹配不允许放下。"
+"抓紧时间，游戏是计时的哦！"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
-msgstr ""
+msgstr "您可以通过改变棋盘的大小来增加或降低难度。"
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:95
-#: ../src/gnome-tetravex.vala:311
+#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
+#: ../src/gnome-tetravex.vala:324
 msgid "Tetravex"
 msgstr "四邻"
 
@@ -114,21 +114,19 @@ msgstr "关于(_A)"
 msgid "_Quit"
 msgstr "退出(_Q)"
 
-#: ../src/gnome-tetravex.vala:113
-#| msgid "Play On_line"
+#: ../src/gnome-tetravex.vala:118
 msgid "Play _Again"
 msgstr "重玩(_A)"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
 msgid "_Pause"
 msgstr "暂停(_P)"
 
-#: ../src/gnome-tetravex.vala:141
-#| msgid "_Solve"
+#: ../src/gnome-tetravex.vala:145
 msgid "_Resolve"
 msgstr "解决(_R)"
 
-#: ../src/gnome-tetravex.vala:314
+#: ../src/gnome-tetravex.vala:327
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -138,23 +136,22 @@ msgstr ""
 "\n"
 "四邻是 GNOME 游戏的一部分。"
 
-#: ../src/gnome-tetravex.vala:321
+#: ../src/gnome-tetravex.vala:334
 msgid "translator-credits"
 msgstr ""
 "Yang Zhang <zyangmath@gmail.com>, 2007\n"
 "Ping Z <zpsigma@gmail.com>, 2007\n"
 "Xhacker Liu <liu.dongyuan@gmail.com>, 2010"
 
-#: ../src/gnome-tetravex.vala:374
+#: ../src/gnome-tetravex.vala:387
 msgid "Res_ume"
 msgstr "继续(_U)"
 
-#: ../src/puzzle-view.vala:336
+#: ../src/puzzle-view.vala:340
 msgid "Paused"
 msgstr "暂停"
 
 #: ../src/score-dialog.vala:28
-#| msgid "_Quit"
 msgid "Quit"
 msgstr "退出"
 
@@ -163,7 +160,6 @@ msgid "New Game"
 msgstr "新游戏"
 
 #: ../src/score-dialog.vala:32
-#| msgid "_OK"
 msgid "OK"
 msgstr "确认"
 
