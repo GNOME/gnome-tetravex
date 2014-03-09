@@ -23,19 +23,19 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-17 23:20+0000\n"
-"PO-Revision-Date: 2013-09-13 20:33+0100\n"
-"Last-Translator: Benjamin Steinwender <b@stbe.at>\n"
+"POT-Creation-Date: 2014-03-09 08:44+0000\n"
+"PO-Revision-Date: 2014-03-09 12:19+0100\n"
+"Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:316
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -52,7 +52,7 @@ msgid "_New Game"
 msgstr "_Neues Spiel"
 
 #: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
+#: ../src/gnome-tetravex.vala:382
 msgid "_Pause"
 msgstr "_Pause"
 
@@ -162,28 +162,22 @@ msgstr "_Vollbild"
 msgid "_Leave Fullscreen"
 msgstr "Vollbild _verlassen"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
+#: ../src/gnome-tetravex.vala:236 ../src/gnome-tetravex.vala:471
 msgid "Time"
 msgstr "Zeit"
 
-#: ../src/gnome-tetravex.vala:316
-#| msgid ""
-#| "GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-#| "the same numbers are touching each other.\n"
-#| "\n"
-#| "Tetravex is a part of GNOME Games."
+#: ../src/gnome-tetravex.vala:319
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"Psitionieren Sie die Kacheln so, dass sich gleiche Ziffern gegenseitig "
+"Positionieren Sie die Kacheln so, dass sich gleiche Ziffern gegenseitig "
 "berühren\n"
 "\n"
 "Tetravex ist ein Teil von GNOME Games."
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/gnome-tetravex.vala:326
 msgid "translator-credits"
 msgstr ""
 "Karl Eichwalder <ke@suse.de>\n"
@@ -202,23 +196,23 @@ msgstr ""
 "Christian Kirbach <Christian.Kirbach@googlemail.com>\n"
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>"
 
-#: ../src/gnome-tetravex.vala:326
+#: ../src/gnome-tetravex.vala:329
 msgid "GNOME Games web site"
 msgstr "GNOME Games-Website"
 
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:377
 msgid "Res_ume"
 msgstr "_Fortsetzen"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/gnome-tetravex.vala:428
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/gnome-tetravex.vala:443
 msgid "Size:"
 msgstr "Größe:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/gnome-tetravex.vala:468
 msgid "Date"
 msgstr "Datum"
 
