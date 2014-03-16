@@ -8,15 +8,15 @@
 # Sami Pesonen <sampeson@iki.fi>, 2002-2005.
 # Ilkka Tuohela <hile@iki.fi>, 2005-2009.
 # Timo Jyrinki <timo.jyrinki@iki.fi>, 2008.
-# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-17 23:20+0000\n"
-"PO-Revision-Date: 2013-09-04 20:34+0300\n"
+"POT-Creation-Date: 2014-03-16 20:45+0000\n"
+"PO-Revision-Date: 2014-03-16 23:09+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -28,143 +28,120 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#, fuzzy
+#| msgid "Tetravex"
+msgid "GNOME Tetravex"
+msgstr "Tetravex"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"Voit tehdä pelistä aiempaa haastavemman tai helpomman muuttamalla laudan "
+"kokoa."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
+#: ../src/gnome-tetravex.vala:324
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Täydennä palapeli vastaavasti numeroiduilla paloilla"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
-msgstr "game;logic;board;logiikka;lauta;peli;"
+msgstr "game;logic;board;logiikka;lauta;peli;lautapeli;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "_Uusi peli"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
-msgid "_Pause"
-msgstr "_Keskeytä"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "_Ratkaise"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "_Siirrä"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "_Ylös"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "_Vasemmalle"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "_Oikealle"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "_Alas"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Pisteet"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_Koko"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2x2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3x3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4x4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5x5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6x6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "O_hje"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "_Tietoja"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "_Lopeta"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "Pelialueen koko"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Tämän avaimen arvoa käytetään pelialueen koon määrittelyyn."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Ikkunan leveys kuvapisteinä"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Ikkunan korkeus kuvapisteinä"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "tosi jos ikkuna on suurennettu"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "tosi jos ikkuna on koko näytön tilassa"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "_Uusi peli"
 
-#: ../src/gnome-tetravex.vala:106
-msgid "_New"
-msgstr "_Uusi"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Pisteet"
 
-#: ../src/gnome-tetravex.vala:114
-msgid "Solve"
-msgstr "Ratkaise"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "_Koko"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
-msgid "_Fullscreen"
-msgstr "_Koko näyttö"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2x2"
 
-#: ../src/gnome-tetravex.vala:182
-msgid "_Leave Fullscreen"
-msgstr "P_oistu koko näytön tilasta"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3x3"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
-msgid "Time"
-msgstr "Aika"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4x4"
 
-#: ../src/gnome-tetravex.vala:316
-#| msgid ""
-#| "GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-#| "the same numbers are touching each other.\n"
-#| "\n"
-#| "Tetravex is a part of GNOME Games."
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5x5"
+
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "O_hje"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "_Tietoja"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "_Lopeta"
+
+#: ../src/gnome-tetravex.vala:118
+#| msgid "Play as:"
+msgid "Play _Again"
+msgstr "Pelaa _uudelleen"
+
+#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
+msgid "_Pause"
+msgstr "_Keskeytä"
+
+#: ../src/gnome-tetravex.vala:145
+#| msgid "_Solve"
+msgid "_Resolve"
+msgstr "_Ratkaise"
+
+#: ../src/gnome-tetravex.vala:327
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -174,9 +151,10 @@ msgstr ""
 "\n"
 "Tetravex on osa Gnomen pelejä."
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/gnome-tetravex.vala:334
 msgid "translator-credits"
 msgstr ""
+"Jiri Grönroos, 2014\n"
 "Timo Jyrinki, 2008\n"
 "Ilkka Tuohela, 2006-2009\n"
 "Sami Pesonen, 2002-2005\n"
@@ -194,29 +172,71 @@ msgstr ""
 "  Timo Jyrinki https://launchpad.net/~timo-jyrinki\n"
 "  eGetin https://launchpad.net/~egetin"
 
-#: ../src/gnome-tetravex.vala:326
-msgid "GNOME Games web site"
-msgstr "GNOMEn pelien www-sivut"
-
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:387
 msgid "Res_ume"
 msgstr "_Jatka"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/puzzle-view.vala:340
+msgid "Paused"
+msgstr "Keskeytetty"
+
+#: ../src/score-dialog.vala:28
+#| msgid "_Quit"
+msgid "Quit"
+msgstr "Lopeta"
+
+#: ../src/score-dialog.vala:29
 msgid "New Game"
 msgstr "Uusi peli"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/score-dialog.vala:32
+msgid "OK"
+msgstr "OK"
+
+#: ../src/score-dialog.vala:44
 msgid "Size:"
 msgstr "Koko:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/score-dialog.vala:69
 msgid "Date"
 msgstr "Päiväys"
 
-#: ../src/puzzle-view.vala:336
-msgid "Paused"
-msgstr "Keskeytetty"
+#: ../src/score-dialog.vala:72
+msgid "Time"
+msgstr "Aika"
+
+#~ msgid "_Move"
+#~ msgstr "_Siirrä"
+
+#~ msgid "_Up"
+#~ msgstr "_Ylös"
+
+#~ msgid "_Left"
+#~ msgstr "_Vasemmalle"
+
+#~ msgid "_Right"
+#~ msgstr "_Oikealle"
+
+#~ msgid "_Down"
+#~ msgstr "_Alas"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "tosi jos ikkuna on koko näytön tilassa"
+
+#~ msgid "_New"
+#~ msgstr "_Uusi"
+
+#~ msgid "Solve"
+#~ msgstr "Ratkaise"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Koko näyttö"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "P_oistu koko näytön tilasta"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "GNOMEn pelien www-sivut"
 
 #~ msgid "Chess"
 #~ msgstr "Shakki"
@@ -334,9 +354,6 @@ msgstr "Keskeytetty"
 
 #~ msgid "Preferences"
 #~ msgstr "Asetukset"
-
-#~ msgid "Play as:"
-#~ msgstr "Pelattava puoli:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Vastustaja:"
