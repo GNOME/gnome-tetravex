@@ -15,14 +15,14 @@
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2008.
 # Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010.
 # Wojciech Kapusta <wkapusta@aviary.pl>, 2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2013.
-# Aviary.pl <gnomepl@aviary.pl>, 2007-2013.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2014.
+# Aviary.pl <gnomepl@aviary.pl>, 2007-2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-21 00:09+0200\n"
-"PO-Revision-Date: 2013-08-21 00:10+0200\n"
+"POT-Creation-Date: 2014-03-16 19:59+0100\n"
+"PO-Revision-Date: 2014-03-16 20:00+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -34,149 +34,129 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+"Każdy kafelek posiada liczby po każdej stronie. Należy ułożyć kafelki po "
+"lewej stronie planszy tak, aby te same liczby były obok siebie. Jeśli liczby "
+"nie pasują, to nie można ułożyć kafelka. Należy ruszać się szybko: czas jest "
+"liczony!"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr "Można ułatwić lub utrudnić grę zmieniając rozmiar planszy."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
+#: ../src/gnome-tetravex.vala:324
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Dopasowywanie numerowanych kafelków"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "gra;gierka;logiczna;logika;planszowa;plansza;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "_Nowa gra"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
-msgid "_Pause"
-msgstr "_Wstrzymaj"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "_Rozwiąż"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "_Ruch"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "_Góra"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "_Lewa"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "_Prawa"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "_Dół"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Wyniki"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_Rozmiar"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2x2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3x3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4x4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5x5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6x6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "Pomo_c"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "_O grze"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "Za_kończ"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "Rozmiar siatki planszy"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Wartość tego klucza określa rozmiar siatki planszy."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Szerokość okna w pikselach"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Wysokość okna w pikselach"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "Wartość \"true\" oznacza, że okno jest zmaksymalizowane"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "Wartość \"true\" oznacza, że okno jest pełnoekranowe"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "_Nowa gra"
 
-#: ../src/gnome-tetravex.vala:106
-msgid "_New"
-msgstr "_Nowa"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Wyniki"
 
-#: ../src/gnome-tetravex.vala:114
-msgid "Solve"
-msgstr "Rozwiąż"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "_Rozmiar"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
-msgid "_Fullscreen"
-msgstr "_Pełny ekran"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2x2"
 
-#: ../src/gnome-tetravex.vala:182
-msgid "_Leave Fullscreen"
-msgstr "_Opuść tryb pełnoekranowy"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3x3"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
-msgid "Time"
-msgstr "Czas"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4x4"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5x5"
+
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "Pomo_c"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "_O grze"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "Za_kończ"
+
+#: ../src/gnome-tetravex.vala:118
+msgid "Play _Again"
+msgstr "Z_agraj ponownie"
+
+#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
+msgid "_Pause"
+msgstr "_Wstrzymaj"
+
+#: ../src/gnome-tetravex.vala:145
+msgid "_Resolve"
+msgstr "_Rozwiąż"
+
+#: ../src/gnome-tetravex.vala:327
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"Łamigłówka polegająca na układaniu poszczególnych elementów\n"
-"w taki sposób, by te same numery stykały się ze sobą\n"
+"Układanie poszczególnych elementów w taki sposób,\n"
+"by te same numery stykały się ze sobą.\n"
 "\n"
 "Gra Tetravex jest częścią gier GNOME."
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/gnome-tetravex.vala:334
 msgid "translator-credits"
 msgstr ""
 "Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002\n"
@@ -190,29 +170,37 @@ msgstr ""
 "Tomasz Dominikowski <dominikowski@gmail.com>, 2008\n"
 "Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010\n"
 "Wojciech Kapusta <wkapusta@aviary.pl>, 2009\n"
-"Piotr Drąg <piotrdrag@gmail.com>, 2010-2013\n"
-"Aviary.pl <gnomepl@aviary.pl>, 2007-2013"
+"Piotr Drąg <piotrdrag@gmail.com>, 2010-2014\n"
+"Aviary.pl <gnomepl@aviary.pl>, 2007-2014"
 
-#: ../src/gnome-tetravex.vala:326
-msgid "GNOME Games web site"
-msgstr "Witryna gier GNOME"
-
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:387
 msgid "Res_ume"
-msgstr "_Ponów"
+msgstr "W_znów"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/puzzle-view.vala:340
+msgid "Paused"
+msgstr "Wstrzymano"
+
+#: ../src/score-dialog.vala:28
+msgid "Quit"
+msgstr "Zakończ"
+
+#: ../src/score-dialog.vala:29
 msgid "New Game"
 msgstr "Nowa gra"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/score-dialog.vala:32
+msgid "OK"
+msgstr "OK"
+
+#: ../src/score-dialog.vala:44
 msgid "Size:"
 msgstr "Rozmiar:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/score-dialog.vala:69
 msgid "Date"
 msgstr "Data"
 
-#: ../src/puzzle-view.vala:336
-msgid "Paused"
-msgstr "Wstrzymano"
+#: ../src/score-dialog.vala:72
+msgid "Time"
+msgstr "Czas"
