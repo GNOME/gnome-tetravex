@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the gnome-games package.
 #
 # László Ádám Kohajda <kla.kohi at gmail dot com>, 2012.
-# Gabor Kelemen <kelemeng at gnome dot hu>, 2012, 2013.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex_help master\n"
-"POT-Creation-Date: 2012-12-02 22:25+0000\n"
-"PO-Revision-Date: 2013-03-21 10:57+0100\n"
+"POT-Creation-Date: 2014-01-26 12:38+0000\n"
+"PO-Revision-Date: 2014-03-19 12:12+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
-"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
+"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,20 +23,12 @@ msgctxt "_"
 msgid "translator-credits"
 msgstr "Kohajda László Ádám <kla.kohi at gmail dot com>, 2012"
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:25(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/gnotravex-logo.png' "
-#| "md5='daf379ccd659b42a71cd0f2661f651e4'"
+#: C/index.page:25
 msgctxt "_"
 msgid ""
 "external ref='figures/gnome-tetravex-logo.png' "
@@ -45,50 +37,51 @@ msgstr ""
 "external ref='figures/gnome-tetravex-logo.png' "
 "md5='daf379ccd659b42a71cd0f2661f651e4'"
 
-#: C/index.page:7(info/title)
+#. (itstool) path: info/title
+#: C/index.page:7
 msgctxt "link"
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: C/index.page:8(info/title)
+#. (itstool) path: info/title
+#: C/index.page:8
 msgctxt "text"
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: C/index.page:9(info/desc)
+#. (itstool) path: info/desc
+#: C/index.page:9
 msgid "GNOME Tetravex help."
 msgstr "A GNOME Tetravex súgója."
 
-#: C/index.page:12(credit/name) C/usage.page:15(credit/name)
+#. (itstool) path: credit/name
+#: C/index.page:12 C/usage.page:15
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
-#: C/index.page:16(credit/name) C/hint.page:10(credit/name)
-#: C/move.page:11(credit/name) C/shortcut.page:11(credit/name)
-#: C/size.page:10(credit/name) C/usage.page:11(credit/name)
-#: C/winning.page:12(credit/name)
+#. (itstool) path: credit/name
+#: C/index.page:16 C/hint.page:10 C/move.page:11 C/shortcut.page:11
+#: C/size.page:11 C/usage.page:11 C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
-#: C/index.page:20(license/p) C/move.page:15(license/p)
-#: C/shortcut.page:15(license/p) C/size.page:14(license/p)
-#: C/usage.page:19(license/p) C/winning.page:16(license/p)
+#. (itstool) path: license/p
+#: C/index.page:20 C/move.page:15 C/shortcut.page:15 C/size.page:15
+#: C/usage.page:19 C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
-#: C/index.page:24(page/title)
-#| msgid ""
-#| "<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
-#| "\">GNOME Tetravex logo</media> GNOME Tetravex"
+#. (itstool) path: page/title
+#: C/index.page:24
 msgid ""
 "<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-logo."
 "png\">GNOME Tetravex logo</media> GNOME Tetravex"
 msgstr ""
-"<media type=\"image\" mime=\"image/png\" "
-"src=\"figures/gnome-tetravex-logo.png\">GNOME Tetravex logó</media> GNOME "
-"Tetravex"
+"<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-logo."
+"png\">GNOME Tetravex logó</media> GNOME Tetravex"
 
-#: C/index.page:29(page/p)
+#. (itstool) path: page/p
+#: C/index.page:29
 msgid ""
 "<app>GNOME Tetravex</app> is a simple puzzle game which scope is to move the "
 "various pieces from one side of the board to the other side, so that the "
@@ -98,7 +91,8 @@ msgstr ""
 "különböző darabok áthelyezése a tábla egyik oldaláról a másikra úgy, hogy az "
 "azonos jelölésű darabok egymás mellé kerüljenek."
 
-#: C/index.page:34(page/p)
+#. (itstool) path: page/p
+#: C/index.page:34
 msgid ""
 "The game is timed, and these times are used as the score for the game. You "
 "have to move all the pieces in the least time possible."
@@ -106,23 +100,28 @@ msgstr ""
 "A játék időre megy, és ez alapján lesz pontozva. Minden darabot el kell "
 "helyezni, mégpedig a lehető leggyorsabban."
 
-#: C/index.page:40(section/title)
+#. (itstool) path: section/title
+#: C/index.page:40
 msgid "Basic Gameplay &amp; Usage"
 msgstr "Alapvető játékmenet és használat"
 
-#: C/index.page:44(section/title)
+#. (itstool) path: section/title
+#: C/index.page:44
 msgid "Tips &amp; Tricks"
 msgstr "Tippek és trükkök"
 
-#: C/hint.page:7(info/desc)
+#. (itstool) path: info/desc
+#: C/hint.page:7
 msgid "Use hints or solve the game automatically."
 msgstr "Javaslatok használata, vagy a feladat megoldása automatikusan."
 
-#: C/hint.page:14(page/title)
+#. (itstool) path: page/title
+#: C/hint.page:14
 msgid "Hints"
 msgstr "Tippek"
 
-#: C/hint.page:17(note/p)
+#. (itstool) path: note/p
+#: C/hint.page:17
 msgid ""
 "If you use the following method to complete the game, your score will not be "
 "included among the high scores."
@@ -130,11 +129,13 @@ msgstr ""
 "Ha a játék teljesítése érdekében a következő módszert alkalmazza, pontjai "
 "nem kerülnek be a toplistába."
 
-#: C/hint.page:24(section/title)
+#. (itstool) path: section/title
+#: C/hint.page:24
 msgid "Solve the game"
 msgstr "A feladat megoldása"
 
-#: C/hint.page:25(section/p)
+#. (itstool) path: section/p
+#: C/hint.page:25
 msgid ""
 "If you get stuck in the game, or you want to solve it automatically, choose "
 "<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
@@ -144,15 +145,18 @@ msgstr ""
 "válassza a <guiseq><gui style=\"menu\">Játék</gui><gui style=\"menuitem"
 "\">Megoldás</gui></guiseq> menüpontot."
 
-#: C/license.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/license.page:8
 msgid "Legal information."
 msgstr "Jogi információk."
 
-#: C/license.page:11(page/title)
+#. (itstool) path: page/title
+#: C/license.page:11
 msgid "License"
 msgstr "Licenc"
 
-#: C/license.page:12(page/p)
+#. (itstool) path: page/p
+#: C/license.page:12
 msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
@@ -160,35 +164,43 @@ msgstr ""
 "Ez a mű a Creative Commons Attribution-Share Alike 3.0 Unported licenc "
 "feltételei szerint terjeszthető."
 
-#: C/license.page:20(page/p)
+#. (itstool) path: page/p
+#: C/license.page:20
 msgid "You are free:"
 msgstr "Jogában áll:"
 
-#: C/license.page:25(item/title)
+#. (itstool) path: item/title
+#: C/license.page:25
 msgid "<em>To share</em>"
 msgstr "<em>Megosztani</em>"
 
-#: C/license.page:26(item/p)
+#. (itstool) path: item/p
+#: C/license.page:26
 msgid "To copy, distribute and transmit the work."
 msgstr "Másolni, terjeszteni és továbbítani a művet."
 
-#: C/license.page:29(item/title)
+#. (itstool) path: item/title
+#: C/license.page:29
 msgid "<em>To remix</em>"
 msgstr "<em>Feldolgozni</em>"
 
-#: C/license.page:30(item/p)
+#. (itstool) path: item/p
+#: C/license.page:30
 msgid "To adapt the work."
 msgstr "Módosítani a művet."
 
-#: C/license.page:33(page/p)
+#. (itstool) path: page/p
+#: C/license.page:33
 msgid "Under the following conditions:"
 msgstr "A következő feltételek szerint:"
 
-#: C/license.page:38(item/title)
+#. (itstool) path: item/title
+#: C/license.page:38
 msgid "<em>Attribution</em>"
 msgstr "<em>Nevezd meg!</em>"
 
-#: C/license.page:39(item/p)
+#. (itstool) path: item/p
+#: C/license.page:39
 msgid ""
 "You must attribute the work in the manner specified by the author or "
 "licensor (but not in any way that suggests that they endorse you or your use "
@@ -197,11 +209,13 @@ msgstr ""
 "A szerző vagy a jogosult által meghatározott módon fel kell tüntetnie a "
 "műhöz kapcsolódó információkat (pl. a szerző nevét vagy álnevét, a Mű címét)."
 
-#: C/license.page:46(item/title)
+#. (itstool) path: item/title
+#: C/license.page:46
 msgid "<em>Share Alike</em>"
 msgstr "<em>Így add tovább!</em>"
 
-#: C/license.page:47(item/p)
+#. (itstool) path: item/p
+#: C/license.page:47
 msgid ""
 "If you alter, transform, or build upon this work, you may distribute the "
 "resulting work only under the same, similar or a compatible license."
@@ -209,7 +223,8 @@ msgstr ""
 "Ha megváltoztatja, átalakítja, feldolgozza ezt a művet, az így létrejött "
 "alkotást csak a jelenlegivel megegyező licenc alatt terjesztheti."
 
-#: C/license.page:53(page/p)
+#. (itstool) path: page/p
+#: C/license.page:53
 msgid ""
 "For the full text of the license, see the <link href=\"http://"
 "creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
@@ -221,19 +236,23 @@ msgstr ""
 "teljes <link href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Commons "
 "összefoglalót</link>."
 
-#: C/move.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/move.page:8
 msgid "How to move the pieces on the game board."
 msgstr "Hogyan mozgassa a darabokat a játéktáblán."
 
-#: C/move.page:19(page/title)
+#. (itstool) path: page/title
+#: C/move.page:19
 msgid "Move the pieces"
 msgstr "A darabok mozgatása"
 
-#: C/move.page:22(section/title)
+#. (itstool) path: section/title
+#: C/move.page:22
 msgid "Move a piece"
 msgstr "Egy darab mozgatása"
 
-#: C/move.page:23(section/p)
+#. (itstool) path: section/p
+#: C/move.page:23
 msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
@@ -241,11 +260,13 @@ msgstr ""
 "Egy darab mozgatásához vagy kattintson rá a kijelöléséhez, és kattintson a "
 "cél négyzetre, vagy az egérrel húzza át az új helyére."
 
-#: C/move.page:26(section/p)
+#. (itstool) path: section/p
+#: C/move.page:26
 msgid "These moves are not permanent and can be reversed."
 msgstr "Ezek a lépések nem maradandók, így visszavonhatók."
 
-#: C/move.page:30(note/p)
+#. (itstool) path: note/p
+#: C/move.page:30
 msgid ""
 "The pieces in the left box can be moved all at once in one direction. See "
 "<link xref=\"shortcut\"/> for more information."
@@ -253,19 +274,23 @@ msgstr ""
 "A bal oldali dobozban található darabok akár egyszerre is mozgathatók. "
 "További információkat a <link xref=\"shortcut\"/> oldalon talál."
 
-#: C/shortcut.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/shortcut.page:8
 msgid "Use the keyboard to play the game."
 msgstr "A billentyűzet használata a játékban."
 
-#: C/shortcut.page:19(page/title)
+#. (itstool) path: page/title
+#: C/shortcut.page:19
 msgid "Keyboard shortcuts"
 msgstr "Gyorsbillentyűk"
 
-#: C/shortcut.page:22(section/title)
+#. (itstool) path: section/title
+#: C/shortcut.page:22
 msgid "Game shortcuts"
 msgstr "Gyorsbillentyűk"
 
-#: C/shortcut.page:23(section/p)
+#. (itstool) path: section/p
+#: C/shortcut.page:23
 msgid ""
 "The following table groups the most useful shortcuts for playing <app>GNOME "
 "Tetravex</app>."
@@ -273,81 +298,104 @@ msgstr ""
 "A következő táblázat tartalmazza a <app>GNOME Tetravex</app> leghasznosabb "
 "gyorsbillentyűit."
 
-#: C/shortcut.page:28(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:28
 msgid "Shortcut"
 msgstr "Gyorsbillentyű"
 
-#: C/shortcut.page:28(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:28
 msgid "Description"
 msgstr "Leírás"
 
-#: C/shortcut.page:32(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:32
 msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 
-#: C/shortcut.page:35(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:35
 msgid "Start a new game."
 msgstr "Új játék indítása."
 
-#: C/shortcut.page:40(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:40
 msgid "<key>Pause</key>"
 msgstr "<key>Pause</key>"
 
-#: C/shortcut.page:43(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:43
 msgid "Pause or resume the game."
 msgstr "Játék megállítása/folytatása."
 
-#: C/shortcut.page:48(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:48
 msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Fel</key></keyseq>"
 
-#: C/shortcut.page:53(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:53
 msgid "Move all the pieces in the left box up by one."
 msgstr "Az összes darab eggyel feljebb mozgatása a bal oldali mezőben."
 
-#: C/shortcut.page:58(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:58
 msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Le</key></keyseq>"
 
-#: C/shortcut.page:61(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:61
 msgid "Move all the pieces in the left box down by one."
 msgstr "Az összes darabot eggyel lejjebb mozgatása a bal oldali mezőben."
 
-#: C/shortcut.page:66(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:66
 msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Balra</key></keyseq>"
 
-#: C/shortcut.page:69(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:69
 msgid "Move all the pieces in the left box left by one."
 msgstr "Az összes darab eggyel balra mozgatása a bal oldali mezőben."
 
-#: C/shortcut.page:74(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:74
 msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Jobbra</key></keyseq>"
 
-#: C/shortcut.page:77(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:77
 msgid "Move all the pieces in the left box right by one."
 msgstr "Az összes darab eggyel jobbra mozgatása a bal oldali mezőben."
 
-#: C/size.page:7(info/desc)
+#. (itstool) path: info/desc
+#: C/size.page:7
 msgid "Change the size of the game board."
 msgstr "A játéktábla méretének módosítása."
 
-#: C/size.page:17(page/title)
+#. (itstool) path: page/title
+#: C/size.page:18
 msgid "Game board size"
 msgstr "A játéktábla mérete"
 
-#: C/size.page:19(page/p)
+#. (itstool) path: page/p
+#: C/size.page:20
+#| msgid ""
+#| "To change the size of the game board, in order to increase or decrease "
+#| "the complexity of the game, choose <gui>Size</gui> from the main menu "
+#| "bar, and then select the dimension of the board."
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
-"complexity of the game, choose <gui>Size</gui> from the main menu bar, and "
-"then select the dimension of the board."
+"complexity of the game, click <gui>Tetravex</gui> in the top bar and click "
+"<gui>Size</gui>, then select the dimension of the board."
 msgstr ""
 "A játéktábla méretének változtatásához, illetve a játék bonyolultságának "
-"növeléséhez/csökkentéséhez válassza ki a <gui>Méret</gui> menüpontot a "
-"főmenüből, majd válassza ki a tábla méretét."
+"növeléséhez/csökkentéséhez válassza ki a <gui>Tetravex<gui> menüpontot a "
+"felső sávon, ezután a <gui>Méret</gui> menüpontot, majd válassza ki a tábla "
+"méretét."
 
-#: C/size.page:24(page/p)
+#. (itstool) path: page/p
+#: C/size.page:25
 msgid ""
 "You can select from five different dimension, from 2×2 to 6×6. The default "
 "one is 3×3."
@@ -355,22 +403,20 @@ msgstr ""
 "Öt különböző méretből választhat 2×2-től 6×6-ig. Az alapértelmezett méret a "
 "3×3-as."
 
-#: C/size.page:28(note/p)
+#. (itstool) path: note/p
+#: C/size.page:29
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
 "Ha a darabok túl kicsik, az ablak átméretezésével azok mérete is változni "
 "fog."
 
+#. (itstool) path: media
 #. This is a reference to an external file such as an image or video. When
 #. the file changes, the md5 hash will change to let you know you need to
 #. update your localized copy. The msgstr is not used at all. Set it to
 #. whatever you like once you have updated your copy of the file.
-#: C/usage.page:60(media)
-#| msgctxt "_"
-#| msgid ""
-#| "external ref='figures/gnotravex-video.ogv' "
-#| "md5='14cface4ec2b0c84aa5a925242694de0'"
+#: C/usage.page:60
 msgctxt "_"
 msgid ""
 "external ref='figures/gnome-tetravex-video.ogv' "
@@ -379,19 +425,23 @@ msgstr ""
 "external ref='figures/gnome-tetravex-video.ogv' "
 "md5='14cface4ec2b0c84aa5a925242694de0'"
 
-#: C/usage.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/usage.page:8
 msgid "How to play <app>GNOME Tetravex</app>."
 msgstr "Hogyan kell játszani a <app>GNOME Tetravexszel</app>."
 
-#: C/usage.page:23(page/title)
+#. (itstool) path: page/title
+#: C/usage.page:23
 msgid "Play <app>GNOME Tetravex</app>"
 msgstr "Játék a <app>GNOME Tetravexszel</app>."
 
-#: C/usage.page:26(section/title)
+#. (itstool) path: section/title
+#: C/usage.page:26
 msgid "Basic usage"
 msgstr "Alapvető használat"
 
-#: C/usage.page:27(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:27
 msgid ""
 "The game window is divided into two boxes: the one on the right side of the "
 "window contains the pieces that needs to be arranged; the one on the left "
@@ -404,7 +454,8 @@ msgstr ""
 "ahova ezek el lesznek helyezve. Minden egyes darab fel van osztva négy kis "
 "háromszögre, amelyek számokat tartalmaznak."
 
-#: C/usage.page:34(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:34
 msgid ""
 "The scope of the game is to position the pieces so that only two identical "
 "numbers are next to each other."
@@ -412,7 +463,8 @@ msgstr ""
 "A játék célja a darabok elhelyezése úgy, hogy az azonos számok egymás mellé "
 "kerüljenek."
 
-#: C/usage.page:38(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:38
 msgid ""
 "It is not possible to position the pieces so that different number are next "
 "to each other."
@@ -420,7 +472,8 @@ msgstr ""
 "A darabok nem helyezhetők el úgy, hogy az egymás mellé kerülő számok "
 "különböznek."
 
-#: C/usage.page:42(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:42
 msgid ""
 "The game is completed when you have positioned all the pieces in their right "
 "positions."
@@ -428,7 +481,8 @@ msgstr ""
 "A játéknak akkor van vége, amikor az összes darabot elhelyezte a megfelelő "
 "helyre."
 
-#: C/usage.page:47(note/p)
+#. (itstool) path: note/p
+#: C/usage.page:47
 msgid ""
 "When you start <app>GNOME Tetravex</app>, the game will start immediately, "
 "and the time will start counting."
@@ -436,11 +490,13 @@ msgstr ""
 "Amikor elindítja a <app>GNOME Tetravexet</app>, a játék és az óra azonnal "
 "elindul."
 
-#: C/usage.page:56(section/title)
+#. (itstool) path: section/title
+#: C/usage.page:56
 msgid "Video demonstration"
 msgstr "Videobemutató"
 
-#: C/usage.page:57(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:57
 msgid ""
 "This short video shows how the game works, and what are the possible "
 "movements."
@@ -448,11 +504,13 @@ msgstr ""
 "Ez a rövid videó bemutatja, hogy hogyan is működik a játék, illetve a "
 "lehetséges lépéseket."
 
-#: C/usage.page:61(media/p)
+#. (itstool) path: media/p
+#: C/usage.page:61
 msgid "Demo"
 msgstr "Bemutató"
 
-#: C/usage.page:65(div/p)
+#. (itstool) path: div/p
+#: C/usage.page:65
 msgid ""
 "Drag pieces from the right to the left, making sure that adjacent edges have "
 "the same number and color."
@@ -460,7 +518,8 @@ msgstr ""
 "Húzza át a darabokat jobbról balra, és bizonyosodjon meg, hogy a szomszédos "
 "élek száma és színe megegyezik."
 
-#: C/usage.page:69(div/p)
+#. (itstool) path: div/p
+#: C/usage.page:69
 msgid ""
 "Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
 "at once."
@@ -468,21 +527,25 @@ msgstr ""
 "Tartsa nyomva a <key>Ctrl</key> billentyűt, és nyomja meg a nyílbillentyűket "
 "az eddig elhelyezett darabok egyidejű mozgatásához."
 
-#: C/usage.page:73(div/p)
+#. (itstool) path: div/p
+#: C/usage.page:73
 msgid "Continue dragging pieces until they all fit together on the left."
 msgstr ""
 "Folytassa a darabok rakosgatását, amíg a bal oldalon az összes nincs a "
 "helyén."
 
-#: C/winning.page:9(info/desc)
+#. (itstool) path: info/desc
+#: C/winning.page:9
 msgid "Simple tips on how to possibly win a game."
 msgstr "Egyszerű tippek a játék megnyeréséhez."
 
-#: C/winning.page:20(page/title)
+#. (itstool) path: page/title
+#: C/winning.page:20
 msgid "Win <app>GNOME Tetravex</app>"
 msgstr "A <app>GNOME Tetravex</app> megnyerése"
 
-#: C/winning.page:23(note/p)
+#. (itstool) path: note/p
+#: C/winning.page:23
 msgid ""
 "The following tips will not assure you to win a game, they are intended as a "
 "simple aid."
@@ -490,11 +553,13 @@ msgstr ""
 "A következő tippek nem biztosítják a győzelmet, csupán egyszerű segítségként "
 "szolgálnak."
 
-#: C/winning.page:30(section/title)
+#. (itstool) path: section/title
+#: C/winning.page:30
 msgid "Look for a single number"
 msgstr "Keressen egy egyszer előforduló számot."
 
-#: C/winning.page:31(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:31
 msgid ""
 "When you start a new game, look for a single number, or a number that has no "
 "similar numbers that can be placed next to it."
@@ -502,7 +567,8 @@ msgstr ""
 "Amikor új játékot kezd, keressen egy egyszer előforduló számot, vagy egy "
 "olyan számot, amelyhez nem illeszthetők más számok."
 
-#: C/winning.page:35(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:35
 msgid ""
 "If you have one such number, that piece is a valid starting piece, since you "
 "know where it has to be placed."
@@ -510,7 +576,8 @@ msgstr ""
 "Ha talált egy megfelelő számot, az egy jó kiindulási pont, mivel tudja hova "
 "kell illeszteni."
 
-#: C/winning.page:39(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:39
 msgid ""
 "Note that the bigger the size of the board, the harder is to find such a "
 "number."
@@ -518,11 +585,13 @@ msgstr ""
 "Ne felejtse, hogy minél nagyobb a játéktábla, annál nehezebb ilyen számot "
 "találni."
 
-#: C/winning.page:46(section/title)
+#. (itstool) path: section/title
+#: C/winning.page:46
 msgid "Have a tip to share?"
 msgstr "Van egy tippje, és megosztaná?"
 
-#: C/winning.page:47(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:47
 msgid ""
 "If you have a tip to share about <app>GNOME Tetravex</app>, or any other "
 "GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
