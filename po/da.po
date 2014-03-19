@@ -1,5 +1,5 @@
 # Danish translation of gnome-games.
-# Copyright (C) 1998-2012 Free Software Foundation, Inc.
+# Copyright (C) 1998-2014 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 # Anders Wegge Jakobsen <wegge@wegge.dk>, 1998.
 # Kenneth Christiansen <kenneth@ripen.dk>, 1998-2001
@@ -7,7 +7,7 @@
 # Ole Laursen <olau@hardworking.dk>, 2001, 02, 03, 04.
 # Martin Willemoes Hansen <mwh@sysrq.dk>, 2004, 05.
 # flemming christensen <fc@stromata.dk>, 2011.
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007, 08, 09, 10, 11, 12.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2007-2014.
 #
 # RETMIG: en eller anden med forstand på kabaler skal have oversat
 # navnene på spillene. Der er en kommentar til hver af dem der
@@ -34,8 +34,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-17 18:41+0200\n"
-"PO-Revision-Date: 2013-09-16 23:58+0200\n"
+"POT-Creation-Date: 2014-03-19 22:52+0100\n"
+"PO-Revision-Date: 2014-03-15 17:08+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -44,139 +44,120 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+"Hver af de firkantede brikker har et tal på hver side. Placér brikkerne på "
+"venstre side af brættet, så de samme tal er ved siden af hinanden. Hvis "
+"tallene ikke passer, kan du ikke flytte brikken derhen. Flyt hurtigt: Der "
+"tages tid!"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"Du kan gøre spillet nemmere eller sværere ved at ændre brættets størrelse."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
+#: ../src/gnome-tetravex.vala:324
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Fuldfør spillet ved at samle brikker så tilstødende numre er ens"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "spil;logik;bræt;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "_Nyt spil"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
-msgid "_Pause"
-msgstr "_Pause"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "L_øs"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "_Flyt"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "_Op"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "_Venstre"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "_Højre"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "_Ned"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Resultater"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_Størrelse"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2x2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3x3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4x4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5x5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6x6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "_Hjælp"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "_Om"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "_Afslut"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "Størrelsen af spillefeltet"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
 "Værdien af denne nøgle bruges til at bestemme spillets gitterstørrelse."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Bredden af vinduet i billedpunkter"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Højden af vinduet i billedpunkter"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "sand hvis vinduet er maksimeret"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "sand hvis vinduet er i fuldskærmstilstand"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "_Nyt spil"
 
-#: ../src/gnome-tetravex.vala:106
-msgid "_New"
-msgstr "_Nyt"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Resultater"
 
-#: ../src/gnome-tetravex.vala:114
-msgid "Solve"
-msgstr "Løs"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "_Størrelse"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
-msgid "_Fullscreen"
-msgstr "_Fuldskærm"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2x2"
 
-#: ../src/gnome-tetravex.vala:182
-msgid "_Leave Fullscreen"
-msgstr "_Afslut fuldskærm"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3x3"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
-msgid "Time"
-msgstr "Tid"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4x4"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5x5"
+
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "_Hjælp"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "_Om"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "_Afslut"
+
+#: ../src/gnome-tetravex.vala:118
+msgid "Play _Again"
+msgstr "Spil _igen"
+
+#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
+msgid "_Pause"
+msgstr "_Pause"
+
+#: ../src/gnome-tetravex.vala:145
+msgid "_Resolve"
+msgstr "L_øs"
+
+#: ../src/gnome-tetravex.vala:327
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -186,7 +167,7 @@ msgstr ""
 "\n"
 "Tetravex er en del af GNOME Games."
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/gnome-tetravex.vala:334
 msgid "translator-credits"
 msgstr ""
 "Anders Wegge Jakobsen\n"
@@ -199,29 +180,70 @@ msgstr ""
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
 "Mere info: http://www.dansk-gruppen.dk"
 
-#: ../src/gnome-tetravex.vala:326
-msgid "GNOME Games web site"
-msgstr "Hjemmeside for GNOME Games"
-
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:387
 msgid "Res_ume"
 msgstr "_Start igen"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/puzzle-view.vala:340
+msgid "Paused"
+msgstr "Pause"
+
+#: ../src/score-dialog.vala:28
+msgid "Quit"
+msgstr "Afslut"
+
+#: ../src/score-dialog.vala:29
 msgid "New Game"
 msgstr "Nyt spil"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/score-dialog.vala:32
+msgid "OK"
+msgstr "O.k."
+
+#: ../src/score-dialog.vala:44
 msgid "Size:"
 msgstr "Størrelse:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/score-dialog.vala:69
 msgid "Date"
 msgstr "Dato"
 
-#: ../src/puzzle-view.vala:336
-msgid "Paused"
-msgstr "Pause"
+#: ../src/score-dialog.vala:72
+msgid "Time"
+msgstr "Tid"
+
+#~ msgid "_Move"
+#~ msgstr "_Flyt"
+
+#~ msgid "_Up"
+#~ msgstr "_Op"
+
+#~ msgid "_Left"
+#~ msgstr "_Venstre"
+
+#~ msgid "_Right"
+#~ msgstr "_Højre"
+
+#~ msgid "_Down"
+#~ msgstr "_Ned"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "sand hvis vinduet er i fuldskærmstilstand"
+
+#~ msgid "_New"
+#~ msgstr "_Nyt"
+
+#~ msgid "Solve"
+#~ msgstr "Løs"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Fuldskærm"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "_Afslut fuldskærm"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Hjemmeside for GNOME Games"
 
 #~ msgid "Chess"
 #~ msgstr "Skak"
@@ -5245,9 +5267,6 @@ msgstr "Pause"
 #~ msgid "_Close"
 #~ msgstr "_Luk"
 
-#~ msgid "_OK"
-#~ msgstr "_O.k."
-
 #~ msgid "_Animations"
 #~ msgstr "_Animationer"
 
@@ -7623,9 +7642,6 @@ msgstr "Pause"
 
 #~ msgid "Move _Comments"
 #~ msgstr "Træk_kommentarer"
-
-#~ msgid "Play On_line"
-#~ msgstr "Spil på _nettet"
 
 #~ msgid "Play Online"
 #~ msgstr "Spil på nettet"
