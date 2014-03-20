@@ -8,161 +8,140 @@
 # Andras Timar <timar at gnome dot hu>, 2002, 2003.
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
 # Szabolcs Varga <shirokuma at shirokuma dot hu>, 2005.
-# Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014.
 # Balázs Úr <urbalazs at gmail dot com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-17 23:20+0000\n"
-"PO-Revision-Date: 2013-08-25 09:40+0200\n"
-"Last-Translator: Balázs Úr <urbalazs at gmail dot com>\n"
-"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
+"POT-Creation-Date: 2014-03-19 08:45+0000\n"
+"PO-Revision-Date: 2014-03-20 11:59+0100\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.4\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#| msgid "Tetravex"
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+"Minden négyzet minden oldalán egy-egy szám van. Helyezze egymás mellé a tábla "
+"bal oldalán a négyzeteket úgy, hogy egymás mellett azonos számok legyenek. Ha "
+"a számok nem egyeznek, nem teheti le a négyzetet. Lépjen gyorsan, a játék "
+"időre megy!"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"A játékot egyszerűbbé vagy nehezebbé teheti a tábla méretének módosításával."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
+#: ../src/gnome-tetravex.vala:324
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Oldja meg a fejtörőt az egyező számok összeillesztésével"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "játék;logika;tábla;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "Ú_j játék"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
-msgid "_Pause"
-msgstr "_Szünet"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "M_egoldás"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "_Mozgatás"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "_Fel"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "_Balra"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "_Jobbra"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "_Le"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Pontszámok"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_Méret"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2×2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3×3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4×4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5×5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6×6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "_Súgó"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "_Névjegy"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "_Kilépés"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "A játékrács mérete"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Ezen kulcs értéke határozza meg a játékrács méretét."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Az ablak szélessége képpontokban"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Az ablak magassága képpontokban"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "Az ablak teljes méretű-e"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "Az ablak teljes képernyős-e"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "Ú_j játék"
 
-#: ../src/gnome-tetravex.vala:106
-msgid "_New"
-msgstr "Ú_j"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Pontszámok"
 
-#: ../src/gnome-tetravex.vala:114
-msgid "Solve"
-msgstr "Megoldás"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "_Méret"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
-msgid "_Fullscreen"
-msgstr "_Teljes képernyő"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2×2"
 
-#: ../src/gnome-tetravex.vala:182
-msgid "_Leave Fullscreen"
-msgstr "T_eljes képernyő elhagyása"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3×3"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
-msgid "Time"
-msgstr "Idő"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4×4"
 
-#: ../src/gnome-tetravex.vala:316
-#| msgid ""
-#| "GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-#| "the same numbers are touching each other.\n"
-#| "\n"
-#| "Tetravex is a part of GNOME Games."
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5×5"
+
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6×6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "_Súgó"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "_Névjegy"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "_Kilépés"
+
+#: ../src/gnome-tetravex.vala:118
+#| msgid "Play as:"
+msgid "Play _Again"
+msgstr "Új_abb játék"
+
+#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
+msgid "_Pause"
+msgstr "_Szünet"
+
+#: ../src/gnome-tetravex.vala:145
+#| msgid "_Solve"
+msgid "_Resolve"
+msgstr "M_egoldás"
+
+#: ../src/gnome-tetravex.vala:327
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -172,7 +151,7 @@ msgstr ""
 "\n"
 "A Tetravex a GNOME játékok része."
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/gnome-tetravex.vala:334
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -183,30 +162,72 @@ msgstr ""
 "Tímár András <timar at gnome dot hu>\n"
 "Varga Szabolcs <shirokuma at shirokuma dot hu>"
 
-#: ../src/gnome-tetravex.vala:326
-msgid "GNOME Games web site"
-msgstr "A GNOME játékok weboldala"
-
 # aisleriot/dialog.c:112
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:387
 msgid "Res_ume"
 msgstr "_Folytatás"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/puzzle-view.vala:340
+msgid "Paused"
+msgstr "Szüneteltetve"
+
+#: ../src/score-dialog.vala:28
+#| msgid "_Quit"
+msgid "Quit"
+msgstr "Kilépés"
+
+#: ../src/score-dialog.vala:29
 msgid "New Game"
 msgstr "Új játék"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/score-dialog.vala:32
+msgid "OK"
+msgstr "OK"
+
+#: ../src/score-dialog.vala:44
 msgid "Size:"
 msgstr "Méret:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/score-dialog.vala:69
 msgid "Date"
 msgstr "Dátum"
 
-#: ../src/puzzle-view.vala:336
-msgid "Paused"
-msgstr "Szüneteltetve"
+#: ../src/score-dialog.vala:72
+msgid "Time"
+msgstr "Idő"
+
+#~ msgid "_Move"
+#~ msgstr "_Mozgatás"
+
+#~ msgid "_Up"
+#~ msgstr "_Fel"
+
+#~ msgid "_Left"
+#~ msgstr "_Balra"
+
+#~ msgid "_Right"
+#~ msgstr "_Jobbra"
+
+#~ msgid "_Down"
+#~ msgstr "_Le"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "Az ablak teljes képernyős-e"
+
+#~ msgid "_New"
+#~ msgstr "Ú_j"
+
+#~ msgid "Solve"
+#~ msgstr "Megoldás"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Teljes képernyő"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "T_eljes képernyő elhagyása"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "A GNOME játékok weboldala"
 
 #~ msgid "Chess"
 #~ msgstr "Sakk"
@@ -335,9 +356,6 @@ msgstr "Szüneteltetve"
 
 #~ msgid "Preferences"
 #~ msgstr "Beállítások"
-
-#~ msgid "Play as:"
-#~ msgstr "Játék mint:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Ellenfél:"
