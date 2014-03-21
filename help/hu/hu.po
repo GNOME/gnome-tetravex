@@ -390,7 +390,7 @@ msgid ""
 "<gui>Size</gui>, then select the dimension of the board."
 msgstr ""
 "A játéktábla méretének változtatásához, illetve a játék bonyolultságának "
-"növeléséhez/csökkentéséhez válassza ki a <gui>Tetravex<gui> menüpontot a "
+"növeléséhez/csökkentéséhez válassza ki a <gui>Tetravex</gui> menüpontot a "
 "felső sávon, ezután a <gui>Méret</gui> menüpontot, majd válassza ki a tábla "
 "méretét."
 
