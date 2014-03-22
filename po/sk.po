@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-03-08 14:53+0000\n"
-"PO-Revision-Date: 2014-03-23 00:20+0100\n"
+"PO-Revision-Date: 2014-03-23 00:21+0100\n"
 "Last-Translator: Peter Mráz <etkinator@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -124,7 +124,7 @@ msgstr "U_končiť"
 
 #: ../src/gnome-tetravex.vala:118
 msgid "Play _Again"
-msgstr "Hrať zn_ovu"
+msgstr "Hrať _znovu"
 
 #: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
 msgid "_Pause"
