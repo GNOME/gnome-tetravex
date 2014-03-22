@@ -1,170 +1,150 @@
 # Slovak translation for gnome-games.
-# Copyright (C) 2003, 2005, 2008, 2010, 2011, 2013 Free Software Foundation, Inc.
+# Copyright (C) 2003, 2005, 2008, 2010, 2011, 2013, 2014 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 # Stanislav Visnovsky <visnovsky@nenya.ms.mff.cuni.cz>, 2003.
 # Marcel Telka <marcel@telka.sk>, 2005, 2008.
 # Peter Mráz <etkinator@gmail.com>, 2010, 2011.
-# Ján Kyselica <kyselica.jan@gmail.com>, 2013.
+# Ján Kyselica <kyselica.jan@gmail.com>, 2013, 2014, .
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-12 07:26+0000\n"
-"PO-Revision-Date: 2013-09-12 10:14+0100\n"
-"Last-Translator: Ján Kyselica <kyselica.jan@gmail.com>\n"
+"POT-Creation-Date: 2014-03-08 14:53+0000\n"
+"PO-Revision-Date: 2014-03-23 00:20+0100\n"
+"Last-Translator: Peter Mráz <etkinator@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+msgid "GNOME Tetravex"
+msgstr "Štvorproblém Gnome"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+"Každá dlaždica má číslo na každej strane. Umiestnite dlaždicu na hraciu "
+"plochu vľavo tak aby rovnaké čísla boli vedľa seba. Ak čísla nie sú rovnaké, "
+"nie je možné dlaždicu umiestniť. Umiestňujte rýchlo, čas sa meria!"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"Zmenou veľkosti hracej plochy môžete hru spraviť jednoduchšou alebo "
+"náročnejšou."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
+#: ../src/gnome-tetravex.vala:324
 msgid "Tetravex"
-msgstr "Tetravex"
+msgstr "Štvorproblém"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
-msgstr "Vyriešte hlavolam spárovaním očíslovaných častí"
+msgstr "Vyriešte hlavolam spárovaním očíslovaných dlaždíc"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "hra;logická;stolová;logika;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "_Nová hra"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
-msgid "_Pause"
-msgstr "_Pozastaviť"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "Vy_riešiť"
-
-# PK:  neurcitok?
-# PM: v oboch prípadoch je to položka menu v prvom prípade ide o presun kameňov a v druhom o presun robota (presun = teleport, nahodne, cakat)
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "Pr_esun"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "_Hore"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "Doľa_va"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "Do_prava"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "_Dolu"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Skóre"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_Veľkosť"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2×2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3×3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4×4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5×5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6×6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "_Pomocník"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "_O programe"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "U_končiť"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "Veľkosť hracieho poľa"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Hodnota tohto kľúča sa používa na určenie veľkosti hracieho poľa."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Šírka okna v pixeloch"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Výška okna v pixeloch"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "true, ak je okno maximalizované"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "true, ak je okno v celoobrazovkovom režime"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "_Nová hra"
 
-#: ../src/gnome-tetravex.vala:106
-msgid "_New"
-msgstr "_Nová"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Skóre"
 
-#: ../src/gnome-tetravex.vala:114
-msgid "Solve"
-msgstr "Vyriešiť"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "_Veľkosť"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
-msgid "_Fullscreen"
-msgstr "_Celá obrazovka"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2×2"
 
-#: ../src/gnome-tetravex.vala:182
-msgid "_Leave Fullscreen"
-msgstr "_Opustiť celoobrazovkový režim"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3×3"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
-msgid "Time"
-msgstr "Čas"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4×4"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5×5"
+
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6×6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "_Pomocník"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "_O programe"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "U_končiť"
+
+#: ../src/gnome-tetravex.vala:118
+msgid "Play _Again"
+msgstr "Hrať zn_ovu"
+
+#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
+msgid "_Pause"
+msgstr "_Pozastaviť"
+
+#: ../src/gnome-tetravex.vala:145
+msgid "_Resolve"
+msgstr "Vy_riešiť"
+
+#: ../src/gnome-tetravex.vala:327
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"Poskladajte časti tak, aby sa rovnaké čísla navzájom dotýkali\n"
+"Poskladajte dlaždice tak, aby sa rovnaké čísla navzájom dotýkali\n"
 "\n"
-"Tetravex je súčasťou Hier GNOME."
+"Hra Štvorproblém je súčasťou Hier GNOME."
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/gnome-tetravex.vala:334
 msgid "translator-credits"
 msgstr ""
 "Stanislav Višňovský (visnovsky@nenya.ms.mff.cuni.cz)\n"
@@ -172,26 +152,34 @@ msgstr ""
 "Peter Mráz <etkinator@gmail.com>\n"
 "Ján Kyselica <kyselica.jan@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:326
-msgid "GNOME Games web site"
-msgstr "Webové stránky Hier GNOME"
-
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:387
 msgid "Res_ume"
 msgstr "Po_kračovať"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/puzzle-view.vala:340
+msgid "Paused"
+msgstr "Pozastavené"
+
+#: ../src/score-dialog.vala:28
+msgid "Quit"
+msgstr "Ukončiť"
+
+#: ../src/score-dialog.vala:29
 msgid "New Game"
 msgstr "Nová hra"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/score-dialog.vala:32
+msgid "OK"
+msgstr "OK"
+
+#: ../src/score-dialog.vala:44
 msgid "Size:"
 msgstr "Veľkosť:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/score-dialog.vala:69
 msgid "Date"
 msgstr "Dátum"
 
-#: ../src/puzzle-view.vala:336
-msgid "Paused"
-msgstr "Pozastavené"
+#: ../src/score-dialog.vala:72
+msgid "Time"
+msgstr "Čas"
