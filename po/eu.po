@@ -1,15 +1,16 @@
-# translation of eu.po to Basque
+# Basque translation of gnome-tetravex.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2008, 2009, 2010, 2011, 2012, 2013.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: eu\n"
+"Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-22 11:24+0200\n"
-"PO-Revision-Date: 2013-09-21 21:35+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2014-03-23 21:13+0100\n"
+"PO-Revision-Date: 2014-03-23 21:11+0100\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
@@ -18,138 +19,119 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+"Karratu bakoitzak zenbaki bat dauka albo bakoitzean. Jarri piezak mahaiko "
+"ezker aldean, zenbaki berdinak bata bestearen alboan elkar ukituz. Piezak "
+"ezin dira jarri zenbakiak bat ez datozenean. Mugitu bizkor: denbora aurka "
+"duzu."
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr "Jokoa errazagoa edo zailagoa egin dezakezu mahaiaren tamaina aldatuz."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
+#: ../src/gnome-tetravex.vala:324
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr ""
 "Jokoa osatzeko, zenbaki berdineko fitxak elkarren ondoan jarri behar dira"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "jokoa;logika;taula;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "_Joko berria"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
-msgid "_Pause"
-msgstr "_Pausarazi"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "_Ebatzi"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "_Mugitu"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "_Gora"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "E_zkerrera"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "E_skuinera"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "_Behera"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Puntuazioak"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "Ta_maina"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2×2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3×3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4×4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5×5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6×6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "La_guntza"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "Honi _buruz"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "_Irten"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "Joko-saretaren tamaina"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Joko-saretaren tamaina ezartzeko erabiltzen da balio hori."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Leihoaren zabalera (pixeletan)"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Leihoaren altuera (pixeletan)"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "'true' (egia) leihoa maximizatuta badago"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "'true' (egia) leihoa pantaila osoan badago "
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "_Joko berria"
 
-#: ../src/gnome-tetravex.vala:106
-msgid "_New"
-msgstr "_Berria"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Puntuazioak"
 
-#: ../src/gnome-tetravex.vala:114
-msgid "Solve"
-msgstr "Ebatzi"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "Ta_maina"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
-msgid "_Fullscreen"
-msgstr "_Pantaila osoa"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2×2"
 
-#: ../src/gnome-tetravex.vala:182
-msgid "_Leave Fullscreen"
-msgstr "_Kendu pantaila osoa"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3×3"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-msgid "Time"
-msgstr "Denbora"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4×4"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5×5"
+
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6×6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "La_guntza"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "Honi _buruz"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "_Irten"
+
+#: ../src/gnome-tetravex.vala:118
+msgid "Play _Again"
+msgstr "Jokatu _berriro"
+
+#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
+msgid "_Pause"
+msgstr "_Pausarazi"
+
+#: ../src/gnome-tetravex.vala:145
+msgid "_Resolve"
+msgstr "_Ebatzi"
+
+#: ../src/gnome-tetravex.vala:327
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -160,33 +142,74 @@ msgstr ""
 "\n"
 "GNOME Games-ekoa da Tetravex."
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/gnome-tetravex.vala:334
 msgid "translator-credits"
 msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 
-#: ../src/gnome-tetravex.vala:326
-msgid "GNOME Games web site"
-msgstr "GNOME Games webgunea"
-
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:387
 msgid "Res_ume"
 msgstr "_Berrekin"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/puzzle-view.vala:340
+msgid "Paused"
+msgstr "Pausarazita"
+
+#: ../src/score-dialog.vala:28
+msgid "Quit"
+msgstr "Irten"
+
+#: ../src/score-dialog.vala:29
 msgid "New Game"
 msgstr "Joko berria"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/score-dialog.vala:32
+msgid "OK"
+msgstr "Ados"
+
+#: ../src/score-dialog.vala:44
 msgid "Size:"
 msgstr "Tamaina:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/score-dialog.vala:69
 msgid "Date"
 msgstr "Data"
 
-#: ../src/puzzle-view.vala:336
-msgid "Paused"
-msgstr "Pausarazita"
+#: ../src/score-dialog.vala:72
+msgid "Time"
+msgstr "Denbora"
+
+#~ msgid "_Move"
+#~ msgstr "_Mugitu"
+
+#~ msgid "_Up"
+#~ msgstr "_Gora"
+
+#~ msgid "_Left"
+#~ msgstr "E_zkerrera"
+
+#~ msgid "_Right"
+#~ msgstr "E_skuinera"
+
+#~ msgid "_Down"
+#~ msgstr "_Behera"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "'true' (egia) leihoa pantaila osoan badago "
+
+#~ msgid "_New"
+#~ msgstr "_Berria"
+
+#~ msgid "Solve"
+#~ msgstr "Ebatzi"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Pantaila osoa"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "_Kendu pantaila osoa"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "GNOME Games webgunea"
 
 #~ msgid "Chess"
 #~ msgstr "Xakea"
@@ -309,9 +332,6 @@ msgstr "Pausarazita"
 
 #~ msgid "Preferences"
 #~ msgstr "Hobespenak"
-
-#~ msgid "Play as:"
-#~ msgstr "Jokatu honela:"
 
 #~ msgid "Opposing Player:"
 #~ msgstr "Jokalari aurkaria:"
@@ -5112,6 +5132,3 @@ msgstr "Pausarazita"
 
 #~ msgid "_Close"
 #~ msgstr "It_xi"
-
-#~ msgid "_OK"
-#~ msgstr "Ado_s"
