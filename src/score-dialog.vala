@@ -19,17 +19,17 @@ public class ScoreDialog : Gtk.Dialog
 
     public ScoreDialog (History history, HistoryEntry? selected_entry = null, bool show_quit = false)
     {
-        Object (use_header_bar: 1, title: _("Scores"));
-
         this.history = history;
         history.entry_added.connect (entry_added_cb);
         this.selected_entry = selected_entry;
 
         if (show_quit)
         {
-            add_button (_("Quit"), Gtk.ResponseType.CANCEL);
+            add_button (_("Quit"), Gtk.ResponseType.CLOSE);
             add_button (_("New Game"), Gtk.ResponseType.OK);
         }
+        else
+            add_button (_("OK"), Gtk.ResponseType.DELETE_EVENT);
         set_size_request (200, 300);
 
         var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 5);
