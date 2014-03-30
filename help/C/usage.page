@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
       type="guide"
       id="usage">
 
@@ -57,9 +58,9 @@
     <p>
       This short video shows how the game works, and what are the possible movements.
     </p>
-    <media type="video" mime="application/ogg" src="figures/gnome-tetravex-video.ogv">
-      <p>Demo</p>
-      <tt:tt xmlns:tt="http://www.w3.org/ns/ttml">
+    <media type="video" mime="application/ogg" src="figures/gnome-tetravex-video.ogv" its:translate="no">
+      <p its:translate="yes">Demo</p>
+      <tt:tt its:translate="yes" xmlns:tt="http://www.w3.org/ns/ttml">
         <tt:body>
           <tt:div begin="1s" end="6s">
             <tt:p>Drag pieces from the right to the left, making sure that
