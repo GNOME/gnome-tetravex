@@ -5,15 +5,15 @@
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
 # Matic Žgur <mr.zgur@gmail.com>, 2006-2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007-2013.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007-2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-17 23:20+0000\n"
-"PO-Revision-Date: 2013-08-18 14:48+0100\n"
+"POT-Creation-Date: 2014-04-12 08:16+0000\n"
+"PO-Revision-Date: 2014-04-12 20:06+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -25,138 +25,120 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+"Vsaka ploščica ima številko na vsaki strani. Postaviti je treba ploščice na "
+"levo stran igralne plošče, da bo na obeh straneh enaka številka. Če se "
+"števila ne ujemajo, ploščice na mesto ni mogoče postaviti. Igra je časovno "
+"omejene."
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"Težavnost igre je mogoče prilagoditi s spreminjanjem velikosti igralne "
+"plošče."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
+#: ../src/gnome-tetravex.vala:324
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Dokončajte sestavljenko s skladanjem oštevilčenih ploščic"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "igra;logika;tabla;plošča;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "_Nova Igra"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
-msgid "_Pause"
-msgstr "_Premor"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "_Reši"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "_Premakni"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "_Gor"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "_Levo"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "_Desno"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "_Dol"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Točke"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_Velikost"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2x2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3x3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4x4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5x5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6x6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "Pomo_č"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "_O Programu"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "_Končaj"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "Velikost igralne mreže"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Vrednost možnosti določa velikost igralne mreže."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Širina okna v točkah"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Višina okna v točkah"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "prav, če je okno razpeto."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "prav, če je okno razpeto čez celoten zaslon"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "_Nova Igra"
 
-#: ../src/gnome-tetravex.vala:106
-msgid "_New"
-msgstr "_Nova"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Točke"
 
-#: ../src/gnome-tetravex.vala:114
-msgid "Solve"
-msgstr "Reši"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "_Velikost"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
-msgid "_Fullscreen"
-msgstr "_Celozaslonski način"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2x2"
 
-#: ../src/gnome-tetravex.vala:182
-msgid "_Leave Fullscreen"
-msgstr "_Zapusti celozaslonski način"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3x3"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
-msgid "Time"
-msgstr "Čas"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4x4"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5x5"
+
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "Pomo_č"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "_O Programu"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "_Končaj"
+
+#: ../src/gnome-tetravex.vala:118
+msgid "Play _Again"
+msgstr "Igraj _znova"
+
+#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
+msgid "_Pause"
+msgstr "_Premor"
+
+#: ../src/gnome-tetravex.vala:145
+msgid "_Resolve"
+msgstr "_Razreši"
+
+#: ../src/gnome-tetravex.vala:327
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -166,7 +148,7 @@ msgstr ""
 "\n"
 "Igra Tetravex je del iger GNOME namizja."
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/gnome-tetravex.vala:334
 msgid "translator-credits"
 msgstr ""
 "Matic Žgur <mr.zgur@gmail.com>\n"
@@ -174,26 +156,67 @@ msgstr ""
 "Tadej Janež <tadej_janez@email.si>\n"
 "Matej Urbančič <mateju@svn.gnome.org>"
 
-#: ../src/gnome-tetravex.vala:326
-msgid "GNOME Games web site"
-msgstr "Spletna stran iger GNOME"
-
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:387
 msgid "Res_ume"
 msgstr "Na_daljuj"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/puzzle-view.vala:340
+msgid "Paused"
+msgstr "Premor"
+
+#: ../src/score-dialog.vala:28
+msgid "Quit"
+msgstr "Končaj"
+
+#: ../src/score-dialog.vala:29
 msgid "New Game"
 msgstr "Nova igra"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/score-dialog.vala:32
+msgid "OK"
+msgstr "V redu"
+
+#: ../src/score-dialog.vala:44
 msgid "Size:"
 msgstr "Velikost:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/score-dialog.vala:69
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/puzzle-view.vala:336
-msgid "Paused"
-msgstr "Premor"
+#: ../src/score-dialog.vala:72
+msgid "Time"
+msgstr "Čas"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Spletna stran iger GNOME"
+
+#~ msgid "_Move"
+#~ msgstr "_Premakni"
+
+#~ msgid "_Up"
+#~ msgstr "_Gor"
+
+#~ msgid "_Left"
+#~ msgstr "_Levo"
+
+#~ msgid "_Right"
+#~ msgstr "_Desno"
+
+#~ msgid "_Down"
+#~ msgstr "_Dol"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "prav, če je okno razpeto čez celoten zaslon"
+
+#~ msgid "_New"
+#~ msgstr "_Nova"
+
+#~ msgid "Solve"
+#~ msgstr "Reši"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Celozaslonski način"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "_Zapusti celozaslonski način"
