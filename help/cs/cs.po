@@ -94,7 +94,7 @@ msgstr "Creative Commons Share Alike 3.0"
 #. (itstool) path: media/span
 #: C/index.page:26
 msgid "GNOME Tetravex logo"
-msgstr "Logo GNOME Tetravex"
+msgstr "Logo hry GNOME Tetravex"
 
 #. (itstool) path: page/title
 #: C/index.page:25
