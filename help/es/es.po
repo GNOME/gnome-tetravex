@@ -5,16 +5,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
-"POT-Creation-Date: 2014-01-26 12:38+0000\n"
-"PO-Revision-Date: 2014-01-28 18:03+0100\n"
+"POT-Creation-Date: 2014-05-08 07:41+0000\n"
+"PO-Revision-Date: 2014-05-10 18:52+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 2.91.5\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -23,97 +23,16 @@ msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2012 - 2014\n"
 "Jorge González <jorgegonz@svn.gnome.org>, 2007-2001"
 
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:25
-msgctxt "_"
-msgid ""
-"external ref='figures/gnome-tetravex-logo.png' "
-"md5='daf379ccd659b42a71cd0f2661f651e4'"
-msgstr ""
-"external ref='figures/gnome-tetravex-logo.png' "
-"md5='daf379ccd659b42a71cd0f2661f651e4'"
-
-#. (itstool) path: info/title
-#: C/index.page:7
-msgctxt "link"
-msgid "GNOME Tetravex"
-msgstr "Tetravex"
-
-#. (itstool) path: info/title
-#: C/index.page:8
-msgctxt "text"
-msgid "GNOME Tetravex"
-msgstr "Tetravex"
-
-#. (itstool) path: info/desc
-#: C/index.page:9
-msgid "GNOME Tetravex help."
-msgstr "Ayuda de Tetravex."
-
-#. (itstool) path: credit/name
-#: C/index.page:12 C/usage.page:15
-msgid "Rob Bradford"
-msgstr "Rob Bradford"
-
-#. (itstool) path: credit/name
-#: C/index.page:16 C/hint.page:10 C/move.page:11 C/shortcut.page:11
-#: C/size.page:11 C/usage.page:11 C/winning.page:12
-msgid "Milo Casagrande"
-msgstr "Milo Casagrande"
-
-#. (itstool) path: license/p
-#: C/index.page:20 C/move.page:15 C/shortcut.page:15 C/size.page:15
-#: C/usage.page:19 C/winning.page:16
-msgid "Creative Commons Share Alike 3.0"
-msgstr "Creative Commons Share Alike 3.0"
-
-#. (itstool) path: page/title
-#: C/index.page:24
-msgid ""
-"<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-logo."
-"png\">GNOME Tetravex logo</media> GNOME Tetravex"
-msgstr ""
-"<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-logo."
-"png\">logotipo de GNOME Tetravex</media> GNOME Tetravex"
-
-#. (itstool) path: page/p
-#: C/index.page:29
-msgid ""
-"<app>GNOME Tetravex</app> is a simple puzzle game which scope is to move the "
-"various pieces from one side of the board to the other side, so that the "
-"same numbers depicted on the pieces are touching each other."
-msgstr ""
-"<app>Tetravex</app> es un juego simple tipo puzle cuya finalidad es mover "
-"las piezas de una parte del tablero a otra, de tal forma que los números "
-"representados en las piezas se toquen unos a otros."
-
-#. (itstool) path: page/p
-#: C/index.page:34
-msgid ""
-"The game is timed, and these times are used as the score for the game. You "
-"have to move all the pieces in the least time possible."
-msgstr ""
-"La partida está cronometrada y esos tiempos se usan como la puntuación para "
-"la partida. Debe mover todas las piezas en el menor tiempo posible."
-
-#. (itstool) path: section/title
-#: C/index.page:40
-msgid "Basic Gameplay &amp; Usage"
-msgstr "Uso básico del juego"
-
-#. (itstool) path: section/title
-#: C/index.page:44
-msgid "Tips &amp; Tricks"
-msgstr "Sugerencias y trucos"
-
 #. (itstool) path: info/desc
 #: C/hint.page:7
 msgid "Use hints or solve the game automatically."
 msgstr "Use las sugerencias para resolver la partida automáticamente."
+
+#. (itstool) path: credit/name
+#: C/hint.page:10 C/index.page:17 C/move.page:11 C/shortcut.page:11
+#: C/size.page:11 C/usage.page:12 C/winning.page:12
+msgid "Milo Casagrande"
+msgstr "Milo Casagrande"
 
 #. (itstool) path: page/title
 #: C/hint.page:14
@@ -144,6 +63,78 @@ msgstr ""
 "Si se queda atascado en la partida o quiere resolverla automáticamente elija "
 "<guiseq><gui style=\"menu\">Juego</gui><gui style=\"menuitem\">Resolver</"
 "gui></guiseq>."
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "link"
+msgid "GNOME Tetravex"
+msgstr "Tetravex"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "text"
+msgid "GNOME Tetravex"
+msgstr "Tetravex"
+
+#. (itstool) path: info/desc
+#: C/index.page:10
+msgid "GNOME Tetravex help."
+msgstr "Ayuda de Tetravex."
+
+#. (itstool) path: credit/name
+#: C/index.page:13 C/usage.page:16
+msgid "Rob Bradford"
+msgstr "Rob Bradford"
+
+#. (itstool) path: license/p
+#: C/index.page:21 C/move.page:15 C/shortcut.page:15 C/size.page:15
+#: C/usage.page:20 C/winning.page:16
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
+
+#. (itstool) path: media/span
+#: C/index.page:26
+#| msgctxt "link"
+#| msgid "GNOME Tetravex"
+msgid "GNOME Tetravex logo"
+msgstr "Logo de Tetravex"
+
+#. (itstool) path: page/title
+#: C/index.page:25
+#| msgctxt "link"
+#| msgid "GNOME Tetravex"
+msgid "<_:media-1/> GNOME Tetravex"
+msgstr "<_:media-1/> Tetravex"
+
+#. (itstool) path: page/p
+#: C/index.page:30
+msgid ""
+"<app>GNOME Tetravex</app> is a simple puzzle game which scope is to move the "
+"various pieces from one side of the board to the other side, so that the "
+"same numbers depicted on the pieces are touching each other."
+msgstr ""
+"<app>Tetravex</app> es un juego simple tipo puzle cuya finalidad es mover "
+"las piezas de una parte del tablero a otra, de tal forma que los números "
+"representados en las piezas se toquen unos a otros."
+
+#. (itstool) path: page/p
+#: C/index.page:35
+msgid ""
+"The game is timed, and these times are used as the score for the game. You "
+"have to move all the pieces in the least time possible."
+msgstr ""
+"La partida está cronometrada y esos tiempos se usan como la puntuación para "
+"la partida. Debe mover todas las piezas en el menor tiempo posible."
+
+#. (itstool) path: section/title
+#: C/index.page:41
+msgid "Basic Gameplay &amp; Usage"
+msgstr "Uso básico del juego"
+
+#. (itstool) path: section/title
+#: C/index.page:45
+msgid "Tips &amp; Tricks"
+msgstr "Sugerencias y trucos"
 
 #. (itstool) path: info/desc
 #: C/license.page:8
@@ -383,10 +374,6 @@ msgstr "Tamaño del tablero de juego"
 
 #. (itstool) path: page/p
 #: C/size.page:20
-#| msgid ""
-#| "To change the size of the game board, in order to increase or decrease "
-#| "the complexity of the game, choose <gui>Size</gui> from the main menu "
-#| "bar, and then select the dimension of the board."
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
 "complexity of the game, click <gui>Tetravex</gui> in the top bar and click "
@@ -414,37 +401,23 @@ msgstr ""
 "Si las piezas son muy pequeñas, al redimensionar la ventana se cambiará el "
 "tamaña de las piezas."
 
-#. (itstool) path: media
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/usage.page:60
-msgctxt "_"
-msgid ""
-"external ref='figures/gnome-tetravex-video.ogv' "
-"md5='14cface4ec2b0c84aa5a925242694de0'"
-msgstr ""
-"external ref='figures/gnome-tetravex-video.ogv' "
-"md5='14cface4ec2b0c84aa5a925242694de0'"
-
 #. (itstool) path: info/desc
-#: C/usage.page:8
+#: C/usage.page:9
 msgid "How to play <app>GNOME Tetravex</app>."
 msgstr "Cómo jugar a <app>Tetravex</app>."
 
 #. (itstool) path: page/title
-#: C/usage.page:23
+#: C/usage.page:24
 msgid "Play <app>GNOME Tetravex</app>"
 msgstr "Jugar a <app>Tetravex</app>"
 
 #. (itstool) path: section/title
-#: C/usage.page:26
+#: C/usage.page:27
 msgid "Basic usage"
 msgstr "Uso básico"
 
 #. (itstool) path: section/p
-#: C/usage.page:27
+#: C/usage.page:28
 msgid ""
 "The game window is divided into two boxes: the one on the right side of the "
 "window contains the pieces that needs to be arranged; the one on the left "
@@ -459,7 +432,7 @@ msgstr ""
 "número."
 
 #. (itstool) path: section/p
-#: C/usage.page:34
+#: C/usage.page:35
 msgid ""
 "The scope of the game is to position the pieces so that only two identical "
 "numbers are next to each other."
@@ -468,7 +441,7 @@ msgstr ""
 "números idénticos están juntos."
 
 #. (itstool) path: section/p
-#: C/usage.page:38
+#: C/usage.page:39
 msgid ""
 "It is not possible to position the pieces so that different number are next "
 "to each other."
@@ -477,7 +450,7 @@ msgstr ""
 "están juntos."
 
 #. (itstool) path: section/p
-#: C/usage.page:42
+#: C/usage.page:43
 msgid ""
 "The game is completed when you have positioned all the pieces in their right "
 "positions."
@@ -486,7 +459,7 @@ msgstr ""
 "correctas."
 
 #. (itstool) path: note/p
-#: C/usage.page:47
+#: C/usage.page:48
 msgid ""
 "When you start <app>GNOME Tetravex</app>, the game will start immediately, "
 "and the time will start counting."
@@ -495,12 +468,12 @@ msgstr ""
 "cronómetro comenzará a contar."
 
 #. (itstool) path: section/title
-#: C/usage.page:56
+#: C/usage.page:57
 msgid "Video demonstration"
 msgstr "Videodemostración"
 
 #. (itstool) path: section/p
-#: C/usage.page:57
+#: C/usage.page:58
 msgid ""
 "This short video shows how the game works, and what are the possible "
 "movements."
@@ -509,12 +482,12 @@ msgstr ""
 "movimientos posibles."
 
 #. (itstool) path: media/p
-#: C/usage.page:61
+#: C/usage.page:62
 msgid "Demo"
 msgstr "Demostración"
 
 #. (itstool) path: div/p
-#: C/usage.page:65
+#: C/usage.page:66
 msgid ""
 "Drag pieces from the right to the left, making sure that adjacent edges have "
 "the same number and color."
@@ -523,7 +496,7 @@ msgstr ""
 "adyacentes tengan el mismo número y color."
 
 #. (itstool) path: div/p
-#: C/usage.page:69
+#: C/usage.page:70
 msgid ""
 "Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
 "at once."
@@ -532,7 +505,7 @@ msgstr ""
 "mover todas las piezas colocadas a la vez."
 
 #. (itstool) path: div/p
-#: C/usage.page:73
+#: C/usage.page:74
 msgid "Continue dragging pieces until they all fit together on the left."
 msgstr "Continue arrastrando las piezas hasta que casen todas en la izquierda."
 
@@ -600,6 +573,29 @@ msgstr ""
 "Si tiene alguna sugerencia acerca de <app>Tetravex</app> o cualquier otro "
 "juego de GNOME, escríbanos a gnome-doc-list@gnome.org. Las añadiremos todas "
 "aquí."
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/gnome-tetravex-logo.png' "
+#~ "md5='daf379ccd659b42a71cd0f2661f651e4'"
+#~ msgstr ""
+#~ "external ref='figures/gnome-tetravex-logo.png' "
+#~ "md5='daf379ccd659b42a71cd0f2661f651e4'"
+
+#~ msgid ""
+#~ "<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-"
+#~ "logo.png\">GNOME Tetravex logo</media> GNOME Tetravex"
+#~ msgstr ""
+#~ "<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-"
+#~ "logo.png\">logotipo de GNOME Tetravex</media> GNOME Tetravex"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/gnome-tetravex-video.ogv' "
+#~ "md5='14cface4ec2b0c84aa5a925242694de0'"
+#~ msgstr ""
+#~ "external ref='figures/gnome-tetravex-video.ogv' "
+#~ "md5='14cface4ec2b0c84aa5a925242694de0'"
 
 #~ msgid "milo@ubuntu.com"
 #~ msgstr "milo@ubuntu.com"
