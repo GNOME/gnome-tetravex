@@ -386,6 +386,14 @@ public class PuzzleView : Gtk.DrawingArea
         return false;
     }
 
+    private bool on_right_half (double x)
+    {
+        uint x_offset, y_offset, size, gap;
+        get_dimensions (out x_offset, out y_offset, out size, out gap);
+
+        return x > x_offset + size * puzzle.size + gap * 0.5;
+    }
+
     private void drop_tile (double x, double y)
     {
         if (selected_tile == null)
@@ -404,7 +412,7 @@ public class PuzzleView : Gtk.DrawingArea
 
         /* Check which side we are on */
         int tile_x;
-        if (x > x_offset + size * puzzle.size + gap * 0.5)
+        if (on_right_half (x))
         {
             tile_x = (int) puzzle.size + (int) Math.floor ((x - (x_offset + puzzle.size * size + gap)) / size);
             tile_x = int.max (tile_x, (int) puzzle.size);
@@ -427,21 +435,47 @@ public class PuzzleView : Gtk.DrawingArea
         selected_tile = null;
     }
 
+    private void move_tile_to_right_half (TileImage image)
+    {
+        /* Pick the first open spot on the right side of the board */
+        for (uint y = 0; y < puzzle.size; y++)
+        {
+            for (uint x = puzzle.size; x < puzzle.size * 2; x++)
+            {
+                if (puzzle.get_tile (x, y) == null)
+                {
+                    uint source_x, source_y;
+                    puzzle.get_tile_location (image.tile, out source_x, out source_y);
+                    puzzle.switch_tiles (source_x, source_y, x, y);
+                    return;
+                }
+            }
+        }
+        assert_not_reached ();
+    }
+
     public override bool button_press_event (Gdk.EventButton event)
     {
         if (puzzle.paused)
             return false;
 
-        /* Ignore double click events */
-        if (event.type != Gdk.EventType.BUTTON_PRESS)
-            return false;
-
         if (event.button == 1)
         {
-            if (selected_tile == null)
+            if (event.type == Gdk.EventType.BUTTON_PRESS)
+            {
+                if (selected_tile == null)
+                    pick_tile (event.x, event.y);
+                else if (selected_tile != null)
+                    drop_tile (event.x, event.y);
+            }
+            else if (event.type == Gdk.EventType.DOUBLE_BUTTON_PRESS)
+            {
+                /* Move tile from left to right on double click */
                 pick_tile (event.x, event.y);
-            else if (selected_tile != null)
-                drop_tile (event.x, event.y);
+                if (selected_tile != null && !on_right_half (selected_tile.x))
+                    move_tile_to_right_half (selected_tile);
+                selected_tile = null;
+            }
         }
 
         return false;
