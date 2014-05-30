@@ -64,6 +64,10 @@ public class Tetravex : Gtk.Application
         add_accelerator ("Pause", "app.pause", null);
         add_accelerator ("F1", "app.help", null);
         add_accelerator ("<Primary>q", "app.quit", null);
+        add_accelerator ("<Primary>Up", "app.move-up", null);
+        add_accelerator ("<Primary>Down", "app.move-down", null);
+        add_accelerator ("<Primary>Left", "app.move-left", null);
+        add_accelerator ("<Primary>Right", "app.move-right", null);
 
         var builder = new Gtk.Builder ();
         try
