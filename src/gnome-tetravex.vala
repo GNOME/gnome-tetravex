@@ -26,11 +26,8 @@ public class Tetravex : Gtk.Application
     private int window_height;
     private bool is_maximized;
 
-    Gtk.Button pause_button;
-    Gtk.Image pause_image;
-    Gtk.Label pause_label;
-
-    Gtk.Stack new_game_solve_stack;
+    private Gtk.Stack new_game_solve_stack;
+    private Gtk.Stack play_pause_stack;
 
     private const GLib.ActionEntry[] action_entries =
     {
@@ -114,13 +111,42 @@ public class Tetravex : Gtk.Application
 
         var size = new Gtk.SizeGroup (Gtk.SizeGroupMode.BOTH);
 
-        new_game_solve_stack = new Gtk.Stack ();
+        var play_button = new Gtk.Button ();
+        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+        var image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.DIALOG);
+        box.pack_start (image);
+        var label = new Gtk.Label.with_mnemonic (_("_Play"));
+        box.pack_start (label);
+        play_button.add (box);
+        play_button.valign = Gtk.Align.CENTER;
+        play_button.halign = Gtk.Align.CENTER;
+        play_button.relief = Gtk.ReliefStyle.NONE;
+        play_button.action_name = "app.pause"; /* not a typo */
+        size.add_widget (play_button);
+
+        var pause_button = new Gtk.Button ();
+        box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+        image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.DIALOG);
+        box.pack_start (image);
+        label = new Gtk.Label.with_mnemonic (_("_Pause"));
+        box.pack_start (label);
+        pause_button.add (box);
+        pause_button.valign = Gtk.Align.CENTER;
+        pause_button.halign = Gtk.Align.CENTER;
+        pause_button.relief = Gtk.ReliefStyle.NONE;
+        pause_button.action_name = "app.pause";
+        size.add_widget (pause_button);
+
+        play_pause_stack = new Gtk.Stack ();
+        play_pause_stack.add_named(play_button, "play");
+        play_pause_stack.add_named(pause_button, "pause");
+        grid.attach (play_pause_stack, 0, 1, 1, 1);
 
         var new_game_button = new Gtk.Button ();
-        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
-        var image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
+        box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
+        image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
         box.pack_start (image);
-        var label = new Gtk.Label.with_mnemonic (_("Play _Again"));
+        label = new Gtk.Label.with_mnemonic (_("Play _Again"));
         box.pack_start (label);
         new_game_button.add (box);
         new_game_button.valign = Gtk.Align.CENTER;
@@ -128,20 +154,6 @@ public class Tetravex : Gtk.Application
         new_game_button.relief = Gtk.ReliefStyle.NONE;
         new_game_button.action_name = "app.new-game";
         size.add_widget (new_game_button);
-
-        pause_button = new Gtk.Button ();
-        box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
-        pause_image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.DIALOG);
-        box.pack_start (pause_image);
-        pause_label = new Gtk.Label.with_mnemonic (_("_Pause"));
-        box.pack_start (pause_label);
-        pause_button.add (box);
-        pause_button.valign = Gtk.Align.CENTER;
-        pause_button.halign = Gtk.Align.CENTER;
-        pause_button.relief = Gtk.ReliefStyle.NONE;
-        pause_button.action_name = "app.pause";
-        size.add_widget (pause_button);
-        grid.attach (pause_button, 0, 1, 1, 1);
 
         var solve_button = new Gtk.Button ();
         box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
@@ -156,6 +168,7 @@ public class Tetravex : Gtk.Application
         solve_button.action_name = "app.solve";
         size.add_widget (solve_button);
 
+        new_game_solve_stack = new Gtk.Stack ();
         new_game_solve_stack.add_named(solve_button, "solve");
         new_game_solve_stack.add_named(new_game_button, "new-game");
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
@@ -381,21 +394,8 @@ public class Tetravex : Gtk.Application
 
     private void update_button_states ()
     {
-        var solve = lookup_action ("solve") as SimpleAction;
-        solve.set_enabled (!puzzle.paused);
-        if (puzzle.paused)
-        {
-            if (pause_button.get_direction () == Gtk.TextDirection.RTL)
-                pause_image.icon_name = "media-playback-start-rtl-symbolic";
-            else
-                pause_image.icon_name = "media-playback-start-symbolic";
-            pause_label.label = _("Res_ume");
-        }
-        else
-        {
-            pause_image.icon_name = "media-playback-pause-symbolic";
-            pause_label.label = _("_Pause");
-        }
+        ((SimpleAction) lookup_action ("solve")).set_enabled (!puzzle.paused);
+        play_pause_stack.set_visible_child_name (puzzle.paused ? "play" : "pause");
     }
 
     private void radio_cb (SimpleAction action, Variant? parameter)
