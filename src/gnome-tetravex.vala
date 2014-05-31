@@ -223,7 +223,7 @@ public class Tetravex : Gtk.Application
     {
         var pause = lookup_action ("pause") as SimpleAction;
         pause.change_state (false);
-        pause.set_enabled (false);
+        pause.set_enabled (true);
         new_game_solve_stack.set_visible_child_name ("solve");
 
         if (puzzle != null)
@@ -233,7 +233,6 @@ public class Tetravex : Gtk.Application
         puzzle = new Puzzle (size);
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
-        puzzle.tile_moved.connect (() => pause.set_enabled (true));
         view.puzzle = puzzle;
         tick_cb ();
 

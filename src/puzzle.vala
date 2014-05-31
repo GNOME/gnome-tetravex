@@ -149,6 +149,8 @@ public class Puzzle
                 tiles.remove (tile);
             }
         }
+
+        start_clock ();
     }
 
     public Tile? get_tile (uint x, uint y)
@@ -208,8 +210,6 @@ public class Puzzle
     {
         if (x0 == x1 && y0 == y1)
             return;
-
-        start_clock ();
 
         var t0 = board[x0, y0];
         var t1 = board[x1, y1];
