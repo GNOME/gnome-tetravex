@@ -4,15 +4,15 @@
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # Gil 'Dolfin' Osher <dolfin@rpg.org.il>, 2002,2003
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2010.
-# Yosef Or Boczko <yoseforb@gmail.com>, 2013.
+# Yosef Or Boczko <yoseforb@gnome.org>, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-15 01:04+0300\n"
-"PO-Revision-Date: 2013-10-15 01:05+0300\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
+"POT-Creation-Date: 2014-05-31 22:09+0300\n"
+"PO-Revision-Date: 2014-05-31 22:13+0300\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -40,13 +40,9 @@ msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
-msgid "https://people.gnome.org/~mcatanzaro/gnome-tetravex.png"
-msgstr ""
-
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:95
-#: ../src/gnome-tetravex.vala:312
+#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:99
+#: ../src/gnome-tetravex.vala:350
 msgid "Tetravex"
 msgstr "ארבע צלעות Tetravex"
 
@@ -82,84 +78,76 @@ msgstr "true if the window is maximized"
 msgid "_New Game"
 msgstr "_משחק חדש"
 
-#: ../src/app-menu.ui.h:2 ../src/gnome-tetravex.vala:127
-#: ../src/gnome-tetravex.vala:381
-msgid "_Pause"
-msgstr "ה_שהייה"
-
-#: ../src/app-menu.ui.h:3
-msgid "_Solve"
-msgstr "_פתרון"
-
-#: ../src/app-menu.ui.h:4
-msgid "_Move"
-msgstr "ה_זזה"
-
-#: ../src/app-menu.ui.h:5
-msgid "_Up"
-msgstr "מ_עלה"
-
-#: ../src/app-menu.ui.h:6
-msgid "_Left"
-msgstr "_שמאלה"
-
-#: ../src/app-menu.ui.h:7
-msgid "_Right"
-msgstr "_ימינה"
-
-#: ../src/app-menu.ui.h:8
-msgid "_Down"
-msgstr "מ_טה"
-
-#: ../src/app-menu.ui.h:9
+#: ../src/app-menu.ui.h:2
 msgid "_Scores"
 msgstr "_תוצאות"
 
-#: ../src/app-menu.ui.h:10
+#: ../src/app-menu.ui.h:3
 msgid "_Size"
 msgstr "_גודל"
 
-#: ../src/app-menu.ui.h:11
+#: ../src/app-menu.ui.h:4
 msgid "_2x2"
 msgstr "_2x2"
 
-#: ../src/app-menu.ui.h:12
+#: ../src/app-menu.ui.h:5
 msgid "_3x3"
 msgstr "_3x3"
 
-#: ../src/app-menu.ui.h:13
+#: ../src/app-menu.ui.h:6
 msgid "_4x4"
 msgstr "_4x4"
 
-#: ../src/app-menu.ui.h:14
+#: ../src/app-menu.ui.h:7
 msgid "_5x5"
 msgstr "_5x5"
 
-#: ../src/app-menu.ui.h:15
+#: ../src/app-menu.ui.h:8
 msgid "_6x6"
 msgstr "_6x6"
 
-#: ../src/app-menu.ui.h:16
+#: ../src/app-menu.ui.h:9
 msgid "_Help"
 msgstr "ע_זרה"
 
-#: ../src/app-menu.ui.h:17
+#: ../src/app-menu.ui.h:10
 msgid "_About"
 msgstr "על _אודות"
 
-#: ../src/app-menu.ui.h:18
+#: ../src/app-menu.ui.h:11
 msgid "_Quit"
 msgstr "י_ציאה"
 
-#: ../src/gnome-tetravex.vala:113
-msgid "Play _Again"
-msgstr "לשחק _שוב"
+#. not a typo
+#: ../src/gnome-tetravex.vala:122
+msgid "Resume the game"
+msgstr "המשך המשחק"
 
-#: ../src/gnome-tetravex.vala:141
-msgid "_Resolve"
-msgstr "_פתרון"
+#: ../src/gnome-tetravex.vala:134
+msgid "Pause the game"
+msgstr "השהיית המשחק"
 
-#: ../src/gnome-tetravex.vala:315
+#: ../src/gnome-tetravex.vala:151
+msgid "Start a new game"
+msgstr "התחלת משחק חדש"
+
+#: ../src/gnome-tetravex.vala:163
+msgid "Give up and view the solution"
+msgstr "להתייאש ולהציג את הפתרון"
+
+#: ../src/gnome-tetravex.vala:316
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "האם אכן ברצונך להתייאש ולהציג את הפתרון?"
+
+#: ../src/gnome-tetravex.vala:318
+msgid "_Keep Playing"
+msgstr "לה_משיך לשחק"
+
+#: ../src/gnome-tetravex.vala:319
+msgid "_Give Up"
+msgstr "לה_תייאש"
+
+#: ../src/gnome-tetravex.vala:353
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -168,7 +156,7 @@ msgstr ""
 "תצרף בו יש למקם את החלקים כך שמספרים זהים יהיו צמודים אחד אל השני.\n"
 "ארבע צלעות Tetravex הוא חלק מחבילת משחקי GNOME."
 
-#: ../src/gnome-tetravex.vala:322
+#: ../src/gnome-tetravex.vala:360
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -183,41 +171,66 @@ msgstr ""
 "פרויקט תרגום GNOME לעברית:\n"
 "‏http://gnome-il.berlios.de"
 
-#: ../src/gnome-tetravex.vala:325
-msgid "GNOME Games web site"
-msgstr "אתר משחקי GNOME"
-
-#: ../src/gnome-tetravex.vala:376
-msgid "Res_ume"
-msgstr "המש_ך"
-
-#: ../src/puzzle-view.vala:336
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "הושהה"
 
-#: ../src/score-dialog.vala:27
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "יציאה"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "משחק חדש"
 
-#: ../src/score-dialog.vala:31
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "אישור"
 
-#: ../src/score-dialog.vala:43
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "גודל:"
 
-#: ../src/score-dialog.vala:68
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "תאריך"
 
-#: ../src/score-dialog.vala:71
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "זמן"
+
+#~ msgid "_Pause"
+#~ msgstr "ה_שהייה"
+
+#~ msgid "_Solve"
+#~ msgstr "_פתרון"
+
+#~ msgid "_Move"
+#~ msgstr "ה_זזה"
+
+#~ msgid "_Up"
+#~ msgstr "מ_עלה"
+
+#~ msgid "_Left"
+#~ msgstr "_שמאלה"
+
+#~ msgid "_Right"
+#~ msgstr "_ימינה"
+
+#~ msgid "_Down"
+#~ msgstr "מ_טה"
+
+#~ msgid "Play _Again"
+#~ msgstr "לשחק _שוב"
+
+#~ msgid "_Resolve"
+#~ msgstr "_פתרון"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "אתר משחקי GNOME"
+
+#~ msgid "Res_ume"
+#~ msgstr "המש_ך"
 
 #~ msgid "true if the window is fullscren"
 #~ msgstr "true if the window is fullscren"
@@ -257,9 +270,6 @@ msgstr "זמן"
 
 #~ msgid "_Contents"
 #~ msgstr "_תכנים"
-
-#~ msgid "Start a new game"
-#~ msgstr "התחלת משחק חדש"
 
 #~ msgid "Undo Move"
 #~ msgstr "ביטול מהלך"
@@ -949,9 +959,6 @@ msgstr "זמן"
 #~ msgid "End the current network game and return to network server"
 #~ msgstr "סיום משחק הרשת הנוכחי וחזרה לשרת הרשת"
 
-#~ msgid "Pause the game"
-#~ msgstr "השהיית המשחק"
-
 #~ msgid "Show a list of players in the network game"
 #~ msgstr "הצגת רשימת השחקנים במשחק הרשת"
 
@@ -960,9 +967,6 @@ msgstr "זמן"
 
 #~ msgid "Restart the game"
 #~ msgstr "התחלת המשחק מחדש"
-
-#~ msgid "Resume the paused game"
-#~ msgstr "המשך משחק מושהה"
 
 #~ msgid "View the scores"
 #~ msgstr "הצגת התוצאות"
@@ -1907,9 +1911,6 @@ msgstr "זמן"
 
 #~ msgid "If you continue playing the next game will use the new map."
 #~ msgstr "אם בחירתך תהיה להמשיך לשחק המשחק הבא ישתמש במפה החדשה."
-
-#~ msgid "_Continue playing"
-#~ msgstr "ה_משך בשחק"
 
 #~ msgid "Use _new map"
 #~ msgstr "שימוש _במפה חדשה"
@@ -4786,9 +4787,6 @@ msgstr "זמן"
 
 #~ msgid "empty space on tableau"
 #~ msgstr "מקום פנוי על השולחן"
-
-#~ msgid "Move a card to the Foundation"
-#~ msgstr "העבר קלף ליסוד"
 
 #~ msgid "Consistency is key"
 #~ msgstr "המפתח הוא התמדה"
