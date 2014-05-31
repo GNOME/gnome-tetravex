@@ -310,11 +310,25 @@ public class Tetravex : Gtk.Application
 
     private void solve_cb ()
     {
-        puzzle.solve ();
-        new_game_solve_stack.set_visible_child_name ("new-game");
+        var dialog = new Gtk.MessageDialog (window,
+                                            Gtk.DialogFlags.MODAL,
+                                            Gtk.MessageType.QUESTION,
+                                            Gtk.ButtonsType.NONE,
+                                            _("Are you sure you want to give up and view the solution?"));
 
-        var pause = lookup_action ("pause") as SimpleAction;
-        pause.set_enabled (false);
+        dialog.add_buttons (_("_Keep Playing"), Gtk.ResponseType.REJECT,
+                            _("_Give Up"), Gtk.ResponseType.ACCEPT,
+                            null);
+
+        var response = dialog.run ();
+        dialog.destroy ();
+
+        if (response == Gtk.ResponseType.ACCEPT)
+        {
+            puzzle.solve ();
+            new_game_solve_stack.set_visible_child_name ("new-game");
+            ((SimpleAction) lookup_action ("pause")).set_enabled (false);
+        }
     }
     
     private void help_cb ()
