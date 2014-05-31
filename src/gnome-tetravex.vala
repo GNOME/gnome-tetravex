@@ -111,29 +111,27 @@ public class Tetravex : Gtk.Application
         var size = new Gtk.SizeGroup (Gtk.SizeGroupMode.BOTH);
 
         var play_button = new Gtk.Button ();
-        var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
-        var image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.DIALOG);
-        box.pack_start (image);
-        var label = new Gtk.Label.with_mnemonic (_("_Play"));
-        box.pack_start (label);
-        play_button.add (box);
+        play_button.get_style_context ().add_class ("image-button");
+        var image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.DND);
+        image.margin = 10;
+        play_button.add (image);
         play_button.valign = Gtk.Align.CENTER;
-        play_button.halign = Gtk.Align.CENTER;
-        play_button.relief = Gtk.ReliefStyle.NONE;
+        play_button.halign = Gtk.Align.START;
+        play_button.margin_start = 35;
         play_button.action_name = "app.pause"; /* not a typo */
+        play_button.tooltip_text = _("Resume the game");
         size.add_widget (play_button);
 
         var pause_button = new Gtk.Button ();
-        box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
-        image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.DIALOG);
-        box.pack_start (image);
-        label = new Gtk.Label.with_mnemonic (_("_Pause"));
-        box.pack_start (label);
-        pause_button.add (box);
+        pause_button.get_style_context ().add_class ("image-button");
+        image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.DND);
+        image.margin = 10;
+        pause_button.add (image);
         pause_button.valign = Gtk.Align.CENTER;
-        pause_button.halign = Gtk.Align.CENTER;
-        pause_button.relief = Gtk.ReliefStyle.NONE;
+        pause_button.halign = Gtk.Align.START;
+        pause_button.margin_start = 35;
         pause_button.action_name = "app.pause";
+        pause_button.tooltip_text = _("Pause the game");
         size.add_widget (pause_button);
 
         play_pause_stack = new Gtk.Stack ();
@@ -142,29 +140,27 @@ public class Tetravex : Gtk.Application
         grid.attach (play_pause_stack, 0, 1, 1, 1);
 
         var new_game_button = new Gtk.Button ();
-        box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
-        image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DIALOG);
-        box.pack_start (image);
-        label = new Gtk.Label.with_mnemonic (_("Play _Again"));
-        box.pack_start (label);
-        new_game_button.add (box);
+        new_game_button.get_style_context ().add_class ("image-button");
+        image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DND);
+        image.margin = 10;
+        new_game_button.add (image);
         new_game_button.valign = Gtk.Align.CENTER;
-        new_game_button.halign = Gtk.Align.CENTER;
-        new_game_button.relief = Gtk.ReliefStyle.NONE;
+        new_game_button.halign = Gtk.Align.END;
+        new_game_button.margin_end = 35;
         new_game_button.action_name = "app.new-game";
+        new_game_button.tooltip_text = _("Start a new game");
         size.add_widget (new_game_button);
 
         var solve_button = new Gtk.Button ();
-        box = new Gtk.Box (Gtk.Orientation.VERTICAL, 2);
-        image = new Gtk.Image.from_icon_name ("dialog-question-symbolic", Gtk.IconSize.DIALOG);
-        box.pack_start (image);
-        label = new Gtk.Label.with_mnemonic (_("_Resolve"));
-        box.pack_start (label);
-        solve_button.add (box);
+        solve_button.get_style_context ().add_class ("image-button");
+        image = new Gtk.Image.from_icon_name ("dialog-question-symbolic", Gtk.IconSize.DND);
+        image.margin = 10;
+        solve_button.add (image);
         solve_button.valign = Gtk.Align.CENTER;
-        solve_button.halign = Gtk.Align.CENTER;
-        solve_button.relief = Gtk.ReliefStyle.NONE;
+        solve_button.halign = Gtk.Align.END;
+        solve_button.margin_end = 35;
         solve_button.action_name = "app.solve";
+        solve_button.tooltip_text = _("Give up and view the solution");
         size.add_widget (solve_button);
 
         new_game_solve_stack = new Gtk.Stack ();
@@ -172,7 +168,7 @@ public class Tetravex : Gtk.Application
         new_game_solve_stack.add_named(new_game_button, "new-game");
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
-        box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
+        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
         image = new Gtk.Image.from_icon_name ("preferences-system-time-symbolic", Gtk.IconSize.MENU);
         box.add (image);
         clock_label = new Gtk.Label ("");
