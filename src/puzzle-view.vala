@@ -41,7 +41,7 @@ private class TileImage
 public class PuzzleView : Gtk.DrawingArea
 {
     /* Minimum size of a tile */
-    private const int minimum_size = 40;
+    private const int minimum_size = 80;
 
     /* Puzzle being rendered */
     private Puzzle? _puzzle = null;
