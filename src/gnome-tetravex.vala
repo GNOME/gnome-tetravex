@@ -101,7 +101,6 @@ public class Tetravex : Gtk.Application
         window.set_titlebar (headerbar);
 
         var grid = builder.get_object ("grid") as Gtk.Grid;
-        grid.margin_bottom = 20;
 
         view = new PuzzleView ();
         view.hexpand = true;
