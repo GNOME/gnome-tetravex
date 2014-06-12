@@ -5,27 +5,26 @@
 # Lucas Vieites <lucas@codexion.com>, 2007, 2008.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
 # Chris Leonard <cjl@laptop.org>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-23 21:51+0000\n"
-"PO-Revision-Date: 2013-11-04 16:22+0100\n"
+"POT-Creation-Date: 2014-06-11 07:46+0000\n"
+"PO-Revision-Date: 2014-06-12 17:38+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Gtranslator 2.91.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#| msgid "Tetravex"
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
@@ -49,8 +48,8 @@ msgstr ""
 "tablero."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:95
-#: ../src/gnome-tetravex.vala:312
+#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:99
+#: ../src/gnome-tetravex.vala:350
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -128,21 +127,40 @@ msgstr "_Acerca de"
 msgid "_Quit"
 msgstr "_Salir"
 
-#: ../src/gnome-tetravex.vala:113
-#| msgid "Playing"
-msgid "Play _Again"
-msgstr "Jugar _otra vez"
+#. not a typo
+#: ../src/gnome-tetravex.vala:122
+#| msgid "Resume the paused game"
+msgid "Resume the game"
+msgstr "Reanudar el juego"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:381
-msgid "_Pause"
-msgstr "_Pausa"
+#: ../src/gnome-tetravex.vala:134
+msgid "Pause the game"
+msgstr "Pausar el juego"
 
-#: ../src/gnome-tetravex.vala:141
-#| msgid "_Solve"
-msgid "_Resolve"
-msgstr "_Resolver"
+#: ../src/gnome-tetravex.vala:151
+msgid "Start a new game"
+msgstr "Iniciar un juego nuevo"
 
-#: ../src/gnome-tetravex.vala:315
+#: ../src/gnome-tetravex.vala:163
+#| msgid "Move a card to the Foundation"
+msgid "Give up and view the solution"
+msgstr "Renunciar y ver la solución"
+
+#: ../src/gnome-tetravex.vala:316
+#| msgid "Are you sure you want to quit?"
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "¿Seguro que quiere renunciar y ver la solución?"
+
+#: ../src/gnome-tetravex.vala:318
+#| msgid "_Continue playing"
+msgid "_Keep Playing"
+msgstr "_Continuar jugando"
+
+#: ../src/gnome-tetravex.vala:319
+msgid "_Give Up"
+msgstr "_Renunciar"
+
+#: ../src/gnome-tetravex.vala:353
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -152,7 +170,7 @@ msgstr ""
 "\n"
 "Tetravex es parte de los juegos de GNOME."
 
-#: ../src/gnome-tetravex.vala:322
+#: ../src/gnome-tetravex.vala:360
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
@@ -161,43 +179,50 @@ msgstr ""
 "Germán Poo Caamaño <gpoo@ubiobio.cl>\n"
 "Pablo Saratxaga <pablo@mandrakesoft.com>"
 
-#: ../src/gnome-tetravex.vala:325
-msgid "GNOME Games web site"
-msgstr "Página web de los juegos de GNOME"
-
-#: ../src/gnome-tetravex.vala:376
-msgid "Res_ume"
-msgstr "C_ontinuar"
-
-#: ../src/puzzle-view.vala:336
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Detenido"
 
-#: ../src/score-dialog.vala:27
-#| msgid "_Quit"
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Salir"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Partida nueva"
 
-#: ../src/score-dialog.vala:31
-#| msgid "_OK"
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../src/score-dialog.vala:43
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Tamaño:"
 
-#: ../src/score-dialog.vala:68
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Fecha"
 
-#: ../src/score-dialog.vala:71
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Tiempo"
+
+#~| msgid "Playing"
+#~ msgid "Play _Again"
+#~ msgstr "Jugar _otra vez"
+
+#~ msgid "_Pause"
+#~ msgstr "_Pausa"
+
+#~| msgid "_Solve"
+#~ msgid "_Resolve"
+#~ msgstr "_Resolver"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Página web de los juegos de GNOME"
+
+#~ msgid "Res_ume"
+#~ msgstr "C_ontinuar"
 
 #~ msgid "_Move"
 #~ msgstr "_Mover"
@@ -253,9 +278,6 @@ msgstr "Tiempo"
 
 #~ msgid "_Contents"
 #~ msgstr "Índ_ice"
-
-#~ msgid "Start a new game"
-#~ msgstr "Iniciar un juego nuevo"
 
 #~ msgid "Undo Move"
 #~ msgstr "Deshacer movimiento"
@@ -958,9 +980,6 @@ msgstr "Tiempo"
 #~ msgid "End the current network game and return to network server"
 #~ msgstr "Terminar la partida de red actual y volver al servidor de red"
 
-#~ msgid "Pause the game"
-#~ msgstr "Pausar el juego"
-
 #~ msgid "Show a list of players in the network game"
 #~ msgstr "Mostrar una lista de jugadores en la partida de red"
 
@@ -969,9 +988,6 @@ msgstr "Tiempo"
 
 #~ msgid "Restart the game"
 #~ msgstr "Reiniciar el juego"
-
-#~ msgid "Resume the paused game"
-#~ msgstr "Reiniciar el juego pausado"
 
 #~ msgid "View the scores"
 #~ msgstr "Ver la puntuación"
@@ -1926,9 +1942,6 @@ msgstr "Tiempo"
 #~ msgid "If you continue playing the next game will use the new map."
 #~ msgstr "Si elige continuar jugando el siguiente juego usará el mapa nuevo."
 
-#~ msgid "_Continue playing"
-#~ msgstr "_Continuar jugando"
-
 #~ msgid "Use _new map"
 #~ msgstr "Usar mapa _nuevo"
 
@@ -2322,7 +2335,8 @@ msgstr "Tiempo"
 #~ msgstr "Usar la bandera de «desconocido»"
 
 #~ msgid "Set to true to be able to mark squares as unknown."
-#~ msgstr "Ponga el valor a «true» para poder marcar cuadros como desconocidos."
+#~ msgstr ""
+#~ "Ponga el valor a «true» para poder marcar cuadros como desconocidos."
 
 #~ msgid "Warning about too many flags"
 #~ msgstr "Advertir acerca de demasiadas banderas"
@@ -4872,9 +4886,6 @@ msgstr "Tiempo"
 #~ msgid "empty space on tableau"
 #~ msgstr "hueco vacío en la mesa"
 
-#~ msgid "Move a card to the Foundation"
-#~ msgstr "Mueva una carta a la fundación"
-
 #~ msgid "Move something into the empty Tableau slot"
 #~ msgstr "Ponga algo en el hueco vacío del tablero"
 
@@ -5337,8 +5348,8 @@ msgstr "Tiempo"
 #~ "'lan' (long algebraic notation) or 'san' (standard algebraic notation)"
 #~ msgstr ""
 #~ "El formato en el que mostrar jugadas, puede ser «humano» (legible por "
-#~ "personas), «lan» (notación algebraica larga - «long algebraic notation») o "
-#~ "«san» (notación algebraica estándar - «standard algebraic notation»)"
+#~ "personas), «lan» (notación algebraica larga - «long algebraic notation») "
+#~ "o «san» (notación algebraica estándar - «standard algebraic notation»)"
 
 #~ msgid "The piece style to use. Can be one of: 'simple' or 'fancy'"
 #~ msgstr "El estilo de pieza que usar. Puede ser «simple» o «fantasía»."
@@ -5350,9 +5361,9 @@ msgstr "Tiempo"
 #~ "g. handhelds)"
 #~ msgstr ""
 #~ "El lado del tablero que está en primero plano, "
-#~ "«white» (blanco),«black» (negro), «current» (el jugador actual), «human» (el "
-#~ "lado del jugador humano actual) o «facetoface» (apropiado para jugadores a "
-#~ "cada lado de la pantalla, ej. dispositivos portátiles)"
+#~ "«white» (blanco),«black» (negro), «current» (el jugador actual), "
+#~ "«human» (el lado del jugador humano actual) o «facetoface» (apropiado "
+#~ "para jugadores a cada lado de la pantalla, ej. dispositivos portátiles)"
 
 #~ msgid "Logs"
 #~ msgstr "Registros"
@@ -6929,9 +6940,6 @@ msgstr "Tiempo"
 
 #~ msgid "Launch"
 #~ msgstr "Lanzar"
-
-#~ msgid "Are you sure you want to quit?"
-#~ msgstr "¿Seguro que quiere salir?"
 
 #~ msgid "Quit?"
 #~ msgstr "¿Salir?"
