@@ -9,7 +9,7 @@
  * license.
  */
 
-private class TileImage
+private class TileImage : Object
 {
     /* Tile being moved */
     public Tile tile;

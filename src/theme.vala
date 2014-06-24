@@ -9,7 +9,7 @@
  * license.
  */
 
-public class Theme
+public class Theme : Object
 {
     /* Colors of tiles and text */
     private Cairo.Pattern tile_colors[10];

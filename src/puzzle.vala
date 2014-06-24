@@ -9,7 +9,7 @@
  * license.
  */
 
-public class Tile
+public class Tile : Object
 {
     /* Edge colors */
     public int north;
@@ -28,7 +28,7 @@ public class Tile
     }
 }
 
-public class Puzzle
+public class Puzzle : Object
 {
     private uint _size;
     public uint size
