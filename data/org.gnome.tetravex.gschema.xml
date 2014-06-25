@@ -1,5 +1,5 @@
 <schemalist>
-  <schema id="org.gnome.tetravex" path="/org/gnome/tetravex/" gettext-domain="gnome-games">
+  <schema id="org.gnome.tetravex" path="/org/gnome/tetravex/" gettext-domain="gnome-tetravex">
     <key name="grid-size" type="i">
       <default>3</default>
       <range min="2" max="6" />
