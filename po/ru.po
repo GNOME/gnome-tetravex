@@ -18,9 +18,9 @@ msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-20 20:49+0000\n"
-"PO-Revision-Date: 2014-03-21 08:39+0300\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
+"POT-Creation-Date: 2014-06-28 07:45+0000\n"
+"PO-Revision-Date: 2014-06-28 21:56+0400\n"
+"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -28,10 +28,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.6.5\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#| msgid "Tetravex"
 msgid "GNOME Tetravex"
 msgstr "Тетравекс GNOME"
 
@@ -53,8 +52,8 @@ msgid ""
 msgstr "Вы можете управлять сложностью игры, изменяя размер игрового поля."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
-#: ../src/gnome-tetravex.vala:324
+#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:99
+#: ../src/gnome-tetravex.vala:365
 msgid "Tetravex"
 msgstr "Тетравекс"
 
@@ -131,20 +130,57 @@ msgstr "_О программе"
 msgid "_Quit"
 msgstr "_Закончить"
 
-#: ../src/gnome-tetravex.vala:118
-msgid "Play _Again"
-msgstr "Сыграть _снова"
+#. not a typo
+#: ../src/gnome-tetravex.vala:122
+msgid "Resume the game"
+msgstr "Возобновить игру"
 
-#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
-msgid "_Pause"
-msgstr "_Пауза"
+#: ../src/gnome-tetravex.vala:134
+msgid "Pause the game"
+msgstr "Приостановить игру"
 
-#: ../src/gnome-tetravex.vala:145
-#| msgid "_Solve"
-msgid "_Resolve"
-msgstr "Ре_шить"
+#: ../src/gnome-tetravex.vala:151
+msgid "Start a new game"
+msgstr "Начать новую игру"
 
-#: ../src/gnome-tetravex.vala:327
+#: ../src/gnome-tetravex.vala:163
+msgid "Give up and view the solution"
+msgstr "Сдаться и показать решение"
+
+#. Translators: sorry. This is the clock label when the game has exceeded
+#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
+#. * and the last is seconds. In between are ratio characters and LTR order
+#. * marks, so that nothing gets reversed in RTL languages. You probably do not
+#. * need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:258
+#, c-format
+msgid "%02d∶‎%02d∶‎%02d"
+msgstr "%02d∶‎%02d∶‎%02d"
+
+#. Translators: sorry. This is the clock label when the game is less than
+#. * one hour in length. The first %02d is minutes and the last is seconds.
+#. * In between is a ratio character and LTR order mark, so that nothing gets
+#. * reversed in RTL languages. You probably do not need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:267
+#, c-format
+msgid "%02d∶‎%02d"
+msgstr "%02d∶‎%02d"
+
+#: ../src/gnome-tetravex.vala:331
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Уверены, чтобы хотите сдаться и посмотреть решение?"
+
+#: ../src/gnome-tetravex.vala:333
+msgid "_Keep Playing"
+msgstr "_Продолжить игру"
+
+#: ../src/gnome-tetravex.vala:334
+msgid "_Give Up"
+msgstr "_Сдаться"
+
+#: ../src/gnome-tetravex.vala:368
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -154,7 +190,7 @@ msgstr ""
 "\n"
 "Тетравекс является частью GNOME Games"
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:375
 msgid "translator-credits"
 msgstr ""
 "Валек Филиппов aka frob\n"
@@ -163,38 +199,46 @@ msgstr ""
 "Михаил Яхонтов\n"
 "Леонид Кантер"
 
-#: ../src/gnome-tetravex.vala:387
-msgid "Res_ume"
-msgstr "_Продолжить"
-
-#: ../src/puzzle-view.vala:340
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Пауза"
 
-#: ../src/score-dialog.vala:28
-#| msgid "_Quit"
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Закончить"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Новая игра"
 
-#: ../src/score-dialog.vala:32
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "OK"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Размер:"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Дата"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Время"
+
+#~ msgid "Play _Again"
+#~ msgstr "Сыграть _снова"
+
+#~ msgid "_Pause"
+#~ msgstr "_Пауза"
+
+#~| msgid "_Solve"
+#~ msgid "_Resolve"
+#~ msgstr "Ре_шить"
+
+#~ msgid "Res_ume"
+#~ msgstr "_Продолжить"
 
 #~ msgid "_Move"
 #~ msgstr "_Ход"
