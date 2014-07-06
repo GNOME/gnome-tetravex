@@ -1,4 +1,3 @@
-data/gnome-tetravex.desktop.in
 src/gnome-tetravex.c
 src/puzzle.c
 src/puzzle-view.c
