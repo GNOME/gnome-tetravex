@@ -40,18 +40,18 @@ public class Tetravex : Gtk.Application
 
     private const GLib.ActionEntry[] action_entries =
     {
-        { "new-game",      new_game_cb                                            },
-        { "pause",         pause_cb                                               },
-        { "solve",         solve_cb                                               },
-        { "scores",        scores_cb                                              },
-        { "quit",          quit_cb                                                },
-        { "move-up",       move_up_cb                                             },
-        { "move-down",     move_down_cb                                           },
-        { "move-left",     move_left_cb                                           },
-        { "move-right",    move_right_cb                                          },
-        { "size",          radio_cb,      "s",  "'2'",      size_changed          },
-        { "help",          help_cb                                                },
-        { "about",         about_cb                                               }
+        { "new-game",       new_game_cb                                     },
+        { "pause",          pause_cb                                        },
+        { "solve",          solve_cb                                        },
+        { "scores",         scores_cb                                       },
+        { "quit",           quit_cb                                         },
+        { "move-up",        move_up_cb                                      },
+        { "move-down",      move_down_cb                                    },
+        { "move-left",      move_left_cb                                    },
+        { "move-right",     move_right_cb                                   },
+        { "size",           radio_cb,       "s",    "'2'",  size_changed    },
+        { "help",           help_cb                                         },
+        { "about",          about_cb                                        }
     };
 
     public Tetravex ()
@@ -100,7 +100,7 @@ public class Tetravex : Gtk.Application
         this.add_window (window);
         window.configure_event.connect (window_configure_event_cb);
         window.window_state_event.connect (window_state_event_cb);
-        window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));        
+        window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
@@ -338,7 +338,7 @@ public class Tetravex : Gtk.Application
 
     private void scores_cb ()
     {
-        show_scores ();    
+        show_scores ();
     }
 
     private bool view_button_press_event (Gtk.Widget widget, Gdk.EventButton event)
@@ -376,7 +376,7 @@ public class Tetravex : Gtk.Application
             ((SimpleAction) lookup_action ("pause")).set_enabled (false);
         }
     }
-    
+
     private void help_cb ()
     {
         try
