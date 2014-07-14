@@ -14,6 +14,7 @@ public class Tetravex : Gtk.Application
     private const string KEY_GRID_SIZE = "grid-size";
 
     private static bool start_paused = false;
+    private static int game_size = 0;
 
     private Settings settings;
 
@@ -35,6 +36,7 @@ public class Tetravex : Gtk.Application
     {
         { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null },
         { "paused", 'p', 0, OptionArg.NONE, null, N_("Start the game paused"), null },
+        { "size", 's', 0, OptionArg.INT, null, N_("Set size of board (2-6)"), null },
         { null }
     };
 
@@ -104,7 +106,11 @@ public class Tetravex : Gtk.Application
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
-        (lookup_action ("size") as SimpleAction).set_state ("%d".printf (settings.get_int (KEY_GRID_SIZE)));
+        if (game_size != 0)
+            settings.set_int (KEY_GRID_SIZE, game_size);
+        else
+            game_size = settings.get_int (KEY_GRID_SIZE);
+        (lookup_action ("size") as SimpleAction).set_state ("%d".printf (game_size));
 
         var headerbar = new Gtk.HeaderBar ();
         headerbar.title = _("Tetravex");
@@ -236,6 +242,16 @@ public class Tetravex : Gtk.Application
 
         if (options.contains ("paused"))
             start_paused = true;
+
+        if (options.contains ("size"))
+        {
+            game_size = (int) options.lookup_value ("size", VariantType.INT32);
+            if ((game_size < 2) || (game_size > 6))
+            {
+                stderr.printf (N_("Size could only be from 2 to 6.\n"));
+                return Posix.EXIT_FAILURE;
+            }
+        }
 
         /* Activate */
         return -1;
@@ -417,6 +433,7 @@ public class Tetravex : Gtk.Application
         if (size == settings.get_int (KEY_GRID_SIZE))
             return;
         settings.set_int (KEY_GRID_SIZE, size);
+        game_size = (int) size;
         action.set_state (value);
         new_game ();
     }
