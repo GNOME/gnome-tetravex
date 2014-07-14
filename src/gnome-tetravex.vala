@@ -29,6 +29,12 @@ public class Tetravex : Gtk.Application
     private Gtk.Stack new_game_solve_stack;
     private Gtk.Stack play_pause_stack;
 
+    private const OptionEntry[] option_entries =
+    {
+        { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null },
+        { null }
+    };
+
     private const GLib.ActionEntry[] action_entries =
     {
         { "new-game",      new_game_cb                                            },
@@ -48,6 +54,8 @@ public class Tetravex : Gtk.Application
     public Tetravex ()
     {
         Object (application_id: "org.gnome.tetravex", flags: ApplicationFlags.FLAGS_NONE);
+
+        add_main_option_entries (option_entries);
     }
 
     protected override void startup ()
@@ -212,6 +220,19 @@ public class Tetravex : Gtk.Application
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
+    }
+
+    protected override int handle_local_options (GLib.VariantDict options)
+    {
+        if (options.contains ("version"))
+        {
+            /* NOTE: Is not translated so can be easily parsed */
+            stderr.printf ("%1$s %2$s\n", "gnome-tetravex", VERSION);
+            return Posix.EXIT_SUCCESS;
+        }
+
+        /* Activate */
+        return -1;
     }
 
     protected override void activate ()
