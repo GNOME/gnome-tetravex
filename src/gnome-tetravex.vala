@@ -13,6 +13,8 @@ public class Tetravex : Gtk.Application
 {
     private const string KEY_GRID_SIZE = "grid-size";
 
+    private static bool start_paused = false;
+
     private Settings settings;
 
     private Puzzle puzzle;
@@ -32,6 +34,7 @@ public class Tetravex : Gtk.Application
     private const OptionEntry[] option_entries =
     {
         { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null },
+        { "paused", 'p', 0, OptionArg.NONE, null, N_("Start the game paused"), null },
         { null }
     };
 
@@ -231,6 +234,9 @@ public class Tetravex : Gtk.Application
             return Posix.EXIT_SUCCESS;
         }
 
+        if (options.contains ("paused"))
+            start_paused = true;
+
         /* Activate */
         return -1;
     }
@@ -257,6 +263,11 @@ public class Tetravex : Gtk.Application
         view.puzzle = puzzle;
         tick_cb ();
 
+        if (start_paused)
+        {
+            puzzle.paused = true;
+            start_paused = false;
+        }
         update_button_states ();
     }
 
