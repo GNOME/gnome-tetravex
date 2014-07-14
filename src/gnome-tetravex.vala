@@ -125,7 +125,7 @@ public class Tetravex : Gtk.Application
         view.button_press_event.connect (view_button_press_event);
         grid.attach (view, 0, 0, 3, 1);
 
-        var size = new Gtk.SizeGroup (Gtk.SizeGroupMode.BOTH);
+        var sizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.BOTH);
 
         var play_button = new Gtk.Button ();
         play_button.get_style_context ().add_class ("image-button");
@@ -137,7 +137,7 @@ public class Tetravex : Gtk.Application
         play_button.margin_start = 35;
         play_button.action_name = "app.pause"; /* not a typo */
         play_button.tooltip_text = _("Resume the game");
-        size.add_widget (play_button);
+        sizegroup.add_widget (play_button);
 
         var pause_button = new Gtk.Button ();
         pause_button.get_style_context ().add_class ("image-button");
@@ -149,7 +149,7 @@ public class Tetravex : Gtk.Application
         pause_button.margin_start = 35;
         pause_button.action_name = "app.pause";
         pause_button.tooltip_text = _("Pause the game");
-        size.add_widget (pause_button);
+        sizegroup.add_widget (pause_button);
 
         play_pause_stack = new Gtk.Stack ();
         play_pause_stack.add_named(play_button, "play");
@@ -166,7 +166,7 @@ public class Tetravex : Gtk.Application
         new_game_button.margin_end = 35;
         new_game_button.action_name = "app.new-game";
         new_game_button.tooltip_text = _("Start a new game");
-        size.add_widget (new_game_button);
+        sizegroup.add_widget (new_game_button);
 
         var solve_button = new Gtk.Button ();
         solve_button.get_style_context ().add_class ("image-button");
@@ -178,7 +178,7 @@ public class Tetravex : Gtk.Application
         solve_button.margin_end = 35;
         solve_button.action_name = "app.solve";
         solve_button.tooltip_text = _("Give up and view the solution");
-        size.add_widget (solve_button);
+        sizegroup.add_widget (solve_button);
 
         new_game_solve_stack = new Gtk.Stack ();
         new_game_solve_stack.add_named(solve_button, "solve");
