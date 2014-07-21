@@ -1,3 +1,12 @@
+GNOME Tetravex 3.13.4
+=====================
+
+* Added command line options (Arnaud Bonatti)
+* Translation Updates (Lithuanian, Catalan (Valencian), Spanish, Greek, Catalan, Hebrew, Russian)
+* Appdata Updates (Michael Catanzaro)
+* Updated requirements, general fixup (Michael Catanzaro)
+* Design Updates (Michael Catanzaro)
+
 GNOME Tetravex 3.13.1
 =====================
 
