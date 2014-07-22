@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-06-30 07:45+0000\n"
-"PO-Revision-Date: 2014-06-30 12:49+0200\n"
+"POT-Creation-Date: 2014-07-22 07:50+0000\n"
+"PO-Revision-Date: 2014-07-22 11:28+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -48,8 +48,8 @@ msgstr ""
 "tablero."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:99
-#: ../src/gnome-tetravex.vala:365
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:413
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -127,22 +127,41 @@ msgstr "_Acerca de"
 msgid "_Quit"
 msgstr "_Salir"
 
+#: ../src/gnome-tetravex.vala:37
+#| msgid "Show release version"
+msgid "Print release version and exit"
+msgstr "Mostrar el número de versión y salir"
+
+#: ../src/gnome-tetravex.vala:38
+#| msgid "Restart the game"
+msgid "Start the game paused"
+msgstr "Iniciar el juego pausado"
+
+#: ../src/gnome-tetravex.vala:39
+#| msgid "Size of board (2-6)"
+msgid "Set size of board (2-6)"
+msgstr "Establecer el tamaño del tablero (2-6)"
+
 #. not a typo
-#: ../src/gnome-tetravex.vala:122
+#: ../src/gnome-tetravex.vala:139
 msgid "Resume the game"
 msgstr "Reanudar el juego"
 
-#: ../src/gnome-tetravex.vala:134
+#: ../src/gnome-tetravex.vala:151
 msgid "Pause the game"
 msgstr "Pausar el juego"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:168
 msgid "Start a new game"
 msgstr "Iniciar un juego nuevo"
 
-#: ../src/gnome-tetravex.vala:163
+#: ../src/gnome-tetravex.vala:180
 msgid "Give up and view the solution"
 msgstr "Renunciar y ver la solución"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "El tamaño sólo puede ser de 2 a 6.\n"
 
 #. Translators: sorry. This is the clock label when the game has exceeded
 #. * one hour in length. The first %02d is hours, the middle %02d is minutes,
@@ -150,7 +169,7 @@ msgstr "Renunciar y ver la solución"
 #. * marks, so that nothing gets reversed in RTL languages. You probably do not
 #. * need to change this. Probably.
 #.
-#: ../src/gnome-tetravex.vala:258
+#: ../src/gnome-tetravex.vala:306
 #, c-format
 msgid "%02d∶‎%02d∶‎%02d"
 msgstr "%02d∶‎%02d∶‎%02d"
@@ -160,24 +179,24 @@ msgstr "%02d∶‎%02d∶‎%02d"
 #. * In between is a ratio character and LTR order mark, so that nothing gets
 #. * reversed in RTL languages. You probably do not need to change this. Probably.
 #.
-#: ../src/gnome-tetravex.vala:267
+#: ../src/gnome-tetravex.vala:315
 #, c-format
 msgid "%02d∶‎%02d"
 msgstr "%02d∶‎%02d"
 
-#: ../src/gnome-tetravex.vala:331
+#: ../src/gnome-tetravex.vala:379
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "¿Seguro que quiere renunciar y ver la solución?"
 
-#: ../src/gnome-tetravex.vala:333
+#: ../src/gnome-tetravex.vala:381
 msgid "_Keep Playing"
 msgstr "_Continuar jugando"
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:382
 msgid "_Give Up"
 msgstr "_Renunciar"
 
-#: ../src/gnome-tetravex.vala:368
+#: ../src/gnome-tetravex.vala:416
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -187,7 +206,7 @@ msgstr ""
 "\n"
 "Tetravex es parte de los juegos de GNOME."
 
-#: ../src/gnome-tetravex.vala:375
+#: ../src/gnome-tetravex.vala:423
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
@@ -867,9 +886,6 @@ msgstr "Tiempo"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "Falló al cargar la partida: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Mostrar el número de versión"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FILE]: jugar a Ajedrez"
 
@@ -1002,9 +1018,6 @@ msgstr "Tiempo"
 
 #~ msgid "Redo the undone move"
 #~ msgstr "Rehacer el movimiento deshecho"
-
-#~ msgid "Restart the game"
-#~ msgstr "Reiniciar el juego"
 
 #~ msgid "View the scores"
 #~ msgstr "Ver la puntuación"
@@ -3595,9 +3608,6 @@ msgstr "Tiempo"
 
 #~ msgid "Press to Resume"
 #~ msgstr "Pulse para continuar"
-
-#~ msgid "Size of board (2-6)"
-#~ msgstr "Tamaño del tablero (2-6)"
 
 #~ msgid "SIZE"
 #~ msgstr "TAMAÑO"
