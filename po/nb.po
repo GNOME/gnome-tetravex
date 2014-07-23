@@ -5,10 +5,10 @@
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-tetravex 3.11.x\n"
+"Project-Id-Version: gnome-tetravex 3.13.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-26 12:42+0100\n"
-"PO-Revision-Date: 2014-01-26 12:43+0100\n"
+"POT-Creation-Date: 2014-07-23 14:18+0200\n"
+"PO-Revision-Date: 2014-07-23 14:19+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -35,8 +35,8 @@ msgid ""
 msgstr ""
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:95
-#: ../src/gnome-tetravex.vala:311
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:413
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -113,19 +113,73 @@ msgstr "_Om"
 msgid "_Quit"
 msgstr "A_vslutt"
 
-#: ../src/gnome-tetravex.vala:113
-msgid "Play _Again"
-msgstr "Spill _igjen"
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Skriv versjonsinformasjon og avslutt"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:379
-msgid "_Pause"
-msgstr "_Pause"
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Start spillet i pause"
 
-#: ../src/gnome-tetravex.vala:141
-msgid "_Resolve"
-msgstr "Lø_s"
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Sett størrelse på brettet (2-6)"
 
-#: ../src/gnome-tetravex.vala:314
+#. not a typo
+#: ../src/gnome-tetravex.vala:139
+msgid "Resume the game"
+msgstr "Gjenoppta spillet"
+
+#: ../src/gnome-tetravex.vala:151
+msgid "Pause the game"
+msgstr "Sett spillet på pause"
+
+#: ../src/gnome-tetravex.vala:168
+msgid "Start a new game"
+msgstr "Start et nytt spill"
+
+#: ../src/gnome-tetravex.vala:180
+msgid "Give up and view the solution"
+msgstr "Gi opp og se løsningen"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Størrelsen kan kun være fra to til seks.\n"
+
+#. Translators: sorry. This is the clock label when the game has exceeded
+#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
+#. * and the last is seconds. In between are ratio characters and LTR order
+#. * marks, so that nothing gets reversed in RTL languages. You probably do not
+#. * need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:306
+#, c-format
+msgid "%02d∶‎%02d∶‎%02d"
+msgstr "%02d:%02d:%02d"
+
+#. Translators: sorry. This is the clock label when the game is less than
+#. * one hour in length. The first %02d is minutes and the last is seconds.
+#. * In between is a ratio character and LTR order mark, so that nothing gets
+#. * reversed in RTL languages. You probably do not need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:315
+#, c-format
+msgid "%02d∶‎%02d"
+msgstr "%02d:%02d"
+
+#: ../src/gnome-tetravex.vala:379
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Er du sikker på at du vil gi opp og se løsningen?"
+
+#: ../src/gnome-tetravex.vala:381
+msgid "_Keep Playing"
+msgstr "Fortsett s_pillet"
+
+#: ../src/gnome-tetravex.vala:382
+msgid "_Give Up"
+msgstr "_Gi opp"
+
+#: ../src/gnome-tetravex.vala:416
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -135,41 +189,37 @@ msgstr ""
 "\n"
 "Tetravex er en del av GNOME spill."
 
-#: ../src/gnome-tetravex.vala:321
+#: ../src/gnome-tetravex.vala:423
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
 "Espen Stefansen <espens@svn.gnome.org>\n"
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
 
-#: ../src/gnome-tetravex.vala:374
-msgid "Res_ume"
-msgstr "Fort_sett"
-
-#: ../src/puzzle-view.vala:336
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Pause"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Avslutt"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Nytt spill"
 
-#: ../src/score-dialog.vala:32
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "OK"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Størrelse:"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Dato"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Tid"
