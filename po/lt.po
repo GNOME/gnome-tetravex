@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-06-22 07:46+0000\n"
-"PO-Revision-Date: 2014-06-22 17:42+0300\n"
+"POT-Creation-Date: 2014-07-26 19:50+0000\n"
+"PO-Revision-Date: 2014-07-27 00:38+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -48,8 +48,8 @@ msgid ""
 msgstr "Žaidimą galima padaryti paprastesnį ir patogesnį keičiant lentos dydį."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:99
-#: ../src/gnome-tetravex.vala:365
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:413
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -125,22 +125,39 @@ msgstr "_Apie"
 msgid "_Quit"
 msgstr "_Išeiti"
 
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Atspausdinti leidimo versiją ir išeiti"
+
+#: ../src/gnome-tetravex.vala:38
+#| msgid "Start a new game"
+msgid "Start the game paused"
+msgstr "Paleisti pristabdytą žaidimą"
+
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Nustatyti lentos dydį (2-6)"
+
 #. not a typo
-#: ../src/gnome-tetravex.vala:122
+#: ../src/gnome-tetravex.vala:139
 msgid "Resume the game"
 msgstr "Tęsti žaidimą"
 
-#: ../src/gnome-tetravex.vala:134
+#: ../src/gnome-tetravex.vala:151
 msgid "Pause the game"
 msgstr "Pristabdyti žaidimą"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:168
 msgid "Start a new game"
 msgstr "Pradėti naują žaidimą"
 
-#: ../src/gnome-tetravex.vala:163
+#: ../src/gnome-tetravex.vala:180
 msgid "Give up and view the solution"
 msgstr "Pasiduoti ir parodyti sprendimą"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Dydis gali būti nuo 2 iki 6.\n"
 
 #. Translators: sorry. This is the clock label when the game has exceeded
 #. * one hour in length. The first %02d is hours, the middle %02d is minutes,
@@ -148,7 +165,7 @@ msgstr "Pasiduoti ir parodyti sprendimą"
 #. * marks, so that nothing gets reversed in RTL languages. You probably do not
 #. * need to change this. Probably.
 #.
-#: ../src/gnome-tetravex.vala:258
+#: ../src/gnome-tetravex.vala:306
 #, c-format
 msgid "%02d∶‎%02d∶‎%02d"
 msgstr "%02d∶‎%02d∶‎%02d"
@@ -158,24 +175,24 @@ msgstr "%02d∶‎%02d∶‎%02d"
 #. * In between is a ratio character and LTR order mark, so that nothing gets
 #. * reversed in RTL languages. You probably do not need to change this. Probably.
 #.
-#: ../src/gnome-tetravex.vala:267
+#: ../src/gnome-tetravex.vala:315
 #, c-format
 msgid "%02d∶‎%02d"
 msgstr "%02d∶‎%02d"
 
-#: ../src/gnome-tetravex.vala:331
+#: ../src/gnome-tetravex.vala:379
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Ar tikrai norite pasiduoti ir pamatyti sprendimą?"
 
-#: ../src/gnome-tetravex.vala:333
+#: ../src/gnome-tetravex.vala:381
 msgid "_Keep Playing"
 msgstr "_Tęsti žaidimą"
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:382
 msgid "_Give Up"
 msgstr "Pasiduoti"
 
-#: ../src/gnome-tetravex.vala:368
+#: ../src/gnome-tetravex.vala:416
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -186,7 +203,7 @@ msgstr ""
 "\n"
 "Tetravex yra GNOME Games dalis."
 
-#: ../src/gnome-tetravex.vala:375
+#: ../src/gnome-tetravex.vala:423
 msgid "translator-credits"
 msgstr ""
 "Paskutinieji vertėjai:\n"
@@ -224,4 +241,3 @@ msgstr "Data"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Laikas"
-
