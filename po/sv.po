@@ -1,5 +1,5 @@
 # Swedish messages for gnome-games.
-# Copyright (C) 1999-2014 Free Software Foundation, Inc.
+# Copyright © 1999-2014 Free Software Foundation, Inc.
 # Andreas Persenius <ndap@swipnet.se>, 1999.
 # Andreas Hyden <a.hyden@cyberpoint.se>
 # Martin Norbäck <d95mback@dtek.chalmers.se>, 2000.
@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-27 19:11+0000\n"
-"PO-Revision-Date: 2014-03-31 20:39+0100\n"
+"POT-Creation-Date: 2014-07-29 19:45+0000\n"
+"PO-Revision-Date: 2014-08-08 20:58+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -45,8 +45,8 @@ msgstr ""
 "Du kan göra spelet lättare eller svårare genom att ändra storleken på brädet."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
-#: ../src/gnome-tetravex.vala:324
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:413
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -123,19 +123,73 @@ msgstr "_Om"
 msgid "_Quit"
 msgstr "A_vsluta"
 
-#: ../src/gnome-tetravex.vala:118
-msgid "Play _Again"
-msgstr "Spela _igen"
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Visa utgåvans version och avsluta"
 
-#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
-msgid "_Pause"
-msgstr "Gör _paus"
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Starta spelet i pausat läge"
 
-#: ../src/gnome-tetravex.vala:145
-msgid "_Resolve"
-msgstr "_Lös"
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Ställ in storlek på brädet (2-6)"
 
-#: ../src/gnome-tetravex.vala:327
+#. not a typo
+#: ../src/gnome-tetravex.vala:139
+msgid "Resume the game"
+msgstr "Återuppta spelet"
+
+#: ../src/gnome-tetravex.vala:151
+msgid "Pause the game"
+msgstr "Gör paus i spelet"
+
+#: ../src/gnome-tetravex.vala:168
+msgid "Start a new game"
+msgstr "Starta ett nytt spel"
+
+#: ../src/gnome-tetravex.vala:180
+msgid "Give up and view the solution"
+msgstr "Ge upp och se lösningen"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Storlek kunde bara vara från 2 till 6.\n"
+
+#. Translators: sorry. This is the clock label when the game has exceeded
+#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
+#. * and the last is seconds. In between are ratio characters and LTR order
+#. * marks, so that nothing gets reversed in RTL languages. You probably do not
+#. * need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:306
+#, c-format
+msgid "%02d∶‎%02d∶‎%02d"
+msgstr "%02d∶‎%02d∶‎%02d"
+
+#. Translators: sorry. This is the clock label when the game is less than
+#. * one hour in length. The first %02d is minutes and the last is seconds.
+#. * In between is a ratio character and LTR order mark, so that nothing gets
+#. * reversed in RTL languages. You probably do not need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:315
+#, c-format
+msgid "%02d∶‎%02d"
+msgstr "%02d∶‎%02d"
+
+#: ../src/gnome-tetravex.vala:379
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Är du säker på att du vill ge upp och se lösningen?"
+
+#: ../src/gnome-tetravex.vala:381
+msgid "_Keep Playing"
+msgstr "_Fortsätt spela"
+
+#: ../src/gnome-tetravex.vala:382
+msgid "_Give Up"
+msgstr "_Ge upp"
+
+#: ../src/gnome-tetravex.vala:416
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -145,7 +199,7 @@ msgstr ""
 "\n"
 "Tetravex är en del av GNOME Games."
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:423
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -158,34 +212,42 @@ msgstr ""
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>."
 
-#: ../src/gnome-tetravex.vala:387
-msgid "Res_ume"
-msgstr "_Återuppta"
-
-#: ../src/puzzle-view.vala:340
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Gör paus"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Avsluta"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Nytt spel"
 
-#: ../src/score-dialog.vala:32
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "OK"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Storlek:"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Tid"
+
+#~ msgid "Play _Again"
+#~ msgstr "Spela _igen"
+
+#~ msgid "_Pause"
+#~ msgstr "Gör _paus"
+
+#~ msgid "_Resolve"
+#~ msgstr "_Lös"
+
+#~ msgid "Res_ume"
+#~ msgstr "_Återuppta"
