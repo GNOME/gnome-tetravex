@@ -29,9 +29,9 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-15 08:44+0000\n"
-"PO-Revision-Date: 2014-03-15 17:59+0100\n"
-"Last-Translator: Bruno Cauet <brunocauet@gmail.com>\n"
+"POT-Creation-Date: 2014-08-20 07:50+0000\n"
+"PO-Revision-Date: 2014-08-20 20:38+0200\n"
+"Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -62,8 +62,8 @@ msgstr ""
 "Vous pouvez régler la difficulté du jeu en changeant la taille du plateau."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
-#: ../src/gnome-tetravex.vala:324
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:413
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -141,19 +141,73 @@ msgstr "À _propos"
 msgid "_Quit"
 msgstr "_Quitter"
 
-#: ../src/gnome-tetravex.vala:118
-msgid "Play _Again"
-msgstr "R_ejouer"
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Affiche la version et quitte"
 
-#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
-msgid "_Pause"
-msgstr "_Pause"
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Lance le jeu en mode pause"
 
-#: ../src/gnome-tetravex.vala:145
-msgid "_Resolve"
-msgstr "_Résoudre"
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Définit la taille du plateau (2-6)"
 
-#: ../src/gnome-tetravex.vala:327
+#. not a typo
+#: ../src/gnome-tetravex.vala:139
+msgid "Resume the game"
+msgstr "Reprend la partie"
+
+#: ../src/gnome-tetravex.vala:151
+msgid "Pause the game"
+msgstr "Met la partie en pause"
+
+#: ../src/gnome-tetravex.vala:168
+msgid "Start a new game"
+msgstr "Démarre une nouvelle partie"
+
+#: ../src/gnome-tetravex.vala:180
+msgid "Give up and view the solution"
+msgstr "Abandonne et examine la solution"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "La taille doit être comprise entre 2 et 6\n"
+
+#. Translators: sorry. This is the clock label when the game has exceeded
+#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
+#. * and the last is seconds. In between are ratio characters and LTR order
+#. * marks, so that nothing gets reversed in RTL languages. You probably do not
+#. * need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:306
+#, c-format
+msgid "%02d∶‎%02d∶‎%02d"
+msgstr "%02d∶<200e>%02d∶<200e>%02d"
+
+#. Translators: sorry. This is the clock label when the game is less than
+#. * one hour in length. The first %02d is minutes and the last is seconds.
+#. * In between is a ratio character and LTR order mark, so that nothing gets
+#. * reversed in RTL languages. You probably do not need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:315
+#, c-format
+msgid "%02d∶‎%02d"
+msgstr "%02d∶<200e>%02d"
+
+#: ../src/gnome-tetravex.vala:379
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Voulez-vous vraiment abandonner et voir la solution ?"
+
+#: ../src/gnome-tetravex.vala:381
+msgid "_Keep Playing"
+msgstr "_Continuer de jouer"
+
+#: ../src/gnome-tetravex.vala:382
+msgid "_Give Up"
+msgstr "_Abandonner"
+
+#: ../src/gnome-tetravex.vala:416
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -163,7 +217,7 @@ msgstr ""
 "\n"
 "Tetravex fait partie des jeux GNOME."
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:423
 msgid "translator-credits"
 msgstr ""
 "Christophe Merlet <redfox@redfoxcenter.org>\n"
@@ -179,34 +233,30 @@ msgstr ""
 "Pierre Lemaire <pierre.lemaire@kamick.org>\n"
 "Bruno Cauet <brunocauet@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:387
-msgid "Res_ume"
-msgstr "_Continuer"
-
-#: ../src/puzzle-view.vala:340
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Suspendu"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Quitter"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Nouvelle partie"
 
-#: ../src/score-dialog.vala:32
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "Valider"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Taille :"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Date"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Durée"
