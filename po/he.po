@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-31 22:09+0300\n"
-"PO-Revision-Date: 2014-05-31 22:13+0300\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
+"POT-Creation-Date: 2014-08-20 10:35+0300\n"
+"PO-Revision-Date: 2014-08-20 10:37+0300\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -41,8 +41,8 @@ msgid ""
 msgstr ""
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:99
-#: ../src/gnome-tetravex.vala:350
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:413
 msgid "Tetravex"
 msgstr "ארבע צלעות Tetravex"
 
@@ -118,36 +118,73 @@ msgstr "על _אודות"
 msgid "_Quit"
 msgstr "י_ציאה"
 
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Print release version and exit"
+
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Start the game paused"
+
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Set size of board (2-6)"
+
 #. not a typo
-#: ../src/gnome-tetravex.vala:122
+#: ../src/gnome-tetravex.vala:139
 msgid "Resume the game"
 msgstr "המשך המשחק"
 
-#: ../src/gnome-tetravex.vala:134
+#: ../src/gnome-tetravex.vala:151
 msgid "Pause the game"
 msgstr "השהיית המשחק"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:168
 msgid "Start a new game"
 msgstr "התחלת משחק חדש"
 
-#: ../src/gnome-tetravex.vala:163
+#: ../src/gnome-tetravex.vala:180
 msgid "Give up and view the solution"
 msgstr "להתייאש ולהציג את הפתרון"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Size could only be from 2 to 6.\n"
+
+#. Translators: sorry. This is the clock label when the game has exceeded
+#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
+#. * and the last is seconds. In between are ratio characters and LTR order
+#. * marks, so that nothing gets reversed in RTL languages. You probably do not
+#. * need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:306
+#, c-format
+msgid "%02d∶‎%02d∶‎%02d"
+msgstr "%02d∶‎%02d∶‎%02d"
+
+#. Translators: sorry. This is the clock label when the game is less than
+#. * one hour in length. The first %02d is minutes and the last is seconds.
+#. * In between is a ratio character and LTR order mark, so that nothing gets
+#. * reversed in RTL languages. You probably do not need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:315
+#, c-format
+msgid "%02d∶‎%02d"
+msgstr "%02d∶‎%02d"
+
+#: ../src/gnome-tetravex.vala:379
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "האם אכן ברצונך להתייאש ולהציג את הפתרון?"
 
-#: ../src/gnome-tetravex.vala:318
+#: ../src/gnome-tetravex.vala:381
 msgid "_Keep Playing"
 msgstr "לה_משיך לשחק"
 
-#: ../src/gnome-tetravex.vala:319
+#: ../src/gnome-tetravex.vala:382
 msgid "_Give Up"
 msgstr "לה_תייאש"
 
-#: ../src/gnome-tetravex.vala:353
+#: ../src/gnome-tetravex.vala:416
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -156,7 +193,7 @@ msgstr ""
 "תצרף בו יש למקם את החלקים כך שמספרים זהים יהיו צמודים אחד אל השני.\n"
 "ארבע צלעות Tetravex הוא חלק מחבילת משחקי GNOME."
 
-#: ../src/gnome-tetravex.vala:360
+#: ../src/gnome-tetravex.vala:423
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -830,9 +867,6 @@ msgstr "זמן"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "פתיחת המשחק נכשלה: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Show release version"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FILE] - Play Chess"
 
@@ -964,9 +998,6 @@ msgstr "זמן"
 
 #~ msgid "Redo the undone move"
 #~ msgstr "ביצוע חוזר של המהלך המבוטל"
-
-#~ msgid "Restart the game"
-#~ msgstr "התחלת המשחק מחדש"
 
 #~ msgid "View the scores"
 #~ msgstr "הצגת התוצאות"
@@ -3596,9 +3627,6 @@ msgstr "זמן"
 
 #~ msgid "Could not load images"
 #~ msgstr "לא ניתן לטעון תמונות"
-
-#~ msgid "Size of board (2-6)"
-#~ msgstr "Size of board (2-6)"
 
 #~ msgid "SIZE"
 #~ msgstr "SIZE"
