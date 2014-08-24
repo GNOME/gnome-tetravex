@@ -23,8 +23,8 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-01-12 18:14+0000\n"
-"PO-Revision-Date: 2014-01-18 15:21+0100\n"
+"POT-Creation-Date: 2014-08-24 07:53+0000\n"
+"PO-Revision-Date: 2014-08-24 18:26+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -57,8 +57,8 @@ msgstr ""
 "Hru si můžete usnadnit a nebo nakopat ztížit změnou velikosti hrací desky."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:95
-#: ../src/gnome-tetravex.vala:312
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:413
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -134,19 +134,73 @@ msgstr "O _aplikaci"
 msgid "_Quit"
 msgstr "U_končit"
 
-#: ../src/gnome-tetravex.vala:113
-msgid "Play _Again"
-msgstr "Hrát _znovu"
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Vypsat verzi vydání a skončit"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:380
-msgid "_Pause"
-msgstr "_Pozastavit"
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Spustit pozastavenou hru"
 
-#: ../src/gnome-tetravex.vala:141
-msgid "_Resolve"
-msgstr "_Vyřešit"
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Nastavit velikost hrací desky (2 – 6)"
 
+#. not a typo
+#: ../src/gnome-tetravex.vala:139
+msgid "Resume the game"
+msgstr "Pokračovat ve hře"
+
+#: ../src/gnome-tetravex.vala:151
+msgid "Pause the game"
+msgstr "Pozastavit hru"
+
+#: ../src/gnome-tetravex.vala:168
+msgid "Start a new game"
+msgstr "Začít novou hru"
+
+#: ../src/gnome-tetravex.vala:180
+msgid "Give up and view the solution"
+msgstr "Vzdát to a zobrazit řešení"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Velikost může být je v rozsahu od 2 do 6.\n"
+
+#. Translators: sorry. This is the clock label when the game has exceeded
+#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
+#. * and the last is seconds. In between are ratio characters and LTR order
+#. * marks, so that nothing gets reversed in RTL languages. You probably do not
+#. * need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:306
+#, c-format
+msgid "%02d∶‎%02d∶‎%02d"
+msgstr "%d∶‎%02d∶‎%02d"
+
+#. Translators: sorry. This is the clock label when the game is less than
+#. * one hour in length. The first %02d is minutes and the last is seconds.
+#. * In between is a ratio character and LTR order mark, so that nothing gets
+#. * reversed in RTL languages. You probably do not need to change this. Probably.
+#.
 #: ../src/gnome-tetravex.vala:315
+#, c-format
+msgid "%02d∶‎%02d"
+msgstr "%d∶‎%02d"
+
+#: ../src/gnome-tetravex.vala:379
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Opravdu to chcete vzdát a zobrazit řešení?"
+
+#: ../src/gnome-tetravex.vala:381
+msgid "_Keep Playing"
+msgstr "Po_kračovat v hraní"
+
+#: ../src/gnome-tetravex.vala:382
+msgid "_Give Up"
+msgstr "Vz_dát to"
+
+#: ../src/gnome-tetravex.vala:416
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -156,7 +210,7 @@ msgstr ""
 "\n"
 "Tetravex je součást her GNOME."
 
-#: ../src/gnome-tetravex.vala:322
+#: ../src/gnome-tetravex.vala:423
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
@@ -173,34 +227,30 @@ msgstr ""
 "Petr Pulc <petrpulc@gmail.com>\n"
 "Marek Černocký <marek@manet.cz>"
 
-#: ../src/gnome-tetravex.vala:375
-msgid "Res_ume"
-msgstr "_Pokračovat"
-
-#: ../src/puzzle-view.vala:336
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Pozastaveno"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Ukončit"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Nová hra"
 
-#: ../src/score-dialog.vala:32
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "Budiž"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Velikost:"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Čas"
