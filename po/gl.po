@@ -10,13 +10,13 @@
 # Antón Méixome <meixome@mancomun.org>, 2009.
 # Fran Diéguez <frandieguez@gnome.org>, 2009, 2010, 2011.
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.
-# Fran Dieguez <frandieguez@gnome.org>, 2011, 2012, 2013.
+# Fran Dieguez <frandieguez@gnome.org>, 2011, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games-master-po-gl-54590\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-01 16:58+0100\n"
-"PO-Revision-Date: 2013-11-01 17:01+0200\n"
+"POT-Creation-Date: 2014-08-25 22:49+0200\n"
+"PO-Revision-Date: 2014-08-25 22:50+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -47,12 +47,11 @@ msgstr ""
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
-"Pode facer máis doado ou máis difícil o xogo cambiando o tamaño do "
-"taboleiro."
+"Pode facer máis doado ou máis difícil o xogo cambiando o tamaño do taboleiro."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:95
-#: ../src/gnome-tetravex.vala:312
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:413
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -128,19 +127,73 @@ msgstr "So_bre"
 msgid "_Quit"
 msgstr "_Saír"
 
-#: ../src/gnome-tetravex.vala:113
-msgid "Play _Again"
-msgstr "Xogar _de novo"
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Imprimir versión de publicación e saír"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:381
-msgid "_Pause"
-msgstr "_Pausa"
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Iniciar o xogo pausado"
 
-#: ../src/gnome-tetravex.vala:141
-msgid "_Resolve"
-msgstr "_Solucionar"
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Estabelecer o tamaño do taboleiro (2-6)"
 
+#. not a typo
+#: ../src/gnome-tetravex.vala:139
+msgid "Resume the game"
+msgstr "Reiniciar o xogo"
+
+#: ../src/gnome-tetravex.vala:151
+msgid "Pause the game"
+msgstr "Deter o xogo"
+
+#: ../src/gnome-tetravex.vala:168
+msgid "Start a new game"
+msgstr "Comezar un xogo novo"
+
+#: ../src/gnome-tetravex.vala:180
+msgid "Give up and view the solution"
+msgstr "Deixalo e ver a solución"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "O tamaño só pode ser de 2 a 6.\n"
+
+#. Translators: sorry. This is the clock label when the game has exceeded
+#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
+#. * and the last is seconds. In between are ratio characters and LTR order
+#. * marks, so that nothing gets reversed in RTL languages. You probably do not
+#. * need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:306
+#, c-format
+msgid "%02d∶‎%02d∶‎%02d"
+msgstr "%02d∶‎%02d∶‎%02d"
+
+#. Translators: sorry. This is the clock label when the game is less than
+#. * one hour in length. The first %02d is minutes and the last is seconds.
+#. * In between is a ratio character and LTR order mark, so that nothing gets
+#. * reversed in RTL languages. You probably do not need to change this. Probably.
+#.
 #: ../src/gnome-tetravex.vala:315
+#, c-format
+msgid "%02d∶‎%02d"
+msgstr "%02d∶‎%02d"
+
+#: ../src/gnome-tetravex.vala:379
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Te certeza que quere deixalo e ver a solución?"
+
+#: ../src/gnome-tetravex.vala:381
+msgid "_Keep Playing"
+msgstr "_Continuar xogando"
+
+#: ../src/gnome-tetravex.vala:382
+msgid "_Give Up"
+msgstr "_Deixalo"
+
+#: ../src/gnome-tetravex.vala:416
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -150,7 +203,7 @@ msgstr ""
 "\n"
 "O Tetravex forma parte do GNOME Games."
 
-#: ../src/gnome-tetravex.vala:322
+#: ../src/gnome-tetravex.vala:423
 msgid "translator-credits"
 msgstr ""
 "Fran Diéguez <frandieguez@ubuntu.com>, 2009-2013.\n"
@@ -166,41 +219,48 @@ msgstr ""
 "Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas\n"
 "colaborar connosco, podes atopar máis información en http://www.trasno.net"
 
-#: ../src/gnome-tetravex.vala:325
-msgid "GNOME Games web site"
-msgstr "Sitio web do GNOME Games"
-
-#: ../src/gnome-tetravex.vala:376
-msgid "Res_ume"
-msgstr "C_ontinuar"
-
-#: ../src/puzzle-view.vala:336
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Detido"
 
-#: ../src/score-dialog.vala:27
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Saír"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Xogo novo"
 
-#: ../src/score-dialog.vala:31
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../src/score-dialog.vala:43
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Tamaño:"
 
-#: ../src/score-dialog.vala:68
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Data"
 
-#: ../src/score-dialog.vala:71
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Tempo"
+
+#~ msgid "Play _Again"
+#~ msgstr "Xogar _de novo"
+
+#~ msgid "_Pause"
+#~ msgstr "_Pausa"
+
+#~ msgid "_Resolve"
+#~ msgstr "_Solucionar"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Sitio web do GNOME Games"
+
+#~ msgid "Res_ume"
+#~ msgstr "C_ontinuar"
 
 #~ msgid "_Move"
 #~ msgstr "_Moverse"
@@ -256,9 +316,6 @@ msgstr "Tempo"
 
 #~ msgid "_Contents"
 #~ msgstr "_Contidos"
-
-#~ msgid "Start a new game"
-#~ msgstr "Comezar un xogo novo"
 
 #~ msgid "Undo Move"
 #~ msgstr "Desfacer o movemento"
@@ -825,9 +882,6 @@ msgstr "Tempo"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "Produciuse un erro ao cargar a partida: %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Mostrar o número de versión"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[FILE]: xogar ao Xadrez"
 
@@ -957,20 +1011,11 @@ msgstr "Tempo"
 #~ msgid "End the current network game and return to network server"
 #~ msgstr "Rematar a partida en rede actual e volver ao servidor de rede"
 
-#~ msgid "Pause the game"
-#~ msgstr "Deter o xogo"
-
 #~ msgid "Show a list of players in the network game"
 #~ msgstr "Mostrar a lista de xogadores da partida de rede"
 
 #~ msgid "Redo the undone move"
 #~ msgstr "Refacer o movemento desfeito"
-
-#~ msgid "Restart the game"
-#~ msgstr "Reiniciar a partida"
-
-#~ msgid "Resume the paused game"
-#~ msgstr "Continuar o xogo detido"
 
 #~ msgid "View the scores"
 #~ msgstr "Ver as puntuacións"
@@ -1923,9 +1968,6 @@ msgstr "Tempo"
 
 #~ msgid "If you continue playing the next game will use the new map."
 #~ msgstr "Se continúa xogando a seguinte partida usará o mapa novo."
-
-#~ msgid "_Continue playing"
-#~ msgstr "_Continuar xogando"
 
 #~ msgid "Use _new map"
 #~ msgstr "Usar o mapa _novo"
@@ -3465,9 +3507,6 @@ msgstr "Tempo"
 #~ msgid "Play on a 6×6 board"
 #~ msgstr "Xogar nun taboleiro de 6×6"
 
-#~ msgid "Size of board (2-6)"
-#~ msgstr "Tamaño do taboleiro (2-6)"
-
 #~ msgid "SIZE"
 #~ msgstr "TAMAÑO"
 
@@ -4857,9 +4896,6 @@ msgstr "Tempo"
 
 #~ msgid "empty space on tableau"
 #~ msgstr "espazo baleiro no taboleiro"
-
-#~ msgid "Move a card to the Foundation"
-#~ msgstr "Mover a carta á base"
 
 #~ msgid "Move something into the empty Tableau slot"
 #~ msgstr "Mover algo ao espazo baleiro do taboleiro"
