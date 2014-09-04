@@ -6,7 +6,7 @@
 # Xavier Conde Rueda <xavi.conde@gmail.com>, 2004.
 # Jesús Corrius <jesus@softcatala.org>, 2005.
 # Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2007.
-# Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012, 2013.
+# Gil Forcada <gilforcada@guifi.net>, 2008, 2010, 2011, 2012, 2013, 2014.
 # Carles Ferrando <carles.ferrando@gmail.com>, 2010.
 # Jordi Serratosa <jordis@softcatala.cat>, 2012.
 #
@@ -15,14 +15,14 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-23 14:19+0000\n"
-"PO-Revision-Date: 2014-03-18 06:47+0100\n"
-"Last-Translator: Pau Iranzo <paugnu@gmail.com>\n"
+"POT-Creation-Date: 2014-09-04 19:52+0000\n"
+"PO-Revision-Date: 2014-09-05 00:27+0200\n"
+"Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bits\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
@@ -36,10 +36,10 @@ msgid ""
 "numbers don't match, you can't put the piece there. Move quickly: you're "
 "being timed!"
 msgstr ""
-"Cada peça quadrada té un número a cada costat. Poseu les peces al "
-"costat esquerre del tauler de forma que els números estiguin els uns al "
-"costat dels altres. Si els números no coincideixen, no podeu posar-hi la peça. "
-"Afanyeu-vos! El temps avança!"
+"Cada peça quadrada té un número a cada costat. Poseu les peces al costat "
+"esquerre del tauler de forma que els números estiguin els uns al costat dels "
+"altres. Si els números no coincideixen, no podeu posar-hi la peça. Afanyeu-"
+"vos! El temps avança!"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
@@ -47,8 +47,8 @@ msgid ""
 msgstr "Podeu fer el joc més fàcil o més difícil canviant la mida del tauler."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
-#: ../src/gnome-tetravex.vala:324
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:413
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -125,19 +125,73 @@ msgstr "_Quant a"
 msgid "_Quit"
 msgstr "S_urt"
 
-#: ../src/gnome-tetravex.vala:118
-msgid "Play _Again"
-msgstr "Jug_a de nou"
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Mostra la versió i surt"
 
-#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
-msgid "_Pause"
-msgstr "Fes una _pausa"
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Inicia el joc fent una pausa"
 
-#: ../src/gnome-tetravex.vala:145
-msgid "_Resolve"
-msgstr "_Resol"
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Estableix la mida del tauler (2-6)"
 
-#: ../src/gnome-tetravex.vala:327
+#. not a typo
+#: ../src/gnome-tetravex.vala:139
+msgid "Resume the game"
+msgstr "Continua la partida"
+
+#: ../src/gnome-tetravex.vala:151
+msgid "Pause the game"
+msgstr "Fes una pausa a la partida"
+
+#: ../src/gnome-tetravex.vala:168
+msgid "Start a new game"
+msgstr "Comença una partida nova"
+
+#: ../src/gnome-tetravex.vala:180
+msgid "Give up and view the solution"
+msgstr "Deixa-ho córrer i mostra'm la solució"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "La mida només pot ser entre 2 i 6.\n"
+
+#. Translators: sorry. This is the clock label when the game has exceeded
+#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
+#. * and the last is seconds. In between are ratio characters and LTR order
+#. * marks, so that nothing gets reversed in RTL languages. You probably do not
+#. * need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:306
+#, c-format
+msgid "%02d∶‎%02d∶‎%02d"
+msgstr "%02d∶‎%02d∶‎%02d"
+
+#. Translators: sorry. This is the clock label when the game is less than
+#. * one hour in length. The first %02d is minutes and the last is seconds.
+#. * In between is a ratio character and LTR order mark, so that nothing gets
+#. * reversed in RTL languages. You probably do not need to change this. Probably.
+#.
+#: ../src/gnome-tetravex.vala:315
+#, c-format
+msgid "%02d∶‎%02d"
+msgstr "%02d∶‎%02d"
+
+#: ../src/gnome-tetravex.vala:379
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Segur que voleu abandonar i veure la solució?"
+
+#: ../src/gnome-tetravex.vala:381
+msgid "_Keep Playing"
+msgstr "_Continua jugant"
+
+#: ../src/gnome-tetravex.vala:382
+msgid "_Give Up"
+msgstr "_Abandona"
+
+#: ../src/gnome-tetravex.vala:416
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -147,7 +201,7 @@ msgstr ""
 "\n"
 "El Tetravex forma part dels jocs del GNOME."
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:423
 msgid "translator-credits"
 msgstr ""
 "Jordi Vila <gnome@softcatala.net>\n"
@@ -157,34 +211,30 @@ msgstr ""
 "Josep Puigdemont <josep.puigdemont@gmail.com>\n"
 "David Planella <david.planella@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:387
-msgid "Res_ume"
-msgstr "Contin_ua"
-
-#: ../src/puzzle-view.vala:340
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Aturat"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Surt"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Partida nova"
 
-#: ../src/score-dialog.vala:32
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "D'acord"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Mida:"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Data"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Temps"
