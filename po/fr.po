@@ -183,7 +183,7 @@ msgstr "La taille doit être comprise entre 2 et 6\n"
 #: ../src/gnome-tetravex.vala:306
 #, c-format
 msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶<200e>%02d∶<200e>%02d"
+msgstr "%02d∶‎%02d∶‎%02d"
 
 #. Translators: sorry. This is the clock label when the game is less than
 #. * one hour in length. The first %02d is minutes and the last is seconds.
@@ -193,7 +193,7 @@ msgstr "%02d∶<200e>%02d∶<200e>%02d"
 #: ../src/gnome-tetravex.vala:315
 #, c-format
 msgid "%02d∶‎%02d"
-msgstr "%02d∶<200e>%02d"
+msgstr "%02d∶‎%02d"
 
 #: ../src/gnome-tetravex.vala:379
 msgid "Are you sure you want to give up and view the solution?"
