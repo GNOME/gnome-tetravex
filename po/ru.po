@@ -11,16 +11,16 @@
 # Yuri Kozlov <yuray@komyakino.ru>, 2010.
 # Valek Filippov <frob@df.ru> 2000-2002
 # Nickolay V. Shmyrev <nshmyrev@yandex.ru>
-# Yuri Myasoedov <omerta13@yandex.ru>, 2012.
+# Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-06-28 07:45+0000\n"
-"PO-Revision-Date: 2014-06-28 21:56+0400\n"
-"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
+"POT-Creation-Date: 2014-09-09 07:51+0000\n"
+"PO-Revision-Date: 2014-09-09 14:54+0300\n"
+"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
 msgid "GNOME Tetravex"
@@ -52,8 +52,8 @@ msgid ""
 msgstr "Вы можете управлять сложностью игры, изменяя размер игрового поля."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:57 ../src/gnome-tetravex.vala:99
-#: ../src/gnome-tetravex.vala:365
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:413
 msgid "Tetravex"
 msgstr "Тетравекс"
 
@@ -124,28 +124,45 @@ msgstr "_Справка"
 
 #: ../src/app-menu.ui.h:10
 msgid "_About"
-msgstr "_О программе"
+msgstr "_О приложении"
 
 #: ../src/app-menu.ui.h:11
 msgid "_Quit"
-msgstr "_Закончить"
+msgstr "_Завершить"
+
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Показать номер версии и выйти"
+
+#: ../src/gnome-tetravex.vala:38
+#| msgid "Start a new game"
+msgid "Start the game paused"
+msgstr "Возобновить приостановленную игру"
+
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Установить размер доски (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:122
+#: ../src/gnome-tetravex.vala:139
 msgid "Resume the game"
 msgstr "Возобновить игру"
 
-#: ../src/gnome-tetravex.vala:134
+#: ../src/gnome-tetravex.vala:151
 msgid "Pause the game"
 msgstr "Приостановить игру"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:168
 msgid "Start a new game"
 msgstr "Начать новую игру"
 
-#: ../src/gnome-tetravex.vala:163
+#: ../src/gnome-tetravex.vala:180
 msgid "Give up and view the solution"
 msgstr "Сдаться и показать решение"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Размер может быть от 2 до 6.\n"
 
 #. Translators: sorry. This is the clock label when the game has exceeded
 #. * one hour in length. The first %02d is hours, the middle %02d is minutes,
@@ -153,7 +170,7 @@ msgstr "Сдаться и показать решение"
 #. * marks, so that nothing gets reversed in RTL languages. You probably do not
 #. * need to change this. Probably.
 #.
-#: ../src/gnome-tetravex.vala:258
+#: ../src/gnome-tetravex.vala:306
 #, c-format
 msgid "%02d∶‎%02d∶‎%02d"
 msgstr "%02d∶‎%02d∶‎%02d"
@@ -163,24 +180,24 @@ msgstr "%02d∶‎%02d∶‎%02d"
 #. * In between is a ratio character and LTR order mark, so that nothing gets
 #. * reversed in RTL languages. You probably do not need to change this. Probably.
 #.
-#: ../src/gnome-tetravex.vala:267
+#: ../src/gnome-tetravex.vala:315
 #, c-format
 msgid "%02d∶‎%02d"
 msgstr "%02d∶‎%02d"
 
-#: ../src/gnome-tetravex.vala:331
+#: ../src/gnome-tetravex.vala:379
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Уверены, чтобы хотите сдаться и посмотреть решение?"
 
-#: ../src/gnome-tetravex.vala:333
+#: ../src/gnome-tetravex.vala:381
 msgid "_Keep Playing"
 msgstr "_Продолжить игру"
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:382
 msgid "_Give Up"
 msgstr "_Сдаться"
 
-#: ../src/gnome-tetravex.vala:368
+#: ../src/gnome-tetravex.vala:416
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -190,7 +207,7 @@ msgstr ""
 "\n"
 "Тетравекс является частью GNOME Games"
 
-#: ../src/gnome-tetravex.vala:375
+#: ../src/gnome-tetravex.vala:423
 msgid "translator-credits"
 msgstr ""
 "Валек Филиппов aka frob\n"
@@ -226,49 +243,3 @@ msgstr "Дата"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Время"
-
-#~ msgid "Play _Again"
-#~ msgstr "Сыграть _снова"
-
-#~ msgid "_Pause"
-#~ msgstr "_Пауза"
-
-#~| msgid "_Solve"
-#~ msgid "_Resolve"
-#~ msgstr "Ре_шить"
-
-#~ msgid "Res_ume"
-#~ msgstr "_Продолжить"
-
-#~ msgid "_Move"
-#~ msgstr "_Ход"
-
-#~ msgid "_Up"
-#~ msgstr "В_верх"
-
-#~ msgid "_Left"
-#~ msgstr "В_лево"
-
-#~ msgid "_Right"
-#~ msgstr "В_право"
-
-#~ msgid "_Down"
-#~ msgstr "В_низ"
-
-#~ msgid "true if the window is fullscren"
-#~ msgstr "истинно, если окно раскрыто на полный экран"
-
-#~ msgid "_New"
-#~ msgstr "_Новая игра"
-
-#~ msgid "Solve"
-#~ msgstr "Решить"
-
-#~ msgid "_Fullscreen"
-#~ msgstr "На _весь экран"
-
-#~ msgid "_Leave Fullscreen"
-#~ msgstr "Выйти из _полноэкранного режима"
-
-#~ msgid "GNOME Games web site"
-#~ msgstr "Веб-сайт GNOME Games"
