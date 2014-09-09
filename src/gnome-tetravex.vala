@@ -80,18 +80,7 @@ public class Tetravex : Gtk.Application
         set_accels_for_action ("app.move-left", {"<Primary>Left"});
         set_accels_for_action ("app.move-right", {"<Primary>Right"});
 
-        var builder = new Gtk.Builder ();
-        try
-        {
-            builder.add_from_resource ("/org/gnome/tetravex/gnome-tetravex.ui");
-            builder.add_from_resource ("/org/gnome/tetravex/app-menu.ui");
-        }
-        catch (Error e)
-        {
-            error ("Unable to build menus: %s", e.message);
-        }
-
-        set_app_menu (builder.get_object ("gnome-tetravex-menu") as MenuModel);
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/tetravex/gnome-tetravex.ui");
 
         settings = new Settings ("org.gnome.tetravex");
 

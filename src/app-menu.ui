@@ -1,5 +1,5 @@
 <interface>
-  <menu id="gnome-tetravex-menu">
+  <menu id="app-menu">
     <section>
       <item>
         <attribute name="label" translatable="yes">_New Game</attribute>
