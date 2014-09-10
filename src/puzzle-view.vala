@@ -104,6 +104,25 @@ public class PuzzleView : Gtk.DrawingArea
         animation_timer = new Timer ();
         animation_timer.start ();
     }
+
+    public bool game_in_progress
+    {
+        get
+        {
+            if (puzzle.is_solved)
+                return false;
+
+            for (uint y = 0; y < puzzle.size; y++)
+            {
+                for (uint x = puzzle.size; x < puzzle.size * 2; x++)
+                {
+                    if (puzzle.get_tile (x, y) == null)
+                        return true;
+                }
+            }
+            return false;
+        }
+    }
     
     private void redraw_tile (TileImage image)
     {

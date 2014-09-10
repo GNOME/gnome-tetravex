@@ -417,6 +417,23 @@ public class Tetravex : Gtk.Application
 
         if (size == settings.get_int (KEY_GRID_SIZE))
             return;
+        if (view.game_in_progress)
+        {
+            var dialog = new Gtk.MessageDialog (window,
+                                                Gtk.DialogFlags.MODAL,
+                                                Gtk.MessageType.QUESTION,
+                                                Gtk.ButtonsType.NONE,
+                                                _("Are you sure you want to start a new game with a different board size?"));
+            dialog.add_buttons (_("_Keep Playing"), Gtk.ResponseType.REJECT,
+                                _("_Start New Game"), Gtk.ResponseType.ACCEPT,
+                                null);
+
+            var response = dialog.run ();
+            dialog.destroy ();
+
+            if (response != Gtk.ResponseType.ACCEPT)
+                return;
+        }
         settings.set_int (KEY_GRID_SIZE, size);
         game_size = (int) size;
         action.set_state (value);
