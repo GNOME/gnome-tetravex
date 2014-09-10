@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-02 22:15+0200\n"
-"PO-Revision-Date: 2014-09-02 22:19+0200\n"
+"POT-Creation-Date: 2014-09-10 02:58+0200\n"
+"PO-Revision-Date: 2014-09-10 02:59+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -175,7 +175,7 @@ msgstr "Rozmiar może wynosić tylko od 2 do 6.\n"
 #: ../src/gnome-tetravex.vala:306
 #, c-format
 msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
+msgstr "%02d∶%02d∶%02d"
 
 #. Translators: sorry. This is the clock label when the game is less than
 #. * one hour in length. The first %02d is minutes and the last is seconds.
@@ -185,7 +185,7 @@ msgstr "%02d∶‎%02d∶‎%02d"
 #: ../src/gnome-tetravex.vala:315
 #, c-format
 msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
+msgstr "%02d∶%02d"
 
 #: ../src/gnome-tetravex.vala:379
 msgid "Are you sure you want to give up and view the solution?"
