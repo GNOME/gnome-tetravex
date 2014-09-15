@@ -11,9 +11,9 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-08 14:53+0000\n"
-"PO-Revision-Date: 2014-03-23 00:21+0100\n"
-"Last-Translator: Peter Mráz <etkinator@gmail.com>\n"
+"POT-Creation-Date: 2014-09-15 19:47+0000\n"
+"PO-Revision-Date: 2014-09-15 22:38+0100\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -45,8 +45,8 @@ msgstr ""
 "náročnejšou."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
-#: ../src/gnome-tetravex.vala:324
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:398
 msgid "Tetravex"
 msgstr "Štvorproblém"
 
@@ -122,19 +122,59 @@ msgstr "_O programe"
 msgid "_Quit"
 msgstr "U_končiť"
 
-#: ../src/gnome-tetravex.vala:118
-msgid "Play _Again"
-msgstr "Hrať _znovu"
+# cmd desc
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Vypíše verziu vydania a skončí"
 
-#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
-msgid "_Pause"
-msgstr "_Pozastaviť"
+# cmd desc
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Spustí hru v pozastavenom stave"
 
-#: ../src/gnome-tetravex.vala:145
-msgid "_Resolve"
-msgstr "Vy_riešiť"
+# cmd desc
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Nastaví veľkosť hracej plochy (2-6)"
 
-#: ../src/gnome-tetravex.vala:327
+# tooltip
+#. not a typo
+#: ../src/gnome-tetravex.vala:139
+msgid "Resume the game"
+msgstr "Pokračuje v hre"
+
+# tooltip
+#: ../src/gnome-tetravex.vala:151
+msgid "Pause the game"
+msgstr "Pozastaví hru"
+
+# tooltip
+#: ../src/gnome-tetravex.vala:168
+msgid "Start a new game"
+msgstr "Začne novú hru"
+
+# tooltip
+#: ../src/gnome-tetravex.vala:180
+msgid "Give up and view the solution"
+msgstr "Vzdá sa a ukáže riešenie"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Veľkosť môže byť iba v rozsahu 2 až 6.\n"
+
+#: ../src/gnome-tetravex.vala:364
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Naozaj sa chcete vzdať a ukázať riešenie?"
+
+#: ../src/gnome-tetravex.vala:366
+msgid "_Keep Playing"
+msgstr "Pokračovať v _hraní"
+
+#: ../src/gnome-tetravex.vala:367
+msgid "_Give Up"
+msgstr "_Vzdať sa"
+
+#: ../src/gnome-tetravex.vala:401
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -144,42 +184,51 @@ msgstr ""
 "\n"
 "Hra Štvorproblém je súčasťou Hier GNOME."
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:408
 msgid "translator-credits"
 msgstr ""
 "Stanislav Višňovský (visnovsky@nenya.ms.mff.cuni.cz)\n"
 "Marcel Telka <marcel@telka.sk>\n"
 "Peter Mráz <etkinator@gmail.com>\n"
-"Ján Kyselica <kyselica.jan@gmail.com>"
+"Ján Kyselica <kyselica.jan@gmail.com>\n"
+"Dušan Kazik <prescott66@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:387
-msgid "Res_ume"
-msgstr "Po_kračovať"
-
-#: ../src/puzzle-view.vala:340
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Pozastavené"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Ukončiť"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Nová hra"
 
-#: ../src/score-dialog.vala:32
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "OK"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Veľkosť:"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Dátum"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Čas"
+
+#~ msgid "Play _Again"
+#~ msgstr "Hrať _znovu"
+
+#~ msgid "_Pause"
+#~ msgstr "_Pozastaviť"
+
+#~ msgid "_Resolve"
+#~ msgstr "Vy_riešiť"
+
+#~ msgid "Res_ume"
+#~ msgstr "Po_kračovať"
