@@ -24,16 +24,16 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-09 08:45+0000\n"
-"PO-Revision-Date: 2014-03-11 16:05+0100\n"
-"Last-Translator: Wolfgang Stoeggl <c72578@yahoo.de>\n"
+"POT-Creation-Date: 2014-09-20 19:53+0000\n"
+"PO-Revision-Date: 2014-09-20 23:43+0100\n"
+"Last-Translator: Bernd Homuth <dev@hmt.im>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.9\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
 msgid "GNOME Tetravex"
@@ -59,8 +59,8 @@ msgstr ""
 "Spielbretts anpassen."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
-#: ../src/gnome-tetravex.vala:324
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:398
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -138,19 +138,52 @@ msgstr "_Info"
 msgid "_Quit"
 msgstr "_Beenden"
 
-#: ../src/gnome-tetravex.vala:118
-msgid "Play _Again"
-msgstr "_Erneut spielen"
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Version anzeigen und beenden"
 
-#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
-msgid "_Pause"
-msgstr "_Pause"
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Das Spiel im angehaltenen Zustand starten"
 
-#: ../src/gnome-tetravex.vala:145
-msgid "_Resolve"
-msgstr "Lö_sen"
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Spielfeldgröße festlegen (2-6)"
 
-#: ../src/gnome-tetravex.vala:327
+#. not a typo
+#: ../src/gnome-tetravex.vala:139
+msgid "Resume the game"
+msgstr "Spiel fortsetzen"
+
+#: ../src/gnome-tetravex.vala:151
+msgid "Pause the game"
+msgstr "Spiel anhalten"
+
+#: ../src/gnome-tetravex.vala:168
+msgid "Start a new game"
+msgstr "Ein neues Spiel beginnen"
+
+#: ../src/gnome-tetravex.vala:180
+msgid "Give up and view the solution"
+msgstr "Aufgeben und Lösung anzeigen"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Nur Größen zwischen 2 und 6 zulässig.\n"
+
+#: ../src/gnome-tetravex.vala:364
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Sind Sie sicher, dass Sie aufgeben und die Lösung sehen wollen?"
+
+#: ../src/gnome-tetravex.vala:366
+msgid "_Keep Playing"
+msgstr "_Weiterspielen"
+
+#: ../src/gnome-tetravex.vala:367
+msgid "_Give Up"
+msgstr "_Aufgeben"
+
+#: ../src/gnome-tetravex.vala:401
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -161,7 +194,7 @@ msgstr ""
 "\n"
 "Tetravex ist ein Teil von GNOME Games."
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:408
 msgid "translator-credits"
 msgstr ""
 "Karl Eichwalder <ke@suse.de>\n"
@@ -180,37 +213,45 @@ msgstr ""
 "Christian Kirbach <Christian.Kirbach@googlemail.com>\n"
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>"
 
-#: ../src/gnome-tetravex.vala:387
-msgid "Res_ume"
-msgstr "_Fortsetzen"
-
-#: ../src/puzzle-view.vala:340
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Pausiert"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Beenden"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Neues Spiel"
 
-#: ../src/score-dialog.vala:32
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "OK"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Größe:"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Zeit"
+
+#~ msgid "Play _Again"
+#~ msgstr "_Erneut spielen"
+
+#~ msgid "_Pause"
+#~ msgstr "_Pause"
+
+#~ msgid "_Resolve"
+#~ msgstr "Lö_sen"
+
+#~ msgid "Res_ume"
+#~ msgstr "_Fortsetzen"
 
 #~ msgid "_Move"
 #~ msgstr "_Bewegen"
