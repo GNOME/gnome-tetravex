@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Гномове игре\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-22 08:52+0000\n"
-"PO-Revision-Date: 2014-03-22 10:11+0200\n"
+"POT-Creation-Date: 2014-09-25 19:55+0000\n"
+"PO-Revision-Date: 2014-09-26 09:02+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -25,7 +25,6 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#| msgid "Tetravex"
 msgid "GNOME Tetravex"
 msgstr "Гномова слагалица"
 
@@ -38,8 +37,8 @@ msgid ""
 msgstr ""
 "Сваки квадратни део има бројеве на свакој страни. Поставите делове на левој "
 "страни табле тако да исти бројеви буду један поред другог. Ако се бројеви не "
-"подударају, онда нећете моћи да ставите део на том месту. Будите брзи: "
-"време вам је ограничено!"
+"подударају, онда нећете моћи да ставите део на том месту. Будите брзи: време "
+"вам је ограничено!"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
@@ -47,8 +46,8 @@ msgid ""
 msgstr "Можете да учините игру лакшом или тежом мењајући величину табле."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
-#: ../src/gnome-tetravex.vala:324
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:398
 msgid "Tetravex"
 msgstr "Слагалица"
 
@@ -124,20 +123,52 @@ msgstr "_О програму"
 msgid "_Quit"
 msgstr "_Изађи"
 
-#: ../src/gnome-tetravex.vala:118
-msgid "Play _Again"
-msgstr "Играј _поново"
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Исписује издање и излази"
 
-#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
-msgid "_Pause"
-msgstr "_Пауза"
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Покреће заустављену игру"
 
-#: ../src/gnome-tetravex.vala:145
-#| msgid "_Solve"
-msgid "_Resolve"
-msgstr "_Реши"
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Подешава величину табле (2-6)"
 
-#: ../src/gnome-tetravex.vala:327
+#. not a typo
+#: ../src/gnome-tetravex.vala:139
+msgid "Resume the game"
+msgstr "Наставите игру"
+
+#: ../src/gnome-tetravex.vala:151
+msgid "Pause the game"
+msgstr "Паузирајте игру"
+
+#: ../src/gnome-tetravex.vala:168
+msgid "Start a new game"
+msgstr "Започните нову игру"
+
+#: ../src/gnome-tetravex.vala:180
+msgid "Give up and view the solution"
+msgstr "Предајте се и погледајте решење"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Величина може бити само од 2 до 6.\n"
+
+#: ../src/gnome-tetravex.vala:364
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Да ли сигурно желите да се предате и да видите решење?"
+
+#: ../src/gnome-tetravex.vala:366
+msgid "_Keep Playing"
+msgstr "_Играм још"
+
+#: ../src/gnome-tetravex.vala:367
+msgid "_Give Up"
+msgstr "_Предајем се"
+
+#: ../src/gnome-tetravex.vala:401
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -147,7 +178,7 @@ msgstr ""
 "\n"
 "Слагалица је део Гномових игара."
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:408
 msgid "translator-credits"
 msgstr ""
 "Душан Марјановић <madafaka@root.co.yu>\n"
@@ -157,38 +188,46 @@ msgstr ""
 "\n"
 "http://prevod.org — превод на српски језик"
 
-#: ../src/gnome-tetravex.vala:387
-msgid "Res_ume"
-msgstr "На_стави"
-
-#: ../src/puzzle-view.vala:340
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Паузирано"
 
-#: ../src/score-dialog.vala:28
-#| msgid "_Quit"
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Изађи"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Нова игра"
 
-#: ../src/score-dialog.vala:32
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "У реду"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Величина:"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Датум"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Време"
+
+#~ msgid "Play _Again"
+#~ msgstr "Играј _поново"
+
+#~ msgid "_Pause"
+#~ msgstr "_Пауза"
+
+#~| msgid "_Solve"
+#~ msgid "_Resolve"
+#~ msgstr "_Реши"
+
+#~ msgid "Res_ume"
+#~ msgstr "На_стави"
 
 #~ msgid "_Move"
 #~ msgstr "_Помери"
