@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: lv\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-03-07 08:45+0000\n"
-"PO-Revision-Date: 2014-03-07 16:38+0200\n"
+"POT-Creation-Date: 2014-10-06 19:58+0000\n"
+"PO-Revision-Date: 2014-10-12 17:22+0300\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -26,7 +26,6 @@ msgstr ""
 "X-Poedit-Country: LATVIA\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#| msgid "Tetravex"
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
@@ -47,8 +46,8 @@ msgid ""
 msgstr "Spēli var padarīt grūtāku vai vieglāku, mainot galdiņa izmēru."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
-#: ../src/gnome-tetravex.vala:324
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:398
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -125,21 +124,58 @@ msgstr "P_ar"
 msgid "_Quit"
 msgstr "_Iziet"
 
-#: ../src/gnome-tetravex.vala:118
-#| msgid "Play as:"
-msgid "Play _Again"
-msgstr "Spēlēt _vēlreiz:"
+#: ../src/gnome-tetravex.vala:37
+#| msgid "Show release version"
+msgid "Print release version and exit"
+msgstr "Parādīt informāciju par laidienu un iziet"
 
-#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
-msgid "_Pause"
-msgstr "_Pauzēt"
+#: ../src/gnome-tetravex.vala:38
+#| msgid "Restart the game"
+msgid "Start the game paused"
+msgstr "Spēli sākt pauzētu"
 
-#: ../src/gnome-tetravex.vala:145
-#| msgid "_Solve"
-msgid "_Resolve"
-msgstr "At_risināt"
+#: ../src/gnome-tetravex.vala:39
+#| msgid "Size of board (2-6)"
+msgid "Set size of board (2-6)"
+msgstr "Galdiņa izmērs (2-6)"
 
-#: ../src/gnome-tetravex.vala:327
+#. not a typo
+#: ../src/gnome-tetravex.vala:139
+#| msgid "Resume the paused game"
+msgid "Resume the game"
+msgstr "Turpināt spēli"
+
+#: ../src/gnome-tetravex.vala:151
+msgid "Pause the game"
+msgstr "Pauzēt spēli"
+
+#: ../src/gnome-tetravex.vala:168
+msgid "Start a new game"
+msgstr "Sākt jaunu spēli"
+
+#: ../src/gnome-tetravex.vala:180
+#| msgid "Move a card to the Foundation"
+msgid "Give up and view the solution"
+msgstr "Padoties un skatīt risinājumu"
+
+#: ../src/gnome-tetravex.vala:251
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Izmērs var būt tikai no 2 līdz 6.\n"
+
+#: ../src/gnome-tetravex.vala:364
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Vai tiešām vēlaties padoties un skatīt risinājumu?"
+
+#: ../src/gnome-tetravex.vala:366
+#| msgid "_Continue playing"
+msgid "_Keep Playing"
+msgstr "_Turpināt spēlēt"
+
+#: ../src/gnome-tetravex.vala:367
+msgid "_Give Up"
+msgstr "_Padoties"
+
+#: ../src/gnome-tetravex.vala:401
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -149,46 +185,54 @@ msgstr ""
 "\n"
 "Tetravex ir daļa no GNOME Games."
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:408
 msgid "translator-credits"
 msgstr ""
 "Raivis Dejus <orvils@gmail.com>\n"
 "Sandra Zabarovska <sandra.zabarovska@gmail.com>\n"
 "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:387
-msgid "Res_ume"
-msgstr "T_urpināt"
-
-#: ../src/puzzle-view.vala:340
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Apturēts"
 
-#: ../src/score-dialog.vala:28
-#| msgid "_Quit"
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Iziet"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Jauna spēle"
 
-#: ../src/score-dialog.vala:32
-#| msgid "_OK"
+#: ../src/score-dialog.vala:33
 msgid "OK"
 msgstr "Labi"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Izmērs:"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Datums"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Laiks"
+
+#~| msgid "Play as:"
+#~ msgid "Play _Again"
+#~ msgstr "Spēlēt _vēlreiz:"
+
+#~ msgid "_Pause"
+#~ msgstr "_Pauzēt"
+
+#~| msgid "_Solve"
+#~ msgid "_Resolve"
+#~ msgstr "At_risināt"
+
+#~ msgid "Res_ume"
+#~ msgstr "T_urpināt"
 
 #~ msgid "_Move"
 #~ msgstr "_Iet"
@@ -246,9 +290,6 @@ msgstr "Laiks"
 
 #~ msgid "_Contents"
 #~ msgstr "_Saturs"
-
-#~ msgid "Start a new game"
-#~ msgstr "Sākt jaunu spēli"
 
 #~ msgid "Undo Move"
 #~ msgstr "Atsaukt gājienu"
@@ -818,9 +859,6 @@ msgstr "Laiks"
 #~ msgid "Failed to open game: %s"
 #~ msgstr "Neizdevās atvērt spēli — %s"
 
-#~ msgid "Show release version"
-#~ msgstr "Rādīt laidiena versiju"
-
 #~ msgid "[FILE] - Play Chess"
 #~ msgstr "[DATNE] - spēlēt šahu"
 
@@ -948,20 +986,11 @@ msgstr "Laiks"
 #~ msgid "End the current network game and return to network server"
 #~ msgstr "Beigt pašreizējo tīkla spēli un atgriezties pie servera"
 
-#~ msgid "Pause the game"
-#~ msgstr "Pauzēt spēli"
-
 #~ msgid "Show a list of players in the network game"
 #~ msgstr "Rādīt spēlētāju sarakstu tīkla spēlē"
 
 #~ msgid "Redo the undone move"
 #~ msgstr "Atsaukt gājiena atsaukšanu"
-
-#~ msgid "Restart the game"
-#~ msgstr "Pārstartēt spēli"
-
-#~ msgid "Resume the paused game"
-#~ msgstr "Turpināt pauzēto spēli"
 
 #~ msgid "View the scores"
 #~ msgstr "Apskatīt rezultātus"
@@ -1903,9 +1932,6 @@ msgstr "Laiks"
 
 #~ msgid "If you continue playing the next game will use the new map."
 #~ msgstr "Ja turpināsi spēlēt, nākama spēle izmantos jaunu karti."
-
-#~ msgid "_Continue playing"
-#~ msgstr "_Turpināt spēlēt"
 
 #~ msgid "Use _new map"
 #~ msgstr "Izmantot jau_nu karti"
@@ -3464,9 +3490,6 @@ msgstr "Laiks"
 #~ msgid "Play on a 6×6 board"
 #~ msgstr "Spēlēt uz 6×6 laukuma"
 
-#~ msgid "Size of board (2-6)"
-#~ msgstr "Laukuma izmērs (2-6)"
-
 #~ msgid "SIZE"
 #~ msgstr "IZMĒRS"
 
@@ -4776,9 +4799,6 @@ msgstr "Laiks"
 
 #~ msgid "empty space on tableau"
 #~ msgstr "tukša vieta uz galda"
-
-#~ msgid "Move a card to the Foundation"
-#~ msgstr "Pārvietot kārti uz pamatu"
 
 #~ msgid "Move something into the empty Tableau slot"
 #~ msgstr "Novieto kaut ko tukšajā galda vietā"
