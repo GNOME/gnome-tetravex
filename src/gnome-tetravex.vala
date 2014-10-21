@@ -141,8 +141,8 @@ public class Tetravex : Gtk.Application
         sizegroup.add_widget (pause_button);
 
         play_pause_stack = new Gtk.Stack ();
-        play_pause_stack.add_named(play_button, "play");
-        play_pause_stack.add_named(pause_button, "pause");
+        play_pause_stack.add_named (play_button, "play");
+        play_pause_stack.add_named (pause_button, "pause");
         grid.attach (play_pause_stack, 0, 1, 1, 1);
 
         var new_game_button = new Gtk.Button ();
@@ -170,8 +170,8 @@ public class Tetravex : Gtk.Application
         sizegroup.add_widget (solve_button);
 
         new_game_solve_stack = new Gtk.Stack ();
-        new_game_solve_stack.add_named(solve_button, "solve");
-        new_game_solve_stack.add_named(new_game_button, "new-game");
+        new_game_solve_stack.add_named (solve_button, "solve");
+        new_game_solve_stack.add_named (new_game_button, "new-game");
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
         var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
