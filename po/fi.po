@@ -1,5 +1,5 @@
 # gnome-games Finnish Translation
-# Suomennos: http://www.gnome.fi/
+# Suomennos: https://l10n.gnome.org/teams/fi/
 # Copyright (C) 2002-2009 Free Software Foundation, Inc.
 #
 #
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-10 07:51+0000\n"
+"POT-Creation-Date: 2014-11-07 08:49+0000\n"
 "PO-Revision-Date: 2014-09-10 21:20+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -29,7 +29,6 @@ msgstr ""
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#| msgid "Tetravex"
 msgid "GNOME Tetravex"
 msgstr "Tetravex"
 
@@ -54,7 +53,7 @@ msgstr ""
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
 #: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:398
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -131,23 +130,19 @@ msgid "_Quit"
 msgstr "_Lopeta"
 
 #: ../src/gnome-tetravex.vala:37
-#| msgid "Show release version"
 msgid "Print release version and exit"
 msgstr "Näytä julkaisuversio ja sulkeudu"
 
 #: ../src/gnome-tetravex.vala:38
-#| msgid "Restart the game"
 msgid "Start the game paused"
 msgstr "Aloita peli keskeytettynä"
 
 #: ../src/gnome-tetravex.vala:39
-#| msgid "The size of the game board."
 msgid "Set size of board (2-6)"
 msgstr "Aseta laudan koko (2-6)"
 
 #. not a typo
 #: ../src/gnome-tetravex.vala:139
-#| msgid "Resume the paused game"
 msgid "Resume the game"
 msgstr "Jatka peliä"
 
@@ -167,41 +162,19 @@ msgstr "Luovuta ja katso ratkaisu"
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Koko voi olla olla kahdesta kuuteen.\n"
 
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:364
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Haluatko varmasti luovuttaa ja nähdä ratkaisun?"
 
-#: ../src/gnome-tetravex.vala:381
-#| msgid "_Continue playing"
+#: ../src/gnome-tetravex.vala:366
 msgid "_Keep Playing"
 msgstr "_Jatka pelaamista"
 
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:367
 msgid "_Give Up"
 msgstr "_Luovuta"
 
-#: ../src/gnome-tetravex.vala:416
+#: ../src/gnome-tetravex.vala:401
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -211,7 +184,7 @@ msgstr ""
 "\n"
 "Tetravex on osa Gnomen pelejä."
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:408
 msgid "translator-credits"
 msgstr ""
 "Jiri Grönroos, 2012-2014\n"
@@ -219,7 +192,7 @@ msgstr ""
 "Ilkka Tuohela, 2006-2009\n"
 "Sami Pesonen, 2002-2005\n"
 "\n"
-"http://www.gnome.fi/\n"
+"https://l10n.gnome.org/teams/fi/\n"
 "\n"
 "Launchpad Contributions:\n"
 "  Heikki Kulhia https://launchpad.net/~hessuk\n"
@@ -259,6 +232,12 @@ msgstr "Päiväys"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Aika"
+
+#~ msgid "%02d∶‎%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d∶‎%02d"
+
+#~ msgid "%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d"
 
 #~| msgid "Play as:"
 #~ msgid "Play _Again"
