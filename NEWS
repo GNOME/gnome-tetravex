@@ -1,3 +1,9 @@
+GNOME Tetravex 3.15.2
+=====================
+
+* Translation Updates (Spanish, Norwegian bokmål, Czech, Italian, Latvian, Finnish)
+* gtk changes (accels, version bump, gresource) (Arnaud Bonatti)
+
 GNOME Tetravex 3.14.0
 =====================
 
