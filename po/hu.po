@@ -9,15 +9,14 @@
 # Laszlo Dvornik <dvornik at gnome dot hu>, 2004.
 # Szabolcs Varga <shirokuma at shirokuma dot hu>, 2005.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2014.
-# Balázs Úr <urbalazs at gmail dot com>, 2013.
-# Balázs Úr <urbalazs@gmail.com>, 2014.
+# Balázs Úr <urbalazs at gmail dot com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-24 19:49+0000\n"
-"PO-Revision-Date: 2014-07-25 09:33+0200\n"
+"POT-Creation-Date: 2014-12-02 08:50+0000\n"
+"PO-Revision-Date: 2014-12-02 18:44+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -32,6 +31,10 @@ msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Rendezze át a számokat a négyzet kitöltéséhez"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -43,15 +46,15 @@ msgstr ""
 "legyenek. Ha a számok nem egyeznek, nem teheti le a négyzetet. Lépjen "
 "gyorsan, a játék időre megy!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "A játékot egyszerűbbé vagy nehezebbé teheti a tábla méretének módosításával."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:105
+#: ../src/gnome-tetravex.vala:387
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -128,77 +131,51 @@ msgid "_Quit"
 msgstr "_Kilépés"
 
 #: ../src/gnome-tetravex.vala:37
-#| msgid "Show release version"
 msgid "Print release version and exit"
 msgstr "Kiadási verzió kiírása és kilépés"
 
 #: ../src/gnome-tetravex.vala:38
-#| msgid "Restart the game"
 msgid "Start the game paused"
 msgstr "A szüneteltetett játék indítása"
 
 #: ../src/gnome-tetravex.vala:39
-#| msgid "The size of the game board."
 msgid "Set size of board (2-6)"
 msgstr "A tábla méretének beállítása (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
-#| msgid "Resume the paused game"
+#: ../src/gnome-tetravex.vala:128
 msgid "Resume the game"
 msgstr "A játék folytatása"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:140
 msgid "Pause the game"
 msgstr "A játék szüneteltetése"
 
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:157
 msgid "Start a new game"
 msgstr "Új játék indítása"
 
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:169
 msgid "Give up and view the solution"
 msgstr "Feladás és a megoldás megtekintése"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
 msgstr "A méret csak 2 és 6 között lehet.\n"
 
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d.‎%02d.‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d.‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:353
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Valóban fel szeretné adni, és meg szeretné tekinteni a megoldást?"
 
-#: ../src/gnome-tetravex.vala:381
-#| msgid "_Continue playing"
+#: ../src/gnome-tetravex.vala:355 ../src/gnome-tetravex.vala:416
 msgid "_Keep Playing"
 msgstr "_Játék folytatása"
 
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:356
 msgid "_Give Up"
 msgstr "_Feladás"
 
-#: ../src/gnome-tetravex.vala:416
+#: ../src/gnome-tetravex.vala:390
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -208,7 +185,7 @@ msgstr ""
 "\n"
 "A Tetravex a GNOME játékok része."
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:397
 msgid "translator-credits"
 msgstr ""
 "Bán Szabolcs <shooby at gnome dot hu>\n"
@@ -219,7 +196,17 @@ msgstr ""
 "Tímár András <timar at gnome dot hu>\n"
 "Varga Szabolcs <shirokuma at shirokuma dot hu>"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:415
+#| msgid "Do you want to start a new game with this map?"
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "Biztosan új játékot kíván indítani egy másik táblamérettel?"
+
+#: ../src/gnome-tetravex.vala:417
+#| msgid "Start New Game"
+msgid "_Start New Game"
+msgstr "Új játék _indítása"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Szüneteltetve"
 
@@ -246,6 +233,12 @@ msgstr "Dátum"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Idő"
+
+#~ msgid "%02d∶‎%02d∶‎%02d"
+#~ msgstr "%02d.‎%02d.‎%02d"
+
+#~ msgid "%02d∶‎%02d"
+#~ msgstr "%02d.‎%02d"
 
 #~| msgid "Play as:"
 #~ msgid "Play _Again"
@@ -1955,9 +1948,6 @@ msgstr "Idő"
 #~ msgid "Hint"
 #~ msgstr "Javaslat"
 
-#~ msgid "Do you want to start a new game with this map?"
-#~ msgstr "Új játékot kíván indítani ezzel a térképpel?"
-
 #~ msgid "If you continue playing the next game will use the new map."
 #~ msgstr ""
 #~ "Ha folytatja a játékot, akkor a következő játék az új térképet fogja "
@@ -2433,9 +2423,6 @@ msgstr "Idő"
 
 #~ msgid "Keep Current Game"
 #~ msgstr "A jelenlegi játék folytatása"
-
-#~ msgid "Start New Game"
-#~ msgstr "Új játék indítása"
 
 #~ msgid "Resizing and SVG support:"
 #~ msgstr "Átméretezés és SVG-támogatás:"
