@@ -2,7 +2,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-#
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
 #
 msgid ""
@@ -10,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-08-07 07:45+0000\n"
-"PO-Revision-Date: 2014-08-05 16:39+0200\n"
+"POT-Creation-Date: 2014-12-31 17:21+0100\n"
+"PO-Revision-Date: 2014-12-06 17:04+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
@@ -19,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
 msgid "GNOME Tetravex"
@@ -43,8 +42,8 @@ msgid ""
 msgstr "Jokoa errazagoa edo zailagoa egin dezakezu mahaiaren tamaina aldatuz."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:101
+#: ../src/gnome-tetravex.vala:328
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -121,73 +120,19 @@ msgstr "Honi _buruz"
 msgid "_Quit"
 msgstr "_Irten"
 
-#: ../src/gnome-tetravex.vala:37
-msgid "Print release version and exit"
-msgstr "Erakutsi bertsioaren informazioa eta irten"
+#: ../src/gnome-tetravex.vala:122
+msgid "Play _Again"
+msgstr "Jokatu _berriro"
 
-#: ../src/gnome-tetravex.vala:38
-msgid "Start the game paused"
-msgstr "Hasi pausatutako jokoa"
+#: ../src/gnome-tetravex.vala:135 ../src/gnome-tetravex.vala:396
+msgid "_Pause"
+msgstr "_Pausarazi"
 
-#: ../src/gnome-tetravex.vala:39
-msgid "Set size of board (2-6)"
-msgstr "Ezarri taularen tamaina (2-6)"
+#: ../src/gnome-tetravex.vala:149
+msgid "_Resolve"
+msgstr "_Ebatzi"
 
-#. not a typo
-#: ../src/gnome-tetravex.vala:139
-msgid "Resume the game"
-msgstr "Jarraitu jokoa"
-
-#: ../src/gnome-tetravex.vala:151
-msgid "Pause the game"
-msgstr "Jokoa pausarazten du"
-
-#: ../src/gnome-tetravex.vala:168
-msgid "Start a new game"
-msgstr "Beste joko bat hasten du"
-
-#: ../src/gnome-tetravex.vala:180
-msgid "Give up and view the solution"
-msgstr "Utzi eta ikusi ebazpena"
-
-#: ../src/gnome-tetravex.vala:251
-msgid "Size could only be from 2 to 6.\n"
-msgstr "Tamaina 2 eta 6 artekoa soilik izan daiteke.\n"
-
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
-msgid "Are you sure you want to give up and view the solution?"
-msgstr "Ziur zaude utzi eta ebazpena ikustea nahi duzula?"
-
-#: ../src/gnome-tetravex.vala:381
-msgid "_Keep Playing"
-msgstr "_Jarraitu jokatzen"
-
-#: ../src/gnome-tetravex.vala:382
-msgid "_Give Up"
-msgstr "_Utzi"
-
-#: ../src/gnome-tetravex.vala:416
+#: ../src/gnome-tetravex.vala:331
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -198,49 +143,93 @@ msgstr ""
 "\n"
 "GNOME Games-ekoa da Tetravex."
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:338
 msgid "translator-credits"
 msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 
-#: ../src/puzzle-view.vala:337
-msgid "Paused"
-msgstr "Pausarazita"
+#: ../src/gnome-tetravex.vala:391
+msgid "Res_ume"
+msgstr "_Berrekin"
 
-#: ../src/score-dialog.vala:29
+#: ../src/puzzle-view.vala:340
+msgid "Paused"
+msgstr "Pausatuta"
+
+#: ../src/score-dialog.vala:28
 msgid "Quit"
 msgstr "Irten"
 
-#: ../src/score-dialog.vala:30
+#: ../src/score-dialog.vala:29
 msgid "New Game"
 msgstr "Joko berria"
 
-#: ../src/score-dialog.vala:33
+#: ../src/score-dialog.vala:32
 msgid "OK"
 msgstr "Ados"
 
-#: ../src/score-dialog.vala:45
+#: ../src/score-dialog.vala:44
 msgid "Size:"
 msgstr "Tamaina:"
 
-#: ../src/score-dialog.vala:70
+#: ../src/score-dialog.vala:69
 msgid "Date"
 msgstr "Data"
 
-#: ../src/score-dialog.vala:73
+#: ../src/score-dialog.vala:72
 msgid "Time"
 msgstr "Denbora"
 
-#~ msgid "Play _Again"
-#~ msgstr "Jokatu _berriro"
+#~ msgid "Reorder tiles to fit a square"
+#~ msgstr "Ordenatu berriro lauzak karratura doitzeko"
 
-#~ msgid "_Pause"
-#~ msgstr "_Pausarazi"
+#~| msgid "Show release version"
+#~ msgid "Print release version and exit"
+#~ msgstr "Erakutsi bertsioa eta irten"
 
-#~ msgid "_Resolve"
-#~ msgstr "_Ebatzi"
+#~| msgid "Restart the game"
+#~ msgid "Start the game paused"
+#~ msgstr "Hasi pausatutako jokoa"
 
-#~ msgid "Res_ume"
-#~ msgstr "_Berrekin"
+#~| msgid "Size of board (2-6)"
+#~ msgid "Set size of board (2-6)"
+#~ msgstr "Ezarri taularen tamaina (2-6)"
+
+#~| msgid "Resume the paused game"
+#~ msgid "Resume the game"
+#~ msgstr "Berrekin jokoa"
+
+#~ msgid "Pause the game"
+#~ msgstr "Pausatu jokoa"
+
+#~ msgid "Start a new game"
+#~ msgstr "Beste joko bat hasten du"
+
+#~| msgid "Move a card to the Foundation"
+#~ msgid "Give up and view the solution"
+#~ msgstr "Amore eman eta ikusi ebazpena"
+
+#~ msgid "Size could only be from 2 to 6.\n"
+#~ msgstr "Tamaina 2 eta 6 artekoa soilik izan daiteke.\n"
+
+#~ msgid "Are you sure you want to give up and view the solution?"
+#~ msgstr "Ziur zaude amore eman eta ebazpena ikustea nahi duzula?"
+
+#~| msgid "_Continue playing"
+#~ msgid "_Keep Playing"
+#~ msgstr "_Jarraitu jokatzen"
+
+#~ msgid "_Give Up"
+#~ msgstr "_Amore eman"
+
+#~| msgid "Do you want to start a new game with this map?"
+#~ msgid ""
+#~ "Are you sure you want to start a new game with a different board size?"
+#~ msgstr ""
+#~ "Ziur zaude tamaina desberdineko taulako joko berria abiarazi nahi duzula?"
+
+#~| msgid "Start New Game"
+#~ msgid "_Start New Game"
+#~ msgstr "_Hasi joko berria"
 
 #~ msgid "_Move"
 #~ msgstr "_Mugitu"
@@ -2212,9 +2201,6 @@ msgstr "Denbora"
 #~ msgid "Cancel current game?"
 #~ msgstr "Utzi uneko jokoa?"
 
-#~ msgid "Start New Game"
-#~ msgstr "Hasi joko berria"
-
 #~ msgid "Keep Current Game"
 #~ msgstr "Mantendu uneko jokoa"
 
@@ -2910,9 +2896,6 @@ msgstr "Denbora"
 
 #~ msgid "Moves Left:"
 #~ msgstr "Zenbat mugimendu:"
-
-#~ msgid "Do you want to start a new game with this map?"
-#~ msgstr "Mapa honekin joko berria hastea nahi duzu?"
 
 #~ msgid "If you continue playing the next game will use the new map."
 #~ msgstr ""
