@@ -10,13 +10,13 @@
 # Antón Méixome <meixome@mancomun.org>, 2009.
 # Fran Diéguez <frandieguez@gnome.org>, 2009, 2010, 2011.
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.
-# Fran Dieguez <frandieguez@gnome.org>, 2011, 2012, 2013, 2014.
+# Fran Dieguez <frandieguez@gnome.org>, 2011, 2012, 2013, 2014, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games-master-po-gl-54590\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-25 22:49+0200\n"
-"PO-Revision-Date: 2014-08-25 22:50+0200\n"
+"POT-Creation-Date: 2015-01-13 00:52+0100\n"
+"PO-Revision-Date: 2015-01-13 00:54+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -32,6 +32,10 @@ msgid "GNOME Tetravex"
 msgstr "Tetravex de GNOME"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Reordenar pezas para axustalas a un cadrado"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -43,15 +47,15 @@ msgstr ""
 "números non coinciden non poderá poñer a peza no lugar. Móvase rápido: hai "
 "unha conta atrás!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Pode facer máis doado ou máis difícil o xogo cambiando o tamaño do taboleiro."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:105
+#: ../src/gnome-tetravex.vala:387
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -140,60 +144,39 @@ msgid "Set size of board (2-6)"
 msgstr "Estabelecer o tamaño do taboleiro (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
+#: ../src/gnome-tetravex.vala:128
 msgid "Resume the game"
 msgstr "Reiniciar o xogo"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:140
 msgid "Pause the game"
 msgstr "Deter o xogo"
 
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:157
 msgid "Start a new game"
 msgstr "Comezar un xogo novo"
 
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:169
 msgid "Give up and view the solution"
 msgstr "Deixalo e ver a solución"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
 msgstr "O tamaño só pode ser de 2 a 6.\n"
 
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:353
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Te certeza que quere deixalo e ver a solución?"
 
-#: ../src/gnome-tetravex.vala:381
+#: ../src/gnome-tetravex.vala:355 ../src/gnome-tetravex.vala:416
 msgid "_Keep Playing"
 msgstr "_Continuar xogando"
 
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:356
 msgid "_Give Up"
 msgstr "_Deixalo"
 
-#: ../src/gnome-tetravex.vala:416
+#: ../src/gnome-tetravex.vala:390
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
@@ -203,23 +186,30 @@ msgstr ""
 "\n"
 "O Tetravex forma parte do GNOME Games."
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:397
 msgid "translator-credits"
 msgstr ""
-"Fran Diéguez <frandieguez@ubuntu.com>, 2009-2013.\n"
+"Fran Diéguez <frandieguez@gnome.org>, 2009-2015.\n"
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.\n"
 "Antón Méixome <meixome@mancomun.org>, 2009.\n"
 "Suso Baleato <suso.baleato@xunta.es>, 2009.\n"
-"Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun."
-"org>, 2009.\n"
+"Mancomún - Centro de Referencia e Servizos de Software Libre "
+"<g11n@mancomun.org>, 2009.\n"
 "Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2008.\n"
 "Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.\n"
 "Jesús Bravo Álvarez <jba@pobox.com>, 2000.\n"
-"\n"
-"Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas\n"
-"colaborar connosco, podes atopar máis información en http://www.trasno.net"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:415
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr ""
+"Quere comezar unha partida nova con este mapa con un tamaño de taboleiro "
+"distinto?"
+
+#: ../src/gnome-tetravex.vala:417
+msgid "_Start New Game"
+msgstr "_Iniciar un novo xogo"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Detido"
 
@@ -246,6 +236,12 @@ msgstr "Data"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Tempo"
+
+#~ msgid "%02d∶‎%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d∶‎%02d"
+
+#~ msgid "%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d"
 
 #~ msgid "Play _Again"
 #~ msgstr "Xogar _de novo"
@@ -1963,9 +1959,6 @@ msgstr "Tempo"
 #~ msgid "Hint"
 #~ msgstr "Suxestión"
 
-#~ msgid "Do you want to start a new game with this map?"
-#~ msgstr "Quere comezar unha partida nova con este mapa?"
-
 #~ msgid "If you continue playing the next game will use the new map."
 #~ msgstr "Se continúa xogando a seguinte partida usará o mapa novo."
 
@@ -2443,9 +2436,6 @@ msgstr "Tempo"
 
 #~ msgid "Keep Current Game"
 #~ msgstr "Manter o xogo actual"
-
-#~ msgid "Start New Game"
-#~ msgstr "Iniciar un novo xogo"
 
 #~ msgid "Resizing and SVG support:"
 #~ msgstr "Redimensionamento e soporte SVG:"
