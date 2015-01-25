@@ -387,7 +387,7 @@ public class Tetravex : Gtk.Application
                                "program-name", _("Tetravex"),
                                "version", VERSION,
                                "comments",
-                               _("Position pieces so that the same numbers are touching each other\n\nTetravex is a part of GNOME Games."),
+                               _("Position pieces so that the same numbers are touching each other"),
                                "copyright",
                                "Copyright © 1999–2008 Lars Rydlinge",
                                "license-type", Gtk.License.GPL_2_0,
