@@ -46,7 +46,7 @@ public class Tetravex : Gtk.Application
         { "pause",          pause_cb                                        },
         { "solve",          solve_cb                                        },
         { "scores",         scores_cb                                       },
-        { "quit",           quit_cb                                         },
+        { "quit",           quit                                            },
         { "move-up",        move_up_cb                                      },
         { "move-down",      move_down_cb                                    },
         { "move-left",      move_left_cb                                    },
@@ -319,11 +319,6 @@ public class Tetravex : Gtk.Application
     private void new_game_cb ()
     {
         new_game ();
-    }
-
-    private void quit_cb ()
-    {
-        window.destroy ();
     }
 
     private void scores_cb ()
