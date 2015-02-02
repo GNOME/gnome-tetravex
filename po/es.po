@@ -5,15 +5,15 @@
 # Lucas Vieites <lucas@codexion.com>, 2007, 2008.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
 # Chris Leonard <cjl@laptop.org>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-11-26 08:51+0000\n"
-"PO-Revision-Date: 2014-11-26 12:20+0100\n"
+"POT-Creation-Date: 2015-02-02 08:56+0000\n"
+"PO-Revision-Date: 2015-02-02 11:21+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -52,8 +52,8 @@ msgstr ""
 "tablero."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:105
-#: ../src/gnome-tetravex.vala:387
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -131,32 +131,32 @@ msgstr "_Acerca de"
 msgid "_Quit"
 msgstr "_Salir"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Mostrar el número de versión y salir"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Iniciar el juego pausado"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Establecer el tamaño del tablero (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:128
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Reanudar el juego"
 
-#: ../src/gnome-tetravex.vala:140
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Pausar el juego"
 
-#: ../src/gnome-tetravex.vala:157
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Iniciar un juego nuevo"
 
-#: ../src/gnome-tetravex.vala:169
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Renunciar y ver la solución"
 
@@ -164,29 +164,27 @@ msgstr "Renunciar y ver la solución"
 msgid "Size could only be from 2 to 6.\n"
 msgstr "El tamaño sólo puede ser de 2 a 6.\n"
 
-#: ../src/gnome-tetravex.vala:353
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "¿Seguro que quiere renunciar y ver la solución?"
 
-#: ../src/gnome-tetravex.vala:355 ../src/gnome-tetravex.vala:416
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "_Continuar jugando"
 
-#: ../src/gnome-tetravex.vala:356
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "_Renunciar"
 
-#: ../src/gnome-tetravex.vala:390
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
-msgstr ""
-"Coloque las piezas de modo que los mismos números se toquen.\n"
-"\n"
-"Tetravex es parte de los juegos de GNOME."
+#: ../src/gnome-tetravex.vala:385
+#| msgid ""
+#| "Position pieces so that the same numbers are touching each other\n"
+#| "\n"
+#| "Tetravex is a part of GNOME Games."
+msgid "Position pieces so that the same numbers are touching each other"
+msgstr "Coloque las piezas de modo que los mismos números se toquen"
 
-#: ../src/gnome-tetravex.vala:397
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2012\n"
@@ -195,13 +193,13 @@ msgstr ""
 "Germán Poo Caamaño <gpoo@ubiobio.cl>\n"
 "Pablo Saratxaga <pablo@mandrakesoft.com>"
 
-#: ../src/gnome-tetravex.vala:415
+#: ../src/gnome-tetravex.vala:410
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
 "¿Esta seguro de querer empezar un juego nuevo con un tamaño de tablero "
 "diferente?"
 
-#: ../src/gnome-tetravex.vala:417
+#: ../src/gnome-tetravex.vala:412
 msgid "_Start New Game"
 msgstr "_Iniciar un juego nuevo"
 
