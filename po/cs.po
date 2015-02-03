@@ -16,15 +16,15 @@
 # Petr Pulc <petrpulc@gmail.com>, 2009.
 # Andre Klapper <ak-47@gmx.net>, 2009.
 # Petr Kovar <pknbe@volny.cz>, 2008, 2012.
-# Marek Černocký <marek@manet.cz>, 2010, 2011, 2012, 2013, 2014.
+# Marek Černocký <marek@manet.cz>, 2010, 2011, 2012, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-11-25 20:47+0000\n"
-"PO-Revision-Date: 2014-11-26 08:39+0100\n"
+"POT-Creation-Date: 2015-02-03 09:00+0000\n"
+"PO-Revision-Date: 2015-02-03 10:37+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -61,8 +61,8 @@ msgstr ""
 "Hru si můžete usnadnit a nebo nakopat ztížit změnou velikosti herní desky."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:105
-#: ../src/gnome-tetravex.vala:387
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -138,32 +138,32 @@ msgstr "O _aplikaci"
 msgid "_Quit"
 msgstr "U_končit"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Vypsat verzi vydání a skončit"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Spustit pozastavenou hru"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Nastavit velikost herní desky (2 – 6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:128
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Pokračovat ve hře"
 
-#: ../src/gnome-tetravex.vala:140
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Pozastavit hru"
 
-#: ../src/gnome-tetravex.vala:157
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Začít novou hru"
 
-#: ../src/gnome-tetravex.vala:169
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Vzdát to a zobrazit řešení"
 
@@ -171,29 +171,23 @@ msgstr "Vzdát to a zobrazit řešení"
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Velikost může být je v rozsahu od 2 do 6.\n"
 
-#: ../src/gnome-tetravex.vala:353
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Opravdu to chcete vzdát a zobrazit řešení?"
 
-#: ../src/gnome-tetravex.vala:355 ../src/gnome-tetravex.vala:416
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "Po_kračovat v hraní"
 
-#: ../src/gnome-tetravex.vala:356
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "Vz_dát to"
 
-#: ../src/gnome-tetravex.vala:390
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
-msgstr ""
-"Uspořádejte kameny tak, aby se dotýkaly stejnými čísly\n"
-"\n"
-"Tetravex je součást her GNOME."
+#: ../src/gnome-tetravex.vala:385
+msgid "Position pieces so that the same numbers are touching each other"
+msgstr "Uspořádejte kameny tak, aby se dotýkaly stejnými čísly"
 
-#: ../src/gnome-tetravex.vala:397
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
@@ -210,11 +204,11 @@ msgstr ""
 "Petr Pulc <petrpulc@gmail.com>\n"
 "Marek Černocký <marek@manet.cz>"
 
-#: ../src/gnome-tetravex.vala:415
+#: ../src/gnome-tetravex.vala:410
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr "Opravdu to chcete začít novu hru s jinou velikostí herní desky?"
 
-#: ../src/gnome-tetravex.vala:417
+#: ../src/gnome-tetravex.vala:412
 msgid "_Start New Game"
 msgstr "Začít _novou hru"
 
