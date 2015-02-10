@@ -1,14 +1,14 @@
 # Norwegian bokmål translation of gnome-tetravex.
 # Copyright © 1998-2002 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@gnome.org>, 1998-2014.
+# Kjartan Maraas <kmaraas@gnome.org>, 1998-2015.
 # Terance Edward Sola <terance@lyse.net>, 2005.
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex 3.15.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-17 17:13+0100\n"
-"PO-Revision-Date: 2014-11-17 17:14+0100\n"
+"POT-Creation-Date: 2015-02-10 17:53+0100\n"
+"PO-Revision-Date: 2015-02-10 17:54+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -22,6 +22,10 @@ msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Plasser flisene så de passer i en firkant"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -29,14 +33,14 @@ msgid ""
 "being timed!"
 msgstr ""
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
-msgstr ""
+msgstr "Du kan gjøre spillet lettere eller vanskeligere ved å endre størrelsen på brettet."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:105
-#: ../src/gnome-tetravex.vala:387
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -113,32 +117,32 @@ msgstr "_Om"
 msgid "_Quit"
 msgstr "A_vslutt"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Skriv versjonsinformasjon og avslutt"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Start spillet i pause"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Sett størrelse på brettet (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:128
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Gjenoppta spillet"
 
-#: ../src/gnome-tetravex.vala:140
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Sett spillet på pause"
 
-#: ../src/gnome-tetravex.vala:157
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Start et nytt spill"
 
-#: ../src/gnome-tetravex.vala:169
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Gi opp og se løsningen"
 
@@ -146,40 +150,36 @@ msgstr "Gi opp og se løsningen"
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Størrelsen kan kun være fra to til seks.\n"
 
-#: ../src/gnome-tetravex.vala:353
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Er du sikker på at du vil gi opp og se løsningen?"
 
-#: ../src/gnome-tetravex.vala:355 ../src/gnome-tetravex.vala:416
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "Fortsett s_pillet"
 
-#: ../src/gnome-tetravex.vala:356
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "_Gi opp"
 
-#: ../src/gnome-tetravex.vala:390
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
-msgstr ""
-"Plasser brikkene slik at de samme tallene berører hverandre\n"
-"\n"
-"Tetravex er en del av GNOME spill."
+#: ../src/gnome-tetravex.vala:385
+msgid "Position pieces so that the same numbers are touching each other"
+msgstr "Plasser brikkene slik at de samme tallene berører hverandre"
 
-#: ../src/gnome-tetravex.vala:397
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
 "Espen Stefansen <espens@svn.gnome.org>\n"
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
 
-#: ../src/gnome-tetravex.vala:415
+#: ../src/gnome-tetravex.vala:410
 msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Er du sikker på at du vil starte et nytt spill med en annen størrelse på brettet?"
+msgstr ""
+"Er du sikker på at du vil starte et nytt spill med en annen størrelse på "
+"brettet?"
 
-#: ../src/gnome-tetravex.vala:417
+#: ../src/gnome-tetravex.vala:412
 msgid "_Start New Game"
 msgstr "_Start et nytt spill"
 
