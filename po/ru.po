@@ -11,30 +11,35 @@
 # Yuri Kozlov <yuray@komyakino.ru>, 2010.
 # Valek Filippov <frob@df.ru> 2000-2002
 # Nickolay V. Shmyrev <nshmyrev@yandex.ru>
-# Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2014.
+# Ivan Komaritsyn <vantu5z@mail.ru>, 2015.
+# Yuri Myasoedov <ymyasoedov@yandex.ru>, 2012-2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games trunk\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-09 07:51+0000\n"
-"PO-Revision-Date: 2014-09-09 14:54+0300\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
+"POT-Creation-Date: 2015-02-12 20:59+0000\n"
+"PO-Revision-Date: 2015-02-14 15:11+0300\n"
+"Last-Translator: Yuri Myasoedov <ymyasoedov@yandex.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.4\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
 msgid "GNOME Tetravex"
 msgstr "Тетравекс GNOME"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Расположите кусочки на поле в правильном порядке"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -46,14 +51,14 @@ msgstr ""
 "числа не совпадут, вы не сможете положить на это место квадрат. Торопитесь — "
 "время идёт!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
-msgstr "Вы можете управлять сложностью игры, изменяя размер игрового поля."
+msgstr "Сложность игры можно менять, изменяя размер игрового поля."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Тетравекс"
 
@@ -128,86 +133,59 @@ msgstr "_О приложении"
 
 #: ../src/app-menu.ui.h:11
 msgid "_Quit"
-msgstr "_Завершить"
+msgstr "_Закончить"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Показать номер версии и выйти"
 
-#: ../src/gnome-tetravex.vala:38
-#| msgid "Start a new game"
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Возобновить приостановленную игру"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Установить размер доски (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Возобновить игру"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Приостановить игру"
 
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Начать новую игру"
 
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Сдаться и показать решение"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Размер может быть от 2 до 6.\n"
 
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Уверены, чтобы хотите сдаться и посмотреть решение?"
 
-#: ../src/gnome-tetravex.vala:381
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "_Продолжить игру"
 
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "_Сдаться"
 
-#: ../src/gnome-tetravex.vala:416
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
+#: ../src/gnome-tetravex.vala:385
+msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
-"Разложите куски таким образом, чтобы числа на соседних совпадали.\n"
-"\n"
-"Тетравекс является частью GNOME Games"
+"Разложите кусочки таким образом, чтобы числа на соседних сторонах совпали"
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
 "Валек Филиппов aka frob\n"
@@ -216,9 +194,17 @@ msgstr ""
 "Михаил Яхонтов\n"
 "Леонид Кантер"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:410
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "Уверены, что хотите начать новую игру с другим размером поля?"
+
+#: ../src/gnome-tetravex.vala:412
+msgid "_Start New Game"
+msgstr "_Начать новую игру"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
-msgstr "Пауза"
+msgstr "Приостановлено"
 
 #: ../src/score-dialog.vala:29
 msgid "Quit"
@@ -243,3 +229,9 @@ msgstr "Дата"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Время"
+
+#~ msgid "%02d∶‎%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d∶‎%02d"
+
+#~ msgid "%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d"
