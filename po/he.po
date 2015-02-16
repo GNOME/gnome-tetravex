@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-29 01:47+0300\n"
-"PO-Revision-Date: 2014-08-29 01:52+0300\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
+"POT-Creation-Date: 2015-02-17 00:46+0200\n"
+"PO-Revision-Date: 2015-02-17 00:48+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,10 @@ msgid "GNOME Tetravex"
 msgstr "‏GNOME ארבע צלעות Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Reorder tiles to fit a square"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -38,14 +42,14 @@ msgstr ""
 "המספרים סמוכים זה לזה. אם המספרים אינם מתאימים, לא ניתן לשים שם את החתיכה. "
 "יש לפעול במהירות: הזמן קצוב!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr "ניתן לעשות את המשחק קל יותר או קשה יותר על ידי שינוי גודל הלוח."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "ארבע צלעות Tetravex"
 
@@ -121,82 +125,56 @@ msgstr "על _אודות"
 msgid "_Quit"
 msgstr "י_ציאה"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Print release version and exit"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Start the game paused"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Set size of board (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "המשך המשחק"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "השהיית המשחק"
 
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "התחלת משחק חדש"
 
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "להתייאש ולהציג את הפתרון"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Size could only be from 2 to 6.\n"
 
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "האם אכן ברצונך להתייאש ולהציג את הפתרון?"
 
-#: ../src/gnome-tetravex.vala:381
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "לה_משיך לשחק"
 
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "לה_תייאש"
 
-#: ../src/gnome-tetravex.vala:416
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
-msgstr ""
-"תצרף בו יש למקם את החלקים כך שמספרים זהים יהיו צמודים אחד אל השני.\n"
-"ארבע צלעות Tetravex הוא חלק מחבילת משחקי GNOME."
+#: ../src/gnome-tetravex.vala:385
+msgid "Position pieces so that the same numbers are touching each other"
+msgstr "תצרף בו יש למקם את החלקים כך שמספרים זהים יהיו צמודים אחד אל השני"
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
 "גיל אשר <dolfin@rpg.org.il>\n"
@@ -211,7 +189,15 @@ msgstr ""
 "פרויקט תרגום GNOME לעברית:\n"
 "‏http://gnome-il.berlios.de"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:410
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "האם אכן ברצונך להתחיל משחק חדש עם לוח בגודל שונה?"
+
+#: ../src/gnome-tetravex.vala:412
+msgid "_Start New Game"
+msgstr "הֹ_תחלת משחק חדש"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "הושהה"
 
@@ -238,6 +224,12 @@ msgstr "תאריך"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "זמן"
+
+#~ msgid "%02d∶‎%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d∶‎%02d"
+
+#~ msgid "%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d"
 
 #~ msgid "_Pause"
 #~ msgstr "ה_שהייה"
@@ -1940,9 +1932,6 @@ msgstr "זמן"
 #~ msgid "Hint"
 #~ msgstr "רמז"
 
-#~ msgid "Do you want to start a new game with this map?"
-#~ msgstr "האם ברצונך להתחיל משחק חדש עם מפה זו?"
-
 #~ msgid "If you continue playing the next game will use the new map."
 #~ msgstr "אם בחירתך תהיה להמשיך לשחק המשחק הבא ישתמש במפה החדשה."
 
@@ -2410,9 +2399,6 @@ msgstr "זמן"
 
 #~ msgid "Keep Current Game"
 #~ msgstr "שמירת המשחק הנוכחי"
-
-#~ msgid "Start New Game"
-#~ msgstr "הֹתחלת משחק חדש"
 
 #~ msgid "Resizing and SVG support:"
 #~ msgstr "תמיכה באפשרות שינוי גודל ובגרפיקה וקטורית (SVG):"
