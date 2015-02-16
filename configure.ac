@@ -26,6 +26,8 @@ PKG_CHECK_MODULES(GNOME_TETRAVEX, [
   gtk+-3.0 >= $GTK_REQUIRED
 ])
 
+AC_SUBST([GLIB_REQUIRED])
+
 AC_PATH_PROG([DESKTOP_FILE_VALIDATE], [desktop-file-validate], [/bin/true])
 
 dnl ###########################################################################
