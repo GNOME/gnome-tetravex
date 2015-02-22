@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-15 19:47+0000\n"
-"PO-Revision-Date: 2014-09-15 22:38+0100\n"
+"POT-Creation-Date: 2015-02-22 08:56+0000\n"
+"PO-Revision-Date: 2015-02-22 16:26+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -20,35 +20,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.7.4\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
 msgid "GNOME Tetravex"
-msgstr "Štvorproblém Gnome"
+msgstr "Tetravex GNOME"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
-msgid ""
-"Each square piece has a number on each side. Position the pieces on the left "
-"side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're "
-"being timed!"
-msgstr ""
-"Každá dlaždica má číslo na každej strane. Umiestnite dlaždicu na hraciu "
-"plochu vľavo tak aby rovnaké čísla boli vedľa seba. Ak čísla nie sú rovnaké, "
-"nie je možné dlaždicu umiestniť. Umiestňujte rýchlo, čas sa meria!"
+msgid "Reorder tiles to fit a square"
+msgstr "Usporiadajte dlaždice tak, aby vyplnili štvorec"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
-"You can make the game easier or harder by changing the size of the board."
+"Each square piece has a number on each side. Position the pieces on the left side of "
+"the board so that the same numbers are next to each other. If the numbers don't "
+"match, you can't put the piece there. Move quickly: you're being timed!"
 msgstr ""
-"Zmenou veľkosti hracej plochy môžete hru spraviť jednoduchšou alebo "
-"náročnejšou."
+"Každá dlaždica má číslo na každej strane. Umiestnite dlaždicu na hraciu plochu vľavo "
+"tak aby rovnaké čísla boli vedľa seba. Ak čísla nie sú rovnaké, nie je možné "
+"dlaždicu umiestniť. Umiestňujte rýchlo, čas sa meria!"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
+msgid "You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"Zmenou veľkosti hracej plochy môžete hru spraviť jednoduchšou alebo náročnejšou."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:398
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
-msgstr "Štvorproblém"
+msgstr "Tetravex"
 
 #: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
@@ -123,68 +124,62 @@ msgid "_Quit"
 msgstr "U_končiť"
 
 # cmd desc
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Vypíše verziu vydania a skončí"
 
 # cmd desc
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Spustí hru v pozastavenom stave"
 
 # cmd desc
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Nastaví veľkosť hracej plochy (2-6)"
 
 # tooltip
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Pokračuje v hre"
 
 # tooltip
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Pozastaví hru"
 
 # tooltip
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Začne novú hru"
 
 # tooltip
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Vzdá sa a ukáže riešenie"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Veľkosť môže byť iba v rozsahu 2 až 6.\n"
 
-#: ../src/gnome-tetravex.vala:364
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Naozaj sa chcete vzdať a ukázať riešenie?"
 
-#: ../src/gnome-tetravex.vala:366
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "Pokračovať v _hraní"
 
-#: ../src/gnome-tetravex.vala:367
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "_Vzdať sa"
 
-#: ../src/gnome-tetravex.vala:401
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
-msgstr ""
-"Poskladajte dlaždice tak, aby sa rovnaké čísla navzájom dotýkali\n"
-"\n"
-"Hra Štvorproblém je súčasťou Hier GNOME."
+#: ../src/gnome-tetravex.vala:385
+msgid "Position pieces so that the same numbers are touching each other"
+msgstr "Poskladajte dlaždice tak, aby sa rovnaké čísla navzájom dotýkali"
 
-#: ../src/gnome-tetravex.vala:408
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
 "Stanislav Višňovský (visnovsky@nenya.ms.mff.cuni.cz)\n"
@@ -193,7 +188,16 @@ msgstr ""
 "Ján Kyselica <kyselica.jan@gmail.com>\n"
 "Dušan Kazik <prescott66@gmail.com>"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:410
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "Naozaj chcete začať novú hru s inou veľkosťou hracej plochy?"
+
+# tooltip
+#: ../src/gnome-tetravex.vala:412
+msgid "_Start New Game"
+msgstr "Začať novú hru"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Pozastavené"
 
