@@ -30,21 +30,23 @@
 # Michael Kotsarinis <mk73628@hotmail.com>, 2010.
 # George Stefanakis <george.stefanakis@gmail.com>, 2011.
 # Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2015.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-15 19:47+0000\n"
-"PO-Revision-Date: 2014-07-16 02:53+0200\n"
-"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
-"Language-Team: team@lists.gnome.gr\n"
+"POT-Creation-Date: 2015-02-22 20:58+0000\n"
+"PO-Revision-Date: 2015-02-23 02:01+0200\n"
+"Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
+"Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
@@ -52,6 +54,10 @@ msgid "GNOME Tetravex"
 msgstr "Τετραβέξ"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Επανατοποθετήστε τα πλακίδια ώστε να χωρούν στο τετράγωνο"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -63,7 +69,7 @@ msgstr ""
 "μεταξύ τους. Αν οι αριθμοί δεν ταιριάζουν, δεν μπορείτε να βάλετε το κομμάτι "
 "εκεί. Πιο γρήγορα: χρονομετρείστε!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
@@ -71,8 +77,8 @@ msgstr ""
 "μέγεθος του πίνακα."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Τετραβέξ"
 
@@ -150,84 +156,61 @@ msgstr "_Περί"
 msgid "_Quit"
 msgstr "Έ_ξοδος"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Προβολή πληροφοριών έκδοσης και έξοδος"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Εκκίνηση του παιχνιδιού που είχε τεθεί σε παύση"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Ορισμός μεγέθους του πίνακα (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Συνέχιση του τρέχοντος παιχνιδιού"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Παύση παιχνιδιού"
 
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Εκκίνηση νέου παιχνιδιού"
 
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Εγκαταλείψτε και δείτε τη λύση"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Το μέγεθος θα μπορούσε να είναι μόνο από 2 έως 6.\n"
 
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Είστε σίγουροι ότι θέλετε να εγκαταλείψετε και να δείτε τη λύση;"
 
-#: ../src/gnome-tetravex.vala:381
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "_Συνέχεια παιχνιδιού"
 
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "_Εγκατάλειψη"
 
-#: ../src/gnome-tetravex.vala:416
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
+#: ../src/gnome-tetravex.vala:385
+#| msgid ""
+#| "Position pieces so that the same numbers are touching each other\n"
+#| "\n"
+#| "Tetravex is a part of GNOME Games."
+msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
-"Τοποθετήστε τα κομμάτια έτσι ώστε οι ίδιοι αριθμοί να εφάπτονται μεταξύ "
-"τους.\n"
-"\n"
-"Το Τετραβέξ είναι μέρος των παιχνιδιών του GNOME."
+"Τοποθετήστε τα κομμάτια έτσι ώστε οι ίδιοι αριθμοί να εφάπτονται μεταξύ τους."
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
@@ -241,7 +224,19 @@ msgstr ""
 "Για περισσότερες πληροφορίες, επισκεφθείτε την σελίδα\n"
 "http://gnome.gr/"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:410
+#| msgid "Are you sure you want to give up and view the solution?"
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να εκκινήσετε νέο παιχνίδι με διαφορετικό μέγεθος "
+"πίνακα;"
+
+#: ../src/gnome-tetravex.vala:412
+#| msgid "Start a new game"
+msgid "_Start New Game"
+msgstr "_Εκκίνηση νέου παιχνιδιού"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Παύση"
 
@@ -268,6 +263,12 @@ msgstr "Ημερομηνία"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Χρόνος"
+
+#~ msgid "%02d∶‎%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d∶‎%02d"
+
+#~ msgid "%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d"
 
 #~ msgid "Play _Again"
 #~ msgstr "Παίξτε _ξανά"
