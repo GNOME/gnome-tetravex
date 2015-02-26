@@ -72,7 +72,7 @@ public class PuzzleView : Gtk.DrawingArea
             queue_resize ();
         }
     }
-    
+
     /* Theme */
     private Theme theme;
 
@@ -98,7 +98,7 @@ public class PuzzleView : Gtk.DrawingArea
         set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.POINTER_MOTION_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK);
 
         tiles = new HashTable <Tile, TileImage> (direct_hash, direct_equal);
-        
+
         theme = new Theme ();
 
         animation_timer = new Timer ();
@@ -123,13 +123,13 @@ public class PuzzleView : Gtk.DrawingArea
             return false;
         }
     }
-    
+
     private void redraw_tile (TileImage image)
     {
         uint x_offset, y_offset, size, gap;
         get_dimensions (out x_offset, out y_offset, out size, out gap);
 
-        queue_draw_area ((int) (image.x + 0.5), (int) (image.y + 0.5), (int) size, (int) size);    
+        queue_draw_area ((int) (image.x + 0.5), (int) (image.y + 0.5), (int) size, (int) size);
     }
 
     private void move_tile_to_location (TileImage image, uint x, uint y, double duration = 0)
@@ -148,7 +148,7 @@ public class PuzzleView : Gtk.DrawingArea
     {
         if (image.x == x && image.y == y)
             return;
-            
+
         image.source_x = image.x;
         image.source_y = image.y;
         image.source_time = animation_timer.elapsed ();
@@ -169,12 +169,12 @@ public class PuzzleView : Gtk.DrawingArea
         /* Start animation (maximum of 100fps) */
         if (animation_timeout == 0)
             animation_timeout = Timeout.add (10, animate_cb);
-    }    
-    
+    }
+
     private bool animate_cb ()
     {
         var t = animation_timer.elapsed ();
-        
+
         uint x_offset, y_offset, size, gap;
         get_dimensions (out x_offset, out y_offset, out size, out gap);
 
@@ -234,7 +234,7 @@ public class PuzzleView : Gtk.DrawingArea
             size = (int) ((puzzle.size + 1) * minimum_size);
         minimum = natural = int.max (size, 300);
     }
-    
+
     private void get_dimensions (out uint x, out uint y, out uint size, out uint gap)
     {
         /* Fit in with a half tile border and spacing between boards */
@@ -250,7 +250,7 @@ public class PuzzleView : Gtk.DrawingArea
     {
         move_tile_to_location (tiles.lookup (tile), x, y, 0.2);
     }
-    
+
     public override bool configure_event (Gdk.EventConfigure event)
     {
         /* Move everything to its correct location */
@@ -363,7 +363,7 @@ public class PuzzleView : Gtk.DrawingArea
 
         return false;
     }
-    
+
     private void pick_tile (double x, double y)
     {
         if (selected_tile != null)
@@ -395,7 +395,7 @@ public class PuzzleView : Gtk.DrawingArea
             }
         }
     }
-    
+
     private bool selection_timeout_cb ()
     {
         selection_timeout = 0;
@@ -501,7 +501,7 @@ public class PuzzleView : Gtk.DrawingArea
     {
         if (event.button == 1 && selected_tile != null && selection_timeout == 0)
             drop_tile (event.x, event.y);
-            
+
         if (selection_timeout != 0)
             Source.remove (selection_timeout);
         selection_timeout = 0;

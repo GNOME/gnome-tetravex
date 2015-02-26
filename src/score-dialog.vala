@@ -104,7 +104,7 @@ public class ScoreDialog : Gtk.Dialog
             Gtk.TreeIter iter;
             score_model.append (out iter);
             score_model.set (iter, 0, date_label, 1, time_label, 2, weight);
-            
+
             if (entry == selected_entry)
             {
                 var piter = iter;

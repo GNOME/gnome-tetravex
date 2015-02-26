@@ -28,7 +28,7 @@ public class Theme : Object
         tile_colors[7] = make_color_pattern ("#75507B");
         tile_colors[8] = make_color_pattern ("#BABDB6");
         tile_colors[9] = make_color_pattern ("#FFFFFF");
-        
+
         paused_color = make_color_pattern ("#CCCCCC");
 
         text_colors[0] = new Cairo.Pattern.rgb (1, 1, 1);
@@ -70,7 +70,7 @@ public class Theme : Object
         var depth = uint.min ((uint) (size * 0.025), 2);
         var dx = 1.4142 * depth;
         var dy = 6.1623 * depth;
-        
+
         /* Background */
         context.move_to (0, 0);
         context.line_to (w, h * 0.5);
@@ -97,7 +97,7 @@ public class Theme : Object
         context.line_to (w - depth, -h * 0.5 + dy);
         context.close_path ();
         context.set_source_rgba (0, 0, 0, 0.25);
-        context.fill ();   
+        context.fill ();
     }
 
     public void draw_socket (Cairo.Context context, uint size)
@@ -131,7 +131,7 @@ public class Theme : Object
         context.set_source_rgba (1, 1, 1, 0.125);
         context.fill ();
     }
-    
+
     public void draw_paused_tile (Cairo.Context context, uint size)
     {
         draw_tile_background (context, size, paused_color, paused_color, paused_color, paused_color);
