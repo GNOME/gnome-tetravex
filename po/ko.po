@@ -8,7 +8,7 @@
 #
 # Updated for gnome-tetravex:
 #
-# Changwoo Ryu <cwryu@debian.org>, 2013-2014.
+# Changwoo Ryu <cwryu@debian.org>, 2013-2015.
 #
 #
 # 새로 번역하신 분은 아래 "translator-credits"에 추가하세요.
@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-06 07:51+0000\n"
-"PO-Revision-Date: 2014-09-06 20:29+0900\n"
+"POT-Creation-Date: 2015-03-07 09:02+0000\n"
+"PO-Revision-Date: 2015-03-08 04:49+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: Korean\n"
@@ -36,6 +36,10 @@ msgid "GNOME Tetravex"
 msgstr "그놈 테트라벡스"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "타일 위치를 바꿔 사각형을 맞춥니다"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -46,14 +50,14 @@ msgstr ""
 "호가 마주보도록 만드십시오. 번호가 맞지 않으면 조각을 그 위치에 둘 수 없습니"
 "다. 시간이 가니 빨리 움직이십시오!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr "게임판 크기를 바꿔서 게임을 더 쉽거나 더 어렵게 만들 수 있습니다."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "테트라벡스"
 
@@ -129,87 +133,68 @@ msgstr "정보(_A)"
 msgid "_Quit"
 msgstr "끝내기(_Q)"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "릴리스 버전을 표시하고 끝냅니다"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "일시 중지했던 게임을 시작합니다"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "게임판 크기를 설정합니다(2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "게임을 다시 시작합니다"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "게임을 일시 중지합니다"
 
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "새 게임을 시작합니다"
 
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "포기하고 해법을 봅니다"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
 msgstr "크기는 2에서 6까지만 쓸 수 있습니다.\n"
 
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "정말로 포기하고 해법을 보시겠습니까?"
 
-#: ../src/gnome-tetravex.vala:381
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "계속 플레이(_K)"
 
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "포기(_G)"
 
-#: ../src/gnome-tetravex.vala:416
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
-msgstr ""
-"같은 번호가 맞닿도록 조각을 옮기는 퍼즐\n"
-"\n"
-"테트라벡스는 그놈 게임의 일부입니다."
+#: ../src/gnome-tetravex.vala:385
+msgid "Position pieces so that the same numbers are touching each other"
+msgstr "같은 번호가 맞닿도록 조각을 옮기는 퍼즐"
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr "류창우 <cwryu@debian.org>"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:410
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "정말로 다른 보드 크기로 게임을 새로 시작하시겠습니까?"
+
+#: ../src/gnome-tetravex.vala:412
+msgid "_Start New Game"
+msgstr "새 게임을 시작(_S)"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "일시 중지"
 
