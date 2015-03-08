@@ -8,15 +8,15 @@
 # Vytautas Povilaitis <punktyras@nkm.lt>, 2007.
 # Gintautas Miliauskas <gintas@akl.lt>, 2006, 2007, 2008, 2010.
 # Algimantas Margevičius <gymka@mail.ru>, 2011.
-# Aurimas Černius <aurisc4@gmail.com>, 2010, 2013, 2014.
+# Aurimas Černius <aurisc4@gmail.com>, 2010, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-26 19:50+0000\n"
-"PO-Revision-Date: 2014-07-27 00:38+0300\n"
+"POT-Creation-Date: 2015-03-08 09:03+0000\n"
+"PO-Revision-Date: 2015-03-08 20:03+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -32,6 +32,10 @@ msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Pertvarkyti koklius, kad tilptų į kvadratą"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -42,14 +46,14 @@ msgstr ""
 "kvadratėlius lentoje taip, kad vienodi skaičiai būtų šalia. Jei skaičiai "
 "nesutampa, negalima ten dėti kvadratėlio. Dėliok greitai: laikas matuojamas!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr "Žaidimą galima padaryti paprastesnį ir patogesnį keičiant lentos dydį."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -125,96 +129,84 @@ msgstr "_Apie"
 msgid "_Quit"
 msgstr "_Išeiti"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Atspausdinti leidimo versiją ir išeiti"
 
-#: ../src/gnome-tetravex.vala:38
-#| msgid "Start a new game"
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Paleisti pristabdytą žaidimą"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Nustatyti lentos dydį (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Tęsti žaidimą"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Pristabdyti žaidimą"
 
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Pradėti naują žaidimą"
 
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Pasiduoti ir parodyti sprendimą"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Dydis gali būti nuo 2 iki 6.\n"
 
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Ar tikrai norite pasiduoti ir pamatyti sprendimą?"
 
-#: ../src/gnome-tetravex.vala:381
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "_Tęsti žaidimą"
 
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "Pasiduoti"
 
-#: ../src/gnome-tetravex.vala:416
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
+#: ../src/gnome-tetravex.vala:385
+#| msgid ""
+#| "Position pieces so that the same numbers are touching each other\n"
+#| "\n"
+#| "Tetravex is a part of GNOME Games."
+msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
-"Sudėliokite kauliukus taip, kad besiglaudžiančios kraštinės turėtų tą patį "
-"skaičių.\n"
-"\n"
-"Tetravex yra GNOME Games dalis."
+"Sudėliokite koklius taip, kad besiglaudžiančios kraštinės turėtų tą patį "
+"skaičių"
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
-"Paskutinieji vertėjai:\n"
-"Žygimantas Beručka <zygis@gnome.org>,\n"
-"Justina Klingaitė <justina.klingaite@gmail.com>\n"
+"Paskutinis vertėjas:\n"
+"Aurimas Černius <aurisc4@gmail.com>\n"
 "\n"
 "Ankstesnieji vertėjai:\n"
+"Žygimantas Beručka <zygis@gnome.org>,\n"
+"Justina Klingaitė <justina.klingaite@gmail.com>,\n"
 "Tomas Kuliavas <tokul@users.sf.net>,\n"
 "Gediminas Paulauskas <menesis@chatsubo.lt>"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:410
+#| msgid "Are you sure you want to give up and view the solution?"
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "Ar tikrai norite pradėti naują žaidimą su kitu lentos dydžiu?"
+
+#: ../src/gnome-tetravex.vala:412
+#| msgid "Start a new game"
+msgid "_Start New Game"
+msgstr "_Pradėti naują žaidimą"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Pauzė"
 
@@ -241,3 +233,9 @@ msgstr "Data"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Laikas"
+
+#~ msgid "%02d∶‎%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d∶‎%02d"
+
+#~ msgid "%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d"
