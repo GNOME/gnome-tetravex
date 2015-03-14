@@ -9,8 +9,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2015-02-26 21:01+0000\n"
-"PO-Revision-Date: 2015-02-27 10:36+0100\n"
-"Last-Translator: Samir Ribic <samir.ribic@etf.unsa.ba>\n"
+"PO-Revision-Date: 2014-12-24 20:47+0000\n"
+"Last-Translator: Dženana <dkapetanov1@etf.unsa.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
@@ -24,10 +24,6 @@ msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
-msgid "Reorder tiles to fit a square"
-msgstr "Preuredi pločice da se uklope u kvadrad"
-
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -39,14 +35,14 @@ msgstr ""
 "brojevi ne podudaraju, ne možete postaviti komadić tamo. Brzo pomjerite: "
 "ističe vam vrijeme!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr "Možete učiniti igricu lakšom ili težom, promjenom veličine ploče."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
+#: ../src/gnome-tetravex.vala:398
 msgid "Tetravex"
 msgstr "Tetraveks"
 
@@ -123,72 +119,69 @@ msgstr "_O programu"
 msgid "_Quit"
 msgstr "_Izlaz"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:37
 msgid "Print release version and exit"
 msgstr "Ispiši verziju i izađi"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:38
 msgid "Start the game paused"
 msgstr "Započni prethodno pauziranu igru"
 
-#: ../src/gnome-tetravex.vala:40
+#: ../src/gnome-tetravex.vala:39
 msgid "Set size of board (2-6)"
 msgstr "Postavite veličinu ploče (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:129
+#: ../src/gnome-tetravex.vala:139
 msgid "Resume the game"
 msgstr "Nastavi igru"
 
-#: ../src/gnome-tetravex.vala:141
+#: ../src/gnome-tetravex.vala:151
 msgid "Pause the game"
 msgstr "Pauziraj igru"
 
-#: ../src/gnome-tetravex.vala:158
+#: ../src/gnome-tetravex.vala:168
 msgid "Start a new game"
 msgstr "Počni novu igru"
 
-#: ../src/gnome-tetravex.vala:170
+#: ../src/gnome-tetravex.vala:180
 msgid "Give up and view the solution"
 msgstr "Odustani i vidi rješenje"
 
-#: ../src/gnome-tetravex.vala:240
+#: ../src/gnome-tetravex.vala:251
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Veličina može biti od 2 do 6.\n"
 
-#: ../src/gnome-tetravex.vala:348
+#: ../src/gnome-tetravex.vala:364
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Jeste li sigurni da želite odustati i vidjeti rješenje?"
 
-#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
+#: ../src/gnome-tetravex.vala:366
 msgid "_Keep Playing"
 msgstr "_Nastavi igrati"
 
-#: ../src/gnome-tetravex.vala:351
+#: ../src/gnome-tetravex.vala:367
 msgid "_Give Up"
 msgstr "_Odustani"
 
-#: ../src/gnome-tetravex.vala:385
-msgid "Position pieces so that the same numbers are touching each other"
-msgstr "Pozicioniraj dijelove tako da se isti brojevi međusobno dodiruju"
+#: ../src/gnome-tetravex.vala:401
+msgid ""
+"Position pieces so that the same numbers are touching each other\n"
+"\n"
+"Tetravex is a part of GNOME Games."
+msgstr ""
+"Pozicioniraj dijelove tako da se isti brojevi međusobno dodiruju\n"
+"\n"
+"Tetravex je dio GNOME igrica."
 
-#: ../src/gnome-tetravex.vala:392
+#: ../src/gnome-tetravex.vala:408
 msgid "translator-credits"
 msgstr ""
 "  Dženana https://launchpad.net/~dkapetanov1\n"
 "  Haris Helac https://launchpad.net/~hhelac1\n"
 "  Samir Ribić https://launchpad.net/~megaribi"
 
-#: ../src/gnome-tetravex.vala:410
-msgid "Are you sure you want to start a new game with a different board size?"
-msgstr ""
-"Jeste li sigurni da želite pokrenuti novu igru s različitim veličinama ploče?"
-
-#: ../src/gnome-tetravex.vala:412
-msgid "_Start New Game"
-msgstr "_Započni novu igru"
-
-#: ../src/puzzle-view.vala:356
+#: ../src/puzzle-view.vala:337
 msgid "Paused"
 msgstr "Pauzirano"
 
