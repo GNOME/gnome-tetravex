@@ -1,19 +1,19 @@
 # Italian translation for gnome-tetravex
-# Copyright (C) 2002-2008, 2009, 2010, 2011, 2012, 2013, 2014 Free Software Foundation, Inc.
+# Copyright (C) 2002-2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-tetravex package.
 # Fabrizio Stefani <f.stef@it.gnome.org>, 1999-2002;
 # Alessio Frusciante <algol@firenze.linux.it>. 2003.
 # Francesco Marletta <francesco.marletta@tiscali.it>. 2002-2006.
 # Gruppo traduzione Italiano di Ubuntu <gruppo-traduzione@ubuntu-it.org>, 2007-2008
-# Milo Casagrande <milo@milo.name>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
+# Milo Casagrande <milo@milo.name>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-10-12 14:23+0000\n"
-"PO-Revision-Date: 2014-10-14 09:24+0100\n"
+"POT-Creation-Date: 2015-03-16 08:56+0000\n"
+"PO-Revision-Date: 2015-03-16 21:41+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -21,13 +21,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.7.5\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Riordina i riquadri all'interno del quadrato"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -39,7 +43,7 @@ msgstr ""
 "Se i numeri non coincidono, non puoi posizionare il pezzo. Fai in fretta, "
 "c'è un tempo limite!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
@@ -47,8 +51,8 @@ msgstr ""
 "tavolo di gioco."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:398
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -126,62 +130,57 @@ msgstr "I_nformazioni"
 msgid "_Quit"
 msgstr "_Esci"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Stampa la versione ed esce"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Avvia la partita in pausa"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Imposta la dimensione della tavola (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Riprende la partita"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Mette la partita in pausa"
 
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Avvia una nuova partita"
 
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Arrenditi e vedi la soluzione"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
 msgstr "La dimensione può essere solo tra 2 e 6.\n"
 
-#: ../src/gnome-tetravex.vala:364
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Vuoi arrenderti e vedere la soluzione?"
 
-#: ../src/gnome-tetravex.vala:366
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "_Continua partita"
 
-#: ../src/gnome-tetravex.vala:367
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "_Arrenditi"
 
-#: ../src/gnome-tetravex.vala:401
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
+#: ../src/gnome-tetravex.vala:385
+msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
-"Posiziona i pezzi in modo che i numeri simili siano a contatto tra di loro.\n"
-"\n"
-"Tetravex fa parte dei Giochi di GNOME."
+"Posiziona i pezzi in modo che i numeri simili siano a contatto tra di loro"
 
-#: ../src/gnome-tetravex.vala:408
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
 "Milo Casagrande <milo@milo.name>\n"
@@ -189,7 +188,17 @@ msgstr ""
 "Francesco Marletta <francesco.marletta@tiscali.it>\n"
 "Fabrizio Stefani <f.stef@it.gnome.org>"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:410
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr ""
+"Vuoi avviare una nuova partita con una dimensione diversa del tavolo di "
+"gioco?"
+
+#: ../src/gnome-tetravex.vala:412
+msgid "_Start New Game"
+msgstr "Avvia _nuova partita"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "In pausa"
 
@@ -216,49 +225,3 @@ msgstr "Data"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Tempo"
-
-#~ msgid "Play _Again"
-#~ msgstr "Ri_gioca"
-
-#~ msgid "_Pause"
-#~ msgstr "_Pausa"
-
-#~| msgid "_Solve"
-#~ msgid "_Resolve"
-#~ msgstr "_Risolvi"
-
-#~ msgid "Res_ume"
-#~ msgstr "Ripr_endi"
-
-#~ msgid "_Move"
-#~ msgstr "_Sposta"
-
-#~ msgid "_Up"
-#~ msgstr "_Su"
-
-#~ msgid "_Left"
-#~ msgstr "Si_nistra"
-
-#~ msgid "_Right"
-#~ msgstr "_Destra"
-
-#~ msgid "_Down"
-#~ msgstr "_Giù"
-
-#~ msgid "true if the window is fullscren"
-#~ msgstr "VERO se la finestra è a schermo intero"
-
-#~ msgid "_New"
-#~ msgstr "_Nuovo"
-
-#~ msgid "Solve"
-#~ msgstr "Risolvi"
-
-#~ msgid "_Fullscreen"
-#~ msgstr "Schermo _intero"
-
-#~ msgid "_Leave Fullscreen"
-#~ msgstr "_Finestra normale"
-
-#~ msgid "GNOME Games web site"
-#~ msgstr "Sito web di GNOME Games"
