@@ -56,7 +56,7 @@ msgstr "Složi slagalicu poklapanjem istih brojeva"
 
 #: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
-msgstr "igrica, logika, kartica"
+msgstr "igrica;logika;kartica;"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
