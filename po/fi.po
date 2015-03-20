@@ -8,15 +8,15 @@
 # Sami Pesonen <sampeson@iki.fi>, 2002-2005.
 # Ilkka Tuohela <hile@iki.fi>, 2005-2009.
 # Timo Jyrinki <timo.jyrinki@iki.fi>, 2008.
-# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013, 2014.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-10 07:51+0000\n"
-"PO-Revision-Date: 2014-09-10 21:20+0300\n"
+"POT-Creation-Date: 2015-03-13 09:03+0000\n"
+"PO-Revision-Date: 2015-03-13 20:11+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -29,11 +29,14 @@ msgstr ""
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#| msgid "Tetravex"
 msgid "GNOME Tetravex"
 msgstr "Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Järjestä laatat sopimaan neliöön"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -45,7 +48,7 @@ msgstr ""
 "numerot eivät vastaa toisiaan, et voi asettaa neliötä kyseiselle paikalle. "
 "Tee siirtosi nopeasti, sillä pelaat aikaa vastaan!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
@@ -53,8 +56,8 @@ msgstr ""
 "kokoa."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -130,91 +133,63 @@ msgstr "_Tietoja"
 msgid "_Quit"
 msgstr "_Lopeta"
 
-#: ../src/gnome-tetravex.vala:37
-#| msgid "Show release version"
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Näytä julkaisuversio ja sulkeudu"
 
-#: ../src/gnome-tetravex.vala:38
-#| msgid "Restart the game"
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Aloita peli keskeytettynä"
 
-#: ../src/gnome-tetravex.vala:39
-#| msgid "The size of the game board."
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Aseta laudan koko (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
-#| msgid "Resume the paused game"
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Jatka peliä"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Keskeytä peli"
 
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Aloita uusi peli"
 
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Luovuta ja katso ratkaisu"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Koko voi olla olla kahdesta kuuteen.\n"
 
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Haluatko varmasti luovuttaa ja nähdä ratkaisun?"
 
-#: ../src/gnome-tetravex.vala:381
-#| msgid "_Continue playing"
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "_Jatka pelaamista"
 
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "_Luovuta"
 
-#: ../src/gnome-tetravex.vala:416
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
-msgstr ""
-"Asettele palaset siten, että samat numerot koskevat toisiaan.\n"
-"\n"
-"Tetravex on osa Gnomen pelejä."
+#: ../src/gnome-tetravex.vala:385
+#| msgid ""
+#| "Position pieces so that the same numbers are touching each other\n"
+#| "\n"
+#| "Tetravex is a part of GNOME Games."
+msgid "Position pieces so that the same numbers are touching each other"
+msgstr "Asettele palaset siten, että samat numerot koskevat toisiaan."
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
-"Jiri Grönroos, 2012-2014\n"
+"Jiri Grönroos, 2012-2015\n"
 "Timo Jyrinki, 2008\n"
 "Ilkka Tuohela, 2006-2009\n"
 "Sami Pesonen, 2002-2005\n"
@@ -232,7 +207,17 @@ msgstr ""
 "  Timo Jyrinki https://launchpad.net/~timo-jyrinki\n"
 "  eGetin https://launchpad.net/~egetin"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:410
+#| msgid "Do you want to start a new game with this map?"
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "Haluatko varmasti aloittaa uuden pelin eri laudan koolla?"
+
+#: ../src/gnome-tetravex.vala:412
+#| msgid "Start New Game"
+msgid "_Start New Game"
+msgstr "_Aloita uusi peli"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Keskeytetty"
 
@@ -259,6 +244,12 @@ msgstr "Päiväys"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Aika"
+
+#~ msgid "%02d∶‎%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d∶‎%02d"
+
+#~ msgid "%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d"
 
 #~| msgid "Play as:"
 #~ msgid "Play _Again"
@@ -1988,9 +1979,6 @@ msgstr "Aika"
 #~ msgid "Hint"
 #~ msgstr "Vinkki"
 
-#~ msgid "Do you want to start a new game with this map?"
-#~ msgstr "Haluatko aloittaa uuden pelin tällä kartalla?"
-
 #~ msgid "If you continue playing the next game will use the new map."
 #~ msgstr "Jos jatkat pelaamista , seuraava peli käyttää uutta karttaa."
 
@@ -2410,9 +2398,6 @@ msgstr "Aika"
 
 #~ msgid "Keep Current Game"
 #~ msgstr "Pysy nykyisessä pelissä"
-
-#~ msgid "Start New Game"
-#~ msgstr "Aloita uusi peli"
 
 #~ msgid "Resizing and SVG support:"
 #~ msgstr "Koon muuttamis- ja SVG-tuki:"
