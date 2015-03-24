@@ -2,15 +2,16 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2014, 2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-tetravex master\n"
+"Project-Id-Version: gnome-tetravex gnome-3-16\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-01-08 08:51+0000\n"
-"PO-Revision-Date: 2014-12-06 17:04+0100\n"
+"POT-Creation-Date: 2015-03-24 14:56+0100\n"
+"PO-Revision-Date: 2015-03-24 14:57+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
@@ -46,8 +47,8 @@ msgid ""
 msgstr "Jokoa errazagoa edo zailagoa egin dezakezu mahaiaren tamaina aldatuz."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:105
-#: ../src/gnome-tetravex.vala:387
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -124,32 +125,32 @@ msgstr "Honi _buruz"
 msgid "_Quit"
 msgstr "_Irten"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Erakutsi bertsioa eta irten"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Hasi pausatutako jokoa"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Ezarri taularen tamaina (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:128
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Berrekin jokoa"
 
-#: ../src/gnome-tetravex.vala:140
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Pausatu jokoa"
 
-#: ../src/gnome-tetravex.vala:157
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Beste joko bat hasten du"
 
-#: ../src/gnome-tetravex.vala:169
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Amore eman eta ikusi ebazpena"
 
@@ -157,39 +158,34 @@ msgstr "Amore eman eta ikusi ebazpena"
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Tamaina 2 eta 6 artekoa soilik izan daiteke.\n"
 
-#: ../src/gnome-tetravex.vala:353
+#: ../src/gnome-tetravex.vala:348
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Ziur zaude amore eman eta ebazpena ikustea nahi duzula?"
 
-#: ../src/gnome-tetravex.vala:355 ../src/gnome-tetravex.vala:416
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 msgid "_Keep Playing"
 msgstr "_Jarraitu jokatzen"
 
-#: ../src/gnome-tetravex.vala:356
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
 msgstr "_Amore eman"
 
-#: ../src/gnome-tetravex.vala:390
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
+#: ../src/gnome-tetravex.vala:385
+msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
 "Fitxa zenbakidunak kokatu behar dira, eta elkar ukitzen duten zenbakiek "
-"berdinak izan behar dute.\n"
-"\n"
-"GNOME Games-ekoa da Tetravex."
+"berdinak izan behar dute"
 
-#: ../src/gnome-tetravex.vala:397
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
 
-#: ../src/gnome-tetravex.vala:415
+#: ../src/gnome-tetravex.vala:410
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
 "Ziur zaude tamaina desberdineko taulako joko berria abiarazi nahi duzula?"
 
-#: ../src/gnome-tetravex.vala:417
+#: ../src/gnome-tetravex.vala:412
 msgid "_Start New Game"
 msgstr "_Hasi joko berria"
 
