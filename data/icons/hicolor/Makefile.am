@@ -10,7 +10,9 @@ icon22_DATA = 22x22/gnome-tetravex.png
 icon24_DATA = 24x24/gnome-tetravex.png
 icon32_DATA = 32x32/gnome-tetravex.png
 icon48_DATA = 48x48/gnome-tetravex.png
-iconscalable_DATA = scalable/gnome-tetravex.svg
+iconscalable_DATA = \
+  scalable/gnome-tetravex.svg \
+  scalable/gnome-tetravex-symbolic.svg
 
 EXTRA_DIST = $(icon16_DATA) $(icon22_DATA) $(icon24_DATA) $(icon32_DATA) $(icon48_DATA) $(iconscalable_DATA)
 
