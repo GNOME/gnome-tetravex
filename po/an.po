@@ -6,187 +6,214 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-19 12:00+0000\n"
-"PO-Revision-Date: 2013-02-19 23:12+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"tetravex&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-01-25 21:01+0000\n"
+"PO-Revision-Date: 2015-04-27 21:29+0100\n"
 "Last-Translator: Daniel Martinez <entaltoaragon@gmail.com>\n"
 "Language-Team: Aragonese <softaragones@googlegroups.com>\n"
 "Language: an\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-POOTLE-MTIME: 1430157666.000000\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1
-#: ../src/gnome-tetravex.vala:48
-#: ../src/gnome-tetravex.vala:75
-#: ../src/gnome-tetravex.vala:303
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#| msgid "Tetravex"
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Reordenar as fichas ta achustar-las a un quadrau"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+"Cada quadrau d'a pieza tiene un numero de cara. Coloque as piezas a la cucha "
+"d'o tablero ta que os numeros iguals sían chuntos. Si os numeros no "
+"coinciden, no podrá meter astí a pieza. Se mueva rapidament, se le ye "
+"cronometrando!"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"Puede fer que o chuego sía mas facil u mas dificil cambiando a grandaria d'o "
+"tablero."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:105
+#: ../src/gnome-tetravex.vala:387
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Complete o puzle fendo coincidir as recholas numeradas"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "chuego;lochica;tablero;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "Chuego _nuevo"
-
-#: ../data/gnome-tetravex.ui.h:2
-#: ../src/gnome-tetravex.vala:110
-#: ../src/gnome-tetravex.vala:364
-msgid "_Pause"
-msgstr "_Aturar"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "_Resolver"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "_Mover"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "A_rriba"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "_Cucha"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "De_recha"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "Aba_ixo"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Puntuación"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_Grandaria"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2x2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3x3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4x4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5x5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6x6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "Ad_uya"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "_Arredol"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "_Surtir"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "A grandaria d'a reixeta de chuego"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
-msgstr "A valor d'ista clau s'utiliza ta decidir a grandaria d'a reixeta de chuego."
+msgstr ""
+"A valor d'ista clau s'utiliza ta decidir a grandaria d'a reixeta de chuego."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Amplaria d'a finestra en pixels"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Altura d'a finestra en pixels"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "cierto si a finestra ye maximizada"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "cierto si a finestra ye en pantalla completa"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "Chuego _nuevo"
 
-#: ../src/gnome-tetravex.vala:96
-msgid "_New"
-msgstr "_Nuevo"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Puntuación"
 
-#: ../src/gnome-tetravex.vala:104
-msgid "Solve"
-msgstr "Resolver"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "_Grandaria"
 
-#: ../src/gnome-tetravex.vala:117
-#: ../src/gnome-tetravex.vala:177
-msgid "_Fullscreen"
-msgstr "_Pantalla completa"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2x2"
 
-#: ../src/gnome-tetravex.vala:172
-msgid "_Leave Fullscreen"
-msgstr "Abandonar _pantalla completa"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3x3"
 
-#: ../src/gnome-tetravex.vala:224
-#: ../src/gnome-tetravex.vala:453
-#, c-format
-msgid "Time"
-msgstr "Tiempo"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4x4"
 
-#: ../src/gnome-tetravex.vala:306
-msgid ""
-"GNOME Tetravex is a simple puzzle where pieces must be positioned so that the same numbers are touching each other.\n"
-"\n"
-"Tetravex is a part of GNOME Games."
-msgstr ""
-"GNOME Tetravex ye un puzle sencillo en o qual as piezas se debe colocar de traza que os mesmos numeros se toquen.\n"
-"\n"
-"GNOME Tetravex ye parte d'os chuegos de GNOME."
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5x5"
 
-#: ../src/gnome-tetravex.vala:313
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "Ad_uya"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "_Arredol"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "_Surtir"
+
+#: ../src/gnome-tetravex.vala:37
+msgid "Print release version and exit"
+msgstr "Amostrar o número de versión y salir"
+
+#: ../src/gnome-tetravex.vala:38
+msgid "Start the game paused"
+msgstr "Encetar o chuego pausau"
+
+#: ../src/gnome-tetravex.vala:39
+msgid "Set size of board (2-6)"
+msgstr "Establir a grandaria d'o tablero (2-6)"
+
+#. not a typo
+#: ../src/gnome-tetravex.vala:128
+msgid "Resume the game"
+msgstr "Reprener o chuego"
+
+#: ../src/gnome-tetravex.vala:140
+msgid "Pause the game"
+msgstr "Pausar o chuego"
+
+#: ../src/gnome-tetravex.vala:157
+msgid "Start a new game"
+msgstr "Encetar un chuego nuevo"
+
+#: ../src/gnome-tetravex.vala:169
+msgid "Give up and view the solution"
+msgstr "Renunciar y veyer a solución"
+
+#: ../src/gnome-tetravex.vala:240
+msgid "Size could only be from 2 to 6.\n"
+msgstr "A grandaria solament puede estar de 2 a 6.\n"
+
+#: ../src/gnome-tetravex.vala:353
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Seguro que quiere renunciar y veyer a solución?"
+
+#: ../src/gnome-tetravex.vala:355 ../src/gnome-tetravex.vala:416
+msgid "_Keep Playing"
+msgstr "_Continar chugando"
+
+#: ../src/gnome-tetravex.vala:356
+msgid "_Give Up"
+msgstr "_Renunciar"
+
+#: ../src/gnome-tetravex.vala:390
+msgid "Position pieces so that the same numbers are touching each other"
+msgstr "Coloque as piezas de traza que os mesmos numeros se toquen"
+
+#: ../src/gnome-tetravex.vala:397
 msgid "translator-credits"
-msgstr "Daniel Martinez <entaltoaragon@gmail.com>, 2013"
+msgstr "Daniel Martinez <entaltoaragon@gmail.com>, 2013, 2015"
 
-#: ../src/gnome-tetravex.vala:316
-msgid "GNOME Games web site"
-msgstr "Pachina web d'os chuegos de GNOME"
+#: ../src/gnome-tetravex.vala:415
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "Coloque as piezas de traza que os mesmos numeros se toquen"
 
-#: ../src/gnome-tetravex.vala:359
-msgid "Res_ume"
-msgstr "C_ontinar"
+#: ../src/gnome-tetravex.vala:417
+#| msgid "_New Game"
+msgid "_Start New Game"
+msgstr "_Encetar un chuego nuevo"
 
-#: ../src/gnome-tetravex.vala:410
-msgid "New Game"
-msgstr "Partida nueva"
-
-#: ../src/gnome-tetravex.vala:425
-msgid "Size:"
-msgstr "Grandaria:"
-
-#: ../src/gnome-tetravex.vala:450
-msgid "Date"
-msgstr "Calendata"
-
-#: ../src/puzzle-view.vala:326
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Aturau"
 
+#: ../src/score-dialog.vala:29
+#| msgid "_Quit"
+msgid "Quit"
+msgstr "Salir"
+
+#: ../src/score-dialog.vala:30
+msgid "New Game"
+msgstr "Partida nueva"
+
+#: ../src/score-dialog.vala:33
+msgid "OK"
+msgstr "Acceptar"
+
+#: ../src/score-dialog.vala:45
+msgid "Size:"
+msgstr "Grandaria:"
+
+#: ../src/score-dialog.vala:70
+msgid "Date"
+msgstr "Calendata"
+
+#: ../src/score-dialog.vala:73
+msgid "Time"
+msgstr "Tiempo"
