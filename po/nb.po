@@ -5,10 +5,10 @@
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-tetravex 3.15.x\n"
+"Project-Id-Version: gnome-tetravex 3.17.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 17:53+0100\n"
-"PO-Revision-Date: 2015-02-10 17:54+0100\n"
+"POT-Creation-Date: 2015-05-14 16:43+0200\n"
+"PO-Revision-Date: 2015-05-14 16:44+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -36,7 +36,9 @@ msgstr ""
 #: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
-msgstr "Du kan gjøre spillet lettere eller vanskeligere ved å endre størrelsen på brettet."
+msgstr ""
+"Du kan gjøre spillet lettere eller vanskeligere ved å endre størrelsen på "
+"brettet."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
 #: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
