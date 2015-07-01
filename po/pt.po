@@ -4,28 +4,33 @@
 # Nuno Ferreira <nmrf@rnl.ist.utl.pt>, 1998.
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013.
 # Tiago S. <almosthumane@portugalmail.pt>, 2014.
+# Pedro Albuquerque <palbuquerque73@openmailbox.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 3.10\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-27 08:43+0000\n"
-"PO-Revision-Date: 2014-02-27 18:45-0000\n"
-"Last-Translator: Tiago S. <almosthumane@portugalmail.pt>\n"
-"Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
+"POT-Creation-Date: 2015-06-07 20:24+0000\n"
+"PO-Revision-Date: 2015-06-26 09:32+0100\n"
+"Last-Translator: Pedro Albuquerque <palbuquerque73@openmailbox.com>\n"
+"Language-Team: Português <palbuquerque73@openmailbox.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Reordene as peças para caberem num quadrado"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -37,14 +42,14 @@ msgstr ""
 "números não corresponderem, não pode colocar lá a peça. Seja rápido, o tempo "
 "está a contar!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
-msgstr "Pode tornar o ojgo mais difícil aumentando o tamanho do tabuleiro."
+msgstr "Pode tornar o jogo mais difícil aumentando o tamanho do tabuleiro."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:59 ../src/gnome-tetravex.vala:97
-#: ../src/gnome-tetravex.vala:324
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -79,7 +84,7 @@ msgstr "verdadeiro se a janela estiver maximizada"
 
 #: ../src/app-menu.ui.h:1
 msgid "_New Game"
-msgstr "_Novo Jogo"
+msgstr "_Novo jogo"
 
 #: ../src/app-menu.ui.h:2
 msgid "_Scores"
@@ -111,7 +116,7 @@ msgstr "_6x6"
 
 #: ../src/app-menu.ui.h:9
 msgid "_Help"
-msgstr "_Ajuda"
+msgstr "A_Juda"
 
 #: ../src/app-menu.ui.h:10
 msgid "_About"
@@ -121,60 +126,115 @@ msgstr "_Sobre"
 msgid "_Quit"
 msgstr "_Sair"
 
-#: ../src/gnome-tetravex.vala:118
-msgid "Play _Again"
-msgstr "Jogar _Novamente"
+#: ../src/gnome-tetravex.vala:38
+msgid "Print release version and exit"
+msgstr "Imprimir versão de lançamento e sair"
 
-#: ../src/gnome-tetravex.vala:131 ../src/gnome-tetravex.vala:392
-msgid "_Pause"
-msgstr "_Pausa"
+#: ../src/gnome-tetravex.vala:39
+msgid "Start the game paused"
+msgstr "Iniciar o jogo pausado"
 
-#: ../src/gnome-tetravex.vala:145
-msgid "_Resolve"
-msgstr "_Resolver"
+#: ../src/gnome-tetravex.vala:40
+msgid "Set size of board (2-6)"
+msgstr "Definir tamanho do tabuleiro (2-6)"
 
-#: ../src/gnome-tetravex.vala:327
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
+#. not a typo
+#: ../src/gnome-tetravex.vala:129
+msgid "Resume the game"
+msgstr "Retomar o jogo"
+
+#: ../src/gnome-tetravex.vala:141
+msgid "Pause the game"
+msgstr "Pausar o jogo"
+
+#: ../src/gnome-tetravex.vala:158
+msgid "Start a new game"
+msgstr "Iniciar um novo jogo"
+
+#: ../src/gnome-tetravex.vala:170
+msgid "Give up and view the solution"
+msgstr "Desistir e ver a solução"
+
+#: ../src/gnome-tetravex.vala:240
+msgid "Size could only be from 2 to 6.\n"
+msgstr "O tamanho só pode estar entre 2 e 6.\n"
+
+#: ../src/gnome-tetravex.vala:348
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Tem a certeza que quer desistir e ver a solução?"
+
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
+msgid "_Keep Playing"
+msgstr "_Continuar a jogar"
+
+#: ../src/gnome-tetravex.vala:351
+msgid "_Give Up"
+msgstr "_Desistir"
+
+#: ../src/gnome-tetravex.vala:385
+#| msgid ""
+#| "Position pieces so that the same numbers are touching each other\n"
+#| "\n"
+#| "Tetravex is a part of GNOME Games."
+msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
 "Posicione as peças de forma a que os números iguais se toquem\n"
 "\n"
-"Tetravex faz parte dos Jogos GNOME."
+"Tetravex faz parte dos jogos GNOME."
 
-#: ../src/gnome-tetravex.vala:334
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
-msgstr "Duarte Loreto <happyguy_pt@hotmail.com>"
+msgstr ""
+"Duarte Loreto <happyguy_pt@hotmail.com>\n"
+"Pedro Albuquerque <palbuquerque73@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:387
-msgid "Res_ume"
-msgstr "Re_tomar"
+#: ../src/gnome-tetravex.vala:410
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr ""
+"Tem a certeza que quer começar um novo jogo com um tabuleiro de tamanho "
+"diferente?"
 
-#: ../src/puzzle-view.vala:340
+#: ../src/gnome-tetravex.vala:412
+#| msgid "_New Game"
+msgid "_Start New Game"
+msgstr "_Iniciar novo jogo"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
-msgstr "Em Pausa"
+msgstr "Em pausa"
 
-#: ../src/score-dialog.vala:28
+#: ../src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Sair"
 
-#: ../src/score-dialog.vala:29
+#: ../src/score-dialog.vala:30
 msgid "New Game"
-msgstr "Novo Jogo"
+msgstr "Novo jogo"
 
-#: ../src/score-dialog.vala:32
+#: ../src/score-dialog.vala:33
 msgid "OK"
-msgstr "OK"
+msgstr "Aceitar"
 
-#: ../src/score-dialog.vala:44
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Tamanho:"
 
-#: ../src/score-dialog.vala:69
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Data"
 
-#: ../src/score-dialog.vala:72
+#: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Tempo"
+
+#~ msgid "Play _Again"
+#~ msgstr "Jogar _Novamente"
+
+#~ msgid "_Pause"
+#~ msgstr "_Pausa"
+
+#~ msgid "_Resolve"
+#~ msgstr "_Resolver"
+
+#~ msgid "Res_ume"
+#~ msgstr "Re_tomar"
