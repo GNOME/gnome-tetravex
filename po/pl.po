@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-04 23:55+0100\n"
-"PO-Revision-Date: 2015-03-04 23:57+0100\n"
+"POT-Creation-Date: 2015-08-25 14:28+0200\n"
+"PO-Revision-Date: 2015-08-25 14:29+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -91,7 +91,7 @@ msgstr "Wysokość okna w pikselach"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
-msgstr "Wartość \"true\" oznacza, że okno jest zmaksymalizowane"
+msgstr "Wartość „true” oznacza, że okno jest zmaksymalizowane"
 
 #: ../src/app-menu.ui.h:1
 msgid "_New Game"
@@ -107,23 +107,23 @@ msgstr "_Rozmiar"
 
 #: ../src/app-menu.ui.h:4
 msgid "_2x2"
-msgstr "_2x2"
+msgstr "_2×2"
 
 #: ../src/app-menu.ui.h:5
 msgid "_3x3"
-msgstr "_3x3"
+msgstr "_3×3"
 
 #: ../src/app-menu.ui.h:6
 msgid "_4x4"
-msgstr "_4x4"
+msgstr "_4×4"
 
 #: ../src/app-menu.ui.h:7
 msgid "_5x5"
-msgstr "_5x5"
+msgstr "_5×5"
 
 #: ../src/app-menu.ui.h:8
 msgid "_6x6"
-msgstr "_6x6"
+msgstr "_6×6"
 
 #: ../src/app-menu.ui.h:9
 msgid "_Help"
