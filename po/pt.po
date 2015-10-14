@@ -3,12 +3,14 @@
 # Distributed under the same licence as the gnome-games package
 # Nuno Ferreira <nmrf@rnl.ist.utl.pt>, 1998.
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013.
-# 
+# Pedro Albuquerque <palbuquerque73@gmail.com>, 2015.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: 3.10\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-23 02:05+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"tetravex&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-28 21:08+0000\n"
 "PO-Revision-Date: 2013-09-23 02:10+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
@@ -19,13 +21,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:316
 msgid "Tetravex"
 msgstr "Tetravex"
 
 #: ../data/gnome-tetravex.desktop.in.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
-msgstr "Complete o puzzle coincidindo as peças numeradas"
+msgstr "Complete o quebra-cabeças fazendo coincidir as peças numeradas"
 
 #: ../data/gnome-tetravex.desktop.in.in.h:3
 msgid "game;logic;board;"
@@ -33,16 +35,16 @@ msgstr "jogo;lógica;tabuleiro;"
 
 #: ../data/gnome-tetravex.ui.h:1
 msgid "_New Game"
-msgstr "_Novo Jogo"
+msgstr "_Novo jogo"
 
 #: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
+#: ../src/gnome-tetravex.vala:382
 msgid "_Pause"
 msgstr "_Pausa"
 
 #: ../data/gnome-tetravex.ui.h:3
 msgid "_Solve"
-msgstr "Resol_ver"
+msgstr "Resol_Ver"
 
 #: ../data/gnome-tetravex.ui.h:4
 msgid "_Move"
@@ -94,7 +96,7 @@ msgstr "_6x6"
 
 #: ../data/gnome-tetravex.ui.h:16
 msgid "_Help"
-msgstr "_Ajuda"
+msgstr "A_Juda"
 
 #: ../data/gnome-tetravex.ui.h:17
 msgid "_About"
@@ -139,54 +141,55 @@ msgstr "Resolver"
 
 #: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
 msgid "_Fullscreen"
-msgstr "_Ecrã Completo"
+msgstr "_Ecrã completo"
 
 #: ../src/gnome-tetravex.vala:182
 msgid "_Leave Fullscreen"
-msgstr "_Deixar Ecrã Completo"
+msgstr "_Deixar ecrã completo"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
+#: ../src/gnome-tetravex.vala:236 ../src/gnome-tetravex.vala:471
 msgid "Time"
 msgstr "Duração"
 
-#: ../src/gnome-tetravex.vala:316
+#: ../src/gnome-tetravex.vala:319
 msgid ""
 "Position pieces so that the same numbers are touching each other\n"
 "\n"
 "Tetravex is a part of GNOME Games."
 msgstr ""
-"Posicione as peças de forma a que apenas os mesmos números se toquem\n"
+"Posicione as peças de forma a que os números iguais se toquem\n"
 "\n"
-"Tetravex faz parte dos Jogos GNOME."
-
-#: ../src/gnome-tetravex.vala:323
-msgid "translator-credits"
-msgstr "Duarte Loreto <happyguy_pt@hotmail.com>"
+"Tetravex faz parte dos jogos GNOME."
 
 #: ../src/gnome-tetravex.vala:326
+msgid "translator-credits"
+msgstr ""
+"Duarte Loreto <happyguy_pt@hotmail.com>\n"
+"Pedro Albuquerque <palbuquerque73@gmail.com>"
+
+#: ../src/gnome-tetravex.vala:329
 msgid "GNOME Games web site"
 msgstr "Página dos jogos GNOME"
 
-#: ../src/gnome-tetravex.vala:369
+#: ../src/gnome-tetravex.vala:377
 msgid "Res_ume"
-msgstr "Re_tomar"
+msgstr "Re_Tomar"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/gnome-tetravex.vala:428
 msgid "New Game"
-msgstr "Novo Jogo"
+msgstr "Novo jogo"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/gnome-tetravex.vala:443
 msgid "Size:"
 msgstr "Tamanho:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/gnome-tetravex.vala:468
 msgid "Date"
 msgstr "Data"
 
 #: ../src/puzzle-view.vala:336
 msgid "Paused"
-msgstr "Em Pausa"
+msgstr "Pausado"
 
 #~ msgid "Chess"
 #~ msgstr "Xadrez"
@@ -7392,15 +7395,15 @@ msgstr "Em Pausa"
 #~ "%(move)s White %(piece)s at %1$s takes the black %(victim_piece)s at %2$s "
 #~ "(%(result)s)"
 #~ msgstr ""
-#~ "%(move)s %(piece)s Branco em %1$s toma o %(victim_piece)s Preto em %(end)"
-#~ "s (%(result)s)"
+#~ "%(move)s %(piece)s Branco em %1$s toma o %(victim_piece)s Preto em "
+#~ "%(end)s (%(result)s)"
 
 #~ msgid ""
 #~ "%(move)s Black %(piece)s at %1$s takes the white %(victim_piece)s at %2$s "
 #~ "(%(result)s)"
 #~ msgstr ""
-#~ "%(move)s %(piece)s Preto em %1$s toma o %(victim_piece)s Branco em %(end)"
-#~ "s (%(result)s)"
+#~ "%(move)s %(piece)s Preto em %1$s toma o %(victim_piece)s Branco em "
+#~ "%(end)s (%(result)s)"
 
 #~ msgid "%(move)s White %(piece)s moves from %1$s to %2$s (%(result)s)"
 #~ msgstr "%(move)s %(piece)s Branco é movido de %1$s para %2$s (%(result)s)"
