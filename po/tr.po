@@ -10,15 +10,15 @@
 # Ömer Fadıl USTA <omer_fad@hotmail.com>,2002.
 # Hakan Bekdas <hakanbekdas@yahoo.com>, 2006.
 # Baris Cicek <baris@teamforce.name.tr>, 2004, 2005, 2008, 2009.
-# Muhammet Kara <muhammetk@gmail.com>, 2011, 2014.
+# Muhammet Kara <muhammetk@gmail.com>, 2011, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-11-25 12:10+0000\n"
-"PO-Revision-Date: 2014-12-06 22:36+0200\n"
+"POT-Creation-Date: 2015-12-31 10:43+0000\n"
+"PO-Revision-Date: 2015-12-31 21:38+0200\n"
 "Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -26,10 +26,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#| msgid "Tetravex"
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
@@ -53,8 +52,8 @@ msgstr ""
 "zorlaştırabilirsiniz."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:105
-#: ../src/gnome-tetravex.vala:387
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:382
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -75,12 +74,10 @@ msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Bu anahtarın değeri oyun ızgarasının boyutunu seçmekte kullanılır."
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:3
-#| msgid "The width of the main window in pixels."
 msgid "Width of the window in pixels"
 msgstr "Pencerenin piksel olarak genişliği"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:4
-#| msgid "The height of the main window in pixels."
 msgid "Height of the window in pixels"
 msgstr "Pencerenin piksel olarak yüksekliği"
 
@@ -129,99 +126,90 @@ msgid "_About"
 msgstr "H_akkında"
 
 #: ../src/app-menu.ui.h:11
-#| msgid "Quit"
 msgid "_Quit"
 msgstr "_Çıkış"
 
-#: ../src/gnome-tetravex.vala:37
-#| msgid "Show release version"
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Yayım sürümünü yazdır ve çık"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 #, fuzzy
 #| msgid "Restart the game"
 msgid "Start the game paused"
 msgstr "Oyunu yeniden başlat"
 
-#: ../src/gnome-tetravex.vala:39
-#, fuzzy
+#: ../src/gnome-tetravex.vala:40
 #| msgid "Size of board (2-6)"
 msgid "Set size of board (2-6)"
-msgstr "Tahta boyutu (2-6)"
+msgstr "Tahta boyutunu ayarla (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:128
+#: ../src/gnome-tetravex.vala:129
 #, fuzzy
 #| msgid "Resume the paused game"
 msgid "Resume the game"
 msgstr "Duraklatılmış oyunu devam ettir"
 
-#: ../src/gnome-tetravex.vala:140
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Oyunu duraklat"
 
-#: ../src/gnome-tetravex.vala:157
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Yeni bir oyun başlat"
 
-#: ../src/gnome-tetravex.vala:169
-#, fuzzy
+#: ../src/gnome-tetravex.vala:170
 #| msgid "Move a card to the Foundation"
 msgid "Give up and view the solution"
-msgstr "Sıralama yerine bir kart taşı"
+msgstr "Pes et ve çözümü görüntüle"
 
 #: ../src/gnome-tetravex.vala:240
 msgid "Size could only be from 2 to 6.\n"
-msgstr ""
+msgstr "Boyut yalnızca 2 ile 6 arasında olabilir.\n"
 
-#: ../src/gnome-tetravex.vala:353
-#, fuzzy
+#: ../src/gnome-tetravex.vala:348
 #| msgid "Are you sure you want to quit?"
 msgid "Are you sure you want to give up and view the solution?"
-msgstr "Çıkmak istediğinizden emin misiniz?"
+msgstr "Pes etmek ve çözümü görüntülemek istediğinizden emin misiniz?"
 
-#: ../src/gnome-tetravex.vala:355 ../src/gnome-tetravex.vala:416
-#, fuzzy
+#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
 #| msgid "Playing"
 msgid "_Keep Playing"
-msgstr "Oynuyor"
+msgstr "Oynamaya _Devam Et"
 
-#: ../src/gnome-tetravex.vala:356
+#: ../src/gnome-tetravex.vala:351
 msgid "_Give Up"
-msgstr ""
+msgstr "_Pes Et"
 
-#: ../src/gnome-tetravex.vala:390
+#: ../src/gnome-tetravex.vala:385
 #, fuzzy
 #| msgid ""
 #| "GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
 #| "the same numbers are touching each other.\n"
 #| "\n"
 #| "Tetravex is a part of GNOME Games."
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
+msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
 "GNOME Tetravex aynı sayıların birbirine değecek şekilde parçaların "
 "konumlandırıldığı basit bir bulmacadır.\n"
 "\n"
 "Tetravex GNOME Oyunları'nın bir parçasıdır."
 
-#: ../src/gnome-tetravex.vala:397
+#: ../src/gnome-tetravex.vala:392
 msgid "translator-credits"
 msgstr ""
 "Barış Çiçek <baris@teamforce.name.tr> \n"
-"Muhammet Kara <muhammet.k@gmail.com>"
+"Muhammet Kara <muhammetk@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:415
-#, fuzzy
+#: ../src/gnome-tetravex.vala:410
 #| msgid "Do you want to start a new game with this map?"
 msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Bu harita ile yeni bir oyun başlatmak istiyor musunuz?"
+msgstr ""
+"Farklı bir tahta boyutu ile yeni bir oyun başlatmak istediğinizden emin "
+"misiniz?"
 
-#: ../src/gnome-tetravex.vala:417
-#| msgid "Start New Game"
+#: ../src/gnome-tetravex.vala:412
 msgid "_Start New Game"
 msgstr "_Yeni Oyun Başlat"
 
@@ -238,7 +226,6 @@ msgid "New Game"
 msgstr "Yeni Oyun"
 
 #: ../src/score-dialog.vala:33
-#| msgid "_OK"
 msgid "OK"
 msgstr "Tamam"
 
