@@ -196,8 +196,7 @@ public class Tetravex : Gtk.Application
     {
         if (is_maximized || is_tiled)
             return;
-        window_width = allocation.width;
-        window_height = allocation.height;
+        window.get_size (out window_width, out window_height);
     }
 
     private bool window_state_event_cb (Gdk.EventWindowState event)
