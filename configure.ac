@@ -1,5 +1,5 @@
 AC_PREREQ([2.63])
-AC_INIT([GNOME Tetravex], [3.19.90], [https://bugzilla.gnome.org/],
+AC_INIT([GNOME Tetravex], [3.19.92], [https://bugzilla.gnome.org/],
         [gnome-tetravex], [https://wiki.gnome.org/Apps/Tetravex])
 AC_CONFIG_MACRO_DIR([m4])
 
