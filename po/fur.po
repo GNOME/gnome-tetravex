@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-10-28 07:07+0000\n"
-"PO-Revision-Date: 2015-10-28 08:13+0100\n"
+"POT-Creation-Date: 2016-04-07 22:09+0000\n"
+"PO-Revision-Date: 2016-04-08 10:27+0200\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "X-Generator: Poedit 1.8.5\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
@@ -34,7 +34,7 @@ msgid ""
 "being timed!"
 msgstr ""
 "Ogni singul toc al à un numar su ducj i flancs. Posizione i tocs te bande "
-"çampe de taule di zûc in mût che i numars compagns a setin a contat. Se i "
+"çampe de taule di zûc in mût che i numars compagns a sedin a contat. Se i "
 "numars no son compagns, no tu puedis plaçâ il toc. Moviti, tu âs un limit di "
 "timp!"
 
@@ -46,7 +46,7 @@ msgstr ""
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
 #: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:381
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -152,36 +152,36 @@ msgstr "Tache une gnove partide"
 msgid "Give up and view the solution"
 msgstr "Rinditi e viôt la soluzion"
 
-#: ../src/gnome-tetravex.vala:240
+#: ../src/gnome-tetravex.vala:239
 msgid "Size could only be from 2 to 6.\n"
-msgstr "La dimension a pues jessi nome tra 2 e 6.\n"
+msgstr "La dimension e pues jessi nome tra 2 e 6.\n"
 
-#: ../src/gnome-tetravex.vala:348
+#: ../src/gnome-tetravex.vala:347
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Sêstu sigûr di rinditi e viodi la soluzion?"
 
-#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
+#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
 msgid "_Keep Playing"
 msgstr "_Continue a zuiâ"
 
-#: ../src/gnome-tetravex.vala:351
+#: ../src/gnome-tetravex.vala:350
 msgid "_Give Up"
 msgstr "_Rinditi"
 
-#: ../src/gnome-tetravex.vala:385
+#: ../src/gnome-tetravex.vala:384
 msgid "Position pieces so that the same numbers are touching each other"
-msgstr "Place i tocs in mût che i numars compagns  setin a contat tra di lôr"
+msgstr "Place i tocs in mût che i numars compagns a sedin a contat tra di lôr"
 
-#: ../src/gnome-tetravex.vala:392
+#: ../src/gnome-tetravex.vala:391
 msgid "translator-credits"
 msgstr "Fabio Tomat <f.t.public@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:410
+#: ../src/gnome-tetravex.vala:409
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
 "Sêstu sigûr di tacâ une gnove partide cuntune diferente dimension de taule?"
 
-#: ../src/gnome-tetravex.vala:412
+#: ../src/gnome-tetravex.vala:411
 msgid "_Start New Game"
 msgstr "_Tache gnove partide"
 
