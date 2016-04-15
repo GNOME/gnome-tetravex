@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-04-07 22:09+0000\n"
-"PO-Revision-Date: 2016-04-08 10:27+0200\n"
+"POT-Creation-Date: 2016-04-15 22:04+0000\n"
+"PO-Revision-Date: 2016-04-16 00:20+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -158,7 +158,7 @@ msgstr "La dimension e pues jessi nome tra 2 e 6.\n"
 
 #: ../src/gnome-tetravex.vala:347
 msgid "Are you sure you want to give up and view the solution?"
-msgstr "Sêstu sigûr di rinditi e viodi la soluzion?"
+msgstr "Sigûrs di rinditi e viodi la soluzion?"
 
 #: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
 msgid "_Keep Playing"
@@ -178,8 +178,7 @@ msgstr "Fabio Tomat <f.t.public@gmail.com>"
 
 #: ../src/gnome-tetravex.vala:409
 msgid "Are you sure you want to start a new game with a different board size?"
-msgstr ""
-"Sêstu sigûr di tacâ une gnove partide cuntune diferente dimension de taule?"
+msgstr "Sigûrs di tacâ une gnove partide cuntune diferente dimension de taule?"
 
 #: ../src/gnome-tetravex.vala:411
 msgid "_Start New Game"
