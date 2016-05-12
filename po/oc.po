@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2016-04-29 10:12+0000\n"
-"PO-Revision-Date: 2016-05-09 21:49+0200\n"
+"PO-Revision-Date: 2016-05-12 18:51+0200\n"
 "Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot En Òc\n"
 "Language: oc\n"
@@ -28,7 +28,7 @@ msgstr "GNOME Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
 msgid "Reorder tiles to fit a square"
-msgstr ""
+msgstr "Reagençatz de pèças per formar un carrat"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
@@ -37,11 +37,14 @@ msgid ""
 "numbers don't match, you can't put the piece there. Move quickly: you're "
 "being timed!"
 msgstr ""
+"Tota pèça carrada a una chifra de cada costat. Plaçatz las pèças del costat "
+"esquèrra del platèu de tal biais que las chifras identicas sián de còsta, "
+"condicion necessària per las pausar. Despachatz-vos : sètz cronometrat !"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
-msgstr ""
+msgstr "Podètz reglar la dificultat del jòc en cambiant la talha del platèu."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
 #: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
@@ -51,7 +54,7 @@ msgstr "Tetravex"
 
 #: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
-msgstr ""
+msgstr "Completar lo puzzle en fasent correspondre las pèças numérotées"
 
 #: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
@@ -65,6 +68,8 @@ msgstr "La talha de la grasilha de jòc"
 #: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
+"La valor d'aquesta clau es utilizada per decidir de la talha de la grasilha "
+"de jòc."
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:3
 #| msgid "The width of the main window in pixels."
@@ -78,7 +83,7 @@ msgstr "La nautor de la fenèstra en pixèls"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "vrai se la fenèstra es maximizada"
 
 #: ../src/app-menu.ui.h:1
 msgid "_New Game"
@@ -134,18 +139,17 @@ msgstr "Imprimís lo numèro de version e quita"
 
 #: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
-msgstr ""
+msgstr "Avia lo jòc en mòde pausa"
 
 #: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
-msgstr ""
+msgstr "Definís la talha del platèu (2-6)"
 
 #. not a typo
 #: ../src/gnome-tetravex.vala:129
-#, fuzzy
 #| msgid "Pause the game"
 msgid "Resume the game"
-msgstr "Metre la partida en pausa"
+msgstr "Reprend la partida"
 
 #: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
@@ -157,17 +161,16 @@ msgstr "Començar una partida novèla"
 
 #: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
-msgstr ""
+msgstr "Abandona e examina la solucion"
 
 #: ../src/gnome-tetravex.vala:239
 msgid "Size could only be from 2 to 6.\n"
-msgstr ""
+msgstr "La talha deu èsser compresa entre 2 e 6\n"
 
 #: ../src/gnome-tetravex.vala:347
-#, fuzzy
 #| msgid "Are you sure you want to resign?"
 msgid "Are you sure you want to give up and view the solution?"
-msgstr "Sètz segur que volètz abandonar ?"
+msgstr "Sètz segur que volètz abandonar e veire la solucion ?"
 
 #: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
 msgid "_Keep Playing"
@@ -175,11 +178,12 @@ msgstr "_Contunhar de jogar"
 
 #: ../src/gnome-tetravex.vala:350
 msgid "_Give Up"
-msgstr ""
+msgstr "_Abandonar"
 
 #: ../src/gnome-tetravex.vala:384
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
+"Posicionatz las pèças de tal biais que las meteissas chifras se tòcan."
 
 #: ../src/gnome-tetravex.vala:391
 msgid "translator-credits"
@@ -188,6 +192,8 @@ msgstr "Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>"
 #: ../src/gnome-tetravex.vala:409
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
+"Sètz segur que volètz començar una novèla partida amb una talha de "
+"platèu diferenta ?"
 
 #: ../src/gnome-tetravex.vala:411
 #| msgid "_New Game"
@@ -955,10 +961,10 @@ msgstr "Ora"
 
 #~ msgid "Seconds white has used until last move (0 for first move)"
 #~ msgstr ""
-#~ "Segondas consumidas pels blancs fins a lor darrièr còp (0 per lo "
+#~ "Segondas consumidas pels blancs fins a lor darrièr còp (0 pel "
 #~ "primièr còp)"
 
 #~ msgid "Seconds black has used until last move (0 for first move)"
 #~ msgstr ""
-#~ "Segondas consumidas pels negres fins a lor darrièr còp (0 per lo "
+#~ "Segondas consumidas pels negres fins a lor darrièr còp (0 pel "
 #~ "primièr còp)"
