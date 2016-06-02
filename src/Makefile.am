@@ -20,6 +20,7 @@ UI_FILES = \
 gnome_tetravex_VALAFLAGS = \
 	--pkg posix \
 	--pkg gtk+-3.0 \
+	--gresources $(builddir)/gnome-tetravex.gresource.xml \
 	--target-glib $(GLIB_REQUIRED)
 
 gnome_tetravex_CFLAGS = \
@@ -35,7 +36,7 @@ gnome_tetravex_LDADD = \
 	-lm
 
 gnome-tetravex-resources.c: gnome-tetravex.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies gnome-tetravex.gresource.xml)
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source gnome-tetravex.gresource.xml
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) --generate-source $<
 
 EXTRA_DIST = \
 	$(UI_FILES) \
@@ -44,5 +45,7 @@ EXTRA_DIST = \
 CLEANFILES = \
 	$(patsubst %.vala,%.c,$(filter %.vala, $(SOURCES))) \
 	*_vala.stamp
+
+MAINTAINERCLEANFILES = gnome-tetravex-resources.c
 
 -include $(top_srcdir)/git.mk
