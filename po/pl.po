@@ -1,9 +1,6 @@
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Aviary.pl
-# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
-# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
-# gnomepl@aviary.pl
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Polish translation for gnome-tetravex.
+# Copyright © 1998-2016 the gnome-tetravex authors.
+# This file is distributed under the same license as the gnome-tetravex package.
 # Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002.
 # Marcin Gorycki <mgo@olicom.dk>, 1999.
 # Tomasz Kłoczko <kloczek@rudy.mif.pg.gda.pl>, 2000.
@@ -15,24 +12,23 @@
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2008.
 # Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010.
 # Wojciech Kapusta <wkapusta@aviary.pl>, 2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2015.
-# Aviary.pl <gnomepl@aviary.pl>, 2007-2015.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2016.
+# Aviary.pl <community-poland@mozilla.org>, 2007-2016.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-25 14:28+0200\n"
-"PO-Revision-Date: 2015-08-25 14:29+0200\n"
+"POT-Creation-Date: 2016-08-15 13:00+0200\n"
+"PO-Revision-Date: 2016-08-15 13:01+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish <gnomepl@aviary.pl>\n"
+"Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Poedit-Language: Polish\n"
-"X-Poedit-Country: Poland\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
 msgid "GNOME Tetravex"
@@ -61,7 +57,7 @@ msgstr "Można ułatwić lub utrudnić grę zmieniając rozmiar planszy."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
 #: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:381
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -83,11 +79,11 @@ msgstr "Wartość tego klucza określa rozmiar siatki planszy."
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
-msgstr "Szerokość okna w pikselach"
+msgstr "Szerokość okna w pikselach"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
-msgstr "Wysokość okna w pikselach"
+msgstr "Wysokość okna w pikselach"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
@@ -139,11 +135,11 @@ msgstr "Za_kończ"
 
 #: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
-msgstr "Wyświetla wersję wydania i kończy działanie"
+msgstr "Wyświetla wersję wydania i kończy działanie"
 
 #: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
-msgstr "Rozpoczyna grę w stanie wstrzymania"
+msgstr "Rozpoczyna grę w stanie wstrzymania"
 
 #: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
@@ -164,31 +160,31 @@ msgstr "Rozpoczyna nową grę"
 
 #: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
-msgstr "Poddaje grę i wyświetla rozwiązanie"
+msgstr "Poddaje grę i wyświetla rozwiązanie"
 
-#: ../src/gnome-tetravex.vala:240
+#: ../src/gnome-tetravex.vala:239
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Rozmiar może wynosić tylko od 2 do 6.\n"
 
-#: ../src/gnome-tetravex.vala:348
+#: ../src/gnome-tetravex.vala:347
 msgid "Are you sure you want to give up and view the solution?"
-msgstr "Na pewno poddać grę i wyświetlić rozwiązanie?"
+msgstr "Na pewno poddać grę i wyświetlić rozwiązanie?"
 
-#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
+#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
 msgid "_Keep Playing"
 msgstr "_Graj dalej"
 
-#: ../src/gnome-tetravex.vala:351
+#: ../src/gnome-tetravex.vala:350
 msgid "_Give Up"
 msgstr "_Poddaj grę"
 
-#: ../src/gnome-tetravex.vala:385
+#: ../src/gnome-tetravex.vala:384
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
-"Układanie poszczególnych elementów w taki sposób, by te same numery stykały "
+"Układanie poszczególnych elementów w taki sposób, by te same numery stykały "
 "się ze sobą"
 
-#: ../src/gnome-tetravex.vala:392
+#: ../src/gnome-tetravex.vala:391
 msgid "translator-credits"
 msgstr ""
 "Zbigniew Chyla <chyla@alice.ci.pwr.wroc.pl>, 1998-2002\n"
@@ -202,14 +198,14 @@ msgstr ""
 "Tomasz Dominikowski <dominikowski@gmail.com>, 2008\n"
 "Joanna Mazgaj <jmazgaj@aviary.pl>, 2009-2010\n"
 "Wojciech Kapusta <wkapusta@aviary.pl>, 2009\n"
-"Piotr Drąg <piotrdrag@gmail.com>, 2010-2015\n"
-"Aviary.pl <gnomepl@aviary.pl>, 2007-2015"
+"Piotr Drąg <piotrdrag@gmail.com>, 2010-2016\n"
+"Aviary.pl <community-poland@mozilla.org>, 2007-2016"
 
-#: ../src/gnome-tetravex.vala:410
+#: ../src/gnome-tetravex.vala:409
 msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Na pewno rozpocząć nową grę o innym rozmiarze planszy?"
+msgstr "Na pewno rozpocząć nową grę o innym rozmiarze planszy?"
 
-#: ../src/gnome-tetravex.vala:412
+#: ../src/gnome-tetravex.vala:411
 msgid "_Start New Game"
 msgstr "_Rozpocznij nową grę"
 
