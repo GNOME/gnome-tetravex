@@ -13,9 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-04 19:52+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-12 23:46+0100\n"
 "PO-Revision-Date: 2014-09-05 00:27+0200\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -30,6 +29,10 @@ msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Reordena les fitxes per ajustar-se a un quadrat"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -41,14 +44,14 @@ msgstr ""
 "altres. Si els números no coincideixen, no podeu posar-hi la peça. Afanyeu-"
 "vos! El temps avança!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr "Podeu fer el joc més fàcil o més difícil canviant la mida del tauler."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:116
-#: ../src/gnome-tetravex.vala:413
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:381
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -125,83 +128,56 @@ msgstr "_Quant a"
 msgid "_Quit"
 msgstr "S_urt"
 
-#: ../src/gnome-tetravex.vala:37
+#: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Mostra la versió i surt"
 
-#: ../src/gnome-tetravex.vala:38
+#: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Inicia el joc fent una pausa"
 
-#: ../src/gnome-tetravex.vala:39
+#: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Estableix la mida del tauler (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:139
+#: ../src/gnome-tetravex.vala:129
 msgid "Resume the game"
 msgstr "Continua la partida"
 
-#: ../src/gnome-tetravex.vala:151
+#: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
 msgstr "Fes una pausa a la partida"
 
-#: ../src/gnome-tetravex.vala:168
+#: ../src/gnome-tetravex.vala:158
 msgid "Start a new game"
 msgstr "Comença una partida nova"
 
-#: ../src/gnome-tetravex.vala:180
+#: ../src/gnome-tetravex.vala:170
 msgid "Give up and view the solution"
 msgstr "Deixa-ho córrer i mostra'm la solució"
 
-#: ../src/gnome-tetravex.vala:251
+#: ../src/gnome-tetravex.vala:239
 msgid "Size could only be from 2 to 6.\n"
 msgstr "La mida només pot ser entre 2 i 6.\n"
 
-#. Translators: sorry. This is the clock label when the game has exceeded
-#. * one hour in length. The first %02d is hours, the middle %02d is minutes,
-#. * and the last is seconds. In between are ratio characters and LTR order
-#. * marks, so that nothing gets reversed in RTL languages. You probably do not
-#. * need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:306
-#, c-format
-msgid "%02d∶‎%02d∶‎%02d"
-msgstr "%02d∶‎%02d∶‎%02d"
-
-#. Translators: sorry. This is the clock label when the game is less than
-#. * one hour in length. The first %02d is minutes and the last is seconds.
-#. * In between is a ratio character and LTR order mark, so that nothing gets
-#. * reversed in RTL languages. You probably do not need to change this. Probably.
-#.
-#: ../src/gnome-tetravex.vala:315
-#, c-format
-msgid "%02d∶‎%02d"
-msgstr "%02d∶‎%02d"
-
-#: ../src/gnome-tetravex.vala:379
+#: ../src/gnome-tetravex.vala:347
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Segur que voleu abandonar i veure la solució?"
 
-#: ../src/gnome-tetravex.vala:381
+#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
 msgid "_Keep Playing"
 msgstr "_Continua jugant"
 
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:350
 msgid "_Give Up"
 msgstr "_Abandona"
 
-#: ../src/gnome-tetravex.vala:416
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
-msgstr ""
-"Col·loqueu les peces de manera que els mateixos nombres es toquin.\n"
-"\n"
-"El Tetravex forma part dels jocs del GNOME."
+#: ../src/gnome-tetravex.vala:384
+msgid "Position pieces so that the same numbers are touching each other"
+msgstr "Col·loqueu les peces de manera que els mateixos nombres es toquin"
 
-#: ../src/gnome-tetravex.vala:423
+#: ../src/gnome-tetravex.vala:391
 msgid "translator-credits"
 msgstr ""
 "Jordi Vila <gnome@softcatala.net>\n"
@@ -211,7 +187,15 @@ msgstr ""
 "Josep Puigdemont <josep.puigdemont@gmail.com>\n"
 "David Planella <david.planella@gmail.com>"
 
-#: ../src/puzzle-view.vala:337
+#: ../src/gnome-tetravex.vala:409
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "Segur que voleu començar un joc nou amb una mida de tauler different?"
+
+#: ../src/gnome-tetravex.vala:411
+msgid "_Start New Game"
+msgstr "_Comença una partida nova"
+
+#: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Aturat"
 
@@ -238,3 +222,9 @@ msgstr "Data"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Temps"
+
+#~ msgid "%02d∶‎%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d∶‎%02d"
+
+#~ msgid "%02d∶‎%02d"
+#~ msgstr "%02d∶‎%02d"
