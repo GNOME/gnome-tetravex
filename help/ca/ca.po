@@ -143,7 +143,7 @@ msgstr ""
 msgid ""
 "It is not possible to position the pieces so that different number are next "
 "to each other."
-msgstr "No és poden posar les fitxes de forma que nombres diferents es toquin."
+msgstr "No es poden posar les fitxes de forma que nombres diferents es toquin."
 
 #: C/usage.page:43(p)
 msgid ""
@@ -400,7 +400,7 @@ msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
 msgstr ""
-"Aquest treball és distribueix sota la llicència Creative Commons atribució "
+"Aquest treball es distribueix sota la llicència Creative Commons atribució "
 "compartir igual 3.0 llicència no portada."
 
 #: C/license.page:20(p)
@@ -566,7 +566,7 @@ msgid ""
 msgstr ""
 "Si us encalleu en una partida o si voleu resoldre-la de forma automàtica, "
 "trieu <guiseq><gui style=\"menu\">Partida</gui><gui style=\"menuitem"
-"\">Resol</gui></guiseq>"
+"\">Resol</gui></guiseq>."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
