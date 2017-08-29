@@ -134,7 +134,7 @@ msgstr "Mostra la versió i surt"
 
 #: ../src/gnome-tetravex.vala:39
 msgid "Start the game paused"
-msgstr "Inicia el joc fent una pausa"
+msgstr "Inicia la partida fent una pausa"
 
 #: ../src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
@@ -189,7 +189,7 @@ msgstr ""
 
 #: ../src/gnome-tetravex.vala:409
 msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Segur que voleu començar un joc nou amb una mida de tauler different?"
+msgstr "Segur que voleu començar una partida nova amb una mida de tauler diferent?"
 
 #: ../src/gnome-tetravex.vala:411
 msgid "_Start New Game"
