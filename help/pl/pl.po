@@ -1,0 +1,562 @@
+# Polish translation for gnome-tetravex help.
+# Copyright © 2017 the gnome-tetravex authors.
+# This file is distributed under the same license as the gnome-tetravex package.
+# Piotr Drąg <piotrdrag@gmail.com>, 2017.
+# Aviary.pl <community-poland@mozilla.org>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-tetravex-help\n"
+"POT-Creation-Date: 2017-08-29 23:09+0000\n"
+"PO-Revision-Date: 2017-09-01 03:25+0200\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
+"Language-Team: Polish <community-poland@mozilla.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr ""
+"Piotr Drąg <piotrdrag@gmail.com>, 2017\n"
+"Aviary.pl <community-poland@mozilla.org>, 2017"
+
+#. (itstool) path: info/desc
+#: C/hint.page:7
+msgid "Use hints or solve the game automatically."
+msgstr "Korzystanie z podpowiedzi lub automatyczne rozwiązywanie gry."
+
+#. (itstool) path: credit/name
+#: C/hint.page:10 C/index.page:17 C/move.page:11 C/shortcut.page:11
+#: C/size.page:11 C/usage.page:12 C/winning.page:12
+msgid "Milo Casagrande"
+msgstr "Milo Casagrande"
+
+#. (itstool) path: page/title
+#: C/hint.page:14
+msgid "Hints"
+msgstr "Podpowiedzi"
+
+#. (itstool) path: note/p
+#: C/hint.page:17
+msgid ""
+"If you use the following method to complete the game, your score will not be "
+"included among the high scores."
+msgstr ""
+"Użycie tej metody do ukończenia gry powoduje, że wynik nie jest zaliczany na "
+"liście najlepszych wyników."
+
+#. (itstool) path: section/title
+#: C/hint.page:24
+msgid "Solve the game"
+msgstr "Rozwiązywanie gry"
+
+#. (itstool) path: section/p
+#: C/hint.page:25
+msgid ""
+"If you get stuck in the game, or you want to solve it automatically, choose "
+"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
+"guiseq>."
+msgstr ""
+"W razie problemów ze znalezieniem rozwiązania, lub jeśli chcesz "
+"automatycznie rozwiązać łamigłówkę, wybierz <guiseq><gui style=\"menu\">Gra</"
+"gui><gui style=\"menuitem\">Rozwiąż</gui></guiseq>."
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "link"
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "text"
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#. (itstool) path: info/desc
+#: C/index.page:10
+msgid "GNOME Tetravex help."
+msgstr "Pomoc gry GNOME Tetravex."
+
+#. (itstool) path: credit/name
+#: C/index.page:13 C/usage.page:16
+msgid "Rob Bradford"
+msgstr "Rob Bradford"
+
+#. (itstool) path: license/p
+#: C/index.page:21 C/move.page:15 C/shortcut.page:15 C/size.page:15
+#: C/usage.page:20 C/winning.page:16
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
+
+#. (itstool) path: media/span
+#: C/index.page:26
+msgid "GNOME Tetravex logo"
+msgstr "Logo gry GNOME Tetravex."
+
+#. (itstool) path: page/title
+#: C/index.page:25
+msgid "<_:media-1/> GNOME Tetravex"
+msgstr "<_:media-1/> GNOME Tetravex"
+
+#. (itstool) path: page/p
+#: C/index.page:30
+msgid ""
+"<app>GNOME Tetravex</app> is a simple puzzle game which scope is to move the "
+"various pieces from one side of the board to the other side, so that the "
+"same numbers depicted on the pieces are touching each other."
+msgstr ""
+"<app>GNOME Tetravex</app> to prosta łamigłówka, której celem jest "
+"przeniesienie kafelków z jednej strony planszy na drugą, tak aby te same "
+"liczby na kafelkach stykały się ze sobą."
+
+#. (itstool) path: page/p
+#: C/index.page:35
+msgid ""
+"The game is timed, and these times are used as the score for the game. You "
+"have to move all the pieces in the least time possible."
+msgstr ""
+"Czas gry jest liczony, a najkrótsze czasy są umieszczane na liście "
+"najlepszych wyników."
+
+#. (itstool) path: section/title
+#: C/index.page:41
+msgid "Basic Gameplay &amp; Usage"
+msgstr "Podstawy gry"
+
+#. (itstool) path: section/title
+#: C/index.page:45
+msgid "Tips &amp; Tricks"
+msgstr "Wskazówki i porady"
+
+#. (itstool) path: info/desc
+#: C/license.page:8
+msgid "Legal information."
+msgstr "Informacje prawne."
+
+#. (itstool) path: page/title
+#: C/license.page:11
+msgid "License"
+msgstr "Licencja"
+
+#. (itstool) path: page/p
+#: C/license.page:12
+msgid ""
+"This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
+"Unported license."
+msgstr ""
+"Na warunkach licencji Creative Commons Uznanie autorstwa — Na tych samych "
+"warunkach 3.0 Unported."
+
+#. (itstool) path: page/p
+#: C/license.page:20
+msgid "You are free:"
+msgstr "Można:"
+
+#. (itstool) path: item/title
+#: C/license.page:25
+msgid "<em>To share</em>"
+msgstr "<em>dzielić się</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:26
+msgid "To copy, distribute and transmit the work."
+msgstr ", czyli kopiować, rozpowszechniać, odtwarzać i wykonywać utwór."
+
+#. (itstool) path: item/title
+#: C/license.page:29
+msgid "<em>To remix</em>"
+msgstr "<em>remiksować</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:30
+msgid "To adapt the work."
+msgstr ", czyli tworzyć utwory zależne."
+
+#. (itstool) path: page/p
+#: C/license.page:33
+msgid "Under the following conditions:"
+msgstr "Na następujących warunkach:"
+
+#. (itstool) path: item/title
+#: C/license.page:38
+msgid "<em>Attribution</em>"
+msgstr "<em>Uznanie autorstwa</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:39
+msgid ""
+"You must attribute the work in the manner specified by the author or "
+"licensor (but not in any way that suggests that they endorse you or your use "
+"of the work)."
+msgstr ""
+"Utwór należy oznaczyć w sposób określony przez Twórcę lub Licencjodawcę."
+
+#. (itstool) path: item/title
+#: C/license.page:46
+msgid "<em>Share Alike</em>"
+msgstr "<em>Na tych samych warunkach</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:47
+msgid ""
+"If you alter, transform, or build upon this work, you may distribute the "
+"resulting work only under the same, similar or a compatible license."
+msgstr ""
+"Zmieniając utwór, przekształcając go lub tworząc na jego podstawie, wolno "
+"rozpowszechniać powstały utwór zależny jedynie na tej samej, podobnej lub "
+"zgodnej licencji."
+
+#. (itstool) path: page/p
+#: C/license.page:53
+msgid ""
+"For the full text of the license, see the <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
+"link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">Commons Deed</link>."
+msgstr ""
+"Pełny tekst licencji dostępny jest na stronie <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">Creative Commons</link>; "
+"można również przeczytać <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">podsumowanie</link>."
+
+#. (itstool) path: info/desc
+#: C/move.page:8
+msgid "How to move the pieces on the game board."
+msgstr "Jak przenosić kafelki na planszy."
+
+#. (itstool) path: page/title
+#: C/move.page:19
+msgid "Move the pieces"
+msgstr "Przenoszenie kafelków"
+
+#. (itstool) path: section/title
+#: C/move.page:22
+msgid "Move a piece"
+msgstr "Przenoszenie kafelka"
+
+#. (itstool) path: section/p
+#: C/move.page:23
+msgid ""
+"To move a piece, you can either click on it to select it, and click on the "
+"square to place it or drag it to the new square."
+msgstr ""
+"Aby przenieść kafelek, zaznacz go klikając, a następnie kliknij miejsce "
+"docelowe, albo go przeciągnij."
+
+#. (itstool) path: section/p
+#: C/move.page:26
+msgid "These moves are not permanent and can be reversed."
+msgstr "Te ruchy nie są ostateczne i mogą być cofane."
+
+#. (itstool) path: note/p
+#: C/move.page:30
+msgid ""
+"The pieces in the left box can be moved all at once in one direction. See "
+"<link xref=\"shortcut\"/> for more information."
+msgstr ""
+"Można przenieść wszystkie kafelki w lewym pojemniku jednocześnie w tym samym "
+"kierunku. <link xref=\"shortcut\"/> zawiera więcej informacji."
+
+#. (itstool) path: info/desc
+#: C/shortcut.page:8
+msgid "Use the keyboard to play the game."
+msgstr "Granie za pomocą klawiatury."
+
+#. (itstool) path: page/title
+#: C/shortcut.page:19
+msgid "Keyboard shortcuts"
+msgstr "Skróty klawiszowe"
+
+#. (itstool) path: section/title
+#: C/shortcut.page:22
+msgid "Game shortcuts"
+msgstr "Skróty w grze"
+
+#. (itstool) path: section/p
+#: C/shortcut.page:23
+msgid ""
+"The following table groups the most useful shortcuts for playing <app>GNOME "
+"Tetravex</app>."
+msgstr ""
+"W tej tabeli znajdują się najbardziej przydatne skróty do grania "
+"w <app>GNOME Tetravex</app>."
+
+#. (itstool) path: td/p
+#: C/shortcut.page:28
+msgid "Shortcut"
+msgstr "Skrót"
+
+#. (itstool) path: td/p
+#: C/shortcut.page:28
+msgid "Description"
+msgstr "Opis"
+
+#. (itstool) path: td/p
+#: C/shortcut.page:32
+msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcut.page:35
+msgid "Start a new game."
+msgstr "Rozpoczęcie nowej gry."
+
+#. (itstool) path: td/p
+#: C/shortcut.page:40
+msgid "<key>Pause</key>"
+msgstr "<key>Pause</key>"
+
+#. (itstool) path: td/p
+#: C/shortcut.page:43
+msgid "Pause or resume the game."
+msgstr "Wstrzymanie lub wznowienie gry."
+
+#. (itstool) path: td/p
+#: C/shortcut.page:48
+msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>W górę</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcut.page:53
+msgid "Move all the pieces in the left box up by one."
+msgstr ""
+"Przeniesienie wszystkich kafelków w lewym pojemniku o jedno miejsce w górę."
+
+#. (itstool) path: td/p
+#: C/shortcut.page:58
+msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>W dół</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcut.page:61
+msgid "Move all the pieces in the left box down by one."
+msgstr ""
+"Przeniesienie wszystkich kafelków w lewym pojemniku o jedno miejsce w dół."
+
+#. (itstool) path: td/p
+#: C/shortcut.page:66
+msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>W lewo</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcut.page:69
+msgid "Move all the pieces in the left box left by one."
+msgstr ""
+"Przeniesienie wszystkich kafelków w lewym pojemniku o jedno miejsce w lewo."
+
+#. (itstool) path: td/p
+#: C/shortcut.page:74
+msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
+msgstr "<keyseq><key>Ctrl</key><key>W prawo</key></keyseq>"
+
+#. (itstool) path: td/p
+#: C/shortcut.page:77
+msgid "Move all the pieces in the left box right by one."
+msgstr ""
+"Przeniesienie wszystkich kafelków w lewym pojemniku o jedno miejsce w prawo."
+
+#. (itstool) path: info/desc
+#: C/size.page:7
+msgid "Change the size of the game board."
+msgstr "Zmiana rozmiaru planszy."
+
+#. (itstool) path: page/title
+#: C/size.page:18
+msgid "Game board size"
+msgstr "Rozmiar planszy"
+
+#. (itstool) path: page/p
+#: C/size.page:20
+msgid ""
+"To change the size of the game board, in order to increase or decrease the "
+"complexity of the game, click <gui>Tetravex</gui> in the top bar and click "
+"<gui>Size</gui>, then select the dimension of the board."
+msgstr ""
+"Aby zmienić rozmiar planszy, co zwiększa lub zmniejsza poziom trudności gry, "
+"kliknij <gui>Tetravex</gui> na górnym pasku i kliknij <gui>Rozmiar</gui>, "
+"a następnie wybierz wymiary planszy."
+
+#. (itstool) path: page/p
+#: C/size.page:25
+msgid ""
+"You can select from five different dimension, from 2×2 to 6×6. The default "
+"one is 3×3."
+msgstr ""
+"Można wybrać jeden z pięciu różnych wymiarów, od 2×2 do 6×6. Domyślnie "
+"wybrany jest 3×3."
+
+#. (itstool) path: note/p
+#: C/size.page:29
+msgid ""
+"If the pieces are too small, resizing the window will change their size."
+msgstr ""
+"Jeśli kafelki są za małe, zmiana rozmiaru okna zmieni także ich rozmiar."
+
+#. (itstool) path: info/desc
+#: C/usage.page:9
+msgid "How to play <app>GNOME Tetravex</app>."
+msgstr "Jak grać w <app>GNOME Tetravex</app>."
+
+#. (itstool) path: page/title
+#: C/usage.page:24
+msgid "Play <app>GNOME Tetravex</app>"
+msgstr "Granie w <app>GNOME Tetravex</app>"
+
+#. (itstool) path: section/title
+#: C/usage.page:27
+msgid "Basic usage"
+msgstr "Podstawy gry"
+
+#. (itstool) path: section/p
+#: C/usage.page:28
+msgid ""
+"The game window is divided into two boxes: the one on the right side of the "
+"window contains the pieces that needs to be arranged; the one on the left "
+"side of the window is where the pieces from the right box will be arranged "
+"and moved. Each piece is divided into four little triangles containing a "
+"number."
+msgstr ""
+"Okno gry jest podzielone na dwa pojemniki. Ten po prawej stronie zawiera "
+"kafelki do ułożenia, a ten po lewej miejsce, w którym należy te kafelki "
+"ułożyć. Każdy kafelek jest podzielony na cztery małe trójkąty z liczbami."
+
+#. (itstool) path: section/p
+#: C/usage.page:35
+msgid ""
+"The scope of the game is to position the pieces so that only two identical "
+"numbers are next to each other."
+msgstr ""
+"Celem gry jest ułożenie kafelków w taki sposób, aby tylko takie same liczby "
+"się stykały ze sobą."
+
+#. (itstool) path: section/p
+#: C/usage.page:39
+msgid ""
+"It is not possible to position the pieces so that different number are next "
+"to each other."
+msgstr "Nie da się układać kafelków tak, aby różne liczby były obok siebie."
+
+#. (itstool) path: section/p
+#: C/usage.page:43
+msgid ""
+"The game is completed when you have positioned all the pieces in their right "
+"positions."
+msgstr ""
+"Gra się kończy po ułożeniu wszystkich kafelków we właściwych miejscach."
+
+#. (itstool) path: note/p
+#: C/usage.page:48
+msgid ""
+"When you start <app>GNOME Tetravex</app>, the game will start immediately, "
+"and the time will start counting."
+msgstr ""
+"Po włączeniu <app>GNOME Tetravex</app> gra (razem z liczeniem czasu) zacznie "
+"się od razu."
+
+#. (itstool) path: section/title
+#: C/usage.page:57
+msgid "Video demonstration"
+msgstr "Demonstracja wideo"
+
+#. (itstool) path: section/p
+#: C/usage.page:58
+msgid ""
+"This short video shows how the game works, and what are the possible "
+"movements."
+msgstr "Ten krótki filmik pokazuje, jak grać, i jakie ruchy można wykonywać."
+
+#. (itstool) path: media/p
+#: C/usage.page:62
+msgid "Demo"
+msgstr "Demonstracja"
+
+#. (itstool) path: div/p
+#: C/usage.page:66
+msgid ""
+"Drag pieces from the right to the left, making sure that adjacent edges have "
+"the same number and color."
+msgstr ""
+"Przeciągnij kafelki z prawej na lewo tak, aby sąsiednie krawędzie miały "
+"takie same liczby i kolory."
+
+#. (itstool) path: div/p
+#: C/usage.page:70
+msgid ""
+"Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
+"at once."
+msgstr ""
+"Przytrzymaj klawisz <key>Ctrl</key> i naciśnij klawisze strzałek, aby "
+"przenieść wszystkie umieszczone kafelki jednocześnie."
+
+#. (itstool) path: div/p
+#: C/usage.page:74
+msgid "Continue dragging pieces until they all fit together on the left."
+msgstr ""
+"Kontynuuj przeciąganie kafelków, dopóki nie dopasujesz wszystkich po lewej "
+"stronie."
+
+#. (itstool) path: info/desc
+#: C/winning.page:9
+msgid "Simple tips on how to possibly win a game."
+msgstr "Proste wskazówki na wygraną."
+
+#. (itstool) path: page/title
+#: C/winning.page:20
+msgid "Win <app>GNOME Tetravex</app>"
+msgstr "Jak wygrywać w <app>GNOME Tetravex</app>"
+
+#. (itstool) path: note/p
+#: C/winning.page:23
+msgid ""
+"The following tips will not assure you to win a game, they are intended as a "
+"simple aid."
+msgstr "Poniższe wskazówki nie zapewniają wygranej, ale mogą w niej pomóc."
+
+#. (itstool) path: section/title
+#: C/winning.page:30
+msgid "Look for a single number"
+msgstr "Szukanie liczby bez pary"
+
+#. (itstool) path: section/p
+#: C/winning.page:31
+msgid ""
+"When you start a new game, look for a single number, or a number that has no "
+"similar numbers that can be placed next to it."
+msgstr "Po rozpoczęciu gry rozejrzyj się za liczbami bez pary."
+
+#. (itstool) path: section/p
+#: C/winning.page:35
+msgid ""
+"If you have one such number, that piece is a valid starting piece, since you "
+"know where it has to be placed."
+msgstr ""
+"Kafelek z taką liczbą jest dobry na początek, ponieważ od razu wiadomo, "
+"gdzie go umieścić."
+
+#. (itstool) path: section/p
+#: C/winning.page:39
+msgid ""
+"Note that the bigger the size of the board, the harder is to find such a "
+"number."
+msgstr "Zauważ, że im plansza jest większa, tym trudniej znaleźć taką liczbę."
+
+#. (itstool) path: section/title
+#: C/winning.page:46
+msgid "Have a tip to share?"
+msgstr "Masz własną wskazówkę?"
+
+#. (itstool) path: section/p
+#: C/winning.page:47
+msgid ""
+"If you have a tip to share about <app>GNOME Tetravex</app>, or any other "
+"GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
+msgstr ""
+"Jeśli chcesz podzielić się wskazówką o grze <app>GNOME Tetravex</app> lub "
+"innej grze, napisz do nas na adres gnome-doc-list@gnome.org (w języku "
+"angielskim). Dodamy ją tutaj!"
