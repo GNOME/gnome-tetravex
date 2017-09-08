@@ -1,14 +1,15 @@
 # Ales Nyakhaychyk <nab@mail.by>, 2003.
 # Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2011, 2013.
 # Kasia Bondarava <kasia.bondarava@gmail.com>, 2012.
+# Yuras Shumovich <shumovichy@gmail.com>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-17 23:20+0000\n"
-"PO-Revision-Date: 2012-09-07 18:13+0300\n"
-"Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
+"POT-Creation-Date: 2017-03-12 22:47+0000\n"
+"PO-Revision-Date: 2017-09-08 14:06+0300\n"
+"Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
@@ -16,176 +17,242 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Virtaal 0.7.0\n"
+"X-Generator: Poedit 1.8.11\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:1 ../src/gnome-tetravex.vala:58
-#: ../src/gnome-tetravex.vala:85 ../src/gnome-tetravex.vala:313
+#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#| msgid "Tetravex"
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:2
+msgid "Reorder tiles to fit a square"
+msgstr "Перастаўляйце косці каб запоўніць квадрат"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:3
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
+msgstr ""
+"Кожныя квадратная плітка мае нумар з кожнага боку. Змясціце пліткі на левай "
+"частцы дашкі, так каб аднолькавыя лікі былі побач. Калі лікі не супадаюць, "
+"змясціць плітку не атрымаецца. Хутчэй, час ужо ідзе!"
+
+#: ../data/gnome-tetravex.appdata.xml.in.h:4
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr "Змяняючы памер дашкі, можна зрабіць гульню прасцей ці складаней."
+
+#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
+#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
+#: ../src/gnome-tetravex.vala:381
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:2
+#: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Вырашыце галаваломку, складваючы аднолькавыя лічбы на фішках"
 
-#: ../data/gnome-tetravex.desktop.in.in.h:3
+#: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
 msgstr "гульня;логіка;лагічная гульня;настольная гульня;"
 
-#: ../data/gnome-tetravex.ui.h:1
-msgid "_New Game"
-msgstr "_Новая гульня"
-
-#: ../data/gnome-tetravex.ui.h:2 ../src/gnome-tetravex.vala:120
-#: ../src/gnome-tetravex.vala:374
-msgid "_Pause"
-msgstr "_Паўза"
-
-#: ../data/gnome-tetravex.ui.h:3
-msgid "_Solve"
-msgstr "_Вырашыць"
-
-#: ../data/gnome-tetravex.ui.h:4
-msgid "_Move"
-msgstr "_Ход"
-
-#: ../data/gnome-tetravex.ui.h:5
-msgid "_Up"
-msgstr "У_верх"
-
-#: ../data/gnome-tetravex.ui.h:6
-msgid "_Left"
-msgstr "У_лева"
-
-#: ../data/gnome-tetravex.ui.h:7
-msgid "_Right"
-msgstr "У_права"
-
-#: ../data/gnome-tetravex.ui.h:8
-msgid "_Down"
-msgstr "У_ніз"
-
-#: ../data/gnome-tetravex.ui.h:9
-msgid "_Scores"
-msgstr "_Рэкорды"
-
-#: ../data/gnome-tetravex.ui.h:10
-msgid "_Size"
-msgstr "_Памер"
-
-#: ../data/gnome-tetravex.ui.h:11
-msgid "_2x2"
-msgstr "_2x2"
-
-#: ../data/gnome-tetravex.ui.h:12
-msgid "_3x3"
-msgstr "_3x3"
-
-#: ../data/gnome-tetravex.ui.h:13
-msgid "_4x4"
-msgstr "_4x4"
-
-#: ../data/gnome-tetravex.ui.h:14
-msgid "_5x5"
-msgstr "_5x5"
-
-#: ../data/gnome-tetravex.ui.h:15
-msgid "_6x6"
-msgstr "_6x6"
-
-#: ../data/gnome-tetravex.ui.h:16
-msgid "_Help"
-msgstr "_Дапамога"
-
-#: ../data/gnome-tetravex.ui.h:17
-msgid "_About"
-msgstr "_Аб праграме"
-
-#: ../data/gnome-tetravex.ui.h:18
-msgid "_Quit"
-msgstr "_Выйсці"
-
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:1
+#: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
 msgstr "Памер гульнёвай сеткі"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:2
+#: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Значэнне гэтага ключа ўжываецца для вызначэння памеру гульнёвай сеткі."
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:3
+#: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
 msgstr "Шырыня акна ў пікселах"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:4
+#: ../data/org.gnome.tetravex.gschema.xml.h:4
 msgid "Height of the window in pixels"
 msgstr "Вышыня акна ў пікселах"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:5
+#: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
 msgstr "Уключана, калі акно максімалізавана"
 
-#: ../data/org.gnome.tetravex.gschema.xml.in.h:6
-msgid "true if the window is fullscren"
-msgstr "Уключана, калі акно разгорнута на ўвесь экран"
+#: ../src/app-menu.ui.h:1
+msgid "_New Game"
+msgstr "_Новая гульня"
 
-#: ../src/gnome-tetravex.vala:106
-msgid "_New"
-msgstr "_Новая партыя"
+#: ../src/app-menu.ui.h:2
+msgid "_Scores"
+msgstr "_Рэкорды"
 
-#: ../src/gnome-tetravex.vala:114
-msgid "Solve"
-msgstr "Вырашыць"
+#: ../src/app-menu.ui.h:3
+msgid "_Size"
+msgstr "_Памер"
 
-#: ../src/gnome-tetravex.vala:127 ../src/gnome-tetravex.vala:187
-msgid "_Fullscreen"
-msgstr "_На ўвесь экран"
+#: ../src/app-menu.ui.h:4
+msgid "_2x2"
+msgstr "_2x2"
 
-#: ../src/gnome-tetravex.vala:182
-msgid "_Leave Fullscreen"
-msgstr "_Выйсці з поўнаэкраннага рэжыму"
+#: ../src/app-menu.ui.h:5
+msgid "_3x3"
+msgstr "_3x3"
 
-#: ../src/gnome-tetravex.vala:234 ../src/gnome-tetravex.vala:463
-#, c-format
-msgid "Time"
-msgstr "Час"
+#: ../src/app-menu.ui.h:6
+msgid "_4x4"
+msgstr "_4x4"
 
-#: ../src/gnome-tetravex.vala:316
-msgid ""
-"Position pieces so that the same numbers are touching each other\n"
-"\n"
-"Tetravex is a part of GNOME Games."
-msgstr ""
-"Перастаўляй фішкі такім чынам, каб аднолькавыя лічбы судакраналіся.\n"
-"\n"
-"Гульня \"Tetravex\" з'яўляецца складовай часткай пакунка гульняў GNOME."
+#: ../src/app-menu.ui.h:7
+msgid "_5x5"
+msgstr "_5x5"
 
-#: ../src/gnome-tetravex.vala:323
+#: ../src/app-menu.ui.h:8
+msgid "_6x6"
+msgstr "_6x6"
+
+#: ../src/app-menu.ui.h:9
+msgid "_Help"
+msgstr "_Дапамога"
+
+#: ../src/app-menu.ui.h:10
+msgid "_About"
+msgstr "_Аб праграме"
+
+#: ../src/app-menu.ui.h:11
+msgid "_Quit"
+msgstr "_Выйсці"
+
+#: ../src/gnome-tetravex.vala:38
+msgid "Print release version and exit"
+msgstr "Паказаць версію выдання і выйсці"
+
+#: ../src/gnome-tetravex.vala:39
+msgid "Start the game paused"
+msgstr "Распачаць прыпыненую гульню"
+
+#: ../src/gnome-tetravex.vala:40
+msgid "Set size of board (2-6)"
+msgstr "Наставіць памер дашкі (2-6)"
+
+#. not a typo
+#: ../src/gnome-tetravex.vala:129
+msgid "Resume the game"
+msgstr "Узнавіць гульню"
+
+#: ../src/gnome-tetravex.vala:141
+msgid "Pause the game"
+msgstr "Прыпыніць гульню"
+
+#: ../src/gnome-tetravex.vala:158
+msgid "Start a new game"
+msgstr "Распачаць новую гульню"
+
+#: ../src/gnome-tetravex.vala:170
+msgid "Give up and view the solution"
+msgstr "Здацца і ўбачыць рашэнне"
+
+#: ../src/gnome-tetravex.vala:239
+msgid "Size could only be from 2 to 6.\n"
+msgstr "Памер павінен быць ад 2 да 6.\n"
+
+#: ../src/gnome-tetravex.vala:347
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Сапраўды здацца і ўбачыць рашэнне?"
+
+#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
+msgid "_Keep Playing"
+msgstr "_Працягваць гульню"
+
+#: ../src/gnome-tetravex.vala:350
+msgid "_Give Up"
+msgstr "_Здацца"
+
+#: ../src/gnome-tetravex.vala:384
+msgid "Position pieces so that the same numbers are touching each other"
+msgstr "Перастаўляй фішкі такім чынам, каб аднолькавыя лічбы судакраналіся."
+
+#: ../src/gnome-tetravex.vala:391
 msgid "translator-credits"
 msgstr ""
 "Ales Nyakhaychyk <nab@mail.by>\n"
-"Ihar Hrachyshka <ihar.hrachyshka@gmail.com>"
+"Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
+"Юрась Шумовіч <shumovichy@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:326
-msgid "GNOME Games web site"
-msgstr "Сеціўная пляцоўка гульняў GNOME"
+#: ../src/gnome-tetravex.vala:409
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "Сапраўды распачаць новую гульню з іншым памерам дашкі?"
 
-#: ../src/gnome-tetravex.vala:369
-msgid "Res_ume"
-msgstr "_Працягнуць"
+#: ../src/gnome-tetravex.vala:411
+msgid "_Start New Game"
+msgstr "_Распачаць новую гульню"
 
-#: ../src/gnome-tetravex.vala:420
+#: ../src/puzzle-view.vala:356
+msgid "Paused"
+msgstr "Паўза"
+
+#: ../src/score-dialog.vala:29
+msgid "Quit"
+msgstr "Выйсці"
+
+#: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Новая гульня"
 
-#: ../src/gnome-tetravex.vala:435
+#: ../src/score-dialog.vala:33
+msgid "OK"
+msgstr "Добра"
+
+#: ../src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Памер:"
 
-#: ../src/gnome-tetravex.vala:460
+#: ../src/score-dialog.vala:70
 msgid "Date"
 msgstr "Дата"
 
-#: ../src/puzzle-view.vala:336
-msgid "Paused"
-msgstr "Паўза"
+#: ../src/score-dialog.vala:73
+msgid "Time"
+msgstr "Час"
+
+#~ msgid "_Pause"
+#~ msgstr "_Паўза"
+
+#~ msgid "_Solve"
+#~ msgstr "_Вырашыць"
+
+#~ msgid "_Move"
+#~ msgstr "_Ход"
+
+#~ msgid "_Up"
+#~ msgstr "У_верх"
+
+#~ msgid "_Left"
+#~ msgstr "У_лева"
+
+#~ msgid "_Right"
+#~ msgstr "У_права"
+
+#~ msgid "_Down"
+#~ msgstr "У_ніз"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "Уключана, калі акно разгорнута на ўвесь экран"
+
+#~ msgid "_New"
+#~ msgstr "_Новая партыя"
+
+#~ msgid "Solve"
+#~ msgstr "Вырашыць"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_На ўвесь экран"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "_Выйсці з поўнаэкраннага рэжыму"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Сеціўная пляцоўка гульняў GNOME"
+
+#~ msgid "Res_ume"
+#~ msgstr "_Працягнуць"
