@@ -27,10 +27,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-22 08:56+0000\n"
-"PO-Revision-Date: 2015-02-22 16:31+0100\n"
+"POT-Creation-Date: 2017-03-12 22:47+0000\n"
+"PO-Revision-Date: 2017-09-08 16:31+0100\n"
 "Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -41,7 +41,7 @@ msgstr ""
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
 msgid "GNOME Tetravex"
-msgstr "GNOME Tetravex"
+msgstr "Tetravex de GNOME"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
 msgid "Reorder tiles to fit a square"
@@ -67,7 +67,7 @@ msgstr ""
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
 #: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:381
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -174,28 +174,28 @@ msgstr "Démarre une nouvelle partie"
 msgid "Give up and view the solution"
 msgstr "Abandonne et examine la solution"
 
-#: ../src/gnome-tetravex.vala:240
+#: ../src/gnome-tetravex.vala:239
 msgid "Size could only be from 2 to 6.\n"
 msgstr "La taille doit être comprise entre 2 et 6\n"
 
-#: ../src/gnome-tetravex.vala:348
+#: ../src/gnome-tetravex.vala:347
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Voulez-vous vraiment abandonner et voir la solution ?"
 
-#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
+#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
 msgid "_Keep Playing"
 msgstr "_Continuer de jouer"
 
-#: ../src/gnome-tetravex.vala:351
+#: ../src/gnome-tetravex.vala:350
 msgid "_Give Up"
 msgstr "_Abandonner"
 
-#: ../src/gnome-tetravex.vala:385
+#: ../src/gnome-tetravex.vala:384
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
 "Positionnez les pièces de manière à ce que les mêmes chiffres se touchent."
 
-#: ../src/gnome-tetravex.vala:392
+#: ../src/gnome-tetravex.vala:391
 msgid "translator-credits"
 msgstr ""
 "Christophe Merlet <redfox@redfoxcenter.org>\n"
@@ -211,13 +211,13 @@ msgstr ""
 "Pierre Lemaire <pierre.lemaire@kamick.org>\n"
 "Bruno Cauet <brunocauet@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:410
+#: ../src/gnome-tetravex.vala:409
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
-"Voulez-vous vraiment commencer une nouvelle partie avec une taille de plateau "
-"différente ?"
+"Voulez-vous vraiment commencer une nouvelle partie avec une taille de "
+"plateau différente ?"
 
-#: ../src/gnome-tetravex.vala:412
+#: ../src/gnome-tetravex.vala:411
 msgid "_Start New Game"
 msgstr "_Commencer une nouvelle partie"
 
