@@ -32,7 +32,9 @@ msgid ""
 "side of the board so that the same numbers are next to each other. If the "
 "numbers don't match, you can't put the piece there. Move quickly: you're "
 "being timed!"
-msgstr "每片方塊上每邊都有數字。從棋盤左邊將方塊放置好，讓每個相鄰的方塊都有同樣的數字。如果數字不相符，表示你不該將方塊放置在那裏。移動速度要快：你的時間有限！"
+msgstr ""
+"每片方塊上每邊都有數字。從棋盤左邊將方塊放置好，讓每個相鄰的方塊都有同樣的數"
+"字。如果數字不相符，表示你不該將方塊放置在那裏。移動速度要快：你的時間有限！"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
@@ -230,17 +232,3 @@ msgstr "日期"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "時間"
-
-#~| msgid "Play as:"
-#~ msgid "Play _Again"
-#~ msgstr "再玩一次(_A)"
-
-#~ msgid "_Pause"
-#~ msgstr "暫停(_P)"
-
-#~| msgid "_Solve"
-#~ msgid "_Resolve"
-#~ msgstr "解題(_R)"
-
-#~ msgid "Res_ume"
-#~ msgstr "繼續(_U)"

@@ -32,18 +32,21 @@ msgstr "Usporiadajte dlaždice tak, aby vyplnili štvorec"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
-"Each square piece has a number on each side. Position the pieces on the left side of "
-"the board so that the same numbers are next to each other. If the numbers don't "
-"match, you can't put the piece there. Move quickly: you're being timed!"
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
 msgstr ""
-"Každá dlaždica má číslo na každej strane. Umiestnite dlaždicu na hraciu plochu vľavo "
-"tak aby rovnaké čísla boli vedľa seba. Ak čísla nie sú rovnaké, nie je možné "
-"dlaždicu umiestniť. Umiestňujte rýchlo, čas sa meria!"
+"Každá dlaždica má číslo na každej strane. Umiestnite dlaždicu na hraciu "
+"plochu vľavo tak aby rovnaké čísla boli vedľa seba. Ak čísla nie sú rovnaké, "
+"nie je možné dlaždicu umiestniť. Umiestňujte rýchlo, čas sa meria!"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:4
-msgid "You can make the game easier or harder by changing the size of the board."
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
 msgstr ""
-"Zmenou veľkosti hracej plochy môžete hru spraviť jednoduchšou alebo náročnejšou."
+"Zmenou veľkosti hracej plochy môžete hru spraviť jednoduchšou alebo "
+"náročnejšou."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
 #: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
@@ -224,15 +227,3 @@ msgstr "Dátum"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Čas"
-
-#~ msgid "Play _Again"
-#~ msgstr "Hrať _znovu"
-
-#~ msgid "_Pause"
-#~ msgstr "_Pozastaviť"
-
-#~ msgid "_Resolve"
-#~ msgstr "Vy_riešiť"
-
-#~ msgid "Res_ume"
-#~ msgstr "Po_kračovať"

@@ -65,7 +65,8 @@ msgstr "La dimension de gridele di zûc"
 #: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
-"Il valôr di cheste clâf al è doprât par decidi la dimension de gridele di zûc."
+"Il valôr di cheste clâf al è doprât par decidi la dimension de gridele di "
+"zûc."
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"

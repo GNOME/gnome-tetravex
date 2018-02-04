@@ -31,7 +31,11 @@ msgid ""
 "side of the board so that the same numbers are next to each other. If the "
 "numbers don't match, you can't put the piece there. Move quickly: you're "
 "being timed!"
-msgstr "Hver firkantet brikke har et tall på hver side. Plasser brikkene på venstre side av brettet slik at det samme tallene er plassert ved siden av hverandre. Hvis tallene ikke er like kan du ikke plassere brikken der. Flytt raskt, da det går på tid!"
+msgstr ""
+"Hver firkantet brikke har et tall på hver side. Plasser brikkene på venstre "
+"side av brettet slik at det samme tallene er plassert ved siden av "
+"hverandre. Hvis tallene ikke er like kan du ikke plassere brikken der. Flytt "
+"raskt, da det går på tid!"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""

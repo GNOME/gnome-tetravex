@@ -13,7 +13,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-tetravex&keywords=I18N+L10N&component=general\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"tetravex&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-09-13 22:27+0000\n"
 "PO-Revision-Date: 2013-09-16 13:47+0900\n"
 "Last-Translator: Jiro Matsuzawa <jmatsuzawa@gnome.org>\n"
@@ -116,7 +117,9 @@ msgstr "プレイするグリッドの大きさ"
 
 #: ../data/org.gnome.tetravex.gschema.xml.in.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
-msgstr "このキーの値はプレイする盤面の大きさを決定するのに使用します。設定可能な値は 2〜8 で、それ以外は強制的に 3 になります。"
+msgstr ""
+"このキーの値はプレイする盤面の大きさを決定するのに使用します。設定可能な値は "
+"2〜8 で、それ以外は強制的に 3 になります。"
 
 #: ../data/org.gnome.tetravex.gschema.xml.in.h:3
 msgid "Width of the window in pixels"

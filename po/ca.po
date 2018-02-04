@@ -189,7 +189,8 @@ msgstr ""
 
 #: ../src/gnome-tetravex.vala:409
 msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Segur que voleu començar una partida nova amb una mida de tauler diferent?"
+msgstr ""
+"Segur que voleu començar una partida nova amb una mida de tauler diferent?"
 
 #: ../src/gnome-tetravex.vala:411
 msgid "_Start New Game"
@@ -222,9 +223,3 @@ msgstr "Data"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Temps"
-
-#~ msgid "%02d∶‎%02d∶‎%02d"
-#~ msgstr "%02d∶‎%02d∶‎%02d"
-
-#~ msgid "%02d∶‎%02d"
-#~ msgstr "%02d∶‎%02d"

@@ -19,8 +19,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
-"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
@@ -225,49 +225,3 @@ msgstr "Датум"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Време"
-
-#~ msgid "Play _Again"
-#~ msgstr "Играј _поново"
-
-#~ msgid "_Pause"
-#~ msgstr "_Пауза"
-
-#~| msgid "_Solve"
-#~ msgid "_Resolve"
-#~ msgstr "_Реши"
-
-#~ msgid "Res_ume"
-#~ msgstr "На_стави"
-
-#~ msgid "_Move"
-#~ msgstr "_Помери"
-
-#~ msgid "_Up"
-#~ msgstr "_Горе"
-
-#~ msgid "_Left"
-#~ msgstr "_Лево"
-
-#~ msgid "_Right"
-#~ msgstr "Де_сно"
-
-#~ msgid "_Down"
-#~ msgstr "_Доле"
-
-#~ msgid "true if the window is fullscren"
-#~ msgstr "изабрано ако је прозор преко целог екрана"
-
-#~ msgid "_New"
-#~ msgstr "_Нова"
-
-#~ msgid "Solve"
-#~ msgstr "Реши"
-
-#~ msgid "_Fullscreen"
-#~ msgstr "_Цео екран"
-
-#~ msgid "_Leave Fullscreen"
-#~ msgstr "_Напусти цео екран"
-
-#~ msgid "GNOME Games web site"
-#~ msgstr "Веб сајт Гномових игара"

@@ -229,9 +229,3 @@ msgstr "Дата"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "Время"
-
-#~ msgid "%02d∶‎%02d∶‎%02d"
-#~ msgstr "%02d∶‎%02d∶‎%02d"
-
-#~ msgid "%02d∶‎%02d"
-#~ msgstr "%02d∶‎%02d"

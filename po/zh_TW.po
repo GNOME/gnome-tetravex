@@ -217,23 +217,3 @@ msgstr "日期"
 #: ../src/score-dialog.vala:73
 msgid "Time"
 msgstr "時間"
-
-#~ msgid "%02d∶‎%02d∶‎%02d"
-#~ msgstr "%02d∶‎%02d∶‎%02d"
-
-#~ msgid "%02d∶‎%02d"
-#~ msgstr "%02d∶‎%02d"
-
-#~| msgid "Play as:"
-#~ msgid "Play _Again"
-#~ msgstr "再玩一次(_A)"
-
-#~ msgid "_Pause"
-#~ msgstr "暫停(_P)"
-
-#~| msgid "_Solve"
-#~ msgid "_Resolve"
-#~ msgstr "解題(_R)"
-
-#~ msgid "Res_ume"
-#~ msgstr "繼續(_U)"

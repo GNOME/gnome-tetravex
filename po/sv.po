@@ -35,15 +35,16 @@ msgstr "Flytta om brickor så de passar i en kvadrat"
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're being "
-"timed!"
+"numbers don't match, you can't put the piece there. Move quickly: you're "
+"being timed!"
 msgstr ""
 "Varje kvadratisk bit har ett nummer på var sida. Placera bitarna på vänstra "
 "sidan av brädet så att samma nummer är intill varandra. Om numren inte "
 "överensstämmer kan du inte placera biten där. Skynda på: klockan går!"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:4
-msgid "You can make the game easier or harder by changing the size of the board."
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Du kan göra spelet lättare eller svårare genom att ändra storleken på brädet."
 
@@ -67,7 +68,8 @@ msgstr "Storleken på spelrutnätet"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:2
 msgid "The value of this key is used to decide the size of the playing grid."
-msgstr "Värdet på denna nyckel används för att avgöra storleken på spelets rutnät."
+msgstr ""
+"Värdet på denna nyckel används för att avgöra storleken på spelets rutnät."
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:3
 msgid "Width of the window in pixels"
@@ -189,7 +191,8 @@ msgstr ""
 
 #: ../src/gnome-tetravex.vala:415
 msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Är du säker på att du vill starta ett nytt spel med en annan brädstorlek?"
+msgstr ""
+"Är du säker på att du vill starta ett nytt spel med en annan brädstorlek?"
 
 #: ../src/gnome-tetravex.vala:417
 msgid "_Start New Game"
