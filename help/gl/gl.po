@@ -5,16 +5,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
-"POT-Creation-Date: 2013-02-15 20:21+0000\n"
-"PO-Revision-Date: 2013-02-17 15:19+0200\n"
-"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
+"POT-Creation-Date: 2017-03-12 22:50+0000\n"
+"PO-Revision-Date: 2018-03-10 06:09+0100\n"
+"Last-Translator: marcos <marcoslansgarza@gmail.com>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Project-Style: gnome\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
@@ -22,64 +22,89 @@ msgctxt "_"
 msgid "translator-credits"
 msgstr "Fran Dieguez <frandieguez@gnome.org>, 2013"
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:25(media)
-msgctxt "_"
-msgid ""
-"external ref='figures/gnome-tetravex-logo.png' "
-"md5='daf379ccd659b42a71cd0f2661f651e4'"
-msgstr ""
-"external ref='figures/gnome-tetravex-logo.png' "
-"md5='daf379ccd659b42a71cd0f2661f651e4'"
+#. (itstool) path: info/desc
+#: C/hint.page:7
+msgid "Use hints or solve the game automatically."
+msgstr "Usar consellos e solucionar o xogo automaticamente."
 
-#: C/index.page:7(info/title)
+#. (itstool) path: credit/name
+#: C/hint.page:10 C/index.page:17 C/move.page:11 C/shortcut.page:11
+#: C/size.page:11 C/usage.page:12 C/winning.page:12
+msgid "Milo Casagrande"
+msgstr "Milo Casagrande"
+
+#. (itstool) path: page/title
+#: C/hint.page:14
+msgid "Hints"
+msgstr "Consellos"
+
+#. (itstool) path: note/p
+#: C/hint.page:17
+msgid ""
+"If you use the following method to complete the game, your score will not be "
+"included among the high scores."
+msgstr ""
+"Se usa o seguinte método para completar o xogo, a súa puntuación non se "
+"incluirá nas puntuacións máximas."
+
+#. (itstool) path: section/title
+#: C/hint.page:24
+msgid "Solve the game"
+msgstr "Solucionar o xogo"
+
+#. (itstool) path: section/p
+#: C/hint.page:25
+msgid ""
+"If you get stuck in the game, or you want to solve it automatically, choose "
+"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
+"guiseq>."
+msgstr ""
+"Se está atascado nun xogo, ou quere solucionalo automaticamente, seleccione "
+"<guiseq><gui style=\"menu\">Xogo</gui><gui style=\"menuitem\">Solucionar</"
+"gui></guiseq>."
+
+#. (itstool) path: info/title
+#: C/index.page:8
 msgctxt "link"
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: C/index.page:8(info/title)
+#. (itstool) path: info/title
+#: C/index.page:9
 msgctxt "text"
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: C/index.page:9(info/desc)
+#. (itstool) path: info/desc
+#: C/index.page:10
 msgid "GNOME Tetravex help."
 msgstr "Axuda de GNOME Tetravex."
 
-#: C/index.page:12(credit/name) C/usage.page:15(credit/name)
+#. (itstool) path: credit/name
+#: C/index.page:13 C/usage.page:16
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
-#: C/index.page:16(credit/name) C/hint.page:10(credit/name)
-#: C/move.page:11(credit/name) C/shortcut.page:11(credit/name)
-#: C/size.page:10(credit/name) C/usage.page:11(credit/name)
-#: C/winning.page:12(credit/name)
-msgid "Milo Casagrande"
-msgstr "Milo Casagrande"
-
-#: C/index.page:20(license/p) C/move.page:15(license/p)
-#: C/shortcut.page:15(license/p) C/size.page:14(license/p)
-#: C/usage.page:19(license/p) C/winning.page:16(license/p)
+#. (itstool) path: license/p
+#: C/index.page:21 C/move.page:15 C/shortcut.page:15 C/size.page:15
+#: C/usage.page:20 C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Compartir igual 3.0"
 
-#: C/index.page:24(page/title)
-msgid ""
-"<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-logo."
-"png\">GNOME Tetravex logo</media> GNOME Tetravex"
-msgstr ""
-"<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-"
-"logo.png\">Logotipo de GNOME Tetravex</media> GNOME Tetravex"
+#. (itstool) path: media/span
+#: C/index.page:26
+msgid "GNOME Tetravex logo"
+msgstr "Logotipo do GNOME Tetravex"
 
-#: C/index.page:29(page/p)
+#. (itstool) path: page/title
+#: C/index.page:25
+#| msgctxt "link"
+#| msgid "GNOME Tetravex"
+msgid "<_:media-1/> GNOME Tetravex"
+msgstr "<_:media-1/> GNOME Tetravex"
+
+#. (itstool) path: page/p
+#: C/index.page:30
 msgid ""
 "<app>GNOME Tetravex</app> is a simple puzzle game which scope is to move the "
 "various pieces from one side of the board to the other side, so that the "
@@ -89,7 +114,8 @@ msgstr ""
 "é mover varias pezas dun lado do taboleiro ao outro, para que coincidan os "
 "mesmos números que se mostran nas pezas ao tocarse."
 
-#: C/index.page:34(page/p)
+#. (itstool) path: page/p
+#: C/index.page:35
 msgid ""
 "The game is timed, and these times are used as the score for the game. You "
 "have to move all the pieces in the least time possible."
@@ -97,89 +123,72 @@ msgstr ""
 "O xogo ten un tempo máximo e estes tempos úsanse como a puntuación do xogo. "
 "Debe mover todas as pezas no menor tempo posíbel."
 
-#: C/index.page:40(section/title)
+#. (itstool) path: section/title
+#: C/index.page:41
 msgid "Basic Gameplay &amp; Usage"
 msgstr "Xogo básico e uso"
 
-#: C/index.page:44(section/title)
+#. (itstool) path: section/title
+#: C/index.page:45
 msgid "Tips &amp; Tricks"
 msgstr "Consellos e trucos"
 
-#: C/hint.page:7(info/desc)
-msgid "Use hints or solve the game automatically."
-msgstr "Usar consellos e solucionar o xogo automaticamente."
-
-#: C/hint.page:14(page/title)
-msgid "Hints"
-msgstr "Consellos"
-
-#: C/hint.page:17(note/p)
-msgid ""
-"If you use the following method to complete the game, your score will not be "
-"included among the high scores."
-msgstr ""
-"Se usa o seguinte método para completar o xogo, a súa puntuación non se "
-"incluirá nas puntuacións máximas."
-
-#: C/hint.page:24(section/title)
-msgid "Solve the game"
-msgstr "Solucionar o xogo"
-
-#: C/hint.page:25(section/p)
-msgid ""
-"If you get stuck in the game, or you want to solve it automatically, choose "
-"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
-"guiseq>."
-msgstr ""
-"Se está atascado nun xogo, ou quere solucionalo automaticamente, seleccione "
-"<guiseq><gui style=\"menu\">Xogo</gui><gui "
-"style=\"menuitem\">Solucionar</gui></guiseq>."
-
-#: C/license.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/license.page:8
 msgid "Legal information."
 msgstr "Información legal."
 
-#: C/license.page:11(page/title)
+#. (itstool) path: page/title
+#: C/license.page:11
 msgid "License"
 msgstr "Licenza"
 
-#: C/license.page:12(page/p)
+#. (itstool) path: page/p
+#: C/license.page:12
 msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
 msgstr ""
-"Este traballo distribúese baixo a licenza Creative Commons "
-"Atribución-Compartir Igual 3.0 non portada."
+"Este traballo distribúese baixo a licenza Creative Commons Atribución-"
+"Compartir Igual 3.0 non portada."
 
-#: C/license.page:20(page/p)
+#. (itstool) path: page/p
+#: C/license.page:20
 msgid "You are free:"
 msgstr "É libre de:"
 
-#: C/license.page:25(item/title)
+#. (itstool) path: item/title
+#: C/license.page:25
 msgid "<em>To share</em>"
 msgstr "<em>Compartir</em>"
 
-#: C/license.page:26(item/p)
+#. (itstool) path: item/p
+#: C/license.page:26
 msgid "To copy, distribute and transmit the work."
 msgstr "Copiar, distribuír e comunicar publicamente a obra"
 
-#: C/license.page:29(item/title)
+#. (itstool) path: item/title
+#: C/license.page:29
 msgid "<em>To remix</em>"
 msgstr "<em>Facer obras derivadas</em>"
 
-#: C/license.page:30(item/p)
+#. (itstool) path: item/p
+#: C/license.page:30
 msgid "To adapt the work."
 msgstr "Adaptar o seu traballo."
 
-#: C/license.page:33(page/p)
+#. (itstool) path: page/p
+#: C/license.page:33
 msgid "Under the following conditions:"
 msgstr "Baixo as mesmas condicións:"
 
-#: C/license.page:38(item/title)
+#. (itstool) path: item/title
+#: C/license.page:38
 msgid "<em>Attribution</em>"
 msgstr "<em>Atribución</em>"
 
-#: C/license.page:39(item/p)
+#. (itstool) path: item/p
+#: C/license.page:39
 msgid ""
 "You must attribute the work in the manner specified by the author or "
 "licensor (but not in any way that suggests that they endorse you or your use "
@@ -191,11 +200,13 @@ msgstr ""
 "licenciador (pero non en calquera forma que suxira que eles lle avalan a "
 "vostede ou o seu uso do traballo)."
 
-#: C/license.page:46(item/title)
+#. (itstool) path: item/title
+#: C/license.page:46
 msgid "<em>Share Alike</em>"
 msgstr "<em>Compartir igual</em>"
 
-#: C/license.page:47(item/p)
+#. (itstool) path: item/p
+#: C/license.page:47
 msgid ""
 "If you alter, transform, or build upon this work, you may distribute the "
 "resulting work only under the same, similar or a compatible license."
@@ -203,32 +214,36 @@ msgstr ""
 "Se altera, transforma ou constrúe sobre este traballo, debe redistribuír o "
 "traballo resultante só baixo unha licenza igual, similar ou compatíbel."
 
-#: C/license.page:53(page/p)
+#. (itstool) path: page/p
+#: C/license.page:53
 msgid ""
 "For the full text of the license, see the <link href=\"http://"
 "creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
 "link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
 "sa/3.0/\">Commons Deed</link>."
 msgstr ""
-"Para ler a licenza completa vexa <link "
-"href=\"http://creativecommons.org/licenses/by-sa/3.0/legalcode\">o sitio web "
-"de Creative Commons</link>, ou lea o <link "
-"href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Commons Deed</link> "
-"completo."
+"Para ler a licenza completa vexa <link href=\"http://creativecommons.org/"
+"licenses/by-sa/3.0/legalcode\">o sitio web de Creative Commons</link>, ou "
+"lea o <link href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Commons "
+"Deed</link> completo."
 
-#: C/move.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/move.page:8
 msgid "How to move the pieces on the game board."
 msgstr "Como mover as pezas no taboleiro do xogo."
 
-#: C/move.page:19(page/title)
+#. (itstool) path: page/title
+#: C/move.page:19
 msgid "Move the pieces"
 msgstr "Mover as pezas"
 
-#: C/move.page:22(section/title)
+#. (itstool) path: section/title
+#: C/move.page:22
 msgid "Move a piece"
 msgstr "Mover unha peza"
 
-#: C/move.page:23(section/p)
+#. (itstool) path: section/p
+#: C/move.page:23
 msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
@@ -236,11 +251,13 @@ msgstr ""
 "Para mover unha peza, pode premer sobre ela e seleccionala e logo premer no "
 "cado onde quere poñela ou pode arrastrala no novo cadrado."
 
-#: C/move.page:26(section/p)
+#. (itstool) path: section/p
+#: C/move.page:26
 msgid "These moves are not permanent and can be reversed."
 msgstr "Estes movementos non son permanentes e poden desfacerse."
 
-#: C/move.page:30(note/p)
+#. (itstool) path: note/p
+#: C/move.page:30
 msgid ""
 "The pieces in the left box can be moved all at once in one direction. See "
 "<link xref=\"shortcut\"/> for more information."
@@ -248,19 +265,23 @@ msgstr ""
 "As pezas na caixa esquerda poden moverse todas á vez nunha dirección. Vexa "
 "<link xref=\"shortcut\"/> para obter máis información."
 
-#: C/shortcut.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/shortcut.page:8
 msgid "Use the keyboard to play the game."
 msgstr "Usar o teclado para xogar ao xogo."
 
-#: C/shortcut.page:19(page/title)
+#. (itstool) path: page/title
+#: C/shortcut.page:19
 msgid "Keyboard shortcuts"
 msgstr "Atallos de teclado"
 
-#: C/shortcut.page:22(section/title)
+#. (itstool) path: section/title
+#: C/shortcut.page:22
 msgid "Game shortcuts"
 msgstr "Atallos do xogo"
 
-#: C/shortcut.page:23(section/p)
+#. (itstool) path: section/p
+#: C/shortcut.page:23
 msgid ""
 "The following table groups the most useful shortcuts for playing <app>GNOME "
 "Tetravex</app>."
@@ -268,81 +289,99 @@ msgstr ""
 "A seguinte táboa agrupa os atallos máis útiles para xogar a <app>GNOME "
 "Tetravex</app>."
 
-#: C/shortcut.page:28(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:28
 msgid "Shortcut"
 msgstr "Atallo"
 
-#: C/shortcut.page:28(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:28
 msgid "Description"
 msgstr "Descrición"
 
-#: C/shortcut.page:32(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:32
 msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 
-#: C/shortcut.page:35(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:35
 msgid "Start a new game."
 msgstr "Comeza unha nova partida."
 
-#: C/shortcut.page:40(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:40
 msgid "<key>Pause</key>"
 msgstr "<key>Pause</key>"
 
-#: C/shortcut.page:43(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:43
 msgid "Pause or resume the game."
 msgstr "Deter ou retomar o xogo"
 
-#: C/shortcut.page:48(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:48
 msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
 
-#: C/shortcut.page:53(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:53
 msgid "Move all the pieces in the left box up by one."
 msgstr "Mover todas as pezas na caixa esquerda unha posición cara arriba."
 
-#: C/shortcut.page:58(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:58
 msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Abaixo</key></keyseq>"
 
-#: C/shortcut.page:61(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:61
 msgid "Move all the pieces in the left box down by one."
 msgstr "Mover todas as pezas na caixa esquerda unha posición cara abaixo."
 
-#: C/shortcut.page:66(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:66
 msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Esquerda</key></keyseq>"
 
-#: C/shortcut.page:69(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:69
 msgid "Move all the pieces in the left box left by one."
 msgstr "Mover todas as pezas na caixa esquerda unha posición á esquerda."
 
-#: C/shortcut.page:74(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:74
 msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
 msgstr "<keyseq><key>Ctrl</key><key>Dereita</key></keyseq>"
 
-#: C/shortcut.page:77(td/p)
+#. (itstool) path: td/p
+#: C/shortcut.page:77
 msgid "Move all the pieces in the left box right by one."
 msgstr "Mover todas as pezas na caixa esquerda unha posición á dereita."
 
-#: C/size.page:7(info/desc)
+#. (itstool) path: info/desc
+#: C/size.page:7
 msgid "Change the size of the game board."
 msgstr "Cambiar o tamaño do taboleiro do xogo."
 
-#: C/size.page:17(page/title)
+#. (itstool) path: page/title
+#: C/size.page:18
 msgid "Game board size"
 msgstr "Tamaño do taboleiro do xogo"
 
-#: C/size.page:19(page/p)
+#. (itstool) path: page/p
+#: C/size.page:20
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
-"complexity of the game, choose <gui>Size</gui> from the main menu bar, and "
-"then select the dimension of the board."
+"complexity of the game, click <gui>Tetravex</gui> in the top bar and click "
+"<gui>Size</gui>, then select the dimension of the board."
 msgstr ""
-"Cambiar o tamaño do taboleiro do xogo, para incrementar e reducir a "
-"complexidade do xogo, seleccione <gui>Tamaño</gui> desde a barra de menú "
-"principal e logo seleccione o tamaño do taboleiro."
+"Para cambiar o tamaño do taboleiro co fin de incrementar ou reducir a "
+"complexidade do xogo, seleccione <gui>Tetravex</gui> na barra superior e "
+"prema <gui>Tamaño</gui> logo seleccione a dimensión do taboleiro."
 
-#: C/size.page:24(page/p)
+#. (itstool) path: page/p
+#: C/size.page:25
 msgid ""
 "You can select from five different dimension, from 2×2 to 6×6. The default "
 "one is 3×3."
@@ -350,39 +389,31 @@ msgstr ""
 "Pode seleccionar desde cinco tamaños diferentes, desde 2×2 a 6×6. A "
 "predeterminada é 3×3."
 
-#: C/size.page:28(note/p)
+#. (itstool) path: note/p
+#: C/size.page:29
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
 "Se as pezas son demasiado pequenas, ao redimensionar a xanela cambiarase o "
 "tamaño."
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/usage.page:60(media)
-msgctxt "_"
-msgid ""
-"external ref='figures/gnome-tetravex-video.ogv' "
-"md5='14cface4ec2b0c84aa5a925242694de0'"
-msgstr ""
-"external ref='figures/gnome-tetravex-video.ogv' "
-"md5='14cface4ec2b0c84aa5a925242694de0'"
-
-#: C/usage.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/usage.page:9
 msgid "How to play <app>GNOME Tetravex</app>."
 msgstr "Como xogar a <app>GNOME Tetravex</app>."
 
-#: C/usage.page:23(page/title)
+#. (itstool) path: page/title
+#: C/usage.page:24
 msgid "Play <app>GNOME Tetravex</app>"
 msgstr "Xogar a <app>GNOME Tetravex</app>"
 
-#: C/usage.page:26(section/title)
+#. (itstool) path: section/title
+#: C/usage.page:27
 msgid "Basic usage"
 msgstr "Uso básico"
 
-#: C/usage.page:27(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:28
 msgid ""
 "The game window is divided into two boxes: the one on the right side of the "
 "window contains the pieces that needs to be arranged; the one on the left "
@@ -395,7 +426,8 @@ msgstr ""
 "pezas da parte esquerda. Cada peza está dividida en catro pequenos "
 "triángulos que conteñen un número."
 
-#: C/usage.page:34(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:35
 msgid ""
 "The scope of the game is to position the pieces so that only two identical "
 "numbers are next to each other."
@@ -403,21 +435,23 @@ msgstr ""
 "O propósito do xogo é posicionar as pezas para que só estean ao carón os "
 "números iguais."
 
-#: C/usage.page:38(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:39
 msgid ""
 "It is not possible to position the pieces so that different number are next "
 "to each other."
 msgstr "Non é posíbel poñer as pezas con diferente número ao carón."
 
-#: C/usage.page:42(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:43
 msgid ""
 "The game is completed when you have positioned all the pieces in their right "
 "positions."
 msgstr ""
-"O xogo complétase cando todas as pezas están postas na súa posición "
-"correcta."
+"O xogo complétase cando todas as pezas están postas na súa posición correcta."
 
-#: C/usage.page:47(note/p)
+#. (itstool) path: note/p
+#: C/usage.page:48
 msgid ""
 "When you start <app>GNOME Tetravex</app>, the game will start immediately, "
 "and the time will start counting."
@@ -425,11 +459,13 @@ msgstr ""
 "Ao iniciar <app>GNOME Tetravex</app>, o xogo iniciarase automaticamente e o "
 "tempo comezará a contar."
 
-#: C/usage.page:56(section/title)
+#. (itstool) path: section/title
+#: C/usage.page:57
 msgid "Video demonstration"
 msgstr "Vídeo de demostración"
 
-#: C/usage.page:57(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:58
 msgid ""
 "This short video shows how the game works, and what are the possible "
 "movements."
@@ -437,11 +473,13 @@ msgstr ""
 "Este curto vídeo mostra como funciona o xogo e cales son os movementos "
 "posíbeis."
 
-#: C/usage.page:61(media/p)
+#. (itstool) path: media/p
+#: C/usage.page:62
 msgid "Demo"
 msgstr "Demostración"
 
-#: C/usage.page:65(div/p)
+#. (itstool) path: div/p
+#: C/usage.page:66
 msgid ""
 "Drag pieces from the right to the left, making sure that adjacent edges have "
 "the same number and color."
@@ -449,7 +487,8 @@ msgstr ""
 "Arrastre as pezas desde a dereita á esquerda, asegurándose que os bordes "
 "adxacentes teñen o mesmo número e cor."
 
-#: C/usage.page:69(div/p)
+#. (itstool) path: div/p
+#: C/usage.page:70
 msgid ""
 "Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
 "at once."
@@ -457,19 +496,24 @@ msgstr ""
 "Manteña premida a tecla <key>Ctrl</key> e prema as teclas de frecha para "
 "mover todas as pezas posicionadas á vez."
 
-#: C/usage.page:73(div/p)
+#. (itstool) path: div/p
+#: C/usage.page:74
 msgid "Continue dragging pieces until they all fit together on the left."
-msgstr "Continúe arrastrando as pezas até que todas encaixen xuntas á esquerda."
+msgstr ""
+"Continúe arrastrando as pezas até que todas encaixen xuntas á esquerda."
 
-#: C/winning.page:9(info/desc)
+#. (itstool) path: info/desc
+#: C/winning.page:9
 msgid "Simple tips on how to possibly win a game."
 msgstr "Consellos sinxelos sobre como posibelmente pode gañar un xogo."
 
-#: C/winning.page:20(page/title)
+#. (itstool) path: page/title
+#: C/winning.page:20
 msgid "Win <app>GNOME Tetravex</app>"
 msgstr "Gañar en <app>GNOME Tetravex</app>"
 
-#: C/winning.page:23(note/p)
+#. (itstool) path: note/p
+#: C/winning.page:23
 msgid ""
 "The following tips will not assure you to win a game, they are intended as a "
 "simple aid."
@@ -477,11 +521,13 @@ msgstr ""
 "Os seguintes consellos non lle asegurarán gañar un xogo, porén permiten "
 "axudarlle de forma doada."
 
-#: C/winning.page:30(section/title)
+#. (itstool) path: section/title
+#: C/winning.page:30
 msgid "Look for a single number"
 msgstr "Buscar un número sinxelo"
 
-#: C/winning.page:31(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:31
 msgid ""
 "When you start a new game, look for a single number, or a number that has no "
 "similar numbers that can be placed next to it."
@@ -489,7 +535,8 @@ msgstr ""
 "Ao iniciar un novo xogo, busque un número sinxelo ou un número que non teña "
 "números similares e que poidan poñerse ao carón."
 
-#: C/winning.page:35(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:35
 msgid ""
 "If you have one such number, that piece is a valid starting piece, since you "
 "know where it has to be placed."
@@ -497,7 +544,8 @@ msgstr ""
 "Se só ten un número dese, dita peza é unha peza de inicio válida, polo que "
 "xa saberá onde poñela."
 
-#: C/winning.page:39(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:39
 msgid ""
 "Note that the bigger the size of the board, the harder is to find such a "
 "number."
@@ -505,11 +553,13 @@ msgstr ""
 "Teña en conta que canto máis grande sexa o taboleiro, máis difícil será "
 "atopar o número."
 
-#: C/winning.page:46(section/title)
+#. (itstool) path: section/title
+#: C/winning.page:46
 msgid "Have a tip to share?"
 msgstr "Ten un consello para compartir?"
 
-#: C/winning.page:47(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:47
 msgid ""
 "If you have a tip to share about <app>GNOME Tetravex</app>, or any other "
 "GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
@@ -517,3 +567,26 @@ msgstr ""
 "Se ten un consello para compartir sobre <app>GNOME Tetravex</app>, ou "
 "calquera outro xogo de GNOME, escríbanos a gnome-doc-list@gnome.org. "
 "Engadirémolo aquí!"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/gnome-tetravex-logo.png' "
+#~ "md5='daf379ccd659b42a71cd0f2661f651e4'"
+#~ msgstr ""
+#~ "external ref='figures/gnome-tetravex-logo.png' "
+#~ "md5='daf379ccd659b42a71cd0f2661f651e4'"
+
+#~ msgid ""
+#~ "<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-"
+#~ "logo.png\">GNOME Tetravex logo</media> GNOME Tetravex"
+#~ msgstr ""
+#~ "<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-"
+#~ "logo.png\">Logotipo de GNOME Tetravex</media> GNOME Tetravex"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/gnome-tetravex-video.ogv' "
+#~ "md5='14cface4ec2b0c84aa5a925242694de0'"
+#~ msgstr ""
+#~ "external ref='figures/gnome-tetravex-video.ogv' "
+#~ "md5='14cface4ec2b0c84aa5a925242694de0'"
