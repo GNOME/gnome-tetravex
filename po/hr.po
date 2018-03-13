@@ -4,9 +4,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games 0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-04 04:53+0100\n"
-"PO-Revision-Date: 2008-04-16 07:32+0000\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"tetravex&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2018-02-04 04:08+0000\n"
+"PO-Revision-Date: 2018-03-14 00:07+0100\n"
 "Last-Translator: Launchpad Translations Administrators <rosetta@launchpad."
 "net>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -17,16 +18,15 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Launchpad-Export-Date: 2008-05-28 02:59+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#, fuzzy
 msgid "GNOME Tetravex"
-msgstr "Tetravex"
+msgstr "GNOME Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
 msgid "Reorder tiles to fit a square"
-msgstr ""
+msgstr "Promijenite poredak pločica kako bi odgovarale kvadratu"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:3
 msgid ""
@@ -35,11 +35,15 @@ msgid ""
 "numbers don't match, you can't put the piece there. Move quickly: you're "
 "being timed!"
 msgstr ""
+"Svaki dio kvadrata ima broj na svakoj strani. Smjestite dio na lijevoj "
+"strani ploče tako da su isti brojevi jedan do drugog. Ako se brojevi ne "
+"podudaraju, ne možete staviti dio na to mjesto. Pomičite brzo: odbrojavanje "
+"je počelo!"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:4
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
-msgstr ""
+msgstr "Možete igru učiniti lakšom ili težom promjenom veličine ploče."
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
 #: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
@@ -49,36 +53,32 @@ msgstr "Tetravex"
 
 #: ../data/gnome-tetravex.desktop.in.h:2
 msgid "Complete the puzzle by matching numbered tiles"
-msgstr ""
+msgstr "Završite slagalicu podudaranjem brojeva pločica"
 
 #: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
-msgstr ""
+msgstr "igra;logika;ploča;"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
-msgstr "Broj polja za igru"
+msgstr "Veličina igrače mreže"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:2
-#, fuzzy
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
-"Vrijednost ovog parametra se koristi u odlučivanju o veličini mreže za igru. "
-"Moguće postavke su od 2 do 8, sve drugo se postavlja na 3 automatski."
+"Vrijednost ovog parametra se koristi za određivanje veličine igraće mreže."
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:3
-#, fuzzy
 msgid "Width of the window in pixels"
-msgstr "Širina prozora"
+msgstr "Širina prozora u pikselima"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:4
-#, fuzzy
 msgid "Height of the window in pixels"
-msgstr "Visina prozora"
+msgstr "Visina prozora u pikselima"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "istinito ako je prozor uvećan"
 
 #: ../src/app-menu.ui.h:1
 msgid "_New Game"
@@ -94,58 +94,54 @@ msgstr "_Veličina"
 
 #: ../src/app-menu.ui.h:4
 msgid "_2x2"
-msgstr ""
+msgstr "_2x2"
 
 #: ../src/app-menu.ui.h:5
 msgid "_3x3"
-msgstr ""
+msgstr "_3x3"
 
 #: ../src/app-menu.ui.h:6
 msgid "_4x4"
-msgstr ""
+msgstr "_4x4"
 
 #: ../src/app-menu.ui.h:7
 msgid "_5x5"
-msgstr ""
+msgstr "_5x5"
 
 #: ../src/app-menu.ui.h:8
 msgid "_6x6"
-msgstr ""
+msgstr "_6x6"
 
 #: ../src/app-menu.ui.h:9
 msgid "_Help"
-msgstr "_Pomoć"
+msgstr "_Priručnik"
 
 #: ../src/app-menu.ui.h:10
 msgid "_About"
-msgstr ""
+msgstr "_O programu"
 
 #: ../src/app-menu.ui.h:11
 msgid "_Quit"
-msgstr ""
+msgstr "_Zatvori"
 
 #: ../src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
-msgstr ""
+msgstr "Prikaži inačicu izdanja i zatvori"
 
 #: ../src/gnome-tetravex.vala:39
-#, fuzzy
 msgid "Start the game paused"
-msgstr "Ponovo pokreni igru"
+msgstr "Pokreni igru pauziranu"
 
 #: ../src/gnome-tetravex.vala:40
-#, fuzzy
 msgid "Set size of board (2-6)"
 msgstr "Veličina ploče (2-6)"
 
 #. not a typo
 #: ../src/gnome-tetravex.vala:129
-#, fuzzy
 msgid "Resume the game"
-msgstr "Nastavi pauziranu igru"
+msgstr "Nastavi igru"
 
 #: ../src/gnome-tetravex.vala:141
-#, fuzzy
 msgid "Pause the game"
 msgstr "Pauziraj igru"
 
@@ -154,31 +150,28 @@ msgid "Start a new game"
 msgstr "Pokreni novu igru"
 
 #: ../src/gnome-tetravex.vala:170
-#, fuzzy
 msgid "Give up and view the solution"
-msgstr "Pomaknite kartu na Foundation"
+msgstr "Odustanite i pogledajte rješenje"
 
 #: ../src/gnome-tetravex.vala:239
 msgid "Size could only be from 2 to 6.\n"
-msgstr ""
+msgstr "Veličina može biti u rasponu 2 do 6\n"
 
 #: ../src/gnome-tetravex.vala:347
-#, fuzzy
 msgid "Are you sure you want to give up and view the solution?"
-msgstr "Već je upotrebljeno! Gdje to želite postaviti?"
+msgstr "Sigurno želite odustati i pogledati rješenje?"
 
 #: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
-#, fuzzy
 msgid "_Keep Playing"
-msgstr "Plejt"
+msgstr "_Nastavi igrati"
 
 #: ../src/gnome-tetravex.vala:350
 msgid "_Give Up"
-msgstr ""
+msgstr "_Odustani"
 
 #: ../src/gnome-tetravex.vala:384
 msgid "Position pieces so that the same numbers are touching each other"
-msgstr ""
+msgstr "Posložite dijelove tako da su isti brojevi jedan do drugoga"
 
 #: ../src/gnome-tetravex.vala:391
 msgid "translator-credits"
@@ -209,12 +202,11 @@ msgstr ""
 
 #: ../src/gnome-tetravex.vala:409
 msgid "Are you sure you want to start a new game with a different board size?"
-msgstr ""
+msgstr "Sigurno želite pokrenuti novu igru drugačije veličine ploče?"
 
 #: ../src/gnome-tetravex.vala:411
-#, fuzzy
 msgid "_Start New Game"
-msgstr "Pokreni novu igru"
+msgstr "_Pokreni novu igru"
 
 #: ../src/puzzle-view.vala:356
 msgid "Paused"
@@ -222,7 +214,7 @@ msgstr "Pauzirano"
 
 #: ../src/score-dialog.vala:29
 msgid "Quit"
-msgstr ""
+msgstr "Zatvori"
 
 #: ../src/score-dialog.vala:30
 msgid "New Game"
@@ -230,7 +222,7 @@ msgstr "Nova igra"
 
 #: ../src/score-dialog.vala:33
 msgid "OK"
-msgstr ""
+msgstr "U redu"
 
 #: ../src/score-dialog.vala:45
 msgid "Size:"
@@ -238,7 +230,7 @@ msgstr "Veličina:"
 
 #: ../src/score-dialog.vala:70
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #: ../src/score-dialog.vala:73
 msgid "Time"
