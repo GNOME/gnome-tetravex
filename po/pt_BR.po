@@ -1,19 +1,19 @@
 # Brazilian Portuguese translation of gnome-tetravex.
-# Copyright (C) 1999-2013 Free Software Foundation, Inc.
+# Copyright (C) 1999-2015 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 # Sandro Nunes Henrique <sandro@conectiva.com.br>, 1999.
 # Cândida Nunes da Silva <candida@zaz.com.br>, 2000-2001.
 # Gustavo Noronha Silva <kov@debian.org>, 2002.
-# Alexandre Folle de Menezes <afmenez@terra.com.br>, 2003, 2006.
 # Maurício de Lemos Rodrigues Collares Neto <mauricioc@myrealbox.com>, 2003.
 # Welther José O. Esteves <weltherjoe@yahoo.com.br>, 2004.
+# Alexandre Folle de Menezes <afmenez@terra.com.br>, 2003, 2006.
 # Raphael Higino <In Memoriam>, 2004-2006.
 # Guilherme de S. Pastore <gpastore@gnome.org>, 2006.
 # Thiago "Harry" Leucz Astrizi <1thiagoharry@gmail.com>, 2006.
 # Leonardo Ferreira Fontenelle <leo.fontenelle@gmail.com>, 2006.
-# Og Maciel <ogmaciel@gnome.org>, 2007, 2009.
 # Andre Noel <andrenoel@ubuntu.com>, 2007.
-# Vladimir Melo <vmelo@gnome.org>, 2007, 2008, 2009.
+# Og Maciel <ogmaciel@gnome.org>, 2007, 2009.
+# Vladimir Melo <vmelo@gnome.org>, 2007-2009.
 # Daniel S. Koda <danielskoda@gmail.com>, 2009.
 # Felipe Borges <felipe10borges@gmail.com, 2010.
 # André Gondim <In Memoriam>, 2010.
@@ -21,16 +21,15 @@
 # Rodrigo Padula de Oliveira <contato@rodrigopadula.com>, 2011.
 # Flamarion Jorge <jorge.flamarion@gmail.com>, 2011.
 # Djavan Fagundes <djavan@comum.org>, 2012.
-# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2013.
 # Enrico Nicoletto <liverig@gmail.com>, 2013.
 # Ricardo Barbosa <barbosa.cisco@gmail.com>, 2014.
 # Felipe Braga <fbobraga@gmail.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-05-13 20:22+0000\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2018-06-05 14:23+0000\n"
 "PO-Revision-Date: 2015-05-13 18:51-0200\n"
 "Last-Translator: Felipe Braga <fbobraga@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
@@ -44,7 +43,7 @@ msgstr ""
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
 msgid "GNOME Tetravex"
-msgstr "Tetravex do GNOME"
+msgstr "GNOME Tetravex"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
 msgid "Reorder tiles to fit a square"
@@ -71,7 +70,7 @@ msgstr ""
 
 #: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
 #: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:382
+#: ../src/gnome-tetravex.vala:381
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -176,31 +175,27 @@ msgstr "Inicia um novo jogo"
 msgid "Give up and view the solution"
 msgstr "Desista e veja a solução"
 
-#: ../src/gnome-tetravex.vala:240
+#: ../src/gnome-tetravex.vala:239
 msgid "Size could only be from 2 to 6.\n"
 msgstr "O tamanho só pode estar entre 2 e 6.\n"
 
-#: ../src/gnome-tetravex.vala:348
+#: ../src/gnome-tetravex.vala:347
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Você tem certeza que deseja desistir e ver a solução?"
 
-#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
+#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
 msgid "_Keep Playing"
 msgstr "_Continuar jogando"
 
-#: ../src/gnome-tetravex.vala:351
+#: ../src/gnome-tetravex.vala:350
 msgid "_Give Up"
 msgstr "_Desistir"
 
-#: ../src/gnome-tetravex.vala:385
-#| msgid ""
-#| "Position pieces so that the same numbers are touching each other\n"
-#| "\n"
-#| "Tetravex is a part of GNOME Games."
+#: ../src/gnome-tetravex.vala:384
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "Posicione as peças de forma que os números iguais se toquem"
 
-#: ../src/gnome-tetravex.vala:392
+#: ../src/gnome-tetravex.vala:391
 msgid "translator-credits"
 msgstr ""
 "Sandro Nunes Henrique <sandro@conectiva.com.br>\n"
@@ -217,17 +212,15 @@ msgstr ""
 "Felipe Borges <felipe10borges@gmail.com>\n"
 "Sérgio Cipolla <secipolla@gmail.com>\n"
 "Rodrigo Padula de Oliveira <contato@rodrigopadula.com>\n"
-"Rafael Ferreira <rafael.f.f1@gmail.com>."
+"Rafael Fontenelle <rafaelff@gnome.org>."
 
-#: ../src/gnome-tetravex.vala:410
-#| msgid "Do you want to start a new game with this map?"
+#: ../src/gnome-tetravex.vala:409
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
 "Tem certeza que deseja iniciar um novo jogo com um tamanho de tabuleiro "
 "diferente?"
 
-#: ../src/gnome-tetravex.vala:412
-#| msgid "Start New Game"
+#: ../src/gnome-tetravex.vala:411
 msgid "_Start New Game"
 msgstr "_Iniciar um novo jogo"
 
