@@ -1,43 +1,28 @@
-# Esperanto translation for gnome-games.
-# Copyright (c) 2005 Canonical Ltd, and Rosetta Contributors 2005
-# This file is distributed under the same license as the gnome-games package.
-#
-# FIRST AUTHOR < >, 2005.
-# Billy HAND < >, 2008.
-# Sergio ĤLUTĈIN < >, 2009.
-# Arturo < >, 2009.
-# Benno SCHULENBERG < >, 2010.
-# Robert BOGENSCHNEIDER < >, 2010.
-# Alekso42 < >, 2010.
-# Miguel PÉREZ < >, 2010.
-# Michael MORONI < >, 2011.
-# Serge LEBLANC < >, 2011.
-# Miĥa-Johano WALTER < >, 2011.
-# Tiffany Antopolski <tiffany.antopolski@gmail.com>, 2011, 2012.
-# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2010, 2011, 2012.
-#
+# Esperanto translation for gnome-tetravex.
+# Copyright (C) 2010 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-tetravex package.
+# Tiffany ANTOPOLSKI <tiffany.antopolski@gmail.com>, 2011, 2012.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2011, 2012, 2018.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-04 04:49+0100\n"
-"PO-Revision-Date: 2012-03-09 22:20+0100\n"
+"Project-Id-Version: gnome-tetravex\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2018-06-05 14:23+0000\n"
+"PO-Revision-Date: 2018-12-05 22:27+0200\n"
 "Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
-"Language-Team: Esperanto <gnome-l10n-eo@lists.launchpad.net>\n"
+"Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Virtaal 0.7.1-rc1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-DamnedLies-Scope: partial\n"
-"X-Launchpad-Export-Date: 2012-01-11 17:32+0000\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:1
-#, fuzzy
 msgid "GNOME Tetravex"
-msgstr "Tetravekso"
+msgstr "GNOME Tetravekso"
 
 #: ../data/gnome-tetravex.appdata.xml.in.h:2
 msgid "Reorder tiles to fit a square"
@@ -68,7 +53,7 @@ msgstr "Finu la puzlon per kongruigi numeritajn kahelojn"
 
 #: ../data/gnome-tetravex.desktop.in.h:3
 msgid "game;logic;board;"
-msgstr ""
+msgstr "ludo;logiko;tabulo;"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:1
 msgid "The size of the playing grid"
@@ -79,18 +64,16 @@ msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "La valoro de tiu ĉi klavo uziĝas por decidi la grandon de la ludkrado."
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:3
-#, fuzzy
 msgid "Width of the window in pixels"
-msgstr "La larĝo de la ĉefa fenestro per rastrumeroj."
+msgstr "La larĝo de la fenestro per rastrumeroj"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:4
-#, fuzzy
 msgid "Height of the window in pixels"
-msgstr "La alto de la ĉefa fenestro per rastrumeroj."
+msgstr "La alto de la fenestro per rastrumeroj"
 
 #: ../data/org.gnome.tetravex.gschema.xml.h:5
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "vera se la fenestro estas maksimumigita"
 
 #: ../src/app-menu.ui.h:1
 msgid "_New Game"
@@ -137,9 +120,8 @@ msgid "_Quit"
 msgstr "_Fini"
 
 #: ../src/gnome-tetravex.vala:38
-#, fuzzy
 msgid "Print release version and exit"
-msgstr "Montri eldonversion"
+msgstr "Montri eldonversion kaj eliri"
 
 #: ../src/gnome-tetravex.vala:39
 #, fuzzy
@@ -153,9 +135,8 @@ msgstr "Tabula grando (2-6)"
 
 #. not a typo
 #: ../src/gnome-tetravex.vala:129
-#, fuzzy
 msgid "Resume the game"
-msgstr "Daŭrigi la paŭzigitan ludon"
+msgstr "Daŭrigi la ludon"
 
 #: ../src/gnome-tetravex.vala:141
 msgid "Pause the game"
@@ -166,20 +147,19 @@ msgid "Start a new game"
 msgstr "Komenci novan ludon"
 
 #: ../src/gnome-tetravex.vala:170
-#, fuzzy
 msgid "Give up and view the solution"
-msgstr "Movu karton fondaĵen"
+msgstr ""
 
 #: ../src/gnome-tetravex.vala:239
 msgid "Size could only be from 2 to 6.\n"
-msgstr ""
+msgstr "La Grando nur povas esti ekde 2 ĝis 6.\n"
 
 #: ../src/gnome-tetravex.vala:347
+#, fuzzy
 msgid "Are you sure you want to give up and view the solution?"
-msgstr ""
+msgstr "Ĉu vi certe volas ĉesi kaj vidi la solvon?"
 
 #: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
-#, fuzzy
 msgid "_Keep Playing"
 msgstr "_Daŭrigi ludadon"
 
@@ -194,23 +174,8 @@ msgstr ""
 #: ../src/gnome-tetravex.vala:391
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
-"  Alekso42 https://launchpad.net/~alekso42\n"
-"  Arturo https://launchpad.net/~asly-esperanto\n"
-"  Benno Schulenberg https://launchpad.net/~bennoschulenberg\n"
-"  Billy Hand https://launchpad.net/~billythethird\n"
-"  Johano https://launchpad.net/~johanohepton\n"
-"  Kristjan SCHMIDT https://launchpad.net/~kristjan-eo\n"
-"  Marek Blahuš https://launchpad.net/~s-launchpad-blahus-cz\n"
-"  Michael Moroni https://launchpad.net/~airon90\n"
-"  Miguel Pérez https://launchpad.net/~rraton-esperanto\n"
-"  Robert BOGENSCHNEIDER https://launchpad.net/~robog\n"
-"  Serge Leblanc https://launchpad.net/~serge-leblanc\n"
-"  Sergio Ĥlutĉin https://launchpad.net/~sergej-hlutchin\n"
-"  Thomas Heinis https://launchpad.net/~th-sitrino\n"
-"\n"
-"GNOME Contributions:\n"
-"  Tiffany Antopolski"
+"Kristjan SCHMIDT\n"
+"Tiffany ANTOPOLSKI"
 
 #: ../src/gnome-tetravex.vala:409
 #, fuzzy
@@ -218,27 +183,24 @@ msgid "Are you sure you want to start a new game with a different board size?"
 msgstr "Ĉu vi volas ekludi novan ludo kun tiu ĉi mapon?"
 
 #: ../src/gnome-tetravex.vala:411
-#, fuzzy
 msgid "_Start New Game"
-msgstr "Komenci novan ludon"
+msgstr "_Komenci novan ludon"
 
 #: ../src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Paŭzigite"
 
 #: ../src/score-dialog.vala:29
-#, fuzzy
 msgid "Quit"
-msgstr "_Fini"
+msgstr "Ĉesi"
 
 #: ../src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Nova ludo"
 
 #: ../src/score-dialog.vala:33
-#, fuzzy
 msgid "OK"
-msgstr "_Bone"
+msgstr "Bone"
 
 #: ../src/score-dialog.vala:45
 msgid "Size:"
@@ -246,9 +208,8 @@ msgstr "Grando:"
 
 #: ../src/score-dialog.vala:70
 msgid "Date"
-msgstr ""
+msgstr "Dato"
 
 #: ../src/score-dialog.vala:73
-#, fuzzy
 msgid "Time"
-msgstr "Daŭro"
+msgstr "Tempo"
