@@ -107,6 +107,14 @@ public class Tetravex : Gtk.Application
         headerbar.show_close_button = true;
         window.set_titlebar (headerbar);
 
+        var menu_builder = new Gtk.Builder.from_resource ("/org/gnome/tetravex/app-menu.ui");
+        var appmenu = menu_builder.get_object("app-menu") as MenuModel;
+        var menu_button = new Gtk.MenuButton ();
+        menu_button.set_image (new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.BUTTON));
+        menu_button.show ();
+        menu_button.set_menu_model (appmenu);
+        headerbar.pack_end(menu_button);
+
         var grid = builder.get_object ("grid") as Gtk.Grid;
 
         view = new PuzzleView ();

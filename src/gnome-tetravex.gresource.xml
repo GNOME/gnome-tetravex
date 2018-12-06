@@ -2,8 +2,6 @@
 <gresources>
   <gresource prefix="/org/gnome/tetravex">
     <file preprocess="xml-stripblanks">gnome-tetravex.ui</file>
-  </gresource>
-  <gresource prefix="/org/gnome/tetravex/gtk">
-    <file alias="menus.ui" preprocess="xml-stripblanks">app-menu.ui</file>
+    <file preprocess="xml-stripblanks">app-menu.ui</file>
   </gresource>
 </gresources>
