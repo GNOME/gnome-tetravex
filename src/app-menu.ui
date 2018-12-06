@@ -13,7 +13,7 @@
     </section>
     <section>
       <submenu>
-        <attribute name="label" translatable="yes">_Size</attribute>
+        <attribute name="label" translatable="yes">Si_ze</attribute>
         <section>
           <item>
             <attribute name="label" translatable="yes">_2x2</attribute>
