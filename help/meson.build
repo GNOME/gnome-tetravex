@@ -1,0 +1,12 @@
+gnome.yelp ('gnome-tetravex',
+            sources: [ 'hint.page',
+                       'index.page',
+                       'license.page',
+                       'move.page',
+                       'shortcut.page',
+                       'size.page',
+                       'usage.page',
+                       'winning.page' ],
+            media: [ 'figures/gnome-tetravex-logo.png',
+                     'figures/gnome-tetravex-video.ogv' ],
+            symlink_media: true)
