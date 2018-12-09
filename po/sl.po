@@ -4,36 +4,35 @@
 #
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
-# Matic Žgur <mr.zgur@gmail.com>, 2006-2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007-2015.
+# Matic Žgur <mr.zgur@gmail.com>, 2006–2007.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007–2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-16 16:40+0000\n"
-"PO-Revision-Date: 2015-02-16 21:39+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2018-12-09 17:18+0000\n"
+"PO-Revision-Date: 2018-12-09 21:54+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
-"Language: sl\n"
+"Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.0.6\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#: data/gnome-tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
+#: data/gnome-tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Spremenite postavitev ploščic, da zapolnijo polje."
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: data/gnome-tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -45,182 +44,246 @@ msgstr ""
 "števila ne ujemajo, ploščice na mesto ni mogoče postaviti. Igra je časovno "
 "omejene."
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
+#: data/gnome-tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Težavnost igre je mogoče prilagoditi s spreminjanjem velikosti igralne "
 "plošče."
 
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:382
+#: data/gnome-tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
+#: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.h:2
+#: data/gnome-tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Dokončajte sestavljenko s skladanjem oštevilčenih ploščic"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/gnome-tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "igra;logika;tabla;plošča;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#. TRANSLATORS: Do NOT translate or transliterate this text!
+#. This is an icon file name.
+#: data/gnome-tetravex.desktop.in:12
+#| msgid "Tetravex"
+msgid "gnome-tetravex"
+msgstr "gnome-tetravex"
+
+#: data/org.gnome.tetravex.gschema.xml:6
 msgid "The size of the playing grid"
 msgstr "Velikost igralne mreže"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
+#: data/org.gnome.tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Vrednost možnosti določa velikost igralne mreže."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
+#: data/org.gnome.tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
 msgstr "Širina okna v točkah"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
+#: data/org.gnome.tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
 msgstr "Višina okna v točkah"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
+#: data/org.gnome.tetravex.gschema.xml:19
 msgid "true if the window is maximized"
 msgstr "prav, če je okno razpeto."
 
-#: ../src/app-menu.ui.h:1
+#: src/app-menu.ui:5
 msgid "_New Game"
-msgstr "_Nova Igra"
+msgstr "_Nova igra"
 
-#: ../src/app-menu.ui.h:2
+#: src/app-menu.ui:9
 msgid "_Scores"
 msgstr "_Točke"
 
-#: ../src/app-menu.ui.h:3
-msgid "_Size"
+#: src/app-menu.ui:15
+msgid "Si_ze"
 msgstr "_Velikost"
 
-#: ../src/app-menu.ui.h:4
+#: src/app-menu.ui:18
 msgid "_2x2"
 msgstr "_2x2"
 
-#: ../src/app-menu.ui.h:5
+#: src/app-menu.ui:23
 msgid "_3x3"
 msgstr "_3x3"
 
-#: ../src/app-menu.ui.h:6
+#: src/app-menu.ui:28
 msgid "_4x4"
 msgstr "_4x4"
 
-#: ../src/app-menu.ui.h:7
+#: src/app-menu.ui:33
 msgid "_5x5"
 msgstr "_5x5"
 
-#: ../src/app-menu.ui.h:8
+#: src/app-menu.ui:38
 msgid "_6x6"
 msgstr "_6x6"
 
-#: ../src/app-menu.ui.h:9
+#: src/app-menu.ui:47
+msgid "_Keyboard Shortcuts"
+msgstr "_Tipkovne bližnjice‫"
+
+#: src/app-menu.ui:51
 msgid "_Help"
 msgstr "Pomo_č"
 
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr "_O Programu"
+#: src/app-menu.ui:55
+msgid "_About Tetravex"
+msgstr "_O igri"
 
-#: ../src/app-menu.ui.h:11
-msgid "_Quit"
-msgstr "_Končaj"
-
-#: ../src/gnome-tetravex.vala:38
+#: src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Izpiši različico programa in končaj"
 
-#: ../src/gnome-tetravex.vala:39
+#: src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Nadaljevanje prekinjene igre"
 
-#: ../src/gnome-tetravex.vala:40
+#: src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Velikost igralne plošče (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:129
+#: src/gnome-tetravex.vala:137
 msgid "Resume the game"
 msgstr "Nadaljuj z igro"
 
-#: ../src/gnome-tetravex.vala:141
+#: src/gnome-tetravex.vala:149
 msgid "Pause the game"
 msgstr "Premor igranja"
 
-#: ../src/gnome-tetravex.vala:158
+#: src/gnome-tetravex.vala:166
 msgid "Start a new game"
 msgstr "Začni novo igro"
 
-#: ../src/gnome-tetravex.vala:170
+#: src/gnome-tetravex.vala:178
 msgid "Give up and view the solution"
 msgstr "Prepustite igro in si oglejte rešitev"
 
-#: ../src/gnome-tetravex.vala:240
+#: src/gnome-tetravex.vala:247
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Velikost plošče je lahko med 2 in 6.\n"
 
-#: ../src/gnome-tetravex.vala:348
+#: src/gnome-tetravex.vala:355
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Ali ste prepričani, da želite prepustiti igro in pogledati rezultat?"
 
-#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
+#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
 msgid "_Keep Playing"
 msgstr "_Nadaljuj igranje"
 
-#: ../src/gnome-tetravex.vala:351
+#: src/gnome-tetravex.vala:358
 msgid "_Give Up"
 msgstr "_Prepusti igro"
 
-#: ../src/gnome-tetravex.vala:385
+#: src/gnome-tetravex.vala:392
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "Postavljanje ploščic, da se številke na njih dotikajo ena druge."
 
-#: ../src/gnome-tetravex.vala:392
+#: src/gnome-tetravex.vala:399
 msgid "translator-credits"
 msgstr ""
-"Matic Žgur <mr.zgur@gmail.com>\n"
-"Matej Erman <matej.erman@guest.arnes.si>\n"
-"Tadej Janež <tadej_janez@email.si>\n"
-"Matej Urbančič <mateju@svn.gnome.org>"
+"Matej Urbančič <mateju@svn.gnome.org>\n"
+"Matic Žgur\n"
+"Matej Erman\n"
+"Tadej Janež"
 
-#: ../src/gnome-tetravex.vala:410
+#: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
 "Ali ste prepričani, da želite začeti novo igro z drugačno velikostjo igralne "
 "plošče?"
 
-#: ../src/gnome-tetravex.vala:412
+#: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
 msgstr "_Začni novo igro"
 
-#: ../src/puzzle-view.vala:356
+#: src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Premor"
 
-#: ../src/score-dialog.vala:29
+#: src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Končaj"
 
-#: ../src/score-dialog.vala:30
+#: src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Nova igra"
 
-#: ../src/score-dialog.vala:33
+#: src/score-dialog.vala:33
 msgid "OK"
 msgstr "V redu"
 
-#: ../src/score-dialog.vala:45
+#: src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Velikost:"
 
-#: ../src/score-dialog.vala:70
+#: src/score-dialog.vala:70
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/score-dialog.vala:73
+#: src/score-dialog.vala:73
 msgid "Time"
 msgstr "Čas"
+
+#~ msgid "_Size"
+#~ msgstr "_Velikost"
+
+#~ msgid "_About"
+#~ msgstr "_O Programu"
+
+#~ msgid "_Quit"
+#~ msgstr "_Končaj"
+
+#~ msgid "Play _Again"
+#~ msgstr "Igraj _znova"
+
+#~ msgid "_Pause"
+#~ msgstr "_Premor"
+
+#~ msgid "_Resolve"
+#~ msgstr "_Razreši"
+
+#~ msgid "Res_ume"
+#~ msgstr "Na_daljuj"
+
+#~ msgid "GNOME Games web site"
+#~ msgstr "Spletna stran iger GNOME"
+
+#~ msgid "_Move"
+#~ msgstr "_Premakni"
+
+#~ msgid "_Up"
+#~ msgstr "_Gor"
+
+#~ msgid "_Left"
+#~ msgstr "_Levo"
+
+#~ msgid "_Right"
+#~ msgstr "_Desno"
+
+#~ msgid "_Down"
+#~ msgstr "_Dol"
+
+#~ msgid "true if the window is fullscren"
+#~ msgstr "prav, če je okno razpeto čez celoten zaslon"
+
+#~ msgid "_New"
+#~ msgstr "_Nova"
+
+#~ msgid "Solve"
+#~ msgstr "Reši"
+
+#~ msgid "_Fullscreen"
+#~ msgstr "_Celozaslonski način"
+
+#~ msgid "_Leave Fullscreen"
+#~ msgstr "_Zapusti celozaslonski način"
