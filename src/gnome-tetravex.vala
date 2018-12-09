@@ -75,7 +75,7 @@ public class Tetravex : Gtk.Application
         set_accels_for_action ("app.new-game", {"<Primary>n"});
         set_accels_for_action ("app.pause", {"Pause"});
         set_accels_for_action ("app.help", {"F1"});
-        set_accels_for_action ("app.quit", {"<Primary>q"});
+        set_accels_for_action ("app.quit", {"<Primary>q", "<Primary>w"});
         set_accels_for_action ("app.move-up", {"<Primary>Up"});
         set_accels_for_action ("app.move-down", {"<Primary>Down"});
         set_accels_for_action ("app.move-left", {"<Primary>Left"});
