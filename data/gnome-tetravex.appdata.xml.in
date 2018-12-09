@@ -4,18 +4,18 @@
   <id>gnome-tetravex.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+ and CC-BY-SA-3.0</project_license>
-  <_name>GNOME Tetravex</_name>
-  <_summary>Reorder tiles to fit a square</_summary>
+  <name>GNOME Tetravex</name>
+  <summary>Reorder tiles to fit a square</summary>
   <description>
-    <_p>
+    <p>
       Each square piece has a number on each side. Position the pieces on the left
       side of the board so that the same numbers are next to each other. If the
       numbers don't match, you can't put the piece there. Move quickly: you're
       being timed!
-    </_p>
-    <_p>
+    </p>
+    <p>
       You can make the game easier or harder by changing the size of the board.
-    </_p>
+    </p>
   </description>
   <screenshots>
     <screenshot type="default" width="748" height="462">

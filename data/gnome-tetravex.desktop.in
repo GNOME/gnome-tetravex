@@ -1,8 +1,13 @@
 [Desktop Entry]
-_Name=Tetravex
-_Comment=Complete the puzzle by matching numbered tiles
-_Keywords=game;logic;board;
+Name=Tetravex
+Comment=Complete the puzzle by matching numbered tiles
+# TRANSLATORS: Do NOT translate or localize the semicolons!
+#              The list MUST also end with a semicolon!
+#              Search terms to find this application.
+Keywords=game;logic;board;
 Exec=gnome-tetravex
+# TRANSLATORS: Do NOT translate or transliterate this text!
+#              This is an icon file name.
 Icon=gnome-tetravex
 Terminal=false
 Type=Application

@@ -3,12 +3,14 @@ SUBDIRS = icons
 desktop_in_files = gnome-tetravex.desktop.in
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+$(desktop_DATA): $(desktop_in_files) $(wildcard $(top_srcdir)/po/*po)
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 appstream_in_files = gnome-tetravex.appdata.xml.in
 appstream_XML = $(appstream_in_files:.xml.in=.xml)
+$(appstream_XML): $(appstream_in_files) $(wildcard $(top_srcdir)/po/*po)
+	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 @APPSTREAM_XML_RULES@
-@INTLTOOL_XML_RULE@
 
 gsettings_SCHEMAS = org.gnome.tetravex.gschema.xml
 @GSETTINGS_RULES@
