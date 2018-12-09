@@ -1,3 +1,16 @@
+GNOME Tetravex 3.31.3
+=====================
+* Development release
+* Switch from autotools to meson (Jeremy)
+* Stop using intltool (Jeremy)
+* Follow GNOME 3.32 app menu recommendations (Jeremy)
+* Add Keyboard Shortcuts overlay (Jeremy)
+* Hide Keyboard Shortcuts section in app help (Jeremy)
+* Update AppStream metadata (nick)
+
+Contributors:
+ Jeremy Bicha, nick richards
+
 GNOME Tetravex 3.22.0
 =====================
 
