@@ -3,7 +3,11 @@
   id="shortcut">
 
   <info>
+<!--
+Let's not include Keyboard Shortcuts here for now.
+See https://mail.gnome.org/archives/desktop-devel-list/2018-December/msg00024.html
     <link type="guide" xref="index#tips"/>
+-->
     <link type="seealso" xref="usage"/>
     <desc>Use the keyboard to play the game.</desc>
     <revision pkgversion="2.30" version="0.1" date="2009-12-21" status="draft"/>
