@@ -4,4 +4,8 @@
     <file preprocess="xml-stripblanks">gnome-tetravex.ui</file>
     <file preprocess="xml-stripblanks">app-menu.ui</file>
   </gresource>
+  <gresource prefix="/org/gnome/tetravex/gtk">
+    <file preprocess="xml-stripblanks">help-overlay.ui</file>
+  </gresource>
 </gresources>
+<?xml version="1.0" encoding="UTF-8"?>
