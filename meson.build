@@ -14,7 +14,6 @@ i18n = import ('i18n')
 mandir = join_paths (get_option ('prefix'), get_option ('mandir'))
 localedir = join_paths (get_option ('prefix'), get_option ('localedir'))
 datadir = join_paths (get_option ('prefix'), get_option ('datadir'))
-pkgdatadir = join_paths (datadir, 'gnome-mines')
 
 # Dependencies
 glib_dep = dependency ('glib-2.0', version: '>= 2.40.0')

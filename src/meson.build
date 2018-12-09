@@ -15,6 +15,5 @@ gnome_tetravex = executable ('gnome-tetravex',
                              vala_args: [ '--pkg=posix' ],
                              c_args: [ '-DVERSION="@0@"'.format (meson.project_version ()),
                                        '-DGETTEXT_PACKAGE="gnome-tetravex"',
-                                       '-DLOCALEDIR="@0@"'.format (localedir),
-                                       '-DDATA_DIRECTORY="@0@"'.format (pkgdatadir) ],
+                                       '-DLOCALEDIR="@0@"'.format (localedir) ],
                              install: true )
