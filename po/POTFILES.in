@@ -6,6 +6,7 @@ data/org.gnome.tetravex.gschema.xml
 src/app-menu.ui
 src/gnome-tetravex.ui
 src/gnome-tetravex.vala
+src/help-overlay.ui
 src/puzzle.vala
 src/puzzle-view.vala
 src/score-dialog.vala
