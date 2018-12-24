@@ -35,10 +35,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-22 20:58+0000\n"
-"PO-Revision-Date: 2015-02-23 02:01+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2018-12-10 02:33+0000\n"
+"PO-Revision-Date: 2018-12-24 15:14+0200\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
@@ -46,18 +45,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 2.0.7\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#: data/gnome-tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
 msgstr "Τετραβέξ"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
+#: data/gnome-tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Επανατοποθετήστε τα πλακίδια ώστε να χωρούν στο τετράγωνο"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: data/gnome-tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -69,148 +68,153 @@ msgstr ""
 "μεταξύ τους. Αν οι αριθμοί δεν ταιριάζουν, δεν μπορείτε να βάλετε το κομμάτι "
 "εκεί. Πιο γρήγορα: χρονομετρείστε!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
+#: data/gnome-tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Μπορείτε να διευκολύνετε το παιχνίδι ή να το δυσκολέψετε αλλάζοντας το "
 "μέγεθος του πίνακα."
 
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:382
+#: data/gnome-tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
+#: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Τετραβέξ"
 
-#: ../data/gnome-tetravex.desktop.in.h:2
+#: data/gnome-tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Ολοκληρώστε το πρόβλημα ταιριάζοντας αριθμημένα πλακίδια"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/gnome-tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "παιχνίδι;λογική;πίνακας;game;logic;board;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#. TRANSLATORS: Do NOT translate or transliterate this text!
+#. This is an icon file name.
+#: data/gnome-tetravex.desktop.in:12
+msgid "gnome-tetravex"
+msgstr "gnome-tetravex"
+
+#: data/org.gnome.tetravex.gschema.xml:6
 msgid "The size of the playing grid"
 msgstr "Το μέγεθος του πλέγματος του παιχνιδιού"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
+#: data/org.gnome.tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
 "Η τιμή αυτού του κλειδιού χρησιμοποιείται για να αποφασιστεί το μέγεθος του "
 "πλέγματος του παιχνιδιού."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
+#: data/org.gnome.tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
 msgstr "Το πλάτος του παραθύρου σε εικονοστοιχεία"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
+#: data/org.gnome.tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
 msgstr "Το ύψος του παραθύρου σε εικονοστοιχεία"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
+#: data/org.gnome.tetravex.gschema.xml:19
 msgid "true if the window is maximized"
 msgstr "αληθής αν το παράθυρο είναι μεγιστοποιημένο"
 
-#: ../src/app-menu.ui.h:1
+#: src/app-menu.ui:5
 msgid "_New Game"
 msgstr "_Νέο παιχνίδι"
 
-#: ../src/app-menu.ui.h:2
+#: src/app-menu.ui:9
 msgid "_Scores"
 msgstr "_Βαθμολογίες"
 
-#: ../src/app-menu.ui.h:3
-msgid "_Size"
-msgstr "_Μέγεθος"
+#: src/app-menu.ui:15
+msgid "Si_ze"
+msgstr "Μέ_γεθος"
 
-#: ../src/app-menu.ui.h:4
+#: src/app-menu.ui:18
 msgid "_2x2"
 msgstr "_2x2"
 
-#: ../src/app-menu.ui.h:5
+#: src/app-menu.ui:23
 msgid "_3x3"
 msgstr "_3x3"
 
-#: ../src/app-menu.ui.h:6
+#: src/app-menu.ui:28
 msgid "_4x4"
 msgstr "_4x4"
 
-#: ../src/app-menu.ui.h:7
+#: src/app-menu.ui:33
 msgid "_5x5"
 msgstr "_5x5"
 
-#: ../src/app-menu.ui.h:8
+#: src/app-menu.ui:38
 msgid "_6x6"
 msgstr "_6x6"
 
-#: ../src/app-menu.ui.h:9
+#: src/app-menu.ui:47
+msgid "_Keyboard Shortcuts"
+msgstr "Συντομεύσεις _πληκτρολογίου"
+
+#: src/app-menu.ui:51
 msgid "_Help"
 msgstr "_Βοήθεια"
 
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr "_Περί"
+#: src/app-menu.ui:55
+msgid "_About Tetravex"
+msgstr "_Περί του Τετραβέξ"
 
-#: ../src/app-menu.ui.h:11
-msgid "_Quit"
-msgstr "Έ_ξοδος"
-
-#: ../src/gnome-tetravex.vala:38
+#: src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Προβολή πληροφοριών έκδοσης και έξοδος"
 
-#: ../src/gnome-tetravex.vala:39
+#: src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Εκκίνηση του παιχνιδιού που είχε τεθεί σε παύση"
 
-#: ../src/gnome-tetravex.vala:40
+#: src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Ορισμός μεγέθους του πίνακα (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:129
+#: src/gnome-tetravex.vala:137
 msgid "Resume the game"
 msgstr "Συνέχιση του τρέχοντος παιχνιδιού"
 
-#: ../src/gnome-tetravex.vala:141
+#: src/gnome-tetravex.vala:149
 msgid "Pause the game"
 msgstr "Παύση παιχνιδιού"
 
-#: ../src/gnome-tetravex.vala:158
+#: src/gnome-tetravex.vala:166
 msgid "Start a new game"
 msgstr "Εκκίνηση νέου παιχνιδιού"
 
-#: ../src/gnome-tetravex.vala:170
+#: src/gnome-tetravex.vala:178
 msgid "Give up and view the solution"
 msgstr "Εγκαταλείψτε και δείτε τη λύση"
 
-#: ../src/gnome-tetravex.vala:240
+#: src/gnome-tetravex.vala:247
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Το μέγεθος θα μπορούσε να είναι μόνο από 2 έως 6.\n"
 
-#: ../src/gnome-tetravex.vala:348
+#: src/gnome-tetravex.vala:355
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Είστε σίγουροι ότι θέλετε να εγκαταλείψετε και να δείτε τη λύση;"
 
-#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
+#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
 msgid "_Keep Playing"
 msgstr "_Συνέχεια παιχνιδιού"
 
-#: ../src/gnome-tetravex.vala:351
+#: src/gnome-tetravex.vala:358
 msgid "_Give Up"
 msgstr "_Εγκατάλειψη"
 
-#: ../src/gnome-tetravex.vala:385
-#| msgid ""
-#| "Position pieces so that the same numbers are touching each other\n"
-#| "\n"
-#| "Tetravex is a part of GNOME Games."
+#: src/gnome-tetravex.vala:392
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
 "Τοποθετήστε τα κομμάτια έτσι ώστε οι ίδιοι αριθμοί να εφάπτονται μεταξύ τους."
 
-#: ../src/gnome-tetravex.vala:392
+#: src/gnome-tetravex.vala:399
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
@@ -220,46 +224,99 @@ msgstr ""
 " Κώστας Παπαδήμας <pkst@gmx.net>\n"
 " Τζένη Πετούμενου <epetoumenou@gmail.com>\n"
 " Μαρία Μαυρίδου <mavridou@gmail.com>\n"
+" Ευστάθιος Ιωσηφίδης <iosifidis@opensuse.org>\n"
 "\n"
 "Για περισσότερες πληροφορίες, επισκεφθείτε την σελίδα\n"
 "http://gnome.gr/"
 
-#: ../src/gnome-tetravex.vala:410
-#| msgid "Are you sure you want to give up and view the solution?"
+#: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
 "Είστε σίγουροι ότι θέλετε να εκκινήσετε νέο παιχνίδι με διαφορετικό μέγεθος "
 "πίνακα;"
 
-#: ../src/gnome-tetravex.vala:412
-#| msgid "Start a new game"
+#: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
 msgstr "_Εκκίνηση νέου παιχνιδιού"
 
-#: ../src/puzzle-view.vala:356
-msgid "Paused"
-msgstr "Παύση"
+#: src/help-overlay.ui:16
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Έναρξη νέου παιχνιδιού"
 
-#: ../src/score-dialog.vala:29
+#: src/help-overlay.ui:23
+msgctxt "shortcut window"
+msgid "Pause the game"
+msgstr "Παύση παιχνιδιού"
+
+#: src/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο επάνω κατά ένα"
+
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο κάτω κατά ένα"
+
+#: src/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο αριστερά κατά ένα"
+
+#: src/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο δεξιά κατά ένα"
+
+#: src/help-overlay.ui:58
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Εμφάνιση βοήθειας"
+
+#: src/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Εμφάνιση συντομεύσεων πληκτρολογίου"
+
+#: src/help-overlay.ui:72
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: ../src/score-dialog.vala:30
+#: src/puzzle-view.vala:356
+msgid "Paused"
+msgstr "Παύση"
+
+#: src/score-dialog.vala:29
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Νέο παιχνίδι"
 
-#: ../src/score-dialog.vala:33
+#: src/score-dialog.vala:33
 msgid "OK"
 msgstr "Εντάξει"
 
-#: ../src/score-dialog.vala:45
+#: src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Μέγεθος:"
 
-#: ../src/score-dialog.vala:70
+#: src/score-dialog.vala:70
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: ../src/score-dialog.vala:73
+#: src/score-dialog.vala:73
 msgid "Time"
 msgstr "Χρόνος"
+
+#~ msgid "_Size"
+#~ msgstr "_Μέγεθος"
+
+#~ msgid "_About"
+#~ msgstr "_Περί"
+
+#~ msgid "_Quit"
+#~ msgstr "Έ_ξοδος"
