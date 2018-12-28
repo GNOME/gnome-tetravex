@@ -1,19 +1,18 @@
 # Swedish messages for gnome-games.
-# Copyright © 1999-2015 Free Software Foundation, Inc.
+# Copyright © 1999-2018 Free Software Foundation, Inc.
 # Andreas Persenius <ndap@swipnet.se>, 1999.
 # Andreas Hyden <a.hyden@cyberpoint.se>
 # Martin Norbäck <d95mback@dtek.chalmers.se>, 2000.
 # Christian Rose <menthos@menthos.com>, 2000, 2001, 2002, 2003, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-01-27 08:53+0000\n"
-"PO-Revision-Date: 2015-01-29 23:22+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2018-12-10 02:33+0000\n"
+"PO-Revision-Date: 2018-12-28 14:56+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,17 +20,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 2.2\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#: data/gnome-tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
+#: data/gnome-tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Flytta om brickor så de passar i en kvadrat"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: data/gnome-tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -42,141 +41,151 @@ msgstr ""
 "sidan av brädet så att samma nummer är intill varandra. Om numren inte "
 "överensstämmer kan du inte placera biten där. Skynda på: klockan går!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
+#: data/gnome-tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Du kan göra spelet lättare eller svårare genom att ändra storleken på brädet."
 
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:70 ../src/gnome-tetravex.vala:105
-#: ../src/gnome-tetravex.vala:387
+#: data/gnome-tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
+#: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.h:2
+#: data/gnome-tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Klara att lägga pusslet genom att matcha numrerade brickor"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/gnome-tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "spel;logik;brädspel;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#. TRANSLATORS: Do NOT translate or transliterate this text!
+#. This is an icon file name.
+#: data/gnome-tetravex.desktop.in:12
+#| msgid "Tetravex"
+msgid "gnome-tetravex"
+msgstr "gnome-tetravex"
+
+#: data/org.gnome.tetravex.gschema.xml:6
 msgid "The size of the playing grid"
 msgstr "Storleken på spelrutnätet"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
+#: data/org.gnome.tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
 "Värdet på denna nyckel används för att avgöra storleken på spelets rutnät."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
+#: data/org.gnome.tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
 msgstr "Bredden på fönstret i bildpunkter"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
+#: data/org.gnome.tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
 msgstr "Höjden på fönstret i bildpunkter"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
+#: data/org.gnome.tetravex.gschema.xml:19
 msgid "true if the window is maximized"
 msgstr "sant om fönstret är maximerat"
 
-#: ../src/app-menu.ui.h:1
+#: src/app-menu.ui:5
 msgid "_New Game"
 msgstr "_Nytt spel"
 
-#: ../src/app-menu.ui.h:2
+#: src/app-menu.ui:9
 msgid "_Scores"
 msgstr "_Poänglista"
 
-#: ../src/app-menu.ui.h:3
-msgid "_Size"
-msgstr "S_torlek"
+#: src/app-menu.ui:15
+msgid "Si_ze"
+msgstr "St_orlek"
 
-#: ../src/app-menu.ui.h:4
+#: src/app-menu.ui:18
 msgid "_2x2"
 msgstr "_2x2"
 
-#: ../src/app-menu.ui.h:5
+#: src/app-menu.ui:23
 msgid "_3x3"
 msgstr "_3x3"
 
-#: ../src/app-menu.ui.h:6
+#: src/app-menu.ui:28
 msgid "_4x4"
 msgstr "_4x4"
 
-#: ../src/app-menu.ui.h:7
+#: src/app-menu.ui:33
 msgid "_5x5"
 msgstr "_5x5"
 
-#: ../src/app-menu.ui.h:8
+#: src/app-menu.ui:38
 msgid "_6x6"
 msgstr "_6x6"
 
-#: ../src/app-menu.ui.h:9
+#: src/app-menu.ui:47
+msgid "_Keyboard Shortcuts"
+msgstr "_Tangenbordsgenvägar"
+
+#: src/app-menu.ui:51
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr "_Om"
+#: src/app-menu.ui:55
+msgid "_About Tetravex"
+msgstr "_Om Tetravex"
 
-#: ../src/app-menu.ui.h:11
-msgid "_Quit"
-msgstr "A_vsluta"
-
-#: ../src/gnome-tetravex.vala:37
+#: src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Visa utgåvans version och avsluta"
 
-#: ../src/gnome-tetravex.vala:38
+#: src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Starta spelet i pausat läge"
 
-#: ../src/gnome-tetravex.vala:39
+#: src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Ställ in storlek på brädet (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:128
+#: src/gnome-tetravex.vala:137
 msgid "Resume the game"
 msgstr "Återuppta spelet"
 
-#: ../src/gnome-tetravex.vala:140
+#: src/gnome-tetravex.vala:149
 msgid "Pause the game"
 msgstr "Gör paus i spelet"
 
-#: ../src/gnome-tetravex.vala:157
+#: src/gnome-tetravex.vala:166
 msgid "Start a new game"
 msgstr "Starta ett nytt spel"
 
-#: ../src/gnome-tetravex.vala:169
+#: src/gnome-tetravex.vala:178
 msgid "Give up and view the solution"
 msgstr "Ge upp och se lösningen"
 
-#: ../src/gnome-tetravex.vala:240
+#: src/gnome-tetravex.vala:247
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Storlek kunde bara vara från 2 till 6.\n"
 
-#: ../src/gnome-tetravex.vala:353
+#: src/gnome-tetravex.vala:355
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Är du säker på att du vill ge upp och se lösningen?"
 
-#: ../src/gnome-tetravex.vala:355 ../src/gnome-tetravex.vala:416
+#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
 msgid "_Keep Playing"
 msgstr "_Fortsätt spela"
 
-#: ../src/gnome-tetravex.vala:356
+#: src/gnome-tetravex.vala:358
 msgid "_Give Up"
 msgstr "_Ge upp"
 
-#: ../src/gnome-tetravex.vala:390
+#: src/gnome-tetravex.vala:392
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "Placera bitar så att samma nummer rör vid varandra"
 
-#: ../src/gnome-tetravex.vala:397
+#: src/gnome-tetravex.vala:399
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -189,39 +198,93 @@ msgstr ""
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>."
 
-#: ../src/gnome-tetravex.vala:415
+#: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
 "Är du säker på att du vill starta ett nytt spel med en annan brädstorlek?"
 
-#: ../src/gnome-tetravex.vala:417
+#: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
 msgstr "_Starta ett nytt spel"
 
-#: ../src/puzzle-view.vala:356
-msgid "Paused"
-msgstr "Pausad"
+#: src/help-overlay.ui:16
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Starta ett nytt spel"
 
-#: ../src/score-dialog.vala:29
+#: src/help-overlay.ui:23
+msgctxt "shortcut window"
+msgid "Pause the game"
+msgstr "Gör paus i spelet"
+
+#: src/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "Flytta alla pjäser i den vänstra rutan ett steg uppåt"
+
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "Flytta alla pjäser i den vänstra rutan ett steg nedåt"
+
+#: src/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "Flytta alla pjäser i den vänstra rutan ett steg åt vänster"
+
+#: src/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "Flytta alla pjäser i den vänstra rutan ett steg åt höger"
+
+#: src/help-overlay.ui:58
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Visa hjälp"
+
+#: src/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Visa tangentbordsgenvägar"
+
+#: src/help-overlay.ui:72
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Avsluta"
 
-#: ../src/score-dialog.vala:30
+#: src/puzzle-view.vala:356
+msgid "Paused"
+msgstr "Pausad"
+
+#: src/score-dialog.vala:29
+msgid "Quit"
+msgstr "Avsluta"
+
+#: src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Nytt spel"
 
-#: ../src/score-dialog.vala:33
+#: src/score-dialog.vala:33
 msgid "OK"
 msgstr "OK"
 
-#: ../src/score-dialog.vala:45
+#: src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Storlek:"
 
-#: ../src/score-dialog.vala:70
+#: src/score-dialog.vala:70
 msgid "Date"
 msgstr "Datum"
 
-#: ../src/score-dialog.vala:73
+#: src/score-dialog.vala:73
 msgid "Time"
 msgstr "Tid"
+
+#~ msgid "_Size"
+#~ msgstr "S_torlek"
+
+#~ msgid "_About"
+#~ msgstr "_Om"
+
+#~ msgid "_Quit"
+#~ msgstr "A_vsluta"
