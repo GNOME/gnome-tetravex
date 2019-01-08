@@ -24,7 +24,7 @@
   </screenshots>
   <url type="homepage">https://wiki.gnome.org/Apps/Tetravex</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-tetravex/issues</url>
-  <url type="donation">http://www.gnome.org/friends/</url>
+  <url type="donation">https://www.gnome.org/friends/</url>
   <url type="help">https://help.gnome.org/users/gnome-tetravex/stable/</url>
   <update_contact>mcatanzaro_at_gnome.org</update_contact>
   <project_group>GNOME</project_group>
