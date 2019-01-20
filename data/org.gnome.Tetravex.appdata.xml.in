@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2013 Michael Catanzaro -->
-<component type="desktop">
-  <id>gnome-tetravex.desktop</id>
+<component type="desktop-application">
+  <id>org.gnome.Tetravex</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+ and CC-BY-SA-3.0</project_license>
   <name>GNOME Tetravex</name>
@@ -22,14 +22,18 @@
       <image>https://people.gnome.org/~mcatanzaro/gnome-tetravex.png</image>
     </screenshot>
   </screenshots>
+  <launchable type="desktop-id">org.gnome.Tetravex.desktop</launchable>
   <url type="homepage">https://wiki.gnome.org/Apps/Tetravex</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-tetravex/issues</url>
   <url type="donation">https://www.gnome.org/friends/</url>
   <url type="help">https://help.gnome.org/users/gnome-tetravex/stable/</url>
   <update_contact>mcatanzaro_at_gnome.org</update_contact>
   <project_group>GNOME</project_group>
+  <developer_name>The GNOME Project</developer_name>
+  <provides>
+    <id>gnome-tetravex.desktop</id>
+  </provides>
   <kudos>
-    <kudo>AppMenu</kudo>
     <kudo>HiDpiIcon</kudo>
     <kudo>ModernToolkit</kudo>
     <kudo>UserDocs</kudo>
