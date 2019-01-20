@@ -9,7 +9,7 @@ install_data (join_paths ('icons', 'hicolor', 'scalable', project_id + '-symboli
 
 install_data (project_id + '.gschema.xml',
               install_dir: join_paths (datadir, 'glib-2.0', 'schemas'))
-meson.add_install_script ('meson_compile_gschema.py')
+
 
 i18n.merge_file ('desktop-file',
                  input: project_id + '.desktop.in',
