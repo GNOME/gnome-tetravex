@@ -59,7 +59,7 @@ public class Tetravex : Gtk.Application
 
     public Tetravex ()
     {
-        Object (application_id: "org.gnome.tetravex", flags: ApplicationFlags.FLAGS_NONE);
+        Object (application_id: "org.gnome.Tetravex", flags: ApplicationFlags.FLAGS_NONE);
 
         add_main_option_entries (option_entries);
     }
@@ -69,7 +69,7 @@ public class Tetravex : Gtk.Application
         base.startup ();
 
         Environment.set_application_name (_("Tetravex"));
-        Gtk.Window.set_default_icon_name ("gnome-tetravex");
+        Gtk.Window.set_default_icon_name ("org.gnome.Tetravex");
 
         add_action_entries (action_entries, this);
         set_accels_for_action ("app.new-game", {"<Primary>n"});
@@ -81,9 +81,9 @@ public class Tetravex : Gtk.Application
         set_accels_for_action ("app.move-left", {"<Primary>Left"});
         set_accels_for_action ("app.move-right", {"<Primary>Right"});
 
-        var builder = new Gtk.Builder.from_resource ("/org/gnome/tetravex/gnome-tetravex.ui");
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
 
-        settings = new Settings ("org.gnome.tetravex");
+        settings = new Settings ("org.gnome.Tetravex");
 
         history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history"));
         history.load ();
@@ -107,7 +107,7 @@ public class Tetravex : Gtk.Application
         headerbar.show_close_button = true;
         window.set_titlebar (headerbar);
 
-        var menu_builder = new Gtk.Builder.from_resource ("/org/gnome/tetravex/app-menu.ui");
+        var menu_builder = new Gtk.Builder.from_resource ("/org/gnome/Tetravex/app-menu.ui");
         var appmenu = menu_builder.get_object("app-menu") as MenuModel;
         var menu_button = new Gtk.MenuButton ();
         menu_button.set_image (new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.BUTTON));
@@ -397,7 +397,7 @@ public class Tetravex : Gtk.Application
                                "authors", authors,
                                "documenters", documenters,
                                "translator-credits", _("translator-credits"),
-                               "logo-icon-name", "gnome-tetravex",
+                               "logo-icon-name", "org.gnome.Tetravex",
                                "website", "https://wiki.gnome.org/Apps/Tetravex",
                                null);
     }

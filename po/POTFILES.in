@@ -1,8 +1,8 @@
 # List of source files containing translatable strings.
 # Please keep this file in alphabetical order.
-data/gnome-tetravex.appdata.xml.in
-data/gnome-tetravex.desktop.in
-data/org.gnome.tetravex.gschema.xml
+data/org.gnome.Tetravex.appdata.xml.in
+data/org.gnome.Tetravex.desktop.in
+data/org.gnome.Tetravex.gschema.xml
 src/app-menu.ui
 src/gnome-tetravex.ui
 src/gnome-tetravex.vala

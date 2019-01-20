@@ -8,7 +8,7 @@ Keywords=game;logic;board;
 Exec=gnome-tetravex
 # TRANSLATORS: Do NOT translate or transliterate this text!
 #              This is an icon file name.
-Icon=gnome-tetravex
+Icon=org.gnome.Tetravex
 Terminal=false
 Type=Application
 Categories=GNOME;GTK;Game;LogicGame;
