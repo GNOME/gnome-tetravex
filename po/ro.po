@@ -10,11 +10,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.ro\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-02-04 04:08+0000\n"
-"PO-Revision-Date: 2018-04-03 23:36+0300\n"
-"Last-Translator: Florentina Mușat <florentina.musat.28@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2019-01-20 22:32+0000\n"
+"PO-Revision-Date: 2019-01-27 02:24+0200\n"
+"Last-Translator: Florentina Mușat <florentina.musat.28 [at] gmail [dot] "
+"com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -22,18 +22,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Launchpad-Export-Date: 2009-11-27 09:12+0000\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
 msgstr "Tetravex GNOME"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
+#: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Reordonează dalele pentru a se potrivi unui pătrat"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: data/org.gnome.Tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -45,148 +45,161 @@ msgstr ""
 "altele. Dacă numerele nu se potrivesc, nu puteți plasa piesele acolo. Mutați "
 "rapid: sunteți cronometrat!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
+#: data/org.gnome.Tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Puteți face jocul mai simplu sau mai dificil prin modificarea dimensiunii "
 "tablei."
 
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:381
+#: data/org.gnome.Tetravex.appdata.xml.in:32
+msgid "The GNOME Project"
+msgstr "Proiectul GNOME"
+
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
+#: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.h:2
+#: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Completați puzzle-ul potrivind piesele numerotate"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "game;logic;board;joc;logică;tablă;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#. TRANSLATORS: Do NOT translate or transliterate this text!
+#. This is an icon file name.
+#: data/org.gnome.Tetravex.desktop.in:12
+msgid "org.gnome.Tetravex"
+msgstr "org.gnome.Tetravex"
+
+#: data/org.gnome.Tetravex.gschema.xml:6
 msgid "The size of the playing grid"
 msgstr "Mărimea tablei de joc"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
+#: data/org.gnome.Tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
 "Valoarea acestei chei este folosită pentru a decide dimensiunea tablei de "
 "joc."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
+#: data/org.gnome.Tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
 msgstr "Lățimea ferestrei în pixeli"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
 msgstr "Înălțimea ferestrei în pixeli"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
+#: data/org.gnome.Tetravex.gschema.xml:19
 msgid "true if the window is maximized"
 msgstr "adevărat dacă fereastra este maximizată"
 
-#: ../src/app-menu.ui.h:1
+#: src/app-menu.ui:5
 msgid "_New Game"
 msgstr "Joc _nou"
 
-#: ../src/app-menu.ui.h:2
+#: src/app-menu.ui:9
 msgid "_Scores"
 msgstr "_Scoruri"
 
-#: ../src/app-menu.ui.h:3
-msgid "_Size"
-msgstr "_Mărime"
+#: src/app-menu.ui:15
+msgid "Si_ze"
+msgstr "Di_mensiune"
 
-#: ../src/app-menu.ui.h:4
+#: src/app-menu.ui:18
 msgid "_2x2"
 msgstr "_2x2"
 
-#: ../src/app-menu.ui.h:5
+#: src/app-menu.ui:23
 msgid "_3x3"
 msgstr "_3x3"
 
-#: ../src/app-menu.ui.h:6
+#: src/app-menu.ui:28
 msgid "_4x4"
 msgstr "_4x4"
 
-#: ../src/app-menu.ui.h:7
+#: src/app-menu.ui:33
 msgid "_5x5"
 msgstr "_5x5"
 
-#: ../src/app-menu.ui.h:8
+#: src/app-menu.ui:38
 msgid "_6x6"
 msgstr "_6x6"
 
-#: ../src/app-menu.ui.h:9
+#: src/app-menu.ui:47
+msgid "_Keyboard Shortcuts"
+msgstr "Scurtături de _tastatură"
+
+#: src/app-menu.ui:51
 msgid "_Help"
 msgstr "_Ajutor"
 
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr "_Despre"
+#: src/app-menu.ui:55
+msgid "_About Tetravex"
+msgstr "_Despre Tetravex"
 
-#: ../src/app-menu.ui.h:11
-msgid "_Quit"
-msgstr "_Ieșire"
-
-#: ../src/gnome-tetravex.vala:38
+#: src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Tipărește versiunea de lansare și ieși"
 
-#: ../src/gnome-tetravex.vala:39
+#: src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Începe jocul în pauză"
 
-#: ../src/gnome-tetravex.vala:40
+#: src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Dimensiunea tablei (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:129
+#: src/gnome-tetravex.vala:137
 msgid "Resume the game"
 msgstr "Continuă jocul"
 
-#: ../src/gnome-tetravex.vala:141
+#: src/gnome-tetravex.vala:149
 msgid "Pause the game"
 msgstr "Întrerupe temporar jocul"
 
-#: ../src/gnome-tetravex.vala:158
+#: src/gnome-tetravex.vala:166
 msgid "Start a new game"
 msgstr "Începe un joc nou"
 
-#: ../src/gnome-tetravex.vala:170
+#: src/gnome-tetravex.vala:178
 msgid "Give up and view the solution"
 msgstr "Renunță și vezi soluția"
 
-#: ../src/gnome-tetravex.vala:239
+#: src/gnome-tetravex.vala:247
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Dimensiunea poate fi doar de la 2 la 6.\n"
 
-#: ../src/gnome-tetravex.vala:347
+#: src/gnome-tetravex.vala:355
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Sigur doriți să renunțați și să vedeți soluția?"
 
-#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
+#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
 msgid "_Keep Playing"
 msgstr "_Continuă să joci"
 
-#: ../src/gnome-tetravex.vala:350
+#: src/gnome-tetravex.vala:358
 msgid "_Give Up"
 msgstr "R_enunță"
 
-#: ../src/gnome-tetravex.vala:384
+#: src/gnome-tetravex.vala:392
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "Poziționați piese astfel încât aceleași numere se află în contact"
 
-#: ../src/gnome-tetravex.vala:391
+#: src/gnome-tetravex.vala:399
 msgid "translator-credits"
 msgstr ""
 "Mugurel Tudor <mugurelu@gnome.ro>\n"
 "Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
-"Florentina Mușat <florentina.musat.28@gmail.com>\n"
+"Florentina Mușat <florentina.musat.28 [at] gmail [dot] com>, 2019\n"
 "\n"
 "Launchpad Contributions:\n"
 "  Adi Roiban https://launchpad.net/~adiroiban\n"
@@ -204,38 +217,92 @@ msgstr ""
 "  Mugurel Tudor https://launchpad.net/~mugurelu-gnome\n"
 "  leandrud https://launchpad.net/~leandrud"
 
-#: ../src/gnome-tetravex.vala:409
+#: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr "Sigur doriți să începeți un joc nou cu o dimensiune de tablă diferită?"
 
-#: ../src/gnome-tetravex.vala:411
+#: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
 msgstr "Î_ncepe joc nou"
 
-#: ../src/puzzle-view.vala:356
-msgid "Paused"
-msgstr "Pauză"
+#: src/help-overlay.ui:16
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Începe un joc nou"
 
-#: ../src/score-dialog.vala:29
+#: src/help-overlay.ui:23
+msgctxt "shortcut window"
+msgid "Pause the game"
+msgstr "Pune jocul pe pauză"
+
+#: src/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "Mută toate piesele din cutia din stânga în sus cu una"
+
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "Mută toate piesele din cutia din stânga în jos cu una"
+
+#: src/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "Mută toate piesele din cutia din stânga la stânga cu una"
+
+#: src/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "Mută toate piesele din cutia din stânga la dreapta cu una"
+
+#: src/help-overlay.ui:58
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Arată ajutorul"
+
+#: src/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Arată scurtăturile de tastatură"
+
+#: src/help-overlay.ui:72
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Ieșire"
 
-#: ../src/score-dialog.vala:30
+#: src/puzzle-view.vala:356
+msgid "Paused"
+msgstr "Pauză"
+
+#: src/score-dialog.vala:29
+msgid "Quit"
+msgstr "Ieșire"
+
+#: src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Joc nou"
 
-#: ../src/score-dialog.vala:33
+#: src/score-dialog.vala:33
 msgid "OK"
 msgstr "OK"
 
-#: ../src/score-dialog.vala:45
+#: src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Dimensiune:"
 
-#: ../src/score-dialog.vala:70
+#: src/score-dialog.vala:70
 msgid "Date"
 msgstr "Dată"
 
-#: ../src/score-dialog.vala:73
+#: src/score-dialog.vala:73
 msgid "Time"
 msgstr "Timp"
+
+#~ msgid "_Size"
+#~ msgstr "_Mărime"
+
+#~ msgid "_About"
+#~ msgstr "_Despre"
+
+#~ msgid "_Quit"
+#~ msgstr "_Ieșire"
