@@ -7,16 +7,17 @@ description: |
   numbers don't match, you can't put the piece there. Move quickly: you're
   being timed!
 
-  You can make the game easier or harder by changing the size of the board.     
+  You can make the game easier or harder by changing the size of the board.
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
+base: core18
 
 plugs:
-  gnome-3-26-1604:
+  gnome-3-28-1804:
     interface: content
     target: $SNAP/gnome-platform
-    default-provider: gnome-3-26-1604
+    default-provider: gnome-3-28-1804
   gtk-3-themes:
     interface: content
     target: $SNAP/data-dir/themes
@@ -47,8 +48,19 @@ apps:
       PATH: $SNAP/usr/games:$PATH
 
 parts:
+  desktop-gnome-platform:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: gtk
+    plugin: make
+    make-parameters: ["FLAVOR=gtk3"]
+    build-packages:
+      - build-essential
+      - libgtk-3-dev
+    override-build: |
+      snapcraftctl build
+      mkdir -pv $SNAPCRAFT_PART_INSTALL/gnome-platform
+
   gnome-tetravex:
-    build-attributes: [no-system-libraries]
     after: [desktop-gnome-platform]
     source: .
     source-type: git
