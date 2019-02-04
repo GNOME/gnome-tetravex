@@ -1,3 +1,15 @@
+GNOME Tetravex 3.31.90
+======================
+* Development release
+* Add tests to validate AppStream metadata and .desktop file (Bilal)
+* Consistently use org.gnome.Tetravex app id.
+  Note that this renames the icons, .desktop, and
+  AppStream metadata (Bilal)
+* Miscellaneous cleanup (Andre, Bilal, & Jeremy)
+
+Contributors:
+ Jeremy Bicha, Bilal Elmoussaoui, Andre Klapper
+
 GNOME Tetravex 3.31.3
 =====================
 * Development release
