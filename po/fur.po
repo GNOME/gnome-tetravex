@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2018-12-10 02:33+0000\n"
-"PO-Revision-Date: 2018-12-24 18:24+0100\n"
+"POT-Creation-Date: 2019-02-03 17:28+0000\n"
+"PO-Revision-Date: 2019-02-04 13:15+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2\n"
 
-#: data/gnome-tetravex.appdata.xml.in:7
+#: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: data/gnome-tetravex.appdata.xml.in:8
+#: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Met in ordin i ricuadris intal cuadrât"
 
-#: data/gnome-tetravex.appdata.xml.in:10
+#: data/org.gnome.Tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -37,55 +37,59 @@ msgstr ""
 "numars no son compagns, no tu puedis plaçâ il toc. Moviti, tu âs un limit di "
 "timp!"
 
-#: data/gnome-tetravex.appdata.xml.in:16
+#: data/org.gnome.Tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Tu puedis rindi il zûc plui facil o dificil cambiant la dimension de taule."
 
-#: data/gnome-tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: data/org.gnome.Tetravex.appdata.xml.in:32
+msgid "The GNOME Project"
+msgstr "Il progjet GNOME"
+
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
 #: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
 #: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: data/gnome-tetravex.desktop.in:4
+#: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Finìs il berdei cumbinant lis tessaris numeradis"
 
 #. TRANSLATORS: Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. Search terms to find this application.
-#: data/gnome-tetravex.desktop.in:8
+#: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "zûc;zûcs;logjiche;board;taule;"
 
 #. TRANSLATORS: Do NOT translate or transliterate this text!
 #. This is an icon file name.
-#: data/gnome-tetravex.desktop.in:12
-#| msgid "Tetravex"
-msgid "gnome-tetravex"
-msgstr "gnome-tetravex"
+#: data/org.gnome.Tetravex.desktop.in:12
+#| msgid "gnome-tetravex"
+msgid "org.gnome.Tetravex"
+msgstr "org.gnome.Tetravex"
 
-#: data/org.gnome.tetravex.gschema.xml:6
+#: data/org.gnome.Tetravex.gschema.xml:6
 msgid "The size of the playing grid"
 msgstr "La dimension de gridele di zûc"
 
-#: data/org.gnome.tetravex.gschema.xml:7
+#: data/org.gnome.Tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
 "Il valôr di cheste clâf al è doprât par decidi la dimension de gridele di "
 "zûc."
 
-#: data/org.gnome.tetravex.gschema.xml:11
+#: data/org.gnome.Tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
 msgstr "Largjece dal barcon in pixel"
 
-#: data/org.gnome.tetravex.gschema.xml:15
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
 msgstr "Altece dal barcon in pixel"
 
-#: data/org.gnome.tetravex.gschema.xml:19
+#: data/org.gnome.Tetravex.gschema.xml:19
 msgid "true if the window is maximized"
 msgstr "vêr se il barcon al è slargjât"
 
@@ -207,22 +211,22 @@ msgstr "Met in pause la partide"
 #: src/help-overlay.ui:30
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left box up by one"
-msgstr ""
+msgstr "Sposte di un in sù ducj i tocs inte scjatule a çampe"
 
 #: src/help-overlay.ui:37
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left box down by one"
-msgstr ""
+msgstr "Sposte di un in jù ducj i tocs inte scjatule a çampe"
 
 #: src/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left box left by one"
-msgstr ""
+msgstr "Sposte di un a çampe ducj i tocs inte scjatule a çampe"
 
 #: src/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left box right by one"
-msgstr ""
+msgstr "Sposte di un a diestre ducj i tocs inte scjatule a çampe"
 
 #: src/help-overlay.ui:58
 msgctxt "shortcut window"
