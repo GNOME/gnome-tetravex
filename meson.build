@@ -21,6 +21,9 @@ datadir = join_paths (get_option ('prefix'), get_option ('datadir'))
 glib_dep = dependency ('glib-2.0', version: '>= 2.40.0')
 gtk_dep = dependency ('gtk+-3.0', version: '>= 3.14')
 
+cc = meson.get_compiler('c')
+libm_dep = cc.find_library('m')
+
 subdir ('po')
 subdir ('data')
 subdir ('help')
