@@ -11,15 +11,14 @@
 # Hakan Bekdas <hakanbekdas@yahoo.com>, 2006.
 # Baris Cicek <baris@teamforce.name.tr>, 2004, 2005, 2008, 2009.
 # Muhammet Kara <muhammetk@gmail.com>, 2011, 2014, 2015.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2017.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2017-2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-03-12 22:47+0000\n"
-"PO-Revision-Date: 2017-09-09 21:53+0300\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2019-02-08 16:05+0000\n"
+"PO-Revision-Date: 2019-02-10 20:38+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -27,209 +26,268 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Gtranslator 3.30.1\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
+#: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Karoları bir kareye sığdırmak için yeniden sıralayın"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: data/org.gnome.Tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're "
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
 "being timed!"
 msgstr ""
-"Her kare parçası her bir tarafında bir numaraya sahiptir. Aynı numaralar "
+"Her kare parçası her bir tarafta bir numaraya sahiptir. Aynı numaralar "
 "birbiriyle bitişik olsun diye parçaları tahtanın sol tarafında "
 "konumlandırın. Eğer numaralar eşleşmezse, parçayı oraya koyamazsınız. Hızlı "
 "hareket edin: zamanınız başladı!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
+#: data/org.gnome.Tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Tahta boyutunu değiştirerek oyunu kolaylaştırabilir ya da "
 "zorlaştırabilirsiniz."
 
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:381
+#: data/org.gnome.Tetravex.appdata.xml.in:32
+msgid "The GNOME Project"
+msgstr "GNOME Projesi"
+
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
+#: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.h:2
+#: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Numaralandırılmış karoları eşleştirerek bulmacayı tamamla"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "oyun;mantık;tahta;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#. TRANSLATORS: Do NOT translate or transliterate this text!
+#. This is an icon file name.
+#: data/org.gnome.Tetravex.desktop.in:12
+msgid "org.gnome.Tetravex"
+msgstr "org.gnome.Tetravex"
+
+#: data/org.gnome.Tetravex.gschema.xml:6
 msgid "The size of the playing grid"
 msgstr "Oyun ızgarasının boyutu"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
+#: data/org.gnome.Tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Bu anahtarın değeri oyun ızgarasının boyutunu seçmekte kullanılır."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
+#: data/org.gnome.Tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
 msgstr "Pencerenin piksel olarak genişliği"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
 msgstr "Pencerenin piksel olarak yüksekliği"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
+#: data/org.gnome.Tetravex.gschema.xml:19
 msgid "true if the window is maximized"
 msgstr "pencere büyütülmüşse bunun değeri doğrudur"
 
-#: ../src/app-menu.ui.h:1
+#: src/app-menu.ui:5
 msgid "_New Game"
 msgstr "Yeni _Oyun"
 
-#: ../src/app-menu.ui.h:2
+#: src/app-menu.ui:9
 msgid "_Scores"
 msgstr "_Puanlar"
 
-#: ../src/app-menu.ui.h:3
-msgid "_Size"
+#: src/app-menu.ui:15
+msgid "Si_ze"
 msgstr "_Boyut"
 
-#: ../src/app-menu.ui.h:4
+#: src/app-menu.ui:18
 msgid "_2x2"
 msgstr "_2x2"
 
-#: ../src/app-menu.ui.h:5
+#: src/app-menu.ui:23
 msgid "_3x3"
 msgstr "_3x3"
 
-#: ../src/app-menu.ui.h:6
+#: src/app-menu.ui:28
 msgid "_4x4"
 msgstr "_4x4"
 
-#: ../src/app-menu.ui.h:7
+#: src/app-menu.ui:33
 msgid "_5x5"
 msgstr "_5x5"
 
-#: ../src/app-menu.ui.h:8
+#: src/app-menu.ui:38
 msgid "_6x6"
 msgstr "_6x6"
 
-#: ../src/app-menu.ui.h:9
+#: src/app-menu.ui:47
+msgid "_Keyboard Shortcuts"
+msgstr "Klavye _Kısayolları"
+
+#: src/app-menu.ui:51
 msgid "_Help"
 msgstr "_Yardım"
 
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr "H_akkında"
+#: src/app-menu.ui:55
+msgid "_About Tetravex"
+msgstr "Tetravex _Hakkında"
 
-#: ../src/app-menu.ui.h:11
-msgid "_Quit"
-msgstr "_Çıkış"
-
-#: ../src/gnome-tetravex.vala:38
+#: src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Yayım sürümünü yazdır ve çık"
 
-#: ../src/gnome-tetravex.vala:39
-#| msgid "Restart the game"
+#: src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Duraklatılmış oyunu başlat"
 
-#: ../src/gnome-tetravex.vala:40
+#: src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Tahta boyutunu ayarla (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:129
-#| msgid "Resume the paused game"
+#: src/gnome-tetravex.vala:137
 msgid "Resume the game"
 msgstr "Oyunu sürdür"
 
-#: ../src/gnome-tetravex.vala:141
+#: src/gnome-tetravex.vala:149
 msgid "Pause the game"
 msgstr "Oyunu duraklat"
 
-#: ../src/gnome-tetravex.vala:158
+#: src/gnome-tetravex.vala:166
 msgid "Start a new game"
-msgstr "Yeni bir oyun başlat"
+msgstr "Yeni oyun başlat"
 
-#: ../src/gnome-tetravex.vala:170
+#: src/gnome-tetravex.vala:178
 msgid "Give up and view the solution"
 msgstr "Pes et ve çözümü görüntüle"
 
-#: ../src/gnome-tetravex.vala:239
+#: src/gnome-tetravex.vala:247
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Boyut yalnızca 2 ile 6 arasında olabilir.\n"
 
-#: ../src/gnome-tetravex.vala:347
+#: src/gnome-tetravex.vala:355
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Pes etmek ve çözümü görüntülemek istediğinizden emin misiniz?"
 
-#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
+#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
 msgid "_Keep Playing"
 msgstr "Oynamaya _Devam Et"
 
-#: ../src/gnome-tetravex.vala:350
+#: src/gnome-tetravex.vala:358
 msgid "_Give Up"
 msgstr "_Pes Et"
 
-#: ../src/gnome-tetravex.vala:384
-#| msgid ""
-#| "GNOME Tetravex is a simple puzzle where pieces must be positioned so that "
-#| "the same numbers are touching each other.\n"
-#| "\n"
-#| "Tetravex is a part of GNOME Games."
+#: src/gnome-tetravex.vala:392
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "Parçaları, aynı sayılar birbirine değecek şekilde konumlandırın"
 
-#: ../src/gnome-tetravex.vala:391
+#: src/gnome-tetravex.vala:399
 msgid "translator-credits"
 msgstr ""
 "Barış Çiçek <baris@teamforce.name.tr> \n"
 "Muhammet Kara <muhammetk@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:409
+#: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
-"Farklı bir tahta boyutu ile yeni bir oyun başlatmak istediğinizden emin "
-"misiniz?"
+"Farklı tahta boyutu ile yeni oyun başlatmak istediğinizden emin misiniz?"
 
-#: ../src/gnome-tetravex.vala:411
+#: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
 msgstr "_Yeni Oyun Başlat"
 
-#: ../src/puzzle-view.vala:356
-msgid "Paused"
-msgstr "Duraklatıldı"
+#: src/help-overlay.ui:16
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Yeni bir oyun başlat"
 
-#: ../src/score-dialog.vala:29
+#: src/help-overlay.ui:23
+msgctxt "shortcut window"
+msgid "Pause the game"
+msgstr "Oyunu duraklat"
+
+#: src/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "Sol kutudaki tüm parçaları birer birer yukarı taşı"
+
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "Sol kutudaki tüm parçaları birer birer aşağı taşı"
+
+#: src/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "Sol kutudaki tüm parçaları birer birer sola taşı"
+
+#: src/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "Sol kutudaki tüm parçaları birer birer sağa taşı"
+
+#: src/help-overlay.ui:58
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Yardımı Göster"
+
+#: src/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Klavye Kısayollarını Göster"
+
+#: src/help-overlay.ui:72
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Çık"
 
-#: ../src/score-dialog.vala:30
+#: src/puzzle-view.vala:356
+msgid "Paused"
+msgstr "Duraklatıldı"
+
+#: src/score-dialog.vala:29
+msgid "Quit"
+msgstr "Çık"
+
+#: src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Yeni Oyun"
 
-#: ../src/score-dialog.vala:33
+#: src/score-dialog.vala:33
 msgid "OK"
 msgstr "Tamam"
 
-#: ../src/score-dialog.vala:45
+#: src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Boyut:"
 
-#: ../src/score-dialog.vala:70
+#: src/score-dialog.vala:70
 msgid "Date"
 msgstr "Tarih"
 
-#: ../src/score-dialog.vala:73
+#: src/score-dialog.vala:73
 msgid "Time"
 msgstr "Zaman"
+
+#~ msgid "_Size"
+#~ msgstr "_Boyut"
+
+#~ msgid "_About"
+#~ msgstr "H_akkında"
+
+#~ msgid "_Quit"
+#~ msgstr "_Çıkış"
