@@ -5,14 +5,14 @@
 # Matej Erman <matej.erman@guest.arnes.si>, 2002.
 # Tadej Janež <tadej_janez@email.si>, 2003.
 # Matic Žgur <mr.zgur@gmail.com>, 2006–2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2007–2018.
+# Matej Urbančič <mateju@svn.gnome.org>, 2007–2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2018-12-09 17:18+0000\n"
-"PO-Revision-Date: 2018-12-09 21:54+0100\n"
+"POT-Creation-Date: 2019-02-08 16:05+0000\n"
+"PO-Revision-Date: 2019-02-09 20:59+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -22,82 +22,85 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.1.1\n"
 
-#: data/gnome-tetravex.appdata.xml.in:7
+#: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: data/gnome-tetravex.appdata.xml.in:8
+#: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Spremenite postavitev ploščic, da zapolnijo polje."
 
-#: data/gnome-tetravex.appdata.xml.in:10
+#: data/org.gnome.Tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're "
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
 "being timed!"
 msgstr ""
 "Vsaka ploščica ima številko na vsaki strani. Postaviti je treba ploščice na "
 "levo stran igralne plošče, da bo na obeh straneh enaka številka. Če se "
 "števila ne ujemajo, ploščice na mesto ni mogoče postaviti. Igra je časovno "
-"omejene."
+"omejena."
 
-#: data/gnome-tetravex.appdata.xml.in:16
+#: data/org.gnome.Tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Težavnost igre je mogoče prilagoditi s spreminjanjem velikosti igralne "
 "plošče."
 
-#: data/gnome-tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: data/org.gnome.Tetravex.appdata.xml.in:32
+msgid "The GNOME Project"
+msgstr "Projekt GNOME"
+
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
 #: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
 #: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: data/gnome-tetravex.desktop.in:4
+#: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Dokončajte sestavljenko s skladanjem oštevilčenih ploščic"
 
 #. TRANSLATORS: Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. Search terms to find this application.
-#: data/gnome-tetravex.desktop.in:8
+#: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "igra;logika;tabla;plošča;"
 
 #. TRANSLATORS: Do NOT translate or transliterate this text!
 #. This is an icon file name.
-#: data/gnome-tetravex.desktop.in:12
-#| msgid "Tetravex"
-msgid "gnome-tetravex"
-msgstr "gnome-tetravex"
+#: data/org.gnome.Tetravex.desktop.in:12
+msgid "org.gnome.Tetravex"
+msgstr "org.gnome.Tetravex"
 
-#: data/org.gnome.tetravex.gschema.xml:6
+#: data/org.gnome.Tetravex.gschema.xml:6
 msgid "The size of the playing grid"
 msgstr "Velikost igralne mreže"
 
-#: data/org.gnome.tetravex.gschema.xml:7
+#: data/org.gnome.Tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Vrednost možnosti določa velikost igralne mreže."
 
-#: data/org.gnome.tetravex.gschema.xml:11
+#: data/org.gnome.Tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
 msgstr "Širina okna v točkah"
 
-#: data/org.gnome.tetravex.gschema.xml:15
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
 msgstr "Višina okna v točkah"
 
-#: data/org.gnome.tetravex.gschema.xml:19
+#: data/org.gnome.Tetravex.gschema.xml:19
 msgid "true if the window is maximized"
 msgstr "prav, če je okno razpeto."
 
 #: src/app-menu.ui:5
 msgid "_New Game"
-msgstr "_Nova igra"
+msgstr "_Nova Igra"
 
 #: src/app-menu.ui:9
 msgid "_Scores"
@@ -191,10 +194,10 @@ msgstr "Postavljanje ploščic, da se številke na njih dotikajo ena druge."
 #: src/gnome-tetravex.vala:399
 msgid "translator-credits"
 msgstr ""
-"Matej Urbančič <mateju@svn.gnome.org>\n"
-"Matic Žgur\n"
-"Matej Erman\n"
-"Tadej Janež"
+"Matic Žgur <mr.zgur@gmail.com>\n"
+"Matej Erman <matej.erman@guest.arnes.si>\n"
+"Tadej Janež <tadej_janez@email.si>\n"
+"Matej Urbančič <mateju@svn.gnome.org>"
 
 #: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
@@ -205,6 +208,51 @@ msgstr ""
 #: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
 msgstr "_Začni novo igro"
+
+#: src/help-overlay.ui:16
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Začni novo igro"
+
+#: src/help-overlay.ui:23
+msgctxt "shortcut window"
+msgid "Pause the game"
+msgstr "Premor igranja"
+
+#: src/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "Premakni vse ploščice v levem polju za eno mesto navzgor"
+
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "Premakni vse ploščice v levem polju za eno mesto navzdol"
+
+#: src/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "Premakni vse ploščice v levem polju za eno mesto v levo"
+
+#: src/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "Premakni vse ploščice v levem polju za eno mesto v desno"
+
+#: src/help-overlay.ui:58
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Pokaži pomoč"
+
+#: src/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Pokaži tipkovne bližnjice"
+
+#: src/help-overlay.ui:72
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Končaj"
 
 #: src/puzzle-view.vala:356
 msgid "Paused"
