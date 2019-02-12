@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
 "POT-Creation-Date: 2019-02-08 16:05+0000\n"
-"PO-Revision-Date: 2019-02-09 20:59+0100\n"
+"PO-Revision-Date: 2019-02-12 21:07+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -132,7 +132,7 @@ msgstr "_6x6"
 
 #: src/app-menu.ui:47
 msgid "_Keyboard Shortcuts"
-msgstr "_Tipkovne bližnjice‫"
+msgstr "_Tipkovne bližnjice"
 
 #: src/app-menu.ui:51
 msgid "_Help"
@@ -189,15 +189,15 @@ msgstr "_Prepusti igro"
 
 #: src/gnome-tetravex.vala:392
 msgid "Position pieces so that the same numbers are touching each other"
-msgstr "Postavljanje ploščic, da se številke na njih dotikajo ena druge."
+msgstr "Zlaganje ploščic, da se iste številke dotikajo ena druge."
 
 #: src/gnome-tetravex.vala:399
 msgid "translator-credits"
 msgstr ""
-"Matic Žgur <mr.zgur@gmail.com>\n"
-"Matej Erman <matej.erman@guest.arnes.si>\n"
-"Tadej Janež <tadej_janez@email.si>\n"
-"Matej Urbančič <mateju@svn.gnome.org>"
+"Matej Urbančič <mateju@svn.gnome.org>\n"
+"Matic Žgur\n"
+"Matej Erman\n"
+"Tadej Janež"
 
 #: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
