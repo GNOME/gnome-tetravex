@@ -1,6 +1,6 @@
 # Brazilian Portuguese translation of gnome-tetravex.
-# Copyright (C) 1999-2015 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-games package.
+# Copyright (C) 2019 gnome-tetravex's COPYRIGHT HOLDERS
+# This file is distributed under the same license as the gnome-tetravex package.
 # Sandro Nunes Henrique <sandro@conectiva.com.br>, 1999.
 # Cândida Nunes da Silva <candida@zaz.com.br>, 2000-2001.
 # Gustavo Noronha Silva <kov@debian.org>, 2002.
@@ -21,39 +21,45 @@
 # Rodrigo Padula de Oliveira <contato@rodrigopadula.com>, 2011.
 # Flamarion Jorge <jorge.flamarion@gmail.com>, 2011.
 # Djavan Fagundes <djavan@comum.org>, 2012.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2013.
 # Enrico Nicoletto <liverig@gmail.com>, 2013.
 # Ricardo Barbosa <barbosa.cisco@gmail.com>, 2014.
 # Felipe Braga <fbobraga@gmail.com>, 2015.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2013-2019.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2018-06-05 14:23+0000\n"
-"PO-Revision-Date: 2015-05-13 18:51-0200\n"
-"Last-Translator: Felipe Braga <fbobraga@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
+"POT-Creation-Date: 2019-02-06 19:35+0000\n"
+"PO-Revision-Date: 2019-02-27 17:17-0300\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"Language-Team: Portuguese - Brazil <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 3.31.90\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
+#: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Arranje as peças para encaixarem no quadrado"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: data/org.gnome.Tetravex.appdata.xml.in:10
+#| msgid ""
+#| "Each square piece has a number on each side. Position the pieces on the "
+#| "left side of the board so that the same numbers are next to each other. "
+#| "If the numbers don't match, you can't put the piece there. Move quickly: "
+#| "you're being timed!"
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're "
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
 "being timed!"
 msgstr ""
 "Cada peça quadrada possui um número em cada lado. Posicione as peças no "
@@ -61,141 +67,156 @@ msgstr ""
 "dos outros. Se os números não coincidirem, você não pode colocar a peça lá. "
 "Mova com rapidez: você está sendo cronometrado!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
+#: data/org.gnome.Tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Ao alterar o tamanho do tabuleiro você pode fazer o jogo ficar mais fácil ou "
 "mais difícil."
 
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:381
+#: data/org.gnome.Tetravex.appdata.xml.in:32
+msgid "The GNOME Project"
+msgstr "O Projeto GNOME"
+
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
+#: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.h:2
+#: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Complete o quebra-cabeças juntando os ladrilhos numerados"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "game;jogo;jogos;lógica;tabuleiro;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#. TRANSLATORS: Do NOT translate or transliterate this text!
+#. This is an icon file name.
+#: data/org.gnome.Tetravex.desktop.in:12
+#| msgid "Tetravex"
+msgid "org.gnome.Tetravex"
+msgstr "org.gnome.Tetravex"
+
+#: data/org.gnome.Tetravex.gschema.xml:6
 msgid "The size of the playing grid"
 msgstr "O tamanho da grade do jogo"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
+#: data/org.gnome.Tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "O valor desta chave é usado para decidir o tamanho da grade do jogo."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
+#: data/org.gnome.Tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
 msgstr "A largura da janela em pixels"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
 msgstr "A altura da janela em pixels"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
+#: data/org.gnome.Tetravex.gschema.xml:19
 msgid "true if the window is maximized"
 msgstr "verdadeiro se a janela estiver maximizada"
 
-#: ../src/app-menu.ui.h:1
+#: src/app-menu.ui:5
 msgid "_New Game"
 msgstr "_Novo jogo"
 
-#: ../src/app-menu.ui.h:2
+#: src/app-menu.ui:9
 msgid "_Scores"
 msgstr "_Pontuações"
 
-#: ../src/app-menu.ui.h:3
-msgid "_Size"
-msgstr "_Tamanho"
+#: src/app-menu.ui:15
+msgid "Si_ze"
+msgstr "Ta_manho"
 
-#: ../src/app-menu.ui.h:4
+#: src/app-menu.ui:18
 msgid "_2x2"
 msgstr "_2×2"
 
-#: ../src/app-menu.ui.h:5
+#: src/app-menu.ui:23
 msgid "_3x3"
 msgstr "_3×3"
 
-#: ../src/app-menu.ui.h:6
+#: src/app-menu.ui:28
 msgid "_4x4"
 msgstr "_4×4"
 
-#: ../src/app-menu.ui.h:7
+#: src/app-menu.ui:33
 msgid "_5x5"
 msgstr "_5×5"
 
-#: ../src/app-menu.ui.h:8
+#: src/app-menu.ui:38
 msgid "_6x6"
 msgstr "_6×6"
 
-#: ../src/app-menu.ui.h:9
+#: src/app-menu.ui:47
+msgid "_Keyboard Shortcuts"
+msgstr "Atalhos de _teclado"
+
+#: src/app-menu.ui:51
 msgid "_Help"
 msgstr "Aj_uda"
 
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr "_Sobre"
+#: src/app-menu.ui:55
+#| msgid "Tetravex"
+msgid "_About Tetravex"
+msgstr "_Sobre o Tetravex"
 
-#: ../src/app-menu.ui.h:11
-msgid "_Quit"
-msgstr "Sa_ir"
-
-#: ../src/gnome-tetravex.vala:38
+#: src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
 msgstr "Imprima a versão de lançamento e sai"
 
-#: ../src/gnome-tetravex.vala:39
+#: src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Inicie o jogo pausado"
 
-#: ../src/gnome-tetravex.vala:40
+#: src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Defina o tamanho do tabuleiro (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:129
+#: src/gnome-tetravex.vala:137
 msgid "Resume the game"
 msgstr "Continue o jogo"
 
-#: ../src/gnome-tetravex.vala:141
+#: src/gnome-tetravex.vala:149
 msgid "Pause the game"
 msgstr "Pausa o jogo"
 
-#: ../src/gnome-tetravex.vala:158
+#: src/gnome-tetravex.vala:166
 msgid "Start a new game"
 msgstr "Inicia um novo jogo"
 
-#: ../src/gnome-tetravex.vala:170
+#: src/gnome-tetravex.vala:178
 msgid "Give up and view the solution"
 msgstr "Desista e veja a solução"
 
-#: ../src/gnome-tetravex.vala:239
+#: src/gnome-tetravex.vala:247
 msgid "Size could only be from 2 to 6.\n"
 msgstr "O tamanho só pode estar entre 2 e 6.\n"
 
-#: ../src/gnome-tetravex.vala:347
+#: src/gnome-tetravex.vala:355
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Você tem certeza que deseja desistir e ver a solução?"
 
-#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
+#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
 msgid "_Keep Playing"
 msgstr "_Continuar jogando"
 
-#: ../src/gnome-tetravex.vala:350
+#: src/gnome-tetravex.vala:358
 msgid "_Give Up"
 msgstr "_Desistir"
 
-#: ../src/gnome-tetravex.vala:384
+#: src/gnome-tetravex.vala:392
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "Posicione as peças de forma que os números iguais se toquem"
 
-#: ../src/gnome-tetravex.vala:391
+#: src/gnome-tetravex.vala:399
 msgid "translator-credits"
 msgstr ""
 "Sandro Nunes Henrique <sandro@conectiva.com.br>\n"
@@ -212,42 +233,99 @@ msgstr ""
 "Felipe Borges <felipe10borges@gmail.com>\n"
 "Sérgio Cipolla <secipolla@gmail.com>\n"
 "Rodrigo Padula de Oliveira <contato@rodrigopadula.com>\n"
-"Rafael Fontenelle <rafaelff@gnome.org>."
+"Rafael Fontenelle <rafaelff@gnome.org>"
 
-#: ../src/gnome-tetravex.vala:409
+#: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
 "Tem certeza que deseja iniciar um novo jogo com um tamanho de tabuleiro "
 "diferente?"
 
-#: ../src/gnome-tetravex.vala:411
+#: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
 msgstr "_Iniciar um novo jogo"
 
-#: ../src/puzzle-view.vala:356
+#: src/help-overlay.ui:16
+#| msgid "Start a new game"
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Inicia um novo jogo"
+
+#: src/help-overlay.ui:23
+#| msgid "Pause the game"
+msgctxt "shortcut window"
+msgid "Pause the game"
+msgstr "Pausa o jogo"
+
+#: src/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "Move todas as peças na caixa à esquerda uma peça para cima"
+
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "Move todas as peças na caixa à esquerda uma peça para baixo"
+
+#: src/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "Move todas as peças na caixa à esquerda uma peça para esquerda"
+
+#: src/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "Move todas as peças na caixa à esquerda uma peça para direita"
+
+#: src/help-overlay.ui:58
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Mostra a ajuda"
+
+#: src/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Mostra atalhos de teclado"
+
+#: src/help-overlay.ui:72
+#| msgid "Quit"
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Sai"
+
+#: src/puzzle-view.vala:356
 msgid "Paused"
 msgstr "Pausado"
 
-#: ../src/score-dialog.vala:29
+#: src/score-dialog.vala:29
 msgid "Quit"
 msgstr "Sair"
 
-#: ../src/score-dialog.vala:30
+#: src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Novo jogo"
 
-#: ../src/score-dialog.vala:33
+#: src/score-dialog.vala:33
 msgid "OK"
 msgstr "OK"
 
-#: ../src/score-dialog.vala:45
+#: src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Tamanho:"
 
-#: ../src/score-dialog.vala:70
+#: src/score-dialog.vala:70
 msgid "Date"
 msgstr "Data"
 
-#: ../src/score-dialog.vala:73
+#: src/score-dialog.vala:73
 msgid "Time"
 msgstr "Tempo"
+
+#~ msgid "_Size"
+#~ msgstr "_Tamanho"
+
+#~ msgid "_About"
+#~ msgstr "_Sobre"
+
+#~ msgid "_Quit"
+#~ msgstr "Sa_ir"
