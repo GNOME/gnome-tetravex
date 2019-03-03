@@ -7,6 +7,7 @@
     <desc>Change the size of the game board.</desc>
     <revision pkgversion="2.30" version="0.1" date="2009-12-18" status="draft"/>
     <revision pkgversion="3.10" version="0.2" date="2014-01-26" status="draft"/>
+    <revision pkgversion="3.31.91" version="0.3" date="2019-03-03" status="draft"/>
     <credit type="author">
       <name>Milo Casagrande</name>
       <email>milo@ubuntu.com</email>
@@ -19,8 +20,9 @@
 
   <p>
     To change the size of the game board, in order to increase or decrease the
-    complexity of the game, click <gui>Tetravex</gui> in the top bar and click
-    <gui>Size</gui>, then select the dimension of the board.
+    complexity of the game, press the menu button in the top-right corner of the
+    window and select <gui style="menuitem">Size</gui>, then select the
+    dimension of the board.
   </p>
   <p>
     You can select from five different dimension, from 2×2 to 6×6. The default one is 3×3.
