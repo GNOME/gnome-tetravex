@@ -36,8 +36,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2018-12-10 02:33+0000\n"
-"PO-Revision-Date: 2018-12-24 15:14+0200\n"
+"POT-Creation-Date: 2019-02-06 19:35+0000\n"
+"PO-Revision-Date: 2019-03-09 19:40+0200\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
@@ -45,22 +45,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.7\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Project-Style: gnome\n"
 
-#: data/gnome-tetravex.appdata.xml.in:7
+#: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
 msgstr "Τετραβέξ"
 
-#: data/gnome-tetravex.appdata.xml.in:8
+#: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Επανατοποθετήστε τα πλακίδια ώστε να χωρούν στο τετράγωνο"
 
-#: data/gnome-tetravex.appdata.xml.in:10
+#: data/org.gnome.Tetravex.appdata.xml.in:10
+#| msgid ""
+#| "Each square piece has a number on each side. Position the pieces on the "
+#| "left side of the board so that the same numbers are next to each other. "
+#| "If the numbers don't match, you can't put the piece there. Move quickly: "
+#| "you're being timed!"
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're "
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
 "being timed!"
 msgstr ""
 "Κάθε τετράγωνο κομμάτι έχει έναν αριθμό σε κάθε πλευρά. Τοποθετήστε τα "
@@ -68,55 +73,60 @@ msgstr ""
 "μεταξύ τους. Αν οι αριθμοί δεν ταιριάζουν, δεν μπορείτε να βάλετε το κομμάτι "
 "εκεί. Πιο γρήγορα: χρονομετρείστε!"
 
-#: data/gnome-tetravex.appdata.xml.in:16
+#: data/org.gnome.Tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Μπορείτε να διευκολύνετε το παιχνίδι ή να το δυσκολέψετε αλλάζοντας το "
 "μέγεθος του πίνακα."
 
-#: data/gnome-tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: data/org.gnome.Tetravex.appdata.xml.in:32
+msgid "The GNOME Project"
+msgstr "Το έργο GNOME"
+
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
 #: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
 #: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Τετραβέξ"
 
-#: data/gnome-tetravex.desktop.in:4
+#: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Ολοκληρώστε το πρόβλημα ταιριάζοντας αριθμημένα πλακίδια"
 
 #. TRANSLATORS: Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. Search terms to find this application.
-#: data/gnome-tetravex.desktop.in:8
+#: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "παιχνίδι;λογική;πίνακας;game;logic;board;"
 
 #. TRANSLATORS: Do NOT translate or transliterate this text!
 #. This is an icon file name.
-#: data/gnome-tetravex.desktop.in:12
-msgid "gnome-tetravex"
-msgstr "gnome-tetravex"
+#: data/org.gnome.Tetravex.desktop.in:12
+#| msgid "gnome-tetravex"
+msgid "org.gnome.Tetravex"
+msgstr "org.gnome.Tetravex"
 
-#: data/org.gnome.tetravex.gschema.xml:6
+#: data/org.gnome.Tetravex.gschema.xml:6
 msgid "The size of the playing grid"
 msgstr "Το μέγεθος του πλέγματος του παιχνιδιού"
 
-#: data/org.gnome.tetravex.gschema.xml:7
+#: data/org.gnome.Tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
 "Η τιμή αυτού του κλειδιού χρησιμοποιείται για να αποφασιστεί το μέγεθος του "
 "πλέγματος του παιχνιδιού."
 
-#: data/org.gnome.tetravex.gschema.xml:11
+#: data/org.gnome.Tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
 msgstr "Το πλάτος του παραθύρου σε εικονοστοιχεία"
 
-#: data/org.gnome.tetravex.gschema.xml:15
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
 msgstr "Το ύψος του παραθύρου σε εικονοστοιχεία"
 
-#: data/org.gnome.tetravex.gschema.xml:19
+#: data/org.gnome.Tetravex.gschema.xml:19
 msgid "true if the window is maximized"
 msgstr "αληθής αν το παράθυρο είναι μεγιστοποιημένο"
 
