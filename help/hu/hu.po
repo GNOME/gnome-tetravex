@@ -1,28 +1,28 @@
-# Hungarian translation for gnotravex_help.
-# Copyright (C) 2012. Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-games package.
+# Hungarian translation for gnome-tetravex help.
+# Copyright (C) 2012, 2013, 2014, 2019. Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-tetravex package.
 #
 # László Ádám Kohajda <kla.kohi at gmail dot com>, 2012.
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2012, 2013, 2014.
-# Balázs Úr <urbalazs at gmail dot com>, 2014.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2014, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnotravex_help master\n"
-"POT-Creation-Date: 2014-09-20 19:53+0000\n"
-"PO-Revision-Date: 2014-09-21 01:12+0200\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
-"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
+"Project-Id-Version: gnome-tetravex_help master\n"
+"POT-Creation-Date: 2019-03-03 11:36+0000\n"
+"PO-Revision-Date: 2019-03-09 07:52+0100\n"
+"Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
+"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 2.0\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Kohajda László Ádám <kla.kohi at gmail dot com>, 2012"
+msgstr "Kohajda László Ádám <kla.kohi at gmail dot com>, 2012."
 
 #. (itstool) path: info/desc
 #: C/hint.page:7
@@ -30,8 +30,8 @@ msgid "Use hints or solve the game automatically."
 msgstr "Javaslatok használata, vagy a feladat megoldása automatikusan."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/shortcut.page:11
-#: C/size.page:11 C/usage.page:12 C/winning.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:11 C/size.page:12 C/usage.page:12
+#: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
@@ -88,22 +88,18 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/shortcut.page:15 C/size.page:15
-#: C/usage.page:20 C/winning.page:16
+#: C/index.page:21 C/move.page:15 C/size.page:16 C/usage.page:20
+#: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
 #. (itstool) path: media/span
 #: C/index.page:26
-#| msgctxt "link"
-#| msgid "GNOME Tetravex"
 msgid "GNOME Tetravex logo"
 msgstr "GNOME Tetravex logó"
 
 #. (itstool) path: page/title
 #: C/index.page:25
-#| msgctxt "link"
-#| msgid "GNOME Tetravex"
 msgid "<_:media-1/> GNOME Tetravex"
 msgstr "<_:media-1/> GNOME Tetravex"
 
@@ -267,123 +263,30 @@ msgstr ""
 "További információkat a <link xref=\"shortcut\"/> oldalon talál."
 
 #. (itstool) path: info/desc
-#: C/shortcut.page:8
-msgid "Use the keyboard to play the game."
-msgstr "A billentyűzet használata a játékban."
-
-#. (itstool) path: page/title
-#: C/shortcut.page:19
-msgid "Keyboard shortcuts"
-msgstr "Gyorsbillentyűk"
-
-#. (itstool) path: section/title
-#: C/shortcut.page:22
-msgid "Game shortcuts"
-msgstr "Gyorsbillentyűk"
-
-#. (itstool) path: section/p
-#: C/shortcut.page:23
-msgid ""
-"The following table groups the most useful shortcuts for playing <app>GNOME "
-"Tetravex</app>."
-msgstr ""
-"A következő táblázat tartalmazza a <app>GNOME Tetravex</app> leghasznosabb "
-"gyorsbillentyűit."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:28
-msgid "Shortcut"
-msgstr "Gyorsbillentyű"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:28
-msgid "Description"
-msgstr "Leírás"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:32
-msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:35
-msgid "Start a new game."
-msgstr "Új játék indítása."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:40
-msgid "<key>Pause</key>"
-msgstr "<key>Pause</key>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:43
-msgid "Pause or resume the game."
-msgstr "Játék megállítása/folytatása."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:48
-msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Fel</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:53
-msgid "Move all the pieces in the left box up by one."
-msgstr "Az összes darab eggyel feljebb mozgatása a bal oldali mezőben."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:58
-msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Le</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:61
-msgid "Move all the pieces in the left box down by one."
-msgstr "Az összes darabot eggyel lejjebb mozgatása a bal oldali mezőben."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:66
-msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Balra</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:69
-msgid "Move all the pieces in the left box left by one."
-msgstr "Az összes darab eggyel balra mozgatása a bal oldali mezőben."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:74
-msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Jobbra</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:77
-msgid "Move all the pieces in the left box right by one."
-msgstr "Az összes darab eggyel jobbra mozgatása a bal oldali mezőben."
-
-#. (itstool) path: info/desc
 #: C/size.page:7
 msgid "Change the size of the game board."
 msgstr "A játéktábla méretének módosítása."
 
 #. (itstool) path: page/title
-#: C/size.page:18
+#: C/size.page:19
 msgid "Game board size"
 msgstr "A játéktábla mérete"
 
 #. (itstool) path: page/p
-#: C/size.page:20
+#: C/size.page:21
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
-"complexity of the game, click <gui>Tetravex</gui> in the top bar and click "
-"<gui>Size</gui>, then select the dimension of the board."
+"complexity of the game, press the menu button in the top-right corner of the "
+"window and select <gui style=\"menuitem\">Size</gui>, then select the "
+"dimension of the board."
 msgstr ""
 "A játéktábla méretének változtatásához, illetve a játék bonyolultságának "
-"növeléséhez/csökkentéséhez válassza ki a <gui>Tetravex</gui> menüpontot a "
-"felső sávon, ezután a <gui>Méret</gui> menüpontot, majd válassza ki a tábla "
-"méretét."
+"növeléséhez/csökkentéséhez nyomja meg az ablak jobb felső sarkában lévő menü "
+"gombot, és válassza a <gui style=\"menuitem\">Méret</gui> menüpontot, majd "
+"válassza ki a tábla méretét."
 
 #. (itstool) path: page/p
-#: C/size.page:25
+#: C/size.page:27
 msgid ""
 "You can select from five different dimension, from 2×2 to 6×6. The default "
 "one is 3×3."
@@ -392,7 +295,7 @@ msgstr ""
 "3×3-as."
 
 #. (itstool) path: note/p
-#: C/size.page:29
+#: C/size.page:31
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
@@ -573,26 +476,3 @@ msgstr ""
 "Ha van egy tippje a <app>GNOME Tetravexszel</app>, vagy bármelyik GNOME "
 "játékkal kapcsolatban, amelyet szívesen megosztana, akkor írjon a gnome-doc-"
 "list@gnome.org címre. Mi majd közzétesszük itt!"
-
-#~ msgctxt "_"
-#~ msgid ""
-#~ "external ref='figures/gnome-tetravex-logo.png' "
-#~ "md5='daf379ccd659b42a71cd0f2661f651e4'"
-#~ msgstr ""
-#~ "external ref='figures/gnome-tetravex-logo.png' "
-#~ "md5='daf379ccd659b42a71cd0f2661f651e4'"
-
-#~ msgid ""
-#~ "<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-"
-#~ "logo.png\">GNOME Tetravex logo</media> GNOME Tetravex"
-#~ msgstr ""
-#~ "<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-"
-#~ "logo.png\">GNOME Tetravex logó</media> GNOME Tetravex"
-
-#~ msgctxt "_"
-#~ msgid ""
-#~ "external ref='figures/gnome-tetravex-video.ogv' "
-#~ "md5='14cface4ec2b0c84aa5a925242694de0'"
-#~ msgstr ""
-#~ "external ref='figures/gnome-tetravex-video.ogv' "
-#~ "md5='14cface4ec2b0c84aa5a925242694de0'"
