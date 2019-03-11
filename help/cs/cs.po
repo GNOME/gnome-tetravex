@@ -1,13 +1,13 @@
 # Czech translation of gnotravex help.
 # Copyright (C) 2009 the author(s) of gnome-games.
 # This file is distributed under the same license as the gnotravex help.
-# Marek Černocký <marek@manet.cz>, 2009, 2011, 2013, 2014.
+# Marek Černocký <marek@manet.cz>, 2009, 2011, 2013, 2014, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"POT-Creation-Date: 2014-04-22 19:40+0000\n"
-"PO-Revision-Date: 2014-04-23 09:54+0100\n"
+"POT-Creation-Date: 2019-03-03 11:36+0000\n"
+"PO-Revision-Date: 2019-03-11 09:44+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -28,8 +28,8 @@ msgid "Use hints or solve the game automatically."
 msgstr "Používejte rady nebo nechte hru vyřešit automaticky."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/shortcut.page:11
-#: C/size.page:11 C/usage.page:12 C/winning.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:11 C/size.page:12 C/usage.page:12
+#: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
@@ -86,8 +86,8 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/shortcut.page:15 C/size.page:15
-#: C/usage.page:20 C/winning.page:16
+#: C/index.page:21 C/move.page:15 C/size.page:16 C/usage.page:20
+#: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
@@ -261,122 +261,29 @@ msgstr ""
 "více informací."
 
 #. (itstool) path: info/desc
-#: C/shortcut.page:8
-msgid "Use the keyboard to play the game."
-msgstr "Používejte k hraní klávesnici."
-
-#. (itstool) path: page/title
-#: C/shortcut.page:19
-msgid "Keyboard shortcuts"
-msgstr "Klávesové zkratky"
-
-#. (itstool) path: section/title
-#: C/shortcut.page:22
-msgid "Game shortcuts"
-msgstr "Klávesové zkratky hry"
-
-#. (itstool) path: section/p
-#: C/shortcut.page:23
-msgid ""
-"The following table groups the most useful shortcuts for playing <app>GNOME "
-"Tetravex</app>."
-msgstr ""
-"Následující tabulka uvádí souhrnný přehled klávesových zkratek pro hraní "
-"<app>GNOME Tetravex</app>."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:28
-msgid "Shortcut"
-msgstr "Zkratka"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:28
-msgid "Description"
-msgstr "Popis"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:32
-msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:35
-msgid "Start a new game."
-msgstr "Spustit novou hru."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:40
-msgid "<key>Pause</key>"
-msgstr "<key>Pause</key>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:43
-msgid "Pause or resume the game."
-msgstr "Pozastavit hru nebo pokračovat ve hře."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:48
-msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>šipka nahoru</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:53
-msgid "Move all the pieces in the left box up by one."
-msgstr "Přesunout všechny kameny v levém poli o jedno nahoru."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:58
-msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>šipka dolů</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:61
-msgid "Move all the pieces in the left box down by one."
-msgstr "Přesunout všechny kameny v levém poli o jedno dolů."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:66
-msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>šipka vlevo</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:69
-msgid "Move all the pieces in the left box left by one."
-msgstr "Přesunout všechny kameny v levém poli o jedno doleva."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:74
-msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>šipka vpravo</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:77
-msgid "Move all the pieces in the left box right by one."
-msgstr "Přesunout všechny kameny v levém poli o jedno doprava."
-
-#. (itstool) path: info/desc
 #: C/size.page:7
 msgid "Change the size of the game board."
 msgstr "Jak změnit velikost hrací desky."
 
 #. (itstool) path: page/title
-#: C/size.page:18
+#: C/size.page:19
 msgid "Game board size"
 msgstr "Velikost hrací desky"
 
 #. (itstool) path: page/p
-#: C/size.page:20
+#: C/size.page:21
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
-"complexity of the game, click <gui>Tetravex</gui> in the top bar and click "
-"<gui>Size</gui>, then select the dimension of the board."
+"complexity of the game, press the menu button in the top-right corner of the "
+"window and select <gui style=\"menuitem\">Size</gui>, then select the "
+"dimension of the board."
 msgstr ""
 "Pokud chcete změnit velikost hrací desky, což zvýší nebo sníží náročnost "
-"hry, klikněte v hlavní liště na <gui>Tetravex</gui>, následně na "
-"<gui>Velikost</gui> a vyberte rozměry hrací desky."
+"hry, zmáčkněte tlačítko nabídky v pravém horním rohu okna, vyberte "
+"<gui style=\"menuitem\">Velikost</gui> a následně vyberte rozměry hrací desky."
 
 #. (itstool) path: page/p
-#: C/size.page:25
+#: C/size.page:27
 msgid ""
 "You can select from five different dimension, from 2×2 to 6×6. The default "
 "one is 3×3."
@@ -385,7 +292,7 @@ msgstr ""
 "3×3."
 
 #. (itstool) path: note/p
-#: C/size.page:29
+#: C/size.page:31
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
