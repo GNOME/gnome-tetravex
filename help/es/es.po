@@ -1,19 +1,19 @@
 # translation of gnotravex.master.po to Español
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2014.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
-"POT-Creation-Date: 2014-05-08 07:41+0000\n"
-"PO-Revision-Date: 2014-05-10 18:52+0200\n"
+"POT-Creation-Date: 2019-03-03 11:36+0000\n"
+"PO-Revision-Date: 2019-03-14 15:34+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
-"Language: \n"
+"Language-Team: es <gnome-es-list@gnome.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 3.31.90\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
@@ -29,8 +29,8 @@ msgid "Use hints or solve the game automatically."
 msgstr "Use las sugerencias para resolver la partida automáticamente."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/shortcut.page:11
-#: C/size.page:11 C/usage.page:12 C/winning.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:11 C/size.page:12 C/usage.page:12
+#: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
@@ -87,22 +87,18 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/shortcut.page:15 C/size.page:15
-#: C/usage.page:20 C/winning.page:16
+#: C/index.page:21 C/move.page:15 C/size.page:16 C/usage.page:20
+#: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
 #. (itstool) path: media/span
 #: C/index.page:26
-#| msgctxt "link"
-#| msgid "GNOME Tetravex"
 msgid "GNOME Tetravex logo"
 msgstr "Logo de Tetravex"
 
 #. (itstool) path: page/title
 #: C/index.page:25
-#| msgctxt "link"
-#| msgid "GNOME Tetravex"
 msgid "<_:media-1/> GNOME Tetravex"
 msgstr "<_:media-1/> Tetravex"
 
@@ -269,123 +265,34 @@ msgstr ""
 ">."
 
 #. (itstool) path: info/desc
-#: C/shortcut.page:8
-msgid "Use the keyboard to play the game."
-msgstr "Use el teclado para jugar al juego."
-
-#. (itstool) path: page/title
-#: C/shortcut.page:19
-msgid "Keyboard shortcuts"
-msgstr "Atajos de teclado"
-
-#. (itstool) path: section/title
-#: C/shortcut.page:22
-msgid "Game shortcuts"
-msgstr "Atajos del juego"
-
-#. (itstool) path: section/p
-#: C/shortcut.page:23
-msgid ""
-"The following table groups the most useful shortcuts for playing <app>GNOME "
-"Tetravex</app>."
-msgstr ""
-"La siguiente tabla agrupa la mayoría de atajos para jugar a <app>Tetravex</"
-"app>."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:28
-msgid "Shortcut"
-msgstr "Combinación de teclas"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:28
-msgid "Description"
-msgstr "Descripción"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:32
-msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:35
-msgid "Start a new game."
-msgstr "Iniciar una partida nueva."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:40
-msgid "<key>Pause</key>"
-msgstr "<key>Pausa</key>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:43
-msgid "Pause or resume the game."
-msgstr "Pausar o resumir el juego."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:48
-msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:53
-msgid "Move all the pieces in the left box up by one."
-msgstr "Mover arriba una posición todas las piezas en la caja de la izquierda."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:58
-msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Abajo</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:61
-msgid "Move all the pieces in the left box down by one."
-msgstr "Mover abajo una posición todas piezas en la caja de la izquierda."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:66
-msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Izquierda</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:69
-msgid "Move all the pieces in the left box left by one."
-msgstr "Movera la izquierda todas las piezas en la caja de la izquierda."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:74
-msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Derecha</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:77
-msgid "Move all the pieces in the left box right by one."
-msgstr "Movera la derecha todas las piezas en la caja de la izquierda."
-
-#. (itstool) path: info/desc
 #: C/size.page:7
 msgid "Change the size of the game board."
 msgstr "Cambiar el tamaño del tablero de juego."
 
 #. (itstool) path: page/title
-#: C/size.page:18
+#: C/size.page:19
 msgid "Game board size"
 msgstr "Tamaño del tablero de juego"
 
 #. (itstool) path: page/p
-#: C/size.page:20
+#: C/size.page:21
+#| msgid ""
+#| "To change the size of the game board, in order to increase or decrease "
+#| "the complexity of the game, click <gui>Tetravex</gui> in the top bar and "
+#| "click <gui>Size</gui>, then select the dimension of the board."
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
-"complexity of the game, click <gui>Tetravex</gui> in the top bar and click "
-"<gui>Size</gui>, then select the dimension of the board."
+"complexity of the game, press the menu button in the top-right corner of the "
+"window and select <gui style=\"menuitem\">Size</gui>, then select the "
+"dimension of the board."
 msgstr ""
 "Para cambiar el tamaño del tablero de juego, para poder aumentar o reducir "
-"la complejidad de la partida, pulse en <gui>Tetravex</gui> de la barra "
-"superior y pulse en <gui>Tamaño</gui>; después seleccione el tamaño del "
-"tablero."
+"la complejidad de la partida, pulse el botón de menú en la esquina superior "
+"derecha y pulse en <gui style=\"menuitem\">Tamaño</gui>; después seleccione "
+"el tamaño del tablero."
 
 #. (itstool) path: page/p
-#: C/size.page:25
+#: C/size.page:27
 msgid ""
 "You can select from five different dimension, from 2×2 to 6×6. The default "
 "one is 3×3."
@@ -394,7 +301,7 @@ msgstr ""
 "tamaño predeterminado es 3x3."
 
 #. (itstool) path: note/p
-#: C/size.page:29
+#: C/size.page:31
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
@@ -573,6 +480,65 @@ msgstr ""
 "Si tiene alguna sugerencia acerca de <app>Tetravex</app> o cualquier otro "
 "juego de GNOME, escríbanos a gnome-doc-list@gnome.org. Las añadiremos todas "
 "aquí."
+
+#~ msgid "Use the keyboard to play the game."
+#~ msgstr "Use el teclado para jugar al juego."
+
+#~ msgid "Keyboard shortcuts"
+#~ msgstr "Atajos de teclado"
+
+#~ msgid "Game shortcuts"
+#~ msgstr "Atajos del juego"
+
+#~ msgid ""
+#~ "The following table groups the most useful shortcuts for playing "
+#~ "<app>GNOME Tetravex</app>."
+#~ msgstr ""
+#~ "La siguiente tabla agrupa la mayoría de atajos para jugar a "
+#~ "<app>Tetravex</app>."
+
+#~ msgid "Shortcut"
+#~ msgstr "Combinación de teclas"
+
+#~ msgid "Description"
+#~ msgstr "Descripción"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+
+#~ msgid "Start a new game."
+#~ msgstr "Iniciar una partida nueva."
+
+#~ msgid "<key>Pause</key>"
+#~ msgstr "<key>Pausa</key>"
+
+#~ msgid "Pause or resume the game."
+#~ msgstr "Pausar o resumir el juego."
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
+
+#~ msgid "Move all the pieces in the left box up by one."
+#~ msgstr ""
+#~ "Mover arriba una posición todas las piezas en la caja de la izquierda."
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>Abajo</key></keyseq>"
+
+#~ msgid "Move all the pieces in the left box down by one."
+#~ msgstr "Mover abajo una posición todas piezas en la caja de la izquierda."
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>Izquierda</key></keyseq>"
+
+#~ msgid "Move all the pieces in the left box left by one."
+#~ msgstr "Movera la izquierda todas las piezas en la caja de la izquierda."
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>Derecha</key></keyseq>"
+
+#~ msgid "Move all the pieces in the left box right by one."
+#~ msgstr "Movera la derecha todas las piezas en la caja de la izquierda."
 
 #~ msgctxt "_"
 #~ msgid ""
