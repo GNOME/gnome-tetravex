@@ -1,30 +1,30 @@
 # German translation of the Tetravex manual.
-# Thomas Konstantinides <gntr1@tkonstantinides.de>, 2007.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2008-2013.
-# Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010.
 #
+# Thomas Konstantinides <gntr1@tkonstantinides.de>, 2007.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2008-2013, 2019.
+# Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex help master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-21 18:52+0000\n"
-"PO-Revision-Date: 2015-10-26 13:28+0100\n"
-"Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
-"Language-Team: Deutsch <gnome-de@gnome.org>\n"
-"Language: de_DE\n"
+"POT-Creation-Date: 2019-03-17 14:06+0000\n"
+"PO-Revision-Date: 2019-04-05 14:48+0200\n"
+"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"Language-Team: German <gnome-de@gnome.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Lokalize 18.12.3\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
 "Thomas Konstantinides <gntr1@tkonstantinides.de>, 2007\n"
-"Mario Blättermann <mario.blaettermann@gmail.com>, 2008-2012\n"
+"Mario Blättermann <mario.blaettermann@gmail.com>, 2008-2012, 2019\n"
 "Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010, 2015"
 
 #. (itstool) path: info/desc
@@ -33,8 +33,8 @@ msgid "Use hints or solve the game automatically."
 msgstr "Hinweise benutzen oder das Spiel automatisch lösen."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/shortcut.page:11
-#: C/size.page:11 C/usage.page:12 C/winning.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:11 C/size.page:12 C/usage.page:12
+#: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
@@ -91,8 +91,8 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/shortcut.page:15 C/size.page:15
-#: C/usage.page:20 C/winning.page:16
+#: C/index.page:21 C/move.page:15 C/size.page:16 C/usage.page:20
+#: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
@@ -276,123 +276,30 @@ msgstr ""
 "<link xref=\"shortcut\"/>."
 
 #. (itstool) path: info/desc
-#: C/shortcut.page:8
-msgid "Use the keyboard to play the game."
-msgstr "Verwendung der Tastatur zur Bedienung des Spiels."
-
-#. (itstool) path: page/title
-#: C/shortcut.page:19
-msgid "Keyboard shortcuts"
-msgstr "Tastenkürzel"
-
-#. (itstool) path: section/title
-#: C/shortcut.page:22
-msgid "Game shortcuts"
-msgstr "Tastenkürzel des Spiels"
-
-#. (itstool) path: section/p
-#: C/shortcut.page:23
-msgid ""
-"The following table groups the most useful shortcuts for playing <app>GNOME "
-"Tetravex</app>."
-msgstr ""
-"Die folgende Tabelle fasst die wichtigsten Tastenkürzel für <app>GNOME "
-"Tetravex</app> zusammen."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:28
-msgid "Shortcut"
-msgstr "Kürzel"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:28
-msgid "Description"
-msgstr "Beschreibung"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:32
-msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>N</key></keyseq>."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:35
-msgid "Start a new game."
-msgstr "Starten eines neuen Spiels."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:40
-msgid "<key>Pause</key>"
-msgstr "<key>Pause</key>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:43
-msgid "Pause or resume the game."
-msgstr "Unterbrechen oder Wiederaufnehmen des Spiels."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:48
-msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Hoch</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:53
-msgid "Move all the pieces in the left box up by one."
-msgstr "Verschiebt alle Steine im linken Bereich gleichzeitig nach oben."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:58
-msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Runter</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:61
-msgid "Move all the pieces in the left box down by one."
-msgstr "Verschiebt alle Steine im linken Bereich gleichzeitig nach unten."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:66
-msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Links</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:69
-msgid "Move all the pieces in the left box left by one."
-msgstr "Verschiebt alle Steine im linken Bereich gleichzeitig nach links."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:74
-msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
-msgstr "<keyseq><key>Strg</key><key>Rechts</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:77
-msgid "Move all the pieces in the left box right by one."
-msgstr "Verschiebt alle Steine im linken Bereich gleichzeitig nach rechts."
-
-#. (itstool) path: info/desc
 #: C/size.page:7
 msgid "Change the size of the game board."
 msgstr "Ändern der Größe des Spielfelds."
 
 #. (itstool) path: page/title
-#: C/size.page:18
+#: C/size.page:19
 msgid "Game board size"
 msgstr "Spielfeldgröße"
 
 #. (itstool) path: page/p
-#: C/size.page:20
+#: C/size.page:21
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
-"complexity of the game, click <gui>Tetravex</gui> in the top bar and click "
-"<gui>Size</gui>, then select the dimension of the board."
+"complexity of the game, press the menu button in the top-right corner of the "
+"window and select <gui style=\"menuitem\">Size</gui>, then select the "
+"dimension of the board."
 msgstr ""
 "Um den Schwierigkeitsgrad des Spiels anzupassen, können Sie die Größe des "
-"Spielfelds ändern. Klicken Sie hierzu auf <gui>Tetravex</gui> in der oberen "
+"Spielfelds ändern. Klicken Sie hierzu auf den Menüknopf in der oberen "
 "Leiste und dann auf <gui>Größe</gui>. Wählen Sie anschließend die gewünschte "
 "Größe des Spielfelds aus."
 
 #. (itstool) path: page/p
-#: C/size.page:25
+#: C/size.page:27
 msgid ""
 "You can select from five different dimension, from 2×2 to 6×6. The default "
 "one is 3×3."
@@ -401,7 +308,7 @@ msgstr ""
 "6. Die Vorgabe ist 3 mal 3."
 
 #. (itstool) path: note/p
-#: C/size.page:29
+#: C/size.page:31
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
@@ -583,145 +490,3 @@ msgstr ""
 "Wenn Sie einen Tipp zu <app>GNOME Tetravex</app> oder zu einem der anderen "
 "der GNOME-Spiele haben, den Sie gern weitergeben möchten, dann schreiben Sie "
 "an gnome-doc-list@gnome.org. Wir werden ihn gern hier veröffentlichen!"
-
-#~ msgctxt "_"
-#~ msgid ""
-#~ "external ref='figures/gnome-tetravex-logo.png' "
-#~ "md5='daf379ccd659b42a71cd0f2661f651e4'"
-#~ msgstr "original"
-
-#~ msgid ""
-#~ "<media type=\"image\" mime=\"image/png\" src=\"figures/gnome-tetravex-"
-#~ "logo.png\">GNOME Tetravex logo</media> GNOME Tetravex"
-#~ msgstr ""
-#~ "<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
-#~ "\">GNOME Tetravex-Logo</media> GNOME Tetravex"
-
-#~ msgctxt "_"
-#~ msgid ""
-#~ "external ref='figures/gnome-tetravex-video.ogv' "
-#~ "md5='14cface4ec2b0c84aa5a925242694de0'"
-#~ msgstr "original"
-
-#~ msgid "milo@ubuntu.com"
-#~ msgstr "milo@ubuntu.com"
-
-#~ msgid "robster@debian.org"
-#~ msgstr "robster@debian.org"
-
-#~ msgid "Ctrl"
-#~ msgstr "Strg"
-
-#~ msgid "N"
-#~ msgstr "N"
-
-#~ msgid "Pause"
-#~ msgstr "Pause"
-
-#~ msgid "Up"
-#~ msgstr "Pfeiltaste hoch"
-
-#~ msgid "Down"
-#~ msgstr "Pfeiltaste ab"
-
-#~ msgid "Left"
-#~ msgstr "Pfeiltaste links"
-
-#~ msgid "Right"
-#~ msgstr "Pfeiltaste rechts"
-
-#~ msgid "How to play with other people."
-#~ msgstr "Spielen mit mehreren Teilnehmern."
-
-#~ msgid "Play with other people"
-#~ msgstr "Spielen mit mehreren Teilnehmern"
-
-#~ msgid ""
-#~ "With <app>GNOME Tetravex</app> it is not possible to play with or against "
-#~ "other people over the Internet or a local network."
-#~ msgstr ""
-#~ "Mit <app>GNOME Tetravex</app> ist es derzeit nicht möglich, über das "
-#~ "Internet oder ein Netzwerk gegen andere Spieler anzutreten."
-
-#~ msgid ""
-#~ "To move a piece, you need to click-and-hold on it, drag it from its "
-#~ "current position to its new position, either on the right box or on the "
-#~ "left box, and release the mouse button."
-#~ msgstr ""
-#~ "Um einen Spielstein zu bewegen, klicken Sie darauf und halten die "
-#~ "Maustaste gedrückt. Dann ziehen Sie ihn aus seiner aktuellen Position an "
-#~ "den gewünschten Ort im linken oder rechten Bereich des Spielfelds und "
-#~ "lassen die Maustaste los."
-
-#~ msgid "Avoid the click-and-hold"
-#~ msgstr "»Klicken und gedrückt halten« vermeiden"
-
-#~ msgid ""
-#~ "If you do not feel comfortable with the click-and-hold action to move the "
-#~ "pieces, it is possible to change that behavior so that you only have to "
-#~ "click on a piece to move it, and click again to release it in its new "
-#~ "position."
-#~ msgstr ""
-#~ "Wenn Sie es nicht praktisch finden, zum Bewegen von Spielsteinen die "
-#~ "Maustaste gedrückt zu halten, können Sie das Verhalten so einstellen, "
-#~ "dass Sie jeweils nur einen Spielstein anklicken müssen, woraufhin ein "
-#~ "weiterer Klick an der gewünschten Position den Stein dort ablegt."
-
-#~ msgid ""
-#~ "To do that, from the main menu bar, choose <gui style=\"menu\">Move</"
-#~ "gui>, and select <gui style=\"checkbox\">Click to Move</gui>."
-#~ msgstr ""
-#~ "Wählen Sie hierzu in der Menüleiste <gui style=\"menu\">Bewegen</gui> und "
-#~ "aktivieren Sie das Ankreuzfeld <gui style=\"checkbox\">Legen per Klick</"
-#~ "gui>"
-
-#~ msgid "Multiplayer Game"
-#~ msgstr "Mehrspielermodus"
-
-#~ msgid "Use the hints system"
-#~ msgstr "Verwendung des Hinweissystems"
-
-#~ msgid ""
-#~ "At any time in the game, if you do not know how to start it, or where to "
-#~ "move a piece, it is possible to use the built-in hints system."
-#~ msgstr ""
-#~ "Jederzeit können Sie das eingebaute Hinweissystem verwenden, sei es, dass "
-#~ "Sie nicht wissen, wie Sie beginnen sollen, oder um einen möglichen Zug "
-#~ "aufzeigen zu lassen."
-
-#~ msgid ""
-#~ "The system will move one piece from the right box to its correct position "
-#~ "into the left box."
-#~ msgstr ""
-#~ "Das System verschiebt einen Spielstein vom rechten Bereich des Spielfelds "
-#~ "an seine korrekte Position im linken Bereich."
-
-#~ msgid "To use the hints system, perform one of the following:"
-#~ msgstr "Um das Hinweissystem zu verwenden, gehen Sie wie folgt vor:"
-
-#~ msgid ""
-#~ "Choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem"
-#~ "\">Hint</gui></guiseq>."
-#~ msgstr ""
-#~ "Wählen Sie <guiseq><gui style=\"menu\">Spiel</gui><gui style=\"menuitem"
-#~ "\">Tipp</gui></guiseq>."
-
-#~ msgid ""
-#~ "@@image: 'figures/gnotravex-main-window.png'; "
-#~ "md5=dd9c9be1bb7b724d6be5e76ffa6ee4d8"
-#~ msgstr "x"
-
-#~ msgid "Introduction to <app>GNOME Tetravex</app>."
-#~ msgstr "Einführung in <app>GNOME Tetravex</app>."
-
-#~ msgid "Gameplay"
-#~ msgstr "Spielverlauf"
-
-#~ msgid "Main game window"
-#~ msgstr "Hauptfenster des Spiels"
-
-#~ msgid "<app>Tetravex</app> main window"
-#~ msgstr "<app>Tetravex</app>-Hauptfenster"
-
-#~ msgid "<app>Tetravex</app> main window."
-#~ msgstr "<app>Tetravex</app>-Hauptfenster."
