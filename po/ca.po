@@ -223,22 +223,22 @@ msgstr "Posa en pausa la partida"
 #: src/help-overlay.ui:30
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left box up by one"
-msgstr "Mou a dalt una posició totes les peces en la capsa de l'esquerra"
+msgstr "Mou una posició a dalt totes les peces en la capsa de l'esquerra"
 
 #: src/help-overlay.ui:37
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left box down by one"
-msgstr "Mou a baix una posició totes les peces en la capsa de l'esquerra"
+msgstr "Mou una posició a baix totes les peces en la capsa de l'esquerra"
 
 #: src/help-overlay.ui:44
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left box left by one"
-msgstr  "Mou a l'esquerra una posició totes les peces en capsa de l'esquerra"
+msgstr "Mou una posició a l'esquerra totes les peces en la capsa de l'esquerra"
 
 #: src/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left box right by one"
-msgstr  "Mou a la dreta una posició totes les peces capsa de l'esquerra"
+msgstr "Mou una posició a la dreta totes les peces en la capsa de l'esquerra"
 
 #: src/help-overlay.ui:58
 msgctxt "shortcut window"
