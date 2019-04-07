@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-02-06 19:35+0000\n"
+"POT-Creation-Date: 2019-03-26 18:25+0000\n"
 "PO-Revision-Date: 2019-02-13 00:19+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -70,12 +70,6 @@ msgstr "Fuldfør spillet ved at samle brikker så tilstødende numre er ens"
 #: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "spil;logik;bræt;"
-
-#. TRANSLATORS: Do NOT translate or transliterate this text!
-#. This is an icon file name.
-#: data/org.gnome.Tetravex.desktop.in:12
-msgid "org.gnome.Tetravex"
-msgstr "org.gnome.Tetravex"
 
 #: data/org.gnome.Tetravex.gschema.xml:6
 msgid "The size of the playing grid"
@@ -201,12 +195,14 @@ msgstr ""
 "Ole Laursen\n"
 "Ask Hjorth Larsen\n"
 "\n"
-"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
-"Mere info: http://www.dansk-gruppen.dk"
+"Dansk-gruppen\n"
+"Websted <http://dansk-gruppen.dk>\n"
+"E-mail <dansk@dansk-gruppen.dk>"
 
 #: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Er du sikker på, at du vil starte et nyt spil med anden brætstørrelse?"
+msgstr ""
+"Er du sikker på, at du vil starte et nyt spil med anden brætstørrelse?"
 
 #: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
@@ -285,6 +281,9 @@ msgstr "Dato"
 msgid "Time"
 msgstr "Tid"
 
+#~ msgid "org.gnome.Tetravex"
+#~ msgstr "org.gnome.Tetravex"
+
 #~ msgid "_Size"
 #~ msgstr "_Størrelse"
 
@@ -293,3 +292,4 @@ msgstr "Tid"
 
 #~ msgid "_Quit"
 #~ msgstr "_Afslut"
+
