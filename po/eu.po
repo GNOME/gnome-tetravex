@@ -4,215 +4,266 @@
 #
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2011, 2012, 2013.
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2014, 2015.
+# Asier Sarasua Garmendia <asier.sarasua@gmail.com>, 2019.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: gnome-tetravex master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-24 14:58+0100\n"
-"PO-Revision-Date: 2015-03-24 14:58+0100\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
-"Language-Team: Basque <librezale@librezale.org>\n"
+msgstr "Project-Id-Version: gnome-tetravex master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2019-03-26 18:26+0000\n"
+"PO-Revision-Date: 2019-05-10 17:00+0100\n"
+"Last-Translator: Asier Sarasua Garmendia <asier.sarasua@gmail.com>\n"
+"Language-Team: Basque <librezale@librezale.eus>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
 msgstr "GNOME Tetravex"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
+#: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Ordenatu berriro lauzak karratura doitzeko"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: data/org.gnome.Tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're "
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
 "being timed!"
-msgstr ""
-"Karratu bakoitzak zenbaki bat dauka albo bakoitzean. Jarri piezak mahaiko "
-"ezker aldean, zenbaki berdinak bata bestearen alboan elkar ukituz. Piezak "
-"ezin dira jarri zenbakiak bat ez datozenean. Mugitu bizkor: denbora aurka "
-"duzu."
+msgstr "Karratu bakoitzak zenbaki bat dauka albo bakoitzean. Jarri piezak mahaiko ezker aldean, zenbaki berdinak bata bestearen alboan elkar ukituz. Piezak ezin dira jarri zenbakiak bat ez datozenean. Mugitu bizkor: denbora aurka duzu."
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
+#: data/org.gnome.Tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr "Jokoa errazagoa edo zailagoa egin dezakezu mahaiaren tamaina aldatuz."
 
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:382
+#: data/org.gnome.Tetravex.appdata.xml.in:32
+msgid "The GNOME Project"
+msgstr "GNOME proiektua"
+
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
+#: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.h:2
+#: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
-msgstr ""
-"Jokoa osatzeko, zenbaki berdineko fitxak elkarren ondoan jarri behar dira"
+msgstr "Jokoa osatzeko, zenbaki berdineko fitxak elkarren ondoan jarri behar dira"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "jokoa;logika;taula;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#: data/org.gnome.Tetravex.gschema.xml:6
 msgid "The size of the playing grid"
 msgstr "Joko-saretaren tamaina"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
+#: data/org.gnome.Tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Joko-saretaren tamaina ezartzeko erabiltzen da balio hori."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
+#: data/org.gnome.Tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
-msgstr "Leihoaren zabalera (pixeletan)"
+msgstr "Leiho nagusiaren zabalera (pixeletan)"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
-msgstr "Leihoaren altuera (pixeletan)"
+msgstr "Leiho nagusiaren altuera (pixeletan)"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
+#: data/org.gnome.Tetravex.gschema.xml:19
 msgid "true if the window is maximized"
-msgstr "'true' (egia) leihoa maximizatuta badago"
+msgstr "egia leihoa maximizatuta badago"
 
-#: ../src/app-menu.ui.h:1
+#: src/app-menu.ui:5
 msgid "_New Game"
 msgstr "_Joko berria"
 
-#: ../src/app-menu.ui.h:2
+#: src/app-menu.ui:9
 msgid "_Scores"
 msgstr "_Puntuazioak"
 
-#: ../src/app-menu.ui.h:3
-msgid "_Size"
-msgstr "Ta_maina"
+#: src/app-menu.ui:15
+msgid "Si_ze"
+msgstr "Ta_maina:"
 
-#: ../src/app-menu.ui.h:4
+#: src/app-menu.ui:18
 msgid "_2x2"
 msgstr "_2×2"
 
-#: ../src/app-menu.ui.h:5
+#: src/app-menu.ui:23
 msgid "_3x3"
 msgstr "_3×3"
 
-#: ../src/app-menu.ui.h:6
+#: src/app-menu.ui:28
 msgid "_4x4"
 msgstr "_4×4"
 
-#: ../src/app-menu.ui.h:7
+#: src/app-menu.ui:33
 msgid "_5x5"
 msgstr "_5×5"
 
-#: ../src/app-menu.ui.h:8
+#: src/app-menu.ui:38
 msgid "_6x6"
 msgstr "_6×6"
 
-#: ../src/app-menu.ui.h:9
+#: src/app-menu.ui:47
+msgid "_Keyboard Shortcuts"
+msgstr "Las_ter-teklak"
+
+#: src/app-menu.ui:51
 msgid "_Help"
-msgstr "La_guntza"
+msgstr "_Laguntza"
 
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr "Honi _buruz"
+#: src/app-menu.ui:55
+msgid "_About Tetravex"
+msgstr "Tetravex jokoari _buruz"
 
-#: ../src/app-menu.ui.h:11
-msgid "_Quit"
-msgstr "_Irten"
-
-#: ../src/gnome-tetravex.vala:38
+#: src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
-msgstr "Erakutsi bertsioa eta irten"
+msgstr "Erakutsi bertsioaren informazioa eta irten"
 
-#: ../src/gnome-tetravex.vala:39
+#: src/gnome-tetravex.vala:39
 msgid "Start the game paused"
 msgstr "Hasi pausatutako jokoa"
 
-#: ../src/gnome-tetravex.vala:40
+#: src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
 msgstr "Ezarri taularen tamaina (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:129
+#: src/gnome-tetravex.vala:137
 msgid "Resume the game"
 msgstr "Berrekin jokoa"
 
-#: ../src/gnome-tetravex.vala:141
+#: src/gnome-tetravex.vala:149
 msgid "Pause the game"
 msgstr "Pausatu jokoa"
 
-#: ../src/gnome-tetravex.vala:158
+#: src/gnome-tetravex.vala:166
 msgid "Start a new game"
-msgstr "Beste joko bat hasten du"
+msgstr "Hasi joko berria"
 
-#: ../src/gnome-tetravex.vala:170
+#: src/gnome-tetravex.vala:178
 msgid "Give up and view the solution"
 msgstr "Amore eman eta ikusi ebazpena"
 
-#: ../src/gnome-tetravex.vala:240
+#: src/gnome-tetravex.vala:247
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Tamaina 2 eta 6 artekoa soilik izan daiteke.\n"
 
-#: ../src/gnome-tetravex.vala:348
+#: src/gnome-tetravex.vala:355
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Ziur zaude amore eman eta ebazpena ikustea nahi duzula?"
 
-#: ../src/gnome-tetravex.vala:350 ../src/gnome-tetravex.vala:411
+#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
 msgid "_Keep Playing"
 msgstr "_Jarraitu jokatzen"
 
-#: ../src/gnome-tetravex.vala:351
+#: src/gnome-tetravex.vala:358
 msgid "_Give Up"
 msgstr "_Amore eman"
 
-#: ../src/gnome-tetravex.vala:385
+#: src/gnome-tetravex.vala:392
 msgid "Position pieces so that the same numbers are touching each other"
-msgstr ""
-"Fitxa zenbakidunak kokatu behar dira, eta elkar ukitzen duten zenbakiek "
-"berdinak izan behar dute"
+msgstr "Fitxa zenbakidunak kokatu behar dira, eta elkar ukitzen duten zenbakiek berdinak izan behar dute"
 
-#: ../src/gnome-tetravex.vala:392
+#: src/gnome-tetravex.vala:399
 msgid "translator-credits"
-msgstr "Hizkuntza Politikarako Sailburuordetza <hizkpol@ej-gv.es>"
+msgstr "Asier Sarasua Garmendia <asier.sarasua@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:410
+#: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
-msgstr ""
-"Ziur zaude tamaina desberdineko taulako joko berria abiarazi nahi duzula?"
+msgstr "Ziur zaude tamaina desberdineko taulako joko berria abiarazi nahi duzula?"
 
-#: ../src/gnome-tetravex.vala:412
+#: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
 msgstr "_Hasi joko berria"
 
-#: ../src/puzzle-view.vala:356
-msgid "Paused"
-msgstr "Pausatuta"
+#: src/help-overlay.ui:16
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Hasi joko berria"
 
-#: ../src/score-dialog.vala:29
+#: src/help-overlay.ui:23
+msgctxt "shortcut window"
+msgid "Pause the game"
+msgstr "Pausatu jokoa"
+
+#: src/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "Mugitu ezkerreko kutxako pieza guztiak posizio bat gora"
+
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "Mugitu ezkerreko kutxako pieza guztiak posizio bat behera"
+
+#: src/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "Mugitu ezkerreko kutxako pieza guztiak posizio bat ezkerrera"
+
+#: src/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "Mugitu ezkerreko kutxako pieza guztiak posizio bat eskuinera"
+
+#: src/help-overlay.ui:58
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Erakutsi laguntza"
+
+#: src/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Erakutsi lasterbideak"
+
+#: src/help-overlay.ui:72
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Irten"
 
-#: ../src/score-dialog.vala:30
+#: src/puzzle-view.vala:356
+msgid "Paused"
+msgstr "Pausatuta"
+
+#: src/score-dialog.vala:29
+msgid "Quit"
+msgstr "Irten"
+
+#: src/score-dialog.vala:30
 msgid "New Game"
 msgstr "Joko berria"
 
-#: ../src/score-dialog.vala:33
+#: src/score-dialog.vala:33
 msgid "OK"
 msgstr "Ados"
 
-#: ../src/score-dialog.vala:45
+#: src/score-dialog.vala:45
 msgid "Size:"
 msgstr "Tamaina:"
 
-#: ../src/score-dialog.vala:70
+#: src/score-dialog.vala:70
 msgid "Date"
 msgstr "Data"
 
-#: ../src/score-dialog.vala:73
+#: src/score-dialog.vala:73
 msgid "Time"
-msgstr "Denbora"
+msgstr "Ordua"
+
+#~ msgid "_Size"
+#~ msgstr "Ta_maina"
+
+#~ msgid "_About"
+#~ msgstr "Honi _buruz"
+
+#~ msgid "_Quit"
+#~ msgstr "_Irten"
