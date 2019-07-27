@@ -182,7 +182,7 @@ msgid ""
 "Drag pieces from the right to the left, making sure that adjacent edges have "
 "the same number and color."
 msgstr ""
-"Arrossegeu les peces de la dreta a l'esquerra assegurant-vos que els costats "
+"Arrossegueu les peces de la dreta a l'esquerra assegurant-vos que els costats "
 "adjacents tenen el mateix color i número."
 
 #: C/usage.page:70(p)
