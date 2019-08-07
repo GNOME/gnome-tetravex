@@ -9,8 +9,10 @@ project ('gnome-tetravex', ['vala', 'c'],
 
 project_id = 'org.gnome.Tetravex'
 
-gnome = import ('gnome')
-i18n = import ('i18n')
+# used to install help
+gnome = import('gnome')
+# used for internationalization
+i18n = import('i18n')
 
 # Paths
 mandir = join_paths (get_option ('prefix'), get_option ('mandir'))
@@ -20,6 +22,10 @@ datadir = join_paths (get_option ('prefix'), get_option ('datadir'))
 # Dependencies
 glib_dep = dependency ('glib-2.0', version: '>= 2.40.0')
 gtk_dep = dependency ('gtk+-3.0', version: '>= 3.14')
+
+appstream_util          = find_program('appstream-util',        required: false)
+desktop_file_validate   = find_program('desktop-file-validate', required: false)
+glib_compile_schema     = find_program('glib-compile-schemas',  required: true) # useful?
 
 cc = meson.get_compiler('c')
 libm_dep = cc.find_library('m')
