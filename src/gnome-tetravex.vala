@@ -334,14 +334,17 @@ private class Tetravex : Gtk.Application
             new_game ();
     }
 
+    private bool scores_dialog_visible = false; // security for #5
     private int show_scores (HistoryEntry? selected_entry = null, bool show_quit = false)
     {
+        scores_dialog_visible = true;
         ScoreDialog dialog = new ScoreDialog (history, selected_entry, show_quit);
         dialog.modal = true;
         dialog.transient_for = window;
 
         int result = dialog.run ();
         dialog.destroy ();
+        scores_dialog_visible = false;
 
         return result;
     }
