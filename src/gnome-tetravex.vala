@@ -332,6 +332,8 @@ private class Tetravex : Gtk.Application
             window.destroy ();
         else if (score_dialog_action == ResponseType.OK)
             new_game ();
+        else
+            new_game_solve_stack.set_visible_child_name ("new-game");
     }
 
     private bool scores_dialog_visible = false; // security for #5
