@@ -68,7 +68,7 @@ public class PuzzleView : Gtk.DrawingArea
                 }
             }
             _puzzle.tile_moved.connect (tile_moved_cb);
-            _puzzle.paused_changed.connect (() => { queue_draw (); });
+            _puzzle.notify ["paused"].connect (() => { queue_draw (); });
             queue_resize ();
         }
     }
@@ -504,6 +504,9 @@ public class PuzzleView : Gtk.DrawingArea
 
     public override bool button_release_event (Gdk.EventButton event)
     {
+        if (puzzle.paused)
+            return false;
+
         if (event.button == 1 && selected_tile != null && selection_timeout == 0)
             drop_tile (event.x, event.y);
 

@@ -138,7 +138,7 @@ private class Tetravex : Gtk.Application
         view = new PuzzleView ();
         view.hexpand = true;
         view.vexpand = true;
-        view.button_press_event.connect (view_button_press_event);
+        view.button_release_event.connect (view_button_release_event);
         grid.attach (view, 0, 0, 3, 1);
 
         SizeGroup sizegroup = new SizeGroup (SizeGroupMode.BOTH);
@@ -367,7 +367,7 @@ private class Tetravex : Gtk.Application
         show_scores ();
     }
 
-    private bool view_button_press_event (Widget widget, Gdk.EventButton event)
+    private bool view_button_release_event (Widget widget, Gdk.EventButton event)
     {
         /* Cancel pause on click */
         if (puzzle.paused)

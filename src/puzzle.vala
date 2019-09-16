@@ -53,9 +53,9 @@ public class Puzzle : Object
     }
 
     private bool _paused = false;
-    public bool paused
+    [CCode (notify = true)] internal bool paused
     {
-        set
+        internal set
         {
             _paused = value;
             if (clock != null)
@@ -65,14 +65,12 @@ public class Puzzle : Object
                 else
                     continue_clock ();
             }
-            paused_changed ();
         }
-        get { return _paused; }
+        internal get { return _paused; }
     }
     
     public signal void tile_moved (Tile tile, uint x, uint y);    
     public signal void solved ();
-    public signal void paused_changed ();
     public signal void tick ();
     
     public bool is_solved
