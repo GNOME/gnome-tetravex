@@ -9,29 +9,31 @@
  * license.
  */
 
-public class Tetravex : Gtk.Application
+using Gtk;
+
+private class Tetravex : Gtk.Application
 {
     private const string KEY_GRID_SIZE = "grid-size";
 
     private static bool start_paused = false;
     private static int game_size = 0;
 
-    private Settings settings;
+    private GLib.Settings settings;
 
     private Puzzle puzzle;
-    private Gtk.Label clock_label;
+    private Label clock_label;
     private History history;
 
     private PuzzleView view;
 
-    private Gtk.ApplicationWindow window;
+    private ApplicationWindow window;
     private int window_width;
     private int window_height;
     private bool is_maximized;
     private bool is_tiled;
 
-    private Gtk.Stack new_game_solve_stack;
-    private Gtk.Stack play_pause_stack;
+    private Stack new_game_solve_stack;
+    private Stack play_pause_stack;
 
     private const OptionEntry[] option_entries =
     {
@@ -57,7 +59,18 @@ public class Tetravex : Gtk.Application
         { "about",          about_cb                                        }
     };
 
-    public Tetravex ()
+    private static int main (string[] args)
+    {
+        Intl.setlocale (LocaleCategory.ALL, "");
+        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+        Intl.textdomain (GETTEXT_PACKAGE);
+
+        Tetravex app = new Tetravex ();
+        return app.run (args);
+    }
+
+    private Tetravex ()
     {
         Object (application_id: "org.gnome.Tetravex", flags: ApplicationFlags.FLAGS_NONE);
 
@@ -69,7 +82,7 @@ public class Tetravex : Gtk.Application
         base.startup ();
 
         Environment.set_application_name (_("Tetravex"));
-        Gtk.Window.set_default_icon_name ("org.gnome.Tetravex");
+        Window.set_default_icon_name ("org.gnome.Tetravex");
 
         add_action_entries (action_entries, this);
         set_accels_for_action ("app.new-game", {"<Primary>n"});
@@ -81,14 +94,14 @@ public class Tetravex : Gtk.Application
         set_accels_for_action ("app.move-left", {"<Primary>Left"});
         set_accels_for_action ("app.move-right", {"<Primary>Right"});
 
-        var builder = new Gtk.Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
+        Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
 
-        settings = new Settings ("org.gnome.Tetravex");
+        settings = new GLib.Settings ("org.gnome.Tetravex");
 
         history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history"));
         history.load ();
 
-        window = builder.get_object ("gnome-tetravex-window") as Gtk.ApplicationWindow;
+        window = builder.get_object ("gnome-tetravex-window") as ApplicationWindow;
         this.add_window (window);
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
@@ -102,20 +115,20 @@ public class Tetravex : Gtk.Application
             game_size = settings.get_int (KEY_GRID_SIZE);
         (lookup_action ("size") as SimpleAction).set_state ("%d".printf (game_size));
 
-        var headerbar = new Gtk.HeaderBar ();
+        HeaderBar headerbar = new HeaderBar ();
         headerbar.title = _("Tetravex");
         headerbar.show_close_button = true;
         window.set_titlebar (headerbar);
 
-        var menu_builder = new Gtk.Builder.from_resource ("/org/gnome/Tetravex/app-menu.ui");
-        var appmenu = menu_builder.get_object("app-menu") as MenuModel;
-        var menu_button = new Gtk.MenuButton ();
-        menu_button.set_image (new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.BUTTON));
+        Builder menu_builder = new Builder.from_resource ("/org/gnome/Tetravex/app-menu.ui");
+        MenuModel appmenu = menu_builder.get_object ("app-menu") as MenuModel;
+        MenuButton menu_button = new MenuButton ();
+        menu_button.set_image (new Image.from_icon_name ("open-menu-symbolic", IconSize.BUTTON));
         menu_button.show ();
         menu_button.set_menu_model (appmenu);
-        headerbar.pack_end(menu_button);
+        headerbar.pack_end (menu_button);
 
-        var grid = builder.get_object ("grid") as Gtk.Grid;
+        Grid grid = builder.get_object ("grid") as Grid;
 
         view = new PuzzleView ();
         view.hexpand = true;
@@ -123,73 +136,73 @@ public class Tetravex : Gtk.Application
         view.button_press_event.connect (view_button_press_event);
         grid.attach (view, 0, 0, 3, 1);
 
-        var sizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.BOTH);
+        SizeGroup sizegroup = new SizeGroup (SizeGroupMode.BOTH);
 
-        var play_button = new Gtk.Button ();
+        Button play_button = new Button ();
         play_button.get_style_context ().add_class ("image-button");
-        var image = new Gtk.Image.from_icon_name ("media-playback-start-symbolic", Gtk.IconSize.DND);
+        Image image = new Image.from_icon_name ("media-playback-start-symbolic", IconSize.DND);
         image.margin = 10;
         play_button.add (image);
-        play_button.valign = Gtk.Align.CENTER;
-        play_button.halign = Gtk.Align.START;
+        play_button.valign = Align.CENTER;
+        play_button.halign = Align.START;
         play_button.margin_start = 35;
         play_button.action_name = "app.pause"; /* not a typo */
         play_button.tooltip_text = _("Resume the game");
         sizegroup.add_widget (play_button);
 
-        var pause_button = new Gtk.Button ();
+        Button pause_button = new Button ();
         pause_button.get_style_context ().add_class ("image-button");
-        image = new Gtk.Image.from_icon_name ("media-playback-pause-symbolic", Gtk.IconSize.DND);
+        image = new Image.from_icon_name ("media-playback-pause-symbolic", IconSize.DND);
         image.margin = 10;
         pause_button.add (image);
-        pause_button.valign = Gtk.Align.CENTER;
-        pause_button.halign = Gtk.Align.START;
+        pause_button.valign = Align.CENTER;
+        pause_button.halign = Align.START;
         pause_button.margin_start = 35;
         pause_button.action_name = "app.pause";
         pause_button.tooltip_text = _("Pause the game");
         sizegroup.add_widget (pause_button);
 
-        play_pause_stack = new Gtk.Stack ();
+        play_pause_stack = new Stack ();
         play_pause_stack.add_named (play_button, "play");
         play_pause_stack.add_named (pause_button, "pause");
         grid.attach (play_pause_stack, 0, 1, 1, 1);
 
-        var new_game_button = new Gtk.Button ();
+        Button new_game_button = new Button ();
         new_game_button.get_style_context ().add_class ("image-button");
-        image = new Gtk.Image.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.DND);
+        image = new Image.from_icon_name ("view-refresh-symbolic", IconSize.DND);
         image.margin = 10;
         new_game_button.add (image);
-        new_game_button.valign = Gtk.Align.CENTER;
-        new_game_button.halign = Gtk.Align.END;
+        new_game_button.valign = Align.CENTER;
+        new_game_button.halign = Align.END;
         new_game_button.margin_end = 35;
         new_game_button.action_name = "app.new-game";
         new_game_button.tooltip_text = _("Start a new game");
         sizegroup.add_widget (new_game_button);
 
-        var solve_button = new Gtk.Button ();
+        Button solve_button = new Button ();
         solve_button.get_style_context ().add_class ("image-button");
-        image = new Gtk.Image.from_icon_name ("dialog-question-symbolic", Gtk.IconSize.DND);
+        image = new Image.from_icon_name ("dialog-question-symbolic", IconSize.DND);
         image.margin = 10;
         solve_button.add (image);
-        solve_button.valign = Gtk.Align.CENTER;
-        solve_button.halign = Gtk.Align.END;
+        solve_button.valign = Align.CENTER;
+        solve_button.halign = Align.END;
         solve_button.margin_end = 35;
         solve_button.action_name = "app.solve";
         solve_button.tooltip_text = _("Give up and view the solution");
         sizegroup.add_widget (solve_button);
 
-        new_game_solve_stack = new Gtk.Stack ();
+        new_game_solve_stack = new Stack ();
         new_game_solve_stack.add_named (solve_button, "solve");
         new_game_solve_stack.add_named (new_game_button, "new-game");
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
-        var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 8);
-        image = new Gtk.Image.from_icon_name ("preferences-system-time-symbolic", Gtk.IconSize.MENU);
+        Box box = new Box (Orientation.HORIZONTAL, 8);
+        image = new Image.from_icon_name ("preferences-system-time-symbolic", IconSize.MENU);
         box.add (image);
-        clock_label = new Gtk.Label ("");
+        clock_label = new Label ("");
         box.add (clock_label);
-        box.halign = Gtk.Align.CENTER;
-        box.valign = Gtk.Align.BASELINE;
+        box.halign = Align.CENTER;
+        box.valign = Align.BASELINE;
         box.set_margin_top (20);
         box.set_margin_bottom (20);
         grid.attach (box, 1, 1, 1, 1);
@@ -200,7 +213,7 @@ public class Tetravex : Gtk.Application
         new_game ();
     }
 
-    private void size_allocate_cb (Gtk.Allocation allocation)
+    private void size_allocate_cb (Allocation allocation)
     {
         if (is_maximized || is_tiled)
             return;
@@ -260,7 +273,7 @@ public class Tetravex : Gtk.Application
 
     private void new_game ()
     {
-        var pause = lookup_action ("pause") as SimpleAction;
+        SimpleAction pause = lookup_action ("pause") as SimpleAction;
         pause.change_state (false);
         pause.set_enabled (true);
         new_game_solve_stack.set_visible_child_name ("solve");
@@ -268,7 +281,7 @@ public class Tetravex : Gtk.Application
         if (puzzle != null)
             SignalHandler.disconnect_by_func (puzzle, null, this);
 
-        var size = settings.get_int (KEY_GRID_SIZE);
+        int size = settings.get_int (KEY_GRID_SIZE);
         puzzle = new Puzzle (size);
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
@@ -285,12 +298,12 @@ public class Tetravex : Gtk.Application
 
     private void tick_cb ()
     {
-        var elapsed = 0;
+        int elapsed = 0;
         if (puzzle != null)
             elapsed = (int) (puzzle.elapsed + 0.5);
-        var hours = elapsed / 3600;
-        var minutes = (elapsed - hours * 3600) / 60;
-        var seconds = elapsed - hours * 3600 - minutes * 60;
+        int hours = elapsed / 3600;
+        int minutes = (elapsed - hours * 3600) / 60;
+        int seconds = elapsed - hours * 3600 - minutes * 60;
         if (hours > 0)
             clock_label.set_text ("%02d∶\xE2\x80\x8E%02d∶\xE2\x80\x8E%02d".printf (hours, minutes, seconds));
         else
@@ -299,26 +312,26 @@ public class Tetravex : Gtk.Application
 
     private void solved_cb (Puzzle puzzle)
     {
-        var date = new DateTime.now_local ();
-        var duration = (uint) (puzzle.elapsed + 0.5);
-        var entry = new HistoryEntry (date, puzzle.size, duration);
+        DateTime date = new DateTime.now_local ();
+        uint duration = (uint) (puzzle.elapsed + 0.5);
+        HistoryEntry entry = new HistoryEntry (date, puzzle.size, duration);
         history.add (entry);
         history.save ();
 
         int score_dialog_action = show_scores (entry, true);
-        if (score_dialog_action == Gtk.ResponseType.CLOSE)
+        if (score_dialog_action == ResponseType.CLOSE)
             window.destroy ();
-        else if (score_dialog_action == Gtk.ResponseType.OK)
+        else if (score_dialog_action == ResponseType.OK)
             new_game ();
     }
 
     private int show_scores (HistoryEntry? selected_entry = null, bool show_quit = false)
     {
-        var dialog = new ScoreDialog (history, selected_entry, show_quit);
+        ScoreDialog dialog = new ScoreDialog (history, selected_entry, show_quit);
         dialog.modal = true;
         dialog.transient_for = window;
 
-        var result = dialog.run ();
+        int result = dialog.run ();
         dialog.destroy ();
 
         return result;
@@ -334,7 +347,7 @@ public class Tetravex : Gtk.Application
         show_scores ();
     }
 
-    private bool view_button_press_event (Gtk.Widget widget, Gdk.EventButton event)
+    private bool view_button_press_event (Widget widget, Gdk.EventButton event)
     {
         /* Cancel pause on click */
         if (puzzle.paused)
@@ -349,20 +362,20 @@ public class Tetravex : Gtk.Application
 
     private void solve_cb ()
     {
-        var dialog = new Gtk.MessageDialog (window,
-                                            Gtk.DialogFlags.MODAL,
-                                            Gtk.MessageType.QUESTION,
-                                            Gtk.ButtonsType.NONE,
-                                            _("Are you sure you want to give up and view the solution?"));
+        MessageDialog dialog = new MessageDialog (window,
+                                                  DialogFlags.MODAL,
+                                                  MessageType.QUESTION,
+                                                  ButtonsType.NONE,
+                                                  _("Are you sure you want to give up and view the solution?"));
 
-        dialog.add_buttons (_("_Keep Playing"), Gtk.ResponseType.REJECT,
-                            _("_Give Up"), Gtk.ResponseType.ACCEPT,
+        dialog.add_buttons (_("_Keep Playing"), ResponseType.REJECT,
+                            _("_Give Up"),      ResponseType.ACCEPT,
                             null);
 
-        var response = dialog.run ();
+        int response = dialog.run ();
         dialog.destroy ();
 
-        if (response == Gtk.ResponseType.ACCEPT)
+        if (response == ResponseType.ACCEPT)
         {
             puzzle.solve ();
             new_game_solve_stack.set_visible_child_name ("new-game");
@@ -374,7 +387,7 @@ public class Tetravex : Gtk.Application
     {
         try
         {
-            Gtk.show_uri (window.get_screen (), "help:gnome-tetravex", Gtk.get_current_event_time ());
+            show_uri (window.get_screen (), "help:gnome-tetravex", get_current_event_time ());
         }
         catch (Error e)
         {
@@ -386,49 +399,49 @@ public class Tetravex : Gtk.Application
     {
         string[] authors = { "Lars Rydlinge", "Robert Ancell", null };
         string[] documenters = { "Rob Bradford", null };
-        Gtk.show_about_dialog (window,
-                               "program-name", _("Tetravex"),
-                               "version", VERSION,
-                               "comments",
-                               _("Position pieces so that the same numbers are touching each other"),
-                               "copyright",
-                               "Copyright © 1999–2008 Lars Rydlinge",
-                               "license-type", Gtk.License.GPL_2_0,
-                               "wrap-license", true,
-                               "authors", authors,
-                               "documenters", documenters,
-                               "translator-credits", _("translator-credits"),
-                               "logo-icon-name", "org.gnome.Tetravex",
-                               "website", "https://wiki.gnome.org/Apps/Tetravex",
-                               null);
+        show_about_dialog (window,
+                           "program-name", _("Tetravex"),
+                           "version", VERSION,
+                           "comments",
+                           _("Position pieces so that the same numbers are touching each other"),
+                           "copyright",
+                           "Copyright © 1999–2008 Lars Rydlinge",
+                           "license-type", License.GPL_2_0,
+                           "wrap-license", true,
+                           "authors", authors,
+                           "documenters", documenters,
+                           "translator-credits", _("translator-credits"),
+                           "logo-icon-name", "org.gnome.Tetravex",
+                           "website", "https://wiki.gnome.org/Apps/Tetravex",
+                           null);
     }
 
-    private void size_changed (SimpleAction action, Variant value)
+    private void size_changed (SimpleAction action, Variant variant)
     {
-        var size = ((string) value)[0] - '0';
+        int size = ((string) variant)[0] - '0'; // FIXME that... is... horrible
 
         if (size == settings.get_int (KEY_GRID_SIZE))
             return;
         if (view.game_in_progress)
         {
-            var dialog = new Gtk.MessageDialog (window,
-                                                Gtk.DialogFlags.MODAL,
-                                                Gtk.MessageType.QUESTION,
-                                                Gtk.ButtonsType.NONE,
-                                                _("Are you sure you want to start a new game with a different board size?"));
-            dialog.add_buttons (_("_Keep Playing"), Gtk.ResponseType.REJECT,
-                                _("_Start New Game"), Gtk.ResponseType.ACCEPT,
+            MessageDialog dialog = new MessageDialog (window,
+                                                      DialogFlags.MODAL,
+                                                      MessageType.QUESTION,
+                                                      ButtonsType.NONE,
+                                                      _("Are you sure you want to start a new game with a different board size?"));
+            dialog.add_buttons (_("_Keep Playing"),   ResponseType.REJECT,
+                                _("_Start New Game"), ResponseType.ACCEPT,
                                 null);
 
-            var response = dialog.run ();
+            int response = dialog.run ();
             dialog.destroy ();
 
-            if (response != Gtk.ResponseType.ACCEPT)
+            if (response != ResponseType.ACCEPT)
                 return;
         }
         settings.set_int (KEY_GRID_SIZE, size);
         game_size = (int) size;
-        action.set_state (value);
+        action.set_state (variant);
         new_game ();
     }
 
@@ -467,16 +480,5 @@ public class Tetravex : Gtk.Application
     private void radio_cb (SimpleAction action, Variant? parameter)
     {
         action.change_state (parameter);
-    }
-
-    public static int main (string[] args)
-    {
-        Intl.setlocale (LocaleCategory.ALL, "");
-        Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
-        Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-        Intl.textdomain (GETTEXT_PACKAGE);
-
-        var app = new Tetravex ();
-        return app.run (args);
     }
 }
