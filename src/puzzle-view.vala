@@ -78,6 +78,7 @@ public class PuzzleView : Gtk.DrawingArea
 
     /* Tile being controlled by the mouse */
     private TileImage? selected_tile = null;
+    internal signal void tile_selected (bool selected);
 
     /* Timeout to detect if a click is a selection or a drag */
     private uint selection_timeout = 0;
@@ -266,6 +267,7 @@ public class PuzzleView : Gtk.DrawingArea
             move_tile_to_location (image, x, y);
         }
         selected_tile = null;
+        tile_selected (false);
 
         return false;
     }
@@ -386,6 +388,7 @@ public class PuzzleView : Gtk.DrawingArea
             if (x >= image.x && x <= image.x + size && y >= image.y && y <= image.y + size)
             {
                 selected_tile = image;
+                tile_selected (true);
                 selected_x_offset = x - image.x;
                 selected_y_offset = y - image.y;
 
@@ -449,6 +452,7 @@ public class PuzzleView : Gtk.DrawingArea
         else
             move_tile_to_location (selected_tile, selected_x, selected_y, 0.2);
         selected_tile = null;
+        tile_selected (false);
     }
 
     private void move_tile_to_right_half (TileImage image)
@@ -491,6 +495,7 @@ public class PuzzleView : Gtk.DrawingArea
                 if (selected_tile != null && !on_right_half (selected_tile.x))
                     move_tile_to_right_half (selected_tile);
                 selected_tile = null;
+                tile_selected (false);
             }
         }
 

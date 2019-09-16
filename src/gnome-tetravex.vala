@@ -118,9 +118,6 @@ private class Tetravex : Gtk.Application
             game_size = settings.get_int (KEY_GRID_SIZE);
         ((SimpleAction) lookup_action ("size")).set_state ("%d".printf (game_size));
 
-        pause_action = (SimpleAction) lookup_action ("pause");
-        solve_action = (SimpleAction) lookup_action ("solve");
-
         HeaderBar headerbar = new HeaderBar ();
         headerbar.title = _("Tetravex");
         headerbar.show_close_button = true;
@@ -213,6 +210,14 @@ private class Tetravex : Gtk.Application
         box.set_margin_bottom (20);
         grid.attach (box, 1, 1, 1, 1);
 
+        pause_action = (SimpleAction) lookup_action ("pause");
+        solve_action = (SimpleAction) lookup_action ("solve");
+        view.tile_selected.connect ((/* bool */ selected) => {
+                if (puzzle == null || ((!) puzzle).is_solved)
+                    return;
+                solve_action.set_enabled (!selected);
+            });
+
         window.show_all ();
 
         tick_cb ();
@@ -279,7 +284,6 @@ private class Tetravex : Gtk.Application
 
     private void new_game ()
     {
-        pause_action.change_state (false);
         pause_action.set_enabled (true);
         solve_action.set_enabled (true);
         new_game_solve_stack.set_visible_child_name ("solve");
@@ -394,6 +398,7 @@ private class Tetravex : Gtk.Application
             puzzle.solve ();
             new_game_solve_stack.set_visible_child_name ("new-game");
             pause_action.set_enabled (false);
+            solve_action.set_enabled (false);
         }
     }
 
