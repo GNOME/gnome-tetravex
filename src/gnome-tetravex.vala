@@ -35,6 +35,9 @@ private class Tetravex : Gtk.Application
     private Stack new_game_solve_stack;
     private Stack play_pause_stack;
 
+    private SimpleAction solve_action;
+    private SimpleAction pause_action;
+
     private const OptionEntry[] option_entries =
     {
         { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null },
@@ -114,6 +117,9 @@ private class Tetravex : Gtk.Application
         else
             game_size = settings.get_int (KEY_GRID_SIZE);
         (lookup_action ("size") as SimpleAction).set_state ("%d".printf (game_size));
+
+        pause_action = (SimpleAction) lookup_action ("pause");
+        solve_action = (SimpleAction) lookup_action ("solve");
 
         HeaderBar headerbar = new HeaderBar ();
         headerbar.title = _("Tetravex");
@@ -273,9 +279,9 @@ private class Tetravex : Gtk.Application
 
     private void new_game ()
     {
-        SimpleAction pause = lookup_action ("pause") as SimpleAction;
-        pause.change_state (false);
-        pause.set_enabled (true);
+        pause_action.change_state (false);
+        pause_action.set_enabled (true);
+        solve_action.set_enabled (true);
         new_game_solve_stack.set_visible_child_name ("solve");
 
         if (puzzle != null)
@@ -317,6 +323,9 @@ private class Tetravex : Gtk.Application
         HistoryEntry entry = new HistoryEntry (date, puzzle.size, duration);
         history.add (entry);
         history.save ();
+
+        pause_action.set_enabled (false);
+        solve_action.set_enabled (false);
 
         int score_dialog_action = show_scores (entry, true);
         if (score_dialog_action == ResponseType.CLOSE)
@@ -379,7 +388,7 @@ private class Tetravex : Gtk.Application
         {
             puzzle.solve ();
             new_game_solve_stack.set_visible_child_name ("new-game");
-            ((SimpleAction) lookup_action ("pause")).set_enabled (false);
+            pause_action.set_enabled (false);
         }
     }
 
@@ -473,7 +482,7 @@ private class Tetravex : Gtk.Application
 
     private void update_button_states ()
     {
-        ((SimpleAction) lookup_action ("solve")).set_enabled (!puzzle.paused);
+        solve_action.set_enabled (!puzzle.paused);
         play_pause_stack.set_visible_child_name (puzzle.paused ? "play" : "pause");
     }
 
