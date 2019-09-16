@@ -35,8 +35,8 @@ private class Tetravex : Gtk.Application
     private Stack new_game_solve_stack;
     private Stack play_pause_stack;
 
-    private SimpleAction solve_action;
     private SimpleAction pause_action;
+    private SimpleAction solve_action;
 
     private const OptionEntry[] option_entries =
     {
@@ -104,7 +104,7 @@ private class Tetravex : Gtk.Application
         history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history"));
         history.load ();
 
-        window = builder.get_object ("gnome-tetravex-window") as ApplicationWindow;
+        window = (ApplicationWindow) builder.get_object ("gnome-tetravex-window");
         this.add_window (window);
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
@@ -116,7 +116,7 @@ private class Tetravex : Gtk.Application
             settings.set_int (KEY_GRID_SIZE, game_size);
         else
             game_size = settings.get_int (KEY_GRID_SIZE);
-        (lookup_action ("size") as SimpleAction).set_state ("%d".printf (game_size));
+        ((SimpleAction) lookup_action ("size")).set_state ("%d".printf (game_size));
 
         pause_action = (SimpleAction) lookup_action ("pause");
         solve_action = (SimpleAction) lookup_action ("solve");
@@ -127,14 +127,14 @@ private class Tetravex : Gtk.Application
         window.set_titlebar (headerbar);
 
         Builder menu_builder = new Builder.from_resource ("/org/gnome/Tetravex/app-menu.ui");
-        MenuModel appmenu = menu_builder.get_object ("app-menu") as MenuModel;
+        MenuModel appmenu = (MenuModel) menu_builder.get_object ("app-menu");
         MenuButton menu_button = new MenuButton ();
         menu_button.set_image (new Image.from_icon_name ("open-menu-symbolic", IconSize.BUTTON));
         menu_button.show ();
         menu_button.set_menu_model (appmenu);
         headerbar.pack_end (menu_button);
 
-        Grid grid = builder.get_object ("grid") as Grid;
+        Grid grid = (Grid) builder.get_object ("grid");
 
         view = new PuzzleView ();
         view.hexpand = true;
