@@ -305,9 +305,10 @@ public class Tetravex : Gtk.Application
         history.add (entry);
         history.save ();
 
-        if (show_scores (entry, true) == Gtk.ResponseType.CLOSE)
+        int score_dialog_action = show_scores (entry, true);
+        if (score_dialog_action == Gtk.ResponseType.CLOSE)
             window.destroy ();
-        else
+        else if (score_dialog_action == Gtk.ResponseType.OK)
             new_game ();
     }
 
