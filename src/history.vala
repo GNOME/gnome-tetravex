@@ -9,30 +9,28 @@
  * license.
  */
 
-public class History : Object
+private class History : Object
 {
-    public string filename;
-    public List<HistoryEntry> entries;
+    [CCode (notify = false)] public string filename { private get; protected construct; }
+    internal List<HistoryEntry> entries = new List<HistoryEntry> ();
 
-    public signal void entry_added (HistoryEntry entry);
+    internal signal void entry_added (HistoryEntry entry);
 
-    public History (string filename)
+    internal History (string filename)
     {
-        this.filename = filename;
-        entries = new List<HistoryEntry> ();
+        Object (filename: filename);
+        load ();
     }
 
-    public void add (HistoryEntry entry)
+    internal void add (HistoryEntry entry)
     {
         entries.append (entry);
         entry_added (entry);
     }
 
-    public void load ()
+    internal void load ()
     {
-        entries = new List<HistoryEntry> ();
-
-        var contents = "";
+        string contents = "";
         try
         {
             FileUtils.get_contents (filename, out contents);
@@ -44,29 +42,32 @@ public class History : Object
             return;
         }
 
-        foreach (var line in contents.split ("\n"))
+        foreach (string line in contents.split ("\n"))
         {
-            var tokens = line.split (" ");
+            string [] tokens = line.split (" ");
             if (tokens.length != 3)
                 continue;
 
-            var date = parse_date (tokens[0]);
+            DateTime? date = parse_date (tokens[0]);
             if (date == null)
                 continue;
-            var size = int.parse (tokens[1]);
-            var duration = int.parse (tokens[2]);
+
+            int size = int.parse (tokens[1]);
+            int duration = int.parse (tokens[2]);
+
+            // FIXME use try_parse
 
             add (new HistoryEntry (date, size, duration));
         }
     }
 
-    public void save ()
+    internal void save ()
     {
-        var contents = "";
+        string contents = "";
 
-        foreach (var entry in entries)
+        foreach (HistoryEntry entry in entries)
         {
-            var line = "%s %u %u\n".printf (entry.date.to_string (), entry.size, entry.duration);
+            string line = "%s %u %u\n".printf (entry.date.to_string (), entry.size, entry.duration);
             contents += line;
         }
 
@@ -86,28 +87,28 @@ public class History : Object
         if (date.length < 19 || date[4] != '-' || date[7] != '-' || date[10] != 'T' || date[13] != ':' || date[16] != ':')
             return null;
 
-        var year = int.parse (date.substring (0, 4));
-        var month = int.parse (date.substring (5, 2));
-        var day = int.parse (date.substring (8, 2));
-        var hour = int.parse (date.substring (11, 2));
-        var minute = int.parse (date.substring (14, 2));
-        var seconds = int.parse (date.substring (17, 2));
-        var timezone = date.substring (19);
+        // FIXME use try_parse
+
+        int year        = int.parse (date.substring (0, 4));
+        int month       = int.parse (date.substring (5, 2));
+        int day         = int.parse (date.substring (8, 2));
+        int hour        = int.parse (date.substring (11, 2));
+        int minute      = int.parse (date.substring (14, 2));
+        int seconds     = int.parse (date.substring (17, 2));
+        string timezone = date.substring (19);
 
         return new DateTime (new TimeZone (timezone), year, month, day, hour, minute, seconds);
     }
 }
 
-public class HistoryEntry : Object
+private class HistoryEntry : Object // TODO make struct? needs using HistoryEntry? for the List...
 {
-    public DateTime date;
-    public uint size;
-    public uint duration;
+    [CCode (notify = false)] public DateTime date { internal get; protected construct; }
+    [CCode (notify = false)] public uint size     { internal get; protected construct; }
+    [CCode (notify = false)] public uint duration { internal get; protected construct; }
 
-    public HistoryEntry (DateTime date, uint size, uint duration)
+    internal HistoryEntry (DateTime date, uint size, uint duration)
     {
-        this.date = date;
-        this.size = size;
-        this.duration = duration;
+        Object (date: date, size: size, duration: duration);
     }
 }

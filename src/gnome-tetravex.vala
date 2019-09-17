@@ -53,10 +53,10 @@ private class Tetravex : Gtk.Application
         { "solve",          solve_cb                                        },
         { "scores",         scores_cb                                       },
         { "quit",           quit                                            },
-        { "move-up",        move_up_cb                                      },
-        { "move-down",      move_down_cb                                    },
-        { "move-left",      move_left_cb                                    },
-        { "move-right",     move_right_cb                                   },
+        { "move-up",        move_up                                         },
+        { "move-down",      move_down                                       },
+        { "move-left",      move_left                                       },
+        { "move-right",     move_right                                      },
         { "size",           radio_cb,       "s",    "'2'",  size_changed    },
         { "help",           help_cb                                         },
         { "about",          about_cb                                        }
@@ -104,7 +104,6 @@ private class Tetravex : Gtk.Application
         settings = new GLib.Settings ("org.gnome.Tetravex");
 
         history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history"));
-        history.load ();
 
         window = (ApplicationWindow) builder.get_object ("gnome-tetravex-window");
         this.add_window (window);
@@ -466,25 +465,10 @@ private class Tetravex : Gtk.Application
         new_game ();
     }
 
-    private void move_up_cb ()
-    {
-        puzzle.move_up ();
-    }
-
-    private void move_left_cb ()
-    {
-        puzzle.move_left ();
-    }
-
-    private void move_right_cb ()
-    {
-        puzzle.move_right ();
-    }
-
-    private void move_down_cb ()
-    {
-        puzzle.move_down ();
-    }
+    private void move_up ()     { puzzle.move_up ();    }
+    private void move_down ()   { puzzle.move_down ();  }
+    private void move_left ()   { puzzle.move_left ();  }
+    private void move_right ()  { puzzle.move_right (); }
 
     private void pause_cb (SimpleAction action, Variant? parameter)
     {

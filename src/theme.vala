@@ -9,45 +9,45 @@
  * license.
  */
 
-public class Theme : Object
+private class Theme : Object
 {
     /* Colors of tiles and text */
-    private Cairo.Pattern tile_colors[10];
+    private Cairo.Pattern tile_colors [10];
     private Cairo.Pattern paused_color;
-    private Cairo.Pattern text_colors[10];
+    private Cairo.Pattern text_colors [10];
 
-    public Theme ()
+    internal Theme ()
     {
-        tile_colors[0] = make_color_pattern ("#000000");
-        tile_colors[1] = make_color_pattern ("#C17D11");
-        tile_colors[2] = make_color_pattern ("#CC0000");
-        tile_colors[3] = make_color_pattern ("#F57900");
-        tile_colors[4] = make_color_pattern ("#EDD400");
-        tile_colors[5] = make_color_pattern ("#73D216");
-        tile_colors[6] = make_color_pattern ("#3465A4");
-        tile_colors[7] = make_color_pattern ("#75507B");
-        tile_colors[8] = make_color_pattern ("#BABDB6");
-        tile_colors[9] = make_color_pattern ("#FFFFFF");
+        tile_colors [0] = make_color_pattern ("#000000");
+        tile_colors [1] = make_color_pattern ("#C17D11");
+        tile_colors [2] = make_color_pattern ("#CC0000");
+        tile_colors [3] = make_color_pattern ("#F57900");
+        tile_colors [4] = make_color_pattern ("#EDD400");
+        tile_colors [5] = make_color_pattern ("#73D216");
+        tile_colors [6] = make_color_pattern ("#3465A4");
+        tile_colors [7] = make_color_pattern ("#75507B");
+        tile_colors [8] = make_color_pattern ("#BABDB6");
+        tile_colors [9] = make_color_pattern ("#FFFFFF");
 
         paused_color = make_color_pattern ("#CCCCCC");
 
-        text_colors[0] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors[1] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors[2] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors[3] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors[4] = new Cairo.Pattern.rgb (0, 0, 0);
-        text_colors[5] = new Cairo.Pattern.rgb (0, 0, 0);
-        text_colors[6] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors[7] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors[8] = new Cairo.Pattern.rgb (0, 0, 0);
-        text_colors[9] = new Cairo.Pattern.rgb (0, 0, 0);
+        text_colors [0] = new Cairo.Pattern.rgb (1, 1, 1);
+        text_colors [1] = new Cairo.Pattern.rgb (1, 1, 1);
+        text_colors [2] = new Cairo.Pattern.rgb (1, 1, 1);
+        text_colors [3] = new Cairo.Pattern.rgb (1, 1, 1);
+        text_colors [4] = new Cairo.Pattern.rgb (0, 0, 0);
+        text_colors [5] = new Cairo.Pattern.rgb (0, 0, 0);
+        text_colors [6] = new Cairo.Pattern.rgb (1, 1, 1);
+        text_colors [7] = new Cairo.Pattern.rgb (1, 1, 1);
+        text_colors [8] = new Cairo.Pattern.rgb (0, 0, 0);
+        text_colors [9] = new Cairo.Pattern.rgb (0, 0, 0);
     }
 
     private Cairo.Pattern make_color_pattern (string color)
     {
-        var r = (hex_value (color[1]) * 16 + hex_value (color[2])) / 255.0;
-        var g = (hex_value (color[3]) * 16 + hex_value (color[4])) / 255.0;
-        var b = (hex_value (color[5]) * 16 + hex_value (color[6])) / 255.0;
+        double r = (hex_value (color [1]) * 16 + hex_value (color [2])) / 255.0;
+        double g = (hex_value (color [3]) * 16 + hex_value (color [4])) / 255.0;
+        double b = (hex_value (color [5]) * 16 + hex_value (color [6])) / 255.0;
         return new Cairo.Pattern.rgb (r, g, b);
     }
 
@@ -63,13 +63,13 @@ public class Theme : Object
             return 0;
     }
 
-    public void draw_arrow (Cairo.Context context, uint size, uint gap)
+    internal void draw_arrow (Cairo.Context context, uint size, uint gap)
     {
-        var w = gap * 0.5;
-        var h = size * 1.5;
-        var depth = uint.min ((uint) (size * 0.025), 2);
-        var dx = 1.4142 * depth;
-        var dy = 6.1623 * depth;
+        double w = gap * 0.5;
+        double h = size * 1.5;
+        uint depth = uint.min ((uint) (size * 0.025), 2);
+        double dx = 1.4142 * depth;
+        double dy = 6.1623 * depth;
 
         /* Background */
         context.move_to (0, 0);
@@ -100,9 +100,9 @@ public class Theme : Object
         context.fill ();
     }
 
-    public void draw_socket (Cairo.Context context, uint size)
+    internal void draw_socket (Cairo.Context context, uint size)
     {
-        var depth = uint.min ((uint) (size * 0.05), 4);
+        uint depth = uint.min ((uint) (size * 0.05), 4);
 
         /* Background */
         context.rectangle (depth, depth, size - depth * 2, size - depth * 2);
@@ -132,32 +132,32 @@ public class Theme : Object
         context.fill ();
     }
 
-    public void draw_paused_tile (Cairo.Context context, uint size)
+    internal void draw_paused_tile (Cairo.Context context, uint size)
     {
         draw_tile_background (context, size, paused_color, paused_color, paused_color, paused_color);
     }
 
-    public void draw_tile (Cairo.Context context, uint size, Tile? tile)
+    internal void draw_tile (Cairo.Context context, uint size, Tile? tile)
     {
-        draw_tile_background (context, size, tile_colors[tile.north], tile_colors[tile.east], tile_colors[tile.south], tile_colors[tile.west]);
+        draw_tile_background (context, size, tile_colors [tile.north], tile_colors [tile.east], tile_colors [tile.south], tile_colors [tile.west]);
 
         context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
         context.set_font_size (size / 3.5);
-        context.set_source (text_colors[tile.north]);
+        context.set_source (text_colors [tile.north]);
         draw_number (context, size * 0.5, size / 5, tile.north);
-        context.set_source (text_colors[tile.south]);
+        context.set_source (text_colors [tile.south]);
         draw_number (context, size * 0.5, size * 4 / 5, tile.south);
-        context.set_source (text_colors[tile.east]);
+        context.set_source (text_colors [tile.east]);
         draw_number (context, size * 4 / 5, size * 0.5, tile.east);
-        context.set_source (text_colors[tile.west]);
+        context.set_source (text_colors [tile.west]);
         draw_number (context, size / 5, size * 0.5, tile.west);
     }
 
-    private void draw_tile_background (Cairo.Context context, uint size, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
+    internal void draw_tile_background (Cairo.Context context, uint size, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
     {
-        var depth = uint.min ((uint) (size * 0.05), 4);
-        var dx = 2.4142 * depth;
-        var dy = 1.4142 * depth;
+        uint depth = uint.min ((uint) (size * 0.05), 4);
+        double dx = 2.4142 * depth;
+        double dy = 1.4142 * depth;
 
         /* North */
         context.rectangle (0, 0, size, size * 0.5);
@@ -274,7 +274,7 @@ public class Theme : Object
 
     private void draw_number (Cairo.Context context, double x, double y, uint number)
     {
-        var text = "%u".printf (number);
+        string text = "%u".printf (number);
         Cairo.TextExtents extents;
         context.text_extents (text, out extents);
         context.move_to (x - extents.width / 2.0, y + extents.height / 2.0);

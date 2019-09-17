@@ -12,57 +12,58 @@
 private class TileImage : Object
 {
     /* Tile being moved */
-    public Tile tile;
+    internal Tile tile;
 
     /* Location of tile */
-    public double x;
-    public double y;
+    internal double x;
+    internal double y;
 
     /* Co-ordinates to move from */
-    public double source_x;
-    public double source_y;
+    internal double source_x;
+    internal double source_y;
 
     /* Time started moving */
-    public double source_time;
+    internal double source_time;
 
     /* Co-ordinates to target for */
-    public double target_x;
-    public double target_y;
+    internal double target_x;
+    internal double target_y;
 
     /* Duration of movement */
-    public double duration;
+    internal double duration;
 
-    public TileImage (Tile tile)
+    internal TileImage (Tile tile)
     {
         this.tile = tile;
     }
 }
 
-public class PuzzleView : Gtk.DrawingArea
+private class PuzzleView : Gtk.DrawingArea
 {
     /* Minimum size of a tile */
     private const int minimum_size = 80;
 
     /* Puzzle being rendered */
     private Puzzle? _puzzle = null;
-    public Puzzle puzzle
+    [CCode (notify = false)] internal Puzzle puzzle
     {
-        get { return _puzzle; }
-        set
+        private get { return _puzzle; }
+        internal set
         {
             if (_puzzle != null)
                 SignalHandler.disconnect_by_func (_puzzle, null, this);
+
             _puzzle = value;
             tiles.remove_all ();
-            for (var y = 0; y < puzzle.size; y++)
+            for (uint y = 0; y < puzzle.size; y++)
             {
-                for (var x = 0; x < puzzle.size * 2; x++)
+                for (uint x = 0; x < puzzle.size * 2; x++)
                 {
-                    var tile = puzzle.get_tile (x, y);
+                    Tile? tile = puzzle.get_tile (x, y);
                     if (tile == null)
                         continue;
 
-                    var image = new TileImage (tile);
+                    TileImage image = new TileImage (tile);
                     move_tile_to_location (image, x, y);
                     tiles.insert (tile, image);
                 }
@@ -74,7 +75,7 @@ public class PuzzleView : Gtk.DrawingArea
     }
 
     /* Theme */
-    private Theme theme;
+    private Theme theme = new Theme ();
 
     /* Tile being controlled by the mouse */
     private TileImage? selected_tile = null;
@@ -88,27 +89,25 @@ public class PuzzleView : Gtk.DrawingArea
     private double selected_y_offset;
 
     /* Tile images */
-    private HashTable<Tile, TileImage> tiles;
+    private HashTable<Tile, TileImage> tiles = new HashTable<Tile, TileImage> (direct_hash, direct_equal);
 
     /* Animation timer */
-    private Timer animation_timer;
+    private Timer animation_timer = new Timer ();
     private uint animation_timeout = 0;
 
-    public PuzzleView ()
+    construct
     {
-        set_events (Gdk.EventMask.EXPOSURE_MASK | Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.POINTER_MOTION_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK);
+        set_events (Gdk.EventMask.EXPOSURE_MASK
+                  | Gdk.EventMask.BUTTON_PRESS_MASK
+                  | Gdk.EventMask.POINTER_MOTION_MASK
+                  | Gdk.EventMask.BUTTON_RELEASE_MASK);
 
-        tiles = new HashTable <Tile, TileImage> (direct_hash, direct_equal);
-
-        theme = new Theme ();
-
-        animation_timer = new Timer ();
         animation_timer.start ();
     }
 
-    public bool game_in_progress
+    [CCode (notify = false)] internal bool game_in_progress
     {
-        get
+        internal get
         {
             if (puzzle.is_solved)
                 return false;
@@ -138,10 +137,10 @@ public class PuzzleView : Gtk.DrawingArea
         uint x_offset, y_offset, size, gap;
         get_dimensions (out x_offset, out y_offset, out size, out gap);
 
-        var target_x = x_offset + x * size;
+        double target_x = (double) (x_offset + x * size);
         if (x >= puzzle.size)
             target_x += gap;
-        var target_y = y_offset + y * size;
+        double target_y = (double) (y_offset + y * size);
         move_tile (image, target_x, target_y, duration);
     }
 
@@ -174,13 +173,13 @@ public class PuzzleView : Gtk.DrawingArea
 
     private bool animate_cb ()
     {
-        var t = animation_timer.elapsed ();
+        double t = animation_timer.elapsed ();
 
         uint x_offset, y_offset, size, gap;
         get_dimensions (out x_offset, out y_offset, out size, out gap);
 
-        var animating = false;
-        var iter = HashTableIter<Tile, TileImage> (tiles);
+        bool animating = false;
+        HashTableIter<Tile, TileImage> iter = HashTableIter<Tile, TileImage> (tiles);
         while (true)
         {
             Tile tile;
@@ -220,17 +219,17 @@ public class PuzzleView : Gtk.DrawingArea
         return false;
     }
 
-    public override void get_preferred_width (out int minimum, out int natural)
+    protected override void get_preferred_width (out int minimum, out int natural)
     {
-        var size = 0;
+        int size = 0;
         if (puzzle != null)
             size = (int) ((puzzle.size * 2 + 1.5) * minimum_size);
         minimum = natural = int.max (size, 500);
     }
 
-    public override void get_preferred_height (out int minimum, out int natural)
+    protected override void get_preferred_height (out int minimum, out int natural)
     {
-        var size = 0;
+        int size = 0;
         if (puzzle != null)
             size = (int) ((puzzle.size + 1) * minimum_size);
         minimum = natural = int.max (size, 300);
@@ -239,8 +238,8 @@ public class PuzzleView : Gtk.DrawingArea
     private void get_dimensions (out uint x, out uint y, out uint size, out uint gap)
     {
         /* Fit in with a half tile border and spacing between boards */
-        var width = (uint) (get_allocated_width () / (2 * puzzle.size + 1.5));
-        var height = (uint) (get_allocated_height () / (puzzle.size + 1));
+        uint width  = (uint) (get_allocated_width ()  / (2 * puzzle.size + 1.5));
+        uint height = (uint) (get_allocated_height () / (puzzle.size + 1));
         size = uint.min (width, height);
         gap = size / 2;
         x = (get_allocated_width () - 2 * puzzle.size * size - gap) / 2;
@@ -252,10 +251,10 @@ public class PuzzleView : Gtk.DrawingArea
         move_tile_to_location (tiles.lookup (tile), x, y, 0.2);
     }
 
-    public override bool configure_event (Gdk.EventConfigure event)
+    protected override bool configure_event (Gdk.EventConfigure event)
     {
         /* Move everything to its correct location */
-        var iter = HashTableIter<Tile, TileImage> (tiles);
+        HashTableIter<Tile, TileImage> iter = HashTableIter<Tile, TileImage> (tiles);
         while (true)
         {
             Tile tile;
@@ -272,7 +271,7 @@ public class PuzzleView : Gtk.DrawingArea
         return false;
     }
 
-    public override bool draw (Cairo.Context context)
+    protected override bool draw (Cairo.Context context)
     {
         if (puzzle == null)
             return false;
@@ -282,17 +281,17 @@ public class PuzzleView : Gtk.DrawingArea
 
         /* Draw arrow */
         context.save ();
-        var w = gap * 0.5;
-        var ax = x_offset + puzzle.size * size + (gap - w) * 0.5;
-        var ay = y_offset + puzzle.size * size * 0.5;
+        double w = gap * 0.5;
+        double ax = x_offset + puzzle.size * size + (gap - w) * 0.5;
+        double ay = y_offset + puzzle.size * size * 0.5;
         context.translate (ax, ay);
         theme.draw_arrow (context, size, gap);
         context.restore ();
 
         /* Draw sockets */
-        for (var y = 0; y < puzzle.size; y++)
+        for (uint y = 0; y < puzzle.size; y++)
         {
-            for (var x = 0; x < puzzle.size * 2; x++)
+            for (uint x = 0; x < puzzle.size * 2; x++)
             {
                 context.save ();
                 if (x >= puzzle.size)
@@ -305,7 +304,7 @@ public class PuzzleView : Gtk.DrawingArea
         }
 
         /* Draw stationary tiles */
-        var iter = HashTableIter<Tile, TileImage> (tiles);
+        HashTableIter<Tile, TileImage> iter = HashTableIter<Tile, TileImage> (tiles);
         while (true)
         {
             Tile tile;
@@ -377,7 +376,7 @@ public class PuzzleView : Gtk.DrawingArea
         uint x_offset, y_offset, size, gap;
         get_dimensions (out x_offset, out y_offset, out size, out gap);
 
-        var iter = HashTableIter<Tile, TileImage> (tiles);
+        HashTableIter<Tile, TileImage> iter = HashTableIter<Tile, TileImage> (tiles);
         while (true)
         {
             Tile tile;
@@ -425,23 +424,20 @@ public class PuzzleView : Gtk.DrawingArea
         x += size * 0.5 - selected_x_offset;
         y += size * 0.5 - selected_x_offset;
 
-        var tile_y = (int) Math.floor ((y - y_offset) / size);
-        tile_y = int.max (tile_y, 0);
-        tile_y = int.min (tile_y, (int) puzzle.size - 1);
+        int tile_y = ((int) Math.floor ((y - y_offset) / size));
+        tile_y = tile_y.clamp (0, (int) puzzle.size - 1);
 
         /* Check which side we are on */
         int tile_x;
         if (on_right_half (x))
         {
             tile_x = (int) puzzle.size + (int) Math.floor ((x - (x_offset + puzzle.size * size + gap)) / size);
-            tile_x = int.max (tile_x, (int) puzzle.size);
-            tile_x = int.min (tile_x, 2 * (int) puzzle.size - 1);
+            tile_x = tile_x.clamp ((int) puzzle.size, 2 * (int) puzzle.size - 1);
         }
         else
         {
             tile_x = (int) Math.floor ((x - x_offset) / size);
-            tile_x = int.max (tile_x, 0);
-            tile_x = int.min (tile_x, (int) puzzle.size - 1);
+            tile_x = tile_x.clamp (0, (int) puzzle.size - 1);
         }
 
         /* Drop the tile here, or move it back if can't */
@@ -474,7 +470,7 @@ public class PuzzleView : Gtk.DrawingArea
         assert_not_reached ();
     }
 
-    public override bool button_press_event (Gdk.EventButton event)
+    protected override bool button_press_event (Gdk.EventButton event)
     {
         if (puzzle.paused)
             return false;
@@ -502,7 +498,7 @@ public class PuzzleView : Gtk.DrawingArea
         return false;
     }
 
-    public override bool button_release_event (Gdk.EventButton event)
+    protected override bool button_release_event (Gdk.EventButton event)
     {
         if (puzzle.paused)
             return false;
@@ -517,7 +513,7 @@ public class PuzzleView : Gtk.DrawingArea
         return false;
     }
 
-    public override bool motion_notify_event (Gdk.EventMotion event)
+    protected override bool motion_notify_event (Gdk.EventMotion event)
     {
         if (selected_tile != null)
             move_tile (selected_tile, (int) (event.x - selected_x_offset), (int) (event.y - selected_y_offset));

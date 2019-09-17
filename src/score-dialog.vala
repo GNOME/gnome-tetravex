@@ -9,7 +9,7 @@
  * license.
  */
 
-public class ScoreDialog : Gtk.Dialog
+private class ScoreDialog : Gtk.Dialog
 {
     private History history;
     private HistoryEntry? selected_entry = null;
@@ -79,7 +79,7 @@ public class ScoreDialog : Gtk.Dialog
             entry_added_cb (entry);
     }
 
-    public void set_size (uint size)
+    internal void set_size (uint size)
     {
         score_model.clear ();
 
