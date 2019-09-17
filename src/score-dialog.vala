@@ -79,7 +79,7 @@ private class ScoreDialog : Gtk.Dialog
             entry_added_cb (entry);
     }
 
-    internal void set_size (uint size)
+    internal void set_size (uint8 size)
     {
         score_model.clear ();
 
@@ -103,7 +103,7 @@ private class ScoreDialog : Gtk.Dialog
 
             Gtk.TreeIter iter;
             score_model.append (out iter);
-            score_model.set (iter, 0, date_label, 1, time_label, 2, weight);
+            score_model.@set (iter, 0, date_label, 1, time_label, 2, weight);
 
             if (entry == selected_entry)
             {
@@ -137,8 +137,8 @@ private class ScoreDialog : Gtk.Dialog
             return;
 
         int size;
-        combo.model.get (iter, 1, out size);
-        set_size ((uint) size);
+        combo.model.@get (iter, 1, out size);
+        set_size ((uint8) size);
     }
 
     private void entry_added_cb (HistoryEntry entry)
@@ -151,7 +151,7 @@ private class ScoreDialog : Gtk.Dialog
             do
             {
                 int size;
-                size_model.get (iter, 1, out size, -1);
+                size_model.@get (iter, 1, out size, -1);
                 if (size == entry.size)
                 {
                     have_size_entry = true;
@@ -162,10 +162,10 @@ private class ScoreDialog : Gtk.Dialog
 
         if (!have_size_entry)
         {
-            var label = "%u × %u".printf (entry.size, entry.size);
+            var label = "%hu × %hu".printf (entry.size, entry.size);
 
             size_model.append (out iter);
-            size_model.set (iter, 0, label, 1, entry.size);
+            size_model.@set (iter, 0, label, 1, entry.size);
 
             /* Select this entry if don't have any */
             if (size_combo.get_active () == -1)

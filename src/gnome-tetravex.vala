@@ -293,7 +293,7 @@ private class Tetravex : Gtk.Application
             SignalHandler.disconnect_by_func (puzzle, null, this);
 
         int size = settings.get_int (KEY_GRID_SIZE);
-        puzzle = new Puzzle (size);
+        puzzle = new Puzzle ((uint8) size);
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
         view.puzzle = puzzle;

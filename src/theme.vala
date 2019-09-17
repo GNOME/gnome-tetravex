@@ -272,9 +272,9 @@ private class Theme : Object
         context.stroke ();
     }
 
-    private void draw_number (Cairo.Context context, double x, double y, uint number)
+    private void draw_number (Cairo.Context context, double x, double y, uint8 number)
     {
-        string text = "%u".printf (number);
+        string text = "%hu".printf (number);
         Cairo.TextExtents extents;
         context.text_extents (text, out extents);
         context.move_to (x - extents.width / 2.0, y + extents.height / 2.0);

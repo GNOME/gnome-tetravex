@@ -52,8 +52,8 @@ private class History : Object
             if (date == null)
                 continue;
 
-            int size = int.parse (tokens[1]);
-            int duration = int.parse (tokens[2]);
+            uint8 size    = (uint8) int.parse (tokens[1]);
+            uint duration = (uint)  int.parse (tokens[2]);
 
             // FIXME use try_parse
 
@@ -67,7 +67,7 @@ private class History : Object
 
         foreach (HistoryEntry entry in entries)
         {
-            string line = "%s %u %u\n".printf (entry.date.to_string (), entry.size, entry.duration);
+            string line = "%s %hu %u\n".printf (entry.date.to_string (), entry.size, entry.duration);
             contents += line;
         }
 
@@ -104,10 +104,10 @@ private class History : Object
 private class HistoryEntry : Object // TODO make struct? needs using HistoryEntry? for the List...
 {
     [CCode (notify = false)] public DateTime date { internal get; protected construct; }
-    [CCode (notify = false)] public uint size     { internal get; protected construct; }
+    [CCode (notify = false)] public uint8 size    { internal get; protected construct; }
     [CCode (notify = false)] public uint duration { internal get; protected construct; }
 
-    internal HistoryEntry (DateTime date, uint size, uint duration)
+    internal HistoryEntry (DateTime date, uint8 size, uint duration)
     {
         Object (date: date, size: size, duration: duration);
     }

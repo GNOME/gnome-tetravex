@@ -55,9 +55,9 @@ private class PuzzleView : Gtk.DrawingArea
 
             _puzzle = value;
             tiles.remove_all ();
-            for (uint y = 0; y < puzzle.size; y++)
+            for (uint8 y = 0; y < puzzle.size; y++)
             {
-                for (uint x = 0; x < puzzle.size * 2; x++)
+                for (uint8 x = 0; x < puzzle.size * 2; x++)
                 {
                     Tile? tile = puzzle.get_tile (x, y);
                     if (tile == null)
@@ -112,9 +112,9 @@ private class PuzzleView : Gtk.DrawingArea
             if (puzzle.is_solved)
                 return false;
 
-            for (uint y = 0; y < puzzle.size; y++)
+            for (uint8 y = 0; y < puzzle.size; y++)
             {
-                for (uint x = puzzle.size; x < puzzle.size * 2; x++)
+                for (uint8 x = puzzle.size; x < puzzle.size * 2; x++)
                 {
                     if (puzzle.get_tile (x, y) == null)
                         return true;
@@ -144,7 +144,7 @@ private class PuzzleView : Gtk.DrawingArea
         move_tile (image, target_x, target_y, duration);
     }
 
-    private void move_tile (TileImage image, double x, double y, double duration = 0)
+    private void move_tile (TileImage image, double x, double y, double duration = 0)   // FIXME double x and y, really?
     {
         if (image.x == x && image.y == y)
             return;
@@ -246,7 +246,7 @@ private class PuzzleView : Gtk.DrawingArea
         y = (get_allocated_height () - puzzle.size * size) / 2;
     }
 
-    private void tile_moved_cb (Puzzle puzzle, Tile tile, uint x, uint y)
+    private void tile_moved_cb (Puzzle puzzle, Tile tile, uint8 x, uint8 y)
     {
         move_tile_to_location (tiles.lookup (tile), x, y, 0.2);
     }
@@ -261,7 +261,7 @@ private class PuzzleView : Gtk.DrawingArea
             TileImage image;
             if (!iter.next (out tile, out image))
                 break;
-            uint x, y;
+            uint8 x, y;
             puzzle.get_tile_location (tile, out x, out y);
             move_tile_to_location (image, x, y);
         }
@@ -424,27 +424,27 @@ private class PuzzleView : Gtk.DrawingArea
         x += size * 0.5 - selected_x_offset;
         y += size * 0.5 - selected_x_offset;
 
-        int tile_y = ((int) Math.floor ((y - y_offset) / size));
-        tile_y = tile_y.clamp (0, (int) puzzle.size - 1);
+        int16 tile_y = (int16) Math.floor ((y - y_offset) / size);
+        tile_y = tile_y.clamp (0, (int16) puzzle.size - 1);
 
         /* Check which side we are on */
-        int tile_x;
+        int16 tile_x;
         if (on_right_half (x))
         {
-            tile_x = (int) puzzle.size + (int) Math.floor ((x - (x_offset + puzzle.size * size + gap)) / size);
-            tile_x = tile_x.clamp ((int) puzzle.size, 2 * (int) puzzle.size - 1);
+            tile_x = (int16) puzzle.size + (int16) Math.floor ((x - (x_offset + puzzle.size * size + gap)) / size);
+            tile_x = tile_x.clamp ((int16) puzzle.size, 2 * (int16) puzzle.size - 1);
         }
         else
         {
-            tile_x = (int) Math.floor ((x - x_offset) / size);
-            tile_x = tile_x.clamp (0, (int) puzzle.size - 1);
+            tile_x = (int16) Math.floor ((x - x_offset) / size);
+            tile_x = tile_x.clamp (0, (int16) puzzle.size - 1);
         }
 
         /* Drop the tile here, or move it back if can't */
-        uint selected_x, selected_y;
+        uint8 selected_x, selected_y;
         puzzle.get_tile_location (selected_tile.tile, out selected_x, out selected_y);
-        if (puzzle.can_switch (selected_x, selected_y, (uint) tile_x, (uint) tile_y))
-            puzzle.switch_tiles (selected_x, selected_y, (uint) tile_x, (uint) tile_y);
+        if (puzzle.can_switch (selected_x, selected_y, (uint8) tile_x, (uint8) tile_y))
+            puzzle.switch_tiles (selected_x, selected_y, (uint8) tile_x, (uint8) tile_y);
         else
             move_tile_to_location (selected_tile, selected_x, selected_y, 0.2);
         selected_tile = null;
@@ -454,13 +454,13 @@ private class PuzzleView : Gtk.DrawingArea
     private void move_tile_to_right_half (TileImage image)
     {
         /* Pick the first open spot on the right side of the board */
-        for (uint y = 0; y < puzzle.size; y++)
+        for (uint8 y = 0; y < puzzle.size; y++)
         {
-            for (uint x = puzzle.size; x < puzzle.size * 2; x++)
+            for (uint8 x = puzzle.size; x < puzzle.size * 2; x++)
             {
                 if (puzzle.get_tile (x, y) == null)
                 {
-                    uint source_x, source_y;
+                    uint8 source_x, source_y;
                     puzzle.get_tile_location (image.tile, out source_x, out source_y);
                     puzzle.switch_tiles (source_x, source_y, x, y);
                     return;

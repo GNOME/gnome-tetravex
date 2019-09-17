@@ -12,16 +12,16 @@
 private class Tile : Object
 {
     /* Edge colors */
-    internal int north; // TODO make uint8
-    internal int west;
-    internal int east;
-    internal int south;
+    internal uint8 north;
+    internal uint8 west;
+    internal uint8 east;
+    internal uint8 south;
 
     /* Solution location */
-    [CCode (notify = false)] public uint x { internal get; protected construct; }
-    [CCode (notify = false)] public uint y { internal get; protected construct; }
+    [CCode (notify = false)] public uint8 x { internal get; protected construct; }
+    [CCode (notify = false)] public uint8 y { internal get; protected construct; }
 
-    internal Tile (uint x, uint y)
+    internal Tile (uint8 x, uint8 y)
     {
         Object (x: x, y: y);
     }
@@ -29,7 +29,7 @@ private class Tile : Object
 
 private class Puzzle : Object
 {
-    [CCode (notify = false)] public uint size { internal get; protected construct; }    // TODO make uint8
+    [CCode (notify = false)] public uint8 size { internal get; protected construct; }
     private Tile [,] board;
 
     /* Game timer */
@@ -64,7 +64,7 @@ private class Puzzle : Object
         internal get { return _paused; }
     }
 
-    internal signal void tile_moved (Tile tile, uint x, uint y);
+    internal signal void tile_moved (Tile tile, uint8 x, uint8 y);
     internal signal void solved ();
     internal signal void tick ();
 
@@ -74,9 +74,9 @@ private class Puzzle : Object
         {
             /* Solved if entire left hand side is complete (we ensure only tiles
                that fit are allowed */
-            for (uint x = 0; x < size; x++)
+            for (uint8 x = 0; x < size; x++)
             {
-                for (uint y = 0; y < size; y++)
+                for (uint8 y = 0; y < size; y++)
                 {
                     Tile? tile = board [x, y];
                     if (tile == null)
@@ -88,7 +88,7 @@ private class Puzzle : Object
         }
     }
 
-    internal Puzzle (uint size)
+    internal Puzzle (uint8 size)
     {
         Object (size: size);
     }
@@ -96,39 +96,39 @@ private class Puzzle : Object
     construct
     {
         board = new Tile [size * 2, size];
-        for (uint x = 0; x < size; x++)
-            for (uint y = 0; y < size; y++)
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
                 board [x, y] = new Tile (x, y);
 
         /* Pick random colours for edges */
-        for (uint x = 0; x < size; x++)
+        for (uint8 x = 0; x < size; x++)
         {
-            for (uint y = 0; y <= size; y++)
+            for (uint8 y = 0; y <= size; y++)
             {
-                int32 n = Random.int_range (0, 10);
+                uint8 n = (uint8) Random.int_range (0, 10);
                 if (y >= 1)
-                    board [x, y - 1].south = (int) n;
+                    board [x, y - 1].south = n;
                 if (y < size)
-                    board [x, y].north = (int) n;
+                    board [x, y].north = n;
             }
         }
-        for (uint x = 0; x <= size; x++)
+        for (uint8 x = 0; x <= size; x++)
         {
-            for (uint y = 0; y < size; y++)
+            for (uint8 y = 0; y < size; y++)
             {
-                int32 n = Random.int_range (0, 10);
+                uint8 n = (uint8) Random.int_range (0, 10);
                 if (x >= 1)
-                    board [x - 1, y].east = (int) n;
+                    board [x - 1, y].east = n;
                 if (x < size)
-                    board [x, y].west = (int) n;
+                    board [x, y].west = n;
             }
         }
 
         /* Pick up the tiles... */
         List<Tile> tiles = new List<Tile> ();
-        for (uint x = 0; x < size; x++)
+        for (uint8 x = 0; x < size; x++)
         {
-            for (uint y = 0; y < size; y++)
+            for (uint8 y = 0; y < size; y++)
             {
                 tiles.append (board [x, y]);
                 board [x, y] = null;
@@ -136,9 +136,9 @@ private class Puzzle : Object
         }
 
         /* ...and place then randomly on the right hand side */
-        for (uint x = 0; x < size; x++)
+        for (uint8 x = 0; x < size; x++)
         {
-            for (uint y = 0; y < size; y++)
+            for (uint8 y = 0; y < size; y++)
             {
                 int32 n = Random.int_range (0, (int32) tiles.length ());
                 Tile tile = tiles.nth_data ((uint) n);
@@ -150,12 +150,12 @@ private class Puzzle : Object
         start_clock ();
     }
 
-    internal Tile? get_tile (uint x, uint y)
+    internal Tile? get_tile (uint8 x, uint8 y)
     {
         return board [x, y];
     }
 
-    internal void get_tile_location (Tile tile, out uint x, out uint y)
+    internal void get_tile_location (Tile tile, out uint8 x, out uint8 y)
     {
         y = 0;  // garbage
         for (x = 0; x < size * 2; x++)
@@ -164,7 +164,7 @@ private class Puzzle : Object
                     return;
     }
 
-    private bool tile_fits (uint x0, uint y0, uint x1, uint y1)
+    private bool tile_fits (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {
         Tile? tile = board [x0, y0];
         if (tile == null)
@@ -182,7 +182,7 @@ private class Puzzle : Object
         return true;
     }
 
-    internal bool can_switch (uint x0, uint y0, uint x1, uint y1)
+    internal bool can_switch (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {
         if (x0 == x1 && y0 == y1)
             return false;
@@ -203,7 +203,7 @@ private class Puzzle : Object
         return true;
     }
 
-    internal void switch_tiles (uint x0, uint y0, uint x1, uint y1)
+    internal void switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {
         if (x0 == x1 && y0 == y1)
             return;
@@ -234,13 +234,13 @@ private class Puzzle : Object
         if (!can_move_up ())
             return;
 
-        for (uint y = 1; y < size; y++)
-            for (uint x = 0; x < size; x++)
+        for (uint8 y = 1; y < size; y++)
+            for (uint8 x = 0; x < size; x++)
                 switch_tiles (x, y, x, y - 1);
     }
     private bool can_move_up ()
     {
-        for (uint x = 0; x < size; x++)
+        for (uint8 x = 0; x < size; x++)
             if (board [x, 0] != null)
                 return false;
         return true;
@@ -251,13 +251,13 @@ private class Puzzle : Object
         if (!can_move_down ())
             return;
 
-        for (uint y = size - 1; y > 0; y--)
-            for (uint x = 0; x < size; x++)
+        for (uint8 y = size - 1; y > 0; y--)
+            for (uint8 x = 0; x < size; x++)
                 switch_tiles (x, y - 1, x, y);
     }
     private bool can_move_down ()
     {
-        for (uint x = 0; x < size; x++)
+        for (uint8 x = 0; x < size; x++)
             if (board [x, size - 1] != null)
                 return false;
         return true;
@@ -268,13 +268,13 @@ private class Puzzle : Object
         if (!can_move_left ())
             return;
 
-        for (uint x = 1; x < size; x++)
-            for (uint y = 0; y < size; y++)
+        for (uint8 x = 1; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
                 switch_tiles (x, y, x - 1, y);
     }
     private bool can_move_left ()
     {
-        for (uint y = 0; y < size; y++)
+        for (uint8 y = 0; y < size; y++)
             if (board [0, y] != null)
                 return false;
         return true;
@@ -285,13 +285,13 @@ private class Puzzle : Object
         if (!can_move_right ())
             return;
 
-        for (uint x = size - 1; x > 0; x--)
-            for (uint y = 0; y < size; y++)
+        for (uint8 x = size - 1; x > 0; x--)
+            for (uint8 y = 0; y < size; y++)
                 switch_tiles (x - 1, y, x, y);
     }
     private bool can_move_right ()
     {
-        for (uint y = 0; y < size; y++)
+        for (uint8 y = 0; y < size; y++)
             if (board [size - 1, y] != null)
                 return false;
         return true;
@@ -304,9 +304,9 @@ private class Puzzle : Object
     internal void solve ()
     {
         List<Tile> wrong_tiles = null;
-        for (uint x = 0; x < size * 2; x++)
+        for (uint8 x = 0; x < size * 2; x++)
         {
-            for (uint y = 0; y < size; y++)
+            for (uint8 y = 0; y < size; y++)
             {
                 Tile? tile = board [x, y];
                 if (tile != null && (tile.x != x || tile.y != y))
