@@ -172,7 +172,7 @@ private class ScoreDialog : Gtk.Dialog
                 size_combo.set_active_iter (iter);
 
             /* Select this entry if the same category as the selected one */
-            if (selected_entry != null && entry.size == selected_entry.size)
+            if (selected_entry != null && entry.size == ((!) selected_entry).size)
                 size_combo.set_active_iter (iter);
         }
     }

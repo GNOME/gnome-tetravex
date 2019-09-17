@@ -45,31 +45,32 @@ private class PuzzleView : Gtk.DrawingArea
 
     /* Puzzle being rendered */
     private Puzzle? _puzzle = null;
+    [CCode (notify = false)] private bool puzzle_init_done { get { return _puzzle != null; }}
     [CCode (notify = false)] internal Puzzle puzzle
     {
-        private get { return _puzzle; }
+        private get { if (!puzzle_init_done) assert_not_reached (); return (!) _puzzle; }
         internal set
         {
-            if (_puzzle != null)
-                SignalHandler.disconnect_by_func (_puzzle, null, this);
+            if (puzzle_init_done)
+                SignalHandler.disconnect_by_func ((!) _puzzle, null, this);
 
             _puzzle = value;
             tiles.remove_all ();
-            for (uint8 y = 0; y < puzzle.size; y++)
+            for (uint8 y = 0; y < ((!) _puzzle).size; y++)
             {
-                for (uint8 x = 0; x < puzzle.size * 2; x++)
+                for (uint8 x = 0; x < ((!) _puzzle).size * 2; x++)
                 {
-                    Tile? tile = puzzle.get_tile (x, y);
+                    Tile? tile = ((!) _puzzle).get_tile (x, y);
                     if (tile == null)
                         continue;
 
-                    TileImage image = new TileImage (tile);
+                    TileImage image = new TileImage ((!) tile);
                     move_tile_to_location (image, x, y);
-                    tiles.insert (tile, image);
+                    tiles.insert ((!) tile, image);
                 }
             }
-            _puzzle.tile_moved.connect (tile_moved_cb);
-            _puzzle.notify ["paused"].connect (() => { queue_draw (); });
+            ((!) _puzzle).tile_moved.connect (tile_moved_cb);
+            ((!) _puzzle).notify ["paused"].connect (() => { queue_draw (); });
             queue_resize ();
         }
     }
@@ -222,7 +223,7 @@ private class PuzzleView : Gtk.DrawingArea
     protected override void get_preferred_width (out int minimum, out int natural)
     {
         int size = 0;
-        if (puzzle != null)
+        if (puzzle_init_done)
             size = (int) ((puzzle.size * 2 + 1.5) * minimum_size);
         minimum = natural = int.max (size, 500);
     }
@@ -230,7 +231,7 @@ private class PuzzleView : Gtk.DrawingArea
     protected override void get_preferred_height (out int minimum, out int natural)
     {
         int size = 0;
-        if (puzzle != null)
+        if (puzzle_init_done)
             size = (int) ((puzzle.size + 1) * minimum_size);
         minimum = natural = int.max (size, 300);
     }
@@ -273,7 +274,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     protected override bool draw (Cairo.Context context)
     {
-        if (puzzle == null)
+        if (!puzzle_init_done)
             return false;
 
         uint x_offset, y_offset, size, gap;
@@ -312,7 +313,9 @@ private class PuzzleView : Gtk.DrawingArea
             if (!iter.next (out tile, out image))
                 break;
 
-            if (image == selected_tile || image.x != image.target_x || image.y != image.target_y)
+            if ((selected_tile != null && image == (!) selected_tile)
+             || (image.x != image.target_x)
+             || (image.y != image.target_y))
                 continue;
 
             context.save ();
@@ -333,7 +336,9 @@ private class PuzzleView : Gtk.DrawingArea
             if (!iter.next (out tile, out image))
                 break;
 
-            if (image != selected_tile && image.x == image.target_x && image.y == image.target_y)
+            if ((selected_tile != null && image != (!) selected_tile)
+             && (image.x == image.target_x)
+             && (image.y == image.target_y))
                 continue;
 
             context.save ();
@@ -442,16 +447,16 @@ private class PuzzleView : Gtk.DrawingArea
 
         /* Drop the tile here, or move it back if can't */
         uint8 selected_x, selected_y;
-        puzzle.get_tile_location (selected_tile.tile, out selected_x, out selected_y);
+        puzzle.get_tile_location (((!) selected_tile).tile, out selected_x, out selected_y);
         if (puzzle.can_switch (selected_x, selected_y, (uint8) tile_x, (uint8) tile_y))
             puzzle.switch_tiles (selected_x, selected_y, (uint8) tile_x, (uint8) tile_y);
         else
-            move_tile_to_location (selected_tile, selected_x, selected_y, 0.2);
+            move_tile_to_location ((!) selected_tile, selected_x, selected_y, 0.2);
         selected_tile = null;
         tile_selected (false);
     }
 
-    private void move_tile_to_right_half (TileImage image)
+    private void move_tile_to_right_half (Tile tile)
     {
         /* Pick the first open spot on the right side of the board */
         for (uint8 y = 0; y < puzzle.size; y++)
@@ -461,7 +466,7 @@ private class PuzzleView : Gtk.DrawingArea
                 if (puzzle.get_tile (x, y) == null)
                 {
                     uint8 source_x, source_y;
-                    puzzle.get_tile_location (image.tile, out source_x, out source_y);
+                    puzzle.get_tile_location (tile, out source_x, out source_y);
                     puzzle.switch_tiles (source_x, source_y, x, y);
                     return;
                 }
@@ -481,15 +486,15 @@ private class PuzzleView : Gtk.DrawingArea
             {
                 if (selected_tile == null)
                     pick_tile (event.x, event.y);
-                else if (selected_tile != null)
+                else
                     drop_tile (event.x, event.y);
             }
             else if (event.type == Gdk.EventType.DOUBLE_BUTTON_PRESS)
             {
                 /* Move tile from left to right on double click */
                 pick_tile (event.x, event.y);
-                if (selected_tile != null && !on_right_half (selected_tile.x))
-                    move_tile_to_right_half (selected_tile);
+                if (selected_tile != null && !on_right_half (((!) selected_tile).x))
+                    move_tile_to_right_half (((!) selected_tile).tile);
                 selected_tile = null;
                 tile_selected (false);
             }
@@ -516,7 +521,7 @@ private class PuzzleView : Gtk.DrawingArea
     protected override bool motion_notify_event (Gdk.EventMotion event)
     {
         if (selected_tile != null)
-            move_tile (selected_tile, (int) (event.x - selected_x_offset), (int) (event.y - selected_y_offset));
+            move_tile ((!) selected_tile, (int) (event.x - selected_x_offset), (int) (event.y - selected_y_offset));
 
         return false;
     }

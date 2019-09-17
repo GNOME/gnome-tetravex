@@ -137,7 +137,7 @@ private class Theme : Object
         draw_tile_background (context, size, paused_color, paused_color, paused_color, paused_color);
     }
 
-    internal void draw_tile (Cairo.Context context, uint size, Tile? tile)
+    internal void draw_tile (Cairo.Context context, uint size, Tile tile)
     {
         draw_tile_background (context, size, tile_colors [tile.north], tile_colors [tile.east], tile_colors [tile.south], tile_colors [tile.west]);
 

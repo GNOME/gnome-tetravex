@@ -57,7 +57,7 @@ private class History : Object
 
             // FIXME use try_parse
 
-            add (new HistoryEntry (date, size, duration));
+            add (new HistoryEntry ((!) date, size, duration));
         }
     }
 

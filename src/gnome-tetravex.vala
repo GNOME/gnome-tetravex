@@ -13,6 +13,9 @@ using Gtk;
 
 private class Tetravex : Gtk.Application
 {
+    /* Translators: that is the name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog */
+    private const string PROGRAM_NAME = _("Tetravex");
+
     private const string KEY_GRID_SIZE = "grid-size";
 
     private static bool start_paused = false;
@@ -21,6 +24,7 @@ private class Tetravex : Gtk.Application
     private GLib.Settings settings;
 
     private Puzzle puzzle;
+    private bool puzzle_init_done = false;
     private Label clock_label;
     private History history;
 
@@ -38,12 +42,12 @@ private class Tetravex : Gtk.Application
     private SimpleAction pause_action;
     private SimpleAction solve_action;
 
-    private const OptionEntry[] option_entries =
+    private const OptionEntry [] option_entries =
     {
         { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null },
         { "paused", 'p', 0, OptionArg.NONE, null, N_("Start the game paused"), null },
         { "size", 's', 0, OptionArg.INT, null, N_("Set size of board (2-6)"), null },
-        { null }
+        {}
     };
 
     private const GLib.ActionEntry[] action_entries =
@@ -84,7 +88,7 @@ private class Tetravex : Gtk.Application
     {
         base.startup ();
 
-        Environment.set_application_name (_("Tetravex"));
+        Environment.set_application_name (PROGRAM_NAME);
         Window.set_default_icon_name ("org.gnome.Tetravex");
 
         add_action_entries (action_entries, this);
@@ -120,7 +124,7 @@ private class Tetravex : Gtk.Application
         ((SimpleAction) lookup_action ("size")).set_state ("%d".printf (game_size));
 
         HeaderBar headerbar = new HeaderBar ();
-        headerbar.title = _("Tetravex");
+        headerbar.title = PROGRAM_NAME;
         headerbar.show_close_button = true;
         window.set_titlebar (headerbar);
 
@@ -214,7 +218,9 @@ private class Tetravex : Gtk.Application
         pause_action = (SimpleAction) lookup_action ("pause");
         solve_action = (SimpleAction) lookup_action ("solve");
         view.tile_selected.connect ((/* bool */ selected) => {
-                if (puzzle == null || ((!) puzzle).is_solved)
+                if (!puzzle_init_done)
+                    return;
+                if (puzzle.is_solved)
                     return;
                 solve_action.set_enabled (!selected);
             });
@@ -289,11 +295,12 @@ private class Tetravex : Gtk.Application
         solve_action.set_enabled (true);
         new_game_solve_stack.set_visible_child_name ("solve");
 
-        if (puzzle != null)
+        if (puzzle_init_done)
             SignalHandler.disconnect_by_func (puzzle, null, this);
 
         int size = settings.get_int (KEY_GRID_SIZE);
         puzzle = new Puzzle ((uint8) size);
+        puzzle_init_done = true;
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
         view.puzzle = puzzle;
@@ -310,7 +317,7 @@ private class Tetravex : Gtk.Application
     private void tick_cb ()
     {
         int elapsed = 0;
-        if (puzzle != null)
+        if (puzzle_init_done)
             elapsed = (int) (puzzle.elapsed + 0.5);
         int hours = elapsed / 3600;
         int minutes = (elapsed - hours * 3600) / 60;
@@ -417,22 +424,48 @@ private class Tetravex : Gtk.Application
 
     private void about_cb ()
     {
-        string[] authors = { "Lars Rydlinge", "Robert Ancell", null };
-        string[] documenters = { "Rob Bradford", null };
+        string [] authors = {
+        /* Translators: text crediting a game author, seen in the About dialog */
+            _("Lars Rydlinge"),
+
+
+        /* Translators: text crediting a game author, seen in the About dialog */
+            _("Robert Ancell")
+        };
+
+        /* Translators: text crediting a game documenter, seen in the About dialog */
+        string [] documenters = { _("Rob Bradford") };
+
+
+        /* Translators: short description of the application, seen in the About dialog */
+        string comments = _("Position pieces so that the same numbers are touching each other");
+
+
+        /* Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end */
+        string copyright = _("Copyright \xc2\xa9 %u-%u – Lars Rydlinge").printf (1999, 2008) + "\n" +
+
+
+        /* Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end */
+                           _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2019, 2020);
+
+
+        /* Translators: about dialog text; label of the website link */
+        string website_label = _("Page on GNOME wiki");
+
         show_about_dialog (window,
-                           "program-name", _("Tetravex"),
-                           "version", VERSION,
-                           "comments",
-                           _("Position pieces so that the same numbers are touching each other"),
-                           "copyright",
-                           "Copyright © 1999–2008 Lars Rydlinge",
-                           "license-type", License.GPL_2_0,
-                           "wrap-license", true,
-                           "authors", authors,
-                           "documenters", documenters,
-                           "translator-credits", _("translator-credits"),
-                           "logo-icon-name", "org.gnome.Tetravex",
-                           "website", "https://wiki.gnome.org/Apps/Tetravex",
+                           "program-name",          PROGRAM_NAME,
+                           "version",               VERSION,
+                           "comments",              comments,
+                           "copyright",             copyright,
+                           "license-type",          License.GPL_2_0,
+                           "wrap-license",          true,
+                           "authors",               authors,
+                           "documenters",           documenters,
+        /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
+                           "translator-credits",    _("translator-credits"),
+                           "logo-icon-name",        "org.gnome.Tetravex",
+                           "website",               "https://wiki.gnome.org/Apps/Tetravex",
+                           "website-label",         website_label,
                            null);
     }
 

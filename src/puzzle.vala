@@ -30,7 +30,7 @@ private class Tile : Object
 private class Puzzle : Object
 {
     [CCode (notify = false)] public uint8 size { internal get; protected construct; }
-    private Tile [,] board;
+    private Tile? [,] board;
 
     /* Game timer */
     private double clock_elapsed;
@@ -43,7 +43,7 @@ private class Puzzle : Object
         {
             if (clock == null)
                 return 0.0;
-            return clock_elapsed + clock.elapsed ();
+            return clock_elapsed + ((!) clock).elapsed ();
         }
     }
 
@@ -95,7 +95,7 @@ private class Puzzle : Object
 
     construct
     {
-        board = new Tile [size * 2, size];
+        board = new Tile? [size * 2, size];
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
                 board [x, y] = new Tile (x, y);
@@ -107,9 +107,9 @@ private class Puzzle : Object
             {
                 uint8 n = (uint8) Random.int_range (0, 10);
                 if (y >= 1)
-                    board [x, y - 1].south = n;
+                    ((!) board [x, y - 1]).south = n;
                 if (y < size)
-                    board [x, y].north = n;
+                    ((!) board [x, y]).north = n;
             }
         }
         for (uint8 x = 0; x <= size; x++)
@@ -118,9 +118,9 @@ private class Puzzle : Object
             {
                 uint8 n = (uint8) Random.int_range (0, 10);
                 if (x >= 1)
-                    board [x - 1, y].east = n;
+                    ((!) board [x - 1, y]).east = n;
                 if (x < size)
-                    board [x, y].west = n;
+                    ((!) board [x, y]).west = n;
             }
         }
 
@@ -130,7 +130,7 @@ private class Puzzle : Object
         {
             for (uint8 y = 0; y < size; y++)
             {
-                tiles.append (board [x, y]);
+                tiles.append ((!) board [x, y]);
                 board [x, y] = null;
             }
         }
@@ -170,13 +170,13 @@ private class Puzzle : Object
         if (tile == null)
             return false;
 
-        if (x1 > 0 && !(x1 - 1 == x0 && y1 == y0) && board [x1 - 1, y1] != null && board [x1 - 1, y1].east != tile.west)
+        if (x1 > 0 && !(x1 - 1 == x0 && y1 == y0) && board [x1 - 1, y1] != null && ((!) board [x1 - 1, y1]).east != ((!) tile).west)
             return false;
-        if (x1 < size - 1 && !(x1 + 1 == x0 && y1 == y0) && board [x1 + 1, y1] != null && board [x1 + 1, y1].west != tile.east)
+        if (x1 < size - 1 && !(x1 + 1 == x0 && y1 == y0) && board [x1 + 1, y1] != null && ((!) board [x1 + 1, y1]).west != ((!) tile).east)
             return false;
-        if (y1 > 0 && !(x1 == x0 && y1 - 1 == y0) && board [x1, y1 - 1] != null && board [x1, y1 - 1].south != tile.north)
+        if (y1 > 0 && !(x1 == x0 && y1 - 1 == y0) && board [x1, y1 - 1] != null && ((!) board [x1, y1 - 1]).south != ((!) tile).north)
             return false;
-        if (y1 < size - 1 && !(x1 == x0 && y1 + 1 == y0) && board [x1, y1 + 1] != null && board [x1, y1 + 1].north != tile.south)
+        if (y1 < size - 1 && !(x1 == x0 && y1 + 1 == y0) && board [x1, y1 + 1] != null && ((!) board [x1, y1 + 1]).north != ((!) tile).south)
             return false;
 
         return true;
@@ -214,9 +214,9 @@ private class Puzzle : Object
         board [x1, y1] = t0;
 
         if (t0 != null)
-            tile_moved (t0, x1, y1);
+            tile_moved ((!) t0, x1, y1);
         if (t1 != null)
-            tile_moved (t1, x0, y0);
+            tile_moved ((!) t1, x0, y0);
 
         if (is_solved)
         {
@@ -303,14 +303,14 @@ private class Puzzle : Object
 
     internal void solve ()
     {
-        List<Tile> wrong_tiles = null;
+        List<Tile> wrong_tiles = new List<Tile> ();
         for (uint8 x = 0; x < size * 2; x++)
         {
             for (uint8 y = 0; y < size; y++)
             {
                 Tile? tile = board [x, y];
-                if (tile != null && (tile.x != x || tile.y != y))
-                    wrong_tiles.append (tile);
+                if (tile != null && (((!) tile).x != x || ((!) tile).y != y))
+                    wrong_tiles.append ((!) tile);
                 board [x, y] = null;
             }
         }
@@ -342,7 +342,7 @@ private class Puzzle : Object
         if (clock_timeout != 0)
             Source.remove (clock_timeout);
         clock_timeout = 0;
-        clock.stop ();
+        ((!) clock).stop ();
         tick ();
     }
 
@@ -351,14 +351,15 @@ private class Puzzle : Object
         if (clock == null)
             clock = new Timer ();
         else
-            clock.@continue ();
+            ((!) clock).@continue ();
         timeout_cb ();
     }
 
     private bool timeout_cb ()
+        requires (clock != null)
     {
         /* Notify on the next tick */
-        double elapsed = clock.elapsed ();
+        double elapsed = ((!) clock).elapsed ();
         int next = (int) (elapsed + 1.0);
         double wait = (double) next - elapsed;
         clock_timeout = Timeout.add ((int) (wait * 1000), timeout_cb);
