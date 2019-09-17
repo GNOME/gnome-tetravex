@@ -359,6 +359,7 @@ private class PuzzleView : Gtk.DrawingArea
             context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
             context.set_font_size (get_allocated_width () * 0.125);
 
+            /* Translators: text that appears as an overlay on the board when the game is paused */
             var text = _("Paused");
             Cairo.TextExtents extents;
             context.text_extents (text, out extents);

@@ -26,10 +26,15 @@ private class ScoreDialog : Gtk.Dialog
 
         if (show_quit)
         {
+            /* Translators: label of a button of the Scores dialog, is it is displayed at the end of a game; quits the application */
             add_button (_("Quit"), Gtk.ResponseType.CLOSE);
+
+
+            /* Translators: label of a button of the Scores dialog, is it is displayed at the end of a game; starts a new game */
             add_button (_("New Game"), Gtk.ResponseType.OK);
         }
         else
+            /* Translators: label of a button of the Scores dialog, is it is displayed when called from the hamburger menu; closes the dialog */
             add_button (_("OK"), Gtk.ResponseType.DELETE_EVENT);
         set_size_request (200, 300);
 
@@ -42,6 +47,7 @@ private class ScoreDialog : Gtk.Dialog
         hbox.show ();
         vbox.pack_start (hbox, false, false, 0);
 
+        /* Translators: in the Scores dialog, label introducing the combobox that allows showing scores for various sizes */
         var label = new Gtk.Label (_("Size:"));
         label.show ();
         hbox.pack_start (label, false, false, 0);
@@ -67,9 +73,11 @@ private class ScoreDialog : Gtk.Dialog
 
         scores = new Gtk.TreeView ();
         renderer = new Gtk.CellRendererText ();
+        /* Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played */
         scores.insert_column_with_attributes (-1, _("Date"), renderer, "text", 0, "weight", 2);
         renderer = new Gtk.CellRendererText ();
         renderer.xalign = 1.0f;
+        /* Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games */
         scores.insert_column_with_attributes (-1, _("Time"), renderer, "text", 1, "weight", 2);
         scores.model = score_model;
         scores.show ();

@@ -13,6 +13,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;N</property>
+                <!-- Translators: Ctrl-N shortcut description in the Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Start a new game</property>
               </object>
             </child>
@@ -20,6 +21,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;P Pause</property>
+                <!-- Translators: Ctrl-P shortcut description in the Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Pause the game</property>
               </object>
             </child>
@@ -27,6 +29,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Up</property>
+                <!-- Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left box up by one</property>
               </object>
             </child>
@@ -34,6 +37,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Down</property>
+                <!-- Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left box down by one</property>
               </object>
             </child>
@@ -41,6 +45,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Left</property>
+                <!-- Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left box left by one</property>
               </object>
             </child>
@@ -48,6 +53,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Right</property>
+                <!-- Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left box right by one</property>
               </object>
             </child>
@@ -55,13 +61,15 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">F1</property>
+                <!-- Translators: F1 shortcut description in the Keyboard Shortcuts dialog; shows application help -->
                 <property name="title" translatable="yes" context="shortcut window">Show Help</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
-                <property name="accelerator">&lt;Primary&gt;question &lt;Primary&gt;F1</property>
+                <property name="accelerator">&lt;Primary&gt;question</property>
+                <!-- Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog; displays Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Show Keyboard Shortcuts</property>
               </object>
             </child>
@@ -69,6 +77,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Q</property>
+                <!-- Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog; quits the application -->
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
               </object>
             </child>

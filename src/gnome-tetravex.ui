@@ -4,6 +4,7 @@
   <!-- interface-requires gtk+ 3.10 -->
   <object class="GtkApplicationWindow" id="gnome-tetravex-window">
     <property name="can_focus">False</property>
+    <!-- Translators: application name, as seen in GNOME Shell -->
     <property name="title" translatable="yes">Tetravex</property>
     <property name="icon-name">org.gnome.Tetravex</property>
     <child>
