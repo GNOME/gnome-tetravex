@@ -95,6 +95,13 @@ private class Puzzle : Object
 
     construct
     {
+        do { init_board (size, out board); }
+        while (solved_on_right ());
+
+        start_clock ();
+    }
+    private static inline void init_board (uint8 size, out Tile? [,] board)
+    {
         board = new Tile? [size * 2, size];
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
@@ -136,18 +143,40 @@ private class Puzzle : Object
         }
 
         /* ...and place then randomly on the right hand side */
+        int32 length = (int32) tiles.length ();
         for (uint8 x = 0; x < size; x++)
         {
             for (uint8 y = 0; y < size; y++)
             {
-                int32 n = Random.int_range (0, (int32) tiles.length ());
+                int32 n = Random.int_range (0, length);
                 Tile tile = tiles.nth_data ((uint) n);
                 board [x + size, y] = tile;
                 tiles.remove (tile);
+                length--;
             }
         }
+    }
+    private inline bool solved_on_right ()
+    {
+        for (uint8 x = size; x < 2 * size; x++)
+        {
+            for (uint8 y = 0; y < size; y++)
+            {
+                Tile? tile = board [x, y];
+                if (tile == null)
+                    return false;
 
-        start_clock ();
+                if (x > 0        && board [x - 1, y] != null && ((!) board [x - 1, y]).east  != ((!) tile).west)
+                    return false;
+                if (x < size - 1 && board [x + 1, y] != null && ((!) board [x + 1, y]).west  != ((!) tile).east)
+                    return false;
+                if (y > 0        && board [x, y - 1] != null && ((!) board [x, y - 1]).south != ((!) tile).north)
+                    return false;
+                if (y < size - 1 && board [x, y + 1] != null && ((!) board [x, y + 1]).north != ((!) tile).south)
+                    return false;
+            }
+        }
+        return true;
     }
 
     internal Tile? get_tile (uint8 x, uint8 y)
