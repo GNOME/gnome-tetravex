@@ -9,37 +9,37 @@
  * license.
  */
 
-private class TileImage : Object
-{
-    /* Tile being moved */
-    internal Tile tile;
-
-    /* Location of tile */
-    internal double x;
-    internal double y;
-
-    /* Co-ordinates to move from */
-    internal double source_x;
-    internal double source_y;
-
-    /* Time started moving */
-    internal double source_time;
-
-    /* Co-ordinates to target for */
-    internal double target_x;
-    internal double target_y;
-
-    /* Duration of movement */
-    internal double duration;
-
-    internal TileImage (Tile tile)
-    {
-        this.tile = tile;
-    }
-}
-
 private class PuzzleView : Gtk.DrawingArea
 {
+    private class TileImage : Object
+    {
+        /* Tile being moved */
+        internal Tile tile;
+
+        /* Location of tile */
+        internal double x;
+        internal double y;
+
+        /* Co-ordinates to move from */
+        internal double source_x;
+        internal double source_y;
+
+        /* Time started moving */
+        internal double source_time;
+
+        /* Co-ordinates to target for */
+        internal double target_x;
+        internal double target_y;
+
+        /* Duration of movement */
+        internal double duration;
+
+        internal TileImage (Tile tile)
+        {
+            this.tile = tile;
+        }
+    }
+
     /* Minimum size of a tile */
     private const int minimum_size = 80;
 
