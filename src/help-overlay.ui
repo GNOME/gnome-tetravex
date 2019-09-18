@@ -6,9 +6,12 @@
     <child>
       <object class="GtkShortcutsSection">
         <property name="visible">1</property>
+        <property name="max-height">5</property>
         <child>
           <object class="GtkShortcutsGroup">
             <property name="visible">1</property>
+            <!-- Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"... -->
+            <property name="title" translatable="yes" context="shortcut window">Main functions</property>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
@@ -25,6 +28,68 @@
                 <property name="title" translatable="yes" context="shortcut window">Pause the game</property>
               </object>
             </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;Ctrl&gt;H</property>
+                <!-- Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog -->
+                <property name="title" translatable="yes" context="shortcut window">Solve the game</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;Ctrl&gt;I</property>
+                <!-- Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog -->
+                <property name="title" translatable="yes" context="shortcut window">Show scores</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="visible">1</property>
+            <!-- Translators: title of a section in the Keyboard Shortcuts dialog; contains "Show Help", "Show Keyboard Shortcuts", "Quit"... -->
+            <property name="title" translatable="yes" context="shortcut window">Generic</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;Primary&gt;question &lt;Primary&gt;F1</property>
+                <!-- Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog; displays Keyboard Shortcuts dialog -->
+                <property name="title" translatable="yes" context="shortcut window">Show Keyboard Shortcuts</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">F1</property>
+                <!-- Translators: F1 shortcut description in the Keyboard Shortcuts dialog; shows application help -->
+                <property name="title" translatable="yes" context="shortcut window">Show Help</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;Shift&gt;F1</property>
+                <!-- Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog; shows About dialog -->
+                <property name="title" translatable="yes" context="shortcut window">Show About</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;Ctrl&gt;Q</property>
+                <!-- Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog; quits the application -->
+                <property name="title" translatable="yes" context="shortcut window">Quit</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="visible">1</property>
+            <!-- Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note... -->
+            <property name="title" translatable="yes" context="shortcut window">Advanced gameplay</property>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
@@ -55,30 +120,6 @@
                 <property name="accelerator">&lt;Ctrl&gt;Right</property>
                 <!-- Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left box right by one</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
-                <property name="accelerator">F1</property>
-                <!-- Translators: F1 shortcut description in the Keyboard Shortcuts dialog; shows application help -->
-                <property name="title" translatable="yes" context="shortcut window">Show Help</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
-                <property name="accelerator">&lt;Primary&gt;question</property>
-                <!-- Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog; displays Keyboard Shortcuts dialog -->
-                <property name="title" translatable="yes" context="shortcut window">Show Keyboard Shortcuts</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
-                <property name="accelerator">&lt;Ctrl&gt;Q</property>
-                <!-- Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog; quits the application -->
-                <property name="title" translatable="yes" context="shortcut window">Quit</property>
               </object>
             </child>
           </object>

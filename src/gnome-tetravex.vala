@@ -97,15 +97,17 @@ private class Tetravex : Gtk.Application
         Window.set_default_icon_name ("org.gnome.Tetravex");
 
         add_action_entries (action_entries, this);
+        set_accels_for_action ("app.solve",         {"<Primary>h"       });
+        set_accels_for_action ("app.scores",        {"<Primary>i"       });
         set_accels_for_action ("app.new-game",      {"<Primary>n"       });
         set_accels_for_action ("app.pause",         {"<Primary>p",
                                                               "Pause"   });
-        set_accels_for_action ("app.help",          {         "F1"      });
         set_accels_for_action ("app.quit",          {"<Primary>q"       });
         set_accels_for_action ("app.move-up",       {"<Primary>Up"      });
         set_accels_for_action ("app.move-down",     {"<Primary>Down"    });
         set_accels_for_action ("app.move-left",     {"<Primary>Left"    });
         set_accels_for_action ("app.move-right",    {"<Primary>Right"   });
+        // F1 and friends are managed manually
 
         Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
 
@@ -115,6 +117,7 @@ private class Tetravex : Gtk.Application
 
         window = (ApplicationWindow) builder.get_object ("gnome-tetravex-window");
         this.add_window (window);
+        window.key_press_event.connect (on_key_press_event);
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
@@ -428,6 +431,87 @@ private class Tetravex : Gtk.Application
         }
     }
 
+    private void size_changed (SimpleAction action, Variant variant)
+    {
+        int size = ((string) variant)[0] - '0'; // FIXME that... is... horrible
+
+        if (size == settings.get_int (KEY_GRID_SIZE))
+            return;
+        if (view.game_in_progress)
+        {
+            MessageDialog dialog = new MessageDialog (window,
+                                                      DialogFlags.MODAL,
+                                                      MessageType.QUESTION,
+                                                      ButtonsType.NONE,
+        /* Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game" */
+                                                      _("Are you sure you want to start a new game with a different board size?"));
+
+        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Start New Game" */
+            dialog.add_buttons (_("_Keep Playing"),   ResponseType.REJECT,
+
+        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing" */
+                                _("_Start New Game"), ResponseType.ACCEPT,
+                                null);
+
+            int response = dialog.run ();
+            dialog.destroy ();
+
+            if (response != ResponseType.ACCEPT)
+                return;
+        }
+        settings.set_int (KEY_GRID_SIZE, size);
+        game_size = (int) size;
+        action.set_state (variant);
+        new_game ();
+    }
+
+    private void move_up ()     { puzzle.move_up ();    }
+    private void move_down ()   { puzzle.move_down ();  }
+    private void move_left ()   { puzzle.move_left ();  }
+    private void move_right ()  { puzzle.move_right (); }
+
+    private void pause_cb (SimpleAction action, Variant? parameter)
+    {
+        puzzle.paused = !puzzle.paused;
+        update_button_states ();
+    }
+
+    private void update_button_states ()
+    {
+        solve_action.set_enabled (!puzzle.paused);
+        play_pause_stack.set_visible_child_name (puzzle.paused ? "play" : "pause");
+    }
+
+    private void radio_cb (SimpleAction action, Variant? parameter)
+    {
+        action.change_state (parameter);
+    }
+
+    /*\
+    * * help/about
+    \*/
+
+    private bool on_key_press_event (Widget widget, Gdk.EventKey event)
+    {
+        string name = (!) (Gdk.keyval_name (event.keyval) ?? "");
+
+        if (name == "F1") // TODO fix dance done with the F1 & <Primary>F1 shortcuts that show help overlay
+        {
+            // TODO close popovers
+            if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0)
+                return false;                           // help overlay
+            if ((event.state & Gdk.ModifierType.SHIFT_MASK) == 0)
+            {
+                help_cb ();
+                return true;
+            }
+            about_cb ();
+            return true;
+        }
+
+        return false;
+    }
+
     private void help_cb ()
     {
         try
@@ -485,61 +569,5 @@ private class Tetravex : Gtk.Application
                            "website",               "https://wiki.gnome.org/Apps/Tetravex",
                            "website-label",         website_label,
                            null);
-    }
-
-    private void size_changed (SimpleAction action, Variant variant)
-    {
-        int size = ((string) variant)[0] - '0'; // FIXME that... is... horrible
-
-        if (size == settings.get_int (KEY_GRID_SIZE))
-            return;
-        if (view.game_in_progress)
-        {
-            MessageDialog dialog = new MessageDialog (window,
-                                                      DialogFlags.MODAL,
-                                                      MessageType.QUESTION,
-                                                      ButtonsType.NONE,
-        /* Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game" */
-                                                      _("Are you sure you want to start a new game with a different board size?"));
-
-        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Start New Game" */
-            dialog.add_buttons (_("_Keep Playing"),   ResponseType.REJECT,
-
-        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing" */
-                                _("_Start New Game"), ResponseType.ACCEPT,
-                                null);
-
-            int response = dialog.run ();
-            dialog.destroy ();
-
-            if (response != ResponseType.ACCEPT)
-                return;
-        }
-        settings.set_int (KEY_GRID_SIZE, size);
-        game_size = (int) size;
-        action.set_state (variant);
-        new_game ();
-    }
-
-    private void move_up ()     { puzzle.move_up ();    }
-    private void move_down ()   { puzzle.move_down ();  }
-    private void move_left ()   { puzzle.move_left ();  }
-    private void move_right ()  { puzzle.move_right (); }
-
-    private void pause_cb (SimpleAction action, Variant? parameter)
-    {
-        puzzle.paused = !puzzle.paused;
-        update_button_states ();
-    }
-
-    private void update_button_states ()
-    {
-        solve_action.set_enabled (!puzzle.paused);
-        play_pause_stack.set_visible_child_name (puzzle.paused ? "play" : "pause");
-    }
-
-    private void radio_cb (SimpleAction action, Variant? parameter)
-    {
-        action.change_state (parameter);
     }
 }
