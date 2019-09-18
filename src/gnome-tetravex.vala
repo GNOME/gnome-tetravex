@@ -312,6 +312,7 @@ private class Tetravex : Gtk.Application
         puzzle_init_done = true;
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
+        puzzle.show_end_game.connect (show_end_game_cb);
         view.puzzle = puzzle;
         tick_cb ();
 
@@ -339,14 +340,17 @@ private class Tetravex : Gtk.Application
 
     private void solved_cb (Puzzle puzzle)
     {
+        pause_action.set_enabled (false);
+        solve_action.set_enabled (false);
+    }
+
+    private void show_end_game_cb (Puzzle puzzle)
+    {
         DateTime date = new DateTime.now_local ();
         uint duration = (uint) (puzzle.elapsed + 0.5);
         HistoryEntry entry = new HistoryEntry (date, puzzle.size, duration);
         history.add (entry);
         history.save ();
-
-        pause_action.set_enabled (false);
-        solve_action.set_enabled (false);
 
         int score_dialog_action = show_scores (entry, true);
         if (score_dialog_action == ResponseType.CLOSE)

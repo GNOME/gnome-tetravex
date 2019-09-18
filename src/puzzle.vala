@@ -66,6 +66,7 @@ private class Puzzle : Object
 
     internal signal void tile_moved (Tile tile, uint8 x, uint8 y);
     internal signal void solved ();
+    internal signal void show_end_game ();
     internal signal void tick ();
 
     [CCode (notify = false)] internal bool is_solved
@@ -232,7 +233,8 @@ private class Puzzle : Object
         return true;
     }
 
-    internal void switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
+    private uint timeout_id = 0;
+    internal void switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished = 0)
     {
         if (x0 == x1 && y0 == y1)
             return;
@@ -251,6 +253,14 @@ private class Puzzle : Object
         {
             stop_clock ();
             solved ();
+            if (delay_if_finished == 0)
+                show_end_game ();
+            else if (timeout_id == 0)
+                timeout_id = Timeout.add (delay_if_finished, () => {
+                        show_end_game ();
+                        timeout_id = 0;
+                        return Source.REMOVE;
+                    });
         }
     }
 
