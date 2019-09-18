@@ -428,7 +428,7 @@ private class PuzzleView : Gtk.DrawingArea
 
         /* Select from the middle of the tile */
         x += size * 0.5 - selected_x_offset;
-        y += size * 0.5 - selected_x_offset;
+        y += size * 0.5 - selected_y_offset;
 
         int16 tile_y = (int16) Math.floor ((y - y_offset) / size);
         tile_y = tile_y.clamp (0, (int16) puzzle.size - 1);
