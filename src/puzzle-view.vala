@@ -55,6 +55,7 @@ private class PuzzleView : Gtk.DrawingArea
                 SignalHandler.disconnect_by_func ((!) _puzzle, null, this);
 
             _puzzle = value;
+            last_selected_tile = null;
             tiles.remove_all ();
             for (uint8 y = 0; y < ((!) _puzzle).size; y++)
             {
