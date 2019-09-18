@@ -3,20 +3,31 @@
     <key name="grid-size" type="i">
       <default>3</default>
       <range min="2" max="6" />
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size' -->
       <summary>The size of the playing grid</summary>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size' -->
       <description>The value of this key is used to decide the size of the playing grid.</description>
     </key>
     <key name="window-width" type="i">
       <default>600</default>
-      <summary>Width of the window in pixels</summary>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width' -->
+      <summary>The width of the window</summary>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width' -->
+      <description>The width of the main window in pixels.</description>
     </key>
     <key name="window-height" type="i">
       <default>400</default>
-      <summary>Height of the window in pixels</summary>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height' -->
+      <summary>The height of the window</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height' -->
+      <description>The height of the main window in pixels.</description>
     </key>
     <key name="window-is-maximized" type="b">
       <default>false</default>
-      <summary>true if the window is maximized</summary>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized' -->
+      <summary>A flag to enable maximized mode</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized' -->
+      <description>If “true”, the main window starts in maximized mode.</description>
     </key>
   </schema>
 </schemalist>

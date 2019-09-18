@@ -408,6 +408,7 @@ private class Tetravex : Gtk.Application
         /* Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up" */
                                                   _("Are you sure you want to give up and view the solution?"));
 
+
         /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up" */
         dialog.add_buttons (_("_Keep Playing"), ResponseType.REJECT,
 
