@@ -306,7 +306,8 @@ private class PuzzleView : Gtk.DrawingArea
             }
         }
 
-        /* Draw stationary tiles */
+        /* Draw tiles */
+        SList<TileImage> moving_tiles = new SList<TileImage> ();
         HashTableIter<Tile, TileImage> iter = HashTableIter<Tile, TileImage> (tiles);
         while (true)
         {
@@ -318,57 +319,20 @@ private class PuzzleView : Gtk.DrawingArea
             if ((selected_tile != null && image == (!) selected_tile)
              || (image.x != image.target_x)
              || (image.y != image.target_y))
+            {
+                moving_tiles.prepend (image);
                 continue;
+            }
 
-            context.save ();
-            context.translate ((int) (image.x + 0.5), (int) (image.y + 0.5));
-            if (puzzle.paused)
-                theme.draw_paused_tile (context, size);
-            else
-                theme.draw_tile (context, size, tile);
-            context.restore ();
+            draw_image (context, image, size);
         }
 
-        /* Draw moving tiles */
-        iter = HashTableIter<Tile, TileImage> (tiles);
-        while (true)
-        {
-            Tile tile;
-            TileImage image;
-            if (!iter.next (out tile, out image))
-                break;
-
-            if ((selected_tile != null && image != (!) selected_tile)
-             && (image.x == image.target_x)
-             && (image.y == image.target_y))
-                continue;
-
-            if ((selected_tile == null)
-             && (image.x == image.target_x)
-             && (image.y == image.target_y))
-                continue;
-
-            context.save ();
-            context.translate ((int) (image.x + 0.5), (int) (image.y + 0.5));
-            if (puzzle.paused)
-                theme.draw_paused_tile (context, size);
-            else
-                theme.draw_tile (context, size, tile);
-            context.restore ();
-        }
+        foreach (unowned TileImage image in moving_tiles)
+            draw_image (context, image, size);
 
         /* Redraw last selected tile, fixing problem when interverting multiple times two contiguous tiles */
-        if ((selected_tile == null)
-         && (last_selected_tile != null))
-        {
-            context.save ();
-            context.translate ((int) (((!) last_selected_tile).x + 0.5), (int) (((!) last_selected_tile).y + 0.5));
-            if (puzzle.paused)
-                theme.draw_paused_tile (context, size);
-            else
-                theme.draw_tile (context, size, ((!) last_selected_tile).tile);
-            context.restore ();
-        }
+        if (selected_tile == null && last_selected_tile != null)
+            draw_image (context, (!) last_selected_tile, size);
 
         /* Draw pause overlay */
         if (puzzle.paused)
@@ -389,6 +353,16 @@ private class PuzzleView : Gtk.DrawingArea
         }
 
         return false;
+    }
+    private inline void draw_image (Cairo.Context context, TileImage image, uint size)
+    {
+        context.save ();
+        context.translate ((int) (image.x + 0.5), (int) (image.y + 0.5));
+        if (puzzle.paused)
+            theme.draw_paused_tile (context, size);
+        else
+            theme.draw_tile (context, size, image.tile);
+        context.restore ();
     }
 
     private void pick_tile (double x, double y)
