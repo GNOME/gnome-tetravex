@@ -80,6 +80,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     /* Tile being controlled by the mouse */
     private TileImage? selected_tile = null;
+    private TileImage? last_selected_tile = null;
     internal signal void tile_selected (bool selected);
 
     /* Timeout to detect if a click is a selection or a drag */
@@ -355,6 +356,19 @@ private class PuzzleView : Gtk.DrawingArea
             context.restore ();
         }
 
+        /* Redraw last selected tile, fixing problem when interverting multiple times two contiguous tiles */
+        if ((selected_tile == null)
+         && (last_selected_tile != null))
+        {
+            context.save ();
+            context.translate ((int) (((!) last_selected_tile).x + 0.5), (int) (((!) last_selected_tile).y + 0.5));
+            if (puzzle.paused)
+                theme.draw_paused_tile (context, size);
+            else
+                theme.draw_tile (context, size, ((!) last_selected_tile).tile);
+            context.restore ();
+        }
+
         /* Draw pause overlay */
         if (puzzle.paused)
         {
@@ -398,6 +412,7 @@ private class PuzzleView : Gtk.DrawingArea
             if (x >= image.x && x <= image.x + size && y >= image.y && y <= image.y + size)
             {
                 selected_tile = image;
+                last_selected_tile = image;
                 tile_selected (true);
                 selected_x_offset = x - image.x;
                 selected_y_offset = y - image.y;
