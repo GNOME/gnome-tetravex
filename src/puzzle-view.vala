@@ -341,6 +341,11 @@ private class PuzzleView : Gtk.DrawingArea
              && (image.y == image.target_y))
                 continue;
 
+            if ((selected_tile == null)
+             && (image.x == image.target_x)
+             && (image.y == image.target_y))
+                continue;
+
             context.save ();
             context.translate ((int) (image.x + 0.5), (int) (image.y + 0.5));
             if (puzzle.paused)
