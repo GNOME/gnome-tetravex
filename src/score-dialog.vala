@@ -103,6 +103,7 @@ private class ScoreDialog : Dialog
             if (entry.size != size)
                 continue;
 
+            /* "the preferred date representation for the current locale without the time" */
             string date_label = entry.date.format ("%x");
 
             string time_label;

@@ -17,22 +17,25 @@ private class PuzzleView : Gtk.DrawingArea
         internal Tile tile;
 
         /* Location of tile */
-        internal double x;
-        internal double y;
+        internal double x = 0.0;
+        internal double y = 0.0;
 
         /* Co-ordinates to move from */
-        internal double source_x;
-        internal double source_y;
+        internal double source_x = 0.0;
+        internal double source_y = 0.0;
 
         /* Time started moving */
-        internal double source_time;
+        internal double source_time = 0.0;
 
         /* Co-ordinates to target for */
-        internal double target_x;
-        internal double target_y;
+        internal double target_x = 0.0;
+        internal double target_y = 0.0;
 
         /* Duration of movement */
-        internal double duration;
+        internal double duration = 0.0;
+
+        /* Whether the tile follows exactly cursor or nuns after it */
+        internal bool snap_to_cursor = true;
 
         internal TileImage (Tile tile)
         {
@@ -45,6 +48,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     /* Animations duration */
     private const double animation_duration = 0.25;
+    private const double half_animation_duration = 0.15;
 
     /* Puzzle being rendered */
     private Puzzle? _puzzle = null;
@@ -113,13 +117,18 @@ private class PuzzleView : Gtk.DrawingArea
     private double arrow_y = 0.0;
     private double [,] sockets_xs;
     private double [,] sockets_ys;
+    private int board_x_maxi = 0;
+    private int board_y_maxi = 0;
+    private double snap_distance = 0.0;
 
     construct
     {
         set_events (Gdk.EventMask.EXPOSURE_MASK
                   | Gdk.EventMask.BUTTON_PRESS_MASK
                   | Gdk.EventMask.POINTER_MOTION_MASK
-                  | Gdk.EventMask.BUTTON_RELEASE_MASK);
+                  | Gdk.EventMask.BUTTON_RELEASE_MASK
+                  | Gdk.EventMask.ENTER_NOTIFY_MASK
+                  | Gdk.EventMask.LEAVE_NOTIFY_MASK);
 
         animation_timer.start ();
     }
@@ -178,6 +187,7 @@ private class PuzzleView : Gtk.DrawingArea
             redraw_tile (image);
             image.x = image.target_x;
             image.y = image.target_y;
+            image.snap_to_cursor = true;
             redraw_tile (image);
             return;
         }
@@ -221,6 +231,14 @@ private class PuzzleView : Gtk.DrawingArea
                 animating = true;
             }
 
+            if (!image.snap_to_cursor)
+            {
+                double distance = Math.sqrt (Math.pow (image.x - image.target_x, 2)
+                                           + Math.pow (image.y - image.target_y, 2));
+                if (distance < snap_distance)
+                    image.snap_to_cursor = true;
+            }
+
             /* Draw where the tile is */
             redraw_tile (image);
         }
@@ -258,13 +276,20 @@ private class PuzzleView : Gtk.DrawingArea
     {
         if (puzzle_init_done)
         {
+            int allocated_width  = get_allocated_width ();
+            int allocated_height = get_allocated_height ();
             /* Fit in with a half tile border and spacing between boards */
-            uint width  = (uint) (get_allocated_width ()  / (2 * puzzle.size + 1.5));
-            uint height = (uint) (get_allocated_height () / (puzzle.size + 1));
+            uint width  = (uint) (allocated_width  / (2 * puzzle.size + 1.5));
+            uint height = (uint) (allocated_height / (puzzle.size + 1));
             tilesize = uint.min (width, height);
             gap = tilesize / 2;
-            x_offset = (get_allocated_width () - 2 * puzzle.size * tilesize - gap) / 2;
-            y_offset = (get_allocated_height () - puzzle.size * tilesize) / 2;
+            x_offset = (allocated_width  - 2 * puzzle.size * tilesize - gap) / 2;
+            y_offset = (allocated_height -     puzzle.size * tilesize      ) / 2;
+
+            board_x_maxi = allocated_width  - (int) tilesize;
+            board_y_maxi = allocated_height - (int) tilesize;
+
+            snap_distance = (tilesize * puzzle.size) / 40.0;
 
             arrow_x = x_offset + puzzle.size * tilesize + gap * 0.25;
             arrow_y = y_offset + puzzle.size * tilesize * 0.5;
@@ -293,6 +318,8 @@ private class PuzzleView : Gtk.DrawingArea
             puzzle.get_tile_location (tile, out x, out y);
             move_tile_to_location (image, x, y);
         }
+        if (selected_tile != null)
+            ((!) selected_tile).snap_to_cursor = true;
         selected_tile = null;
         tile_selected (false);
 
@@ -456,6 +483,7 @@ private class PuzzleView : Gtk.DrawingArea
             puzzle.switch_tiles (selected_x, selected_y, (uint8) tile_x, (uint8) tile_y);
         else
             move_tile_to_location ((!) selected_tile, selected_x, selected_y, animation_duration);
+        ((!) selected_tile).snap_to_cursor = true;
         selected_tile = null;
         tile_selected (false);
     }
@@ -513,6 +541,7 @@ private class PuzzleView : Gtk.DrawingArea
                 }
                 else
                     move_tile_to_right_half (((!) selected_tile).tile);
+                ((!) selected_tile).snap_to_cursor = true;
                 selected_tile = null;
                 tile_selected (false);
             }
@@ -559,7 +588,37 @@ private class PuzzleView : Gtk.DrawingArea
     protected override bool motion_notify_event (Gdk.EventMotion event)
     {
         if (selected_tile != null)
-            move_tile ((!) selected_tile, (int) (event.x - selected_x_offset), (int) (event.y - selected_y_offset));
+        {
+            int new_x = ((int) (event.x - selected_x_offset)).clamp (0, board_x_maxi);
+            int new_y = ((int) (event.y - selected_y_offset)).clamp (0, board_y_maxi);
+
+            double duration;
+            if (((!) selected_tile).snap_to_cursor)
+                duration = 0.0;
+            else
+                duration = ((!) selected_tile).duration;
+
+            move_tile ((!) selected_tile, new_x, new_y, duration);
+        }
+
+        return false;
+    }
+
+    protected override bool leave_notify_event (Gdk.EventCrossing event)
+    {
+        if (selected_tile != null)
+            ((!) selected_tile).snap_to_cursor = false;
+
+        return false;
+    }
+
+    protected override bool enter_notify_event (Gdk.EventCrossing event)
+    {
+        if (selected_tile != null)
+        {
+            ((!) selected_tile).snap_to_cursor = false;
+            ((!) selected_tile).duration = half_animation_duration;
+        }
 
         return false;
     }
