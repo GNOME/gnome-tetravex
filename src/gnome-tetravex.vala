@@ -371,7 +371,7 @@ private class Tetravex : Gtk.Application
             return ResponseType.REJECT;
 
         scores_dialog_visible = true;
-        ScoreDialog dialog = new ScoreDialog (history, selected_entry, show_quit);
+        ScoreDialog dialog = new ScoreDialog (history, puzzle.size, selected_entry, show_quit);
         dialog.modal = true;
         dialog.transient_for = window;
 

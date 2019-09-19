@@ -20,7 +20,7 @@ private class ScoreDialog : Dialog
     private ComboBox size_combo;
     private TreeView scores;
 
-    internal ScoreDialog (History history, HistoryEntry? selected_entry = null, bool show_quit = false)
+    internal ScoreDialog (History history, uint8 size, HistoryEntry? selected_entry = null, bool show_quit = false)
     {
         this.history = history;
         history.entry_added.connect (entry_added_cb);
@@ -91,9 +91,13 @@ private class ScoreDialog : Dialog
         entries.sort (compare_entries);
         foreach (HistoryEntry entry in entries)
             entry_added_cb (entry);
+
+        TreeIter iter;
+        if (get_size_iter (size, out iter))
+            size_combo.set_active_iter (iter);
     }
 
-    internal void set_size (uint8 size)
+    private void set_size (uint8 size)
     {
         score_model.clear ();
 
@@ -169,22 +173,7 @@ private class ScoreDialog : Dialog
     {
         /* Ignore if already have an entry for this */
         TreeIter iter;
-        bool have_size_entry = false;
-        if (size_model.get_iter_first (out iter))
-        {
-            do
-            {
-                int size;
-                size_model.@get (iter, 1, out size, -1);
-                if (size == entry.size)
-                {
-                    have_size_entry = true;
-                    break;
-                }
-            } while (size_model.iter_next (ref iter));
-        }
-
-        if (!have_size_entry)
+        if (!get_size_iter (entry.size, out iter))
         {
             /* Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3" */
             string label = _("%u × %u").printf (entry.size, entry.size);
@@ -200,5 +189,21 @@ private class ScoreDialog : Dialog
             if (selected_entry != null && entry.size == ((!) selected_entry).size)
                 size_combo.set_active_iter (iter);
         }
+    }
+
+    private bool get_size_iter (uint8 requested_size, out TreeIter iter)
+    {
+        if (size_model.get_iter_first (out iter))
+        {
+            do
+            {
+                int size;
+                size_model.@get (iter, 1, out size, -1);
+                if (size == requested_size)
+                    return true;
+            }
+            while (size_model.iter_next (ref iter));
+        }
+        return false;
     }
 }
