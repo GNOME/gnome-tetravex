@@ -87,7 +87,9 @@ private class ScoreDialog : Dialog
         scores.show ();
         scroll.add (scores);
 
-        foreach (HistoryEntry entry in history.entries)
+        List<unowned HistoryEntry> entries = history.entries.copy ();
+        entries.sort (compare_entries);
+        foreach (HistoryEntry entry in entries)
             entry_added_cb (entry);
     }
 
