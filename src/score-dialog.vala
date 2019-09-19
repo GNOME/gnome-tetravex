@@ -103,8 +103,7 @@ private class ScoreDialog : Dialog
             if (entry.size != size)
                 continue;
 
-            /* Translators: that is the date at which a game was played, as seen in the Scores dialog; the %d will be replaced by the day number (two digits, padded with 0 in needed), the %m by the month number (two digits, padded with 0 in needed), and the %Y by the year (four digits); other replacements are possible, see documentation of g_date_time_format(); you're free here! */
-            string date_label = entry.date.format (_("%d/%m/%Y"));
+            string date_label = entry.date.format ("%x");
 
             string time_label;
             if (entry.duration >= 3600)
