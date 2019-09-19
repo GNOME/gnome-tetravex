@@ -360,13 +360,16 @@ private class Tetravex : Gtk.Application
             window.destroy ();
         else if (score_dialog_action == ResponseType.OK)
             new_game ();
-        else
+        else if (score_dialog_action != ResponseType.REJECT)
             new_game_solve_stack.set_visible_child_name ("new-game");
     }
 
     private bool scores_dialog_visible = false; // security for #5
     private int show_scores (HistoryEntry? selected_entry = null, bool show_quit = false)
     {
+        if (scores_dialog_visible)
+            return ResponseType.REJECT;
+
         scores_dialog_visible = true;
         ScoreDialog dialog = new ScoreDialog (history, selected_entry, show_quit);
         dialog.modal = true;
