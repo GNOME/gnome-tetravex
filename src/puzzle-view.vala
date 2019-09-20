@@ -627,4 +627,10 @@ private class PuzzleView : Gtk.DrawingArea
         last_selected_tile = null;
         puzzle.undo ();
     }
+
+    internal void redo ()
+    {
+        last_selected_tile = null;
+        puzzle.redo ();
+    }
 }

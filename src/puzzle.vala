@@ -240,7 +240,7 @@ private class Puzzle : Object
     {
         _switch_tiles (x0, y0, x1, y1, delay_if_finished, /* undoing */ false);
     }
-    private void _switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished, bool undoing)
+    private void _switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished, bool undoing_or_redoing)
     {
         if (x0 == x1 && y0 == y1)
             return;
@@ -274,7 +274,7 @@ private class Puzzle : Object
         else if (is_solved_right)
             is_solved_right = false;
 
-        if (!undoing)
+        if (!undoing_or_redoing)
             add_to_history (x0, y0, x1, y1);
     }
 
@@ -429,7 +429,9 @@ private class Puzzle : Object
     \*/
 
     [CCode (notify = true)] internal bool can_undo { internal get; private set; default = false; }
+    [CCode (notify = true)] internal bool can_redo { internal get; private set; default = false; }
     private uint history_length = 0;
+    private uint last_move_index = 0;
 
     private List<Inversion> reversed_history = new List<Inversion> ();
     private const uint animation_duration = 250; // FIXME might better be in view
@@ -449,6 +451,17 @@ private class Puzzle : Object
 
     private void add_to_history (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {
+        while (last_move_index != 0)
+        {
+            unowned Inversion? inversion = reversed_history.nth_data (0);
+            if (inversion == null)
+                assert_not_reached ();
+            reversed_history.remove ((!) inversion);
+
+            last_move_index--;
+            history_length--;
+        }
+
         Inversion history_entry = new Inversion (x0, y0, x1, y1);
         reversed_history.prepend (history_entry);
 
@@ -458,16 +471,41 @@ private class Puzzle : Object
 
     internal void undo ()
     {
-        unowned List<Inversion>? history_entry = reversed_history.first ();
-        if (history_entry == null)
+        if (!can_undo)
             return;
 
-        unowned Inversion inversion = ((!) history_entry).data;
-        _switch_tiles (inversion.x0, inversion.y0, inversion.x1, inversion.y1, animation_duration, /* undoing */ true);
-        reversed_history.remove (inversion);
+        unowned Inversion? inversion = reversed_history.nth_data (last_move_index);
+        if (inversion == null)
+            assert_not_reached ();
 
-        history_length--;
-        if (history_length == 0)
+        _switch_tiles (((!) inversion).x0, ((!) inversion).y0,
+                       ((!) inversion).x1, ((!) inversion).y1,
+                       animation_duration, /* no log */ true);
+
+        last_move_index++;
+
+        if (last_move_index == history_length)
             can_undo = false;
+        can_redo = true;
+    }
+
+    internal void redo ()
+    {
+        if (!can_redo)
+            return;
+
+        last_move_index--;
+
+        unowned Inversion? inversion = reversed_history.nth_data (last_move_index);
+        if (inversion == null)
+            assert_not_reached ();
+
+        _switch_tiles (((!) inversion).x0, ((!) inversion).y0,
+                       ((!) inversion).x1, ((!) inversion).y1,
+                       animation_duration, /* no log */ true);
+
+        if (last_move_index == 0)
+            can_redo = false;
+        can_undo = true;
     }
 }

@@ -40,6 +40,7 @@ private class Tetravex : Gtk.Application
     private Stack play_pause_stack;
 
     private SimpleAction undo_action;
+    private SimpleAction redo_action;
     private SimpleAction pause_action;
     private SimpleAction solve_action;
     private SimpleAction finish_action;
@@ -70,6 +71,7 @@ private class Tetravex : Gtk.Application
         { "move-left",      move_left                                       },
         { "move-right",     move_right                                      },
         { "undo",           undo_cb                                         },
+        { "redo",           redo_cb                                         },
         { "size",           radio_cb,       "s",    "'2'",  size_changed    },
         { "help",           help_cb                                         },
         { "about",          about_cb                                        }
@@ -101,17 +103,18 @@ private class Tetravex : Gtk.Application
         Window.set_default_icon_name ("org.gnome.Tetravex");
 
         add_action_entries (action_entries, this);
-        set_accels_for_action ("app.solve",         {"<Primary>h"       });
-        set_accels_for_action ("app.scores",        {"<Primary>i"       });
-        set_accels_for_action ("app.new-game",      {"<Primary>n"       });
-        set_accels_for_action ("app.pause",         {"<Primary>p",
-                                                              "Pause"   });
-        set_accels_for_action ("app.quit",          {"<Primary>q"       });
-        set_accels_for_action ("app.move-up",       {"<Primary>Up"      });
-        set_accels_for_action ("app.move-down",     {"<Primary>Down"    });
-        set_accels_for_action ("app.move-left",     {"<Primary>Left"    });
-        set_accels_for_action ("app.move-right",    {"<Primary>Right"   });
-        set_accels_for_action ("app.undo",          {"<Primary>z"       });
+        set_accels_for_action ("app.solve",         {        "<Primary>h"       });
+        set_accels_for_action ("app.scores",        {        "<Primary>i"       });
+        set_accels_for_action ("app.new-game",      {        "<Primary>n"       });
+        set_accels_for_action ("app.pause",         {        "<Primary>p",
+                                                                      "Pause"   });
+        set_accels_for_action ("app.quit",          {        "<Primary>q"       });
+        set_accels_for_action ("app.move-up",       {        "<Primary>Up"      });
+        set_accels_for_action ("app.move-down",     {        "<Primary>Down"    });
+        set_accels_for_action ("app.move-left",     {        "<Primary>Left"    });
+        set_accels_for_action ("app.move-right",    {        "<Primary>Right"   });
+        set_accels_for_action ("app.undo",          {        "<Primary>z"       });
+        set_accels_for_action ("app.redo",          { "<Shift><Primary>z"       });
         // F1 and friends are managed manually
 
         Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
@@ -151,7 +154,17 @@ private class Tetravex : Gtk.Application
         Button undo_button = new Button.from_icon_name ("edit-undo-symbolic");
         undo_button.set_action_name ("app.undo");
         undo_button.show ();
-        headerbar.pack_start (undo_button);
+
+        Button redo_button = new Button.from_icon_name ("edit-redo-symbolic");
+        redo_button.set_action_name ("app.redo");
+        redo_button.show ();
+
+        Box undo_redo_box = new Box (Orientation.HORIZONTAL, /* spacing */ 0);
+        undo_redo_box.get_style_context ().add_class ("linked");
+        undo_redo_box.pack_start (undo_button);
+        undo_redo_box.pack_start (redo_button);
+        undo_redo_box.show ();
+        headerbar.pack_start (undo_redo_box);
 
         Grid grid = (Grid) builder.get_object ("grid");
 
@@ -209,7 +222,7 @@ private class Tetravex : Gtk.Application
         new_game_solve_stack.add_named (finish_button, "finish");
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
-        Box box = new Box (Orientation.HORIZONTAL, 8);
+        Box box = new Box (Orientation.HORIZONTAL, /* spacing */ 8);
         Image image = new Image.from_icon_name ("preferences-system-time-symbolic", IconSize.MENU);
         box.add (image);
         clock_label = new Label ("");
@@ -221,11 +234,13 @@ private class Tetravex : Gtk.Application
         grid.attach (box, 1, 1, 1, 1);
 
         undo_action   = (SimpleAction) lookup_action ("undo");
+        redo_action   = (SimpleAction) lookup_action ("redo");
         pause_action  = (SimpleAction) lookup_action ("pause");
         solve_action  = (SimpleAction) lookup_action ("solve");
         finish_action = (SimpleAction) lookup_action ("finish");
 
         undo_action.set_enabled (false);
+        redo_action.set_enabled (false);
         finish_action.set_enabled (false);
 
         view.notify ["tile-selected"].connect (() => {
@@ -346,6 +361,8 @@ private class Tetravex : Gtk.Application
         puzzle.notify ["is-solved-right"].connect (solved_right_cb);
         puzzle.notify ["can-undo"].connect (() =>
             undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused));
+        puzzle.notify ["can-redo"].connect (() =>
+            redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused));
         puzzle.show_end_game.connect (show_end_game_cb);
         view.puzzle = puzzle;
         tick_cb ();
@@ -375,6 +392,7 @@ private class Tetravex : Gtk.Application
     private void solved_cb (Puzzle puzzle)
     {
         undo_action.set_enabled (false);
+        redo_action.set_enabled (false);
         pause_action.set_enabled (false);
         solve_action.set_enabled (false);
         finish_action.set_enabled (false);
@@ -566,10 +584,19 @@ private class Tetravex : Gtk.Application
             view.undo ();
     }
 
+    private void redo_cb ()
+    {
+        if (view.tile_selected)
+            view.release_selected_tile ();
+        else
+            view.redo ();
+    }
+
     private void pause_cb (SimpleAction action, Variant? parameter)
     {
         puzzle.paused = !puzzle.paused;
         undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused);
+        redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused);
         update_bottom_button_states ();
     }
 
