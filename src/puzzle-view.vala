@@ -134,25 +134,6 @@ private class PuzzleView : Gtk.DrawingArea
         animation_timer.start ();
     }
 
-    [CCode (notify = false)] internal bool game_in_progress
-    {
-        internal get
-        {
-            if (puzzle.is_solved)
-                return false;
-
-            for (uint8 y = 0; y < puzzle.size; y++)
-            {
-                for (uint8 x = puzzle.size; x < puzzle.size * 2; x++)
-                {
-                    if (puzzle.get_tile (x, y) == null)
-                        return true;
-                }
-            }
-            return false;
-        }
-    }
-
     private void redraw_tile (TileImage image)
     {
         queue_draw_area ((int) (image.x + 0.5),

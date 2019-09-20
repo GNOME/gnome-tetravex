@@ -235,11 +235,13 @@ private class Puzzle : Object
     }
 
     private uint timeout_id = 0;
-    internal bool is_solved_right { internal get; private set; default = false; }
+    [CCode (notify = false)] internal bool game_in_progress { internal get; private set; default = false; }
+    [CCode (notify = true)]  internal bool is_solved_right  { internal get; private set; default = false; }
     internal void switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished = 0)
     {
         if (x0 == x1 && y0 == y1)
             return;
+        game_in_progress = true;
 
         Tile? t0 = board [x0, y0];
         Tile? t1 = board [x1, y1];
@@ -265,15 +267,9 @@ private class Puzzle : Object
                     });
         }
         else if (solved_on_right ())
-        {
             is_solved_right = true;
-            solved_right (true);
-        }
         else if (is_solved_right)
-        {
             is_solved_right = false;
-            solved_right (false);
-        }
     }
 
     /*\

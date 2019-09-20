@@ -331,7 +331,7 @@ private class Tetravex : Gtk.Application
         puzzle_init_done = true;
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
-        puzzle.solved_right.connect (solved_right_cb);
+        puzzle.notify ["is-solved-right"].connect (solved_right_cb);
         puzzle.show_end_game.connect (show_end_game_cb);
         view.puzzle = puzzle;
         tick_cb ();
@@ -365,9 +365,9 @@ private class Tetravex : Gtk.Application
         finish_action.set_enabled (false);
     }
 
-    private void solved_right_cb (Puzzle puzzle, bool is_solved)
+    private void solved_right_cb ()
     {
-        if (is_solved)
+        if (puzzle.is_solved_right)
         {
             solve_action.set_enabled (false);
             finish_action.set_enabled (/* should never happen */ !puzzle.paused);
@@ -419,7 +419,7 @@ private class Tetravex : Gtk.Application
 
     private void new_game_cb ()
     {
-        if (view.game_in_progress)
+        if (puzzle.game_in_progress)
         {
             MessageDialog dialog = new MessageDialog (window,
                                                       DialogFlags.MODAL,
@@ -507,7 +507,7 @@ private class Tetravex : Gtk.Application
 
         if (size == settings.get_int (KEY_GRID_SIZE))
             return;
-        if (view.game_in_progress)
+        if (puzzle.game_in_progress)
         {
             MessageDialog dialog = new MessageDialog (window,
                                                       DialogFlags.MODAL,
