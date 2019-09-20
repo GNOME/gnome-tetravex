@@ -514,7 +514,13 @@ private class Tetravex : Gtk.Application
 
     private void move_up ()     { puzzle.move_up ();    }
     private void move_down ()   { puzzle.move_down ();  }
-    private void move_left ()   { puzzle.move_left ();  }
+    private void move_left ()
+    {
+        if (puzzle.is_solved_right)
+            finish_cb ();
+        else
+            puzzle.move_left ();
+    }
     private void move_right ()  { puzzle.move_right (); }
 
     private void pause_cb (SimpleAction action, Variant? parameter)
