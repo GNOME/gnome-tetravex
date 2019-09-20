@@ -419,6 +419,28 @@ private class Tetravex : Gtk.Application
 
     private void new_game_cb ()
     {
+        if (view.game_in_progress)
+        {
+            MessageDialog dialog = new MessageDialog (window,
+                                                      DialogFlags.MODAL,
+                                                      MessageType.QUESTION,
+                                                      ButtonsType.NONE,
+        /* Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game" */
+                                                      _("Are you sure you want to start a new game with same board size?"));
+
+        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game" */
+            dialog.add_buttons (_("_Keep Playing"),   ResponseType.REJECT,
+
+        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing" */
+                                _("_Start New Game"), ResponseType.ACCEPT,
+                                null);
+
+            int response = dialog.run ();
+            dialog.destroy ();
+
+            if (response != ResponseType.ACCEPT)
+                return;
+        }
         new_game ();
     }
 
@@ -448,7 +470,6 @@ private class Tetravex : Gtk.Application
                                                   ButtonsType.NONE,
         /* Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up" */
                                                   _("Are you sure you want to give up and view the solution?"));
-
 
         /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up" */
         dialog.add_buttons (_("_Keep Playing"), ResponseType.REJECT,
@@ -480,7 +501,9 @@ private class Tetravex : Gtk.Application
 
     private void size_changed (SimpleAction action, Variant variant)
     {
-        int size = ((string) variant)[0] - '0'; // FIXME that... is... horrible
+        int size = int.parse (variant.get_string ());
+        if (size < 2 || size > 6)
+            assert_not_reached ();
 
         if (size == settings.get_int (KEY_GRID_SIZE))
             return;
@@ -493,10 +516,10 @@ private class Tetravex : Gtk.Application
         /* Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game" */
                                                       _("Are you sure you want to start a new game with a different board size?"));
 
-        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Start New Game" */
+        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game" */
             dialog.add_buttons (_("_Keep Playing"),   ResponseType.REJECT,
 
-        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing" */
+        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing" */
                                 _("_Start New Game"), ResponseType.ACCEPT,
                                 null);
 
