@@ -419,7 +419,7 @@ private class Tetravex : Gtk.Application
 
     private void new_game_cb ()
     {
-        if (puzzle.game_in_progress)
+        if (puzzle.game_in_progress && !puzzle.is_solved)
         {
             MessageDialog dialog = new MessageDialog (window,
                                                       DialogFlags.MODAL,
