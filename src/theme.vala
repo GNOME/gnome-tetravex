@@ -16,7 +16,11 @@ private class Theme : Object
     private Cairo.Pattern paused_color;
     private Cairo.Pattern text_colors [10];
 
-    internal Theme ()
+    /*\
+    * * init colors arrays
+    \*/
+
+    construct
     {
         tile_colors [0] = make_color_pattern ("#000000");
         tile_colors [1] = make_color_pattern ("#C17D11");
@@ -62,6 +66,10 @@ private class Theme : Object
         else
             return 0;
     }
+
+    /*\
+    * * drawing fixed things
+    \*/
 
     internal void draw_arrow (Cairo.Context context, uint size, uint gap)
     {
@@ -132,6 +140,10 @@ private class Theme : Object
         context.fill ();
     }
 
+    /*\
+    * * drawing tiles
+    \*/
+
     internal void draw_paused_tile (Cairo.Context context, uint size)
     {
         draw_tile_background (context, size, paused_color, paused_color, paused_color, paused_color);
@@ -153,7 +165,7 @@ private class Theme : Object
         draw_number (context, size / 5, size * 0.5, tile.west);
     }
 
-    internal void draw_tile_background (Cairo.Context context, uint size, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
+    private void draw_tile_background (Cairo.Context context, uint size, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
     {
         uint depth = uint.min ((uint) (size * 0.05), 4);
         double dx = 2.4142 * depth;
