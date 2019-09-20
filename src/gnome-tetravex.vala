@@ -153,62 +153,38 @@ private class Tetravex : Gtk.Application
 
         SizeGroup sizegroup = new SizeGroup (SizeGroupMode.BOTH);
 
-        Button play_button = new Button ();
-        play_button.get_style_context ().add_class ("image-button");
-        Image image = new Image.from_icon_name ("media-playback-start-symbolic", IconSize.DND);
-        image.margin = 10;
-        play_button.add (image);
-        play_button.action_name = "app.pause"; /* not a typo */
-        play_button.valign = Align.CENTER;
-        play_button.halign = Align.START;
-        play_button.margin_start = 35;
+        Button play_button      = new BottomButton ("media-playback-start-symbolic",
+                                                    "app.pause", /* not a typo */
         /* Translators: tooltip text of the "play"/unpause button, in the bottom bar */
-        play_button.tooltip_text = _("Resume the game");
-        sizegroup.add_widget (play_button);
+                                                    _("Resume the game"),
+                                                    /* align end */ false,
+                                                    sizegroup);
 
-        Button pause_button = new Button ();
-        pause_button.get_style_context ().add_class ("image-button");
-        image = new Image.from_icon_name ("media-playback-pause-symbolic", IconSize.DND);
-        image.margin = 10;
-        pause_button.add (image);
-        pause_button.action_name = "app.pause";
-        pause_button.valign = Align.CENTER;
-        pause_button.halign = Align.START;
-        pause_button.margin_start = 35;
+        Button pause_button     = new BottomButton ("media-playback-pause-symbolic",
+                                                    "app.pause",
         /* Translators: tooltip text of the pause button, in the bottom bar */
-        pause_button.tooltip_text = _("Pause the game");
-        sizegroup.add_widget (pause_button);
+                                                    _("Pause the game"),
+                                                    /* align end */ false,
+                                                    sizegroup);
 
         play_pause_stack = new Stack ();
         play_pause_stack.add_named (play_button, "play");
         play_pause_stack.add_named (pause_button, "pause");
         grid.attach (play_pause_stack, 0, 1, 1, 1);
 
-        Button new_game_button = new Button ();
-        new_game_button.get_style_context ().add_class ("image-button");
-        image = new Image.from_icon_name ("view-refresh-symbolic", IconSize.DND);
-        image.margin = 10;
-        new_game_button.add (image);
-        new_game_button.action_name = "app.new-game";
-        new_game_button.valign = Align.CENTER;
-        new_game_button.halign = Align.END;
-        new_game_button.margin_end = 35;
+        Button new_game_button  = new BottomButton ("view-refresh-symbolic",
+                                                    "app.new-game",
         /* Translators: tooltip text of the "restart"/new game button, in the bottom bar */
-        new_game_button.tooltip_text = _("Start a new game");
-        sizegroup.add_widget (new_game_button);
+                                                    _("Start a new game"),
+                                                    /* align end */ true,
+                                                    sizegroup);
 
-        Button solve_button = new Button ();
-        solve_button.get_style_context ().add_class ("image-button");
-        image = new Image.from_icon_name ("dialog-question-symbolic", IconSize.DND);
-        image.margin = 10;
-        solve_button.add (image);
-        solve_button.action_name = "app.solve";
-        solve_button.valign = Align.CENTER;
-        solve_button.halign = Align.END;
-        solve_button.margin_end = 35;
+        Button solve_button     = new BottomButton ("dialog-question-symbolic",
+                                                    "app.solve",
         /* Translators: tooltip text of the "solve"/give up button, in the bottom bar */
-        solve_button.tooltip_text = _("Give up and view the solution");
-        sizegroup.add_widget (solve_button);
+                                                    _("Give up and view the solution"),
+                                                    /* align end */ true,
+                                                    sizegroup);
 
         new_game_solve_stack = new Stack ();
         new_game_solve_stack.add_named (solve_button, "solve");
@@ -216,7 +192,7 @@ private class Tetravex : Gtk.Application
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
         Box box = new Box (Orientation.HORIZONTAL, 8);
-        image = new Image.from_icon_name ("preferences-system-time-symbolic", IconSize.MENU);
+        Image image = new Image.from_icon_name ("preferences-system-time-symbolic", IconSize.MENU);
         box.add (image);
         clock_label = new Label ("");
         box.add (clock_label);
@@ -240,6 +216,28 @@ private class Tetravex : Gtk.Application
 
         tick_cb ();
         new_game ();
+    }
+    private class BottomButton : Button
+    {
+        construct
+        {
+            get_style_context ().add_class ("image-button");
+        }
+
+        internal BottomButton (string icon_name, string action_name, string tooltip_text, bool align_end, SizeGroup sizegroup)
+        {
+            Image _image = new Image.from_icon_name (icon_name, IconSize.DND);
+            _image.margin = 10;
+            Object (action_name: action_name,
+                    tooltip_text: tooltip_text,
+                    halign: align_end ? Align.END : Align.START,
+                    valign: Align.CENTER,
+                    margin_start: 35,
+                    margin_end: 35,
+                    image: _image);
+
+            sizegroup.add_widget (this);
+        }
     }
 
     private void size_allocate_cb (Allocation allocation)
