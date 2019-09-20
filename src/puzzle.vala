@@ -238,6 +238,10 @@ private class Puzzle : Object
     [CCode (notify = true)]  internal bool is_solved_right  { internal get; private set; default = false; }
     internal void switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished = 0)
     {
+        _switch_tiles (x0, y0, x1, y1, delay_if_finished, /* undoing */ false);
+    }
+    private void _switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished, bool undoing)
+    {
         if (x0 == x1 && y0 == y1)
             return;
         game_in_progress = true;
@@ -269,6 +273,9 @@ private class Puzzle : Object
             is_solved_right = true;
         else if (is_solved_right)
             is_solved_right = false;
+
+        if (!undoing)
+            add_to_history (x0, y0, x1, y1);
     }
 
     /*\
@@ -415,5 +422,52 @@ private class Puzzle : Object
         tick ();
 
         return false;
+    }
+
+    /*\
+    * * history
+    \*/
+
+    [CCode (notify = true)] internal bool can_undo { internal get; private set; default = false; }
+    private uint history_length = 0;
+
+    private List<Inversion> reversed_history = new List<Inversion> ();
+    private const uint animation_duration = 250; // FIXME might better be in view
+
+    private class Inversion : Object
+    {
+        public uint8 x0 { internal get; protected construct; }
+        public uint8 y0 { internal get; protected construct; }
+        public uint8 x1 { internal get; protected construct; }
+        public uint8 y1 { internal get; protected construct; }
+
+        internal Inversion (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
+        {
+            Object (x0: x0, y0: y0, x1: x1, y1: y1);
+        }
+    }
+
+    private void add_to_history (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
+    {
+        Inversion history_entry = new Inversion (x0, y0, x1, y1);
+        reversed_history.prepend (history_entry);
+
+        history_length++;
+        can_undo = true;
+    }
+
+    internal void undo ()
+    {
+        unowned List<Inversion>? history_entry = reversed_history.first ();
+        if (history_entry == null)
+            return;
+
+        unowned Inversion inversion = ((!) history_entry).data;
+        _switch_tiles (inversion.x0, inversion.y0, inversion.x1, inversion.y1, animation_duration, /* undoing */ true);
+        reversed_history.remove (inversion);
+
+        history_length--;
+        if (history_length == 0)
+            can_undo = false;
     }
 }

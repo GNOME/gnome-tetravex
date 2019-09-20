@@ -39,6 +39,7 @@ private class Tetravex : Gtk.Application
     private Stack new_game_solve_stack;
     private Stack play_pause_stack;
 
+    private SimpleAction undo_action;
     private SimpleAction pause_action;
     private SimpleAction solve_action;
     private SimpleAction finish_action;
@@ -68,6 +69,7 @@ private class Tetravex : Gtk.Application
         { "move-down",      move_down                                       },
         { "move-left",      move_left                                       },
         { "move-right",     move_right                                      },
+        { "undo",           undo_cb                                         },
         { "size",           radio_cb,       "s",    "'2'",  size_changed    },
         { "help",           help_cb                                         },
         { "about",          about_cb                                        }
@@ -109,6 +111,7 @@ private class Tetravex : Gtk.Application
         set_accels_for_action ("app.move-down",     {"<Primary>Down"    });
         set_accels_for_action ("app.move-left",     {"<Primary>Left"    });
         set_accels_for_action ("app.move-right",    {"<Primary>Right"   });
+        set_accels_for_action ("app.undo",          {"<Primary>z"       });
         // F1 and friends are managed manually
 
         Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
@@ -144,6 +147,11 @@ private class Tetravex : Gtk.Application
         menu_button.show ();
         menu_button.set_menu_model (appmenu);
         headerbar.pack_end (menu_button);
+
+        Button undo_button = new Button.from_icon_name ("edit-undo-symbolic");
+        undo_button.set_action_name ("app.undo");
+        undo_button.show ();
+        headerbar.pack_start (undo_button);
 
         Grid grid = (Grid) builder.get_object ("grid");
 
@@ -212,10 +220,14 @@ private class Tetravex : Gtk.Application
         box.set_margin_bottom (20);
         grid.attach (box, 1, 1, 1, 1);
 
+        undo_action   = (SimpleAction) lookup_action ("undo");
         pause_action  = (SimpleAction) lookup_action ("pause");
         solve_action  = (SimpleAction) lookup_action ("solve");
         finish_action = (SimpleAction) lookup_action ("finish");
+
+        undo_action.set_enabled (false);
         finish_action.set_enabled (false);
+
         view.notify ["tile-selected"].connect (() => {
                 if (!puzzle_init_done)
                     return;
@@ -332,6 +344,8 @@ private class Tetravex : Gtk.Application
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
         puzzle.notify ["is-solved-right"].connect (solved_right_cb);
+        puzzle.notify ["can-undo"].connect (() =>
+            undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused));
         puzzle.show_end_game.connect (show_end_game_cb);
         view.puzzle = puzzle;
         tick_cb ();
@@ -341,7 +355,7 @@ private class Tetravex : Gtk.Application
             puzzle.paused = true;
             start_paused = false;
         }
-        update_button_states ();
+        update_bottom_button_states ();
     }
 
     private void tick_cb ()
@@ -360,6 +374,7 @@ private class Tetravex : Gtk.Application
 
     private void solved_cb (Puzzle puzzle)
     {
+        undo_action.set_enabled (false);
         pause_action.set_enabled (false);
         solve_action.set_enabled (false);
         finish_action.set_enabled (false);
@@ -455,7 +470,7 @@ private class Tetravex : Gtk.Application
         if (puzzle.paused)
         {
             puzzle.paused = false;
-            update_button_states ();
+            update_bottom_button_states ();
             return true;
         }
 
@@ -543,13 +558,22 @@ private class Tetravex : Gtk.Application
     }
     private void move_right ()  { puzzle.move_right (); }
 
+    private void undo_cb ()
+    {
+        if (view.tile_selected)
+            view.release_selected_tile ();
+        else
+            view.undo ();
+    }
+
     private void pause_cb (SimpleAction action, Variant? parameter)
     {
         puzzle.paused = !puzzle.paused;
-        update_button_states ();
+        undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused);
+        update_bottom_button_states ();
     }
 
-    private void update_button_states ()
+    private void update_bottom_button_states ()
     {
         if (puzzle.is_solved_right)
         {

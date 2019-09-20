@@ -611,4 +611,20 @@ private class PuzzleView : Gtk.DrawingArea
             for (uint8 y = 0; y < puzzle.size; y++)
                 puzzle.switch_tiles (x + puzzle.size, y, x, y, final_animation_duration);
     }
+
+    internal void release_selected_tile ()
+    {
+        uint8 selected_x, selected_y;
+        puzzle.get_tile_location (((!) selected_tile).tile, out selected_x, out selected_y);
+        move_tile_to_location ((!) selected_tile, selected_x, selected_y, animation_duration);
+        ((!) selected_tile).snap_to_cursor = true;
+        selected_tile = null;
+        tile_selected = false;
+    }
+
+    internal void undo ()
+    {
+        last_selected_tile = null;
+        puzzle.undo ();
+    }
 }
