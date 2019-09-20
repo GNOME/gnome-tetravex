@@ -485,9 +485,6 @@ private class Tetravex : Gtk.Application
         {
             puzzle.solve ();
             new_game_solve_stack.set_visible_child_name ("new-game");
-            pause_action.set_enabled (false);
-            solve_action.set_enabled (false);
-            finish_action.set_enabled (false);
         }
     }
 
@@ -507,7 +504,7 @@ private class Tetravex : Gtk.Application
 
         if (size == settings.get_int (KEY_GRID_SIZE))
             return;
-        if (puzzle.game_in_progress)
+        if (puzzle.game_in_progress && !puzzle.is_solved)
         {
             MessageDialog dialog = new MessageDialog (window,
                                                       DialogFlags.MODAL,

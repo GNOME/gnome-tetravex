@@ -70,24 +70,23 @@ private class Puzzle : Object
     internal signal void show_end_game ();
     internal signal void tick ();
 
-    [CCode (notify = false)] internal bool is_solved
+    [CCode (notify = false)] internal bool is_solved { internal get; private set; default = false; }
+    private bool check_if_solved ()
     {
-        internal get
+        /* Solved if entire left hand side is complete (we ensure only tiles
+           that fit are allowed */
+        for (uint8 x = 0; x < size; x++)
         {
-            /* Solved if entire left hand side is complete (we ensure only tiles
-               that fit are allowed */
-            for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
             {
-                for (uint8 y = 0; y < size; y++)
-                {
-                    Tile? tile = board [x, y];
-                    if (tile == null)
-                        return false;
-                }
+                Tile? tile = board [x, y];
+                if (tile == null)
+                    return false;
             }
-
-            return true;
         }
+
+        is_solved = true;
+        return true;
     }
 
     internal Puzzle (uint8 size)
@@ -253,7 +252,7 @@ private class Puzzle : Object
         if (t1 != null)
             tile_moved ((!) t1, x0, y0);
 
-        if (is_solved)
+        if (check_if_solved ())
         {
             stop_clock ();
             solved ();
@@ -368,6 +367,8 @@ private class Puzzle : Object
             tile_moved (tile, tile.x, tile.y);
         }
 
+        is_solved = true;
+        solved ();
         stop_clock ();
     }
 

@@ -491,7 +491,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     protected override bool button_press_event (Gdk.EventButton event)
     {
-        if (puzzle.paused)
+        if (puzzle.paused || puzzle.is_solved)
             return false;
 
         if (event.button == 1)
@@ -554,7 +554,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     protected override bool button_release_event (Gdk.EventButton event)
     {
-        if (puzzle.paused)
+        if (puzzle.paused || puzzle.is_solved)
             return false;
 
         if (event.button == 1 && selected_tile != null && selection_timeout == 0)
