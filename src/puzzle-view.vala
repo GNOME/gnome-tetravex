@@ -48,6 +48,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     /* Animations duration */
     private const double animation_duration = 0.25;
+    private const uint final_animation_duration = 250;
     private const double half_animation_duration = 0.15;
 
     /* Puzzle being rendered */
@@ -92,7 +93,7 @@ private class PuzzleView : Gtk.DrawingArea
     /* Tile being controlled by the mouse */
     private TileImage? selected_tile = null;
     private TileImage? last_selected_tile = null;
-    internal signal void tile_selected (bool selected);
+    [CCode (notify = true)] internal bool tile_selected { internal get; private set; default = false; }
 
     /* Timeout to detect if a click is a selection or a drag */
     private uint selection_timeout = 0;
@@ -321,7 +322,7 @@ private class PuzzleView : Gtk.DrawingArea
         if (selected_tile != null)
             ((!) selected_tile).snap_to_cursor = true;
         selected_tile = null;
-        tile_selected (false);
+        tile_selected = false;
 
         return false;
     }
@@ -429,7 +430,7 @@ private class PuzzleView : Gtk.DrawingArea
             {
                 selected_tile = image;
                 last_selected_tile = image;
-                tile_selected (true);
+                tile_selected = true;
                 selected_x_offset = x - image.x;
                 selected_y_offset = y - image.y;
 
@@ -485,7 +486,7 @@ private class PuzzleView : Gtk.DrawingArea
             move_tile_to_location ((!) selected_tile, selected_x, selected_y, animation_duration);
         ((!) selected_tile).snap_to_cursor = true;
         selected_tile = null;
-        tile_selected (false);
+        tile_selected = false;
     }
 
     private void move_tile_to_right_half (Tile tile)
@@ -536,14 +537,14 @@ private class PuzzleView : Gtk.DrawingArea
                         uint8 selected_x, selected_y;
                         puzzle.get_tile_location (((!) selected_tile).tile, out selected_x, out selected_y);
                         if (puzzle.can_switch (selected_x, selected_y, x, y))
-                            puzzle.switch_tiles (selected_x, selected_y, x, y, (uint) (animation_duration * 1000.0));
+                            puzzle.switch_tiles (selected_x, selected_y, x, y, final_animation_duration);
                     }
                 }
                 else
                     move_tile_to_right_half (((!) selected_tile).tile);
                 ((!) selected_tile).snap_to_cursor = true;
                 selected_tile = null;
-                tile_selected (false);
+                tile_selected = false;
             }
         }
 
@@ -621,5 +622,12 @@ private class PuzzleView : Gtk.DrawingArea
         }
 
         return false;
+    }
+
+    internal void finish ()
+    {
+        for (uint8 x = 0; x < puzzle.size; x++)
+            for (uint8 y = 0; y < puzzle.size; y++)
+                puzzle.switch_tiles (x + puzzle.size, y, x, y, final_animation_duration);
     }
 }

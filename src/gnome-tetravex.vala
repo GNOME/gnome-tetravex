@@ -41,6 +41,7 @@ private class Tetravex : Gtk.Application
 
     private SimpleAction pause_action;
     private SimpleAction solve_action;
+    private SimpleAction finish_action;
 
     private const OptionEntry [] option_entries =
     {
@@ -60,6 +61,7 @@ private class Tetravex : Gtk.Application
         { "new-game",       new_game_cb                                     },
         { "pause",          pause_cb                                        },
         { "solve",          solve_cb                                        },
+        { "finish",         finish_cb                                       },
         { "scores",         scores_cb                                       },
         { "quit",           quit                                            },
         { "move-up",        move_up                                         },
@@ -186,9 +188,17 @@ private class Tetravex : Gtk.Application
                                                     /* align end */ true,
                                                     sizegroup);
 
+        Button finish_button    = new BottomButton ("go-previous-symbolic",
+                                                    "app.finish",
+        /* Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board */
+                                                    _("Move all tiles left"),
+                                                    /* align end */ true,
+                                                    sizegroup);
+
         new_game_solve_stack = new Stack ();
         new_game_solve_stack.add_named (solve_button, "solve");
         new_game_solve_stack.add_named (new_game_button, "new-game");
+        new_game_solve_stack.add_named (finish_button, "finish");
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
         Box box = new Box (Orientation.HORIZONTAL, 8);
@@ -202,14 +212,20 @@ private class Tetravex : Gtk.Application
         box.set_margin_bottom (20);
         grid.attach (box, 1, 1, 1, 1);
 
-        pause_action = (SimpleAction) lookup_action ("pause");
-        solve_action = (SimpleAction) lookup_action ("solve");
-        view.tile_selected.connect ((/* bool */ selected) => {
+        pause_action  = (SimpleAction) lookup_action ("pause");
+        solve_action  = (SimpleAction) lookup_action ("solve");
+        finish_action = (SimpleAction) lookup_action ("finish");
+        finish_action.set_enabled (false);
+        view.notify ["tile-selected"].connect (() => {
                 if (!puzzle_init_done)
                     return;
                 if (puzzle.is_solved)
                     return;
-                solve_action.set_enabled (!selected);
+                if (puzzle.is_solved_right)
+                    solve_action.set_enabled (false);
+                else
+                    solve_action.set_enabled (!view.tile_selected && /* should never happen */ !puzzle.paused);
+                finish_action.set_enabled (!view.tile_selected);
             });
 
         window.show_all ();
@@ -301,8 +317,10 @@ private class Tetravex : Gtk.Application
 
     private void new_game ()
     {
+        has_been_finished = false;
         pause_action.set_enabled (true);
         solve_action.set_enabled (true);
+        finish_action.set_enabled (false);
         new_game_solve_stack.set_visible_child_name ("solve");
 
         if (puzzle_init_done)
@@ -313,6 +331,7 @@ private class Tetravex : Gtk.Application
         puzzle_init_done = true;
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
+        puzzle.solved_right.connect (solved_right_cb);
         puzzle.show_end_game.connect (show_end_game_cb);
         view.puzzle = puzzle;
         tick_cb ();
@@ -343,6 +362,24 @@ private class Tetravex : Gtk.Application
     {
         pause_action.set_enabled (false);
         solve_action.set_enabled (false);
+        finish_action.set_enabled (false);
+    }
+
+    private void solved_right_cb (Puzzle puzzle, bool is_solved)
+    {
+        if (is_solved)
+        {
+            solve_action.set_enabled (false);
+            finish_action.set_enabled (/* should never happen */ !puzzle.paused);
+            new_game_solve_stack.set_visible_child_name ("finish");
+        }
+        else
+        {
+            solve_action.set_enabled (/* should never happen */ !puzzle.paused);
+            finish_action.set_enabled (false);
+            if (!has_been_finished) // keep the "finish" button if it has been clicked
+                new_game_solve_stack.set_visible_child_name ("solve");
+        }
     }
 
     private void show_end_game_cb (Puzzle puzzle)
@@ -429,7 +466,16 @@ private class Tetravex : Gtk.Application
             new_game_solve_stack.set_visible_child_name ("new-game");
             pause_action.set_enabled (false);
             solve_action.set_enabled (false);
+            finish_action.set_enabled (false);
         }
+    }
+
+    private bool has_been_finished = false;
+    private void finish_cb ()
+    {
+        finish_action.set_enabled (false);
+        has_been_finished = true;
+        view.finish ();
     }
 
     private void size_changed (SimpleAction action, Variant variant)
@@ -479,7 +525,16 @@ private class Tetravex : Gtk.Application
 
     private void update_button_states ()
     {
-        solve_action.set_enabled (!puzzle.paused);
+        if (puzzle.is_solved_right)
+        {
+            solve_action.set_enabled (false);
+            finish_action.set_enabled (!puzzle.paused && !view.tile_selected);
+        }
+        else
+        {
+            solve_action.set_enabled (!puzzle.paused && !view.tile_selected);
+            finish_action.set_enabled (false);
+        }
         play_pause_stack.set_visible_child_name (puzzle.paused ? "play" : "pause");
     }
 

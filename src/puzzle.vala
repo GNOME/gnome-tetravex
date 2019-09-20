@@ -66,6 +66,7 @@ private class Puzzle : Object
 
     internal signal void tile_moved (Tile tile, uint8 x, uint8 y);
     internal signal void solved ();
+    internal signal void solved_right (bool is_solved);
     internal signal void show_end_game ();
     internal signal void tick ();
 
@@ -157,7 +158,7 @@ private class Puzzle : Object
             }
         }
     }
-    private inline bool solved_on_right ()
+    private bool solved_on_right ()
     {
         for (uint8 x = size; x < 2 * size; x++)
         {
@@ -234,6 +235,7 @@ private class Puzzle : Object
     }
 
     private uint timeout_id = 0;
+    internal bool is_solved_right { internal get; private set; default = false; }
     internal void switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished = 0)
     {
         if (x0 == x1 && y0 == y1)
@@ -261,6 +263,16 @@ private class Puzzle : Object
                         timeout_id = 0;
                         return Source.REMOVE;
                     });
+        }
+        else if (solved_on_right ())
+        {
+            is_solved_right = true;
+            solved_right (true);
+        }
+        else if (is_solved_right)
+        {
+            is_solved_right = false;
+            solved_right (false);
         }
     }
 
