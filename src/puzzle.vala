@@ -451,7 +451,7 @@ private class Puzzle : Object
 
     private void add_to_history (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {
-        while (last_move_index != 0)
+        while (last_move_index > 0)
         {
             unowned Inversion? inversion = reversed_history.nth_data (0);
             if (inversion == null)
@@ -467,6 +467,7 @@ private class Puzzle : Object
 
         history_length++;
         can_undo = true;
+        can_redo = false;
     }
 
     internal void undo ()
