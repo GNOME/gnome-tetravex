@@ -489,14 +489,29 @@ private class PuzzleView : Gtk.DrawingArea
         assert_not_reached ();
     }
 
+    [CCode (notify = false)] internal bool mouse_use_extra_buttons  { private get; internal set; default = true; }
+    [CCode (notify = false)] internal int  mouse_back_button        { private get; internal set; default = 8; }
+    [CCode (notify = false)] internal int  mouse_forward_button     { private get; internal set; default = 9; }
+
     protected override bool button_press_event (Gdk.EventButton event)
     {
         if (puzzle.paused || puzzle.is_solved)
             return false;
 
-        if (event.button != 1)
-            return false;
+        if (event.button == 1 || event.button == 3)
+            return main_button_pressed (event);
 
+        if (!mouse_use_extra_buttons)
+            return false;
+        if (event.button == mouse_back_button)
+            undo ();
+        else if (event.button == mouse_forward_button)
+            redo ();
+        return false;
+    }
+
+    private inline bool main_button_pressed (Gdk.EventButton event)
+    {
         if (event.type == Gdk.EventType.BUTTON_PRESS)
         {
             if (selected_tile == null)

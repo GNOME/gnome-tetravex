@@ -174,6 +174,13 @@ private class Tetravex : Gtk.Application
         view.button_release_event.connect (view_button_release_event);
         grid.attach (view, 0, 0, 3, 1);
 
+        settings.bind ("mouse-use-extra-buttons",   view,
+                       "mouse-use-extra-buttons",   SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
+        settings.bind ("mouse-back-button",         view,
+                       "mouse-back-button",         SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
+        settings.bind ("mouse-forward-button",      view,
+                       "mouse-forward-button",      SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
+
         SizeGroup sizegroup = new SizeGroup (SizeGroupMode.BOTH);
 
         Button play_button      = new BottomButton ("media-playback-start-symbolic",
@@ -305,9 +312,11 @@ private class Tetravex : Gtk.Application
         base.shutdown ();
 
         /* Save window state */
+        settings.delay ();
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
+        settings.apply ();
     }
 
     protected override int handle_local_options (GLib.VariantDict options)
