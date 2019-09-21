@@ -256,6 +256,9 @@ private class Puzzle : Object
         if (t1 != null)
             tile_moved ((!) t1, x0, y0);
 
+        if (!undoing_or_redoing)
+            add_to_history (x0, y0, x1, y1);
+
         if (check_if_solved ())
         {
             stop_clock ();
@@ -273,9 +276,6 @@ private class Puzzle : Object
             is_solved_right = true;
         else if (is_solved_right)
             is_solved_right = false;
-
-        if (!undoing_or_redoing)
-            add_to_history (x0, y0, x1, y1);
     }
 
     /*\
