@@ -601,7 +601,7 @@ private class Tetravex : Gtk.Application
             view.redo ();
     }
 
-    private void pause_cb (SimpleAction action, Variant? parameter)
+    private void pause_cb (/* SimpleAction action, Variant? parameter */)
     {
         puzzle.paused = !puzzle.paused;
         undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused);
@@ -629,29 +629,45 @@ private class Tetravex : Gtk.Application
         action.change_state (parameter);
     }
 
-    /*\
-    * * help/about
-    \*/
-
     private bool on_key_press_event (Widget widget, Gdk.EventKey event)
     {
         string name = (!) (Gdk.keyval_name (event.keyval) ?? "");
 
-        if (name == "F1") // TODO fix dance done with the F1 & <Primary>F1 shortcuts that show help overlay
+        if (name == "Escape" && !puzzle.is_solved)
         {
-            // TODO close popovers
-            if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0)
-                return false;                           // help overlay
-            if ((event.state & Gdk.ModifierType.SHIFT_MASK) == 0)
+            if (puzzle.paused)
             {
-                help_cb ();
+                pause_cb ();
                 return true;
             }
-            about_cb ();
-            return true;
+            else if (view.tile_selected)
+            {
+                view.release_selected_tile ();
+                return true;
+            }
         }
+        else if (name == "F1")
+            return on_f1_pressed (event);   // TODO fix dance done with the F1 & <Primary>F1 shortcuts that show help overlay
 
         return false;
+    }
+
+    /*\
+    * * help/about
+    \*/
+
+    private bool on_f1_pressed (Gdk.EventKey event)
+    {
+        // TODO close popovers
+        if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0)
+            return false;                           // help overlay
+        if ((event.state & Gdk.ModifierType.SHIFT_MASK) == 0)
+        {
+            help_cb ();
+            return true;
+        }
+        about_cb ();
+        return true;
     }
 
     private void help_cb ()
