@@ -631,6 +631,9 @@ private class PuzzleView : Gtk.DrawingArea
 
     internal void release_selected_tile ()
     {
+        if (selected_tile == null)
+            return;
+
         uint8 selected_x, selected_y;
         puzzle.get_tile_location (((!) selected_tile).tile, out selected_x, out selected_y);
         move_tile_to_location ((!) selected_tile, selected_x, selected_y, animation_duration);
