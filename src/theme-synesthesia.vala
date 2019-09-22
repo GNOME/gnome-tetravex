@@ -61,6 +61,7 @@ private class SynesthesiaTheme : Theme
     \*/
 
     private uint size = 0;
+    private uint8 animation_level = 0;
 
     /* arrow */
     private double arrow_half_h;
@@ -107,19 +108,7 @@ private class SynesthesiaTheme : Theme
         tile_depth = uint.min ((uint) (new_size * 0.05), 4);
         size_minus_tile_depth = (double) new_size - tile_depth;
         size_minus_two_tile_depths = (double) (new_size - tile_depth * 2);
-
-        socket_pattern = new Cairo.MeshPattern ();
-        socket_pattern.begin_patch ();
-        socket_pattern.move_to (0.5, 0.0);
-        socket_pattern.line_to (1.0, 0.5);
-        socket_pattern.line_to (0.5, 1.0);
-        socket_pattern.line_to (0.0, 0.5);
-        socket_pattern.set_corner_color_rgba (0, 0.45, 0.45, 0.45, 0.5);
-        socket_pattern.set_corner_color_rgba (1, 0.6 , 0.6 , 0.6 , 0.5);
-        socket_pattern.set_corner_color_rgba (2, 0.7 , 0.7 , 0.7 , 0.5);
-        socket_pattern.set_corner_color_rgba (3, 0.55, 0.55, 0.55, 0.5);
-        socket_pattern.end_patch ();
-        socket_pattern.set_matrix (matrix);
+        init_socket_pattern ();
 
         /* tile */
         tile_margin = uint.min ((uint) (new_size * 0.05), 2) - 1;
@@ -138,6 +127,38 @@ private class SynesthesiaTheme : Theme
         size = new_size;
     }
 
+    internal override void set_animation_level (uint8 new_animation_level /* 0-16 */)
+    {
+        animation_level = new_animation_level;
+        init_socket_pattern ();
+    }
+
+    private void init_socket_pattern ()
+    {
+        socket_pattern = new Cairo.MeshPattern ();
+        socket_pattern.begin_patch ();
+        socket_pattern.move_to (0.5, 0.0);
+        socket_pattern.line_to (1.0, 0.5);
+        socket_pattern.line_to (0.5, 1.0);
+        socket_pattern.line_to (0.0, 0.5);
+        if (animation_level == 0)
+        {
+            socket_pattern.set_corner_color_rgba (0, 0.45, 0.45, 0.45, 0.5);
+            socket_pattern.set_corner_color_rgba (1, 0.6 , 0.6 , 0.6 , 0.5);
+            socket_pattern.set_corner_color_rgba (2, 0.7 , 0.7 , 0.7 , 0.5);
+            socket_pattern.set_corner_color_rgba (3, 0.55, 0.55, 0.55, 0.5);
+        }
+        else
+        {
+            socket_pattern.set_corner_color_rgba (0, 0.45, 0.45, 0.45, 0.5 * (16.0 - (double) animation_level) / 16.0);
+            socket_pattern.set_corner_color_rgba (1, 0.6 , 0.6 , 0.6 , 0.5 * (16.0 - (double) animation_level) / 16.0);
+            socket_pattern.set_corner_color_rgba (2, 0.7 , 0.7 , 0.7 , 0.5 * (16.0 - (double) animation_level) / 16.0);
+            socket_pattern.set_corner_color_rgba (3, 0.55, 0.55, 0.55, 0.5 * (16.0 - (double) animation_level) / 16.0);
+        }
+        socket_pattern.end_patch ();
+        socket_pattern.set_matrix (matrix);
+    }
+
     /*\
     * * drawing arrow
     \*/
@@ -150,7 +171,10 @@ private class SynesthesiaTheme : Theme
         context.line_to (arrow_w, arrow_half_h);
         context.line_to (arrow_w, neg_arrow_half_h);
         context.close_path ();
-        context.set_source_rgba (0.5, 0.5, 0.6, 0.4);
+        if (animation_level == 0)
+            context.set_source_rgba (0.5, 0.5, 0.6, 0.4);
+        else
+            context.set_source_rgba (0.5, 0.5, 0.6, 0.4 * (16.0 - (double) animation_level) / 16.0);
         context.fill ();
     }
 
@@ -173,7 +197,10 @@ private class SynesthesiaTheme : Theme
         context.fill_preserve ();
 
         context.set_line_width (1.0);
-        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);
+        if (animation_level == 0)
+            context.set_source_rgba (0.4, 0.4, 0.4, 0.3);
+        else
+            context.set_source_rgba (0.4, 0.4, 0.4, 0.3 * (16.0 - (double) animation_level) / 16.0);
         context.stroke ();
 
         context.restore ();

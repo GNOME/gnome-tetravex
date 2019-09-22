@@ -104,6 +104,7 @@ private class ExtrusionTheme : Theme
     \*/
 
     private uint size = 0;
+    private uint8 animation_level = 0;
 
     /* arrow */
     private double arrow_half_h;
@@ -177,6 +178,11 @@ private class ExtrusionTheme : Theme
         size = new_size;
     }
 
+    internal override void set_animation_level (uint8 new_animation_level /* 0-16 */)
+    {
+        animation_level = new_animation_level;
+    }
+
     /*\
     * * drawing arrow
     \*/
@@ -190,7 +196,10 @@ private class ExtrusionTheme : Theme
         context.line_to (arrow_w, neg_arrow_half_h);
         context.close_path ();
 
-        context.set_source_rgba (0.5, 0.5, 0.5, 0.4);
+        if (animation_level == 0)
+            context.set_source_rgba (0.5, 0.5, 0.5, 0.4);
+        else
+            context.set_source_rgba (0.5, 0.5, 0.5, 0.4 * (16.0 - (double) animation_level) / 16.0);
         context.fill ();
     }
 
@@ -202,7 +211,10 @@ private class ExtrusionTheme : Theme
     {
         context.save ();
 
-        context.set_source_rgba (0.5, 0.5, 0.5, 0.3);
+        if (animation_level == 0)
+            context.set_source_rgba (0.5, 0.5, 0.5, 0.3);
+        else
+            context.set_source_rgba (0.5, 0.5, 0.5, 0.3 * (16.0 - (double) animation_level) / 16.0);
         rounded_square (context,
           /* x and y */ tile_margin, tile_margin,
           /* size    */ tile_size,

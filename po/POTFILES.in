@@ -10,6 +10,8 @@ src/help-overlay.ui
 src/puzzle.vala
 src/puzzle-view.vala
 src/score-dialog.vala
+src/score-overlay.vala
+src/score-overlay.ui
 src/theme-extrusion.vala
 src/theme-neoretro.vala
 src/theme-nostalgia.vala

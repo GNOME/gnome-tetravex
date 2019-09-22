@@ -22,6 +22,7 @@ private abstract class Theme : Object
     internal abstract void draw_socket (Cairo.Context context);
     internal abstract void draw_paused_tile (Cairo.Context context);
     internal abstract void draw_tile (Cairo.Context context, Tile tile);
+    internal abstract void set_animation_level (uint8 animation_level /* 0-16 */);
 }
 
 private class PuzzleView : Gtk.DrawingArea
@@ -74,6 +75,7 @@ private class PuzzleView : Gtk.DrawingArea
         private get { if (!puzzle_init_done) assert_not_reached (); return _puzzle; }
         internal set
         {
+            show_right_sockets ();
             uint8 old_puzzle_size = 0;
             if (puzzle_init_done)
             {
@@ -131,6 +133,7 @@ private class PuzzleView : Gtk.DrawingArea
                 theme.configure (tilesize);
             arrow_pattern = null;
             socket_pattern = null;
+            theme.set_animation_level (socket_animation_level);
             queue_draw ();
         }
     }
@@ -155,8 +158,11 @@ private class PuzzleView : Gtk.DrawingArea
     private uint animation_timeout = 0;
 
     /* Set in configure event */
+    [CCode (notify = true)] internal uint boardsize         { internal get; private set; default = 0; }
+    [CCode (notify = true)] internal double x_offset_right  { internal get; private set; default = 0; }
+    [CCode (notify = true)] internal double y_offset        { internal get; private set; default = 0; }
+    [CCode (notify = true)] internal double right_margin    { internal get; private set; default = 0; }
     private double x_offset = 0.0;
-    private double y_offset = 0.0;
     private uint tilesize = 0;
     private uint gap = 0;
     private double arrow_x = 0.0;
@@ -165,7 +171,6 @@ private class PuzzleView : Gtk.DrawingArea
     private double [,] sockets_ys;
     private int board_x_maxi = 0;
     private int board_y_maxi = 0;
-    private int boardsize = 0;
     private double snap_distance = 0.0;
 
     /* Pre-rendered image */
@@ -330,6 +335,9 @@ private class PuzzleView : Gtk.DrawingArea
             arrow_x = x_offset + boardsize;
             arrow_local_y = boardsize * 0.5;
 
+            x_offset_right = arrow_x + gap;
+            right_margin = allocated_width - x_offset_right - boardsize;
+
             /* Precalculate sockets positions */
             for (uint y = 0; y < puzzle.size; y++)
                 for (uint x = 0; x < puzzle.size * 2; x++)
@@ -371,7 +379,7 @@ private class PuzzleView : Gtk.DrawingArea
 
         /* arrow pattern */
         tmp_surface = new Cairo.Surface.similar (context.get_target (), Cairo.Content.COLOR_ALPHA, (int) gap,
-                                                                                                   boardsize);
+                                                                                                   (int) boardsize);
         tmp_context = new Cairo.Context (tmp_surface);
 
         tmp_context.save ();
@@ -536,7 +544,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     private bool on_right_half (double x)
     {
-        return x > x_offset + boardsize + gap * 0.5;
+        return x > x_offset_right - gap * 0.5;
     }
 
     private void drop_tile (double x, double y)
@@ -555,7 +563,7 @@ private class PuzzleView : Gtk.DrawingArea
         int16 tile_x;
         if (on_right_half (x))
         {
-            tile_x = (int16) puzzle.size + (int16) Math.floor ((x - (x_offset + boardsize + gap)) / tilesize);
+            tile_x = (int16) puzzle.size + (int16) Math.floor ((x - x_offset_right) / tilesize);
             tile_x = tile_x.clamp ((int16) puzzle.size, 2 * (int16) puzzle.size - 1);
         }
         else
@@ -764,6 +772,10 @@ private class PuzzleView : Gtk.DrawingArea
         tile_selected = false;
     }
 
+    /*\
+    * * history proxies
+    \*/
+
     internal void undo ()
     {
         last_selected_tile = null;
@@ -774,5 +786,44 @@ private class PuzzleView : Gtk.DrawingArea
     {
         last_selected_tile = null;
         puzzle.redo ();
+    }
+
+    /*\
+    * * final animation
+    \*/
+
+    private uint8 socket_animation_level = 0;
+    private uint socket_timeout_id = 0;
+
+    internal void hide_right_sockets ()
+    {
+        socket_timeout_id = Timeout.add (75, () => {
+                socket_animation_level++;
+                theme.set_animation_level (socket_animation_level);
+                arrow_pattern = null;
+                socket_pattern = null;
+                queue_draw ();
+
+                if (socket_animation_level < 17)
+                    return Source.CONTINUE;
+                else
+                {
+                    socket_timeout_id = 0;
+                    return Source.REMOVE;
+                }
+            });
+    }
+
+    private inline void show_right_sockets ()
+    {
+        if (socket_timeout_id != 0)
+        {
+            Source.remove (socket_timeout_id);
+            socket_timeout_id = 0;
+        }
+        socket_animation_level = 0;
+        theme.set_animation_level (0);
+        arrow_pattern = null;
+        socket_pattern = null;
     }
 }

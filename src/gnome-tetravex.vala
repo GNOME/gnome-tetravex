@@ -45,6 +45,8 @@ private class Tetravex : Gtk.Application
     private SimpleAction solve_action;
     private SimpleAction finish_action;
 
+    private ScoreOverlay score_overlay;
+
     private const OptionEntry [] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
@@ -125,6 +127,12 @@ private class Tetravex : Gtk.Application
 
         history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history"));
 
+        CssProvider css_provider = new CssProvider ();
+        css_provider.load_from_resource ("/org/gnome/Tetravex/tetravex.css");
+        Gdk.Screen? gdk_screen = Gdk.Screen.get_default ();
+        if (gdk_screen != null) // else..?
+            StyleContext.add_provider_for_screen ((!) gdk_screen, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
+
         window = (ApplicationWindow) builder.get_object ("gnome-tetravex-window");
         this.add_window (window);
         window.key_press_event.connect (on_key_press_event);
@@ -175,7 +183,22 @@ private class Tetravex : Gtk.Application
         view.vexpand = true;
         view.button_release_event.connect (view_button_release_event);
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
-        grid.attach (view, 0, 0, 3, 1);
+
+        Overlay overlay = new Overlay ();
+        overlay.add (view);
+        overlay.show ();
+
+        score_overlay = new ScoreOverlay ();
+        overlay.add_overlay (score_overlay);
+        overlay.set_overlay_pass_through (score_overlay, true);
+
+        view.bind_property ("boardsize",        score_overlay,  "boardsize",        BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        view.bind_property ("x-offset-right",   score_overlay,  "margin-left",      BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        view.bind_property ("right-margin",     score_overlay,  "margin-right",     BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        view.bind_property ("y-offset",         score_overlay,  "margin-top",       BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        view.bind_property ("y-offset",         score_overlay,  "margin-bottom",    BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+
+        grid.attach (overlay, 0, 0, 3, 1);
 
         settings.bind ("mouse-use-extra-buttons",   view,
                        "mouse-use-extra-buttons",   SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
@@ -356,11 +379,13 @@ private class Tetravex : Gtk.Application
 
     private void new_game ()
     {
+        puzzle_is_finished = false;
         has_been_finished = false;
         pause_action.set_enabled (true);
         solve_action.set_enabled (true);
         finish_action.set_enabled (false);
         new_game_solve_stack.set_visible_child_name ("solve");
+        score_overlay.hide ();
 
         if (puzzle_init_done)
             SignalHandler.disconnect_by_func (puzzle, null, this);
@@ -401,8 +426,10 @@ private class Tetravex : Gtk.Application
             clock_label.set_text ("%02d∶\xE2\x80\x8E%02d".printf (minutes, seconds));
     }
 
+    private bool puzzle_is_finished = false;
     private void solved_cb (Puzzle puzzle)
     {
+        puzzle_is_finished = true;
         undo_action.set_enabled (false);
         redo_action.set_enabled (false);
         pause_action.set_enabled (false);
@@ -431,35 +458,25 @@ private class Tetravex : Gtk.Application
     {
         DateTime date = new DateTime.now_local ();
         uint duration = (uint) (puzzle.elapsed + 0.5);
-        HistoryEntry entry = new HistoryEntry (date, puzzle.size, duration);
-        history.add (entry);
-        history.save ();
+        last_history_entry = new HistoryEntry (date, puzzle.size, duration);
 
-        int score_dialog_action = show_scores (entry, true);
-        if (score_dialog_action == ResponseType.CLOSE)
-            window.destroy ();
-        else if (score_dialog_action == ResponseType.OK)
-            new_game ();
-        else if (score_dialog_action != ResponseType.REJECT)
-            new_game_solve_stack.set_visible_child_name ("new-game");
-    }
+        if (!puzzle_is_finished) // Ctrl-n has been hit before the animation finished
+            return;
 
-    private bool scores_dialog_visible = false; // security for #5
-    private int show_scores (HistoryEntry? selected_entry = null, bool show_quit = false)
-    {
-        if (scores_dialog_visible)
-            return ResponseType.REJECT;
+        HistoryEntry? other_score_0;
+        HistoryEntry? other_score_1;
+        HistoryEntry? other_score_2;
+        uint position = history.get_place ((!) last_history_entry,
+                                           puzzle.size,
+                                       out other_score_0,
+                                       out other_score_1,
+                                       out other_score_2);
+        score_overlay.set_score (puzzle.size, position, (!) last_history_entry, other_score_0, other_score_1, other_score_2);
 
-        scores_dialog_visible = true;
-        ScoreDialog dialog = new ScoreDialog (history, puzzle.size, selected_entry, show_quit);
-        dialog.set_modal (true);
-        dialog.set_transient_for (window);
+        new_game_solve_stack.set_visible_child_name ("new-game");
+        view.hide_right_sockets ();
 
-        int result = dialog.run ();
-        dialog.destroy ();
-        scores_dialog_visible = false;
-
-        return result;
+        score_overlay.show ();
     }
 
     private void new_game_cb ()
@@ -489,9 +506,21 @@ private class Tetravex : Gtk.Application
         new_game ();
     }
 
-    private void scores_cb ()
+    private HistoryEntry? last_history_entry = null;
+    private bool scores_dialog_visible = false; // security for #5
+    private void scores_cb (/* SimpleAction action, Variant? variant */)
     {
-        show_scores ();
+        if (scores_dialog_visible)
+            return;
+
+        scores_dialog_visible = true;
+        ScoreDialog dialog = new ScoreDialog (history, puzzle.size, puzzle.is_solved ? last_history_entry : null);
+        dialog.set_modal (true);
+        dialog.set_transient_for (window);
+
+        dialog.run ();
+        dialog.destroy ();
+        scores_dialog_visible = false;
     }
 
     private bool view_button_release_event (Widget widget, Gdk.EventButton event)

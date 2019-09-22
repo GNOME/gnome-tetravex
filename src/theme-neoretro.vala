@@ -126,6 +126,7 @@ private class NeoRetroTheme : Theme
     \*/
 
     private uint size = 0;
+    private uint8 animation_level = 0;
 
     /* arrow */
     private double arrow_half_h;
@@ -137,6 +138,9 @@ private class NeoRetroTheme : Theme
     private double arrow_clip_y;
     private double arrow_clip_w;
     private double arrow_clip_h;
+
+    private double arrow_border_opacity;
+    private double arrow_fill_opacity;
 
     /* socket */
     private uint socket_margin;
@@ -180,18 +184,7 @@ private class NeoRetroTheme : Theme
         socket_margin = uint.min ((uint) (new_size * 0.05), 2);
         socket_size = (int) new_size - (int) socket_margin * 2;
 
-        socket_pattern = new Cairo.MeshPattern ();
-        socket_pattern.begin_patch ();
-        socket_pattern.move_to (0.0, 0.0);
-        socket_pattern.line_to (1.0, 0.0);
-        socket_pattern.line_to (1.0, 1.0);
-        socket_pattern.line_to (0.0, 1.0);
-        socket_pattern.set_corner_color_rgba (0, 0.3, 0.3, 0.3, 0.3);
-        socket_pattern.set_corner_color_rgba (1, 0.4, 0.4, 0.4, 0.3);
-        socket_pattern.set_corner_color_rgba (2, 0.7, 0.7, 0.7, 0.3);
-        socket_pattern.set_corner_color_rgba (3, 0.6, 0.6, 0.6, 0.3);
-        socket_pattern.end_patch ();
-        socket_pattern.set_matrix (matrix);
+        init_socket_pattern ();
 
         /* tile */
         tile_margin = uint.min ((uint) (new_size * 0.05), 2) - 1;
@@ -207,6 +200,30 @@ private class NeoRetroTheme : Theme
 
         /* end */
         size = new_size;
+    }
+
+    internal override void set_animation_level (uint8 new_animation_level /* 0-16 */)
+    {
+        animation_level = new_animation_level;
+        arrow_border_opacity = animation_level == 0 ? 0.3 : 0.3 * (16.0 - (double) animation_level) / 16.0;
+        arrow_fill_opacity = animation_level == 0 ? 0.1 : 0.1 * (16.0 - (double) animation_level) / 16.0;
+        init_socket_pattern ();
+    }
+
+    private void init_socket_pattern ()
+    {
+        socket_pattern = new Cairo.MeshPattern ();
+        socket_pattern.begin_patch ();
+        socket_pattern.move_to (0.0, 0.0);
+        socket_pattern.line_to (1.0, 0.0);
+        socket_pattern.line_to (1.0, 1.0);
+        socket_pattern.line_to (0.0, 1.0);
+        socket_pattern.set_corner_color_rgba (0, 0.3, 0.3, 0.3, arrow_border_opacity);
+        socket_pattern.set_corner_color_rgba (1, 0.4, 0.4, 0.4, arrow_border_opacity);
+        socket_pattern.set_corner_color_rgba (2, 0.7, 0.7, 0.7, arrow_border_opacity);
+        socket_pattern.set_corner_color_rgba (3, 0.6, 0.6, 0.6, arrow_border_opacity);
+        socket_pattern.end_patch ();
+        socket_pattern.set_matrix (matrix);
     }
 
     /*\
@@ -252,11 +269,11 @@ private class NeoRetroTheme : Theme
         context.set_line_cap (Cairo.LineCap.ROUND);
 
         context.set_line_width (14.0);
-        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);   // fill color 1, including border
+        context.set_source_rgba (0.4, 0.4, 0.4, arrow_border_opacity);  // fill color 1, including border
         context.stroke_preserve ();
 
         context.set_line_width (12.0);
-        context.set_source_rgba (1.0, 1.0, 1.0, 0.1);   // fill color 2
+        context.set_source_rgba (1.0, 1.0, 1.0, arrow_fill_opacity);    // fill color 2
         context.stroke_preserve ();
 
         /* filling interior */
@@ -264,10 +281,10 @@ private class NeoRetroTheme : Theme
         context.reset_clip ();  // forget the border clip
         context.clip ();       // clip to the current path
 
-        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);   // fill color 1
+        context.set_source_rgba (0.4, 0.4, 0.4, arrow_border_opacity);  // fill color 1
         context.fill_preserve ();
 
-        context.set_source_rgba (1.0, 1.0, 1.0, 0.1);   // fill color 2
+        context.set_source_rgba (1.0, 1.0, 1.0, arrow_fill_opacity);    // fill color 2
         context.fill ();
     }
 
@@ -288,7 +305,7 @@ private class NeoRetroTheme : Theme
         context.fill_preserve ();
 
         context.set_line_width (1.0);
-        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);
+        context.set_source_rgba (0.4, 0.4, 0.4, arrow_border_opacity);
         context.stroke ();
 
         context.restore ();
