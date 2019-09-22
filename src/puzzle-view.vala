@@ -535,9 +535,11 @@ private class PuzzleView : Gtk.DrawingArea
                     puzzle.get_tile_location (((!) selected_tile).tile, out selected_x, out selected_y);
                     if (puzzle.can_switch (selected_x, selected_y, x, y))
                         puzzle.switch_tiles (selected_x, selected_y, x, y, final_animation_duration);
+                    else
+                        return false;   /* consider double click as a single click */
                 }
                 else
-                    return false;   /* consider double click as a single click */
+                    return false;       /* consider double click as a single click */
             }
             else
                 move_tile_to_right_half (((!) selected_tile).tile);
