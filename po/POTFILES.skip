@@ -2,4 +2,5 @@ src/gnome-tetravex.c
 src/puzzle.c
 src/puzzle-view.c
 src/score-dialog.c
+src/score-overlay.c
 src/theme.c

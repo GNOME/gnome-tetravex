@@ -14,7 +14,100 @@ private class History : Object
     [CCode (notify = false)] public string filename { private get; protected construct; }
     internal List<HistoryEntry> entries = new List<HistoryEntry> ();
 
+    /*\
+    * * getting
+    \*/
+
     internal signal void entry_added (HistoryEntry entry);
+
+    internal uint get_place (HistoryEntry   entry,
+                             uint8          puzzle_size,
+                         out HistoryEntry?  other_entry_0,
+                         out HistoryEntry?  other_entry_1,
+                         out HistoryEntry?  other_entry_2)
+    {
+        entries.insert_sorted (entry, HistoryEntry.compare_entries);
+        entry_added (entry);
+        save ();
+
+        unowned List<HistoryEntry> entry_item = entries.find (entry);
+        unowned List<HistoryEntry> best_time_item;
+        uint best_position = get_best_time_position (entry_item, out best_time_item);
+        uint position = entries.position (entry_item) - best_position + 1;
+        switch (position)
+        {
+            case 1:
+                unowned List<HistoryEntry>? tmp_item = entry_item.next;
+                if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
+                {
+                    other_entry_0 = null;
+                    other_entry_1 = null;
+                    other_entry_2 = null;
+                    break;
+                }
+                other_entry_0 = ((!) tmp_item).data;
+                tmp_item = ((!) tmp_item).next;
+                if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
+                {
+                    other_entry_1 = null;
+                    other_entry_2 = null;
+                    break;
+                }
+                other_entry_1 = ((!) tmp_item).data;
+                tmp_item = ((!) tmp_item).next;
+                if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
+                    other_entry_2 = null;
+                else
+                    other_entry_2 = ((!) tmp_item).data;
+                break;
+
+            case 2:
+                other_entry_0 = best_time_item.data;
+                unowned List<HistoryEntry>? tmp_item = entry_item.next;
+                if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
+                {
+                    other_entry_1 = null;
+                    other_entry_2 = null;
+                    break;
+                }
+                other_entry_1 = ((!) tmp_item).data;
+                tmp_item = ((!) tmp_item).next;
+                if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
+                    other_entry_2 = null;
+                else
+                    other_entry_2 = ((!) tmp_item).data;
+                break;
+
+            default:
+                other_entry_0 = best_time_item.data;
+                other_entry_1 = entry_item.prev.data;
+                unowned List<HistoryEntry>? next_entry_item = entry_item.next;
+                if (next_entry_item == null || ((!) next_entry_item).data.size != puzzle_size)
+                    other_entry_2 = null;
+                else
+                    other_entry_2 = ((!) next_entry_item).data;
+                break;
+        }
+        return position;
+    }
+
+    private uint get_best_time_position (List<HistoryEntry> entry_item, out unowned List<HistoryEntry> best_time_item)
+    {
+        uint8 puzzle_size = entry_item.data.size;
+        best_time_item = entries.first ();
+        if (puzzle_size == 2 || entry_item == best_time_item)
+            return 0;
+
+        best_time_item = entry_item;
+        do { best_time_item = best_time_item.prev; }
+        while (best_time_item != entries && best_time_item.data.size == puzzle_size);
+        best_time_item = best_time_item.next;
+        return entries.position (best_time_item);
+    }
+
+    /*\
+    * * loading
+    \*/
 
     internal History (string filename)
     {
@@ -22,13 +115,7 @@ private class History : Object
         load ();
     }
 
-    internal void add (HistoryEntry entry)
-    {
-        entries.append (entry);
-        entry_added (entry);
-    }
-
-    internal void load ()
+    private inline void load ()
     {
         string contents = "";
         try
@@ -57,11 +144,34 @@ private class History : Object
 
             // FIXME use try_parse
 
-            add (new HistoryEntry ((!) date, size, duration));
+            entries.prepend (new HistoryEntry ((!) date, size, duration));
         }
+        entries.sort (HistoryEntry.compare_entries);
     }
 
-    internal void save ()
+    private inline DateTime? parse_date (string date)
+    {
+        if (date.length < 19 || date[4] != '-' || date[7] != '-' || date[10] != 'T' || date[13] != ':' || date[16] != ':')
+            return null;
+
+        // FIXME use try_parse
+
+        int year        = int.parse (date.substring (0, 4));
+        int month       = int.parse (date.substring (5, 2));
+        int day         = int.parse (date.substring (8, 2));
+        int hour        = int.parse (date.substring (11, 2));
+        int minute      = int.parse (date.substring (14, 2));
+        int seconds     = int.parse (date.substring (17, 2));
+        string timezone = date.substring (19);
+
+        return new DateTime (new TimeZone (timezone), year, month, day, hour, minute, seconds);
+    }
+
+    /*\
+    * * saving
+    \*/
+
+    private inline void save ()
     {
         string contents = "";
 
@@ -81,24 +191,6 @@ private class History : Object
             warning ("Failed to save history: %s", e.message);
         }
     }
-
-    private DateTime? parse_date (string date)
-    {
-        if (date.length < 19 || date[4] != '-' || date[7] != '-' || date[10] != 'T' || date[13] != ':' || date[16] != ':')
-            return null;
-
-        // FIXME use try_parse
-
-        int year        = int.parse (date.substring (0, 4));
-        int month       = int.parse (date.substring (5, 2));
-        int day         = int.parse (date.substring (8, 2));
-        int hour        = int.parse (date.substring (11, 2));
-        int minute      = int.parse (date.substring (14, 2));
-        int seconds     = int.parse (date.substring (17, 2));
-        string timezone = date.substring (19);
-
-        return new DateTime (new TimeZone (timezone), year, month, day, hour, minute, seconds);
-    }
 }
 
 private class HistoryEntry : Object // TODO make struct? needs using HistoryEntry? for the List...
@@ -110,5 +202,34 @@ private class HistoryEntry : Object // TODO make struct? needs using HistoryEntr
     internal HistoryEntry (DateTime date, uint8 size, uint duration)
     {
         Object (date: date, size: size, duration: duration);
+    }
+
+    /*\
+    * * utilities
+    \*/
+
+    internal static string get_duration_string (uint duration)
+    {
+        if (duration >= 3600)
+            /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */
+            return _("%uh %um %us").printf (duration / 3600, (duration / 60) % 60, duration % 60);
+
+        if (duration >= 60)
+            /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */
+            return _("%um %us").printf (duration / 60, duration % 60);
+
+        else
+            /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken; as an example, you might want to use "00:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */
+            return _("%us").printf (duration);
+    }
+
+    internal static int compare_entries (HistoryEntry a, HistoryEntry b)
+    {
+        if (a.size != b.size)
+            return (int) a.size - (int) b.size;
+        if (a.duration != b.duration)
+            return (int) a.duration - (int) b.duration;
+        else
+            return a.date.compare (b.date);
     }
 }
