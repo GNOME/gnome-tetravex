@@ -248,6 +248,9 @@ private class Puzzle : Object
 
         Tile? t0 = board [x0, y0];
         Tile? t1 = board [x1, y1];
+        if (t0 == null && t1 == null)   // might happen when move_up and friends are called
+            return;
+
         board [x0, y0] = t1;
         board [x1, y1] = t0;
 
