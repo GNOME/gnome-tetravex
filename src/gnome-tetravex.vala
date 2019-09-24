@@ -416,7 +416,7 @@ private class Tetravex : Gtk.Application
     {
         int elapsed = 0;
         if (puzzle_init_done)
-            elapsed = (int) (puzzle.elapsed + 0.5);
+            elapsed = (int) puzzle.elapsed; // felt better when + 0.5, but as the clock is still displayed while the score-overlay displays the exact time, that is regularly feeling odd
         int hours = elapsed / 3600;
         int minutes = (elapsed - hours * 3600) / 60;
         int seconds = elapsed - hours * 3600 - minutes * 60;
@@ -457,8 +457,7 @@ private class Tetravex : Gtk.Application
     private void show_end_game_cb (Puzzle puzzle)
     {
         DateTime date = new DateTime.now_local ();
-        uint duration = (uint) (puzzle.elapsed + 0.5);
-        last_history_entry = new HistoryEntry (date, puzzle.size, duration);
+        last_history_entry = new HistoryEntry (date, puzzle.size, puzzle.elapsed, /* old history format */ false);
 
         if (!puzzle_is_finished) // Ctrl-n has been hit before the animation finished
             return;

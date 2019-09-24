@@ -75,9 +75,7 @@ private class ScoreDialog : Dialog
         scores.show ();
         scroll.add (scores);
 
-        List<unowned HistoryEntry> entries = history.entries.copy ();
-        entries.sort (HistoryEntry.compare_entries);
-        foreach (HistoryEntry entry in entries)
+        foreach (HistoryEntry entry in history.entries)
             entry_added_cb (entry);
 
         TreeIter iter;
@@ -89,10 +87,7 @@ private class ScoreDialog : Dialog
     {
         score_model.clear ();
 
-        List<unowned HistoryEntry> entries = history.entries.copy ();
-        entries.sort (HistoryEntry.compare_entries);
-
-        foreach (HistoryEntry entry in entries)
+        foreach (HistoryEntry entry in history.entries)
         {
             if (entry.size != size)
                 continue;
@@ -100,7 +95,7 @@ private class ScoreDialog : Dialog
             /* "the preferred date representation for the current locale without the time" */
             string date_label = entry.date.format ("%x");
 
-            string time_label = HistoryEntry.get_duration_string (entry.duration);
+            string time_label = HistoryEntry.get_duration_string (entry);
 
             int weight = Pango.Weight.NORMAL;
             if (entry == selected_entry)

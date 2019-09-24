@@ -46,26 +46,26 @@ private class ScoreOverlay : Grid
             case 1:
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the game time */
                 score_0.set_place_label (_("New best time!"));
-                score_0.set_value_label (HistoryEntry.get_duration_string (entry.duration), true);
+                score_0.set_value_label (HistoryEntry.get_duration_string (entry), true);
 
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old best time */
                 score_1.set_place_label (_("Second:"));
                 if (other_entry_0 != null)
-                    score_1.set_value_label (HistoryEntry.get_duration_string (((!) other_entry_0).duration));
+                    score_1.set_value_label (HistoryEntry.get_duration_string ((!) other_entry_0));
                 else
                     score_1.set_value_label (null);
 
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time */
                 score_2.set_place_label (_("Third:"));
                 if (other_entry_1 != null)
-                    score_2.set_value_label (HistoryEntry.get_duration_string (((!) other_entry_1).duration));
+                    score_2.set_value_label (HistoryEntry.get_duration_string ((!) other_entry_1));
                 else
                     score_2.set_value_label (null);
 
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old third best time */
                 score_3.set_place_label (_("Out of podium:"));
                 if (other_entry_2 != null)
-                    score_3.set_value_label (HistoryEntry.get_duration_string (((!) other_entry_2).duration));
+                    score_3.set_value_label (HistoryEntry.get_duration_string ((!) other_entry_2));
                 else
                     score_3.set_value_label (null);
                 break;
@@ -75,23 +75,23 @@ private class ScoreOverlay : Grid
                     assert_not_reached ();
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever */
                 score_0.set_place_label (_("Best time:"));
-                score_0.set_value_label (HistoryEntry.get_duration_string (((!) other_entry_0).duration));
+                score_0.set_value_label (HistoryEntry.get_duration_string ((!) other_entry_0));
 
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the game time */
                 score_1.set_place_label (_("Your time:"));
-                score_1.set_value_label (HistoryEntry.get_duration_string (entry.duration), true);
+                score_1.set_value_label (HistoryEntry.get_duration_string (entry), true);
 
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time */
                 score_2.set_place_label (_("Third:"));
                 if (other_entry_1 != null)
-                    score_2.set_value_label (HistoryEntry.get_duration_string (((!) other_entry_1).duration));
+                    score_2.set_value_label (HistoryEntry.get_duration_string ((!) other_entry_1));
                 else
                     score_2.set_value_label (null);
 
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old third best time */
                 score_3.set_place_label (_("Out of podium:"));
                 if (other_entry_2 != null)
-                    score_3.set_value_label (HistoryEntry.get_duration_string (((!) other_entry_2).duration));
+                    score_3.set_value_label (HistoryEntry.get_duration_string ((!) other_entry_2));
                 else
                     score_3.set_value_label (null);
                 break;
@@ -101,7 +101,7 @@ private class ScoreOverlay : Grid
                     assert_not_reached ();
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever */
                 score_0.set_place_label (_("Best time:"));
-                score_0.set_value_label (HistoryEntry.get_duration_string (((!) other_entry_0).duration));
+                score_0.set_value_label (HistoryEntry.get_duration_string ((!) other_entry_0));
 
                 if (position == 3)
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the second best time */
@@ -114,16 +114,16 @@ private class ScoreOverlay : Grid
                 else
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank before the one of the game played */
                     score_1.set_place_label (_("Place %u:").printf (position - 1));
-                score_1.set_value_label (HistoryEntry.get_duration_string (((!) other_entry_1).duration));
+                score_1.set_value_label (HistoryEntry.get_duration_string ((!) other_entry_1));
 
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the game time */
                 score_2.set_place_label (_("Your time:"));
-                score_2.set_value_label (HistoryEntry.get_duration_string (entry.duration), true);
+                score_2.set_value_label (HistoryEntry.get_duration_string (entry), true);
 
                 /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank after the one of the game played */
                 score_3.set_place_label (_("Place %u:").printf (position + 1));
                 if (other_entry_2 != null)
-                    score_3.set_value_label (HistoryEntry.get_duration_string (((!) other_entry_2).duration));
+                    score_3.set_value_label (HistoryEntry.get_duration_string ((!) other_entry_2));
                 else
                     score_3.set_value_label (null);
                 break;
