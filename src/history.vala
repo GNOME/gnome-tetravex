@@ -26,7 +26,7 @@ private class History : Object
                          out HistoryEntry?  other_entry_1,
                          out HistoryEntry?  other_entry_2)
     {
-        entries.insert_sorted (entry, HistoryEntry.compare_entries);
+        entries.insert_sorted (entry, compare_entries);
         entry_added (entry);
         save ();
 
@@ -146,15 +146,18 @@ private class History : Object
                 continue;
             uint8 size = (uint8) test;
 
-            if (!uint64.try_parse (tokens [2], out test))
+            double duration;
+            bool int_duration;
+            if (uint64.try_parse (tokens [2], out duration))
+                int_duration = true;
+            else if (double.try_parse (tokens [2], out duration))
+                int_duration = false;
+            else
                 continue;
-            if (test > uint.MAX)
-                continue;
-            uint duration = (uint) test;
 
-            entries.prepend (new HistoryEntry ((!) date, size, duration));
+            entries.prepend (new HistoryEntry ((!) date, size, duration, int_duration));
         }
-        entries.sort (HistoryEntry.compare_entries);
+        entries.sort (compare_entries);
     }
 
     /*\
@@ -167,7 +170,11 @@ private class History : Object
 
         foreach (HistoryEntry entry in entries)
         {
-            string line = "%s %hu %u\n".printf (entry.date.to_string (), entry.size, entry.duration);
+            string line;
+            if (entry.int_duration)
+                line = "%s %hu %u\n".printf (entry.date.to_string (), entry.size, (uint) entry.duration);
+            else
+                line = "%s %hu %s\n".printf (entry.date.to_string (), entry.size, entry.duration.to_string ());
             contents += line;
         }
 
@@ -181,45 +188,84 @@ private class History : Object
             warning ("Failed to save history: %s", e.message);
         }
     }
+
+    /*\
+    * * comparing
+    \*/
+
+    private static int compare_entries (HistoryEntry a, HistoryEntry b)
+    {
+        /* in size order, 2 first */
+        if (a.size != b.size)
+            return (int) a.size - (int) b.size;
+
+        /* not in the same second, easy */
+        if ((uint) a.duration < (uint) b.duration)
+            return -1;
+        if ((uint) a.duration > (uint) b.duration)
+            return 1;
+
+        /* old history format after, to renew a bit the challenge (it might logically be more at duration - 0.5) */
+        if (a.int_duration && !b.int_duration)
+            return 1;
+        if (b.int_duration && !a.int_duration)
+            return -1;
+
+        /* compare duration */
+        if (a.duration < b.duration)
+            return -1;
+        if (a.duration > b.duration)
+            return 1;
+
+        /* newer on the top */
+        return -1 * a.date.compare (b.date);
+    }
 }
 
 private class HistoryEntry : Object // TODO make struct? needs using HistoryEntry? for the List...
 {
-    [CCode (notify = false)] public DateTime date { internal get; protected construct; }
-    [CCode (notify = false)] public uint8 size    { internal get; protected construct; }
-    [CCode (notify = false)] public uint duration { internal get; protected construct; }
+    [CCode (notify = false)] public DateTime date       { internal get; protected construct; }
+    [CCode (notify = false)] public uint8 size          { internal get; protected construct; }
+    [CCode (notify = false)] public double duration     { internal get; protected construct; }
+    [CCode (notify = false)] public bool int_duration   { internal get; protected construct; }
 
-    internal HistoryEntry (DateTime date, uint8 size, uint duration)
+    internal HistoryEntry (DateTime date, uint8 size, double duration, bool int_duration)
     {
-        Object (date: date, size: size, duration: duration);
+        Object (date: date, size: size, duration: duration, int_duration: int_duration);
     }
 
     /*\
     * * utilities
     \*/
 
-    internal static string get_duration_string (uint duration)
+    internal static string get_duration_string (HistoryEntry entry)
     {
-        if (duration >= 3600)
+        if (entry.duration >= 3600.0)
             /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */
-            return _("%uh %um %us").printf (duration / 3600, (duration / 60) % 60, duration % 60);
+            return _("%uh %um %us").printf ((uint) entry.duration / 3600, ((uint) entry.duration / 60) % 60, (uint) entry.duration % 60);
 
-        if (duration >= 60)
+        if (entry.duration >= 60.0)
             /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */
-            return _("%um %us").printf (duration / 60, duration % 60);
+            return _("%um %us").printf ((uint) entry.duration / 60, (uint) entry.duration % 60);
+
+        else if (entry.int_duration)
+            /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken */
+            return _("%us").printf ((uint) entry.duration);
+
+        else if (entry.duration >= 20.0)
+            /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken */
+            return _("%.0fs").printf (Math.floor (entry.duration));
+
+        else if (entry.duration >= 10.0)
+            /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1) */
+            return _("%.1fs").printf (Math.floor (entry.duration * 10.0) / 10.0);
+
+        else if (entry.duration >= 5.0)
+            /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2) */
+            return _("%.2fs").printf (Math.floor (entry.duration * 100.0) / 100.0);
 
         else
-            /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken; as an example, you might want to use "00:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */
-            return _("%us").printf (duration);
-    }
-
-    internal static int compare_entries (HistoryEntry a, HistoryEntry b)
-    {
-        if (a.size != b.size)
-            return (int) a.size - (int) b.size;
-        if (a.duration != b.duration)
-            return (int) a.duration - (int) b.duration;
-        else
-            return a.date.compare (b.date);
+            /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3) */
+            return _("%.3fs").printf (Math.floor (entry.duration * 1000.0) / 1000.0);
     }
 }
