@@ -135,36 +135,26 @@ private class History : Object
             if (tokens.length != 3)
                 continue;
 
-            DateTime? date = parse_date (tokens[0]);
+            DateTime? date = new DateTime.from_iso8601 (tokens [0], /* the entries should have a timezone */ null);
             if (date == null)
                 continue;
 
-            uint8 size    = (uint8) int.parse (tokens[1]);
-            uint duration = (uint)  int.parse (tokens[2]);
+            uint64 test;
+            if (!uint64.try_parse (tokens [1], out test))
+                continue;
+            if (test < 2 || test > 6)
+                continue;
+            uint8 size = (uint8) test;
 
-            // FIXME use try_parse
+            if (!uint64.try_parse (tokens [2], out test))
+                continue;
+            if (test > uint.MAX)
+                continue;
+            uint duration = (uint) test;
 
             entries.prepend (new HistoryEntry ((!) date, size, duration));
         }
         entries.sort (HistoryEntry.compare_entries);
-    }
-
-    private inline DateTime? parse_date (string date)
-    {
-        if (date.length < 19 || date[4] != '-' || date[7] != '-' || date[10] != 'T' || date[13] != ':' || date[16] != ':')
-            return null;
-
-        // FIXME use try_parse
-
-        int year        = int.parse (date.substring (0, 4));
-        int month       = int.parse (date.substring (5, 2));
-        int day         = int.parse (date.substring (8, 2));
-        int hour        = int.parse (date.substring (11, 2));
-        int minute      = int.parse (date.substring (14, 2));
-        int seconds     = int.parse (date.substring (17, 2));
-        string timezone = date.substring (19);
-
-        return new DateTime (new TimeZone (timezone), year, month, day, hour, minute, seconds);
     }
 
     /*\
