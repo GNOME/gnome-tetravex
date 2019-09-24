@@ -22,6 +22,7 @@ datadir = join_paths (get_option ('prefix'), get_option ('datadir'))
 # Dependencies
 glib_dep = dependency ('glib-2.0', version: '>= 2.40.0')
 gtk_dep = dependency ('gtk+-3.0', version: '>= 3.14')
+# TODO build requires vala 0.46.3 for GLib vapi
 
 appstream_util          = find_program('appstream-util',        required: false)
 desktop_file_validate   = find_program('desktop-file-validate', required: false)
