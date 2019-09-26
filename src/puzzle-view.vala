@@ -59,10 +59,10 @@ private class PuzzleView : Gtk.DrawingArea
         private get { if (!puzzle_init_done) assert_not_reached (); return (!) _puzzle; }
         internal set
         {
+            show_right_sockets ();
             if (puzzle_init_done)
                 SignalHandler.disconnect_by_func ((!) _puzzle, null, this);
 
-            show_right_sockets ();
             _puzzle = value;
             last_selected_tile = null;
             tiles.remove_all ();
@@ -683,10 +683,11 @@ private class PuzzleView : Gtk.DrawingArea
     \*/
 
     private uint8 socket_animation_level = 0;
+    private uint socket_timeout_id = 0;
 
     internal void hide_right_sockets ()
     {
-        Timeout.add (75, () => {
+        socket_timeout_id = Timeout.add (75, () => {
                 socket_animation_level++;
                 queue_draw_area ((int) gap_offset,
                                  (int) y_offset,
@@ -696,12 +697,20 @@ private class PuzzleView : Gtk.DrawingArea
                 if (socket_animation_level < 17)
                     return Source.CONTINUE;
                 else
+                {
+                    socket_timeout_id = 0;
                     return Source.REMOVE;
+                }
             });
     }
 
     private inline void show_right_sockets ()
     {
+        if (socket_timeout_id != 0)
+        {
+            Source.remove (socket_timeout_id);
+            socket_timeout_id = 0;
+        }
         socket_animation_level = 0;
     }
 }
