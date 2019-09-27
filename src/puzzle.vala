@@ -238,9 +238,9 @@ private class Puzzle : Object
     [CCode (notify = true)]  internal bool is_solved_right  { internal get; private set; default = false; }
     internal void switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished = 0)
     {
-        _switch_tiles (x0, y0, x1, y1, delay_if_finished, /* undoing */ false);
+        _switch_tiles (x0, y0, x1, y1, delay_if_finished, /* undoing */ false, /* move id: one tile only */ 0);
     }
-    private void _switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished, bool undoing_or_redoing)
+    private void _switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished, bool undoing_or_redoing, uint move_id)
     {
         if (x0 == x1 && y0 == y1)
             return;
@@ -260,7 +260,7 @@ private class Puzzle : Object
             tile_moved ((!) t1, x0, y0);
 
         if (!undoing_or_redoing)
-            add_to_history (x0, y0, x1, y1);
+            add_to_history (x0, y0, x1, y1, move_id);
 
         if (check_if_solved ())
         {
@@ -285,14 +285,22 @@ private class Puzzle : Object
     * * moving tiles
     \*/
 
+    uint last_move_id = 0;
+
+    private inline void switch_one_of_many_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
+    {
+        _switch_tiles (x0, y0, x1, y1, /* delay if finished */ 0, /* undoing or redoing */ false, last_move_id);
+    }
+
     internal void move_up ()
     {
-        if (!can_move_up ())
+        if (!can_move_up () || last_move_id == uint.MAX)
             return;
+        last_move_id++;
 
         for (uint8 y = 1; y < size; y++)
             for (uint8 x = 0; x < size; x++)
-                switch_tiles (x, y, x, y - 1);
+                switch_one_of_many_tiles (x, y, x, y - 1);
     }
     private bool can_move_up ()
     {
@@ -304,12 +312,13 @@ private class Puzzle : Object
 
     internal void move_down ()
     {
-        if (!can_move_down ())
+        if (!can_move_down () || last_move_id == uint.MAX)
             return;
+        last_move_id++;
 
         for (uint8 y = size - 1; y > 0; y--)
             for (uint8 x = 0; x < size; x++)
-                switch_tiles (x, y - 1, x, y);
+                switch_one_of_many_tiles (x, y - 1, x, y);
     }
     private bool can_move_down ()
     {
@@ -321,12 +330,13 @@ private class Puzzle : Object
 
     internal void move_left ()
     {
-        if (!can_move_left ())
+        if (!can_move_left () || last_move_id == uint.MAX)
             return;
+        last_move_id++;
 
         for (uint8 x = 1; x < size; x++)
             for (uint8 y = 0; y < size; y++)
-                switch_tiles (x, y, x - 1, y);
+                switch_one_of_many_tiles (x, y, x - 1, y);
     }
     private bool can_move_left ()
     {
@@ -338,12 +348,13 @@ private class Puzzle : Object
 
     internal void move_right ()
     {
-        if (!can_move_right ())
+        if (!can_move_right () || last_move_id == uint.MAX)
             return;
+        last_move_id++;
 
         for (uint8 x = size - 1; x > 0; x--)
             for (uint8 y = 0; y < size; y++)
-                switch_tiles (x - 1, y, x, y);
+                switch_one_of_many_tiles (x - 1, y, x, y);
     }
     private bool can_move_right ()
     {
@@ -445,14 +456,15 @@ private class Puzzle : Object
         public uint8 y0 { internal get; protected construct; }
         public uint8 x1 { internal get; protected construct; }
         public uint8 y1 { internal get; protected construct; }
+        public uint  id { internal get; protected construct; }
 
-        internal Inversion (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
+        internal Inversion (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint id)
         {
-            Object (x0: x0, y0: y0, x1: x1, y1: y1);
+            Object (x0: x0, y0: y0, x1: x1, y1: y1, id: id);
         }
     }
 
-    private void add_to_history (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
+    private inline void add_to_history (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint id)
     {
         while (last_move_index > 0)
         {
@@ -465,7 +477,7 @@ private class Puzzle : Object
             history_length--;
         }
 
-        Inversion history_entry = new Inversion (x0, y0, x1, y1);
+        Inversion history_entry = new Inversion (x0, y0, x1, y1, id);
         reversed_history.prepend (history_entry);
 
         history_length++;
@@ -478,19 +490,37 @@ private class Puzzle : Object
         if (!can_undo)
             return;
 
-        unowned Inversion? inversion = reversed_history.nth_data (last_move_index);
-        if (inversion == null)
-            assert_not_reached ();
+        unowned List<Inversion>? inversion_item = reversed_history.nth (last_move_index);
+        if (inversion_item == null) assert_not_reached ();
 
-        _switch_tiles (((!) inversion).x0, ((!) inversion).y0,
-                       ((!) inversion).x1, ((!) inversion).y1,
-                       animation_duration, /* no log */ true);
+        unowned Inversion? inversion = ((!) inversion_item).data;
+        if (inversion == null) assert_not_reached ();
 
-        last_move_index++;
+        uint move_id = ((!) inversion).id;
+        if (move_id == 0)   // one tile move
+            undo_move (((!) inversion).x0, ((!) inversion).y0,
+                       ((!) inversion).x1, ((!) inversion).y1);
+        else
+            while (move_id == ((!) inversion).id)
+            {
+                undo_move (((!) inversion).x0, ((!) inversion).y0,
+                           ((!) inversion).x1, ((!) inversion).y1);
+
+                inversion_item = ((!) inversion_item).next;
+                if (inversion_item == null)
+                    break;
+                inversion = ((!) inversion_item).data;
+            }
 
         if (last_move_index == history_length)
             can_undo = false;
         can_redo = true;
+    }
+    private inline void undo_move (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
+    {
+        _switch_tiles (x0, y0, x1, y1, animation_duration, /* no log */ true, /* garbage */ 0);
+
+        last_move_index++;
     }
 
     internal void redo ()
@@ -498,18 +528,36 @@ private class Puzzle : Object
         if (!can_redo)
             return;
 
-        last_move_index--;
+        unowned List<Inversion>? inversion_item = reversed_history.nth (last_move_index - 1);
+        if (inversion_item == null) assert_not_reached ();
 
-        unowned Inversion? inversion = reversed_history.nth_data (last_move_index);
-        if (inversion == null)
-            assert_not_reached ();
+        unowned Inversion? inversion = ((!) inversion_item).data;
+        if (inversion == null) assert_not_reached ();
 
-        _switch_tiles (((!) inversion).x0, ((!) inversion).y0,
-                       ((!) inversion).x1, ((!) inversion).y1,
-                       animation_duration, /* no log */ true);
+        uint move_id = ((!) inversion).id;
+        if (move_id == 0)   // one tile move
+            redo_move (((!) inversion).x0, ((!) inversion).y0,
+                       ((!) inversion).x1, ((!) inversion).y1);
+        else
+            while (move_id == ((!) inversion).id)
+            {
+                redo_move (((!) inversion).x0, ((!) inversion).y0,
+                           ((!) inversion).x1, ((!) inversion).y1);
+
+                inversion_item = ((!) inversion_item).prev;
+                if (inversion_item == null)
+                    break;
+                inversion = ((!) inversion_item).data;
+            }
 
         if (last_move_index == 0)
             can_redo = false;
         can_undo = true;
+    }
+    private inline void redo_move (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
+    {
+        last_move_index--;
+
+        _switch_tiles (x0, y0, x1, y1, animation_duration, /* no log */ true, /* garbage */ 0);
     }
 }
