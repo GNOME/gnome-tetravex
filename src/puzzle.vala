@@ -224,11 +224,30 @@ private class Puzzle : Object
         if (t0 == null && t1 == null)
             return false;
 
-        /* If placing onto the final area check if it fits */
+        /* if placing onto the final area, check if it fits regarding current tiles */
         if (t0 != null && x1 < size && !tile_fits (x0, y0, x1, y1))
             return false;
         if (t1 != null && x0 < size && !tile_fits (x1, y1, x0, y0))
             return false;
+
+        /* if inverting two tiles of the final area, check that they are compatible */
+        if (t0 != null && t1 != null && x0 <size && x1 < size)
+        {
+            if (x0 == x1)
+            {
+                if (y0 == y1 + 1 && ((!) t0).south != ((!) t1).north)
+                    return false;
+                if (y0 == y1 - 1 && ((!) t0).north != ((!) t1).south)
+                    return false;
+            }
+            else if (y0 == y1)
+            {
+                if (x0 == x1 + 1 && ((!) t0).east != ((!) t1).west)
+                    return false;
+                if (x0 == x1 - 1 && ((!) t0).west != ((!) t1).west)
+                    return false;
+            }
+        }
 
         return true;
     }
