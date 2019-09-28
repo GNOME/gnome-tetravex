@@ -512,6 +512,9 @@ private class PuzzleView : Gtk.DrawingArea
 
     private inline bool main_button_pressed (Gdk.EventButton event)
     {
+        if (puzzle.is_solved)   // security
+            return false;
+
         if (event.type == Gdk.EventType.BUTTON_PRESS)
         {
             if (selected_tile == null)
@@ -521,10 +524,13 @@ private class PuzzleView : Gtk.DrawingArea
         }
         else if (event.type == Gdk.EventType.DOUBLE_BUTTON_PRESS)
         {
+            bool had_selected_tile = selected_tile != null;
+
             /* Move tile from left to right on double click */
             pick_tile (event.x, event.y);
             if (selected_tile == null)
                 return false;
+
             if (on_right_half (((!) selected_tile).x))
             {
                 uint8 x;
@@ -535,13 +541,21 @@ private class PuzzleView : Gtk.DrawingArea
                     puzzle.get_tile_location (((!) selected_tile).tile, out selected_x, out selected_y);
                     if (puzzle.can_switch (selected_x, selected_y, x, y))
                         puzzle.switch_tiles (selected_x, selected_y, x, y, final_animation_duration);
-                    else
-                        return false;   /* consider double click as a single click */
+                    else    /* consider double click as a single click */
+                    {
+                        if (had_selected_tile)
+                            drop_tile (event.x, event.y);
+                        return false;
+                    }
                 }
-                else
-                    return false;       /* consider double click as a single click */
+                else        /* consider double click as a single click */
+                {
+                    if (had_selected_tile)
+                        drop_tile (event.x, event.y);
+                    return false;
+                }
             }
-            else
+            else if (!had_selected_tile)
                 move_tile_to_right_half (((!) selected_tile).tile);
             ((!) selected_tile).snap_to_cursor = true;
             selected_tile = null;
