@@ -52,24 +52,25 @@ private class PuzzleView : Gtk.DrawingArea
     private const double half_animation_duration = 0.15;
 
     /* Puzzle being rendered */
-    private Puzzle? _puzzle = null;
-    [CCode (notify = false)] private bool puzzle_init_done { get { return _puzzle != null; }}
+    private Puzzle _puzzle;
+    private bool puzzle_init_done = false;
     [CCode (notify = false)] internal Puzzle puzzle
     {
-        private get { if (!puzzle_init_done) assert_not_reached (); return (!) _puzzle; }
+        private get { if (!puzzle_init_done) assert_not_reached (); return _puzzle; }
         internal set
         {
             if (puzzle_init_done)
-                SignalHandler.disconnect_by_func ((!) _puzzle, null, this);
+                SignalHandler.disconnect_by_func (_puzzle, null, this);
 
             _puzzle = value;
+            puzzle_init_done = true;
             last_selected_tile = null;
             tiles.remove_all ();
-            for (uint8 y = 0; y < ((!) _puzzle).size; y++)
+            for (uint8 y = 0; y < _puzzle.size; y++)
             {
-                for (uint8 x = 0; x < ((!) _puzzle).size * 2; x++)
+                for (uint8 x = 0; x < _puzzle.size * 2; x++)
                 {
-                    Tile? tile = ((!) _puzzle).get_tile (x, y);
+                    Tile? tile = _puzzle.get_tile (x, y);
                     if (tile == null)
                         continue;
 
@@ -78,11 +79,11 @@ private class PuzzleView : Gtk.DrawingArea
                     tiles.insert ((!) tile, image);
                 }
             }
-            sockets_xs = new double [2 * ((!) _puzzle).size, ((!) _puzzle).size];
-            sockets_ys = new double [2 * ((!) _puzzle).size, ((!) _puzzle).size];
+            sockets_xs = new double [2 * _puzzle.size, _puzzle.size];
+            sockets_ys = new double [2 * _puzzle.size, _puzzle.size];
 
-            ((!) _puzzle).tile_moved.connect (tile_moved_cb);
-            ((!) _puzzle).notify ["paused"].connect (() => { queue_draw (); });
+            _puzzle.tile_moved.connect (tile_moved_cb);
+            _puzzle.notify ["paused"].connect (queue_draw);
             queue_resize ();
         }
     }

@@ -449,8 +449,8 @@ private class Tetravex : Gtk.Application
 
         scores_dialog_visible = true;
         ScoreDialog dialog = new ScoreDialog (history, puzzle.size, selected_entry, show_quit);
-        dialog.modal = true;
-        dialog.transient_for = window;
+        dialog.set_modal (true);
+        dialog.set_transient_for (window);
 
         int result = dialog.run ();
         dialog.destroy ();
