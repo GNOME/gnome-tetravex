@@ -2,14 +2,19 @@ resources = gnome.compile_resources ('resources', 'gnome-tetravex.gresource.xml'
                                      source_dir: '.',
                                      c_name: 'resources')
 
+sources = files (
+    'config.vapi',
+    'gnome-tetravex.vala',
+    'history.vala',
+    'puzzle.vala',
+    'puzzle-view.vala',
+    'score-dialog.vala',
+    'score-overlay.vala',
+    'theme.vala'
+)
+
 gnome_tetravex = executable ('gnome-tetravex',
-                             [ 'config.vapi',
-                               'gnome-tetravex.vala',
-                               'history.vala',
-                               'puzzle.vala',
-                               'puzzle-view.vala',
-                               'score-dialog.vala',
-                               'theme.vala'] + resources,
+                             sources + resources,
                              dependencies: [ glib_dep,
                                              gtk_dep,
                                              libm_dep ],

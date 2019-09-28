@@ -71,11 +71,13 @@ private class Theme : Object
     * * drawing fixed things
     \*/
 
-    internal void draw_arrow (Cairo.Context context, uint size, uint gap)
+    internal void draw_arrow (Cairo.Context context, uint size, uint gap, uint animation_level = /* 0-16 */ 0)
     {
         double w = gap * 0.5;
         double h = size * 1.5;
-        uint depth = uint.min ((uint) (size * 0.025), 2);
+        double depth = double.min (size * 0.025, 2.0) - (double) animation_level / 6.0;
+        if (depth <= 0.0)
+            depth = 0.0;
         double dx = 1.4142 * depth;
         double dy = 6.1623 * depth;
 
@@ -84,7 +86,10 @@ private class Theme : Object
         context.line_to (w, h * 0.5);
         context.line_to (w, -h * 0.5);
         context.close_path ();
-        context.set_source_rgba (0, 0, 0, 0.125);
+        if (animation_level == 0)
+            context.set_source_rgba (0, 0, 0, 0.125);
+        else
+            context.set_source_rgba (0, 0, 0, 0.125 * (16.0 - (double) animation_level) / 16.0);
         context.fill ();
 
         /* Arrow highlight */
@@ -108,13 +113,18 @@ private class Theme : Object
         context.fill ();
     }
 
-    internal void draw_socket (Cairo.Context context, uint size)
+    internal void draw_socket (Cairo.Context context, uint size, uint animation_level = /* 0-16 */ 0)
     {
-        uint depth = uint.min ((uint) (size * 0.05), 4);
+        double depth = double.min (size * 0.05, 4.0) - (double) animation_level / 4.0;
+        if (depth <= 0.0)
+            depth = 0.0;
 
         /* Background */
         context.rectangle (depth, depth, size - depth * 2, size - depth * 2);
-        context.set_source_rgba (0, 0, 0, 0.125);
+        if (animation_level == 0)
+            context.set_source_rgba (0, 0, 0, 0.125);
+        else
+            context.set_source_rgba (0, 0, 0, 0.125 * (16.0 - (double) animation_level) / 16.0);
         context.fill ();
 
         /* Shadow */

@@ -10,4 +10,6 @@ src/help-overlay.ui
 src/puzzle.vala
 src/puzzle-view.vala
 src/score-dialog.vala
+src/score-overlay.vala
+src/score-overlay.ui
 src/theme.vala

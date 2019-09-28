@@ -59,6 +59,7 @@ private class PuzzleView : Gtk.DrawingArea
         private get { if (!puzzle_init_done) assert_not_reached (); return (!) _puzzle; }
         internal set
         {
+            show_right_sockets ();
             if (puzzle_init_done)
                 SignalHandler.disconnect_by_func ((!) _puzzle, null, this);
 
@@ -110,8 +111,12 @@ private class PuzzleView : Gtk.DrawingArea
     private uint animation_timeout = 0;
 
     /* Set in configure event */
+    [CCode (notify = true)] internal uint board_height   { internal get; private set; default = 0; }
+    [CCode (notify = true)] internal uint x_offset_right { internal get; private set; default = 0; }
+    [CCode (notify = true)] internal uint y_offset       { internal get; private set; default = 0; }
+    [CCode (notify = true)] internal uint right_margin   { internal get; private set; default = 0; }
     private uint x_offset = 0;
-    private uint y_offset = 0;
+    private uint gap_offset = 0;
     private uint tilesize = 0;
     private uint gap = 0;
     private double arrow_x = 0.0;
@@ -264,17 +269,21 @@ private class PuzzleView : Gtk.DrawingArea
             uint width  = (uint) (allocated_width  / (2 * puzzle.size + 1.5));
             uint height = (uint) (allocated_height / (puzzle.size + 1));
             tilesize = uint.min (width, height);
+            board_height = puzzle.size * tilesize;
             gap = tilesize / 2;
-            x_offset = (allocated_width  - 2 * puzzle.size * tilesize - gap) / 2;
-            y_offset = (allocated_height -     puzzle.size * tilesize      ) / 2;
+            x_offset = (allocated_width  - 2 * board_height - gap) / 2;
+            y_offset = (allocated_height -     board_height      ) / 2;
+            gap_offset = x_offset + board_height;
+            x_offset_right = gap_offset + gap;
+            right_margin = allocated_width - x_offset_right - board_height;
 
             board_x_maxi = allocated_width  - (int) tilesize;
             board_y_maxi = allocated_height - (int) tilesize;
 
-            snap_distance = (tilesize * puzzle.size) / 40.0;
+            snap_distance = board_height / 40.0;
 
-            arrow_x = x_offset + puzzle.size * tilesize + gap * 0.25;
-            arrow_y = y_offset + puzzle.size * tilesize * 0.5;
+            arrow_x = gap_offset + gap * 0.25;
+            arrow_y = y_offset + board_height * 0.5;
 
             /* Precalculate sockets positions */
             for (uint y = 0; y < puzzle.size; y++)
@@ -316,16 +325,25 @@ private class PuzzleView : Gtk.DrawingArea
         /* Draw arrow */
         context.save ();
         context.translate (arrow_x, arrow_y);
-        theme.draw_arrow (context, tilesize, gap);
+        theme.draw_arrow (context, tilesize, gap, socket_animation_level);
         context.restore ();
 
         /* Draw sockets */
         for (uint y = 0; y < puzzle.size; y++)
-            for (uint x = 0; x < puzzle.size * 2; x++)
+            for (uint x = 0; x < puzzle.size; x++)
             {
                 context.save ();
                 context.translate (sockets_xs [x, y], sockets_ys [x, y]);
                 theme.draw_socket (context, tilesize);
+                context.restore ();
+            }
+
+        for (uint y = 0; y < puzzle.size; y++)
+            for (uint x = puzzle.size; x < puzzle.size * 2; x++)
+            {
+                context.save ();
+                context.translate (sockets_xs [x, y], sockets_ys [x, y]);
+                theme.draw_socket (context, tilesize, socket_animation_level);
                 context.restore ();
             }
 
@@ -430,7 +448,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     private bool on_right_half (double x)
     {
-        return x > x_offset + tilesize * puzzle.size + gap * 0.5;
+        return x > x_offset_right - gap * 0.5;
     }
 
     private void drop_tile (double x, double y)
@@ -449,7 +467,7 @@ private class PuzzleView : Gtk.DrawingArea
         int16 tile_x;
         if (on_right_half (x))
         {
-            tile_x = (int16) puzzle.size + (int16) Math.floor ((x - (x_offset + puzzle.size * tilesize + gap)) / tilesize);
+            tile_x = (int16) puzzle.size + (int16) Math.floor ((x - x_offset_right) / tilesize);
             tile_x = tile_x.clamp ((int16) puzzle.size, 2 * (int16) puzzle.size - 1);
         }
         else
@@ -658,6 +676,10 @@ private class PuzzleView : Gtk.DrawingArea
         tile_selected = false;
     }
 
+    /*\
+    * * history proxies
+    \*/
+
     internal void undo ()
     {
         last_selected_tile = null;
@@ -668,5 +690,41 @@ private class PuzzleView : Gtk.DrawingArea
     {
         last_selected_tile = null;
         puzzle.redo ();
+    }
+
+    /*\
+    * * final animation
+    \*/
+
+    private uint8 socket_animation_level = 0;
+    private uint socket_timeout_id = 0;
+
+    internal void hide_right_sockets ()
+    {
+        socket_timeout_id = Timeout.add (75, () => {
+                socket_animation_level++;
+                queue_draw_area ((int) gap_offset,
+                                 (int) y_offset,
+                                 (int) (board_height + gap),
+                                 (int) board_height);
+
+                if (socket_animation_level < 17)
+                    return Source.CONTINUE;
+                else
+                {
+                    socket_timeout_id = 0;
+                    return Source.REMOVE;
+                }
+            });
+    }
+
+    private inline void show_right_sockets ()
+    {
+        if (socket_timeout_id != 0)
+        {
+            Source.remove (socket_timeout_id);
+            socket_timeout_id = 0;
+        }
+        socket_animation_level = 0;
     }
 }

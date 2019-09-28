@@ -20,26 +20,14 @@ private class ScoreDialog : Dialog
     private ComboBox size_combo;
     private TreeView scores;
 
-    internal ScoreDialog (History history, uint8 size, HistoryEntry? selected_entry = null, bool show_quit = false)
+    internal ScoreDialog (History history, uint8 size, HistoryEntry? selected_entry = null)
     {
+        Object (use_header_bar: /* true */ 1);
+
         this.history = history;
         history.entry_added.connect (entry_added_cb);
         this.selected_entry = selected_entry;
 
-        if (show_quit)
-        {
-            /* Translators: label of a button of the Scores dialog, as it is displayed at the end of a game; quits the application */
-            add_button (_("Quit"), ResponseType.CLOSE);
-
-
-            /* Translators: label of a button of the Scores dialog, as it is displayed at the end of a game; starts a new game */
-            add_button (_("New Game"), ResponseType.OK);
-        }
-        else
-        {
-            /* Translators: label of a button of the Scores dialog, as it is displayed when called from the hamburger menu; closes the dialog */
-            add_button (_("OK"), ResponseType.DELETE_EVENT);
-        }
         set_size_request (200, 300);
 
         Box vbox = new Box (Orientation.VERTICAL, 5);
@@ -87,9 +75,7 @@ private class ScoreDialog : Dialog
         scores.show ();
         scroll.add (scores);
 
-        List<unowned HistoryEntry> entries = history.entries.copy ();
-        entries.sort (compare_entries);
-        foreach (HistoryEntry entry in entries)
+        foreach (HistoryEntry entry in history.entries)
             entry_added_cb (entry);
 
         TreeIter iter;
@@ -101,10 +87,7 @@ private class ScoreDialog : Dialog
     {
         score_model.clear ();
 
-        List<unowned HistoryEntry> entries = history.entries.copy ();
-        entries.sort (compare_entries);
-
-        foreach (HistoryEntry entry in entries)
+        foreach (HistoryEntry entry in history.entries)
         {
             if (entry.size != size)
                 continue;
@@ -112,18 +95,7 @@ private class ScoreDialog : Dialog
             /* "the preferred date representation for the current locale without the time" */
             string date_label = entry.date.format ("%x");
 
-            string time_label;
-            if (entry.duration >= 3600)
-                /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */
-                time_label = _("%uh %um %us").printf (entry.duration / 3600, (entry.duration / 60) % 60, entry.duration % 60);
-
-            else if (entry.duration >= 60)
-                /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */
-                time_label = _("%um %us").printf (entry.duration / 60, entry.duration % 60);
-
-            else
-                /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken; as an example, you might want to use "00:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */
-                time_label = _("%us").printf (entry.duration);
+            string time_label = HistoryEntry.get_duration_string (entry);
 
             int weight = Pango.Weight.NORMAL;
             if (entry == selected_entry)
@@ -147,15 +119,6 @@ private class ScoreDialog : Dialog
                 scores.scroll_to_cell (score_model.get_path (piter), null, false, 0, 0);
             }
         }
-    }
-
-    private static int compare_entries (HistoryEntry a, HistoryEntry b)
-    {
-        if (a.size != b.size)
-            return (int) a.size - (int) b.size;
-        if (a.duration != b.duration)
-            return (int) a.duration - (int) b.duration;
-        return a.date.compare (b.date);
     }
 
     private void size_changed_cb (ComboBox combo)
