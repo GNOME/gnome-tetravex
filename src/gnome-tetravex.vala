@@ -60,21 +60,21 @@ private class Tetravex : Gtk.Application
 
     private const GLib.ActionEntry[] action_entries =
     {
-        { "new-game",       new_game_cb                                     },
-        { "pause",          pause_cb                                        },
-        { "solve",          solve_cb                                        },
-        { "finish",         finish_cb                                       },
-        { "scores",         scores_cb                                       },
-        { "quit",           quit                                            },
-        { "move-up",        move_up                                         },
-        { "move-down",      move_down                                       },
-        { "move-left",      move_left                                       },
-        { "move-right",     move_right                                      },
-        { "undo",           undo_cb                                         },
-        { "redo",           redo_cb                                         },
-        { "size",           radio_cb,       "s",    "'2'",  size_changed    },
-        { "help",           help_cb                                         },
-        { "about",          about_cb                                        }
+        { "new-game",   new_game_cb },
+        { "pause",      pause_cb    },
+        { "solve",      solve_cb    },
+        { "finish",     finish_cb   },
+        { "scores",     scores_cb   },
+        { "quit",       quit        },
+        { "move-up",    move_up     },
+        { "move-down",  move_down   },
+        { "move-left",  move_left   },
+        { "move-right", move_right  },
+        { "undo",       undo_cb     },
+        { "redo",       redo_cb     },
+        { "size",       null,       "s",    "'2'",  size_changed    },
+        { "help",       help_cb     },
+        { "about",      about_cb    }
     };
 
     private static int main (string[] args)
@@ -102,7 +102,11 @@ private class Tetravex : Gtk.Application
         Environment.set_application_name (PROGRAM_NAME);
         Window.set_default_icon_name ("org.gnome.Tetravex");
 
+        settings = new GLib.Settings ("org.gnome.Tetravex");
+
         add_action_entries (action_entries, this);
+        add_action (settings.create_action ("theme"));
+
         set_accels_for_action ("app.solve",         {        "<Primary>h"       });
         set_accels_for_action ("app.scores",        {        "<Primary>i"       });
         set_accels_for_action ("app.new-game",      {        "<Primary>n"       });
@@ -118,8 +122,6 @@ private class Tetravex : Gtk.Application
         // F1 and friends are managed manually
 
         Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
-
-        settings = new GLib.Settings ("org.gnome.Tetravex");
 
         history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history"));
 
@@ -172,6 +174,7 @@ private class Tetravex : Gtk.Application
         view.hexpand = true;
         view.vexpand = true;
         view.button_release_event.connect (view_button_release_event);
+        settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
         grid.attach (view, 0, 0, 3, 1);
 
         settings.bind ("mouse-use-extra-buttons",   view,
@@ -622,11 +625,6 @@ private class Tetravex : Gtk.Application
             finish_action.set_enabled (false);
         }
         play_pause_stack.set_visible_child_name (puzzle.paused ? "play" : "pause");
-    }
-
-    private void radio_cb (SimpleAction action, Variant? parameter)
-    {
-        action.change_state (parameter);
     }
 
     private bool on_key_press_event (Widget widget, Gdk.EventKey event)

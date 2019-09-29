@@ -1,0 +1,399 @@
+/* -*- Mode: vala; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
+ *
+ * Copyright (C) 2019 Arnaud Bonatti
+ *
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation, either version 2 of the License, or (at your option) any later
+ * version. See http://www.gnu.org/copyleft/gpl.html the full text of the
+ * license.
+ */
+
+private class NewTheme : Theme
+{
+    /*\
+    * * colors arrays
+    \*/
+
+    private Cairo.Pattern tile_colors_h [10];
+    private Cairo.Pattern tile_colors_v [10];
+    private Cairo.Pattern text_colors   [10];
+
+    private Cairo.Pattern paused_color_h;
+    private Cairo.Pattern paused_color_v;
+
+    construct                         // white text //  L    H    V
+    {                                               //          +45
+        make_color_pattern (0, "000000", true  );   //  0           // dark
+        make_color_pattern (1, "850023", true  );   // 20   75   10 // red
+        make_color_pattern (2, "e26e1e", false );   // 60   75   55 // orange
+        make_color_pattern (3, "cccc24", false );   // 80   75  100 // yellow
+        make_color_pattern (4, "00c656", false );   // 70   75  145 // light green
+        make_color_pattern (5, "005c59", true  );   // 30   75  190 // dark green
+        make_color_pattern (6, "008de0", false );   // 50   75  235 // light blue
+        make_color_pattern (7, "001d87", true  );   // 10   75  280 // dark blue
+        make_color_pattern (8, "a021a6", true  );   // 40   75  325 // purple
+        make_color_pattern (9, "e2e2e2", false );   // 90           // white
+
+        paused_color_h = make_h_color_pattern ("CCCCCC");
+        paused_color_v = make_v_color_pattern ("CCCCCC");
+    }
+
+    private void make_color_pattern (uint position, string color, bool white_text)
+    {
+        tile_colors_h [position] = make_h_color_pattern (color);
+        tile_colors_v [position] = make_v_color_pattern (color);
+
+        if (white_text)
+            text_colors [position] = new Cairo.Pattern.rgb (1, 1, 1);
+        else
+            text_colors [position] = new Cairo.Pattern.rgb (0, 0, 0);
+    }
+
+    private static Cairo.Pattern make_h_color_pattern (string color)
+    {
+        double r0 = (hex_value (color [0]) * 16 + hex_value (color [1])) / 255.0;
+        double g0 = (hex_value (color [2]) * 16 + hex_value (color [3])) / 255.0;
+        double b0 = (hex_value (color [4]) * 16 + hex_value (color [5])) / 255.0;
+
+        double r1 = double.min (r0 + 0.10, 1.0);
+        double g1 = double.min (g0 + 0.10, 1.0);
+        double b1 = double.min (b0 + 0.10, 1.0);
+
+        double r2 = double.min (r0 + 0.25, 1.0);
+        double g2 = double.min (g0 + 0.25, 1.0);
+        double b2 = double.min (b0 + 0.25, 1.0);
+
+        double r5 = double.min (r0 + 0.15, 1.0);
+        double g5 = double.min (g0 + 0.15, 1.0);
+        double b5 = double.min (b0 + 0.15, 1.0);
+
+        Cairo.Pattern pattern = new Cairo.Pattern.linear (0.0, 0.0, 0.0, 1.0);
+        pattern.add_color_stop_rgba (0.00,  r2,  g2,  b2, 1.0);
+        pattern.add_color_stop_rgba (0.08,  r1,  g1,  b1, 1.0);
+        pattern.add_color_stop_rgba (0.50,  r5,  g5,  b5, 1.0);
+        pattern.add_color_stop_rgba (0.92,  r1,  g1,  b1, 1.0);
+        pattern.add_color_stop_rgba (1.00,  r0,  g0,  b0, 1.0);
+
+        return pattern;
+    }
+
+    private static Cairo.Pattern make_v_color_pattern (string color)
+    {
+        double r0 = (hex_value (color [0]) * 16 + hex_value (color [1]) + 0.02) / 255.0;
+        double g0 = (hex_value (color [2]) * 16 + hex_value (color [3]) + 0.02) / 255.0;
+        double b0 = (hex_value (color [4]) * 16 + hex_value (color [5]) + 0.02) / 255.0;
+
+        double r1 = double.min (r0 + 0.10, 1.0);
+        double g1 = double.min (g0 + 0.10, 1.0);
+        double b1 = double.min (b0 + 0.10, 1.0);
+
+        double r2 = double.min (r0 + 0.20, 1.0);
+        double g2 = double.min (g0 + 0.20, 1.0);
+        double b2 = double.min (b0 + 0.20, 1.0);
+
+        double r5 = double.min (r0 + 0.15, 1.0);
+        double g5 = double.min (g0 + 0.15, 1.0);
+        double b5 = double.min (b0 + 0.15, 1.0);
+
+        Cairo.Pattern pattern = new Cairo.Pattern.linear (0.0, 0.0, 1.0, 0.0);
+        pattern.add_color_stop_rgba (0.00,  r2,  g2,  b2, 1.0);
+        pattern.add_color_stop_rgba (0.08,  r1,  g1,  b1, 1.0);
+        pattern.add_color_stop_rgba (0.50,  r5,  g5,  b5, 1.0);
+        pattern.add_color_stop_rgba (0.92,  r1,  g1,  b1, 1.0);
+        pattern.add_color_stop_rgba (1.00,  r0,  g0,  b0, 1.0);
+
+        return pattern;
+    }
+
+    private static double hex_value (char c)
+    {
+        if (c >= '0' && c <= '9')
+            return c - '0';
+        else if (c >= 'a' && c <= 'f')
+            return c - 'a' + 10;
+        else if (c >= 'A' && c <= 'F')
+            return c - 'A' + 10;
+        else
+            return 0;
+    }
+
+    /*\
+    * * configuring variables
+    \*/
+
+    private uint size = 0;
+
+    /* arrow */
+    private double arrow_half_h;
+    private double neg_arrow_half_h;
+    private uint arrow_depth;
+    private double arrow_dx;
+    private double arrow_dy;
+    private double neg_arrow_dy;
+    private double arrow_w;
+    private double arrow_x;
+    private double arrow_w_minus_depth;
+
+    /* socket */
+    private uint socket_margin;
+    private int socket_size;
+    private Cairo.MeshPattern socket_pattern;
+    private Cairo.Matrix matrix;                // also used for tile
+
+    /* tile only */
+    private uint tile_margin;
+    private int tile_size;
+    private double half_tile_size;
+
+    internal override void configure (uint new_size)
+    {
+        if (size != 0 && size == new_size)
+            return;
+
+        /* arrow */
+        arrow_half_h = new_size * 0.75;
+        neg_arrow_half_h = -arrow_half_h;
+        arrow_depth = uint.min ((uint) (new_size * 0.025), 2);
+        arrow_dx = 1.4142 * arrow_depth;
+        arrow_dy = arrow_half_h - 6.1623 * arrow_depth;
+        neg_arrow_dy = -arrow_dy;
+        arrow_w = new_size * PuzzleView.gap_factor * 0.5;
+        arrow_x = (new_size * PuzzleView.gap_factor - arrow_w) * 0.5;
+        arrow_w_minus_depth = arrow_w - arrow_depth;
+
+        /* socket and tile */
+        matrix = Cairo.Matrix.identity ();
+        matrix.scale (1.0 / new_size, 1.0 / new_size);
+
+        /* socket */
+        socket_margin = uint.min ((uint) (new_size * 0.05), 2);
+        socket_size = (int) new_size - (int) socket_margin * 2;
+
+        socket_pattern = new Cairo.MeshPattern ();
+        socket_pattern.begin_patch ();
+        socket_pattern.move_to (0.0, 0.0);
+        socket_pattern.line_to (1.0, 0.0);
+        socket_pattern.line_to (1.0, 1.0);
+        socket_pattern.line_to (0.0, 1.0);
+        socket_pattern.set_corner_color_rgba (0, 0.3, 0.3, 0.3, 0.3);
+        socket_pattern.set_corner_color_rgba (1, 0.4, 0.4, 0.4, 0.3);
+        socket_pattern.set_corner_color_rgba (2, 0.7, 0.7, 0.7, 0.3);
+        socket_pattern.set_corner_color_rgba (3, 0.6, 0.6, 0.6, 0.3);
+        socket_pattern.end_patch ();
+        socket_pattern.set_matrix (matrix);
+
+        /* tile */
+        tile_margin = uint.min ((uint) (new_size * 0.05), 2) - 1;
+        tile_size = (int) new_size - (int) tile_margin * 2;
+        half_tile_size = new_size * 0.5;
+
+        /* end */
+        size = new_size;
+    }
+
+    /*\
+    * * drawing arrow
+    \*/
+
+    internal override void draw_arrow (Cairo.Context context)
+    {
+        context.translate (arrow_x, 0.0);
+
+        /* Background */
+        context.move_to (0, 0);
+        context.line_to (arrow_w, arrow_half_h);
+        context.line_to (arrow_w, neg_arrow_half_h);
+        context.close_path ();
+        context.set_source_rgba (0, 0, 0, 0.125);
+        context.fill ();
+
+        /* Arrow highlight */
+        context.move_to (arrow_w, neg_arrow_half_h);
+        context.line_to (arrow_w, arrow_half_h);
+        context.line_to (arrow_w_minus_depth, arrow_dy);
+        context.line_to (arrow_w_minus_depth, neg_arrow_dy);
+        context.close_path ();
+        context.set_source_rgba (1, 1, 1, 0.125);
+        context.fill ();
+
+        /* Arrow shadow */
+        context.move_to (arrow_w, neg_arrow_half_h);
+        context.line_to (0, 0);
+        context.line_to (arrow_w, arrow_half_h);
+        context.line_to (arrow_w_minus_depth, arrow_dy);
+        context.line_to (arrow_dx, 0);
+        context.line_to (arrow_w_minus_depth, neg_arrow_dy);
+        context.close_path ();
+        context.set_source_rgba (0, 0, 0, 0.25);
+        context.fill ();
+    }
+
+    /*\
+    * * drawing sockets
+    \*/
+
+    internal override void draw_socket (Cairo.Context context)
+    {
+        context.save ();
+
+        context.set_source (socket_pattern);
+
+        rounded_square (context,
+          /* x and y */ socket_margin, socket_margin,
+          /* size    */ socket_size,
+          /* radius  */ 8);
+        context.fill_preserve ();
+
+        context.set_line_width (1.0);
+        context.set_source_rgba (0.3, 1.0, 0.6, 0.2);
+        context.stroke ();
+
+        context.restore ();
+    }
+
+    /*\
+    * * drawing tiles
+    \*/
+
+    internal override void draw_paused_tile (Cairo.Context context)
+    {
+        draw_tile_background (context, paused_color_h, paused_color_v, paused_color_h, paused_color_v);
+    }
+
+    internal override void draw_tile (Cairo.Context context, Tile tile)
+    {
+        tile_colors_h [tile.north].set_matrix (matrix);
+        tile_colors_h [tile.east ].set_matrix (matrix);
+        tile_colors_h [tile.south].set_matrix (matrix);
+        tile_colors_h [tile.west ].set_matrix (matrix);
+        tile_colors_v [tile.north].set_matrix (matrix);
+        tile_colors_v [tile.east ].set_matrix (matrix);
+        tile_colors_v [tile.south].set_matrix (matrix);
+        tile_colors_v [tile.west ].set_matrix (matrix);
+
+        draw_tile_background (context, tile_colors_h [tile.north], tile_colors_v [tile.east], tile_colors_h [tile.south], tile_colors_v [tile.west]);
+
+        context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
+        context.set_font_size (size * 4.0 / 19.0);
+        draw_number (context, text_colors [tile.north], half_tile_size    , size *  4.0 / 18.0, tile.north);
+        draw_number (context, text_colors [tile.south], half_tile_size    , size * 14.0 / 18.0, tile.south);
+        draw_number (context, text_colors [tile.east ], size * 15.0 / 19.0, half_tile_size    , tile.east);
+        draw_number (context, text_colors [tile.west ], size *  4.0 / 19.0, half_tile_size    , tile.west);
+    }
+
+    private void draw_tile_background (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
+    {
+        context.save ();
+
+        /* Only write in a rounded square */
+        rounded_square (context,
+          /* x and y */ tile_margin, tile_margin,
+          /* size    */ tile_size,
+          /* radius  */ 8);
+        context.clip_preserve ();
+
+        /* North */
+        context.save ();
+
+        // fill all the clip, part of it will be rewritten after */
+
+        context.set_source (north_color);
+        context.fill ();
+
+        context.restore ();
+
+        /* South */
+        context.save ();
+
+        context.rectangle (0.0, half_tile_size, size, half_tile_size);
+
+        context.set_source (south_color);
+        context.fill ();
+
+        context.restore ();
+
+        /* East */
+        context.save ();
+
+        context.move_to (size, 0.0);
+        context.line_to (size, size);
+        context.line_to (half_tile_size, half_tile_size);
+        context.close_path ();
+
+        context.set_source (east_color);
+        context.fill ();
+
+        context.restore ();
+
+        /* West */
+        context.save ();
+
+        context.move_to (0.0, 0.0);
+        context.line_to (0.0, size);
+        context.line_to (half_tile_size, half_tile_size);
+        context.close_path ();
+
+        context.set_source (west_color);
+        context.fill ();
+
+        context.restore ();
+
+        /* Draw outline and diagonal lines */
+        context.reset_clip ();
+        context.set_line_width (1.5);
+        rounded_square (context,
+          /* x and y */ tile_margin, tile_margin,
+          /* size    */ tile_size,
+          /* radius  */ 8);
+
+        context.set_source_rgba (0.4, 0.4, 0.4, 0.4);
+        context.stroke_preserve ();
+        context.clip ();
+
+        context.move_to (0.0, 0.0);
+        context.line_to (size, size);
+        context.move_to (0.0, size);
+        context.line_to (size, 0.0);
+        context.stroke ();
+
+        context.restore ();
+    }
+
+    private static void draw_number (Cairo.Context context, Cairo.Pattern text_color, double x, double y, uint8 number)
+    {
+        context.set_source (text_color);
+
+        string text = "%hu".printf (number);
+        Cairo.TextExtents extents;
+        context.text_extents (text, out extents);
+        context.move_to (x - extents.width / 2.0, y + extents.height / 2.0);
+        context.show_text (text);
+    }
+
+    /*\
+    * * drawing utilities
+    \*/
+
+    private const double HALF_PI = Math.PI_2;
+    private static void rounded_square (Cairo.Context cr, double x, double y, int size, double radius_percent)
+    {
+        if (radius_percent <= 0.0)
+            assert_not_reached ();  // could be replaced by drawing a rectangle, but not used here
+
+        if (radius_percent > 50.0)
+            radius_percent = 50.0;
+        double radius_arc = radius_percent * size / 100.0;
+        double x1 = x + radius_arc;
+        double y1 = y + radius_arc;
+        double x2 = x + size - radius_arc;
+        double y2 = y + size - radius_arc;
+
+        cr.move_to (x, y1);
+        cr.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
+        cr.arc (x2, y1, radius_arc, -HALF_PI,        0);
+        cr.arc (x2, y2, radius_arc,        0,  HALF_PI);
+        cr.arc (x1, y2, radius_arc,  HALF_PI,  Math.PI);
+        cr.close_path ();
+    }
+}

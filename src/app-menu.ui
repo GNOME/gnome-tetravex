@@ -11,6 +11,24 @@
         <attribute name="label" translatable="yes">_Scores</attribute>
         <attribute name="action">app.scores</attribute>
       </item>
+      <submenu>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme -->
+        <attribute name="label" translatable="yes">A_ppearance</attribute>
+        <section>
+          <item>
+            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to New Theme; other possible theme is _Old theme -->
+            <attribute name="label" translatable="yes">_New theme</attribute>
+            <attribute name="action">app.theme</attribute>
+            <attribute name="target">new</attribute>
+          </item>
+          <item>
+            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Old Theme; other possible theme is _New theme -->
+            <attribute name="label" translatable="yes">_Old theme</attribute>
+            <attribute name="action">app.theme</attribute>
+            <attribute name="target">old</attribute>
+          </item>
+        </section>
+      </submenu>
     </section>
     <section>
       <submenu>

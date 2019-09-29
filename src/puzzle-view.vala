@@ -9,6 +9,15 @@
  * license.
  */
 
+private abstract class Theme : Object
+{
+    internal abstract void configure (uint size);
+    internal abstract void draw_arrow (Cairo.Context context);
+    internal abstract void draw_socket (Cairo.Context context);
+    internal abstract void draw_paused_tile (Cairo.Context context);
+    internal abstract void draw_tile (Cairo.Context context, Tile tile);
+}
+
 private class PuzzleView : Gtk.DrawingArea
 {
     private class TileImage : Object
@@ -89,7 +98,17 @@ private class PuzzleView : Gtk.DrawingArea
     }
 
     /* Theme */
-    private Theme theme = new Theme ();
+    private Theme theme;
+    [CCode (notify = true)] public string theme_id
+    {
+        internal set
+        {
+            if (value != "old") // including "value == new"
+                { theme = new NewTheme (); if (tilesize != 0) theme.configure (tilesize); queue_draw (); return; }
+            else
+                { theme = new OldTheme (); if (tilesize != 0) theme.configure (tilesize); queue_draw (); return; }
+        }
+    }
 
     /* Tile being controlled by the mouse */
     private TileImage? selected_tile = null;

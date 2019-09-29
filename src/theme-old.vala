@@ -9,7 +9,7 @@
  * license.
  */
 
-private class Theme : Object
+private class OldTheme : Theme
 {
     /*\
     * * colors arrays
@@ -97,7 +97,7 @@ private class Theme : Object
     private double half_tile_size_plus_dy;
     private double size_minus_one;
 
-    internal void configure (uint new_size)
+    internal override void configure (uint new_size)
     {
         if (size != 0 && size == new_size)
             return;
@@ -135,7 +135,7 @@ private class Theme : Object
     * * drawing arrow
     \*/
 
-    internal void draw_arrow (Cairo.Context context)
+    internal override void draw_arrow (Cairo.Context context)
     {
         context.translate (arrow_x, 0.0);
 
@@ -172,7 +172,7 @@ private class Theme : Object
     * * drawing sockets
     \*/
 
-    internal void draw_socket (Cairo.Context context)
+    internal override void draw_socket (Cairo.Context context)
     {
         /* Background */
         context.rectangle (tile_depth, tile_depth, size_minus_two_tile_depths, size_minus_two_tile_depths);
@@ -206,25 +206,21 @@ private class Theme : Object
     * * drawing tiles
     \*/
 
-    internal void draw_paused_tile (Cairo.Context context)
+    internal override void draw_paused_tile (Cairo.Context context)
     {
         draw_tile_background (context, paused_color, paused_color, paused_color, paused_color);
     }
 
-    internal void draw_tile (Cairo.Context context, Tile tile)
+    internal override void draw_tile (Cairo.Context context, Tile tile)
     {
         draw_tile_background (context, tile_colors [tile.north], tile_colors [tile.east], tile_colors [tile.south], tile_colors [tile.west]);
 
         context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
         context.set_font_size (size / 3.5);
-        context.set_source (text_colors [tile.north]);
-        draw_number (context, half_tile_size, size / 5, tile.north);
-        context.set_source (text_colors [tile.south]);
-        draw_number (context, half_tile_size, size * 4 / 5, tile.south);
-        context.set_source (text_colors [tile.east]);
-        draw_number (context, size * 4 / 5, half_tile_size, tile.east);
-        context.set_source (text_colors [tile.west]);
-        draw_number (context, size / 5, half_tile_size, tile.west);
+        draw_number (context, text_colors [tile.north], half_tile_size, size     / 5  , tile.north);
+        draw_number (context, text_colors [tile.south], half_tile_size, size * 4 / 5  , tile.south);
+        draw_number (context, text_colors [tile.east ], size * 4 / 5  , half_tile_size, tile.east);
+        draw_number (context, text_colors [tile.west ], size     / 5  , half_tile_size, tile.west);
     }
 
     private void draw_tile_background (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
@@ -342,8 +338,10 @@ private class Theme : Object
         context.stroke ();
     }
 
-    private void draw_number (Cairo.Context context, double x, double y, uint8 number)
+    private static void draw_number (Cairo.Context context, Cairo.Pattern text_color, double x, double y, uint8 number)
     {
+        context.set_source (text_color);
+
         string text = "%hu".printf (number);
         Cairo.TextExtents extents;
         context.text_extents (text, out extents);
