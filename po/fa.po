@@ -5,17 +5,16 @@
 # Elnaz Sarbar <elnaz@farsiweb.info>, 2005, 2006.
 # Meelad Zakaria <meelad@farsiweb.info>, 2005.
 # Farzaneh Sarafraz <farzaneh@farsiweb.info>, 2006.
-# Danial Behzadi <dani.behzi@gmail.com>, 2012.
+# Danial Behzadi <dani.behzi@gmail.com>, 2012, 2014, 2015, 2017, 2018, 2019.
 # Arash Mousavi <mousavi.arash@gmail.com>, 2012, 2013, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-15 10:31+0000\n"
-"PO-Revision-Date: 2016-09-14 11:52+0430\n"
-"Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2019-09-18 16:02+0000\n"
+"PO-Revision-Date: 2019-09-29 13:23+0000\n"
+"Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -23,197 +22,257 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
-msgstr "گنوم تِتراوِکس"
+msgstr "تتراوکس گنوم"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
+#: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "مهره‌ها را جابه‌جا کنید تا در یک خانه جور شوند"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: data/org.gnome.Tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're "
-"being timed!"
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re being "
+"timed!"
 msgstr ""
 "هر خانه یک عدد در کنار خود دارد. مهره‌ها را در سمت چپ تخته جمع کنید تا اعداد "
-"یکسان در کنار یکدیگر قرار بگیرند. اگر عددها منطبق نشوند، شما نمی‌توانید "
-"مهره‌ای آنجا قرار دهید. سریع حرکت کنید: زمان شما ثبت می‌شود!"
+"یکسان در کنار یکدیگر قرار گیرند. اگر عددها منطبق نشوند، نمی‌توانید مهره‌ای آن‌جا "
+"بگذارید. سریع حرکت کنید: زمان شما ثبت می‌شود!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
-msgid ""
-"You can make the game easier or harder by changing the size of the board."
+#: data/org.gnome.Tetravex.appdata.xml.in:16
+msgid "You can make the game easier or harder by changing the size of the board."
 msgstr "شما می‌توانید بازی را با تغییر اندازه تخته، ساده‌تر یا سخت‌تر کنید."
 
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:381
-msgid "Tetravex"
-msgstr "تِتراوِکس"
+#: data/org.gnome.Tetravex.appdata.xml.in:32
+msgid "The GNOME Project"
+msgstr "پروژهٔ گنوم"
 
-#: ../data/gnome-tetravex.desktop.in.h:2
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
+#: src/gnome-tetravex.vala:389
+msgid "Tetravex"
+msgstr "تتراوکس"
+
+#: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "پازل را با عنوان‌های عددی مطابق کامل کنید"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "game;logic;board;بازی;منطق;تخته;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#: data/org.gnome.Tetravex.gschema.xml:6
 msgid "The size of the playing grid"
-msgstr "اندازه‌ی شبکه‌ی بازی"
+msgstr "اندازهٔ شبکهٔ بازی"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
+#: data/org.gnome.Tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
-msgstr "مقدار این کلید برای تعیین اندازه‌ی شبکه‌ی بازی به کار می‌رود."
+msgstr "مقدار این کلید برای تعیین اندازهٔ شبکهٔ بازی به کار می‌رود."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
+#: data/org.gnome.Tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
-msgstr "عرض پنجره به پیکسل"
+msgstr "پهنای پنجره به پیکسل"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
-msgstr "ارتفاع پنجره به پیکسل"
+msgstr "بلندای پنجره به پیکسل"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
+#: data/org.gnome.Tetravex.gschema.xml:19
 msgid "true if the window is maximized"
 msgstr "درست اگر پنجره بیشینه باشد"
 
-#: ../src/app-menu.ui.h:1
+#: src/app-menu.ui:5
 msgid "_New Game"
 msgstr "بازی _جدید"
 
-#: ../src/app-menu.ui.h:2
+#: src/app-menu.ui:9
 msgid "_Scores"
 msgstr "امتیا_زها"
 
-#: ../src/app-menu.ui.h:3
-msgid "_Size"
-msgstr "_اندازه"
+#: src/app-menu.ui:15
+msgid "Si_ze"
+msgstr "ا_ندازه"
 
-#: ../src/app-menu.ui.h:4
+#: src/app-menu.ui:18
 msgid "_2x2"
 msgstr "_۲×۲"
 
-#: ../src/app-menu.ui.h:5
+#: src/app-menu.ui:23
 msgid "_3x3"
 msgstr "_۳×۳"
 
-#: ../src/app-menu.ui.h:6
+#: src/app-menu.ui:28
 msgid "_4x4"
 msgstr "_۴×۴"
 
-#: ../src/app-menu.ui.h:7
+#: src/app-menu.ui:33
 msgid "_5x5"
 msgstr "_۵×۵"
 
-#: ../src/app-menu.ui.h:8
+#: src/app-menu.ui:38
 msgid "_6x6"
 msgstr "_۶×۶"
 
-#: ../src/app-menu.ui.h:9
+#: src/app-menu.ui:47
+msgid "_Keyboard Shortcuts"
+msgstr "میان‌برهای _صفحه‌کلید"
+
+#: src/app-menu.ui:51
 msgid "_Help"
 msgstr "_راهنما"
 
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr "_درباره"
+#: src/app-menu.ui:55
+msgid "_About Tetravex"
+msgstr "_دربارهٔ تتراوکس"
 
-#: ../src/app-menu.ui.h:11
-msgid "_Quit"
-msgstr "_خروج"
-
-#: ../src/gnome-tetravex.vala:38
+#: src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
-msgstr "نمایش نسخه‌ی انتشار و خروج"
+msgstr "نمایش نگارش انتشار و خروج"
 
-#: ../src/gnome-tetravex.vala:39
+#: src/gnome-tetravex.vala:39
 msgid "Start the game paused"
-msgstr "شروع بازی در حالت توقف"
+msgstr "شروع بازی در حالت مکث"
 
-#: ../src/gnome-tetravex.vala:40
+#: src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
-msgstr "اندازه‌ی تخته (۲-۶)"
+msgstr "اندازهٔ تخته (۲-۶)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:129
+#: src/gnome-tetravex.vala:137
 msgid "Resume the game"
 msgstr "از سر گرفتن بازی"
 
-#: ../src/gnome-tetravex.vala:141
+#: src/gnome-tetravex.vala:149
 msgid "Pause the game"
 msgstr "متوقف کردن بازی"
 
-#: ../src/gnome-tetravex.vala:158
+#: src/gnome-tetravex.vala:166
 msgid "Start a new game"
 msgstr "شروع بازی جدید"
 
-#: ../src/gnome-tetravex.vala:170
+#: src/gnome-tetravex.vala:178
 msgid "Give up and view the solution"
-msgstr "تسلیم بشوید و راه حل را ببینید"
+msgstr "تسلیم شده و راه حل را ببینید"
 
-#: ../src/gnome-tetravex.vala:239
+#: src/gnome-tetravex.vala:247
 msgid "Size could only be from 2 to 6.\n"
 msgstr "اندازه فقط می‌تواند بین ۲ تا ۶ باشد.\n"
 
-#: ../src/gnome-tetravex.vala:347
+#: src/gnome-tetravex.vala:355
 msgid "Are you sure you want to give up and view the solution?"
-msgstr "آیا مطمئنید که می‌خواهید تسلیم شوید و راه حل را ببینید؟"
+msgstr "مطمئنید می‌خواهید تسلیم شوید و راه حل را ببینید؟"
 
-#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
+#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
 msgid "_Keep Playing"
-msgstr "_ادامه دادن بازی"
+msgstr "_ادامهٔ بازی"
 
-#: ../src/gnome-tetravex.vala:350
+#: src/gnome-tetravex.vala:358
 msgid "_Give Up"
-msgstr "_تسلیم شدن"
+msgstr "_تسلیم"
 
-#: ../src/gnome-tetravex.vala:384
+#: src/gnome-tetravex.vala:392
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "مهره‌ها را به گونه‌ای جابه‌جا کنید که عددهای یکسان در کنار هم قرار بگیرند"
 
-#: ../src/gnome-tetravex.vala:391
+#: src/gnome-tetravex.vala:399
 msgid "translator-credits"
 msgstr ""
 "آرش موسوی <mousavi.arash@gmail.com>\n"
 "دانیال بهزادی <dani.behzi@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:409
+#: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr "آیا مطمئنید که می‌خواهید یک بازی جدید با اندازه تخته متفاوت شروع کنید؟"
 
-#: ../src/gnome-tetravex.vala:411
+#: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
 msgstr "_شروع بازی جدید"
 
-#: ../src/puzzle-view.vala:356
-msgid "Paused"
-msgstr "مکث شده"
+#: src/help-overlay.ui:16
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "شروع بازی جدید"
 
-#: ../src/score-dialog.vala:29
+#: src/help-overlay.ui:23
+msgctxt "shortcut window"
+msgid "Pause the game"
+msgstr "مکث بازی"
+
+#: src/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به بالا"
+
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به پایین"
+
+#: src/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به چپ"
+
+#: src/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به راست"
+
+#: src/help-overlay.ui:58
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "نمایش راهنما"
+
+#: src/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "نمایش میان‌برهای صفحه‌کلید"
+
+#: src/help-overlay.ui:72
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "خروج"
 
-#: ../src/score-dialog.vala:30
+#: src/puzzle-view.vala:356
+msgid "Paused"
+msgstr "مکث شده"
+
+#: src/score-dialog.vala:29
+msgid "Quit"
+msgstr "خروج"
+
+#: src/score-dialog.vala:30
 msgid "New Game"
 msgstr "بازی جدید"
 
-#: ../src/score-dialog.vala:33
+#: src/score-dialog.vala:33
 msgid "OK"
-msgstr "تایید"
+msgstr "قبول"
 
-#: ../src/score-dialog.vala:45
+#: src/score-dialog.vala:45
 msgid "Size:"
 msgstr "اندازه:"
 
-#: ../src/score-dialog.vala:70
+#: src/score-dialog.vala:70
 msgid "Date"
 msgstr "تاریخ"
 
-#: ../src/score-dialog.vala:73
+#: src/score-dialog.vala:73
 msgid "Time"
 msgstr "زمان"
+
+#~ msgid "_Size"
+#~ msgstr "_اندازه"
+
+#~ msgid "_About"
+#~ msgstr "_درباره"
+
+#~ msgid "_Quit"
+#~ msgstr "_خروج"
