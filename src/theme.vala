@@ -11,14 +11,13 @@
 
 private class Theme : Object
 {
-    /* Colors of tiles and text */
+    /*\
+    * * colors arrays
+    \*/
+
     private Cairo.Pattern tile_colors [10];
     private Cairo.Pattern paused_color;
     private Cairo.Pattern text_colors [10];
-
-    /*\
-    * * init colors arrays
-    \*/
 
     construct
     {
@@ -47,7 +46,7 @@ private class Theme : Object
         text_colors [9] = new Cairo.Pattern.rgb (0, 0, 0);
     }
 
-    private Cairo.Pattern make_color_pattern (string color)
+    private static Cairo.Pattern make_color_pattern (string color)
     {
         double r = (hex_value (color [1]) * 16 + hex_value (color [2])) / 255.0;
         double g = (hex_value (color [3]) * 16 + hex_value (color [4])) / 255.0;
@@ -55,7 +54,7 @@ private class Theme : Object
         return new Cairo.Pattern.rgb (r, g, b);
     }
 
-    private double hex_value (char c)
+    private static double hex_value (char c)
     {
         if (c >= '0' && c <= '9')
             return c - '0';
@@ -68,34 +67,77 @@ private class Theme : Object
     }
 
     /*\
-    * * drawing arrow
+    * * configuring variables
     \*/
 
-    private uint previous_arrow_size = 0;
+    private uint size = 0;
+
+    /* arrow */
     private double arrow_half_h;
     private double neg_arrow_half_h;
     private uint arrow_depth;
     private double arrow_dx;
     private double arrow_dy;
     private double neg_arrow_dy;
+    private double arrow_w;
+    private double arrow_x;
+    private double arrow_w_minus_depth;
 
-    private inline void set_arrow_variables (uint size)
+    /* tile and socket */
+    private uint tile_depth;
+    private double size_minus_tile_depth;
+    private double size_minus_two_tile_depths;    // socket only
+
+    /* tile only */
+    private double tile_dx;
+    private double tile_dy;
+    private double size_minus_tile_dx;
+    private double half_tile_size;
+    private double half_tile_size_minus_dy;
+    private double half_tile_size_plus_dy;
+    private double size_minus_one;
+
+    internal void configure (uint new_size)
     {
-        arrow_half_h = size * 0.75;
+        if (size != 0 && size == new_size)
+            return;
+
+        /* arrow */
+        arrow_half_h = new_size * 0.75;
         neg_arrow_half_h = -arrow_half_h;
-        arrow_depth = uint.min ((uint) (size * 0.025), 2);
+        arrow_depth = uint.min ((uint) (new_size * 0.025), 2);
         arrow_dx = 1.4142 * arrow_depth;
         arrow_dy = arrow_half_h - 6.1623 * arrow_depth;
         neg_arrow_dy = -arrow_dy;
-        previous_arrow_size = size;
+        arrow_w = new_size * PuzzleView.gap_factor * 0.5;
+        arrow_x = (new_size * PuzzleView.gap_factor - arrow_w) * 0.5;
+        arrow_w_minus_depth = arrow_w - arrow_depth;
+
+        /* socket and tile */
+        tile_depth = uint.min ((uint) (new_size * 0.05), 4);
+        size_minus_tile_depth = (double) new_size - tile_depth;
+        size_minus_two_tile_depths = (double) (new_size - tile_depth * 2);
+
+        /* tiles */
+        tile_dx = 2.4142 * tile_depth;
+        tile_dy = 1.4142 * tile_depth;
+        size_minus_tile_dx = (double) new_size - tile_dx;
+        half_tile_size = new_size * 0.5;
+        half_tile_size_minus_dy = half_tile_size - tile_dy;
+        half_tile_size_plus_dy = half_tile_size + tile_dy;
+        size_minus_one = (double) (new_size - 1);
+
+        /* end */
+        size = new_size;
     }
 
-    internal void draw_arrow (Cairo.Context context, uint size, uint gap)  // TODO manage gap width in themes
+    /*\
+    * * drawing arrow
+    \*/
+
+    internal void draw_arrow (Cairo.Context context)
     {
-        if (previous_arrow_size == 0 || size != previous_arrow_size)
-            set_arrow_variables (size);
-        double arrow_w = gap * 0.5;
-        double arrow_w_minus_depth = arrow_w - arrow_depth;
+        context.translate (arrow_x, 0.0);
 
         /* Background */
         context.move_to (0, 0);
@@ -130,26 +172,10 @@ private class Theme : Object
     * * drawing sockets
     \*/
 
-    private uint previous_socket_size = 0;
-    private uint socket_depth;
-    private uint size_minus_socket_depth;
-    private uint size_minus_two_socket_depths;
-
-    private inline void set_socket_variables (uint size)
+    internal void draw_socket (Cairo.Context context)
     {
-        socket_depth = uint.min ((uint) (size * 0.05), 4);
-        size_minus_socket_depth = size - socket_depth;
-        size_minus_two_socket_depths = size - socket_depth * 2;
-        previous_socket_size = size;
-    }
-
-    internal void draw_socket (Cairo.Context context, uint size)
-    {
-        if (previous_socket_size == 0 || previous_socket_size != size)
-            set_socket_variables (size);
-
         /* Background */
-        context.rectangle (socket_depth, socket_depth, size_minus_two_socket_depths, size_minus_two_socket_depths);
+        context.rectangle (tile_depth, tile_depth, size_minus_two_tile_depths, size_minus_two_tile_depths);
         context.set_source_rgba (0, 0, 0, 0.125);
         context.fill ();
 
@@ -157,9 +183,9 @@ private class Theme : Object
         context.move_to (size, 0);
         context.line_to (0, 0);
         context.line_to (0, size);
-        context.line_to (socket_depth, size_minus_socket_depth);
-        context.line_to (socket_depth, socket_depth);
-        context.line_to (size_minus_socket_depth, socket_depth);
+        context.line_to (tile_depth, size_minus_tile_depth);
+        context.line_to (tile_depth, tile_depth);
+        context.line_to (size_minus_tile_depth, tile_depth);
         context.close_path ();
         context.set_source_rgba (0, 0, 0, 0.25);
         context.fill ();
@@ -168,9 +194,9 @@ private class Theme : Object
         context.move_to (0, size);
         context.line_to (size, size);
         context.line_to (size, 0);
-        context.line_to (size_minus_socket_depth, socket_depth);
-        context.line_to (size_minus_socket_depth, size_minus_socket_depth);
-        context.line_to (socket_depth, size_minus_socket_depth);
+        context.line_to (size_minus_tile_depth, tile_depth);
+        context.line_to (size_minus_tile_depth, size_minus_tile_depth);
+        context.line_to (tile_depth, size_minus_tile_depth);
         context.close_path ();
         context.set_source_rgba (1, 1, 1, 0.125);
         context.fill ();
@@ -180,39 +206,14 @@ private class Theme : Object
     * * drawing tiles
     \*/
 
-    private uint previous_tile_size = 0;
-    private uint tile_depth;
-    private double tile_dx;
-    private double tile_dy;
-    private double size_minus_tile_depth;
-    private double size_minus_tile_dx;
-    private double half_tile_size;
-    private double half_tile_size_minus_dy;
-    private double half_tile_size_plus_dy;
-    private double size_minus_one;
-
-    private inline void set_tile_variables (uint size)
+    internal void draw_paused_tile (Cairo.Context context)
     {
-        tile_depth = uint.min ((uint) (size * 0.05), 4);
-        tile_dx = 2.4142 * tile_depth;
-        tile_dy = 1.4142 * tile_depth;
-        size_minus_tile_depth = (double) size - tile_depth;
-        size_minus_tile_dx = (double) size - tile_dx;
-        half_tile_size = size * 0.5;
-        half_tile_size_minus_dy = half_tile_size - tile_dy;
-        half_tile_size_plus_dy = half_tile_size + tile_dy;
-        previous_tile_size = size;
-        size_minus_one = (double) (size - 1);
+        draw_tile_background (context, paused_color, paused_color, paused_color, paused_color);
     }
 
-    internal void draw_paused_tile (Cairo.Context context, uint size)
+    internal void draw_tile (Cairo.Context context, Tile tile)
     {
-        draw_tile_background (context, size, paused_color, paused_color, paused_color, paused_color);
-    }
-
-    internal void draw_tile (Cairo.Context context, uint size, Tile tile)
-    {
-        draw_tile_background (context, size, tile_colors [tile.north], tile_colors [tile.east], tile_colors [tile.south], tile_colors [tile.west]);
+        draw_tile_background (context, tile_colors [tile.north], tile_colors [tile.east], tile_colors [tile.south], tile_colors [tile.west]);
 
         context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
         context.set_font_size (size / 3.5);
@@ -226,11 +227,8 @@ private class Theme : Object
         draw_number (context, size / 5, half_tile_size, tile.west);
     }
 
-    private void draw_tile_background (Cairo.Context context, uint size, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
+    private void draw_tile_background (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
     {
-        if (previous_tile_size == 0 || previous_tile_size != size)
-            set_tile_variables (size);
-
         /* North */
         context.rectangle (0, 0, size, half_tile_size);
         context.set_source (north_color);

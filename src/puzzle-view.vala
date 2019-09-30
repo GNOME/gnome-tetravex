@@ -147,7 +147,7 @@ private class PuzzleView : Gtk.DrawingArea
     {
         double target_x = (double) (x_offset + x * tilesize);
         if (x >= puzzle.size)
-            target_x += gap;
+            target_x += (double) gap;
         double target_y = (double) (y_offset + y * tilesize);
         move_tile (image, target_x, target_y, duration);
     }
@@ -238,7 +238,7 @@ private class PuzzleView : Gtk.DrawingArea
     {
         int size = 0;
         if (puzzle_init_done)
-            size = (int) ((puzzle.size * 2 + 1.5) * minimum_size);
+            size = (int) ((puzzle.size * 2 + 1.0 + /* 1 × */ gap_factor) * minimum_size);
         minimum = natural = int.max (size, 500);
     }
 
@@ -246,7 +246,7 @@ private class PuzzleView : Gtk.DrawingArea
     {
         int size = 0;
         if (puzzle_init_done)
-            size = (int) ((puzzle.size + 1) * minimum_size);
+            size = (int) ((puzzle.size + 1.0) * minimum_size);
         minimum = natural = int.max (size, 300);
     }
 
@@ -255,6 +255,7 @@ private class PuzzleView : Gtk.DrawingArea
         move_tile_to_location (tiles.lookup (tile), x, y, animation_duration);
     }
 
+    internal const double gap_factor = 0.5;
     protected override bool configure_event (Gdk.EventConfigure event)
     {
         if (puzzle_init_done)
@@ -262,10 +263,11 @@ private class PuzzleView : Gtk.DrawingArea
             int allocated_width  = get_allocated_width ();
             int allocated_height = get_allocated_height ();
             /* Fit in with a half tile border and spacing between boards */
-            uint width  = (uint) (allocated_width  / (2 * puzzle.size + 1.5));
-            uint height = (uint) (allocated_height / (puzzle.size + 1));
+            uint width  = (uint) (allocated_width  / (2 * puzzle.size + 1.0 + /* 1 × */ gap_factor));
+            uint height = (uint) (allocated_height / (puzzle.size + 1.0));
             tilesize = uint.min (width, height);
-            gap = tilesize / 2;
+            gap = (uint) (tilesize * gap_factor);
+            theme.configure (tilesize);
             x_offset = (allocated_width  - 2 * puzzle.size * tilesize - gap) / 2;
             y_offset = (allocated_height -     puzzle.size * tilesize      ) / 2;
 
@@ -274,7 +276,7 @@ private class PuzzleView : Gtk.DrawingArea
 
             snap_distance = (tilesize * puzzle.size) / 40.0;
 
-            arrow_x = x_offset + puzzle.size * tilesize + gap * 0.25;
+            arrow_x = x_offset + puzzle.size * tilesize;
             arrow_y = y_offset + puzzle.size * tilesize * 0.5;
 
             /* Precalculate sockets positions */
@@ -282,7 +284,7 @@ private class PuzzleView : Gtk.DrawingArea
                 for (uint x = 0; x < puzzle.size * 2; x++)
                 {
                     if (x >= puzzle.size)
-                        sockets_xs [x, y] = x_offset + gap + x * tilesize;
+                        sockets_xs [x, y] = x_offset + x * tilesize + gap;
                     else
                         sockets_xs [x, y] = x_offset + x * tilesize;
                     sockets_ys [x, y] = y_offset + y * tilesize;
@@ -317,7 +319,7 @@ private class PuzzleView : Gtk.DrawingArea
         /* Draw arrow */
         context.save ();
         context.translate (arrow_x, arrow_y);
-        theme.draw_arrow (context, tilesize, gap);
+        theme.draw_arrow (context);
         context.restore ();
 
         /* Draw sockets */
@@ -326,7 +328,7 @@ private class PuzzleView : Gtk.DrawingArea
             {
                 context.save ();
                 context.translate (sockets_xs [x, y], sockets_ys [x, y]);
-                theme.draw_socket (context, tilesize);
+                theme.draw_socket (context);
                 context.restore ();
             }
 
@@ -369,9 +371,9 @@ private class PuzzleView : Gtk.DrawingArea
         context.save ();
         context.translate ((int) (image.x + 0.5), (int) (image.y + 0.5));
         if (puzzle.paused)
-            theme.draw_paused_tile (context, tilesize);
+            theme.draw_paused_tile (context);
         else
-            theme.draw_tile (context, tilesize, image.tile);
+            theme.draw_tile (context, image.tile);
         context.restore ();
     }
     private inline void draw_pause_overlay (Cairo.Context context)
