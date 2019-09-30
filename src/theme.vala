@@ -68,52 +68,88 @@ private class Theme : Object
     }
 
     /*\
-    * * drawing fixed things
+    * * drawing arrow
     \*/
 
-    internal void draw_arrow (Cairo.Context context, uint size, uint gap)
+    private uint previous_arrow_size = 0;
+    private double arrow_half_h;
+    private double neg_arrow_half_h;
+    private uint arrow_depth;
+    private double arrow_dx;
+    private double arrow_dy;
+    private double neg_arrow_dy;
+
+    private inline void set_arrow_variables (uint size)
     {
-        double w = gap * 0.5;
-        double h = size * 1.5;
-        uint depth = uint.min ((uint) (size * 0.025), 2);
-        double dx = 1.4142 * depth;
-        double dy = 6.1623 * depth;
+        arrow_half_h = size * 0.75;
+        neg_arrow_half_h = -arrow_half_h;
+        arrow_depth = uint.min ((uint) (size * 0.025), 2);
+        arrow_dx = 1.4142 * arrow_depth;
+        arrow_dy = arrow_half_h - 6.1623 * arrow_depth;
+        neg_arrow_dy = -arrow_dy;
+        previous_arrow_size = size;
+    }
+
+    internal void draw_arrow (Cairo.Context context, uint size, uint gap)  // TODO manage gap width in themes
+    {
+        if (previous_arrow_size == 0 || size != previous_arrow_size)
+            set_arrow_variables (size);
+        double arrow_w = gap * 0.5;
+        double arrow_w_minus_depth = arrow_w - arrow_depth;
 
         /* Background */
         context.move_to (0, 0);
-        context.line_to (w, h * 0.5);
-        context.line_to (w, -h * 0.5);
+        context.line_to (arrow_w, arrow_half_h);
+        context.line_to (arrow_w, neg_arrow_half_h);
         context.close_path ();
         context.set_source_rgba (0, 0, 0, 0.125);
         context.fill ();
 
         /* Arrow highlight */
-        context.move_to (w, -h * 0.5);
-        context.line_to (w, h * 0.5);
-        context.line_to (w - depth, h * 0.5 - dy);
-        context.line_to (w - depth, -h * 0.5 + dy);
+        context.move_to (arrow_w, neg_arrow_half_h);
+        context.line_to (arrow_w, arrow_half_h);
+        context.line_to (arrow_w_minus_depth, arrow_dy);
+        context.line_to (arrow_w_minus_depth, neg_arrow_dy);
         context.close_path ();
         context.set_source_rgba (1, 1, 1, 0.125);
         context.fill ();
 
         /* Arrow shadow */
-        context.move_to (w, -h * 0.5);
+        context.move_to (arrow_w, neg_arrow_half_h);
         context.line_to (0, 0);
-        context.line_to (w, h * 0.5);
-        context.line_to (w - depth, h * 0.5 - dy);
-        context.line_to (dx, 0);
-        context.line_to (w - depth, -h * 0.5 + dy);
+        context.line_to (arrow_w, arrow_half_h);
+        context.line_to (arrow_w_minus_depth, arrow_dy);
+        context.line_to (arrow_dx, 0);
+        context.line_to (arrow_w_minus_depth, neg_arrow_dy);
         context.close_path ();
         context.set_source_rgba (0, 0, 0, 0.25);
         context.fill ();
     }
 
+    /*\
+    * * drawing sockets
+    \*/
+
+    private uint previous_socket_size = 0;
+    private uint socket_depth;
+    private uint size_minus_socket_depth;
+    private uint size_minus_two_socket_depths;
+
+    private inline void set_socket_variables (uint size)
+    {
+        socket_depth = uint.min ((uint) (size * 0.05), 4);
+        size_minus_socket_depth = size - socket_depth;
+        size_minus_two_socket_depths = size - socket_depth * 2;
+        previous_socket_size = size;
+    }
+
     internal void draw_socket (Cairo.Context context, uint size)
     {
-        uint depth = uint.min ((uint) (size * 0.05), 4);
+        if (previous_socket_size == 0 || previous_socket_size != size)
+            set_socket_variables (size);
 
         /* Background */
-        context.rectangle (depth, depth, size - depth * 2, size - depth * 2);
+        context.rectangle (socket_depth, socket_depth, size_minus_two_socket_depths, size_minus_two_socket_depths);
         context.set_source_rgba (0, 0, 0, 0.125);
         context.fill ();
 
@@ -121,9 +157,9 @@ private class Theme : Object
         context.move_to (size, 0);
         context.line_to (0, 0);
         context.line_to (0, size);
-        context.line_to (depth, size - depth);
-        context.line_to (depth, depth);
-        context.line_to (size - depth, depth);
+        context.line_to (socket_depth, size_minus_socket_depth);
+        context.line_to (socket_depth, socket_depth);
+        context.line_to (size_minus_socket_depth, socket_depth);
         context.close_path ();
         context.set_source_rgba (0, 0, 0, 0.25);
         context.fill ();
@@ -132,9 +168,9 @@ private class Theme : Object
         context.move_to (0, size);
         context.line_to (size, size);
         context.line_to (size, 0);
-        context.line_to (size - depth, depth);
-        context.line_to (size - depth, size - depth);
-        context.line_to (depth, size - depth);
+        context.line_to (size_minus_socket_depth, socket_depth);
+        context.line_to (size_minus_socket_depth, size_minus_socket_depth);
+        context.line_to (socket_depth, size_minus_socket_depth);
         context.close_path ();
         context.set_source_rgba (1, 1, 1, 0.125);
         context.fill ();
@@ -143,6 +179,31 @@ private class Theme : Object
     /*\
     * * drawing tiles
     \*/
+
+    private uint previous_tile_size = 0;
+    private uint tile_depth;
+    private double tile_dx;
+    private double tile_dy;
+    private double size_minus_tile_depth;
+    private double size_minus_tile_dx;
+    private double half_tile_size;
+    private double half_tile_size_minus_dy;
+    private double half_tile_size_plus_dy;
+    private double size_minus_one;
+
+    private inline void set_tile_variables (uint size)
+    {
+        tile_depth = uint.min ((uint) (size * 0.05), 4);
+        tile_dx = 2.4142 * tile_depth;
+        tile_dy = 1.4142 * tile_depth;
+        size_minus_tile_depth = (double) size - tile_depth;
+        size_minus_tile_dx = (double) size - tile_dx;
+        half_tile_size = size * 0.5;
+        half_tile_size_minus_dy = half_tile_size - tile_dy;
+        half_tile_size_plus_dy = half_tile_size + tile_dy;
+        previous_tile_size = size;
+        size_minus_one = (double) (size - 1);
+    }
 
     internal void draw_paused_tile (Cairo.Context context, uint size)
     {
@@ -156,56 +217,55 @@ private class Theme : Object
         context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
         context.set_font_size (size / 3.5);
         context.set_source (text_colors [tile.north]);
-        draw_number (context, size * 0.5, size / 5, tile.north);
+        draw_number (context, half_tile_size, size / 5, tile.north);
         context.set_source (text_colors [tile.south]);
-        draw_number (context, size * 0.5, size * 4 / 5, tile.south);
+        draw_number (context, half_tile_size, size * 4 / 5, tile.south);
         context.set_source (text_colors [tile.east]);
-        draw_number (context, size * 4 / 5, size * 0.5, tile.east);
+        draw_number (context, size * 4 / 5, half_tile_size, tile.east);
         context.set_source (text_colors [tile.west]);
-        draw_number (context, size / 5, size * 0.5, tile.west);
+        draw_number (context, size / 5, half_tile_size, tile.west);
     }
 
     private void draw_tile_background (Cairo.Context context, uint size, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
     {
-        uint depth = uint.min ((uint) (size * 0.05), 4);
-        double dx = 2.4142 * depth;
-        double dy = 1.4142 * depth;
+        if (previous_tile_size == 0 || previous_tile_size != size)
+            set_tile_variables (size);
 
         /* North */
-        context.rectangle (0, 0, size, size * 0.5);
+        context.rectangle (0, 0, size, half_tile_size);
         context.set_source (north_color);
         context.fill ();
 
         /* North highlight */
         context.move_to (0, 0);
         context.line_to (size, 0);
-        context.line_to (size - dx, depth);
-        context.line_to (dx, depth);
-        context.line_to (size * 0.5, size * 0.5 - dy);
-        context.line_to (size * 0.5, size * 0.5);
+        context.line_to (size_minus_tile_dx, tile_depth);
+        context.line_to (tile_dx, tile_depth);
+        context.line_to (half_tile_size, half_tile_size_minus_dy);
+        context.line_to (half_tile_size, half_tile_size);
         context.close_path ();
         context.set_source_rgba (1, 1, 1, 0.125);
         context.fill ();
 
         /* North shadow */
         context.move_to (size, 0);
-        context.line_to (size * 0.5, size * 0.5);
-        context.line_to (size * 0.5, size * 0.5 - dy);
-        context.line_to (size - dx, depth);
+        context.line_to (half_tile_size, half_tile_size);
+        context.line_to (half_tile_size, half_tile_size_minus_dy);
+        context.line_to (size_minus_tile_dx, tile_depth);
         context.close_path ();
         context.set_source_rgba (0, 0, 0, 0.25);
         context.fill ();
 
         /* South */
-        context.rectangle (0, size * 0.5, size, size * 0.5);
+        context.rectangle (0, half_tile_size, size, half_tile_size);
         context.set_source (south_color);
         context.fill ();
 
         /* South highlight */
         context.move_to (0, size);
-        context.line_to (dx, size - depth);
-        context.line_to (size * 0.5, size * 0.5 + dy);
-        context.line_to (size * 0.5, size * 0.5);
+        context.line_to (tile_dx, size_minus_tile_depth);
+        context.line_to (half_tile_size, half_tile_size_plus_dy);
+        context.line_to (half_tile_size, half_tile_size);
         context.close_path ();
         context.set_source_rgba (1, 1, 1, 0.125);
         context.fill ();
@@ -213,10 +273,10 @@ private class Theme : Object
         /* South shadow */
         context.move_to (0, size);
         context.line_to (size, size);
-        context.line_to (size * 0.5, size * 0.5);
-        context.line_to (size * 0.5, size * 0.5 + dy);
-        context.line_to (size - dx, size - depth);
-        context.line_to (dx, size - depth);
+        context.line_to (half_tile_size, half_tile_size);
+        context.line_to (half_tile_size, half_tile_size_plus_dy);
+        context.line_to (size_minus_tile_dx, size_minus_tile_depth);
+        context.line_to (tile_dx, size_minus_tile_depth);
         context.close_path ();
         context.set_source_rgba (0, 0, 0, 0.25);
         context.fill ();
@@ -224,18 +284,18 @@ private class Theme : Object
         /* East */
         context.move_to (size, 0);
         context.line_to (size, size);
-        context.line_to (size * 0.5, size * 0.5);
+        context.line_to (half_tile_size, half_tile_size);
         context.close_path ();
         context.set_source (east_color);
         context.fill ();
 
         /* East highlight */
         context.move_to (size, 0);
-        context.line_to (size * 0.5, size * 0.5);
+        context.line_to (half_tile_size, half_tile_size);
         context.line_to (size, size);
-        context.line_to (size - depth, size - dx);
-        context.line_to (size * 0.5 + dy, size * 0.5);
-        context.line_to (size - depth, dx);
+        context.line_to (size_minus_tile_depth, size_minus_tile_dx);
+        context.line_to (half_tile_size_plus_dy, half_tile_size);
+        context.line_to (size_minus_tile_depth, tile_dx);
         context.close_path ();
         context.set_source_rgba (1, 1, 1, 0.125);
         context.fill ();
@@ -243,8 +303,8 @@ private class Theme : Object
         /* East shadow */
         context.move_to (size, 0);
         context.line_to (size, size);
-        context.line_to (size - depth, size - dx);
-        context.line_to (size - depth, dx);
+        context.line_to (size_minus_tile_depth, size_minus_tile_dx);
+        context.line_to (size_minus_tile_depth, tile_dx);
         context.close_path ();
         context.set_source_rgba (0, 0, 0, 0.25);
         context.fill ();
@@ -252,7 +312,7 @@ private class Theme : Object
         /* West */
         context.move_to (0, 0);
         context.line_to (0, size);
-        context.line_to (size * 0.5, size * 0.5);
+        context.line_to (half_tile_size, half_tile_size);
         context.close_path ();
         context.set_source (west_color);
         context.fill ();
@@ -260,19 +320,19 @@ private class Theme : Object
         /* West highlight */
         context.move_to (0, 0);
         context.line_to (0, size);
-        context.line_to (depth, size - dx);
-        context.line_to (depth, dx);
+        context.line_to (tile_depth, size_minus_tile_dx);
+        context.line_to (tile_depth, tile_dx);
         context.close_path ();
         context.set_source_rgba (1, 1, 1, 0.125);
         context.fill ();
 
         /* West shadow */
         context.move_to (0, 0);
-        context.line_to (size * 0.5, size * 0.5);
+        context.line_to (half_tile_size, half_tile_size);
         context.line_to (0, size);
-        context.line_to (depth, size - dx);
-        context.line_to (size * 0.5 - dy, size * 0.5);
-        context.line_to (depth, dx);
+        context.line_to (tile_depth, size_minus_tile_dx);
+        context.line_to (half_tile_size_minus_dy, half_tile_size);
+        context.line_to (tile_depth, tile_dx);
         context.close_path ();
         context.set_source_rgba (0, 0, 0, 0.25);
         context.fill ();
@@ -280,7 +340,7 @@ private class Theme : Object
         /* Draw outline */
         context.set_line_width (1.0);
         context.set_source_rgb (0.0, 0.0, 0.0);
-        context.rectangle (0.5, 0.5, size - 1.0, size - 1.0);
+        context.rectangle (0.5, 0.5, size_minus_one, size_minus_one);
         context.stroke ();
     }
 
