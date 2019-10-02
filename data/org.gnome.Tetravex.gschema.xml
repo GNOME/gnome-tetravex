@@ -3,6 +3,7 @@
     <value value="0" nick="extrusion"/>
     <value value="1" nick="neoretro"/>
     <value value="2" nick="nostalgia"/>
+    <value value="3" nick="synesthesia"/>
   </enum>
   <schema id="org.gnome.Tetravex" path="/org/gnome/Tetravex/" gettext-domain="gnome-tetravex">
     <key name="grid-size" type="i">

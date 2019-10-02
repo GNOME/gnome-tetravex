@@ -124,6 +124,7 @@ private class PuzzleView : Gtk.DrawingArea
                 case "extrusion"  : theme = new ExtrusionTheme ();   break;
                 case "neoretro"   : theme = new NeoRetroTheme ();    break;
                 case "nostalgia"  : theme = new NostalgiaTheme ();   break;
+                case "synesthesia": theme = new SynesthesiaTheme (); break;
             }
 
             if (tilesize != 0)
@@ -435,9 +436,13 @@ private class PuzzleView : Gtk.DrawingArea
             if (!iter.next (out tile, out image))
                 break;
 
-            if ((selected_tile != null && image == (!) selected_tile)
-             || (image.x != image.target_x)
-             || (image.y != image.target_y))
+            if (selected_tile != null && image == (!) selected_tile)
+                continue;
+            if (selected_tile == null && last_selected_tile != null && image == (!) last_selected_tile)
+                continue;
+
+            if (image.x != image.target_x
+             || image.y != image.target_y)
             {
                 moving_tiles.prepend (image);
                 continue;
@@ -446,11 +451,16 @@ private class PuzzleView : Gtk.DrawingArea
             draw_image (context, image);
         }
 
+        /* Draw moving tiles on top of static tiles; in the order they want */
         foreach (unowned TileImage image in moving_tiles)
             draw_image (context, image);
 
-        /* Redraw last selected tile, fixing problem seen when interverting multiple times two contiguous tiles */
-        if (selected_tile == null && last_selected_tile != null)
+        /* Draw selected tile –if any– at the end, as it is always on top; else */
+        if (selected_tile != null)
+            draw_image (context, (!) selected_tile);
+
+        /* draw last selected tile instead, fixing problem seen when interverting multiple times two contiguous tiles */
+        else if (last_selected_tile != null)
             draw_image (context, (!) last_selected_tile);
 
         /* Draw pause overlay */
