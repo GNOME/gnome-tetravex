@@ -10,4 +10,5 @@ src/help-overlay.ui
 src/puzzle.vala
 src/puzzle-view.vala
 src/score-dialog.vala
-src/theme.vala
+src/theme-neoretro.vala
+src/theme-nostalgia.vala

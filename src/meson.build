@@ -9,8 +9,8 @@ sources = files (
     'puzzle.vala',
     'puzzle-view.vala',
     'score-dialog.vala',
-    'theme-new.vala',
-    'theme-old.vala'
+    'theme-neoretro.vala',
+    'theme-nostalgia.vala'
 )
 
 gnome_tetravex = executable (
