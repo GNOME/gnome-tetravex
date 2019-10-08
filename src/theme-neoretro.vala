@@ -17,7 +17,10 @@ private class NeoRetroTheme : Theme
 
     private Cairo.Pattern tile_colors_h [10];
     private Cairo.Pattern tile_colors_v [10];
-    private Cairo.Pattern text_colors   [10];
+
+    private unowned Cairo.Pattern text_colors [10];
+    private Cairo.Pattern black_text_color = new Cairo.Pattern.rgb (0, 0, 0);
+    private Cairo.Pattern white_text_color = new Cairo.Pattern.rgb (1, 1, 1);
 
     private Cairo.Pattern paused_color_h;
     private Cairo.Pattern paused_color_v;
@@ -45,9 +48,9 @@ private class NeoRetroTheme : Theme
         tile_colors_v [position] = make_v_color_pattern (color);
 
         if (white_text)
-            text_colors [position] = new Cairo.Pattern.rgb (1, 1, 1);
+            text_colors [position] = white_text_color;
         else
-            text_colors [position] = new Cairo.Pattern.rgb (0, 0, 0);
+            text_colors [position] = black_text_color;
     }
 
     private static Cairo.Pattern make_h_color_pattern (string color)
