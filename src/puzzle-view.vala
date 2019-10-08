@@ -103,7 +103,7 @@ private class PuzzleView : Gtk.DrawingArea
     {
         internal set
         {
-            if (value != "old") // including "value == new"
+            if (value != "nostalgia") // including "value == neoretro"
                 { theme = new NewTheme (); if (tilesize != 0) theme.configure (tilesize); queue_draw (); return; }
             else
                 { theme = new OldTheme (); if (tilesize != 0) theme.configure (tilesize); queue_draw (); return; }
