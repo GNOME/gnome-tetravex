@@ -9,7 +9,7 @@
  * license.
  */
 
-private class NewTheme : Theme
+private class NeoRetroTheme : Theme
 {
     /*\
     * * colors arrays

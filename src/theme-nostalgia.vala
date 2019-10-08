@@ -9,7 +9,7 @@
  * license.
  */
 
-private class OldTheme : Theme
+private class NostalgiaTheme : Theme
 {
     /*\
     * * colors arrays
