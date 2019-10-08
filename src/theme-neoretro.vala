@@ -246,7 +246,7 @@ private class NeoRetroTheme : Theme
         context.fill_preserve ();
 
         context.set_line_width (1.0);
-        context.set_source_rgba (0.3, 1.0, 0.6, 0.2);
+        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);
         context.stroke ();
 
         context.restore ();
