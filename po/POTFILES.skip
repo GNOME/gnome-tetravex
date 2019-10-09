@@ -2,6 +2,6 @@ src/gnome-tetravex.c
 src/puzzle.c
 src/puzzle-view.c
 src/score-dialog.c
-src/theme-adwaita.c
+src/theme-extrusion.c
 src/theme-neoretro.c
 src/theme-nostalgia.c

@@ -32,7 +32,7 @@
       <description>For users which have a mouse with “Forward” and “Back” buttons, this key will set which button activates the “Redo” command. Possible values range between 6 and 14.</description>
     </key>
     <key name="theme" type="s">
-      <default>'adwaita'</default>
+      <default>'extrusion'</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme' -->
       <summary>Theme</summary>
       <!-- TODO add description, see Reversi -->

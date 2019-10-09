@@ -9,7 +9,7 @@
  * license.
  */
 
-private class AdwaitaTheme : Theme
+private class ExtrusionTheme : Theme
 {
     /*\
     * * colors arrays

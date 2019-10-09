@@ -9,7 +9,7 @@ sources = files (
     'puzzle.vala',
     'puzzle-view.vala',
     'score-dialog.vala',
-    'theme-adwaita.vala',
+    'theme-extrusion.vala',
     'theme-neoretro.vala',
     'theme-nostalgia.vala'
 )

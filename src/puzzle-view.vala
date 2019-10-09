@@ -121,7 +121,7 @@ private class PuzzleView : Gtk.DrawingArea
             switch (value)
             {
                 default:
-                case "adwaita"    : theme = new AdwaitaTheme ();     break;
+                case "extrusion"  : theme = new ExtrusionTheme ();   break;
                 case "neoretro"   : theme = new NeoRetroTheme ();    break;
                 case "nostalgia"  : theme = new NostalgiaTheme ();   break;
             }
