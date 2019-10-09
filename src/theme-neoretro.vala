@@ -130,13 +130,13 @@ private class NeoRetroTheme : Theme
     /* arrow */
     private double arrow_half_h;
     private double neg_arrow_half_h;
-    private uint arrow_depth;
-    private double arrow_dx;
-    private double arrow_dy;
-    private double neg_arrow_dy;
     private double arrow_w;
     private double arrow_x;
-    private double arrow_w_minus_depth;
+
+    private double arrow_clip_x;
+    private double arrow_clip_y;
+    private double arrow_clip_w;
+    private double arrow_clip_h;
 
     /* socket */
     private uint socket_margin;
@@ -155,15 +155,15 @@ private class NeoRetroTheme : Theme
             return;
 
         /* arrow */
-        arrow_half_h = new_size * 0.75;
+        arrow_half_h = new_size * 0.5;
         neg_arrow_half_h = -arrow_half_h;
-        arrow_depth = uint.min ((uint) (new_size * 0.025), 2);
-        arrow_dx = 1.4142 * arrow_depth;
-        arrow_dy = arrow_half_h - 6.1623 * arrow_depth;
-        neg_arrow_dy = -arrow_dy;
         arrow_w = new_size * PuzzleView.gap_factor * 0.5;
         arrow_x = (new_size * PuzzleView.gap_factor - arrow_w) * 0.5;
-        arrow_w_minus_depth = arrow_w - arrow_depth;
+
+        arrow_clip_x = -arrow_x;
+        arrow_clip_y = -new_size;
+        arrow_clip_w = 2.0 * arrow_x + arrow_w;
+        arrow_clip_h = 2.0 * new_size;
 
         /* socket and tile */
         matrix = Cairo.Matrix.identity ();
@@ -203,32 +203,57 @@ private class NeoRetroTheme : Theme
     {
         context.translate (arrow_x, 0.0);
 
-        /* Background */
-        context.move_to (0, 0);
-        context.line_to (arrow_w, arrow_half_h);
+        /*\
+         *  To ease the drawing, we base the arrow on a simple shape. We clip
+         *  the exterior of this shape, by clipping a large rectangle around,
+         *  and excluding the shape. Then we stroke the shape, only drawing a
+         *  border at its exterior; two times, the first a bit larger, making
+         *  a border. Then, we reset the exterior clip, we clip the shape for
+         *  real (its interior), and we fill it (two times) with same colors.
+        \*/
+
+        /* clipping exterior */
+
+        context.rectangle (arrow_clip_x, arrow_clip_y, arrow_clip_w, arrow_clip_h);
+
+        context.move_to (arrow_w, arrow_half_h);
+        context.line_to (0.0, 0.0);
         context.line_to (arrow_w, neg_arrow_half_h);
-        context.close_path ();
-        context.set_source_rgba (0, 0, 0, 0.125);
-        context.fill ();
+        context.curve_to (0.0,  10.0,               // Bézier control point for origin
+                          0.0, -10.0,               // Bézier control point for destination
+                          arrow_w, arrow_half_h);   // destination
 
-        /* Arrow highlight */
-        context.move_to (arrow_w, neg_arrow_half_h);
-        context.line_to (arrow_w, arrow_half_h);
-        context.line_to (arrow_w_minus_depth, arrow_dy);
-        context.line_to (arrow_w_minus_depth, neg_arrow_dy);
-        context.close_path ();
-        context.set_source_rgba (1, 1, 1, 0.125);
-        context.fill ();
+        context.clip ();
 
-        /* Arrow shadow */
-        context.move_to (arrow_w, neg_arrow_half_h);
-        context.line_to (0, 0);
-        context.line_to (arrow_w, arrow_half_h);
-        context.line_to (arrow_w_minus_depth, arrow_dy);
-        context.line_to (arrow_dx, 0);
-        context.line_to (arrow_w_minus_depth, neg_arrow_dy);
-        context.close_path ();
-        context.set_source_rgba (0, 0, 0, 0.25);
+        /* drawing exterior border */
+
+        context.move_to (arrow_w, arrow_half_h);
+        context.line_to (0.0, 0.0);
+        context.line_to (arrow_w, neg_arrow_half_h);
+        context.curve_to (0.0,  10.0,               // Bézier control point for origin
+                          0.0, -10.0,               // Bézier control point for destination
+                          arrow_w, arrow_half_h);   // destination
+
+        context.set_line_join (Cairo.LineJoin.ROUND);
+        context.set_line_cap (Cairo.LineCap.ROUND);
+
+        context.set_line_width (14.0);
+        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);   // fill color 1, including border
+        context.stroke_preserve ();
+
+        context.set_line_width (12.0);
+        context.set_source_rgba (1.0, 1.0, 1.0, 0.1);   // fill color 2
+        context.stroke_preserve ();
+
+        /* filling interior */
+
+        context.reset_clip ();  // forget the border clip
+        context.clip ();       // clip to the current path
+
+        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);   // fill color 1
+        context.fill_preserve ();
+
+        context.set_source_rgba (1.0, 1.0, 1.0, 0.1);   // fill color 2
         context.fill ();
     }
 
