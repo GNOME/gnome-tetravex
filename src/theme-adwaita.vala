@@ -300,7 +300,7 @@ private class AdwaitaTheme : Theme
         context.move_to (west_shadow_limit, 0.0);
         context.line_to (west_shadow_limit, size);
         context.set_source_rgba (0.4, 0.4, 0.4, 0.4);
-        context.set_line_width (1.5);
+        context.set_line_width (1.0);
         context.stroke ();
 
         context.restore ();
@@ -384,7 +384,7 @@ private class AdwaitaTheme : Theme
         context.move_to (0.0, size);
         context.line_to (size, 0.0);
         context.set_source_rgba (0.4, 0.4, 0.4, 0.4);
-        context.set_line_width (1.5);
+        context.set_line_width (1.0);
         context.stroke ();
 
         context.restore ();
