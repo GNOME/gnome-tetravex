@@ -17,40 +17,43 @@ private class NostalgiaTheme : Theme
 
     private Cairo.Pattern tile_colors [10];
     private Cairo.Pattern paused_color;
-    private Cairo.Pattern text_colors [10];
+
+    private unowned Cairo.Pattern text_colors [10];
+    private Cairo.Pattern black_text_color = new Cairo.Pattern.rgb (0, 0, 0);
+    private Cairo.Pattern white_text_color = new Cairo.Pattern.rgb (1, 1, 1);
 
     construct
     {
-        tile_colors [0] = make_color_pattern ("#000000");
-        tile_colors [1] = make_color_pattern ("#C17D11");
-        tile_colors [2] = make_color_pattern ("#CC0000");
-        tile_colors [3] = make_color_pattern ("#F57900");
-        tile_colors [4] = make_color_pattern ("#EDD400");
-        tile_colors [5] = make_color_pattern ("#73D216");
-        tile_colors [6] = make_color_pattern ("#3465A4");
-        tile_colors [7] = make_color_pattern ("#75507B");
-        tile_colors [8] = make_color_pattern ("#BABDB6");
-        tile_colors [9] = make_color_pattern ("#FFFFFF");
+        tile_colors [0] = make_color_pattern ("000000");
+        tile_colors [1] = make_color_pattern ("C17D11");
+        tile_colors [2] = make_color_pattern ("CC0000");
+        tile_colors [3] = make_color_pattern ("F57900");
+        tile_colors [4] = make_color_pattern ("EDD400");
+        tile_colors [5] = make_color_pattern ("73D216");
+        tile_colors [6] = make_color_pattern ("3465A4");
+        tile_colors [7] = make_color_pattern ("75507B");
+        tile_colors [8] = make_color_pattern ("BABDB6");
+        tile_colors [9] = make_color_pattern ("FFFFFF");
 
-        paused_color = make_color_pattern ("#CCCCCC");
+        paused_color = make_color_pattern ("CCCCCC");
 
-        text_colors [0] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors [1] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors [2] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors [3] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors [4] = new Cairo.Pattern.rgb (0, 0, 0);
-        text_colors [5] = new Cairo.Pattern.rgb (0, 0, 0);
-        text_colors [6] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors [7] = new Cairo.Pattern.rgb (1, 1, 1);
-        text_colors [8] = new Cairo.Pattern.rgb (0, 0, 0);
-        text_colors [9] = new Cairo.Pattern.rgb (0, 0, 0);
+        text_colors [0] = white_text_color;
+        text_colors [1] = white_text_color;
+        text_colors [2] = white_text_color;
+        text_colors [3] = white_text_color;
+        text_colors [4] = black_text_color;
+        text_colors [5] = black_text_color;
+        text_colors [6] = white_text_color;
+        text_colors [7] = white_text_color;
+        text_colors [8] = black_text_color;
+        text_colors [9] = black_text_color;
     }
 
     private static Cairo.Pattern make_color_pattern (string color)
     {
-        double r = (hex_value (color [1]) * 16 + hex_value (color [2])) / 255.0;
-        double g = (hex_value (color [3]) * 16 + hex_value (color [4])) / 255.0;
-        double b = (hex_value (color [5]) * 16 + hex_value (color [6])) / 255.0;
+        double r = (hex_value (color [0]) * 16.0 + hex_value (color [1])) / 255.0;
+        double g = (hex_value (color [2]) * 16.0 + hex_value (color [3])) / 255.0;
+        double b = (hex_value (color [4]) * 16.0 + hex_value (color [5])) / 255.0;
         return new Cairo.Pattern.rgb (r, g, b);
     }
 
@@ -63,7 +66,7 @@ private class NostalgiaTheme : Theme
         else if (c >= 'A' && c <= 'F')
             return c - 'A' + 10;
         else
-            return 0;
+            return 0.0;
     }
 
     /*\
@@ -97,6 +100,13 @@ private class NostalgiaTheme : Theme
     private double half_tile_size_plus_dy;
     private double size_minus_one;
 
+    /* numbers */
+    private double font_size;
+    private double north_number_y;
+    private double south_number_y;
+    private double  east_number_x;
+    private double  west_number_x;
+
     internal override void configure (uint new_size)
     {
         if (size != 0 && size == new_size)
@@ -127,6 +137,13 @@ private class NostalgiaTheme : Theme
         half_tile_size_plus_dy = half_tile_size + tile_dy;
         size_minus_one = (double) (new_size - 1);
 
+        /* numbers */
+        font_size = new_size / 3.5;
+        north_number_y = new_size       / 5.0;
+        south_number_y = new_size * 4.0 / 5.0;
+         east_number_x = south_number_y;
+         west_number_x = north_number_y;
+
         /* end */
         size = new_size;
     }
@@ -140,11 +157,11 @@ private class NostalgiaTheme : Theme
         context.translate (arrow_x, 0.0);
 
         /* Background */
-        context.move_to (0, 0);
+        context.move_to (0.0, 0.0);
         context.line_to (arrow_w, arrow_half_h);
         context.line_to (arrow_w, neg_arrow_half_h);
         context.close_path ();
-        context.set_source_rgba (0, 0, 0, 0.125);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.125);
         context.fill ();
 
         /* Arrow highlight */
@@ -153,18 +170,18 @@ private class NostalgiaTheme : Theme
         context.line_to (arrow_w_minus_depth, arrow_dy);
         context.line_to (arrow_w_minus_depth, neg_arrow_dy);
         context.close_path ();
-        context.set_source_rgba (1, 1, 1, 0.125);
+        context.set_source_rgba (1.0, 1.0, 1.0, 0.125);
         context.fill ();
 
         /* Arrow shadow */
         context.move_to (arrow_w, neg_arrow_half_h);
-        context.line_to (0, 0);
+        context.line_to (0.0, 0.0);
         context.line_to (arrow_w, arrow_half_h);
         context.line_to (arrow_w_minus_depth, arrow_dy);
-        context.line_to (arrow_dx, 0);
+        context.line_to (arrow_dx, 0.0);
         context.line_to (arrow_w_minus_depth, neg_arrow_dy);
         context.close_path ();
-        context.set_source_rgba (0, 0, 0, 0.25);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
         context.fill ();
     }
 
@@ -176,29 +193,29 @@ private class NostalgiaTheme : Theme
     {
         /* Background */
         context.rectangle (tile_depth, tile_depth, size_minus_two_tile_depths, size_minus_two_tile_depths);
-        context.set_source_rgba (0, 0, 0, 0.125);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.125);
         context.fill ();
 
         /* Shadow */
-        context.move_to (size, 0);
-        context.line_to (0, 0);
-        context.line_to (0, size);
+        context.move_to (size, 0.0);
+        context.line_to (0.0, 0.0);
+        context.line_to (0.0, size);
         context.line_to (tile_depth, size_minus_tile_depth);
         context.line_to (tile_depth, tile_depth);
         context.line_to (size_minus_tile_depth, tile_depth);
         context.close_path ();
-        context.set_source_rgba (0, 0, 0, 0.25);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
         context.fill ();
 
         /* Highlight */
-        context.move_to (0, size);
+        context.move_to (0.0, size);
         context.line_to (size, size);
-        context.line_to (size, 0);
+        context.line_to (size, 0.0);
         context.line_to (size_minus_tile_depth, tile_depth);
         context.line_to (size_minus_tile_depth, size_minus_tile_depth);
         context.line_to (tile_depth, size_minus_tile_depth);
         context.close_path ();
-        context.set_source_rgba (1, 1, 1, 0.125);
+        context.set_source_rgba (1.0, 1.0, 1.0, 0.125);
         context.fill ();
     }
 
@@ -216,67 +233,67 @@ private class NostalgiaTheme : Theme
         draw_tile_background (context, tile_colors [tile.north], tile_colors [tile.east], tile_colors [tile.south], tile_colors [tile.west]);
 
         context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
-        context.set_font_size (size / 3.5);
-        draw_number (context, text_colors [tile.north], half_tile_size, size     / 5  , tile.north);
-        draw_number (context, text_colors [tile.south], half_tile_size, size * 4 / 5  , tile.south);
-        draw_number (context, text_colors [tile.east ], size * 4 / 5  , half_tile_size, tile.east);
-        draw_number (context, text_colors [tile.west ], size     / 5  , half_tile_size, tile.west);
+        context.set_font_size (font_size);
+        draw_number (context, text_colors [tile.north], half_tile_size, north_number_y, tile.north);
+        draw_number (context, text_colors [tile.south], half_tile_size, south_number_y, tile.south);
+        draw_number (context, text_colors [tile.east ], east_number_x , half_tile_size, tile.east);
+        draw_number (context, text_colors [tile.west ], west_number_x , half_tile_size, tile.west);
     }
 
     private void draw_tile_background (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
     {
         /* North */
-        context.rectangle (0, 0, size, half_tile_size);
+        context.rectangle (0.0, 0.0, size, half_tile_size);
         context.set_source (north_color);
         context.fill ();
 
         /* North highlight */
-        context.move_to (0, 0);
-        context.line_to (size, 0);
+        context.move_to (0.0, 0.0);
+        context.line_to (size, 0.0);
         context.line_to (size_minus_tile_dx, tile_depth);
         context.line_to (tile_dx, tile_depth);
         context.line_to (half_tile_size, half_tile_size_minus_dy);
         context.line_to (half_tile_size, half_tile_size);
         context.close_path ();
-        context.set_source_rgba (1, 1, 1, 0.125);
+        context.set_source_rgba (1.0, 1.0, 1.0, 0.125);
         context.fill ();
 
         /* North shadow */
-        context.move_to (size, 0);
+        context.move_to (size, 0.0);
         context.line_to (half_tile_size, half_tile_size);
         context.line_to (half_tile_size, half_tile_size_minus_dy);
         context.line_to (size_minus_tile_dx, tile_depth);
         context.close_path ();
-        context.set_source_rgba (0, 0, 0, 0.25);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
         context.fill ();
 
         /* South */
-        context.rectangle (0, half_tile_size, size, half_tile_size);
+        context.rectangle (0.0, half_tile_size, size, half_tile_size);
         context.set_source (south_color);
         context.fill ();
 
         /* South highlight */
-        context.move_to (0, size);
+        context.move_to (0.0, size);
         context.line_to (tile_dx, size_minus_tile_depth);
         context.line_to (half_tile_size, half_tile_size_plus_dy);
         context.line_to (half_tile_size, half_tile_size);
         context.close_path ();
-        context.set_source_rgba (1, 1, 1, 0.125);
+        context.set_source_rgba (1.0, 1.0, 1.0, 0.125);
         context.fill ();
 
         /* South shadow */
-        context.move_to (0, size);
+        context.move_to (0.0, size);
         context.line_to (size, size);
         context.line_to (half_tile_size, half_tile_size);
         context.line_to (half_tile_size, half_tile_size_plus_dy);
         context.line_to (size_minus_tile_dx, size_minus_tile_depth);
         context.line_to (tile_dx, size_minus_tile_depth);
         context.close_path ();
-        context.set_source_rgba (0, 0, 0, 0.25);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
         context.fill ();
 
         /* East */
-        context.move_to (size, 0);
+        context.move_to (size, 0.0);
         context.line_to (size, size);
         context.line_to (half_tile_size, half_tile_size);
         context.close_path ();
@@ -284,51 +301,51 @@ private class NostalgiaTheme : Theme
         context.fill ();
 
         /* East highlight */
-        context.move_to (size, 0);
+        context.move_to (size, 0.0);
         context.line_to (half_tile_size, half_tile_size);
         context.line_to (size, size);
         context.line_to (size_minus_tile_depth, size_minus_tile_dx);
         context.line_to (half_tile_size_plus_dy, half_tile_size);
         context.line_to (size_minus_tile_depth, tile_dx);
         context.close_path ();
-        context.set_source_rgba (1, 1, 1, 0.125);
+        context.set_source_rgba (1.0, 1.0, 1.0, 0.125);
         context.fill ();
 
         /* East shadow */
-        context.move_to (size, 0);
+        context.move_to (size, 0.0);
         context.line_to (size, size);
         context.line_to (size_minus_tile_depth, size_minus_tile_dx);
         context.line_to (size_minus_tile_depth, tile_dx);
         context.close_path ();
-        context.set_source_rgba (0, 0, 0, 0.25);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
         context.fill ();
 
         /* West */
-        context.move_to (0, 0);
-        context.line_to (0, size);
+        context.move_to (0.0, 0.0);
+        context.line_to (0.0, size);
         context.line_to (half_tile_size, half_tile_size);
         context.close_path ();
         context.set_source (west_color);
         context.fill ();
 
         /* West highlight */
-        context.move_to (0, 0);
-        context.line_to (0, size);
+        context.move_to (0.0, 0.0);
+        context.line_to (0.0, size);
         context.line_to (tile_depth, size_minus_tile_dx);
         context.line_to (tile_depth, tile_dx);
         context.close_path ();
-        context.set_source_rgba (1, 1, 1, 0.125);
+        context.set_source_rgba (1.0, 1.0, 1.0, 0.125);
         context.fill ();
 
         /* West shadow */
-        context.move_to (0, 0);
+        context.move_to (0.0, 0.0);
         context.line_to (half_tile_size, half_tile_size);
-        context.line_to (0, size);
+        context.line_to (0.0, size);
         context.line_to (tile_depth, size_minus_tile_dx);
         context.line_to (half_tile_size_minus_dy, half_tile_size);
         context.line_to (tile_depth, tile_dx);
         context.close_path ();
-        context.set_source_rgba (0, 0, 0, 0.25);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
         context.fill ();
 
         /* Draw outline */

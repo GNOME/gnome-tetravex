@@ -19,8 +19,8 @@ private class NeoRetroTheme : Theme
     private Cairo.Pattern tile_colors_v [10];
 
     private unowned Cairo.Pattern text_colors [10];
-    private Cairo.Pattern black_text_color = new Cairo.Pattern.rgb (0, 0, 0);
-    private Cairo.Pattern white_text_color = new Cairo.Pattern.rgb (1, 1, 1);
+    private Cairo.Pattern black_text_color = new Cairo.Pattern.rgb (0.0, 0.0, 0.0);
+    private Cairo.Pattern white_text_color = new Cairo.Pattern.rgb (1.0, 1.0, 1.0);
 
     private Cairo.Pattern paused_color_h;
     private Cairo.Pattern paused_color_v;
@@ -83,9 +83,9 @@ private class NeoRetroTheme : Theme
 
     private static Cairo.Pattern make_v_color_pattern (string color)
     {
-        double r0 = (hex_value (color [0]) * 16 + hex_value (color [1]) + 0.02) / 255.0;
-        double g0 = (hex_value (color [2]) * 16 + hex_value (color [3]) + 0.02) / 255.0;
-        double b0 = (hex_value (color [4]) * 16 + hex_value (color [5]) + 0.02) / 255.0;
+        double r0 = (hex_value (color [0]) * 16.0 + hex_value (color [1]) + 0.02) / 255.0;
+        double g0 = (hex_value (color [2]) * 16.0 + hex_value (color [3]) + 0.02) / 255.0;
+        double b0 = (hex_value (color [4]) * 16.0 + hex_value (color [5]) + 0.02) / 255.0;
 
         double r1 = double.min (r0 + 0.10, 1.0);
         double g1 = double.min (g0 + 0.10, 1.0);
@@ -118,7 +118,7 @@ private class NeoRetroTheme : Theme
         else if (c >= 'A' && c <= 'F')
             return c - 'A' + 10;
         else
-            return 0;
+            return 0.0;
     }
 
     /*\
@@ -148,6 +148,13 @@ private class NeoRetroTheme : Theme
     private uint tile_margin;
     private int tile_size;
     private double half_tile_size;
+
+    /* numbers */
+    private double font_size;
+    private double north_number_y;
+    private double south_number_y;
+    private double  east_number_x;
+    private double  west_number_x;
 
     internal override void configure (uint new_size)
     {
@@ -190,6 +197,13 @@ private class NeoRetroTheme : Theme
         tile_margin = uint.min ((uint) (new_size * 0.05), 2) - 1;
         tile_size = (int) new_size - (int) tile_margin * 2;
         half_tile_size = new_size * 0.5;
+
+        /* numbers */
+        font_size = new_size * 4.0 / 19.0;
+        north_number_y = new_size *  4.0 / 18.0;
+        south_number_y = new_size * 14.0 / 18.0;
+         east_number_x = new_size * 15.0 / 19.0;
+         west_number_x = new_size *  4.0 / 19.0;
 
         /* end */
         size = new_size;
@@ -303,11 +317,11 @@ private class NeoRetroTheme : Theme
         draw_tile_background (context, tile_colors_h [tile.north], tile_colors_v [tile.east], tile_colors_h [tile.south], tile_colors_v [tile.west]);
 
         context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
-        context.set_font_size (size * 4.0 / 19.0);
-        draw_number (context, text_colors [tile.north], half_tile_size    , size *  4.0 / 18.0, tile.north);
-        draw_number (context, text_colors [tile.south], half_tile_size    , size * 14.0 / 18.0, tile.south);
-        draw_number (context, text_colors [tile.east ], size * 15.0 / 19.0, half_tile_size    , tile.east);
-        draw_number (context, text_colors [tile.west ], size *  4.0 / 19.0, half_tile_size    , tile.west);
+        context.set_font_size (font_size);
+        draw_number (context, text_colors [tile.north], half_tile_size, north_number_y, tile.north);
+        draw_number (context, text_colors [tile.south], half_tile_size, south_number_y, tile.south);
+        draw_number (context, text_colors [tile.east ], east_number_x , half_tile_size, tile.east);
+        draw_number (context, text_colors [tile.west ], west_number_x , half_tile_size, tile.west);
     }
 
     private void draw_tile_background (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
@@ -404,7 +418,7 @@ private class NeoRetroTheme : Theme
     \*/
 
     private const double HALF_PI = Math.PI_2;
-    private static void rounded_square (Cairo.Context cr, double x, double y, int size, double radius_percent)
+    private static void rounded_square (Cairo.Context context, double x, double y, int size, double radius_percent)
     {
         if (radius_percent <= 0.0)
             assert_not_reached ();  // could be replaced by drawing a rectangle, but not used here
@@ -417,11 +431,11 @@ private class NeoRetroTheme : Theme
         double x2 = x + size - radius_arc;
         double y2 = y + size - radius_arc;
 
-        cr.move_to (x, y1);
-        cr.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
-        cr.arc (x2, y1, radius_arc, -HALF_PI,        0);
-        cr.arc (x2, y2, radius_arc,        0,  HALF_PI);
-        cr.arc (x1, y2, radius_arc,  HALF_PI,  Math.PI);
-        cr.close_path ();
+        context.move_to (x, y1);
+        context.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
+        context.arc (x2, y1, radius_arc, -HALF_PI,      0.0);
+        context.arc (x2, y2, radius_arc,      0.0,  HALF_PI);
+        context.arc (x1, y2, radius_arc,  HALF_PI,  Math.PI);
+        context.close_path ();
     }
 }
