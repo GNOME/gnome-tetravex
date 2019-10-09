@@ -68,8 +68,12 @@ private class PuzzleView : Gtk.DrawingArea
         private get { if (!puzzle_init_done) assert_not_reached (); return _puzzle; }
         internal set
         {
+            uint8 old_puzzle_size = 0;
             if (puzzle_init_done)
+            {
+                old_puzzle_size = _puzzle.size;
                 SignalHandler.disconnect_by_func (_puzzle, null, this);
+            }
 
             _puzzle = value;
             puzzle_init_done = true;
@@ -88,8 +92,13 @@ private class PuzzleView : Gtk.DrawingArea
                     tiles.insert ((!) tile, image);
                 }
             }
-            sockets_xs = new double [2 * _puzzle.size, _puzzle.size];
-            sockets_ys = new double [2 * _puzzle.size, _puzzle.size];
+            if (old_puzzle_size != _puzzle.size)
+            {
+                arrow_pattern = null;
+                socket_pattern = null;
+                sockets_xs = new double [2 * _puzzle.size, _puzzle.size];
+                sockets_ys = new double [2 * _puzzle.size, _puzzle.size];
+            }
 
             _puzzle.tile_moved.connect (tile_moved_cb);
             _puzzle.notify ["paused"].connect (queue_draw);
@@ -104,9 +113,15 @@ private class PuzzleView : Gtk.DrawingArea
         internal set
         {
             if (value != "nostalgia") // including "value == neoretro"
-                { theme = new NeoRetroTheme ();  if (tilesize != 0) theme.configure (tilesize); queue_draw (); return; }
+                theme = new NeoRetroTheme ();
             else
-                { theme = new NostalgiaTheme (); if (tilesize != 0) theme.configure (tilesize); queue_draw (); return; }
+                theme = new NostalgiaTheme ();
+
+            if (tilesize != 0)
+                theme.configure (tilesize);
+            arrow_pattern = null;
+            socket_pattern = null;
+            queue_draw ();
         }
     }
 
@@ -130,17 +145,23 @@ private class PuzzleView : Gtk.DrawingArea
     private uint animation_timeout = 0;
 
     /* Set in configure event */
-    private uint x_offset = 0;
-    private uint y_offset = 0;
+    private double x_offset = 0;
+    private double y_offset = 0.0;
     private uint tilesize = 0;
     private uint gap = 0;
     private double arrow_x = 0.0;
-    private double arrow_y = 0.0;
+    private double arrow_local_y = 0.0;
     private double [,] sockets_xs;
     private double [,] sockets_ys;
     private int board_x_maxi = 0;
     private int board_y_maxi = 0;
+    private int boardsize = 0;
     private double snap_distance = 0.0;
+
+    /* Pre-rendered image */
+    private uint render_size = 0;
+    private Cairo.Pattern? arrow_pattern = null;
+    private Cairo.Pattern? socket_pattern = null;
 
     construct
     {
@@ -164,10 +185,10 @@ private class PuzzleView : Gtk.DrawingArea
 
     private void move_tile_to_location (TileImage image, uint x, uint y, double duration = 0)
     {
-        double target_x = (double) (x_offset + x * tilesize);
+        double target_x = x_offset + (double) (x * tilesize);
         if (x >= puzzle.size)
             target_x += (double) gap;
-        double target_y = (double) (y_offset + y * tilesize);
+        double target_y = y_offset + (double) (y * tilesize);
         move_tile (image, target_x, target_y, duration);
     }
 
@@ -285,18 +306,19 @@ private class PuzzleView : Gtk.DrawingArea
             uint width  = (uint) (allocated_width  / (2 * puzzle.size + 1.0 + /* 1 × */ gap_factor));
             uint height = (uint) (allocated_height / (puzzle.size + 1.0));
             tilesize = uint.min (width, height);
+            boardsize = (int) (tilesize * puzzle.size);
             gap = (uint) (tilesize * gap_factor);
             theme.configure (tilesize);
-            x_offset = (allocated_width  - 2 * puzzle.size * tilesize - gap) / 2;
-            y_offset = (allocated_height -     puzzle.size * tilesize      ) / 2;
+            x_offset = (double) (allocated_width  - 2 * boardsize - gap) / 2.0;
+            y_offset = (double) (allocated_height -     boardsize      ) / 2.0;
 
             board_x_maxi = allocated_width  - (int) tilesize;
             board_y_maxi = allocated_height - (int) tilesize;
 
-            snap_distance = (tilesize * puzzle.size) / 40.0;
+            snap_distance = boardsize / 40.0;
 
-            arrow_x = x_offset + puzzle.size * tilesize;
-            arrow_y = y_offset + puzzle.size * tilesize * 0.5;
+            arrow_x = x_offset + boardsize;
+            arrow_local_y = boardsize * 0.5;
 
             /* Precalculate sockets positions */
             for (uint y = 0; y < puzzle.size; y++)
@@ -330,15 +352,52 @@ private class PuzzleView : Gtk.DrawingArea
         return false;
     }
 
+    private inline void init_patterns (Cairo.Context context)
+    {
+        render_size = tilesize;
+
+        Cairo.Surface tmp_surface;
+        Cairo.Context tmp_context;
+
+        /* arrow pattern */
+        tmp_surface = new Cairo.Surface.similar (context.get_target (), Cairo.Content.COLOR_ALPHA, (int) gap,
+                                                                                                   boardsize);
+        tmp_context = new Cairo.Context (tmp_surface);
+
+        tmp_context.save ();
+        tmp_context.translate (0.0, arrow_local_y);
+        theme.draw_arrow (tmp_context);
+        tmp_context.restore ();
+
+        arrow_pattern = new Cairo.Pattern.for_surface (tmp_surface);
+
+        /* socket pattern */
+        tmp_surface = new Cairo.Surface.similar (context.get_target (), Cairo.Content.COLOR_ALPHA, (int) tilesize,
+                                                                                                   (int) tilesize);
+        tmp_context = new Cairo.Context (tmp_surface);
+
+        theme.draw_socket (tmp_context);
+
+        socket_pattern = new Cairo.Pattern.for_surface (tmp_surface);
+    }
+
     protected override bool draw (Cairo.Context context)
     {
         if (!puzzle_init_done)
             return false;
 
+        if (/* arrow_pattern == null || */ socket_pattern == null || render_size != tilesize)
+            init_patterns (context);
+
         /* Draw arrow */
         context.save ();
-        context.translate (arrow_x, arrow_y);
-        theme.draw_arrow (context);
+        Cairo.Matrix matrix = Cairo.Matrix.identity ();
+        matrix.translate (- arrow_x, - (int) y_offset);
+        ((!) arrow_pattern).set_matrix (matrix);
+
+        context.set_source ((!) arrow_pattern);
+        context.rectangle (arrow_x, y_offset, /* width and height */ gap, boardsize);
+        context.fill ();
         context.restore ();
 
         /* Draw sockets */
@@ -346,8 +405,14 @@ private class PuzzleView : Gtk.DrawingArea
             for (uint x = 0; x < puzzle.size * 2; x++)
             {
                 context.save ();
-                context.translate (sockets_xs [x, y], sockets_ys [x, y]);
-                theme.draw_socket (context);
+                matrix = Cairo.Matrix.identity ();
+                matrix.translate (- sockets_xs [x, y],
+                                  - sockets_ys [x, y]);
+                ((!) socket_pattern).set_matrix (matrix);
+
+                context.set_source ((!) socket_pattern);
+                context.rectangle (sockets_xs [x, y], sockets_ys [x, y], /* width and height */ tilesize, tilesize);
+                context.fill ();
                 context.restore ();
             }
 
@@ -452,7 +517,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     private bool on_right_half (double x)
     {
-        return x > x_offset + tilesize * puzzle.size + gap * 0.5;
+        return x > x_offset + boardsize + gap * 0.5;
     }
 
     private void drop_tile (double x, double y)
@@ -471,7 +536,7 @@ private class PuzzleView : Gtk.DrawingArea
         int16 tile_x;
         if (on_right_half (x))
         {
-            tile_x = (int16) puzzle.size + (int16) Math.floor ((x - (x_offset + puzzle.size * tilesize + gap)) / tilesize);
+            tile_x = (int16) puzzle.size + (int16) Math.floor ((x - (x_offset + boardsize + gap)) / tilesize);
             tile_x = tile_x.clamp ((int16) puzzle.size, 2 * (int16) puzzle.size - 1);
         }
         else
