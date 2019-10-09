@@ -16,13 +16,19 @@
         <attribute name="label" translatable="yes">A_ppearance</attribute>
         <section>
           <item>
-            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible theme is _Nostalgia -->
+            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro and _Nostalgia -->
+            <attribute name="label" translatable="yes">_Extrusion</attribute>
+            <attribute name="action">app.theme</attribute>
+            <attribute name="target">extrusion</attribute>
+          </item>
+          <item>
+            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion and _Nostalgia -->
             <attribute name="label" translatable="yes">Neo_Retro</attribute>
             <attribute name="action">app.theme</attribute>
             <attribute name="target">neoretro</attribute>
           </item>
           <item>
-            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible theme is Neo_Retro -->
+            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion and Neo_Retro -->
             <attribute name="label" translatable="yes">_Nostalgia</attribute>
             <attribute name="action">app.theme</attribute>
             <attribute name="target">nostalgia</attribute>
