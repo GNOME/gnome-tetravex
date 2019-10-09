@@ -145,7 +145,7 @@ private class PuzzleView : Gtk.DrawingArea
     private uint animation_timeout = 0;
 
     /* Set in configure event */
-    private double x_offset = 0;
+    private double x_offset = 0.0;
     private double y_offset = 0.0;
     private uint tilesize = 0;
     private uint gap = 0;
@@ -386,7 +386,7 @@ private class PuzzleView : Gtk.DrawingArea
         if (!puzzle_init_done)
             return false;
 
-        if (/* arrow_pattern == null || */ socket_pattern == null || render_size != tilesize)
+        if (arrow_pattern == null || socket_pattern == null || render_size != tilesize)
             init_patterns (context);
 
         /* Draw arrow */
