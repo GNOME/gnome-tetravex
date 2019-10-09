@@ -126,6 +126,7 @@ private class AdwaitaTheme : Theme
 
     private double lateral_shadow_width;
     private double west_shadow_limit;
+    private double north_shadow_limit;
 
     /* numbers */
     private double font_size;
@@ -160,8 +161,9 @@ private class AdwaitaTheme : Theme
         overdraw_top = (int) (1.5 * tile_margin);
         extrusion = -overdraw_top;
 
-        lateral_shadow_width = tile_margin + tile_size * Math.SQRT2 / /* 2 * radius_percent / (2 * 100) */50.0;
+        lateral_shadow_width = tile_margin + tile_size * (Math.SQRT2 / /* 2) * radius_percent / (2 * 100); */ 50.0);
         west_shadow_limit = new_size - lateral_shadow_width;
+        north_shadow_limit = tile_margin + tile_size * (Math.SQRT2 / /* 2) * radius_percent / 100 */ 25.0) + extrusion;
 
         /* numbers */
         font_size = new_size * 4.0 / 19.0;
@@ -246,12 +248,15 @@ private class AdwaitaTheme : Theme
     {
         context.save ();
 
-        /* Only write in a rounded square */
+        /* Only write in the bottom of a rounded square */
         rounded_square (context,
           /* x and y */ tile_margin, tile_margin,
           /* size    */ tile_size,
           /* radius  */ radius_percent);
-        context.clip_preserve ();
+        context.clip ();
+
+        context.rectangle (/* x and y */ 0.0, north_shadow_limit, /* width and height */ size, size);
+        context.clip ();
 
         /* South */
         context.save ();
