@@ -1,4 +1,9 @@
 <schemalist>
+  <enum id="org.gnome.Tetravex.Theme">
+    <value value="0" nick="extrusion"/>
+    <value value="1" nick="neoretro"/>
+    <value value="2" nick="nostalgia"/>
+  </enum>
   <schema id="org.gnome.Tetravex" path="/org/gnome/Tetravex/" gettext-domain="gnome-tetravex">
     <key name="grid-size" type="i">
       <default>3</default>
@@ -31,7 +36,7 @@
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons' -->
       <description>For users which have a mouse with “Forward” and “Back” buttons, this key will set which button activates the “Redo” command. Possible values range between 6 and 14.</description>
     </key>
-    <key name="theme" type="s">
+    <key name="theme" enum="org.gnome.Tetravex.Theme">
       <default>'extrusion'</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme' -->
       <summary>Theme</summary>
