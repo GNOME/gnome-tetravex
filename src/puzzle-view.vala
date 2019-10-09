@@ -11,6 +11,12 @@
 
 private abstract class Theme : Object
 {
+    // FIXME it is of the responsability of the themes to ensure the overdraw does NOT draw over an neighbor tile; else bad things happen
+    internal int overdraw_top    { internal get; protected set; default = 0; }
+    internal int overdraw_left   { internal get; protected set; default = 0; }
+    internal int overdraw_right  { internal get; protected set; default = 0; }
+    internal int overdraw_bottom { internal get; protected set; default = 0; }
+
     internal abstract void configure (uint size);
     internal abstract void draw_arrow (Cairo.Context context);
     internal abstract void draw_socket (Cairo.Context context);
@@ -112,10 +118,13 @@ private class PuzzleView : Gtk.DrawingArea
     {
         internal set
         {
-            if (value != "nostalgia") // including "value == neoretro"
-                theme = new NeoRetroTheme ();
-            else
-                theme = new NostalgiaTheme ();
+            switch (value)
+            {
+                default:
+                case "adwaita"    : theme = new AdwaitaTheme ();     break;
+                case "neoretro"   : theme = new NeoRetroTheme ();    break;
+                case "nostalgia"  : theme = new NostalgiaTheme ();   break;
+            }
 
             if (tilesize != 0)
                 theme.configure (tilesize);
@@ -177,10 +186,10 @@ private class PuzzleView : Gtk.DrawingArea
 
     private void redraw_tile (TileImage image)
     {
-        queue_draw_area ((int) (image.x + 0.5),
-                         (int) (image.y + 0.5),
-                         (int) tilesize,
-                         (int) tilesize);
+        queue_draw_area ((int) image.x - theme.overdraw_left,
+                         (int) image.y - theme.overdraw_top,
+                         (int) tilesize + theme.overdraw_left + theme.overdraw_right,
+                         (int) tilesize + theme.overdraw_top + theme.overdraw_bottom);
     }
 
     private void move_tile_to_location (TileImage image, uint x, uint y, double duration = 0)
@@ -453,7 +462,7 @@ private class PuzzleView : Gtk.DrawingArea
     private inline void draw_image (Cairo.Context context, TileImage image)
     {
         context.save ();
-        context.translate ((int) (image.x + 0.5), (int) (image.y + 0.5));
+        context.translate ((int) image.x, (int) image.y);
         if (puzzle.paused)
             theme.draw_paused_tile (context);
         else
