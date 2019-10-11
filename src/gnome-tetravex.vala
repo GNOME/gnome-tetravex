@@ -47,6 +47,8 @@ private class Tetravex : Gtk.Application
 
     private ScoreOverlay score_overlay;
 
+    private MenuButton hamburger_button;
+
     private const OptionEntry [] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
@@ -155,11 +157,11 @@ private class Tetravex : Gtk.Application
 
         Builder menu_builder = new Builder.from_resource ("/org/gnome/Tetravex/app-menu.ui");
         MenuModel appmenu = (MenuModel) menu_builder.get_object ("app-menu");
-        MenuButton menu_button = new MenuButton ();
-        menu_button.set_image (new Image.from_icon_name ("open-menu-symbolic", IconSize.BUTTON));
-        menu_button.show ();
-        menu_button.set_menu_model (appmenu);
-        headerbar.pack_end (menu_button);
+        hamburger_button = new MenuButton ();
+        hamburger_button.set_image (new Image.from_icon_name ("open-menu-symbolic", IconSize.BUTTON));
+        hamburger_button.show ();
+        hamburger_button.set_menu_model (appmenu);
+        headerbar.pack_end (hamburger_button);
 
         Button undo_button = new Button.from_icon_name ("edit-undo-symbolic");
         undo_button.set_action_name ("app.undo");
@@ -609,6 +611,7 @@ private class Tetravex : Gtk.Application
 
             if (response != ResponseType.ACCEPT)
                 return;
+            hamburger_button.set_active (false);
         }
         settings.set_int (KEY_GRID_SIZE, size);
         game_size = (int) size;
