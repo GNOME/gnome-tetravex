@@ -105,6 +105,12 @@ private class History : Object
         return entries.position (best_time_item);
     }
 
+    internal bool is_empty ()
+    {
+        unowned List<HistoryEntry>? first_entry = entries.first ();
+        return first_entry == null;
+    }
+
     /*\
     * * loading
     \*/

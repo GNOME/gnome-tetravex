@@ -483,7 +483,7 @@ private class Tetravex : Gtk.Application
         if (puzzle.game_in_progress && !puzzle.is_solved)
         {
             MessageDialog dialog = new MessageDialog (window,
-                                                      DialogFlags.MODAL,
+                                                      DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
                                                       MessageType.QUESTION,
                                                       ButtonsType.NONE,
         /* Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game" */
@@ -511,11 +511,22 @@ private class Tetravex : Gtk.Application
     {
         if (scores_dialog_visible)
             return;
-
         scores_dialog_visible = true;
-        ScoreDialog dialog = new ScoreDialog (history, puzzle.size, puzzle.is_solved ? last_history_entry : null);
-        dialog.set_modal (true);
-        dialog.set_transient_for (window);
+
+        Dialog dialog;
+        if (history.is_empty ())
+            dialog = new MessageDialog (window,
+                                        DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
+                                        MessageType.INFO,
+                                        ButtonsType.CLOSE,
+            /* Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet */
+                                        _("Looks like you haven’t finished a game yet.\n\nTry maybe a 2 × 2 grid, they are easy. 🙂️"));
+        else
+        {
+            dialog = new ScoreDialog (history, puzzle.size, puzzle.is_solved ? last_history_entry : null);
+            dialog.set_modal (true);
+            dialog.set_transient_for (window);
+        }
 
         dialog.run ();
         dialog.destroy ();
@@ -538,7 +549,7 @@ private class Tetravex : Gtk.Application
     private void solve_cb ()
     {
         MessageDialog dialog = new MessageDialog (window,
-                                                  DialogFlags.MODAL,
+                                                  DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
                                                   MessageType.QUESTION,
                                                   ButtonsType.NONE,
         /* Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up" */
@@ -580,7 +591,7 @@ private class Tetravex : Gtk.Application
         if (puzzle.game_in_progress && !puzzle.is_solved)
         {
             MessageDialog dialog = new MessageDialog (window,
-                                                      DialogFlags.MODAL,
+                                                      DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
                                                       MessageType.QUESTION,
                                                       ButtonsType.NONE,
         /* Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game" */
