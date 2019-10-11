@@ -183,9 +183,9 @@ private class NostalgiaTheme : Theme
         context.line_to (arrow_w, neg_arrow_half_h);
         context.close_path ();
         if (animation_level == 0)
-            context.set_source_rgba (0, 0, 0, 0.125);
+            context.set_source_rgba (0.0, 0.0, 0.0, 0.125);
         else
-            context.set_source_rgba (0, 0, 0, 0.125 * (16.0 - (double) animation_level) / 16.0);
+            context.set_source_rgba (0.0, 0.0, 0.0, 0.125 * (16.0 - (double) animation_level) / 16.0);
         context.fill ();
 
         /* Arrow highlight */
@@ -194,7 +194,10 @@ private class NostalgiaTheme : Theme
         context.line_to (arrow_w_minus_depth, arrow_dy);
         context.line_to (arrow_w_minus_depth, neg_arrow_dy);
         context.close_path ();
-        context.set_source_rgba (1.0, 1.0, 1.0, 0.125);
+        if (animation_level == 0)
+            context.set_source_rgba (0.6, 0.6, 0.5, 0.125);
+        else
+            context.set_source_rgba (0.6, 0.6, 0.5, 0.125 * (16.0 - (double) animation_level) / 16.0);
         context.fill ();
 
         /* Arrow shadow */
@@ -205,7 +208,10 @@ private class NostalgiaTheme : Theme
         context.line_to (arrow_dx, 0.0);
         context.line_to (arrow_w_minus_depth, neg_arrow_dy);
         context.close_path ();
-        context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
+        if (animation_level == 0)
+            context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
+        else
+            context.set_source_rgba (0.0, 0.0, 0.0, 0.25 * (16.0 - (double) animation_level) / 16.0);
         context.fill ();
     }
 
@@ -218,20 +224,9 @@ private class NostalgiaTheme : Theme
         /* Background */
         context.rectangle (socket_depth, socket_depth, size_minus_two_socket_depths, size_minus_two_socket_depths);
         if (animation_level == 0)
-            context.set_source_rgba (0, 0, 0, 0.125);
+            context.set_source_rgba (0.0, 0.0, 0.0, 0.125);
         else
-            context.set_source_rgba (0, 0, 0, 0.125 * (16.0 - (double) animation_level) / 16.0);
-        context.fill ();
-
-        /* Shadow */
-        context.move_to (size, 0.0);
-        context.line_to (0.0, 0.0);
-        context.line_to (0.0, size);
-        context.line_to (socket_depth, size_minus_socket_depth);
-        context.line_to (socket_depth, socket_depth);
-        context.line_to (size_minus_socket_depth, socket_depth);
-        context.close_path ();
-        context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
+            context.set_source_rgba (0.0, 0.0, 0.0, 0.125 * (16.0 - (double) animation_level) / 16.0);
         context.fill ();
 
         /* Highlight */
@@ -242,7 +237,24 @@ private class NostalgiaTheme : Theme
         context.line_to (size_minus_socket_depth, size_minus_socket_depth);
         context.line_to (socket_depth, size_minus_socket_depth);
         context.close_path ();
-        context.set_source_rgba (1.0, 1.0, 1.0, 0.125);
+        if (animation_level == 0)
+            context.set_source_rgba (0.6, 0.6, 0.5, 0.125);
+        else
+            context.set_source_rgba (0.6, 0.6, 0.5, 0.125 * (16.0 - (double) animation_level) / 16.0);
+        context.fill ();
+
+        /* Shadow */
+        context.move_to (size, 0.0);
+        context.line_to (0.0, 0.0);
+        context.line_to (0.0, size);
+        context.line_to (socket_depth, size_minus_socket_depth);
+        context.line_to (socket_depth, socket_depth);
+        context.line_to (size_minus_socket_depth, socket_depth);
+        context.close_path ();
+        if (animation_level == 0)
+            context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
+        else
+            context.set_source_rgba (0.0, 0.0, 0.0, 0.25 * (16.0 - (double) animation_level) / 16.0);
         context.fill ();
     }
 
