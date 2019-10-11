@@ -80,9 +80,9 @@ private class ExtrusionTheme : Theme
 
     private static Cairo.Pattern make_shadow_color_pattern (string color)
     {
-        double r = double.max ((hex_value (color [0]) * 16 + hex_value (color [1]) - 40.0) / 255.0, 0.0);
-        double g = double.max ((hex_value (color [2]) * 16 + hex_value (color [3]) - 40.0) / 255.0, 0.0);
-        double b = double.max ((hex_value (color [4]) * 16 + hex_value (color [5]) - 40.0) / 255.0, 0.0);
+        double r = (hex_value (color [0]) * 16 + hex_value (color [1])) * 0.0032;    // * 0.82 / 255.0;
+        double g = (hex_value (color [2]) * 16 + hex_value (color [3])) * 0.0032;
+        double b = (hex_value (color [4]) * 16 + hex_value (color [5])) * 0.0032;
 
         return new Cairo.Pattern.rgb (r, g, b);
     }
@@ -117,6 +117,8 @@ private class ExtrusionTheme : Theme
     private double arrow_clip_w;
     private double arrow_clip_h;
 
+    private double arrow_opacity;
+
     /* tile only */
     private const uint radius_percent = 8;
     private Cairo.Matrix matrix;
@@ -128,6 +130,8 @@ private class ExtrusionTheme : Theme
     private double lateral_shadow_width;
     private double west_shadow_limit;
     private double north_shadow_limit;
+
+    private double socket_opacity;
 
     /* numbers */
     private double font_size;
@@ -181,6 +185,8 @@ private class ExtrusionTheme : Theme
     internal override void set_animation_level (uint8 new_animation_level /* 0-16 */)
     {
         animation_level = new_animation_level;
+        arrow_opacity = 0.4 * (16.0 - (double) animation_level) / 16.0;
+        socket_opacity = 0.3 * (16.0 - (double) animation_level) / 16.0;
     }
 
     /*\
@@ -195,11 +201,7 @@ private class ExtrusionTheme : Theme
         context.line_to (arrow_w, arrow_half_h);
         context.line_to (arrow_w, neg_arrow_half_h);
         context.close_path ();
-
-        if (animation_level == 0)
-            context.set_source_rgba (0.5, 0.5, 0.5, 0.4);
-        else
-            context.set_source_rgba (0.5, 0.5, 0.5, 0.4 * (16.0 - (double) animation_level) / 16.0);
+        context.set_source_rgba (0.5, 0.5, 0.5, arrow_opacity);
         context.fill ();
     }
 
@@ -211,10 +213,7 @@ private class ExtrusionTheme : Theme
     {
         context.save ();
 
-        if (animation_level == 0)
-            context.set_source_rgba (0.5, 0.5, 0.5, 0.3);
-        else
-            context.set_source_rgba (0.5, 0.5, 0.5, 0.3 * (16.0 - (double) animation_level) / 16.0);
+        context.set_source_rgba (0.5, 0.5, 0.5, socket_opacity);
         rounded_square (context,
           /* x and y */ tile_margin, tile_margin,
           /* size    */ tile_size,
