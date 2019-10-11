@@ -28,21 +28,7 @@ private class ScoreDialog : Dialog
         history.entry_added.connect (entry_added_cb);
         this.selected_entry = selected_entry;
 
-        set_size_request (200, 300);
-
-        Box vbox = new Box (Orientation.VERTICAL, 5);
-        vbox.border_width = 6;
-        vbox.show ();
-        get_content_area ().pack_start (vbox, true, true, 0);
-
-        Box hbox = new Box (Orientation.HORIZONTAL, 6);
-        hbox.show ();
-        vbox.pack_start (hbox, false, false, 0);
-
-        /* Translators: in the Scores dialog, label introducing the combobox that allows showing scores for various sizes */
-        Label label = new Label (_("Size:"));
-        label.show ();
-        hbox.pack_start (label, false, false, 0);
+        set_size_request (210, 300);
 
         size_model = new Gtk.ListStore (2, typeof (string), typeof (int));
 
@@ -52,14 +38,19 @@ private class ScoreDialog : Dialog
         CellRendererText renderer = new CellRendererText ();
         size_combo.pack_start (renderer, true);
         size_combo.add_attribute (renderer, "text", 0);
+        size_combo.width_request = 90;
         size_combo.show ();
-        hbox.pack_start (size_combo, true, true, 0);
+        ((HeaderBar) get_header_bar ()).set_custom_title (size_combo);
 
         ScrolledWindow scroll = new ScrolledWindow (null, null);
         scroll.shadow_type = ShadowType.ETCHED_IN;
         scroll.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
+        scroll.set_shadow_type (ShadowType.NONE);
         scroll.show ();
-        vbox.pack_start (scroll, true, true, 0);
+
+        Box content_area = get_content_area ();
+        content_area.border_width = 0;
+        content_area.pack_start (scroll, true, true, 0);
 
         score_model = new Gtk.ListStore (3, typeof (string), typeof (string), typeof (int));
 
