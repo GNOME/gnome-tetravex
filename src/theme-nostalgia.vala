@@ -87,12 +87,14 @@ private class NostalgiaTheme : Theme
     private double arrow_x;
     private double arrow_w_minus_depth;
 
-    /* tile and socket */
-    private double tile_depth;
-    private double size_minus_tile_depth;
-    private double size_minus_two_tile_depths;    // socket only
+    /* socket only */
+    private double socket_depth;
+    private double size_minus_socket_depth;
+    private double size_minus_two_socket_depths;
 
     /* tile only */
+    private double tile_depth;
+    private double size_minus_tile_depth;
     private double tile_dx;
     private double tile_dy;
     private double size_minus_tile_dx;
@@ -117,8 +119,10 @@ private class NostalgiaTheme : Theme
         configure_socket (new_size);
 
         /* tiles */
-        tile_dx = 2.4142 * tile_depth;
-        tile_dy = 1.4142 * tile_depth;
+        tile_depth = double.min (new_size * 0.05, 4.0);
+        size_minus_tile_depth = (double) new_size - tile_depth;
+        tile_dx = (Math.SQRT2 + 1.0) * tile_depth;
+        tile_dy =  Math.SQRT2        * tile_depth;
         size_minus_tile_dx = (double) new_size - tile_dx;
         half_tile_size = new_size * 0.5;
         half_tile_size_minus_dy = half_tile_size - tile_dy;
@@ -149,7 +153,7 @@ private class NostalgiaTheme : Theme
         neg_arrow_half_h = -arrow_half_h;
         arrow_depth = double.min (new_size * 0.025, 2.0) - (double) animation_level / 6.0;
         arrow_depth = double.max (arrow_depth, 0.0);
-        arrow_dx = 1.4142 * arrow_depth;
+        arrow_dx = Math.SQRT2 * arrow_depth;
         arrow_dy = arrow_half_h - 6.1623 * arrow_depth;
         neg_arrow_dy = -arrow_dy;
         arrow_w = new_size * PuzzleView.gap_factor * 0.5;
@@ -159,10 +163,10 @@ private class NostalgiaTheme : Theme
 
     private void configure_socket (uint new_size)
     {
-        tile_depth = double.min (new_size * 0.05, 4.0) - (double) animation_level / 4.0;
-        tile_depth = double.max (tile_depth, 0.0);
-        size_minus_tile_depth = (double) new_size - tile_depth;
-        size_minus_two_tile_depths = (double) new_size - tile_depth * 2.0;
+        socket_depth = double.min (new_size * 0.05, 4.0) - (double) animation_level / 4.0;
+        socket_depth = double.max (socket_depth, 0.0);
+        size_minus_socket_depth = (double) new_size - socket_depth;
+        size_minus_two_socket_depths = (double) new_size - socket_depth * 2.0;
     }
 
     /*\
@@ -212,7 +216,7 @@ private class NostalgiaTheme : Theme
     internal override void draw_socket (Cairo.Context context)
     {
         /* Background */
-        context.rectangle (tile_depth, tile_depth, size_minus_two_tile_depths, size_minus_two_tile_depths);
+        context.rectangle (socket_depth, socket_depth, size_minus_two_socket_depths, size_minus_two_socket_depths);
         if (animation_level == 0)
             context.set_source_rgba (0, 0, 0, 0.125);
         else
@@ -223,9 +227,9 @@ private class NostalgiaTheme : Theme
         context.move_to (size, 0.0);
         context.line_to (0.0, 0.0);
         context.line_to (0.0, size);
-        context.line_to (tile_depth, size_minus_tile_depth);
-        context.line_to (tile_depth, tile_depth);
-        context.line_to (size_minus_tile_depth, tile_depth);
+        context.line_to (socket_depth, size_minus_socket_depth);
+        context.line_to (socket_depth, socket_depth);
+        context.line_to (size_minus_socket_depth, socket_depth);
         context.close_path ();
         context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
         context.fill ();
@@ -234,9 +238,9 @@ private class NostalgiaTheme : Theme
         context.move_to (0.0, size);
         context.line_to (size, size);
         context.line_to (size, 0.0);
-        context.line_to (size_minus_tile_depth, tile_depth);
-        context.line_to (size_minus_tile_depth, size_minus_tile_depth);
-        context.line_to (tile_depth, size_minus_tile_depth);
+        context.line_to (size_minus_socket_depth, socket_depth);
+        context.line_to (size_minus_socket_depth, size_minus_socket_depth);
+        context.line_to (socket_depth, size_minus_socket_depth);
         context.close_path ();
         context.set_source_rgba (1.0, 1.0, 1.0, 0.125);
         context.fill ();
