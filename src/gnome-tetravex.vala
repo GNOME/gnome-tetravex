@@ -161,7 +161,12 @@ private class Tetravex : Gtk.Application
 
         Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
 
-        history = new History (Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history"));
+        string history_path;
+        if (colors == 10)
+            history_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history");
+        else
+            history_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history-" + colors.to_string ());
+        history = new History (history_path);
 
         CssProvider css_provider = new CssProvider ();
         css_provider.load_from_resource ("/org/gnome/Tetravex/tetravex.css");
