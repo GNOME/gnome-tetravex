@@ -1,3 +1,18 @@
+GNOME Tetravex 3.35.1
+======================
+
+Many changes! The most visible is the end of a game, where instead of having
+the Scores dialog popped-up, the ranking is overlayed on the now-empty right
+part of the board. Or maybe it is instead the default new theme, designed by
+Jakub Steiner, or the fact that multiple themes are available (including the
+old one, under the name Nostalgia). Or maybe even the undo/redo functions, a
+great addition to the gameplay. There are also many many small improvements,
+like the fact the puzzle will not anymore start already solved, some drawing
+refinements, or the fact scores are now displayed with a higher precision...
+
+Translation updated:
+  Spanish: Daniel Mustieles García
+
 GNOME Tetravex 3.34.0
 ======================
 
