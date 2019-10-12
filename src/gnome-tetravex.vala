@@ -53,16 +53,22 @@ private class Tetravex : Gtk.Application
     private const OptionEntry [] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "colors",  'c', 0, OptionArg.INT,  ref colors,    N_("Set number of colors (2-10)"),    N_("NUMBER") },
+        { "colors",  'c', OptionFlags.NONE, OptionArg.INT,  ref colors,    N_("Set number of colors (2-10)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help' */
+                                                                           N_("NUMBER") },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "paused",  'p', 0, OptionArg.NONE, null,          N_("Start the game paused"),          null },
+        { "paused",  'p', OptionFlags.NONE, OptionArg.NONE, null,          N_("Start the game paused"),          null },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "size",    's', 0, OptionArg.INT,  ref game_size, N_("Set size of board (2-6)"),        N_("SIZE") },
+        { "size",    's', OptionFlags.NONE, OptionArg.INT,  ref game_size, N_("Set size of board (2-6)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help' */
+                                                                           N_("SIZE") },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "version", 'v', 0, OptionArg.NONE, null,          N_("Print release version and exit"), null },
+        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, null,          N_("Print release version and exit"), null },
         {}
     };
 

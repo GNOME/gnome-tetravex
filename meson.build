@@ -20,7 +20,7 @@ localedir = join_paths (get_option ('prefix'), get_option ('localedir'))
 datadir = join_paths (get_option ('prefix'), get_option ('datadir'))
 
 # Dependencies
-glib_dep = dependency ('glib-2.0', version: '>= 2.40.0')
+glib_dep = dependency ('glib-2.0', version: '>= 2.42.0')
 gtk_dep = dependency ('gtk+-3.0', version: '>= 3.14')
 # TODO build requires vala 0.46.3 for GLib vapi
 
