@@ -19,7 +19,8 @@ private class Tetravex : Gtk.Application
     private const string KEY_GRID_SIZE = "grid-size";
 
     private static bool start_paused = false;
-    private static int game_size = 0;
+    private static int game_size = int.MIN;
+    private static int colors = 10;
 
     private GLib.Settings settings;
 
@@ -52,13 +53,16 @@ private class Tetravex : Gtk.Application
     private const OptionEntry [] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "paused",  'p', 0, OptionArg.NONE, null, N_("Start the game paused"),          null },
+        { "colors",  'c', 0, OptionArg.INT,  ref colors,    N_("Set number of colors (2-10)"),    N_("NUMBER") },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "size",    's', 0, OptionArg.INT,  null, N_("Set size of board (2-6)"),        null },
+        { "paused",  'p', 0, OptionArg.NONE, null,          N_("Start the game paused"),          null },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "version", 'v', 0, OptionArg.NONE, null, N_("Print release version and exit"), null },
+        { "size",    's', 0, OptionArg.INT,  ref game_size, N_("Set size of board (2-6)"),        N_("SIZE") },
+
+        /* Translators: command-line option description, see 'gnome-tetravex --help' */
+        { "version", 'v', 0, OptionArg.NONE, null,          N_("Print release version and exit"), null },
         {}
     };
 
@@ -97,6 +101,36 @@ private class Tetravex : Gtk.Application
         Object (application_id: "org.gnome.Tetravex", flags: ApplicationFlags.FLAGS_NONE);
 
         add_main_option_entries (option_entries);
+    }
+
+    protected override int handle_local_options (GLib.VariantDict options)
+    {
+        if (options.contains ("version"))
+        {
+            /* NOTE: Is not translated so can be easily parsed */
+            stderr.printf ("%1$s %2$s\n", "gnome-tetravex", VERSION);
+            return Posix.EXIT_SUCCESS;
+        }
+
+        if (options.contains ("paused"))
+            start_paused = true;
+
+        if (game_size != int.MIN && (game_size < 2 || game_size > 6))
+        {
+            /* Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1' */
+            stderr.printf (N_("Size could only be from 2 to 6.\n"));
+            return Posix.EXIT_FAILURE;
+        }
+
+        if (colors < 2 || colors > 10)
+        {
+            /* Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1' */
+            stderr.printf (N_("There could only be between 2 and 10 colors.\n"));
+            return Posix.EXIT_FAILURE;
+        }
+
+        /* Activate */
+        return -1;
     }
 
     protected override void startup ()
@@ -144,7 +178,7 @@ private class Tetravex : Gtk.Application
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
 
-        if (game_size != 0)
+        if (game_size != int.MIN)
             settings.set_int (KEY_GRID_SIZE, game_size);
         else
             game_size = settings.get_int (KEY_GRID_SIZE);
@@ -347,33 +381,6 @@ private class Tetravex : Gtk.Application
         settings.apply ();
     }
 
-    protected override int handle_local_options (GLib.VariantDict options)
-    {
-        if (options.contains ("version"))
-        {
-            /* NOTE: Is not translated so can be easily parsed */
-            stderr.printf ("%1$s %2$s\n", "gnome-tetravex", VERSION);
-            return Posix.EXIT_SUCCESS;
-        }
-
-        if (options.contains ("paused"))
-            start_paused = true;
-
-        if (options.contains ("size"))
-        {
-            game_size = (int) options.lookup_value ("size", VariantType.INT32);
-            if ((game_size < 2) || (game_size > 6))
-            {
-                /* Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1' */
-                stderr.printf (N_("Size could only be from 2 to 6.\n"));
-                return Posix.EXIT_FAILURE;
-            }
-        }
-
-        /* Activate */
-        return -1;
-    }
-
     protected override void activate ()
     {
         window.present ();
@@ -393,7 +400,7 @@ private class Tetravex : Gtk.Application
             SignalHandler.disconnect_by_func (puzzle, null, this);
 
         int size = settings.get_int (KEY_GRID_SIZE);
-        puzzle = new Puzzle ((uint8) size);
+        puzzle = new Puzzle ((uint8) size, (uint8) colors);
         puzzle_init_done = true;
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
@@ -614,7 +621,6 @@ private class Tetravex : Gtk.Application
             hamburger_button.set_active (false);
         }
         settings.set_int (KEY_GRID_SIZE, size);
-        game_size = (int) size;
         action.set_state (variant);
         new_game ();
     }

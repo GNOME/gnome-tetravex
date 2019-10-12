@@ -29,7 +29,8 @@ private class Tile : Object
 
 private class Puzzle : Object
 {
-    [CCode (notify = false)] public uint8 size { internal get; protected construct; }
+    [CCode (notify = false)] public uint8 size   { internal get; protected construct; }
+    [CCode (notify = false)] public uint8 colors { internal get; protected construct; }
     private Tile? [,] board;
 
     /* Game timer */
@@ -89,19 +90,19 @@ private class Puzzle : Object
         return true;
     }
 
-    internal Puzzle (uint8 size)
+    internal Puzzle (uint8 size, uint8 colors)
     {
-        Object (size: size);
+        Object (size: size, colors: colors);
     }
 
     construct
     {
-        do { init_board (size, out board); }
+        do { init_board (size, (int32) colors, out board); }
         while (solved_on_right ());
 
         start_clock ();
     }
-    private static inline void init_board (uint8 size, out Tile? [,] board)
+    private static inline void init_board (uint8 size, int32 colors, out Tile? [,] board)
     {
         board = new Tile? [size * 2, size];
         for (uint8 x = 0; x < size; x++)
@@ -113,7 +114,7 @@ private class Puzzle : Object
         {
             for (uint8 y = 0; y <= size; y++)
             {
-                uint8 n = (uint8) Random.int_range (0, 10);
+                uint8 n = (uint8) Random.int_range (0, colors);
                 if (y >= 1)
                     ((!) board [x, y - 1]).south = n;
                 if (y < size)
@@ -124,7 +125,7 @@ private class Puzzle : Object
         {
             for (uint8 y = 0; y < size; y++)
             {
-                uint8 n = (uint8) Random.int_range (0, 10);
+                uint8 n = (uint8) Random.int_range (0, colors);
                 if (x >= 1)
                     ((!) board [x - 1, y]).east = n;
                 if (x < size)
