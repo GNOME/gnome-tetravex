@@ -13,20 +13,6 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
 base: core18
 
-plugs:
-  gnome-3-28-1804:
-    interface: content
-    target: $SNAP/gnome-platform
-    default-provider: gnome-3-28-1804
-  gtk-3-themes:
-    interface: content
-    target: $SNAP/data-dir/themes
-    default-provider: gtk-common-themes
-  icon-themes:
-    interface: content
-    target: $SNAP/data-dir/icons
-    default-provider: gtk-common-themes
-
 slots:
   # for GtkApplication registration
   gnome-tetravex:
@@ -36,30 +22,14 @@ slots:
 
 apps:
   gnome-tetravex:
-    command: desktop-launch gnome-tetravex
+    command: usr/bin/gnome-tetravex
+    extensions: [gnome-3-28]
     plugs:
-      - desktop
-      - desktop-legacy
       - gsettings
-      - unity7
-      - wayland
     desktop: usr/share/applications/org.gnome.Tetravex.desktop
 
 parts:
-  desktop-gnome-platform:
-    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
-    source-subdir: gtk
-    plugin: make
-    make-parameters: ["FLAVOR=gtk3"]
-    build-packages:
-      - build-essential
-      - libgtk-3-dev
-    override-build: |
-      snapcraftctl build
-      mkdir -pv $SNAPCRAFT_PART_INSTALL/gnome-platform
-
   gnome-tetravex:
-    after: [desktop-gnome-platform]
     source: .
     source-type: git
     override-build: |
@@ -67,9 +37,9 @@ parts:
       snapcraftctl build
       mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui/
       cp ../src/data/icons/hicolor/48x48/org.gnome.Tetravex.png $SNAPCRAFT_PART_INSTALL/meta/gui/
-      cp ../install/snap/gnome-tetravex/current/usr/share/applications/org.gnome.Tetravex.desktop $SNAPCRAFT_PART_INSTALL/meta/gui/
+      cp ../install/usr/share/applications/org.gnome.Tetravex.desktop $SNAPCRAFT_PART_INSTALL/meta/gui/
     plugin: meson
-    meson-parameters: [--prefix=/snap/gnome-tetravex/current/usr]
+    meson-parameters: [--prefix=/usr]
     organize:
       snap/gnome-tetravex/current/usr: usr
     build-packages:
