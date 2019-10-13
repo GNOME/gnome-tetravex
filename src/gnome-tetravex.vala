@@ -214,16 +214,19 @@ private class Tetravex : Gtk.Application
         MenuModel appmenu = (MenuModel) menu_builder.get_object ("app-menu");
         hamburger_button = new MenuButton ();
         hamburger_button.set_image (new Image.from_icon_name ("open-menu-symbolic", IconSize.BUTTON));
+        ((Widget) hamburger_button).set_focus_on_click (false);
         hamburger_button.show ();
         hamburger_button.set_menu_model (appmenu);
         headerbar.pack_end (hamburger_button);
 
         Button undo_button = new Button.from_icon_name ("edit-undo-symbolic");
         undo_button.set_action_name ("app.undo");
+        ((Widget) undo_button).set_focus_on_click (false);
         undo_button.show ();
 
         Button redo_button = new Button.from_icon_name ("edit-redo-symbolic");
         redo_button.set_action_name ("app.redo");
+        ((Widget) redo_button).set_focus_on_click (false);
         redo_button.show ();
 
         Box undo_redo_box = new Box (Orientation.HORIZONTAL, /* spacing */ 0);
@@ -238,6 +241,7 @@ private class Tetravex : Gtk.Application
         view = new PuzzleView ();
         view.hexpand = true;
         view.vexpand = true;
+        view.can_focus = true;
         view.button_release_event.connect (view_button_release_event);
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
@@ -367,7 +371,8 @@ private class Tetravex : Gtk.Application
                     valign: Align.CENTER,
                     margin_start: 35,
                     margin_end: 35,
-                    image: _image);
+                    image: _image,
+                    focus_on_click: false);
 
             sizegroup.add_widget (this);
         }
@@ -439,6 +444,8 @@ private class Tetravex : Gtk.Application
             puzzle.paused = true;
             start_paused = false;
         }
+        else
+            view.grab_focus ();
         update_bottom_button_states ();
     }
 

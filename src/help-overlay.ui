@@ -66,6 +66,29 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
+            <property name="visible">True</property>
+            <!-- Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play" and "Play on selected tile" -->
+            <property name="title" translatable="yes" context="shortcut window">Play with keyboard</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: Left/Right/Up/Down arrows actions description in the Keyboard Shortcuts dialog, moves highlight -->
+                <property name="title" translatable="yes" context="shortcut window">Move keyboard highlight</property>
+                <property name="accelerator">Left Right Up Down</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: Return/space actions description in the Keyboard Shortcuts dialog; depend on context -->
+                <property name="title" translatable="yes" context="shortcut window">Select, unselect, or move selected tile</property>
+                <property name="accelerator">Return space</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
             <property name="visible">1</property>
             <!-- Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo" -->
             <property name="title" translatable="yes" context="shortcut window">History</property>
@@ -161,6 +184,30 @@
                 <property name="accelerator">&lt;Ctrl&gt;Right</property>
                 <!-- Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left box right by one</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: numbers (1 to 6) actions description in the Keyboard Shortcuts dialog, section Advanced gameplay; depending on game size, you can only use 1 to 2 or up to 1 to 6 -->
+                <property name="title" translatable="yes" context="shortcut window">Select the given row, up to game size</property>
+                <property name="accelerator">1...6</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section Advanced gameplay; depending on game size, you can only use a to b or up to a to f; the board is splitted in two parts, that is for the left one -->
+                <property name="title" translatable="yes" context="shortcut window">Select the given column in the left board, up to game size</property>
+                <property name="accelerator">a...f</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <!-- Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section Advanced gameplay; depending on game size, you can only use A to B or up to A to F; the board is splitted in two parts, that is for the right one -->
+                <property name="title" translatable="yes" context="shortcut window">Select the given column in the right board, up to game size</property>
+                <property name="accelerator">&lt;Shift&gt;A...&lt;Shift&gt;F</property>
               </object>
             </child>
           </object>

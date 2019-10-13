@@ -30,8 +30,9 @@ private abstract class Theme : Object
     internal abstract void configure (uint size);
     internal abstract void draw_arrow (Cairo.Context context);
     internal abstract void draw_socket (Cairo.Context context);
+    internal abstract void draw_highlight (Cairo.Context context, bool has_tile);
     internal abstract void draw_paused_tile (Cairo.Context context);
-    internal abstract void draw_tile (Cairo.Context context, Tile tile);
+    internal abstract void draw_tile (Cairo.Context context, Tile tile, bool highlight);
     internal abstract void set_animation_level (uint8 animation_level /* 0-16 */);
 }
 
@@ -118,6 +119,8 @@ private class PuzzleView : Gtk.DrawingArea
                 sockets_ys = new double [2 * _puzzle.size, _puzzle.size];
             }
 
+            clear_keyboard_highlight (/* only selection */ false);
+            _puzzle.solved.connect (() => clear_keyboard_highlight (/* only selection */ false));
             _puzzle.tile_moved.connect (tile_moved_cb);
             _puzzle.notify ["paused"].connect (queue_draw);
             queue_resize ();
@@ -204,6 +207,14 @@ private class PuzzleView : Gtk.DrawingArea
     {
         queue_draw_area ((int) image.x - theme.overdraw_left,
                          (int) image.y - theme.overdraw_top,
+                         (int) tilesize + theme.overdraw_left + theme.overdraw_right,
+                         (int) tilesize + theme.overdraw_top + theme.overdraw_bottom);
+    }
+
+    private void queue_draw_tile (uint8 x, uint8 y)
+    {
+        queue_draw_area ((int) sockets_xs [x, y] - theme.overdraw_left,
+                         (int) sockets_ys [x, y] - theme.overdraw_top,
                          (int) tilesize + theme.overdraw_left + theme.overdraw_right,
                          (int) tilesize + theme.overdraw_top + theme.overdraw_bottom);
     }
@@ -481,20 +492,37 @@ private class PuzzleView : Gtk.DrawingArea
         else if (last_selected_tile != null)
             draw_image (context, (!) last_selected_tile);
 
+        /* Draw highlight */
+        if (show_highlight)
+        {
+            context.save ();
+            context.translate (sockets_xs [highlight_x, highlight_y], sockets_ys [highlight_x, highlight_y]);
+            theme.draw_highlight (context, puzzle.get_tile (highlight_x, highlight_y) != null);
+            context.restore ();
+        }
+
         /* Draw pause overlay */
         if (puzzle.paused)
             draw_pause_overlay (context);
 
         return false;
     }
-    private inline void draw_image (Cairo.Context context, TileImage image)
+    private void draw_image (Cairo.Context context, TileImage image)
     {
         context.save ();
         context.translate ((int) image.x, (int) image.y);
         if (puzzle.paused)
             theme.draw_paused_tile (context);
         else
-            theme.draw_tile (context, image.tile);
+        {
+            uint8 tile_x;
+            uint8 tile_y;
+            puzzle.get_tile_location (image.tile, out tile_x, out tile_y);
+            bool highlight = show_highlight && tile_selection
+                          && kbd_selected_x == tile_x
+                          && kbd_selected_y == tile_y;
+            theme.draw_tile (context, image.tile, highlight);
+        }
         context.restore ();
     }
     private inline void draw_pause_overlay (Cairo.Context context)
@@ -621,6 +649,7 @@ private class PuzzleView : Gtk.DrawingArea
     {
         if (puzzle.paused || puzzle.is_solved)
             return false;
+        clear_keyboard_highlight (/* only selection */ false);
 
         if (event.button == 1 || event.button == 3)
             return main_button_pressed (event);
@@ -659,7 +688,7 @@ private class PuzzleView : Gtk.DrawingArea
             {
                 uint8 x;
                 uint8 y;
-                if (selected_tile_is_last_tile (out x, out y))
+                if (only_one_remaining_tile (out x, out y))
                 {
                     uint8 selected_x, selected_y;
                     puzzle.get_tile_location (((!) selected_tile).tile, out selected_x, out selected_y);
@@ -688,7 +717,7 @@ private class PuzzleView : Gtk.DrawingArea
 
         return false;
     }
-    private inline bool selected_tile_is_last_tile (out uint8 empty_x, out uint8 empty_y)
+    private inline bool only_one_remaining_tile (out uint8 empty_x, out uint8 empty_y)
     {
         bool empty_found = false;
         empty_x = uint8.MAX;    // garbage
@@ -713,6 +742,7 @@ private class PuzzleView : Gtk.DrawingArea
     {
         if (puzzle.paused || puzzle.is_solved)
             return false;
+        clear_keyboard_highlight (/* only selection */ false);
 
         if (event.button == 1 && selected_tile != null && selection_timeout == 0)
             drop_tile (event.x, event.y);
@@ -835,5 +865,232 @@ private class PuzzleView : Gtk.DrawingArea
         theme.set_animation_level (0);
         arrow_pattern = null;
         socket_pattern = null;
+    }
+
+    /*\
+    * * keyboard
+    \*/
+
+    private bool show_highlight = false;
+
+    private bool highlight_set = false;
+    private uint8     highlight_x = uint8.MAX;
+    private uint8     highlight_y = uint8.MAX;
+    private uint8 old_highlight_x = uint8.MAX;
+    private uint8 old_highlight_y = uint8.MAX;
+
+    private bool tile_selection = false;
+    private uint8 kbd_selected_x = uint8.MAX;
+    private uint8 kbd_selected_y = uint8.MAX;
+
+    protected override bool key_press_event (Gdk.EventKey event)
+    {
+        if (!puzzle_init_done)
+            return false;
+
+        if (puzzle.is_solved || puzzle.paused)
+            return false;
+
+        if (tile_selected)
+            return false;
+
+        string key = (!) (Gdk.keyval_name (event.keyval) ?? "");
+        if (key == "")
+            return false;
+
+        if (highlight_set && show_highlight && (key == "space" || key == "Return" || key == "KP_Enter"))
+        {
+            if (tile_selection)
+            {
+                if (highlight_x == kbd_selected_x && highlight_y == kbd_selected_y)
+                {
+                    clear_keyboard_highlight (/* only selection */ true);
+                    return true;
+                }
+                if (puzzle.can_switch (highlight_x, highlight_y, kbd_selected_x, kbd_selected_y))
+                {
+                    puzzle.switch_tiles (highlight_x, highlight_y, kbd_selected_x, kbd_selected_y);
+                    clear_keyboard_highlight (/* only selection */ true);
+                    return true;
+                }
+                if (puzzle.get_tile (highlight_x, highlight_y) != null)
+                {
+                    tile_selection = false;
+                    queue_draw_tile (kbd_selected_x, kbd_selected_y);
+                    kbd_selected_x = highlight_x;
+                    kbd_selected_y = highlight_y;
+                    tile_selection = true;
+                    queue_draw_tile (highlight_x, highlight_y);
+                    return true;
+                }
+            }
+            else
+            {
+                Tile? tile = puzzle.get_tile (highlight_x, highlight_y);
+                if (tile == null)
+                    return true;
+
+                if (highlight_x >= puzzle.size)
+                {
+                    uint8 x;
+                    uint8 y;
+                    if (only_one_remaining_tile (out x, out y))
+                    {
+                        uint8 selected_x, selected_y;
+                        puzzle.get_tile_location ((!) tile, out selected_x, out selected_y);
+                        if (puzzle.can_switch (selected_x, selected_y, x, y))
+                        {
+                            puzzle.switch_tiles (selected_x, selected_y, x, y, final_animation_duration);
+                            return true;
+                        }
+                    }
+                }
+                tile_selection = true;
+                kbd_selected_x = highlight_x;
+                kbd_selected_y = highlight_y;
+                queue_draw_tile (highlight_x, highlight_y);
+            }
+            return true;
+        }
+
+        if ((puzzle.size <= 2 && (key == "c" || key == "C" || key == "3" || key == "KP_3")) ||
+            (puzzle.size <= 3 && (key == "d" || key == "D" || key == "4" || key == "KP_4")) ||
+            (puzzle.size <= 4 && (key == "e" || key == "E" || key == "5" || key == "KP_5")) ||
+            (puzzle.size <= 5 && (key == "f" || key == "F" || key == "6" || key == "KP_6")) ||
+            (puzzle.size <= 6 && (key == "g" || key == "G" || key == "7" || key == "KP_7")) ||
+            (puzzle.size <= 7 && (key == "h" || key == "H" || key == "8" || key == "KP_8")) ||
+            (puzzle.size <= 8 && (key == "i" || key == "I" || key == "9" || key == "KP_9")) ||
+            (puzzle.size <= 9 && (key == "j" || key == "J" || key == "0" || key == "KP_0")))
+            return false;
+
+        old_highlight_x = highlight_x;
+        old_highlight_y = highlight_y;
+        switch (key)
+        {
+            case "Up":
+            case "KP_Up":
+                set_highlight_position_if_needed ();
+                if (highlight_y > 0) highlight_y--;
+                break;
+            case "Left":
+            case "KP_Left":
+                set_highlight_position_if_needed ();
+                if (highlight_x > 0) highlight_x--;
+                break;
+            case "Right":
+            case "KP_Right":
+                set_highlight_position_if_needed ();
+                if (highlight_x < puzzle.size * 2 - 1) highlight_x++;
+                break;
+            case "Down":
+            case "KP_Down":
+                set_highlight_position_if_needed ();
+                if (highlight_y < puzzle.size - 1) highlight_y++;
+                break;
+
+            case "space":
+            case "Return":
+            case "KP_Enter":
+                set_highlight_position_if_needed ();
+                break;
+
+            case "Escape": break;
+
+            case "a": set_highlight_position_if_needed (); highlight_x = 0; break;
+            case "b": set_highlight_position_if_needed (); highlight_x = 1; break;
+            case "c": set_highlight_position_if_needed (); highlight_x = 2; break;
+            case "d": set_highlight_position_if_needed (); highlight_x = 3; break;
+            case "e": set_highlight_position_if_needed (); highlight_x = 4; break;
+            case "f": set_highlight_position_if_needed (); highlight_x = 5; break;
+
+            case "A": set_highlight_position_if_needed (); highlight_x = puzzle.size    ; break;
+            case "B": set_highlight_position_if_needed (); highlight_x = puzzle.size + 1; break;
+            case "C": set_highlight_position_if_needed (); highlight_x = puzzle.size + 2; break;
+            case "D": set_highlight_position_if_needed (); highlight_x = puzzle.size + 3; break;
+            case "E": set_highlight_position_if_needed (); highlight_x = puzzle.size + 4; break;
+            case "F": set_highlight_position_if_needed (); highlight_x = puzzle.size + 5; break;
+
+            case "1": case "KP_1": set_highlight_position_if_needed (); highlight_y = 0; break;
+            case "2": case "KP_2": set_highlight_position_if_needed (); highlight_y = 1; break;
+            case "3": case "KP_3": set_highlight_position_if_needed (); highlight_y = 2; break;
+            case "4": case "KP_4": set_highlight_position_if_needed (); highlight_y = 3; break;
+            case "5": case "KP_5": set_highlight_position_if_needed (); highlight_y = 4; break;
+            case "6": case "KP_6": set_highlight_position_if_needed (); highlight_y = 5; break;
+
+            case "Home":
+            case "KP_Home":
+                set_highlight_position_if_needed ();
+                highlight_x = 0;
+                break;
+            case "End":
+            case "KP_End":
+                set_highlight_position_if_needed ();
+                highlight_x = puzzle.size * 2 - 1;
+                break;
+            case "Page_Up":
+            case "KP_Page_Up":
+                set_highlight_position_if_needed ();
+                highlight_y = 0;
+                break;
+            case "Page_Down":
+            case "KP_Next":     // TODO use KP_Page_Down instead of KP_Next, probably a gtk+ or vala bug; check also KP_Prior
+                set_highlight_position_if_needed ();
+                highlight_y = puzzle.size - 1;
+                break;
+
+            // allow <Tab> and <Shift><Tab> to change focus
+            default:
+                return false;
+        }
+
+        highlight_set = true;
+
+        if (key == "Escape")
+        {
+            if (tile_selection)
+                clear_keyboard_highlight (/* only selection */ true);
+            else
+                clear_keyboard_highlight (/* only selection */ false);
+        }
+        else
+            show_highlight = true;
+
+        queue_draw_tile (old_highlight_x, old_highlight_y);
+        if ((old_highlight_x != highlight_x)
+         || (old_highlight_y != highlight_y))
+            queue_draw_tile (highlight_x, highlight_y);
+        return true;
+    }
+
+    private void set_highlight_position_if_needed ()
+    {
+        if (highlight_set)
+            /* If keyboard highlight is already set (and visible), this is good. */
+            return;
+
+        // TODO better
+        highlight_x = puzzle.size;
+        highlight_y = 0;
+    }
+
+    private void clear_keyboard_highlight (bool only_selection)
+    {
+        if (!only_selection)
+        {
+            show_highlight = false;
+            queue_draw_tile (highlight_x, highlight_y);
+            highlight_set = false;
+            highlight_x = uint8.MAX;
+            highlight_y = uint8.MAX;
+            old_highlight_x = uint8.MAX;
+            old_highlight_y = uint8.MAX;
+        }
+        if (tile_selection)
+        {
+            tile_selection = false;
+            queue_draw_tile (kbd_selected_x, kbd_selected_y);
+            kbd_selected_x = uint8.MAX;
+            kbd_selected_y = uint8.MAX;
+        }
     }
 }

@@ -27,6 +27,7 @@ private class SynesthesiaTheme : Theme
     private Cairo.Pattern text_colors [10];
     private Cairo.Pattern paused_color;
     private Cairo.Pattern tile_color;
+    private Cairo.Pattern highlight_color;
 
     construct
     {                                                       // based on GNOME color palette
@@ -43,6 +44,7 @@ private class SynesthesiaTheme : Theme
 
         paused_color = make_color_pattern ("CCCCCC");
         tile_color = make_color_pattern ("CDCADA", /* transparency */ true);
+        highlight_color = make_color_pattern ("DACACD", /* transparency */ true);
     }
 
     private static Cairo.Pattern make_color_pattern (string color, bool transparency = false)
@@ -85,6 +87,9 @@ private class SynesthesiaTheme : Theme
     private Cairo.MeshPattern socket_pattern;
     private Cairo.Matrix matrix;                // also used for tile
 
+    /* highlight */
+    private Cairo.Pattern highlight_tile_pattern;
+
     /* tile only */
     private uint tile_margin;
     private int tile_size;
@@ -119,10 +124,21 @@ private class SynesthesiaTheme : Theme
         size_minus_two_tile_depths = (double) (new_size - tile_depth * 2);
         init_socket_pattern ();
 
+        /* highlight */
+        half_size = new_size * 0.5;    // also for tile
+        double highlight_radius = new_size * 0.45;
+        highlight_tile_pattern = new Cairo.Pattern.radial (half_size, half_size, 0.0,
+                                                           half_size, half_size, highlight_radius);
+        highlight_tile_pattern.add_color_stop_rgba (0.0, 1.0, 1.0, 1.0, 1.0);
+        highlight_tile_pattern.add_color_stop_rgba (0.2, 1.0, 1.0, 1.0, 0.8);
+        highlight_tile_pattern.add_color_stop_rgba (0.3, 1.0, 1.0, 1.0, 0.5);
+        highlight_tile_pattern.add_color_stop_rgba (0.4, 1.0, 1.0, 1.0, 0.2);
+        highlight_tile_pattern.add_color_stop_rgba (0.5, 1.0, 1.0, 1.0, 0.1);
+        highlight_tile_pattern.add_color_stop_rgba (1.0, 1.0, 1.0, 1.0, 0.0);
+
         /* tile */
         tile_margin = uint.min ((uint) (new_size * 0.05), 2) - 1;
         tile_size = (int) new_size - (int) tile_margin * 2;
-        half_size = new_size * 0.5;
         half_tile_size = tile_size * 0.5;
 
         /* numbers */
@@ -216,6 +232,17 @@ private class SynesthesiaTheme : Theme
     }
 
     /*\
+    * * drawing highlight
+    \*/
+
+    internal override void draw_highlight (Cairo.Context context, bool has_tile)
+    {
+        context.set_source (highlight_tile_pattern);
+        context.rectangle (0.0, 0.0, /* width and height */ size, size);
+        context.fill ();
+    }
+
+    /*\
     * * drawing tiles
     \*/
 
@@ -224,9 +251,12 @@ private class SynesthesiaTheme : Theme
         draw_tile_background (context, paused_color);
     }
 
-    internal override void draw_tile (Cairo.Context context, Tile tile)
+    internal override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
     {
-        draw_tile_background (context, tile_color);
+        if (highlight)
+            draw_tile_background (context, highlight_color);
+        else
+            draw_tile_background (context, tile_color);
 
         context.select_font_face ("Cantarell", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
         context.set_font_size (font_size);

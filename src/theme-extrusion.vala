@@ -24,9 +24,11 @@ private class ExtrusionTheme : Theme
     * * colors arrays
     \*/
 
-    private Cairo.Pattern tile_colors_h [10];
-    private Cairo.Pattern tile_colors_v [10];
-    private Cairo.Pattern tile_shadows  [10];
+    private Cairo.Pattern tile_colors_h     [10];
+    private Cairo.Pattern tile_colors_v     [10];
+    private Cairo.Pattern tile_highlights_h [10];
+    private Cairo.Pattern tile_highlights_v [10];
+    private Cairo.Pattern tile_shadows      [10];
 
     private unowned Cairo.Pattern text_colors [10];
     private Cairo.Pattern black_text_color = new Cairo.Pattern.rgb (0.0, 0.0, 0.0);
@@ -48,14 +50,16 @@ private class ExtrusionTheme : Theme
         make_color_pattern (8, "c061cb", true  );   // purple       // Purple 2
         make_color_pattern (9, "f6f5f4", false );   // white        // Light 2
 
-        paused_color_h = make_dir_color_pattern ("CCCCCC", /* vertical */ false);
-        paused_color_v = make_dir_color_pattern ("CCCCCC", /* vertical */ true);
+        paused_color_h = make_dir_color_pattern ("CCCCCC", /* vertical */ false, 1.0);
+        paused_color_v = make_dir_color_pattern ("CCCCCC", /* vertical */ true , 1.0);
     }
 
     private void make_color_pattern (uint position, string color, bool white_text)
     {
-        tile_colors_h [position] = make_dir_color_pattern (color, /* vertical */ false);
-        tile_colors_v [position] = make_dir_color_pattern (color, /* vertical */ true);
+        tile_colors_h     [position] = make_dir_color_pattern (color, /* vertical */ false, 1.00);
+        tile_colors_v     [position] = make_dir_color_pattern (color, /* vertical */ true , 1.00);
+        tile_highlights_h [position] = make_dir_color_pattern (color, /* vertical */ false, 1.35);
+        tile_highlights_v [position] = make_dir_color_pattern (color, /* vertical */ true , 1.35);
 
         tile_shadows  [position] = make_shadow_color_pattern (color);
 
@@ -65,11 +69,11 @@ private class ExtrusionTheme : Theme
             text_colors [position] = black_text_color;
     }
 
-    private static Cairo.Pattern make_dir_color_pattern (string color, bool vertical)
+    private static Cairo.Pattern make_dir_color_pattern (string color, bool vertical, double color_factor)
     {
-        double r0 = (hex_value (color [0]) * 16 + hex_value (color [1])) / 255.0;
-        double g0 = (hex_value (color [2]) * 16 + hex_value (color [3])) / 255.0;
-        double b0 = (hex_value (color [4]) * 16 + hex_value (color [5])) / 255.0;
+        double r0 = (hex_value (color [0]) * 16 + hex_value (color [1])) / 255.0 * color_factor;
+        double g0 = (hex_value (color [2]) * 16 + hex_value (color [3])) / 255.0 * color_factor;
+        double b0 = (hex_value (color [4]) * 16 + hex_value (color [5])) / 255.0 * color_factor;
 
         double r1 = double.min (r0 + 0.01, 1.0);
         double g1 = double.min (g0 + 0.01, 1.0);
@@ -128,6 +132,9 @@ private class ExtrusionTheme : Theme
 
     private double arrow_opacity;
 
+    /* highlight */
+    private Cairo.Pattern highlight_tile_pattern;
+
     /* tile only */
     private const uint radius_percent = 8;
     private Cairo.Matrix matrix;
@@ -166,12 +173,23 @@ private class ExtrusionTheme : Theme
         arrow_clip_w = 2.0 * arrow_x + arrow_w;
         arrow_clip_h = 2.0 * new_size;
 
+        /* highlight */
+        half_tile_size = new_size * 0.5;    // also for tile
+        double highlight_radius = new_size * 0.45;
+        highlight_tile_pattern = new Cairo.Pattern.radial (half_tile_size, half_tile_size, 0.0,
+                                                           half_tile_size, half_tile_size, highlight_radius);
+        highlight_tile_pattern.add_color_stop_rgba (0.0, 1.0, 1.0, 1.0, 1.0);
+        highlight_tile_pattern.add_color_stop_rgba (0.2, 1.0, 1.0, 1.0, 0.8);
+        highlight_tile_pattern.add_color_stop_rgba (0.3, 1.0, 1.0, 1.0, 0.5);
+        highlight_tile_pattern.add_color_stop_rgba (0.4, 1.0, 1.0, 1.0, 0.2);
+        highlight_tile_pattern.add_color_stop_rgba (0.5, 1.0, 1.0, 1.0, 0.1);
+        highlight_tile_pattern.add_color_stop_rgba (1.0, 1.0, 1.0, 1.0, 0.0);
+
         /* tile */
         matrix = Cairo.Matrix.identity ();
         matrix.scale (1.0 / new_size, 1.0 / new_size);
         tile_margin = uint.max ((uint) (new_size * 0.03), 2);
         tile_size = (int) new_size - (int) tile_margin * 2;
-        half_tile_size = new_size * 0.5;
         overdraw_top = (int) (1.5 * tile_margin);
         extrusion = -overdraw_top;
 
@@ -233,6 +251,23 @@ private class ExtrusionTheme : Theme
     }
 
     /*\
+    * * drawing highlight
+    \*/
+
+    internal override void draw_highlight (Cairo.Context context, bool has_tile)
+    {
+        context.save ();
+
+        if (has_tile)
+            context.translate (0.0, extrusion);
+
+        context.set_source (highlight_tile_pattern);
+        context.rectangle (0.0, 0.0, /* width and height */ size, size);
+        context.fill ();
+        context.restore ();
+    }
+
+    /*\
     * * drawing tiles
     \*/
 
@@ -242,7 +277,7 @@ private class ExtrusionTheme : Theme
         draw_tile_background (context, paused_color_h, paused_color_v, paused_color_h, paused_color_v);
     }
 
-    internal override void draw_tile (Cairo.Context context, Tile tile)
+    internal override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
     {
         tile_colors_h [tile.north].set_matrix (matrix);
         tile_colors_h [tile.east ].set_matrix (matrix);
@@ -254,7 +289,10 @@ private class ExtrusionTheme : Theme
         tile_colors_v [tile.west ].set_matrix (matrix);
 
         draw_tile_shadow (context, tile_shadows [tile.north], tile_shadows [tile.east], tile_shadows [tile.south], tile_shadows [tile.west]);
-        draw_tile_background (context, tile_colors_h [tile.north], tile_colors_v [tile.east], tile_colors_h [tile.south], tile_colors_v [tile.west]);
+        if (highlight)
+            draw_tile_background (context, tile_highlights_h [tile.north], tile_highlights_v [tile.east], tile_highlights_h [tile.south], tile_highlights_v [tile.west]);
+        else
+            draw_tile_background (context, tile_colors_h [tile.north], tile_colors_v [tile.east], tile_colors_h [tile.south], tile_colors_v [tile.west]);
 
         context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
         context.set_font_size (font_size);

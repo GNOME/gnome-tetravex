@@ -102,6 +102,9 @@ private class NostalgiaTheme : Theme
     private double size_minus_socket_depth;
     private double size_minus_two_socket_depths;
 
+    /* highlight */
+    private Cairo.Pattern highlight_tile_pattern;
+
     /* tile only */
     private double tile_depth;
     private double size_minus_tile_depth;
@@ -128,13 +131,24 @@ private class NostalgiaTheme : Theme
         configure_arrow (new_size);
         configure_socket (new_size);
 
+        /* highlight */
+        half_tile_size = new_size * 0.5;    // also for tile
+        double highlight_radius = new_size * 0.45;
+        highlight_tile_pattern = new Cairo.Pattern.radial (half_tile_size, half_tile_size, 0.0,
+                                                           half_tile_size, half_tile_size, highlight_radius);
+        highlight_tile_pattern.add_color_stop_rgba (0.0, 1.0, 1.0, 1.0, 1.0);
+        highlight_tile_pattern.add_color_stop_rgba (0.2, 1.0, 1.0, 1.0, 0.8);
+        highlight_tile_pattern.add_color_stop_rgba (0.3, 1.0, 1.0, 1.0, 0.5);
+        highlight_tile_pattern.add_color_stop_rgba (0.4, 1.0, 1.0, 1.0, 0.2);
+        highlight_tile_pattern.add_color_stop_rgba (0.5, 1.0, 1.0, 1.0, 0.1);
+        highlight_tile_pattern.add_color_stop_rgba (1.0, 1.0, 1.0, 1.0, 0.0);
+
         /* tiles */
         tile_depth = double.min (new_size * 0.05, 4.0);
         size_minus_tile_depth = (double) new_size - tile_depth;
         tile_dx = (Math.SQRT2 + 1.0) * tile_depth;
         tile_dy =  Math.SQRT2        * tile_depth;
         size_minus_tile_dx = (double) new_size - tile_dx;
-        half_tile_size = new_size * 0.5;
         half_tile_size_minus_dy = half_tile_size - tile_dy;
         half_tile_size_plus_dy = half_tile_size + tile_dy;
         size_minus_one = (double) (new_size - 1);
@@ -269,6 +283,17 @@ private class NostalgiaTheme : Theme
     }
 
     /*\
+    * * drawing highlight
+    \*/
+
+    internal override void draw_highlight (Cairo.Context context, bool has_tile)
+    {
+        context.set_source (highlight_tile_pattern);
+        context.rectangle (0.0, 0.0, /* width and height */ size, size);
+        context.fill ();
+    }
+
+    /*\
     * * drawing tiles
     \*/
 
@@ -277,7 +302,7 @@ private class NostalgiaTheme : Theme
         draw_tile_background (context, paused_color, paused_color, paused_color, paused_color);
     }
 
-    internal override void draw_tile (Cairo.Context context, Tile tile)
+    internal override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
     {
         draw_tile_background (context, tile_colors [tile.north], tile_colors [tile.east], tile_colors [tile.south], tile_colors [tile.west]);
 
@@ -287,6 +312,13 @@ private class NostalgiaTheme : Theme
         draw_number (context, text_colors [tile.south], half_tile_size, south_number_y, tile.south);
         draw_number (context, text_colors [tile.east ], east_number_x , half_tile_size, tile.east);
         draw_number (context, text_colors [tile.west ], west_number_x , half_tile_size, tile.west);
+
+        if (highlight)
+        {
+            context.set_source_rgba (1.0, 1.0, 1.0, 0.3);
+            context.rectangle (0.0, 0.0, size, size);
+            context.fill ();
+        }
     }
 
     private void draw_tile_background (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
