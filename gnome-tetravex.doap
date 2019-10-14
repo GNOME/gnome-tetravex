@@ -10,7 +10,7 @@
 
   <homepage rdf:resource="https://wiki.gnome.org/Apps/Tetravex" />
   <mailing-list rdf:resource="https://mail.gnome.org/mailman/listinfo/games-list" />
-  <download-page rdf:resource="http://download.gnome.org/sources/gnome-tetravex/" />
+  <download-page rdf:resource="https://download.gnome.org/sources/gnome-tetravex/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/" />
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
 
