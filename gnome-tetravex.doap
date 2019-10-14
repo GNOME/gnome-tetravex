@@ -7,11 +7,13 @@
   <name xml:lang="en">gnome-tetravex</name>
   <shortdesc xml:lang="en">Complete the puzzle by matching numbered tiles</shortdesc>
   <description xml:lang="en">Complete the puzzle by matching numbered tiles</description>
+
   <homepage rdf:resource="https://wiki.gnome.org/Apps/Tetravex" />
-  <mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/games-list" />
+  <mailing-list rdf:resource="https://mail.gnome.org/mailman/listinfo/games-list" />
   <download-page rdf:resource="http://download.gnome.org/sources/gnome-tetravex/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/" />
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
+
   <programming-language>Vala</programming-language>
 
   <maintainer>

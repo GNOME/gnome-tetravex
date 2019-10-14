@@ -1,18 +1,20 @@
+.\"
 .\" Copyright (C) 2007 Sven Arvidsson <sa@whiz.se>
+.\" Copyright (C) 2019 Arnaud Bonatti <arnaud.bonatti@gmail.com>
 .\"
-.\" This is free software; you may redistribute it and/or modify
-.\" it under the terms of the GNU General Public License as
-.\" published by the Free Software Foundation; either version 2,
-.\" or (at your option) any later version.
+.\" GNOME Tetravex is free software: you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation, either version 2 of the License, or
+.\" (at your option) any later version.
 .\"
-.\" This is distributed in the hope that it will be useful, but
-.\" WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" GNOME Tetravex is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
 .\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 .\" GNU General Public License for more details.
 .\"
-.\"You should have received a copy of the GNU General Public License along
-.\"with this program; if not, write to the Free Software Foundation, Inc.,
-.\"51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+.\" You should have received a copy of the GNU General Public License along
+.\" with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
+.\"
 .TH gnome-tetravex 6 "2007\-06\-09" "GNOME"
 .SH NAME
 Tetravex \- A simple puzzle game for GNOME
@@ -25,14 +27,17 @@ that the same numbers are touching each other. Your game is timed,
 these times are stored in a system-wide scoreboard.
 .SH OPTIONS
 .TP
-.B \-v, \-\-version
-Print release version and exit
+.B \-c, \-\-colors=NUMBER
+Set number of colors (2-10)
 .TP
 .B \-p, \-\-paused
 Start the game paused
 .TP
 .B \-s, \-\-size=SIZE
 Set size of board (2-6)
+.TP
+.B \-v, \-\-version
+Print release version and exit
 .P
 This program also accepts the standard GNOME and GTK options.
 .SH AUTHORS
