@@ -44,9 +44,9 @@ private class Puzzle : Object
     private Tile? [,] board;
 
     /* Game timer */
-    private double clock_elapsed;
     private Timer? clock;
     private uint clock_timeout;
+    public double initial_time { private get; protected construct; default = 0.0; }
 
     [CCode (notify = false)] internal double elapsed
     {
@@ -54,7 +54,7 @@ private class Puzzle : Object
         {
             if (clock == null)
                 return 0.0;
-            return clock_elapsed + ((!) clock).elapsed ();
+            return initial_time + ((!) clock).elapsed ();
         }
     }
 
@@ -100,6 +100,7 @@ private class Puzzle : Object
         return true;
     }
 
+    public bool restored { private get; protected construct; default = false; }
     internal Puzzle (uint8 size, uint8 colors)
     {
         Object (size: size, colors: colors);
@@ -107,8 +108,11 @@ private class Puzzle : Object
 
     construct
     {
-        do { init_board (size, (int32) colors, out board); }
-        while (solved_on_right ());
+        if (!restored)
+        {
+            do { init_board (size, (int32) colors, out board); }
+            while (solved_on_right ());
+        }
 
         start_clock ();
     }
@@ -590,4 +594,202 @@ private class Puzzle : Object
 
         _switch_tiles (x0, y0, x1, y1, animation_duration, /* no log */ true, /* garbage */ 0);
     }
+
+    /*\
+    * * save and restore
+    \*/
+
+    internal Variant to_variant ()
+    {
+        VariantBuilder builder = new VariantBuilder (new VariantType ("m(yyda(yyyyyyyy)ua(yyyyu))"));
+        builder.open (new VariantType ("(yyda(yyyyyyyy)ua(yyyyu))"));
+
+        // board
+        builder.add ("y", size);
+        builder.add ("y", colors);
+        builder.add ("d", elapsed);
+
+        // tiles
+        builder.open (new VariantType ("a(yyyyyyyy)"));
+        for (uint8 x = 0; x < size * 2; x++)
+            for (uint8 y = 0; y < size; y++)
+            {
+                Tile? tile = board [x, y];
+                if (tile == null)
+                    continue;
+                builder.add ("(yyyyyyyy)",
+                             x, y,
+                             ((!) tile).north, ((!) tile).east, ((!) tile).south, ((!) tile).west,
+                             ((!) tile).x, ((!) tile).y);
+            }
+        builder.close ();
+
+        // history
+        builder.add ("u", history_length - last_move_index);
+        builder.open (new VariantType ("a(yyyyu)"));
+        unowned List<Inversion>? entry = reversed_history.last ();
+        while (entry != null)
+        {
+            builder.add ("(yyyyu)",
+                         ((!) entry).data.x0, ((!) entry).data.y0,
+                         ((!) entry).data.x1, ((!) entry).data.y1,
+                         ((!) entry).data.id);
+            entry = ((!) entry).prev;
+        }
+        builder.close ();
+
+        // end
+        builder.close ();
+        return builder.end ();
+    }
+
+    private struct SavedTile
+    {
+        public uint8 current_x;
+        public uint8 current_y;
+        public uint8 color_north;
+        public uint8 color_east;
+        public uint8 color_south;
+        public uint8 color_west;
+        public uint8 initial_x;
+        public uint8 initial_y;
+    }
+
+    internal static bool is_valid_saved_game (Variant maybe_variant)
+    {
+        Variant? variant = maybe_variant.get_maybe ();
+        if (variant == null)
+            return false;
+
+        uint8 board_size;
+        uint8 colors;
+        double elapsed;
+        ((!) variant).get_child (0, "y", out board_size);
+        ((!) variant).get_child (1, "y", out colors);
+        ((!) variant).get_child (2, "d", out elapsed);
+        Variant array_variant = ((!) variant).get_child_value (3);
+        if (array_variant.n_children () != board_size * board_size)
+            return false;
+        SavedTile [] saved_tiles = new SavedTile [board_size * board_size];
+
+        VariantIter? iter = new VariantIter (array_variant);
+        for (uint8 index = 0; index < board_size * board_size; index++)
+        {
+            variant = ((!) iter).next_value ();
+            if (variant == null)
+                assert_not_reached ();
+            saved_tiles [index] = SavedTile ();
+            ((!) variant).@get ("(yyyyyyyy)", out saved_tiles [index].current_x,
+                                              out saved_tiles [index].current_y,
+                                              out saved_tiles [index].color_north,
+                                              out saved_tiles [index].color_east,
+                                              out saved_tiles [index].color_south,
+                                              out saved_tiles [index].color_west,
+                                              out saved_tiles [index].initial_x,
+                                              out saved_tiles [index].initial_y);
+        }
+
+        // sanity check
+        if (board_size < 2 || board_size > 6)
+            return false;
+
+        if (colors < 2 || colors > 10)
+            return false;
+
+        foreach (unowned SavedTile tile in saved_tiles)
+        {
+            if (tile.initial_x >= board_size)       return false;
+            if (tile.initial_y >= board_size)       return false;
+            if (tile.current_x >= 2 * board_size)   return false;
+            if (tile.current_y >= board_size)       return false;
+            if (tile.color_north >= colors)         return false;
+            if (tile.color_east  >= colors)         return false;
+            if (tile.color_south >= colors)         return false;
+            if (tile.color_west  >= colors)         return false;
+        }
+
+        // check that puzzle is solvable and that tiles do not overlap
+        SavedTile? [,] initial_board = new SavedTile? [board_size, board_size];
+        for (uint8 x = 0; x < board_size; x++)
+            for (uint8 y = 0; y < board_size; y++)
+                initial_board [x, y] = null;
+
+        bool [,] current_board = new bool [board_size * 2, board_size];
+        for (uint8 x = 0; x < board_size * 2; x++)
+            for (uint8 y = 0; y < board_size; y++)
+                current_board [x, y] = false;
+
+        for (uint8 x = 0; x < board_size * board_size; x++)
+        {
+            unowned SavedTile tile = saved_tiles [x];
+            if (initial_board [tile.initial_x, tile.initial_y] != null)
+                return false;
+            if (current_board [tile.current_x, tile.current_y] == true)
+                return false;
+            initial_board [tile.initial_x, tile.initial_y] = tile;
+            current_board [tile.current_x, tile.current_y] = true;
+        }
+
+        for (uint8 x = 0; x < board_size; x++)
+            for (uint8 y = 0; y < board_size - 1; y++)
+            {
+                if (((!) initial_board [x, y]).color_south != ((!) initial_board [x, y + 1]).color_north)
+                    return false;
+                if (((!) initial_board [y, x]).color_east != ((!) initial_board [y + 1, x]).color_west)
+                    return false;
+            }
+
+        // TODO validate history 1/2
+
+        return true;
+    }
+
+    internal Puzzle.restore (Variant maybe_variant)
+    {
+        Variant? variant = maybe_variant.get_maybe ();
+        if (variant == null)
+            assert_not_reached ();
+
+        uint8 _size;
+        uint8 _colors;
+        double _elapsed;
+        ((!) variant).get_child (0, "y", out _size);
+        ((!) variant).get_child (1, "y", out _colors);
+        ((!) variant).get_child (2, "d", out _elapsed);
+        Object (size: _size, colors: _colors, restored: true, initial_time: _elapsed);
+
+        Variant array_variant = ((!) variant).get_child_value (3);
+        board = new Tile? [size * 2, size];
+        for (uint8 x = 0; x < size * 2; x++)
+            for (uint8 y = 0; y < size; y++)
+                board [x, y] = null;
+
+        VariantIter? iter = new VariantIter (array_variant);
+        for (uint8 index = 0; index < size * size; index++)
+        {
+            variant = ((!) iter).next_value ();
+            if (variant == null)
+                assert_not_reached ();
+            uint8 current_x, current_y, color_north, color_east, color_south, color_west, initial_x, initial_y;
+            ((!) variant).@get ("(yyyyyyyy)", out current_x,
+                                              out current_y,
+                                              out color_north,
+                                              out color_east,
+                                              out color_south,
+                                              out color_west,
+                                              out initial_x,
+                                              out initial_y);
+            Tile tile = new Tile (initial_x, initial_y);
+            tile.north = color_north;
+            tile.east  = color_east;
+            tile.south = color_south;
+            tile.west  = color_west;
+            board [current_x, current_y] = tile;
+        }
+        game_in_progress = true;
+        if (solved_on_right ())
+            is_solved_right = true;
+    }
+
+    // TODO restore history 2/2
 }

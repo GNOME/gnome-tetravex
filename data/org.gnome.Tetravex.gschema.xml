@@ -11,17 +11,17 @@
       <range min="2" max="6" />
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size' -->
       <summary>The size of the playing grid</summary>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size' -->
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size' -->
       <description>The value of this key is used to decide the size of the playing grid.</description>
     </key>
-    <key type="b" name="mouse-use-extra-buttons">
+    <key name="mouse-use-extra-buttons" type="b">
       <default>true</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons' -->
       <summary>Use “Back” and “Forward” mouse button events</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons' -->
       <description>For users which have a mouse with “Forward” and “Back” buttons, this key will determine if any action is taken inside of the window when either is pressed.</description>
     </key>
-    <key type="i" name="mouse-back-button">
+    <key name="mouse-back-button" type="i">
       <default>8</default>
       <range min="6" max="14"/>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons' -->
@@ -29,13 +29,20 @@
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons' -->
       <description>For users which have a mouse with “Forward” and “Back” buttons, this key will set which button activates the “Undo” command. Possible values range between 6 and 14.</description>
     </key>
-    <key type="i" name="mouse-forward-button">
+    <key name="mouse-forward-button" type="i">
       <default>9</default>
       <range min="6" max="14"/>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons' -->
       <summary>Mouse button to activate the “Redo” command</summary>
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons' -->
       <description>For users which have a mouse with “Forward” and “Back” buttons, this key will set which button activates the “Redo” command. Possible values range between 6 and 14.</description>
+    </key>
+    <key name="saved-game" type="m(yyda(yyyyyyyy)ua(yyyyu))">
+      <default>nothing</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game' -->
+      <summary>Saved game, if any</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) » -->
+      <description>The key has value “nothing” if there is no saved game. Else, it contains a description of the board, with its size, the number of colors, and the time elapsed, then the list of tiles, saved as properties: their current position (x and y), their colors (north, east, south and west), and their original position (x and y), and finally the history, with the last move index, and history entries saved as properties: coordinates of the two tiles swapped, and the move id.</description>
     </key>
     <key name="theme" enum="org.gnome.Tetravex.Theme">
       <default>'extrusion'</default>
@@ -47,7 +54,7 @@
       <default>600</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width' -->
       <summary>The width of the window</summary>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width' -->
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width' -->
       <description>The width of the main window in pixels.</description>
     </key>
     <key name="window-height" type="i">

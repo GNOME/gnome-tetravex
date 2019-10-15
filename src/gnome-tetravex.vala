@@ -40,6 +40,7 @@ private class Tetravex : Gtk.Application
     private History history;
 
     private PuzzleView view;
+    private Button pause_button;
 
     private ApplicationWindow window;
     private int window_width;
@@ -158,6 +159,9 @@ private class Tetravex : Gtk.Application
 
         settings = new GLib.Settings ("org.gnome.Tetravex");
 
+        saved_game = settings.get_value ("saved-game");
+        can_restore = Puzzle.is_valid_saved_game (saved_game);
+
         add_action_entries (action_entries, this);
         add_action (settings.create_action ("theme"));
 
@@ -234,7 +238,26 @@ private class Tetravex : Gtk.Application
         undo_redo_box.pack_start (undo_button);
         undo_redo_box.pack_start (redo_button);
         undo_redo_box.show ();
-        headerbar.pack_start (undo_redo_box);
+
+        if (can_restore)
+        {
+            restore_stack = new Stack ();
+            restore_stack.hhomogeneous = false;
+            restore_stack.add_named (undo_redo_box, "undo-redo-box");
+
+            /* Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game */
+            Button restore_button = new Button.with_label (_("Restore last game"));
+            restore_button.clicked.connect (restore_game);
+            ((Widget) restore_button).set_focus_on_click (false);
+            restore_button.show ();
+
+            restore_stack.add (restore_button);
+            restore_stack.set_visible_child (restore_button);
+            restore_stack.visible = true;
+            headerbar.pack_start (restore_stack);
+        }
+        else
+            headerbar.pack_start (undo_redo_box);
 
         Grid grid = (Grid) builder.get_object ("grid");
 
@@ -277,7 +300,7 @@ private class Tetravex : Gtk.Application
                                                     /* align end */ false,
                                                     sizegroup);
 
-        Button pause_button     = new BottomButton ("media-playback-pause-symbolic",
+        pause_button            = new BottomButton ("media-playback-pause-symbolic",
                                                     "app.pause",
         /* Translators: tooltip text of the pause button, in the bottom bar */
                                                     _("Pause the game"),
@@ -399,11 +422,14 @@ private class Tetravex : Gtk.Application
     {
         base.shutdown ();
 
-        /* Save window state */
         settings.delay ();
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
+        if (puzzle.game_in_progress && !puzzle.is_solved)
+            settings.set_value ("saved-game", puzzle.to_variant ());
+        else
+            settings.@set ("saved-game", "m(yyda(yyyyyyyy)ua(yyyyu))", null);
         settings.apply ();
     }
 
@@ -412,7 +438,26 @@ private class Tetravex : Gtk.Application
         window.present ();
     }
 
-    private void new_game ()
+    private Stack restore_stack;
+    private Variant saved_game;
+    private bool can_restore = false;
+    private void restore_game ()
+    {
+        if (!can_restore)
+            assert_not_reached ();
+
+        new_game (saved_game);
+        hide_restore_button ();
+    }
+    private void hide_restore_button ()
+    {
+        if (!can_restore)
+            assert_not_reached ();
+
+        restore_stack.set_visible_child_name ("undo-redo-box");
+    }
+
+    private void new_game (Variant? saved_game = null)
     {
         puzzle_is_finished = false;
         has_been_finished = false;
@@ -422,11 +467,24 @@ private class Tetravex : Gtk.Application
         new_game_solve_stack.set_visible_child_name ("solve");
         score_overlay.hide ();
 
+        bool was_paused;
         if (puzzle_init_done)
+        {
+            was_paused = puzzle.paused;
             SignalHandler.disconnect_by_func (puzzle, null, this);
+        }
+        else
+            was_paused = false;
 
         int size = settings.get_int (KEY_GRID_SIZE);
-        puzzle = new Puzzle ((uint8) size, (uint8) colors);
+        if (saved_game == null)
+            puzzle = new Puzzle ((uint8) size, (uint8) colors);
+        else
+        {
+            puzzle = new Puzzle.restore ((!) saved_game);
+            if (puzzle.is_solved_right)
+                solved_right_cb ();
+        }
         puzzle_init_done = true;
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
@@ -435,6 +493,8 @@ private class Tetravex : Gtk.Application
             undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused));
         puzzle.notify ["can-redo"].connect (() =>
             redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused));
+        if (can_restore)
+            puzzle.tile_moved.connect (hide_restore_button);
         puzzle.show_end_game.connect (show_end_game_cb);
         view.puzzle = puzzle;
         tick_cb ();
@@ -443,6 +503,12 @@ private class Tetravex : Gtk.Application
         {
             puzzle.paused = true;
             start_paused = false;
+            pause_button.grab_focus ();
+        }
+        else if (was_paused && saved_game != null)
+        {
+            puzzle.paused = true;
+            pause_button.grab_focus ();
         }
         else
             view.grab_focus ();
@@ -686,6 +752,10 @@ private class Tetravex : Gtk.Application
         undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused);
         redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused);
         update_bottom_button_states ();
+        if (puzzle.paused)
+            pause_button.grab_focus ();
+        else
+            view.grab_focus ();
     }
 
     private void update_bottom_button_states ()
