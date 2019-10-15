@@ -315,7 +315,7 @@ private class Puzzle : Object
     * * moving tiles
     \*/
 
-    uint last_move_id = 0;
+    private uint last_move_id = 0;
 
     private inline void switch_one_of_many_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {

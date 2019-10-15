@@ -33,6 +33,7 @@
       <object class="GtkLabel">
         <property name="visible">True</property>
         <property name="hexpand">True</property>
+        <!-- Translators: text of the score overlay, displayed after a puzzle is complete -->
         <property name="label" translatable="yes">Congratulations!</property>
         <style>
           <class name="score-title"/>
@@ -73,6 +74,7 @@
         <property name="visible">True</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
+        <!-- Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog -->
         <property name="label" translatable="yes">Show scores</property>
         <property name="action-name">app.scores</property>
         <property name="focus-on-click">False</property>
