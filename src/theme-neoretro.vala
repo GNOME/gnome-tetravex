@@ -355,7 +355,7 @@ private class NeoRetroTheme : Theme
             draw_tile_background (context, tile_colors_h [tile.north], tile_colors_v [tile.east], tile_colors_h [tile.south], tile_colors_v [tile.west]);
         }
 
-        context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
+        context.select_font_face ("sans-serif", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
         context.set_font_size (font_size);
         draw_number (context, text_colors [tile.north], half_tile_size, north_number_y, tile.north);
         draw_number (context, text_colors [tile.south], half_tile_size, south_number_y, tile.south);
