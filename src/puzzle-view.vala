@@ -119,8 +119,8 @@ private class PuzzleView : Gtk.DrawingArea
                 sockets_ys = new double [2 * _puzzle.size, _puzzle.size];
             }
 
-            clear_keyboard_highlight (/* only selection */ false);
-            _puzzle.solved.connect (() => clear_keyboard_highlight (/* only selection */ false));
+            set_highlight_position ();
+            _puzzle.solved.connect (() => clear_keyboard_highlight (/* only selection */ true));
             _puzzle.tile_moved.connect (tile_moved_cb);
             _puzzle.notify ["paused"].connect (queue_draw);
             queue_resize ();
@@ -493,7 +493,7 @@ private class PuzzleView : Gtk.DrawingArea
             draw_image (context, (!) last_selected_tile);
 
         /* Draw highlight */
-        if (show_highlight)
+        if (show_highlight && !puzzle.is_solved)
         {
             context.save ();
             context.translate (sockets_xs [highlight_x, highlight_y], sockets_ys [highlight_x, highlight_y]);
@@ -1067,7 +1067,10 @@ private class PuzzleView : Gtk.DrawingArea
         if (highlight_set)
             /* If keyboard highlight is already set (and visible), this is good. */
             return;
-
+        set_highlight_position ();
+    }
+    private void set_highlight_position ()
+    {
         // TODO better
         highlight_x = puzzle.size;
         highlight_y = 0;
@@ -1092,5 +1095,10 @@ private class PuzzleView : Gtk.DrawingArea
             kbd_selected_x = uint8.MAX;
             kbd_selected_y = uint8.MAX;
         }
+    }
+
+    internal void disable_highlight ()
+    {
+        clear_keyboard_highlight (false);
     }
 }

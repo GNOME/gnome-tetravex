@@ -41,6 +41,7 @@ private class Tetravex : Gtk.Application
     private History history;
 
     private PuzzleView view;
+
     private Button pause_button;
     private Button new_game_button;
 
@@ -342,6 +343,7 @@ private class Tetravex : Gtk.Application
                                                     /* align end */ true,
                                                     sizegroup);
 
+        new_game_button.button_press_event.connect (() => { view.disable_highlight (); return false; });
         new_game_solve_stack = new Stack ();
         new_game_solve_stack.add_named (solve_button, "solve");
         new_game_solve_stack.add_named (new_game_button, "new-game");
@@ -696,6 +698,7 @@ private class Tetravex : Gtk.Application
         has_been_solved = true;
         puzzle.solve ();
         new_game_solve_stack.set_visible_child_name ("new-game");
+        new_game_button.grab_focus ();
     }
 
     private bool has_been_finished = false;
