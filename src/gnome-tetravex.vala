@@ -29,6 +29,7 @@ private class Tetravex : Gtk.Application
     private const string KEY_GRID_SIZE = "grid-size";
 
     private static bool start_paused = false;
+    private static bool restore_on_start = false;
     private static int game_size = int.MIN;
     private static int colors = 10;
 
@@ -71,6 +72,9 @@ private class Tetravex : Gtk.Application
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
         { "paused",  'p', OptionFlags.NONE, OptionArg.NONE, null,          N_("Start the game paused"),          null },
+
+        /* Translators: command-line option description, see 'gnome-tetravex --help' */
+        { "restore", 'r', OptionFlags.NONE, OptionArg.NONE, null,          N_("Restore last game, if any"),      null },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
         { "size",    's', OptionFlags.NONE, OptionArg.INT,  ref game_size, N_("Set size of board (2-6)"),
@@ -131,6 +135,9 @@ private class Tetravex : Gtk.Application
 
         if (options.contains ("paused"))
             start_paused = true;
+
+        if (options.contains ("restore"))
+            restore_on_start = true;
 
         if (game_size != int.MIN && (game_size < 2 || game_size > 6))
         {
@@ -239,7 +246,7 @@ private class Tetravex : Gtk.Application
         undo_redo_box.pack_start (redo_button);
         undo_redo_box.show ();
 
-        if (can_restore)
+        if (can_restore && !restore_on_start)
         {
             restore_stack = new Stack ();
             restore_stack.hhomogeneous = false;
@@ -375,7 +382,10 @@ private class Tetravex : Gtk.Application
         window.show_all ();
 
         tick_cb ();
-        new_game ();
+        if (can_restore && restore_on_start)
+            new_game (saved_game);
+        else
+            new_game ();
     }
     private class BottomButton : Button
     {
@@ -493,7 +503,7 @@ private class Tetravex : Gtk.Application
             undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused));
         puzzle.notify ["can-redo"].connect (() =>
             redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused));
-        if (can_restore)
+        if (can_restore && !restore_on_start)
             puzzle.tile_moved.connect (hide_restore_button);
         puzzle.show_end_game.connect (show_end_game_cb);
         view.puzzle = puzzle;
