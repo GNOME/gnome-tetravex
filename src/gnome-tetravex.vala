@@ -42,6 +42,7 @@ private class Tetravex : Gtk.Application
 
     private PuzzleView view;
     private Button pause_button;
+    private Button new_game_button;
 
     private ApplicationWindow window;
     private int window_width;
@@ -319,7 +320,7 @@ private class Tetravex : Gtk.Application
         play_pause_stack.add_named (pause_button, "pause");
         grid.attach (play_pause_stack, 0, 1, 1, 1);
 
-        Button new_game_button  = new BottomButton ("view-refresh-symbolic",
+        new_game_button         = new BottomButton ("view-refresh-symbolic",
                                                     "app.new-game",
         /* Translators: tooltip text of the "restart"/new game button, in the bottom bar */
                                                     _("Start a new game"),
@@ -589,6 +590,7 @@ private class Tetravex : Gtk.Application
         view.hide_right_sockets ();
 
         score_overlay.show ();
+        new_game_button.grab_focus ();
     }
 
     private void new_game_cb ()
