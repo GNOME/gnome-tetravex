@@ -672,6 +672,9 @@ private class Tetravex : Gtk.Application
     private bool has_been_solved = false;
     private void solve_cb ()
     {
+        if (puzzle.elapsed < 0.2)   // security against multi-click on new-game button
+            return;
+
         if (puzzle.game_in_progress)
         {
             MessageDialog dialog = new MessageDialog (window,
