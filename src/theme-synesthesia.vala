@@ -111,7 +111,7 @@ private class SynesthesiaTheme : Theme
         /* arrow */
         arrow_w = new_size * PuzzleView.gap_factor * 0.5;
         arrow_x = (new_size * PuzzleView.gap_factor - arrow_w) * 0.5;
-        arrow_half_h = arrow_w * Math.SQRT2 / 2.0;
+        arrow_half_h = arrow_w / Math.sqrt (3.0);
         neg_arrow_half_h = -arrow_half_h;
 
         /* socket and tiles */
