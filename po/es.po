@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-10-15 15:33+0000\n"
-"PO-Revision-Date: 2019-10-16 09:28+0200\n"
+"POT-Creation-Date: 2019-10-16 07:29+0000\n"
+"PO-Revision-Date: 2019-10-16 12:09+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -542,8 +542,6 @@ msgstr "Seleccione la fila dada hasta el tamaño del juego"
 
 #. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section Advanced gameplay; depending on game size, you can only use a to b or up to a to f; the board is splitted in two parts, that is for the left one
 #: src/help-overlay.ui:201
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box up by one"
 msgctxt "shortcut window"
 msgid "Select the given column in the left board, up to game size"
 msgstr ""
@@ -602,7 +600,7 @@ msgstr "Tercero:"
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old third best time
 #: src/score-overlay.vala:75 src/score-overlay.vala:101
 msgid "Out of podium:"
-msgstr "No clasificado:"
+msgstr "Subclasificado:"
 
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever
@@ -628,11 +626,13 @@ msgstr "Lugar %u:"
 msgid "Free!"
 msgstr "¡Libre!"
 
-#: src/score-overlay.ui:36
+#. Translators: text of the score overlay, displayed after a puzzle is complete
+#: src/score-overlay.ui:37
 msgid "Congratulations!"
 msgstr "Enhorabuena."
 
-#: src/score-overlay.ui:76
+#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
+#: src/score-overlay.ui:78
 msgid "Show scores"
 msgstr "Mostrar puntuación"
 
