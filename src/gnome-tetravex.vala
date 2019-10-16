@@ -250,6 +250,7 @@ private class Tetravex : Gtk.Application
         if (can_restore && !restore_on_start)
         {
             restore_stack = new Stack ();
+            restore_stack_created = true;
             restore_stack.hhomogeneous = false;
             restore_stack.add_named (undo_redo_box, "undo-redo-box");
 
@@ -439,7 +440,7 @@ private class Tetravex : Gtk.Application
         settings.set_boolean ("window-is-maximized", is_maximized);
         if (puzzle.game_in_progress && !puzzle.is_solved)
             settings.set_value ("saved-game", puzzle.to_variant ());
-        else
+        else if (!can_restore)
             settings.@set ("saved-game", "m(yyda(yyyyyyyy)ua(yyyyu))", null);
         settings.apply ();
     }
@@ -452,6 +453,7 @@ private class Tetravex : Gtk.Application
     private Stack restore_stack;
     private Variant saved_game;
     private bool can_restore = false;
+    private bool restore_stack_created = false;
     private void restore_game ()
     {
         if (!can_restore)
@@ -463,15 +465,18 @@ private class Tetravex : Gtk.Application
     private void hide_restore_button ()
     {
         if (!can_restore)
-            assert_not_reached ();
+            return;
 
-        restore_stack.set_visible_child_name ("undo-redo-box");
+        if (restore_stack_created)
+            restore_stack.set_visible_child_name ("undo-redo-box");
+        can_restore = false;
     }
 
     private void new_game (Variant? saved_game = null)
     {
         puzzle_is_finished = false;
         has_been_finished = false;
+        has_been_solved = false;
         pause_action.set_enabled (true);
         solve_action.set_enabled (true);
         finish_action.set_enabled (false);
@@ -483,6 +488,7 @@ private class Tetravex : Gtk.Application
         {
             was_paused = puzzle.paused;
             SignalHandler.disconnect_by_func (puzzle, null, this);
+            hide_restore_button (); // the Restore button is kept if the user just displays solution for the puzzle, hide it if she then starts a new game
         }
         else
             was_paused = false;
@@ -505,7 +511,7 @@ private class Tetravex : Gtk.Application
         puzzle.notify ["can-redo"].connect (() =>
             redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused));
         if (can_restore && !restore_on_start)
-            puzzle.tile_moved.connect (hide_restore_button);
+            puzzle.tile_moved.connect (() => { if (!has_been_solved) hide_restore_button (); });
         puzzle.show_end_game.connect (show_end_game_cb);
         view.puzzle = puzzle;
         tick_cb ();
@@ -563,7 +569,7 @@ private class Tetravex : Gtk.Application
         {
             solve_action.set_enabled (/* should never happen */ !puzzle.paused);
             finish_action.set_enabled (false);
-            if (!has_been_finished) // keep the "finish" button if it has been clicked
+            if (!has_been_finished) // keep the "finish" button if clicked (it is replaced after animation by the new-game button anyway)
                 new_game_solve_stack.set_visible_child_name ("solve");
         }
     }
@@ -661,30 +667,35 @@ private class Tetravex : Gtk.Application
         return false;
     }
 
+    private bool has_been_solved = false;
     private void solve_cb ()
     {
-        MessageDialog dialog = new MessageDialog (window,
-                                                  DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
-                                                  MessageType.QUESTION,
-                                                  ButtonsType.NONE,
-        /* Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up" */
-                                                  _("Are you sure you want to give up and view the solution?"));
-
-        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up" */
-        dialog.add_buttons (_("_Keep Playing"), ResponseType.REJECT,
-
-        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing" */
-                            _("_Give Up"),      ResponseType.ACCEPT,
-                            null);
-
-        int response = dialog.run ();
-        dialog.destroy ();
-
-        if (response == ResponseType.ACCEPT)
+        if (puzzle.game_in_progress)
         {
-            puzzle.solve ();
-            new_game_solve_stack.set_visible_child_name ("new-game");
+            MessageDialog dialog = new MessageDialog (window,
+                                                      DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
+                                                      MessageType.QUESTION,
+                                                      ButtonsType.NONE,
+            /* Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up" */
+                                                      _("Are you sure you want to give up and view the solution?"));
+
+            /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up" */
+            dialog.add_buttons (_("_Keep Playing"), ResponseType.REJECT,
+
+            /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing" */
+                                _("_Give Up"),      ResponseType.ACCEPT,
+                                null);
+
+            int response = dialog.run ();
+            dialog.destroy ();
+
+            if (response != ResponseType.ACCEPT)
+                return;
         }
+
+        has_been_solved = true;
+        puzzle.solve ();
+        new_game_solve_stack.set_visible_child_name ("new-game");
     }
 
     private bool has_been_finished = false;
