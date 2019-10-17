@@ -1099,6 +1099,34 @@ private class PuzzleView : Gtk.DrawingArea
 
     internal void disable_highlight ()
     {
-        clear_keyboard_highlight (false);
+        clear_keyboard_highlight (/* only selection */ false);
+    }
+
+    /*\
+    * * moving all tiles
+    \*/
+
+    internal void move_up ()
+    {
+        if (selected_tile == null)
+            puzzle.move_up ();
+    }
+
+    internal void move_down ()
+    {
+        if (selected_tile == null)
+            puzzle.move_down ();
+    }
+
+    internal void move_left ()
+    {
+        if (selected_tile == null)
+            puzzle.move_left ();
+    }
+
+    internal void move_right ()
+    {
+        if (selected_tile == null)
+            puzzle.move_right ();
     }
 }

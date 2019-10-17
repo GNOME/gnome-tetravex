@@ -748,16 +748,16 @@ private class Tetravex : Gtk.Application
         new_game ();
     }
 
-    private void move_up ()     { puzzle.move_up ();    }
-    private void move_down ()   { puzzle.move_down ();  }
+    private void move_up ()     { view.move_up ();    }
+    private void move_down ()   { view.move_down ();  }
     private void move_left ()
     {
         if (!puzzle.is_solved_right)
-            puzzle.move_left ();
+            view.move_left ();
         else if (!puzzle.paused && !view.tile_selected)
             finish_cb ();
     }
-    private void move_right ()  { puzzle.move_right (); }
+    private void move_right ()  { view.move_right (); }
 
     private void undo_cb ()
     {
