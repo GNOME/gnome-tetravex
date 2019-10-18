@@ -422,7 +422,7 @@ private class Puzzle : Object
         }
     }
 
-    private inline Direction can_move (uint8 x, uint8 y)
+    internal Direction can_move (uint8 x, uint8 y)
     {
         bool left_board = x < size;
         if (half_board_is_empty (left_board))
@@ -459,13 +459,20 @@ private class Puzzle : Object
         return true;
     }
 
-    private enum Direction
+    internal bool has_tile_on_line (uint8 y)
     {
-        NONE,
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT;
+        for (uint8 x = 0; x < size; x++)
+            if (board [x, y] != null)
+                return true;
+        return false;
+    }
+
+    internal bool has_tile_on_column (uint8 x)
+    {
+        for (uint8 y = 0; y < size; y++)
+            if (board [x, y] != null)
+                return true;
+        return false;
     }
 
     /*\
@@ -862,4 +869,13 @@ private class Puzzle : Object
     }
 
     // TODO restore history 2/2
+}
+
+private enum Direction
+{
+    NONE,
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT;
 }

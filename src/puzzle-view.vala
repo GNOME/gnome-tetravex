@@ -243,15 +243,17 @@ private class PuzzleView : Gtk.DrawingArea
         /* Move immediately */
         if (duration == 0)
         {
-            redraw_tile (image);
+//            redraw_tile (image);
             image.x = image.target_x;
             image.y = image.target_y;
             image.snap_to_cursor = true;
-            redraw_tile (image);
+//            redraw_tile (image);
+            queue_draw ();
             return;
         }
 
         /* Start animation (maximum of 100fps) */
+        queue_draw ();
         if (animation_timeout == 0)
             animation_timeout = Timeout.add (10, animate_cb);
     }
@@ -447,6 +449,41 @@ private class PuzzleView : Gtk.DrawingArea
                 context.rectangle (0.0, 0.0, /* width and height */ tilesize, tilesize);
                 context.fill ();
 
+                if (x < puzzle.size && selected_tile == null)
+                {
+                    Direction dir = puzzle.can_move (x, y);
+                    if ((dir == Direction.LEFT  && puzzle.has_tile_on_line (y))
+                     || (dir == Direction.RIGHT && puzzle.has_tile_on_line (y))
+                     || (dir == Direction.UP    && puzzle.has_tile_on_column (x))
+                     || (dir == Direction.DOWN  && puzzle.has_tile_on_column (x)))
+//                     || dir == Direction.UP_LEFT || dir == Direction.DOWN_RIGHT
+//                     || dir == Direction.UP_RIGHT || dir == Direction.DOWN_LEFT)
+                    {
+                        context.save ();
+                        context.translate (tilesize / 2.0, tilesize / 2.0);
+                        switch (dir)
+                        {
+                            case Direction.LEFT:        context.rotate (-Math.PI_2);        break;
+                            case Direction.DOWN:        context.rotate ( Math.PI  );        break;
+                            case Direction.RIGHT:       context.rotate ( Math.PI_2);        break;
+//                            case Direction.UP_LEFT:     context.rotate (-Math.PI_4);        break;
+//                            case Direction.UP_RIGHT:    context.rotate ( Math.PI_4);        break;
+//                            case Direction.DOWN_LEFT:   context.rotate (-Math.PI_4 * 3.0);  break;
+//                            case Direction.DOWN_RIGHT:  context.rotate ( Math.PI_4 * 3.0);  break;
+                            default:                                                        break;
+                        }
+
+                        context.move_to (            0.0, -4.0 * tilesize / 10.0);
+                        context.line_to (tilesize / -6.0, -3.0 * tilesize / 10.0);
+                        context.line_to (tilesize /  6.0, -3.0 * tilesize / 10.0);
+                        context.close_path ();
+
+                        context.set_source_rgba (1.0, 1.0, 1.0, 0.3);
+                        context.stroke ();
+                        context.restore ();
+                    }
+                }
+
                 context.restore ();
             }
 
@@ -575,6 +612,8 @@ private class PuzzleView : Gtk.DrawingArea
             if (get_tile_coords (x, y, out tile_x, out tile_y))
                 puzzle.try_move (tile_x, tile_y);
         }
+        if (tile_selected)
+            queue_draw ();  // hiding move arrows
     }
     private inline bool get_tile_coords (double event_x, double event_y, out uint8 tile_x, out uint8 tile_y)
     {
