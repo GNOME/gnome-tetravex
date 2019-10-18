@@ -360,8 +360,8 @@ private class PuzzleView : Gtk.DrawingArea
             right_margin = allocated_width - x_offset_right - boardsize;
 
             /* Precalculate sockets positions */
-            for (uint y = 0; y < puzzle.size; y++)
-                for (uint x = 0; x < puzzle.size * 2; x++)
+            for (uint8 y = 0; y < puzzle.size; y++)
+                for (uint8 x = 0; x < puzzle.size * 2; x++)
                 {
                     if (x >= puzzle.size)
                         sockets_xs [x, y] = x_offset + x * tilesize + gap;
@@ -430,28 +430,23 @@ private class PuzzleView : Gtk.DrawingArea
 
         /* Draw arrow */
         context.save ();
-        Cairo.Matrix matrix = Cairo.Matrix.identity ();
-        matrix.translate (- arrow_x, - (int) y_offset);
-        ((!) arrow_pattern).set_matrix (matrix);
-
+        context.translate (arrow_x, y_offset);
         context.set_source ((!) arrow_pattern);
-        context.rectangle (arrow_x, y_offset, /* width and height */ gap, boardsize);
+        context.rectangle (0.0, 0.0, /* width and height */ gap, boardsize);
         context.fill ();
         context.restore ();
 
         /* Draw sockets */
-        for (uint y = 0; y < puzzle.size; y++)
-            for (uint x = 0; x < puzzle.size * 2; x++)
+        for (uint8 y = 0; y < puzzle.size; y++)
+            for (uint8 x = 0; x < puzzle.size * 2; x++)
             {
                 context.save ();
-                matrix = Cairo.Matrix.identity ();
-                matrix.translate (- sockets_xs [x, y],
-                                  - sockets_ys [x, y]);
-                ((!) socket_pattern).set_matrix (matrix);
+                context.translate (sockets_xs [x, y], sockets_ys [x, y]);
 
                 context.set_source ((!) socket_pattern);
-                context.rectangle (sockets_xs [x, y], sockets_ys [x, y], /* width and height */ tilesize, tilesize);
+                context.rectangle (0.0, 0.0, /* width and height */ tilesize, tilesize);
                 context.fill ();
+
                 context.restore ();
             }
 
@@ -572,6 +567,39 @@ private class PuzzleView : Gtk.DrawingArea
                 selection_timeout = Timeout.add (200, selection_timeout_cb);
             }
         }
+
+        if (!tile_selected && !on_right_half (x))
+        {
+            uint8 tile_x;
+            uint8 tile_y;
+            if (get_left_tile_coords (x, y, out tile_x, out tile_y))
+                puzzle.try_move (tile_x, tile_y);
+        }
+    }
+    private inline bool get_left_tile_coords (double event_x, double event_y, out uint8 tile_x, out uint8 tile_y)
+    {
+        if (!get_left_tile_coord_x (event_x, out tile_x))
+        {
+            tile_y = 0; // garbage
+            return false;
+        }
+        if (!get_tile_coord_y (event_y, out tile_y))
+            return false;
+        return true;
+    }
+    private inline bool get_left_tile_coord_x (double event_x, out uint8 tile_x)
+    {
+        for (tile_x = 0; tile_x < puzzle.size; tile_x++)
+            if (event_x > sockets_xs [tile_x, 0] && event_x < sockets_xs [tile_x, 0] + tilesize)
+                return true;
+        return false;
+    }
+    private inline bool get_tile_coord_y (double event_y, out uint8 tile_y)
+    {
+        for (tile_y = 0; tile_y < puzzle.size; tile_y++)
+            if (event_y > sockets_ys [0, tile_y] && event_y < sockets_ys [0, tile_y] + tilesize)
+                return true;
+        return false;
     }
 
     private bool selection_timeout_cb ()
@@ -744,7 +772,7 @@ private class PuzzleView : Gtk.DrawingArea
             return false;
         clear_keyboard_highlight (/* only selection */ false);
 
-        if (event.button == 1 && selected_tile != null && selection_timeout == 0)
+        if ((event.button == 1 || event.button == 3) && selected_tile != null && selection_timeout == 0)
             drop_tile (event.x, event.y);
 
         if (selection_timeout != 0)
@@ -928,7 +956,10 @@ private class PuzzleView : Gtk.DrawingArea
             {
                 Tile? tile = puzzle.get_tile (highlight_x, highlight_y);
                 if (tile == null)
+                {
+                    puzzle.try_move (highlight_x, highlight_y);
                     return true;
+                }
 
                 if (highlight_x >= puzzle.size)
                 {

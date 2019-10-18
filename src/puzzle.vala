@@ -398,6 +398,62 @@ private class Puzzle : Object
         return true;
     }
 
+    internal void try_move (uint8 x, uint8 y)
+        requires (x >= 0 && x < size)
+        requires (y >= 0 && y < size)
+    {
+        switch (can_move (x, y))
+        {
+            case Direction.UP:      move_up ();     return;
+            case Direction.DOWN:    move_down ();   return;
+            case Direction.LEFT:    move_left ();   return;
+            case Direction.RIGHT:   move_right ();  return;
+            case Direction.NONE:
+            default:                                return;
+        }
+    }
+
+    private inline Direction can_move (uint8 x, uint8 y)
+    {
+        if (left_half_board_is_empty ())
+            return Direction.NONE;
+
+        if (y == 0 && can_move_up ()
+         && !(x == 0 && can_move_left ())
+         && !(x == size - 1 && can_move_right ()))
+            return Direction.UP;
+        if (y == size - 1 && can_move_down ()
+         && !(x == 0 && can_move_left ())
+         && !(x == size - 1 && can_move_right ()))
+            return Direction.DOWN;
+        if (x == 0 && can_move_left ()
+         && !(y == 0 && can_move_up ())
+         && !(y == size - 1 && can_move_down ()))
+            return Direction.LEFT;
+        if (x == size - 1 && can_move_right ()
+         && !(y == 0 && can_move_up ())
+         && !(y == size - 1 && can_move_down ()))
+            return Direction.RIGHT;
+        return Direction.NONE;
+    }
+    private inline bool left_half_board_is_empty ()
+    {
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                if (board [x, y] != null)
+                    return false;
+        return true;
+    }
+
+    private enum Direction
+    {
+        NONE,
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT;
+    }
+
     /*\
     * * actions
     \*/
