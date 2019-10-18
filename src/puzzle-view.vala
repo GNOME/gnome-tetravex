@@ -568,17 +568,17 @@ private class PuzzleView : Gtk.DrawingArea
             }
         }
 
-        if (!tile_selected && !on_right_half (x))
+        if (!tile_selected)
         {
             uint8 tile_x;
             uint8 tile_y;
-            if (get_left_tile_coords (x, y, out tile_x, out tile_y))
+            if (get_tile_coords (x, y, out tile_x, out tile_y))
                 puzzle.try_move (tile_x, tile_y);
         }
     }
-    private inline bool get_left_tile_coords (double event_x, double event_y, out uint8 tile_x, out uint8 tile_y)
+    private inline bool get_tile_coords (double event_x, double event_y, out uint8 tile_x, out uint8 tile_y)
     {
-        if (!get_left_tile_coord_x (event_x, out tile_x))
+        if (!get_tile_coord_x (event_x, out tile_x))
         {
             tile_y = 0; // garbage
             return false;
@@ -587,9 +587,9 @@ private class PuzzleView : Gtk.DrawingArea
             return false;
         return true;
     }
-    private inline bool get_left_tile_coord_x (double event_x, out uint8 tile_x)
+    private inline bool get_tile_coord_x (double event_x, out uint8 tile_x)
     {
-        for (tile_x = 0; tile_x < puzzle.size; tile_x++)
+        for (tile_x = 0; tile_x < 2 * puzzle.size; tile_x++)
             if (event_x > sockets_xs [tile_x, 0] && event_x < sockets_xs [tile_x, 0] + tilesize)
                 return true;
         return false;
@@ -1137,27 +1137,27 @@ private class PuzzleView : Gtk.DrawingArea
     * * moving all tiles
     \*/
 
-    internal void move_up ()
+    internal void move_up (bool left_board)
     {
         if (selected_tile == null)
-            puzzle.move_up ();
+            puzzle.move_up (left_board);
     }
 
-    internal void move_down ()
+    internal void move_down (bool left_board)
     {
         if (selected_tile == null)
-            puzzle.move_down ();
+            puzzle.move_down (left_board);
     }
 
-    internal void move_left ()
+    internal void move_left (bool left_board)
     {
         if (selected_tile == null)
-            puzzle.move_left ();
+            puzzle.move_left (left_board);
     }
 
-    internal void move_right ()
+    internal void move_right (bool left_board)
     {
         if (selected_tile == null)
-            puzzle.move_right ();
+            puzzle.move_right (left_board);
     }
 }

@@ -91,21 +91,25 @@ private class Tetravex : Gtk.Application
 
     private const GLib.ActionEntry[] action_entries =
     {
-        { "new-game",   new_game_cb },
-        { "pause",      pause_cb    },
-        { "solve",      solve_cb    },
-        { "finish",     finish_cb   },
-        { "scores",     scores_cb   },
-        { "quit",       quit        },
-        { "move-up",    move_up     },
-        { "move-down",  move_down   },
-        { "move-left",  move_left   },
-        { "move-right", move_right  },
-        { "undo",       undo_cb     },
-        { "redo",       redo_cb     },
-        { "size",       null,       "s",    "'2'",  size_changed    },
-        { "help",       help_cb     },
-        { "about",      about_cb    }
+        { "new-game",       new_game_cb     },
+        { "pause",          pause_cb        },
+        { "solve",          solve_cb        },
+        { "finish",         finish_cb       },
+        { "scores",         scores_cb       },
+        { "quit",           quit            },
+        { "move-up-l",      move_up_l       },
+        { "move-down-l",    move_down_l     },
+        { "move-left-l",    move_left_l     },
+        { "move-right-l",   move_right_l    },
+        { "move-up-r",      move_up_r       },
+        { "move-down-r",    move_down_r     },
+        { "move-left-r",    move_left_r     },
+        { "move-right-r",   move_right_r    },
+        { "undo",           undo_cb         },
+        { "redo",           redo_cb         },
+        { "size",           null,           "s",    "'2'",  size_changed    },
+        { "help",           help_cb         },
+        { "about",          about_cb        }
     };
 
     private static int main (string[] args)
@@ -180,10 +184,14 @@ private class Tetravex : Gtk.Application
         set_accels_for_action ("app.pause",         {        "<Primary>p",
                                                                       "Pause"   });
         set_accels_for_action ("app.quit",          {        "<Primary>q"       });
-        set_accels_for_action ("app.move-up",       {        "<Primary>Up"      });
-        set_accels_for_action ("app.move-down",     {        "<Primary>Down"    });
-        set_accels_for_action ("app.move-left",     {        "<Primary>Left"    });
-        set_accels_for_action ("app.move-right",    {        "<Primary>Right"   });
+        set_accels_for_action ("app.move-up-l",     {        "<Primary>Up"      });
+        set_accels_for_action ("app.move-down-l",   {        "<Primary>Down"    });
+        set_accels_for_action ("app.move-left-l",   {        "<Primary>Left"    });
+        set_accels_for_action ("app.move-right-l",  {        "<Primary>Right"   });
+        set_accels_for_action ("app.move-up-r",     { "<Shift><Primary>Up"      });
+        set_accels_for_action ("app.move-down-r",   { "<Shift><Primary>Down"    });
+        set_accels_for_action ("app.move-left-r",   { "<Shift><Primary>Left"    });
+        set_accels_for_action ("app.move-right-r",  { "<Shift><Primary>Right"   });
         set_accels_for_action ("app.undo",          {        "<Primary>z"       });
         set_accels_for_action ("app.redo",          { "<Shift><Primary>z"       });
         // F1 and friends are managed manually
@@ -748,16 +756,20 @@ private class Tetravex : Gtk.Application
         new_game ();
     }
 
-    private void move_up ()     { view.move_up ();    }
-    private void move_down ()   { view.move_down ();  }
-    private void move_left ()
+    private void move_up_l ()     { view.move_up    (/* left board */ true);  }
+    private void move_down_l ()   { view.move_down  (/* left board */ true);  }
+    private void move_left_l ()
     {
         if (!puzzle.is_solved_right)
-            view.move_left ();
+            view.move_left (/* left board */ true);
         else if (!puzzle.paused && !view.tile_selected)
             finish_cb ();
     }
-    private void move_right ()  { view.move_right (); }
+    private void move_right_l ()  { view.move_right (/* left board */ true);  }
+    private void move_up_r ()     { view.move_up    (/* left board */ false); }
+    private void move_down_r ()   { view.move_down  (/* left board */ false); }
+    private void move_left_r ()   { view.move_left  (/* left board */ false); }
+    private void move_right_r ()  { view.move_right (/* left board */ false); }
 
     private void undo_cb ()
     {

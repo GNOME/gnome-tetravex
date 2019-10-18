@@ -326,121 +326,135 @@ private class Puzzle : Object
         _switch_tiles (x0, y0, x1, y1, /* delay if finished */ 0, /* undoing or redoing */ false, last_move_id);
     }
 
-    internal void move_up ()
+    internal void move_up (bool left_board)
     {
-        if (!can_move_up () || last_move_id == uint.MAX)
+        if (!can_move_up (left_board) || last_move_id == uint.MAX)
             return;
         last_move_id++;
 
+        uint8 base_x = left_board ? 0 : size;
         for (uint8 y = 1; y < size; y++)
             for (uint8 x = 0; x < size; x++)
-                switch_one_of_many_tiles (x, y, x, y - 1);
+                switch_one_of_many_tiles (base_x + x, y, base_x + x, y - 1);
     }
-    private bool can_move_up ()
+    private bool can_move_up (bool left_board)
     {
+        uint8 base_x = left_board ? 0 : size;
         for (uint8 x = 0; x < size; x++)
-            if (board [x, 0] != null)
+            if (board [base_x + x, 0] != null)
                 return false;
         return true;
     }
 
-    internal void move_down ()
+    internal void move_down (bool left_board)
     {
-        if (!can_move_down () || last_move_id == uint.MAX)
+        if (!can_move_down (left_board) || last_move_id == uint.MAX)
             return;
         last_move_id++;
 
+        uint8 base_x = left_board ? 0 : size;
         for (uint8 y = size - 1; y > 0; y--)
             for (uint8 x = 0; x < size; x++)
-                switch_one_of_many_tiles (x, y - 1, x, y);
+                switch_one_of_many_tiles (base_x + x, y - 1, base_x + x, y);
     }
-    private bool can_move_down ()
+    private bool can_move_down (bool left_board)
     {
+        uint8 base_x = left_board ? 0 : size;
         for (uint8 x = 0; x < size; x++)
-            if (board [x, size - 1] != null)
+            if (board [base_x + x, size - 1] != null)
                 return false;
         return true;
     }
 
-    internal void move_left ()
+    internal void move_left (bool left_board)
     {
-        if (!can_move_left () || last_move_id == uint.MAX)
+        if (!can_move_left (left_board) || last_move_id == uint.MAX)
             return;
         last_move_id++;
 
+        uint8 base_x = left_board ? 0 : size;
         for (uint8 x = 1; x < size; x++)
             for (uint8 y = 0; y < size; y++)
-                switch_one_of_many_tiles (x, y, x - 1, y);
+                switch_one_of_many_tiles (base_x + x, y, base_x + x - 1, y);
     }
-    private bool can_move_left ()
+    private bool can_move_left (bool left_board)
     {
+        uint8 left_column = left_board ? 0 : size;
         for (uint8 y = 0; y < size; y++)
-            if (board [0, y] != null)
+            if (board [left_column, y] != null)
                 return false;
         return true;
     }
 
-    internal void move_right ()
+    internal void move_right (bool left_board)
     {
-        if (!can_move_right () || last_move_id == uint.MAX)
+        if (!can_move_right (left_board) || last_move_id == uint.MAX)
             return;
         last_move_id++;
 
+        uint8 base_x = left_board ? 0 : size;
         for (uint8 x = size - 1; x > 0; x--)
             for (uint8 y = 0; y < size; y++)
-                switch_one_of_many_tiles (x - 1, y, x, y);
+                switch_one_of_many_tiles (base_x + x - 1, y, base_x + x, y);
     }
-    private bool can_move_right ()
+    private bool can_move_right (bool left_board)
     {
+        uint8 right_column = left_board ? size - 1 : 2 * size - 1;
         for (uint8 y = 0; y < size; y++)
-            if (board [size - 1, y] != null)
+            if (board [right_column, y] != null)
                 return false;
         return true;
     }
 
     internal void try_move (uint8 x, uint8 y)
-        requires (x >= 0 && x < size)
-        requires (y >= 0 && y < size)
+        requires (x < 2 * size)
+        requires (y < size)
     {
+        bool left_board = x < size;
         switch (can_move (x, y))
         {
-            case Direction.UP:      move_up ();     return;
-            case Direction.DOWN:    move_down ();   return;
-            case Direction.LEFT:    move_left ();   return;
-            case Direction.RIGHT:   move_right ();  return;
+            case Direction.UP:      move_up     (left_board);   return;
+            case Direction.DOWN:    move_down   (left_board);   return;
+            case Direction.LEFT:    move_left   (left_board);   return;
+            case Direction.RIGHT:   move_right  (left_board);   return;
             case Direction.NONE:
-            default:                                return;
+            default:                                            return;
         }
     }
 
     private inline Direction can_move (uint8 x, uint8 y)
     {
-        if (left_half_board_is_empty ())
+        bool left_board = x < size;
+        if (half_board_is_empty (left_board))
             return Direction.NONE;
 
-        if (y == 0 && can_move_up ()
-         && !(x == 0 && can_move_left ())
-         && !(x == size - 1 && can_move_right ()))
+        uint8 left_column = left_board ? 0 : size;
+        uint8 right_column = left_board ? size - 1 : size * 2 - 1;
+
+        if (y == 0 && can_move_up (left_board)
+         && !(x == left_column && can_move_left (left_board))
+         && !(x == right_column && can_move_right (left_board)))
             return Direction.UP;
-        if (y == size - 1 && can_move_down ()
-         && !(x == 0 && can_move_left ())
-         && !(x == size - 1 && can_move_right ()))
+        if (y == size - 1 && can_move_down (left_board)
+         && !(x == left_column && can_move_left (left_board))
+         && !(x == right_column && can_move_right (left_board)))
             return Direction.DOWN;
-        if (x == 0 && can_move_left ()
-         && !(y == 0 && can_move_up ())
-         && !(y == size - 1 && can_move_down ()))
+        if (x == left_column && can_move_left (left_board)
+         && !(y == 0 && can_move_up (left_board))
+         && !(y == size - 1 && can_move_down (left_board)))
             return Direction.LEFT;
-        if (x == size - 1 && can_move_right ()
-         && !(y == 0 && can_move_up ())
-         && !(y == size - 1 && can_move_down ()))
+        if (x == right_column && can_move_right (left_board)
+         && !(y == 0 && can_move_up (left_board))
+         && !(y == size - 1 && can_move_down (left_board)))
             return Direction.RIGHT;
         return Direction.NONE;
     }
-    private inline bool left_half_board_is_empty ()
+    private inline bool half_board_is_empty (bool left_board)
     {
+        uint8 base_x = left_board ? 0 : size;
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
-                if (board [x, y] != null)
+                if (board [base_x + x, y] != null)
                     return false;
         return true;
     }
