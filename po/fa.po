@@ -5,17 +5,16 @@
 # Elnaz Sarbar <elnaz@farsiweb.info>, 2005, 2006.
 # Meelad Zakaria <meelad@farsiweb.info>, 2005.
 # Farzaneh Sarafraz <farzaneh@farsiweb.info>, 2006.
-# Danial Behzadi <dani.behzi@gmail.com>, 2012.
+# Danial Behzadi <dani.behzi@gmail.com>, 2012, 2014, 2015, 2017, 2018, 2019.
 # Arash Mousavi <mousavi.arash@gmail.com>, 2012, 2013, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"tetravex&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-15 10:31+0000\n"
-"PO-Revision-Date: 2016-09-14 11:52+0430\n"
-"Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2019-10-07 18:14+0000\n"
+"PO-Revision-Date: 2019-10-19 21:11+0330\n"
+"Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -23,197 +22,690 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.2.4\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
+#: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
-msgstr "گنوم تِتراوِکس"
+msgstr "تتراوکس گنوم"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
+#: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "مهره‌ها را جابه‌جا کنید تا در یک خانه جور شوند"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: data/org.gnome.Tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're "
-"being timed!"
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re being "
+"timed!"
 msgstr ""
 "هر خانه یک عدد در کنار خود دارد. مهره‌ها را در سمت چپ تخته جمع کنید تا اعداد "
-"یکسان در کنار یکدیگر قرار بگیرند. اگر عددها منطبق نشوند، شما نمی‌توانید "
-"مهره‌ای آنجا قرار دهید. سریع حرکت کنید: زمان شما ثبت می‌شود!"
+"یکسان در کنار یکدیگر قرار گیرند. اگر عددها منطبق نشوند، نمی‌توانید مهره‌ای آن‌جا "
+"بگذارید. سریع حرکت کنید: زمان شما ثبت می‌شود!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
-msgid ""
-"You can make the game easier or harder by changing the size of the board."
+#: data/org.gnome.Tetravex.appdata.xml.in:16
+msgid "You can make the game easier or harder by changing the size of the board."
 msgstr "شما می‌توانید بازی را با تغییر اندازه تخته، ساده‌تر یا سخت‌تر کنید."
 
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:381
-msgid "Tetravex"
-msgstr "تِتراوِکس"
+#: data/org.gnome.Tetravex.appdata.xml.in:32
+msgid "The GNOME Project"
+msgstr "پروژهٔ گنوم"
 
-#: ../data/gnome-tetravex.desktop.in.h:2
+#. Translators: application name, as seen in GNOME Shell
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:23
+#: src/gnome-tetravex.vala:27
+msgid "Tetravex"
+msgstr "تتراوکس"
+
+#: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "پازل را با عنوان‌های عددی مطابق کامل کنید"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
 msgstr "game;logic;board;بازی;منطق;تخته;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
+#: data/org.gnome.Tetravex.gschema.xml:13
 msgid "The size of the playing grid"
-msgstr "اندازه‌ی شبکه‌ی بازی"
+msgstr "اندازهٔ شبکهٔ بازی"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "The value of this key is used to decide the size of the playing grid."
-msgstr "مقدار این کلید برای تعیین اندازه‌ی شبکه‌ی بازی به کار می‌رود."
+msgstr "مقدار این کلید برای تعیین اندازهٔ شبکهٔ بازی به کار می‌رود."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
-msgid "Width of the window in pixels"
-msgstr "عرض پنجره به پیکسل"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:20
+msgid "Use “Back” and “Forward” mouse button events"
+msgstr "استفاده از رویدادهای موشی «عقب» و «جلو»"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
-msgid "Height of the window in pixels"
-msgstr "ارتفاع پنجره به پیکسل"
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:22
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key will "
+"determine if any action is taken inside of the window when either is pressed."
+msgstr ""
+"برای کاربرانی که موشی‌ای با دکمه‌های «جلو» و «عقب» دارند، این کلید تعیین خواهد کرد "
+"که هنگام فشردن هر یک از این دکمه‌ها، کنشی داخل پنجره رخ داده یا نه."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
-msgid "true if the window is maximized"
-msgstr "درست اگر پنجره بیشینه باشد"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:28
+msgid "Mouse button to activate the “Undo” command"
+msgstr "دکمهٔ موشی برای فعّال‌سازی دستور «برگردان»"
 
-#: ../src/app-menu.ui.h:1
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:30
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key will "
+"set which button activates the “Undo” command. Possible values range between 6 "
+"and 14."
+msgstr ""
+"برای کاربرانی که موشی‌ای با دکمه‌های «جلو» و «عقب» دارند، این کلید تنظیم خواهد کرد "
+"که کدام دکمه دستور «برگردان» را فعّال می‌کند. دامنهٔ مقادیر ممکن بین ۶ و ۱۴ است."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:36
+msgid "Mouse button to activate the “Redo” command"
+msgstr "دکمهٔ موشی برای فعّال‌سازی دستور «انجام دوباره»"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:38
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key will "
+"set which button activates the “Redo” command. Possible values range between 6 "
+"and 14."
+msgstr ""
+"برای کاربرانی که موشی‌ای با دکمه‌های «جلو» و «عقب» دارند، این کلید تنظیم خواهد کرد "
+"که کدام دکمه دستور «انجام دوباره» را فعّال می‌کند. دامنهٔ مقادیر ممکن بین ۶ و ۱۴ "
+"است."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
+#: data/org.gnome.Tetravex.gschema.xml:43
+msgid "Saved game, if any"
+msgstr "ذخیرهٔ بازی در صورت وجود"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) »
+#: data/org.gnome.Tetravex.gschema.xml:45
+msgid ""
+"The key has value “nothing” if there is no saved game. Else, it contains a "
+"description of the board, with its size, the number of colors, and the time "
+"elapsed, then the list of tiles, saved as properties: their current position (x "
+"and y), their colors (north, east, south and west), and their original position "
+"(x and y), and finally the history, with the last move index, and history "
+"entries saved as properties: coordinates of the two tiles swapped, and the move "
+"id."
+msgstr ""
+"اگر بازی ذخیره‌شده‌ای وجود نداشته باشد، مقدار کلید «nothing» است. در غیر این صورت، "
+"شامل توصیفی از صفحه است، با اندازه‌اش، تعداد رنگ‌ها و زمان گذشته، سپس فهرست "
+"کاشی‌ها، ذخیره‌شده به عنوان ویژگی‌ها: موقعیت کنونیشان (x و y)، رنگ‌هایشان (شمال، "
+"شرق، جنوب و غرب) و موقعیت اصلیشان (x و y) و در نهایت تاریخچه، با نمایهٔ آخرین "
+"جابه‌جایی و ورودی‌های تاریخچهٔ ذخیره‌شده به عنوان ویژگی‌ها: مختصات دو کاشی عوض‌شده، و "
+"شناسهٔ جابه‌جایی."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
+#: data/org.gnome.Tetravex.gschema.xml:50
+msgid "Theme"
+msgstr "زمینه"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
+#: data/org.gnome.Tetravex.gschema.xml:56
+msgid "The width of the window"
+msgstr "پهنای پنجره"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
+#: data/org.gnome.Tetravex.gschema.xml:58
+msgid "The width of the main window in pixels."
+msgstr "عرض درخواست شده برای پنجرهٔ اصلی بر حسب نقطه."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
+#: data/org.gnome.Tetravex.gschema.xml:63
+msgid "The height of the window"
+msgstr "بلندای پنجره"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
+#: data/org.gnome.Tetravex.gschema.xml:65
+msgid "The height of the main window in pixels."
+msgstr "طول درخواست شده برای پنجرهٔ اصلی بر حسب نقطه."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
+#: data/org.gnome.Tetravex.gschema.xml:70
+msgid "A flag to enable maximized mode"
+msgstr "پرجمی برای فعال کردن حالت بیشینه"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
+#: data/org.gnome.Tetravex.gschema.xml:72
+msgid "If “true”, the main window starts in maximized mode."
+msgstr "اگر درست باشد، پنجرهٔ اصلی در حال بیشینه شروع خواهد شد."
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
+#: src/app-menu.ui:23
 msgid "_New Game"
 msgstr "بازی _جدید"
 
-#: ../src/app-menu.ui.h:2
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: src/app-menu.ui:28
 msgid "_Scores"
 msgstr "امتیا_زها"
 
-#: ../src/app-menu.ui.h:3
-msgid "_Size"
-msgstr "_اندازه"
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
+#: src/app-menu.ui:33
+msgid "A_ppearance"
+msgstr "_ظاهر"
 
-#: ../src/app-menu.ui.h:4
-msgid "_2x2"
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:37
+msgid "_Extrusion"
+msgstr "قالب‌ریزی"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:43
+msgid "Neo_Retro"
+msgstr "_نوقدیمی"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
+#: src/app-menu.ui:49
+msgid "_Nostalgia"
+msgstr "_خاطره"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
+#: src/app-menu.ui:55
+msgid "_Synesthesia"
+msgstr "_پرش حس"
+
+#. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
+#: src/app-menu.ui:65
+msgid "Si_ze"
+msgstr "ا_ندازه"
+
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
+#: src/app-menu.ui:69
+msgid "_2 × 2"
 msgstr "_۲×۲"
 
-#: ../src/app-menu.ui.h:5
-msgid "_3x3"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
+#: src/app-menu.ui:75
+msgid "_3 × 3"
 msgstr "_۳×۳"
 
-#: ../src/app-menu.ui.h:6
-msgid "_4x4"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
+#: src/app-menu.ui:81
+msgid "_4 × 4"
 msgstr "_۴×۴"
 
-#: ../src/app-menu.ui.h:7
-msgid "_5x5"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
+#: src/app-menu.ui:87
+msgid "_5 × 5"
 msgstr "_۵×۵"
 
-#: ../src/app-menu.ui.h:8
-msgid "_6x6"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
+#: src/app-menu.ui:93
+msgid "_6 × 6"
 msgstr "_۶×۶"
 
-#: ../src/app-menu.ui.h:9
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
+#: src/app-menu.ui:103
+msgid "_Keyboard Shortcuts"
+msgstr "میان‌برهای _صفحه‌کلید"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help
+#: src/app-menu.ui:108
 msgid "_Help"
 msgstr "_راهنما"
 
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr "_درباره"
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
+#: src/app-menu.ui:113
+msgid "_About Tetravex"
+msgstr "_دربارهٔ تتراوکس"
 
-#: ../src/app-menu.ui.h:11
-msgid "_Quit"
-msgstr "_خروج"
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:70
+msgid "Set number of colors (2-10)"
+msgstr "تنظیم تعداد رنگ‌ها (۲-۱۰)"
 
-#: ../src/gnome-tetravex.vala:38
-msgid "Print release version and exit"
-msgstr "نمایش نسخه‌ی انتشار و خروج"
+#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:73
+msgid "NUMBER"
+msgstr "NUMBER"
 
-#: ../src/gnome-tetravex.vala:39
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:76
 msgid "Start the game paused"
-msgstr "شروع بازی در حالت توقف"
+msgstr "شروع بازی در حالت مکث"
 
-#: ../src/gnome-tetravex.vala:40
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:79
+msgid "Restore last game, if any"
+msgstr "بازآوری آخرین بازی در صورت وجود"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:82
 msgid "Set size of board (2-6)"
 msgstr "اندازه‌ی تخته (۲-۶)"
 
-#. not a typo
-#: ../src/gnome-tetravex.vala:129
-msgid "Resume the game"
-msgstr "از سر گرفتن بازی"
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:85
+msgid "SIZE"
+msgstr "SIZE"
 
-#: ../src/gnome-tetravex.vala:141
-msgid "Pause the game"
-msgstr "متوقف کردن بازی"
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:88
+msgid "Print release version and exit"
+msgstr "نمایش نسخه‌ی انتشار و خروج"
 
-#: ../src/gnome-tetravex.vala:158
-msgid "Start a new game"
-msgstr "شروع بازی جدید"
-
-#: ../src/gnome-tetravex.vala:170
-msgid "Give up and view the solution"
-msgstr "تسلیم بشوید و راه حل را ببینید"
-
-#: ../src/gnome-tetravex.vala:239
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
+#: src/gnome-tetravex.vala:151
 msgid "Size could only be from 2 to 6.\n"
 msgstr "اندازه فقط می‌تواند بین ۲ تا ۶ باشد.\n"
 
-#: ../src/gnome-tetravex.vala:347
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
+#: src/gnome-tetravex.vala:158
+msgid "There could only be between 2 and 10 colors.\n"
+msgstr "فقط می‌تواند بین ۲ و ده رنگ وجود داشته باشد.\n"
+
+#. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
+#: src/gnome-tetravex.vala:267
+msgid "Restore last game"
+msgstr "بازآوری آخرین بازی"
+
+#. not a typo
+#. Translators: tooltip text of the "play"/unpause button, in the bottom bar
+#: src/gnome-tetravex.vala:317
+msgid "Resume the game"
+msgstr "از سر گرفتن بازی"
+
+#. Translators: tooltip text of the pause button, in the bottom bar
+#: src/gnome-tetravex.vala:324
+msgid "Pause the game"
+msgstr "متوقف کردن بازی"
+
+#. Translators: tooltip text of the "restart"/new game button, in the bottom bar
+#: src/gnome-tetravex.vala:336
+msgid "Start a new game"
+msgstr "شروع بازی جدید"
+
+#. Translators: tooltip text of the "solve"/give up button, in the bottom bar
+#: src/gnome-tetravex.vala:343
+msgid "Give up and view the solution"
+msgstr "تسلیم شده و راه حل را ببینید"
+
+#. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
+#: src/gnome-tetravex.vala:350
+msgid "Move all tiles left"
+msgstr "جابه‌جایی همهٔ کاشی‌ها به چپ"
+
+#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"
+#: src/gnome-tetravex.vala:621
+msgid "Are you sure you want to start a new game with same board size?"
+msgstr "مطمئنید می‌خواهید بازی جدیدی با اندازهٔ تختهٔ مشابه شروع کنید؟"
+
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game"
+#: src/gnome-tetravex.vala:624 src/gnome-tetravex.vala:696
+#: src/gnome-tetravex.vala:741
+msgid "_Keep Playing"
+msgstr "_ادامهٔ بازی"
+
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing"
+#: src/gnome-tetravex.vala:627 src/gnome-tetravex.vala:744
+msgid "_Start New Game"
+msgstr "_شروع بازی جدید"
+
+#. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
+#: src/gnome-tetravex.vala:654
+msgid ""
+"Looks like you haven’t finished a game yet.\n"
+"\n"
+"Try maybe a 2 × 2 grid, they are easy. 🙂️"
+msgstr ""
+"به نظر می‌رسد هنوز بازی‌ای را تمام نکرده‌اید.\n"
+"\n"
+"مثلاً یک شبکهٔ ۲×۲ را بیازمایید؛ آسانند. 🙂️"
+
+#. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
+#: src/gnome-tetravex.vala:693
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "آیا مطمئنید که می‌خواهید تسلیم شوید و راه حل را ببینید؟"
 
-#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
-msgid "_Keep Playing"
-msgstr "_ادامه دادن بازی"
-
-#: ../src/gnome-tetravex.vala:350
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
+#: src/gnome-tetravex.vala:699
 msgid "_Give Up"
-msgstr "_تسلیم شدن"
+msgstr "_تسلیم"
 
-#: ../src/gnome-tetravex.vala:384
+#. Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game"
+#: src/gnome-tetravex.vala:738
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr "آیا مطمئنید که می‌خواهید یک بازی جدید با اندازه تخته متفاوت شروع کنید؟"
+
+#. Translators: text crediting a game author, seen in the About dialog
+#: src/gnome-tetravex.vala:874
+msgid "Lars Rydlinge"
+msgstr "لارس ریدلینگ"
+
+#. Translators: text crediting a game author, seen in the About dialog
+#: src/gnome-tetravex.vala:878
+msgid "Robert Ancell"
+msgstr "رابرت انسل"
+
+#. Translators: text crediting a game documenter, seen in the About dialog
+#: src/gnome-tetravex.vala:882
+msgid "Rob Bradford"
+msgstr "راب برادفورد"
+
+#. Translators: short description of the application, seen in the About dialog
+#: src/gnome-tetravex.vala:886
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "مهره‌ها را به گونه‌ای جابه‌جا کنید که عددهای یکسان در کنار هم قرار بگیرند"
 
-#: ../src/gnome-tetravex.vala:391
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/gnome-tetravex.vala:890
+#, c-format
+msgid "Copyright © %u-%u – Lars Rydlinge"
+msgstr "حق رونوشت © %Iu-%Iu – لارس ریدلینگ"
+
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/gnome-tetravex.vala:894
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "حق رونوشت © %Iu-%Iu – آرناد بوناتی"
+
+#. Translators: about dialog text; label of the website link
+#: src/gnome-tetravex.vala:898
+msgid "Page on GNOME wiki"
+msgstr "صفحه روی ویکی گنوم"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/gnome-tetravex.vala:910
 msgid "translator-credits"
 msgstr ""
 "آرش موسوی <mousavi.arash@gmail.com>\n"
 "دانیال بهزادی <dani.behzi@gmail.com>"
 
-#: ../src/gnome-tetravex.vala:409
-msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "آیا مطمئنید که می‌خواهید یک بازی جدید با اندازه تخته متفاوت شروع کنید؟"
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play", "Play on selected tile", "Select the given row", etc.
+#: src/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "بازی با صفحه‌کلید"
 
-#: ../src/gnome-tetravex.vala:411
-msgid "_Start New Game"
-msgstr "_شروع بازی جدید"
+#. Translators: Left/Right/Up/Down arrows actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; moves highlight
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move keyboard highlight"
+msgstr "جابه‌جایی نشانه‌گذاری صفحه‌کلید"
 
-#: ../src/puzzle-view.vala:356
-msgid "Paused"
-msgstr "مکث شده"
+#. Translators: Return/space actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depend on context
+#: src/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Select, move or unselect"
+msgstr "گزینش، جابه‌جایی یا ناگزینش"
 
-#: ../src/score-dialog.vala:29
+#. Translators: numbers (1 to 6) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use 1 to 2 or up to 1 to 6
+#: src/help-overlay.ui:53
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "گزینش ردیف داده‌شده"
+
+#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is splitted in two parts, that is for the left one
+#: src/help-overlay.ui:61
+msgctxt "shortcut window"
+msgid "Select left box column"
+msgstr "گزینش ستون جعبهٔ چپ"
+
+#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is splitted in two parts, that is for the right one
+#: src/help-overlay.ui:69
+msgctxt "shortcut window"
+msgid "Select right box column"
+msgstr "گزینش ستون جعبهٔ راست"
+
+#. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
+#: src/help-overlay.ui:78
+msgctxt "shortcut window"
+msgid "Validate right box"
+msgstr "تأیید اعتبار جعبهٔ راست"
+
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
+#: src/help-overlay.ui:87
+msgctxt "shortcut window"
+msgid "History"
+msgstr "تاریخچه"
+
+#. Translators: Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, undoes last move
+#: src/help-overlay.ui:93
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "برگردان"
+
+#. Translators: Shift-Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, redoes undone move
+#: src/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "انجام دوباره"
+
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"...
+#: src/help-overlay.ui:110
+msgctxt "shortcut window"
+msgid "Main functions"
+msgstr "توابع اصلی"
+
+#. Translators: Ctrl-N shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:116
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "شروع بازی جدید"
+
+#. Translators: Ctrl-P shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:124
+msgctxt "shortcut window"
+msgid "Pause the game"
+msgstr "مکث بازی"
+
+#. Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:132
+msgctxt "shortcut window"
+msgid "Solve the game"
+msgstr "حل بازی"
+
+#. Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:140
+msgctxt "shortcut window"
+msgid "Show scores"
+msgstr "نمایش امتیازها"
+
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Show Help", "Show Keyboard Shortcuts", "Quit"...
+#: src/help-overlay.ui:149
+msgctxt "shortcut window"
+msgid "Generic"
+msgstr "عمومی"
+
+#. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
+#: src/help-overlay.ui:155
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "نمایش میان‌برهای صفحه‌کلید"
+
+#. Translators: F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows application help
+#: src/help-overlay.ui:163
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "نمایش راهنما"
+
+#. Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog
+#: src/help-overlay.ui:171
+msgctxt "shortcut window"
+msgid "Show About"
+msgstr "نمایش راهنما"
+
+#. Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application
+#: src/help-overlay.ui:179
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "خروج"
 
-#: ../src/score-dialog.vala:30
-msgid "New Game"
-msgstr "بازی جدید"
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note...
+#: src/help-overlay.ui:188
+msgctxt "shortcut window"
+msgid "Advanced gameplay"
+msgstr "روند بازی پیش‌رفته"
 
-#: ../src/score-dialog.vala:33
-msgid "OK"
-msgstr "تایید"
+#. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:194
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به بالا"
 
-#: ../src/score-dialog.vala:45
-msgid "Size:"
-msgstr "اندازه:"
+#. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:202
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به پایین"
 
-#: ../src/score-dialog.vala:70
+#. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:210
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به چپ"
+
+#. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:218
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به راست"
+
+#. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:226
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box up by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به بالا"
+
+#. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:234
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box down by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به پایین"
+
+#. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:242
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box left by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به چپ"
+
+#. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:250
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box right by one"
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به راست"
+
+#. Translators: text that appears as an overlay on the board when the game is paused
+#: src/puzzle-view.vala:532
+msgid "Paused"
+msgstr "مکث شده"
+
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
+#: src/score-dialog.vala:72
 msgid "Date"
 msgstr "تاریخ"
 
-#: ../src/score-dialog.vala:73
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
+#: src/score-dialog.vala:76
 msgid "Time"
 msgstr "زمان"
+
+#. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
+#: src/score-dialog.vala:145
+#, c-format
+msgid "%u × %u"
+msgstr "%Iu × %Iu"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the game time
+#: src/score-overlay.vala:57
+msgid "New best time!"
+msgstr "بهترین زمان جدید!"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the second best time
+#: src/score-overlay.vala:61 src/score-overlay.vala:117
+msgid "Second:"
+msgstr "دوم:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the third best time
+#: src/score-overlay.vala:68 src/score-overlay.vala:94 src/score-overlay.vala:121
+msgid "Third:"
+msgstr "سوم:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old third best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old third best time
+#: src/score-overlay.vala:75 src/score-overlay.vala:101
+msgid "Out of podium:"
+msgstr "خارج از سکّو:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever
+#: src/score-overlay.vala:86 src/score-overlay.vala:112
+msgid "Best time:"
+msgstr "بهترین زمان:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the game time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the game time
+#: src/score-overlay.vala:90 src/score-overlay.vala:129
+msgid "Your time:"
+msgstr "زمانتان:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank before the one of the game played
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank after the one of the game played
+#: src/score-overlay.vala:125 src/score-overlay.vala:133
+#, c-format
+msgid "Place %u:"
+msgstr "مکان %Iu:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made one of the worst scores for a game of this size; says that the rank after the one of the game is "free", inviting to do worse
+#: src/score-overlay.vala:164
+msgid "Free!"
+msgstr "مفت!"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete
+#: src/score-overlay.ui:37
+msgid "Congratulations!"
+msgstr "تبریک!"
+
+#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
+#: src/score-overlay.ui:78
+msgid "Show scores"
+msgstr "نمایش امتیازها"
+
+#~ msgid "_Size"
+#~ msgstr "_اندازه"
+
+#~ msgid "_2x2"
+#~ msgstr "_۲×۲"
+
+#~ msgid "_3x3"
+#~ msgstr "_۳×۳"
+
+#~ msgid "_4x4"
+#~ msgstr "_۴×۴"
+
+#~ msgid "_5x5"
+#~ msgstr "_۵×۵"
+
+#~ msgid "_6x6"
+#~ msgstr "_۶×۶"
+
+#~ msgid "_Quit"
+#~ msgstr "_خروج"
+
+#~ msgid "New Game"
+#~ msgstr "بازی جدید"
+
+#~ msgid "OK"
+#~ msgstr "تایید"
+
+#~ msgid "Size:"
+#~ msgstr "اندازه:"
