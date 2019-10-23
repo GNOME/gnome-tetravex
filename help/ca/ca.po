@@ -492,7 +492,7 @@ msgstr ""
 
 #: C/index.page:31(title)
 msgid "Basic Gameplay &amp; Usage"
-msgstr "Instruccions del joc &amp; normes"
+msgstr "Instruccions del joc i normes"
 
 #: C/index.page:35(title)
 msgid "Multiplayer Game"
@@ -500,7 +500,7 @@ msgstr "Joc multijugador"
 
 #: C/index.page:39(title)
 msgid "Tips &amp; Tricks"
-msgstr "Consells &amp; trucs"
+msgstr "Consells i trucs"
 
 #: C/hint.page:7(desc)
 msgid "Use hints or solve the game automatically."
@@ -556,7 +556,7 @@ msgstr ""
 
 #: C/hint.page:52(title)
 msgid "Solve the game"
-msgstr "Resoleu una partida"
+msgstr "Resoleu la partida"
 
 #: C/hint.page:53(p)
 msgid ""
