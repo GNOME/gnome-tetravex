@@ -679,7 +679,7 @@ private class PuzzleView : Gtk.DrawingArea
             return false;
         clear_keyboard_highlight (/* only selection */ false);
 
-        if (event.button == 1 || event.button == 3)
+        if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
             return main_button_pressed (event);
 
         if (!mouse_use_extra_buttons)
@@ -772,7 +772,8 @@ private class PuzzleView : Gtk.DrawingArea
             return false;
         clear_keyboard_highlight (/* only selection */ false);
 
-        if ((event.button == 1 || event.button == 3) && selected_tile != null && selection_timeout == 0)
+        if ((event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
+         && selected_tile != null && selection_timeout == 0)
             drop_tile (event.x, event.y);
 
         if (selection_timeout != 0)
