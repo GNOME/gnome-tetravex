@@ -15,9 +15,10 @@ gnome = import('gnome')
 i18n = import('i18n')
 
 # Paths
-mandir = join_paths (get_option ('prefix'), get_option ('mandir'))
-localedir = join_paths (get_option ('prefix'), get_option ('localedir'))
-datadir = join_paths (get_option ('prefix'), get_option ('datadir'))
+mandir      = join_paths (get_option ('prefix'), get_option ('mandir'))
+localedir   = join_paths (get_option ('prefix'), get_option ('localedir'))
+datadir     = join_paths (get_option ('prefix'), get_option ('datadir'))
+bindir      = join_paths (get_option ('prefix'), get_option ('bindir'))
 
 # Dependencies
 glib_dep = dependency ('glib-2.0', version: '>= 2.42.0')
