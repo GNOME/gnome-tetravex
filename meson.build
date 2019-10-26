@@ -5,7 +5,7 @@ project ('gnome-tetravex', ['vala', 'c'],
              'warning_level=1',
              'buildtype=debugoptimized',
          ],
-         meson_version: '>= 0.37.1')
+         meson_version: '>= 0.50.0')
 
 project_id = 'org.gnome.Tetravex'
 
