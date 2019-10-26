@@ -229,6 +229,7 @@ private class Tetravex : Gtk.Application
         HeaderBar headerbar = new HeaderBar ();
         headerbar.title = PROGRAM_NAME;
         headerbar.show_close_button = true;
+        headerbar.show ();
         window.set_titlebar (headerbar);
 
         Builder menu_builder = new Builder.from_resource ("/org/gnome/Tetravex/app-menu.ui");
@@ -283,6 +284,7 @@ private class Tetravex : Gtk.Application
         view.hexpand = true;
         view.vexpand = true;
         view.can_focus = true;
+        view.show ();
         view.button_release_event.connect (view_button_release_event);
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
@@ -390,8 +392,6 @@ private class Tetravex : Gtk.Application
                     solve_action.set_enabled (!view.tile_selected && /* should never happen */ !puzzle.paused);
                 finish_action.set_enabled (!view.tile_selected);
             });
-
-        window.show_all ();
 
         tick_cb ();
         if (can_restore && restore_on_start)
