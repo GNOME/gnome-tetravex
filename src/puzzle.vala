@@ -44,14 +44,17 @@ private class Puzzle : Object
     private Tile? [,] board;
 
     /* Game timer */
-    private Timer? clock;
+    private Timer? clock = null;    // TODO ask for Timer.do_not_start() constructor
     private uint clock_timeout;
-    public double initial_time { private get; protected construct; default = 0.0; }
+    [CCode (notify = false)] public double initial_time { private get; protected construct; default = 0.0; }
+    [CCode (notify = false)] public bool tainted_by_command_line { internal get; protected construct; }
 
     [CCode (notify = false)] internal double elapsed
     {
         get
         {
+            if (tainted_by_command_line)
+                assert_not_reached ();
             if (clock == null)
                 return 0.0;
             return initial_time + ((!) clock).elapsed ();
@@ -100,10 +103,10 @@ private class Puzzle : Object
         return true;
     }
 
-    public bool restored { private get; protected construct; default = false; }
+    [CCode (notify = false)] public bool restored { private get; protected construct; default = false; }
     internal Puzzle (uint8 size, uint8 colors)
     {
-        Object (size: size, colors: colors);
+        Object (size: size, colors: colors, tainted_by_command_line: false);
     }
 
     construct
@@ -326,16 +329,17 @@ private class Puzzle : Object
         _switch_tiles (x0, y0, x1, y1, /* delay if finished */ 0, /* undoing or redoing */ false, last_move_id);
     }
 
-    internal void move_up (bool left_board)
+    internal bool move_up (bool left_board)
     {
         if (!can_move_up (left_board) || last_move_id == uint.MAX)
-            return;
+            return false;
         last_move_id++;
 
         uint8 base_x = left_board ? 0 : size;
         for (uint8 y = 1; y < size; y++)
             for (uint8 x = 0; x < size; x++)
                 switch_one_of_many_tiles (base_x + x, y, base_x + x, y - 1);
+        return true;
     }
     private bool can_move_up (bool left_board)
     {
@@ -343,19 +347,26 @@ private class Puzzle : Object
         for (uint8 x = 0; x < size; x++)
             if (board [base_x + x, 0] != null)
                 return false;
-        return true;
+
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 1; y < size; y++)
+                if (board [base_x + x, y] != null)
+                    return true;
+
+        return false;
     }
 
-    internal void move_down (bool left_board)
+    internal bool move_down (bool left_board)
     {
         if (!can_move_down (left_board) || last_move_id == uint.MAX)
-            return;
+            return false;
         last_move_id++;
 
         uint8 base_x = left_board ? 0 : size;
         for (uint8 y = size - 1; y > 0; y--)
             for (uint8 x = 0; x < size; x++)
                 switch_one_of_many_tiles (base_x + x, y - 1, base_x + x, y);
+        return true;
     }
     private bool can_move_down (bool left_board)
     {
@@ -363,19 +374,26 @@ private class Puzzle : Object
         for (uint8 x = 0; x < size; x++)
             if (board [base_x + x, size - 1] != null)
                 return false;
-        return true;
+
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size - 1; y++)
+                if (board [base_x + x, y] != null)
+                    return true;
+
+        return false;
     }
 
-    internal void move_left (bool left_board)
+    internal bool move_left (bool left_board)
     {
         if (!can_move_left (left_board) || last_move_id == uint.MAX)
-            return;
+            return false;
         last_move_id++;
 
         uint8 base_x = left_board ? 0 : size;
         for (uint8 x = 1; x < size; x++)
             for (uint8 y = 0; y < size; y++)
                 switch_one_of_many_tiles (base_x + x, y, base_x + x - 1, y);
+        return true;
     }
     private bool can_move_left (bool left_board)
     {
@@ -383,27 +401,41 @@ private class Puzzle : Object
         for (uint8 y = 0; y < size; y++)
             if (board [left_column, y] != null)
                 return false;
-        return true;
+
+        for (uint8 x = 1; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                if (board [left_column + x, y] != null)
+                    return true;
+
+        return false;
     }
 
-    internal void move_right (bool left_board)
+    internal bool move_right (bool left_board)
     {
         if (!can_move_right (left_board) || last_move_id == uint.MAX)
-            return;
+            return false;
         last_move_id++;
 
         uint8 base_x = left_board ? 0 : size;
         for (uint8 x = size - 1; x > 0; x--)
             for (uint8 y = 0; y < size; y++)
                 switch_one_of_many_tiles (base_x + x - 1, y, base_x + x, y);
+        return true;
     }
     private bool can_move_right (bool left_board)
     {
-        uint8 right_column = left_board ? size - 1 : 2 * size - 1;
+        uint8 left_column = left_board ? 0 : size;
+        uint8 right_column = left_column + size - 1;
         for (uint8 y = 0; y < size; y++)
             if (board [right_column, y] != null)
                 return false;
-        return true;
+
+        for (uint8 x = 0; x < size - 1; x++)
+            for (uint8 y = 0; y < size; y++)
+                if (board [left_column + x, y] != null)
+                    return true;
+
+        return false;
     }
 
     internal void try_move (uint8 x, uint8 y)
@@ -459,15 +491,6 @@ private class Puzzle : Object
         return true;
     }
 
-    private enum Direction
-    {
-        NONE,
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT;
-    }
-
     /*\
     * * actions
     \*/
@@ -504,6 +527,28 @@ private class Puzzle : Object
                 switch_tiles (x + size, y, x, y, duration);
     }
 
+    internal bool move_last_tile_if_possible ()
+    {
+        uint8 empty_x;
+        uint8 empty_y;
+        if (!only_one_remaining_tile (out empty_x, out empty_y))
+            return false;
+
+        for (uint8 x = size; x < 2 * size; x++)
+            for (uint8 y = 0; y < size; y++)
+                if (get_tile (x, y) != null)
+                {
+                    if (can_switch (x, y, empty_x, empty_y))
+                    {
+                        switch_tiles (x, y, empty_x, empty_y);
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+        assert_not_reached ();
+    }
+
     internal bool only_one_remaining_tile (out uint8 empty_x, out uint8 empty_y)
     {
         bool empty_found = false;
@@ -531,6 +576,8 @@ private class Puzzle : Object
 
     private void start_clock ()
     {
+        if (tainted_by_command_line)
+            return;
         if (clock == null)
             clock = new Timer ();
         timeout_cb ();
@@ -538,6 +585,8 @@ private class Puzzle : Object
 
     private void stop_clock ()
     {
+        if (tainted_by_command_line)
+            return;
         if (clock == null)
             return;
         if (clock_timeout != 0)
@@ -549,6 +598,8 @@ private class Puzzle : Object
 
     private void continue_clock ()
     {
+        if (tainted_by_command_line)
+            return;
         if (clock == null)
             clock = new Timer ();
         else
@@ -558,6 +609,7 @@ private class Puzzle : Object
 
     private bool timeout_cb ()
         requires (clock != null)
+        requires (!tainted_by_command_line)
     {
         /* Notify on the next tick */
         double elapsed = ((!) clock).elapsed ();
@@ -584,11 +636,11 @@ private class Puzzle : Object
 
     private class Inversion : Object
     {
-        public uint8 x0 { internal get; protected construct; }
-        public uint8 y0 { internal get; protected construct; }
-        public uint8 x1 { internal get; protected construct; }
-        public uint8 y1 { internal get; protected construct; }
-        public uint  id { internal get; protected construct; }
+        [CCode (notify = false)] public uint8 x0 { internal get; protected construct; }
+        [CCode (notify = false)] public uint8 y0 { internal get; protected construct; }
+        [CCode (notify = false)] public uint8 x1 { internal get; protected construct; }
+        [CCode (notify = false)] public uint8 y1 { internal get; protected construct; }
+        [CCode (notify = false)] public uint  id { internal get; protected construct; }
 
         internal Inversion (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint id)
         {
@@ -697,7 +749,7 @@ private class Puzzle : Object
     * * save and restore
     \*/
 
-    internal Variant to_variant ()
+    internal Variant to_variant (bool save_time)
     {
         VariantBuilder builder = new VariantBuilder (new VariantType ("m(yyda(yyyyyyyy)ua(yyyyu))"));
         builder.open (new VariantType ("(yyda(yyyyyyyy)ua(yyyyu))"));
@@ -705,7 +757,10 @@ private class Puzzle : Object
         // board
         builder.add ("y", size);
         builder.add ("y", colors);
-        builder.add ("d", elapsed);
+        if (save_time)
+            builder.add ("d", elapsed);
+        else
+            builder.add ("d", double.MAX);
 
         // tiles
         builder.open (new VariantType ("a(yyyyyyyy)"));
@@ -753,7 +808,7 @@ private class Puzzle : Object
         public uint8 initial_y;
     }
 
-    internal static bool is_valid_saved_game (Variant maybe_variant)
+    internal static bool is_valid_saved_game (Variant maybe_variant, bool restore_finished_game)
     {
         Variant? variant = maybe_variant.get_maybe ();
         if (variant == null)
@@ -839,7 +894,15 @@ private class Puzzle : Object
 
         // TODO validate history 1/2
 
-        return true;
+        if (restore_finished_game)
+            return true;
+
+        // return false if the game is finished, true otherwise
+        for (uint8 x = board_size; x < board_size * 2; x++)
+            for (uint8 y = 0; y < board_size; y++)
+                if (current_board [x, y])
+                    return true;
+        return false;
     }
 
     internal Puzzle.restore (Variant maybe_variant)
@@ -854,7 +917,7 @@ private class Puzzle : Object
         ((!) variant).get_child (0, "y", out _size);
         ((!) variant).get_child (1, "y", out _colors);
         ((!) variant).get_child (2, "d", out _elapsed);
-        Object (size: _size, colors: _colors, restored: true, initial_time: _elapsed);
+        Object (size: _size, colors: _colors, restored: true, initial_time: _elapsed, tainted_by_command_line: _elapsed == double.MAX);
 
         Variant array_variant = ((!) variant).get_child_value (3);
         board = new Tile? [size * 2, size];
@@ -887,7 +950,17 @@ private class Puzzle : Object
         game_in_progress = true;
         if (solved_on_right ())
             is_solved_right = true;
+        check_if_solved ();
     }
 
     // TODO restore history 2/2
+}
+
+private enum Direction
+{
+    NONE,
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT;
 }

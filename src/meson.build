@@ -3,6 +3,7 @@ resources = gnome.compile_resources ('resources', 'gnome-tetravex.gresource.xml'
                                      c_name: 'resources')
 
 sources = files (
+    'cli.vala',
     'config.vapi',
     'gnome-tetravex.vala',
     'history.vala',

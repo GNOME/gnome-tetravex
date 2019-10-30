@@ -26,18 +26,18 @@ private class Tetravex : Gtk.Application
     /* Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog */
     private const string PROGRAM_NAME = _("Tetravex");
 
-    private const string KEY_GRID_SIZE = "grid-size";
-
     private static bool start_paused = false;
     private static bool restore_on_start = false;
     private static int game_size = int.MIN;
     private static int colors = 10;
+    private static string? cli = null;
 
     private GLib.Settings settings;
 
     private Puzzle puzzle;
     private bool puzzle_init_done = false;
     private Label clock_label;
+    private Box clock_box;
     private History history;
 
     private PuzzleView view;
@@ -68,6 +68,12 @@ private class Tetravex : Gtk.Application
     private const OptionEntry [] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
+        { "cli", 0,       OptionFlags.OPTIONAL_ARG, OptionArg.CALLBACK, (void*) _cli,   N_("Play in the terminal (see “--cli=help”)"),
+
+        /* Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help' */
+                                                                                        N_("COMMAND") },
+
+        /* Translators: command-line option description, see 'gnome-tetravex --help' */
         { "colors",  'c', OptionFlags.NONE, OptionArg.INT,  ref colors,                 N_("Set number of colors (2-10)"),
 
         /* Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help' */
@@ -91,6 +97,12 @@ private class Tetravex : Gtk.Application
         { OPTION_REMAINING, 0, OptionFlags.NONE, OptionArg.STRING_ARRAY, ref remaining, "args", null },
         {}
     };
+
+    private bool _cli (string? option_name, string? val)
+    {
+        cli = option_name == null ? "" : (!) option_name;  // TODO report bug: should probably be val...
+        return true;
+    }
 
     private const GLib.ActionEntry[] action_entries =
     {
@@ -165,9 +177,41 @@ private class Tetravex : Gtk.Application
 
         if (remaining [0] != null)
         {
-            /* Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex cli' */
+            /* Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2' */
             stderr.printf (N_("Failed to parse command-line arguments.\n"));
             return Posix.EXIT_FAILURE;
+        }
+
+        if (cli != null)
+        {
+            if ((!) cli == "help" || (!) cli == "HELP")
+            {
+                stdout.printf ("\n" + "To play GNOME Tetravex in command-line:");
+                stdout.printf ("\n  --cli A1b2    " + "Invert two tiles, the one in A1, and the one in b2.");
+                stdout.printf ("\n                " + "An uppercase targets a tile from the initial board.");
+                stdout.printf ("\n                " + "A lowercase targets a tile in the left/final board.");
+                stdout.printf ("\n                " + "Digits specify the rows of the two tiles to invert.");
+                stdout.printf ("\n");
+                stdout.printf ("\n  --cli         " + "Show the current puzzle. Alias: “status” or “show”.");
+                stdout.printf ("\n  --cli new     " + "Create a new puzzle; for changing size, use --size.");
+                stdout.printf ("\n  --cli solve   " + "Give up with current puzzle, and view the solution.");
+                stdout.printf ("\n");
+                stdout.printf ("\n  --cli finish  " + "Finish current puzzle, automatically. Alias: “end”.");
+                stdout.printf ("\n                " + "Works for puzzles solved right or if one tile left.");
+                stdout.printf ("\n");
+                stdout.printf ("\n  --cli up      " + "Move all left-board tiles up by one.");
+                stdout.printf ("\n  --cli down    " + "Move all left-board tiles down by one.");
+                stdout.printf ("\n  --cli left    " + "Move all left-board tiles left by one.");
+                stdout.printf ("\n  --cli right   " + "Move all left-board tiles right by one.");
+                stdout.printf ("\n");
+                stdout.printf ("\n  --cli r-up    " + "Move all right-board tiles up by one.");
+                stdout.printf ("\n  --cli r-down  " + "Move all right-board tiles down by one.");
+                stdout.printf ("\n  --cli r-left  " + "Move all right-board tiles left by one.");
+                stdout.printf ("\n  --cli r-right " + "Move all right-board tiles right by one.");
+                stdout.printf ("\n\n");
+                return Posix.EXIT_SUCCESS;
+            }
+            return CLI.play_cli ((!) cli, "org.gnome.Tetravex", out settings, out saved_game, out can_restore, out puzzle, ref colors, ref game_size);
         }
 
         /* Activate */
@@ -184,7 +228,7 @@ private class Tetravex : Gtk.Application
         settings = new GLib.Settings ("org.gnome.Tetravex");
 
         saved_game = settings.get_value ("saved-game");
-        can_restore = Puzzle.is_valid_saved_game (saved_game);
+        can_restore = Puzzle.is_valid_saved_game (saved_game, /* restore finished game */ false);
 
         add_action_entries (action_entries, this);
         add_action (settings.create_action ("theme"));
@@ -373,19 +417,18 @@ private class Tetravex : Gtk.Application
         new_game_solve_stack.show ();
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
-        Box box = new Box (Orientation.HORIZONTAL, /* spacing */ 8);
+        clock_box = new Box (Orientation.HORIZONTAL, /* spacing */ 8);
         Image image = new Image.from_icon_name ("preferences-system-time-symbolic", IconSize.MENU);
         image.show ();
-        box.add (image);
+        clock_box.add (image);
         clock_label = new Label ("");
         clock_label.show ();
-        box.add (clock_label);
-        box.halign = Align.CENTER;
-        box.valign = Align.BASELINE;
-        box.set_margin_top (20);
-        box.set_margin_bottom (20);
-        box.show ();
-        grid.attach (box, 1, 1, 1, 1);
+        clock_box.add (clock_label);
+        clock_box.halign = Align.CENTER;
+        clock_box.valign = Align.BASELINE;
+        clock_box.set_margin_top (20);
+        clock_box.set_margin_bottom (20);
+        grid.attach (clock_box, 1, 1, 1, 1);
 
         undo_action   = (SimpleAction) lookup_action ("undo");
         redo_action   = (SimpleAction) lookup_action ("redo");
@@ -465,8 +508,8 @@ private class Tetravex : Gtk.Application
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", is_maximized);
-        if (puzzle.game_in_progress && !puzzle.is_solved)
-            settings.set_value ("saved-game", puzzle.to_variant ());
+        if (puzzle.game_in_progress)
+            settings.set_value ("saved-game", puzzle.to_variant (/* save time */ !puzzle.tainted_by_command_line));
         else if (!can_restore)
             settings.@set ("saved-game", "m(yyda(yyyyyyyy)ua(yyyyu))", null);
         settings.apply ();
@@ -520,14 +563,19 @@ private class Tetravex : Gtk.Application
         else
             was_paused = false;
 
-        int size = settings.get_int (KEY_GRID_SIZE);
         if (saved_game == null)
+        {
+            int size = settings.get_int (KEY_GRID_SIZE);
             puzzle = new Puzzle ((uint8) size, (uint8) colors);
+            clock_box.show ();
+        }
         else
         {
             puzzle = new Puzzle.restore ((!) saved_game);
             if (puzzle.is_solved_right)
                 solved_right_cb ();
+            if (puzzle.tainted_by_command_line)
+                clock_box.hide ();
         }
         puzzle_init_done = true;
         puzzle.tick.connect (tick_cb);
@@ -561,6 +609,9 @@ private class Tetravex : Gtk.Application
 
     private void tick_cb ()
     {
+        if (puzzle_init_done && puzzle.tainted_by_command_line)
+            return;
+
         int elapsed = 0;
         if (puzzle_init_done)
             elapsed = (int) puzzle.elapsed; // felt better when + 0.5, but as the clock is still displayed while the score-overlay displays the exact time, that is regularly feeling odd
@@ -603,21 +654,40 @@ private class Tetravex : Gtk.Application
 
     private void show_end_game_cb (Puzzle puzzle)
     {
-        DateTime date = new DateTime.now_local ();
-        last_history_entry = new HistoryEntry (date, puzzle.size, puzzle.elapsed, /* old history format */ false);
+        if (puzzle.tainted_by_command_line)
+        {
+            if (!puzzle_is_finished) // Ctrl-n has been hit before the animation finished
+                return;
 
-        if (!puzzle_is_finished) // Ctrl-n has been hit before the animation finished
-            return;
+            HistoryEntry? best_score;
+            HistoryEntry? second_score;
+            HistoryEntry? third_score;
+            HistoryEntry? worst_score;
+            history.get_fallback_scores (puzzle.size,
+                                     out best_score,
+                                     out second_score,
+                                     out third_score,
+                                     out worst_score);
+            score_overlay.display_fallback_scores (puzzle.size, best_score, second_score, third_score, worst_score);
+        }
+        else
+        {
+            DateTime date = new DateTime.now_local ();
+            last_history_entry = new HistoryEntry (date, puzzle.size, puzzle.elapsed, /* old history format */ false);
 
-        HistoryEntry? other_score_0;
-        HistoryEntry? other_score_1;
-        HistoryEntry? other_score_2;
-        uint position = history.get_place ((!) last_history_entry,
-                                           puzzle.size,
-                                       out other_score_0,
-                                       out other_score_1,
-                                       out other_score_2);
-        score_overlay.set_score (puzzle.size, position, (!) last_history_entry, other_score_0, other_score_1, other_score_2);
+            if (!puzzle_is_finished) // Ctrl-n has been hit before the animation finished
+                return;
+
+            HistoryEntry? other_score_0;
+            HistoryEntry? other_score_1;
+            HistoryEntry? other_score_2;
+            uint position = history.get_place ((!) last_history_entry,
+                                               puzzle.size,
+                                           out other_score_0,
+                                           out other_score_1,
+                                           out other_score_2);
+            score_overlay.set_score (puzzle.size, position, (!) last_history_entry, other_score_0, other_score_1, other_score_2);
+        }
 
         new_game_solve_stack.set_visible_child_name ("new-game");
         view.hide_right_sockets ();
@@ -696,7 +766,7 @@ private class Tetravex : Gtk.Application
     private bool has_been_solved = false;
     private void solve_cb ()
     {
-        if (puzzle.elapsed < 0.2)   // security against multi-click on new-game button
+        if (!puzzle.tainted_by_command_line && puzzle.elapsed < 0.2)   // security against multi-click on new-game button
             return;
 
         if (puzzle.game_in_progress)

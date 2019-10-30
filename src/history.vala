@@ -121,6 +121,59 @@ private class History : Object
         return first_entry == null;
     }
 
+    internal void get_fallback_scores (uint8          puzzle_size,
+                                   out HistoryEntry?  fallback_score_0,
+                                   out HistoryEntry?  fallback_score_1,
+                                   out HistoryEntry?  fallback_score_2,
+                                   out HistoryEntry?  fallback_score_3)
+    {
+        unowned List<HistoryEntry>? tmp_item = entries.first ();
+
+        while (tmp_item != null && ((!) tmp_item).data.size < puzzle_size)
+        { tmp_item = ((!) tmp_item).next; }
+
+        if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
+        {
+            fallback_score_0 = null;
+            fallback_score_1 = null;
+            fallback_score_2 = null;
+            fallback_score_3 = null;
+            return;
+        }
+        fallback_score_0 = ((!) tmp_item).data;
+
+        tmp_item = ((!) tmp_item).next;
+        if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
+        {
+            fallback_score_1 = null;
+            fallback_score_2 = null;
+            fallback_score_3 = null;
+            return;
+        }
+        fallback_score_1 = ((!) tmp_item).data;
+
+        tmp_item = ((!) tmp_item).next;
+        if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
+        {
+            fallback_score_2 = null;
+            fallback_score_3 = null;
+            return;
+        }
+        fallback_score_2 = ((!) tmp_item).data;
+
+        tmp_item = ((!) tmp_item).next;
+        if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
+        {
+            fallback_score_3 = null;
+            return;
+        }
+
+        unowned List<HistoryEntry> tmp_item_prev = (!) tmp_item;    // garbage
+        do { tmp_item_prev = (!) tmp_item; tmp_item = ((!) tmp_item).next; }
+        while (tmp_item != null && ((!) tmp_item).data.size == puzzle_size);
+        fallback_score_3 = tmp_item_prev.data;
+    }
+
     /*\
     * * loading
     \*/
