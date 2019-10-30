@@ -330,6 +330,7 @@ private class Tetravex : Gtk.Application
         play_pause_stack = new Stack ();
         play_pause_stack.add_named (play_button, "play");
         play_pause_stack.add_named (pause_button, "pause");
+        play_pause_stack.show ();
         grid.attach (play_pause_stack, 0, 1, 1, 1);
 
         new_game_button         = new BottomButton ("view-refresh-symbolic",
@@ -358,17 +359,20 @@ private class Tetravex : Gtk.Application
         new_game_solve_stack.add_named (solve_button, "solve");
         new_game_solve_stack.add_named (new_game_button, "new-game");
         new_game_solve_stack.add_named (finish_button, "finish");
+        new_game_solve_stack.show ();
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
         Box box = new Box (Orientation.HORIZONTAL, /* spacing */ 8);
         Image image = new Image.from_icon_name ("preferences-system-time-symbolic", IconSize.MENU);
         box.add (image);
         clock_label = new Label ("");
+        clock_label.show ();
         box.add (clock_label);
         box.halign = Align.CENTER;
         box.valign = Align.BASELINE;
         box.set_margin_top (20);
         box.set_margin_bottom (20);
+        box.show ();
         grid.attach (box, 1, 1, 1, 1);
 
         undo_action   = (SimpleAction) lookup_action ("undo");
@@ -417,7 +421,8 @@ private class Tetravex : Gtk.Application
                     margin_start: 35,
                     margin_end: 35,
                     image: _image,
-                    focus_on_click: false);
+                    focus_on_click: false,
+                    visible: true);
 
             sizegroup.add_widget (this);
         }
