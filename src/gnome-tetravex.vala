@@ -364,6 +364,7 @@ private class Tetravex : Gtk.Application
 
         Box box = new Box (Orientation.HORIZONTAL, /* spacing */ 8);
         Image image = new Image.from_icon_name ("preferences-system-time-symbolic", IconSize.MENU);
+        image.show ();
         box.add (image);
         clock_label = new Label ("");
         clock_label.show ();
