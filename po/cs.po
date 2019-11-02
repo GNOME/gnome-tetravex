@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-10-19 00:52+0000\n"
+"POT-Creation-Date: 2019-11-02 08:33+0000\n"
 "PO-Revision-Date: 2019-11-02 08:03+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
@@ -103,9 +103,9 @@ msgid ""
 "will determine if any action is taken inside of the window when either is "
 "pressed."
 msgstr ""
-"Pro uživatele, kteří mají myš s tlačítky „Zpět“ („Back“) a „Vpřed“ "
-"(„Forward“), tento klíč určuje, jestli se při jejich zmáčknutí uvnitř okna "
-"něco provede."
+"Pro uživatele, kteří mají myš s tlačítky „Zpět“ („Back“) a "
+"„Vpřed“ („Forward“), tento klíč určuje, jestli se při jejich zmáčknutí "
+"uvnitř okna něco provede."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:28
@@ -119,9 +119,9 @@ msgid ""
 "will set which button activates the “Undo” command. Possible values range "
 "between 6 and 14."
 msgstr ""
-"Pro uživatele, kteří mají myš s tlačítky „Zpět“ („Back“) a „Vpřed“ "
-"(„Forward“), tento klíč nastavuje, které tlačítko spouští příkaz „Zpět“ v "
-"historii. Rozsah přípustných hodnot je od 6 do 14."
+"Pro uživatele, kteří mají myš s tlačítky „Zpět“ („Back“) a "
+"„Vpřed“ („Forward“), tento klíč nastavuje, které tlačítko spouští příkaz "
+"„Zpět“ v historii. Rozsah přípustných hodnot je od 6 do 14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:36
@@ -135,9 +135,9 @@ msgid ""
 "will set which button activates the “Redo” command. Possible values range "
 "between 6 and 14."
 msgstr ""
-"Pro uživatele, kteří mají myš s tlačítky „Zpět“ („Back“) a „Vpřed“ "
-"(„Forward“), tento klíč nastavuje, které tlačítko spouští příkaz „Znovu“ v "
-"historii. Rozsah přípustných hodnot je od 6 do 14."
+"Pro uživatele, kteří mají myš s tlačítky „Zpět“ („Back“) a "
+"„Vpřed“ („Forward“), tento klíč nastavuje, které tlačítko spouští příkaz "
+"„Znovu“ v historii. Rozsah přípustných hodnot je od 6 do 14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
 #: data/org.gnome.Tetravex.gschema.xml:43
@@ -160,8 +160,8 @@ msgstr ""
 "Následuje seznamem kamenů, uložených jako tyto vlastnosti: aktuální pozice "
 "(x a y), jeho barvy (nahoře, vpravo, dole, vlevo) a jeho původní pozice (x a "
 "y). A na závěr pak obsahuje historii s pořadím posledního tahu a záznamy "
-"historie uloženými jako tyto vlastnosti: souřadnice dvou prohozených kamenů a "
-"číslo tahu."
+"historie uloženými jako tyto vlastnosti: souřadnice dvou prohozených kamenů "
+"a číslo tahu."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
 #: data/org.gnome.Tetravex.gschema.xml:50
@@ -324,57 +324,57 @@ msgid "There could only be between 2 and 10 colors.\n"
 msgstr "Počet barev by měl být v rozmezí 2 až 10.\n"
 
 #. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
-#: src/gnome-tetravex.vala:267
+#: src/gnome-tetravex.vala:268
 msgid "Restore last game"
 msgstr "Obnovit poslední hru"
 
 #. not a typo
 #. Translators: tooltip text of the "play"/unpause button, in the bottom bar
-#: src/gnome-tetravex.vala:317
+#: src/gnome-tetravex.vala:319
 msgid "Resume the game"
 msgstr "Pokračovat ve hře"
 
 #. Translators: tooltip text of the pause button, in the bottom bar
-#: src/gnome-tetravex.vala:324
+#: src/gnome-tetravex.vala:326
 msgid "Pause the game"
 msgstr "Pozastavit hru"
 
 #. Translators: tooltip text of the "restart"/new game button, in the bottom bar
-#: src/gnome-tetravex.vala:336
+#: src/gnome-tetravex.vala:339
 msgid "Start a new game"
 msgstr "Začít novou hru"
 
 #. Translators: tooltip text of the "solve"/give up button, in the bottom bar
-#: src/gnome-tetravex.vala:343
+#: src/gnome-tetravex.vala:346
 msgid "Give up and view the solution"
 msgstr "Vzdát to a zobrazit řešení"
 
 #. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
-#: src/gnome-tetravex.vala:350
+#: src/gnome-tetravex.vala:353
 msgid "Move all tiles left"
 msgstr "Posunout všechny kameny vlevo"
 
 #. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:621
+#: src/gnome-tetravex.vala:627
 msgid "Are you sure you want to start a new game with same board size?"
 msgstr "Opravdu to chcete začít novu hru se stejnou velikostí herní desky?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game"
-#: src/gnome-tetravex.vala:624 src/gnome-tetravex.vala:696
-#: src/gnome-tetravex.vala:741
+#: src/gnome-tetravex.vala:630 src/gnome-tetravex.vala:702
+#: src/gnome-tetravex.vala:747
 msgid "_Keep Playing"
 msgstr "Po_kračovat v hraní"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:627 src/gnome-tetravex.vala:744
+#: src/gnome-tetravex.vala:633 src/gnome-tetravex.vala:750
 msgid "_Start New Game"
 msgstr "Začít _novou hru"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
-#: src/gnome-tetravex.vala:654
+#: src/gnome-tetravex.vala:660
 msgid ""
 "Looks like you haven’t finished a game yet.\n"
 "\n"
@@ -385,59 +385,58 @@ msgstr ""
 "Zkuste třeba mřížku 2 × 2, ta je jednoduchá. 🙂️"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
-#: src/gnome-tetravex.vala:693
+#: src/gnome-tetravex.vala:699
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Opravdu to chcete vzdát a zobrazit řešení?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:699
+#: src/gnome-tetravex.vala:705
 msgid "_Give Up"
 msgstr "Vz_dát to"
 
 #. Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:738
+#: src/gnome-tetravex.vala:744
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr "Opravdu to chcete začít novu hru s jinou velikostí herní desky?"
 
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:874
+#: src/gnome-tetravex.vala:880
 msgid "Lars Rydlinge"
 msgstr "Lars Rydlinge"
 
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:878
+#: src/gnome-tetravex.vala:884
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting a game documenter, seen in the About dialog
-#: src/gnome-tetravex.vala:882
+#: src/gnome-tetravex.vala:888
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. Translators: short description of the application, seen in the About dialog
-#: src/gnome-tetravex.vala:886
+#: src/gnome-tetravex.vala:892
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "Uspořádejte kameny tak, aby se dotýkaly stejnými čísly"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:890
+#: src/gnome-tetravex.vala:896
 #, c-format
 msgid "Copyright © %u-%u – Lars Rydlinge"
 msgstr "Copyright © %u - %u – Lars Rydlinge"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:894
-#, c-format
-msgid "Copyright © %u - %u – Arnaud Bonatti"
+#: src/gnome-tetravex.vala:900
+msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u - %u – Arnaud Bonatti"
 
 #. Translators: about dialog text; label of the website link
-#: src/gnome-tetravex.vala:898
+#: src/gnome-tetravex.vala:904
 msgid "Page on GNOME wiki"
 msgstr "Stránka na Wiki GNOME"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-tetravex.vala:910
+#: src/gnome-tetravex.vala:916
 msgid "translator-credits"
 msgstr ""
 "Jirka Lébl\n"
