@@ -64,28 +64,31 @@ private class Tetravex : Gtk.Application
 
     private MenuButton hamburger_button;
 
+    private static string? [] remaining = new string? [1];
     private const OptionEntry [] option_entries =
     {
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "colors",  'c', OptionFlags.NONE, OptionArg.INT,  ref colors,    N_("Set number of colors (2-10)"),
+        { "colors",  'c', OptionFlags.NONE, OptionArg.INT,  ref colors,                 N_("Set number of colors (2-10)"),
 
         /* Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help' */
-                                                                           N_("NUMBER") },
+                                                                                        N_("NUMBER") },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "paused",  'p', OptionFlags.NONE, OptionArg.NONE, null,          N_("Start the game paused"),          null },
+        { "paused",  'p', OptionFlags.NONE, OptionArg.NONE, null,                       N_("Start the game paused"),            null },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "restore", 'r', OptionFlags.NONE, OptionArg.NONE, null,          N_("Restore last game, if any"),      null },
+        { "restore", 'r', OptionFlags.NONE, OptionArg.NONE, null,                       N_("Restore last game, if any"),        null },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "size",    's', OptionFlags.NONE, OptionArg.INT,  ref game_size, N_("Set size of board (2-6)"),
+        { "size",    's', OptionFlags.NONE, OptionArg.INT,  ref game_size,              N_("Set size of board (2-6)"),
 
         /* Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help' */
-                                                                           N_("SIZE") },
+                                                                                        N_("SIZE") },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, null,          N_("Print release version and exit"), null },
+        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, null,                       N_("Print release version and exit"),   null },
+
+        { OPTION_REMAINING, 0, OptionFlags.NONE, OptionArg.STRING_ARRAY, ref remaining, "args", null },
         {}
     };
 
@@ -132,7 +135,8 @@ private class Tetravex : Gtk.Application
 
     protected override int handle_local_options (GLib.VariantDict options)
     {
-        if (options.contains ("version"))
+        if (options.contains ("version")
+         || remaining [0] != null && (!) remaining [0] == "version")
         {
             /* NOTE: Is not translated so can be easily parsed */
             stderr.printf ("%1$s %2$s\n", "gnome-tetravex", VERSION);
@@ -156,6 +160,13 @@ private class Tetravex : Gtk.Application
         {
             /* Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1' */
             stderr.printf (N_("There could only be between 2 and 10 colors.\n"));
+            return Posix.EXIT_FAILURE;
+        }
+
+        if (remaining [0] != null)
+        {
+            /* Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex cli' */
+            stderr.printf (N_("Failed to parse command-line arguments.\n"));
             return Posix.EXIT_FAILURE;
         }
 
