@@ -497,6 +497,34 @@ private class Puzzle : Object
         stop_clock ();
     }
 
+    internal void finish (uint duration)
+    {
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                switch_tiles (x + size, y, x, y, duration);
+    }
+
+    internal bool only_one_remaining_tile (out uint8 empty_x, out uint8 empty_y)
+    {
+        bool empty_found = false;
+        empty_x = uint8.MAX;    // garbage
+        empty_y = uint8.MAX;    // garbage
+        for (uint8 x = 0; x < size; x++)
+            for (uint8 y = 0; y < size; y++)
+                if (get_tile (x, y) == null)
+                {
+                    if (empty_found)
+                        return false;
+                    empty_found = true;
+                    empty_x = x;
+                    empty_y = y;
+                }
+
+        if (!empty_found)
+            return false;
+        return true;
+    }
+
     /*\
     * * clock
     \*/

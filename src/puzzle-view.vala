@@ -716,7 +716,7 @@ private class PuzzleView : Gtk.DrawingArea
             {
                 uint8 x;
                 uint8 y;
-                if (only_one_remaining_tile (out x, out y))
+                if (puzzle.only_one_remaining_tile (out x, out y))
                 {
                     uint8 selected_x, selected_y;
                     puzzle.get_tile_location (((!) selected_tile).tile, out selected_x, out selected_y);
@@ -744,26 +744,6 @@ private class PuzzleView : Gtk.DrawingArea
         }
 
         return false;
-    }
-    private inline bool only_one_remaining_tile (out uint8 empty_x, out uint8 empty_y)
-    {
-        bool empty_found = false;
-        empty_x = uint8.MAX;    // garbage
-        empty_y = uint8.MAX;    // garbage
-        for (uint8 x = 0; x < puzzle.size; x++)
-            for (uint8 y = 0; y < puzzle.size; y++)
-                if (puzzle.get_tile (x, y) == null)
-                {
-                    if (empty_found)
-                        return false;
-                    empty_found = true;
-                    empty_x = x;
-                    empty_y = y;
-                }
-
-        if (!empty_found)
-            assert_not_reached ();
-        return true;
     }
 
     protected override bool button_release_event (Gdk.EventButton event)
@@ -823,9 +803,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     internal void finish ()
     {
-        for (uint8 x = 0; x < puzzle.size; x++)
-            for (uint8 y = 0; y < puzzle.size; y++)
-                puzzle.switch_tiles (x + puzzle.size, y, x, y, final_animation_duration);
+        puzzle.finish (final_animation_duration);
     }
 
     internal void release_selected_tile ()
@@ -966,7 +944,7 @@ private class PuzzleView : Gtk.DrawingArea
                 {
                     uint8 x;
                     uint8 y;
-                    if (only_one_remaining_tile (out x, out y))
+                    if (puzzle.only_one_remaining_tile (out x, out y))
                     {
                         uint8 selected_x, selected_y;
                         puzzle.get_tile_location ((!) tile, out selected_x, out selected_y);
