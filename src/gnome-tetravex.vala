@@ -641,8 +641,7 @@ private class Tetravex : Gtk.Application
             dialog.add_buttons (_("_Keep Playing"),   ResponseType.REJECT,
 
         /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing" */
-                                _("_Start New Game"), ResponseType.ACCEPT,
-                                null);
+                                _("_Start New Game"), ResponseType.ACCEPT);
 
             int response = dialog.run ();
             dialog.destroy ();
@@ -713,8 +712,7 @@ private class Tetravex : Gtk.Application
             dialog.add_buttons (_("_Keep Playing"), ResponseType.REJECT,
 
             /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing" */
-                                _("_Give Up"),      ResponseType.ACCEPT,
-                                null);
+                                _("_Give Up"),      ResponseType.ACCEPT);
 
             int response = dialog.run ();
             dialog.destroy ();
@@ -758,8 +756,7 @@ private class Tetravex : Gtk.Application
             dialog.add_buttons (_("_Keep Playing"),   ResponseType.REJECT,
 
         /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing" */
-                                _("_Start New Game"), ResponseType.ACCEPT,
-                                null);
+                                _("_Start New Game"), ResponseType.ACCEPT);
 
             int response = dialog.run ();
             dialog.destroy ();
