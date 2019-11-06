@@ -1,0 +1,19 @@
+<schemalist>
+  <schema id="org.gnome.TetravexCli" path="/org/gnome/Tetravex/" gettext-domain="gnome-tetravex-cli">
+    <key name="grid-size" type="i">
+      <default>3</default>
+      <range min="2" max="6" />
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size' -->
+      <summary>The size of the playing grid</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size' -->
+      <description>The value of this key is used to decide the size of the playing grid.</description>
+    </key>
+    <key name="saved-game" type="m(yyda(yyyyyyyy)ua(yyyyu))">
+      <default>nothing</default>
+      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game' -->
+      <summary>Saved game, if any</summary>
+      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) » -->
+      <description>The key has value “nothing” if there is no saved game. Else, it contains a description of the board, with its size, the number of colors, and the time elapsed, then the list of tiles, saved as properties: their current position (x and y), their colors (north, east, south and west), and their original position (x and y), and finally the history, with the last move index, and history entries saved as properties: coordinates of the two tiles swapped, and the move id.</description>
+    </key>
+  </schema>
+</schemalist>
