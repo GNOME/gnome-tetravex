@@ -20,7 +20,8 @@ sources = files (
 gnome_tetravex = executable (
     'gnome-tetravex',
      sources + resources,
-     dependencies: [ glib_dep,
+     dependencies: [ gio_dep,
+                     glib_dep,
                      gtk_dep,
                      libm_dep ],
      vala_args: [ '--pkg=posix',
