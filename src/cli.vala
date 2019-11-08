@@ -220,7 +220,7 @@ namespace CLI
             {
                 Tile? tile = puzzle.get_tile (x, y);
                 if (tile == null)
-                    stdout.printf (" ┌╴ ╶┐");
+                    stdout.printf (" ╭╴ ╶╮");
                 else
                     stdout.printf (@" ┌╴$(((!) tile).north)╶┐");
                 if (x == size - 1)
@@ -242,7 +242,7 @@ namespace CLI
             {
                 Tile? tile = puzzle.get_tile (x, y);
                 if (tile == null)
-                    stdout.printf (" └╴ ╶┘");
+                    stdout.printf (" ╰╴ ╶╯");
                 else
                     stdout.printf (@" └╴$(((!) tile).south)╶┘");
                 if (x == size - 1)
