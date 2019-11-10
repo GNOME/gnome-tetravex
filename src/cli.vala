@@ -46,8 +46,8 @@ namespace CLI
         }
         else if (can_restore)
         {
-            size = (uint8) settings.get_int (KEY_GRID_SIZE);
             puzzle = new Puzzle.restore ((!) saved_game);
+            size = puzzle.size;
             new_puzzle = false;
         }
         else
