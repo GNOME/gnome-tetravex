@@ -29,6 +29,12 @@ namespace CLI
         saved_game = settings.get_value ("saved-game");
         can_restore = Puzzle.is_valid_saved_game (saved_game, /* restore finished game */ true);
 
+        if ((game_size != int.MIN || colors != 10) && cli != "new")
+        {
+            warning ("Game size and colors number can only be given for new puzzles.\n");
+            return Posix.EXIT_FAILURE;
+        }
+
         uint8 size;
         bool new_puzzle;
         if (game_size != int.MIN)
@@ -38,7 +44,7 @@ namespace CLI
             puzzle = new Puzzle (size, (uint8) colors);
             new_puzzle = true;
         }
-        else if (colors != 10 || (!) cli == "new")
+        else if (colors != 10 || cli == "new")
         {
             size = (uint8) settings.get_int (KEY_GRID_SIZE);
             puzzle = new Puzzle (size, (uint8) colors);
@@ -57,7 +63,7 @@ namespace CLI
             new_puzzle = true;
         }
 
-        switch ((!) cli)    // TODO add translated commands? add translations?
+        switch (cli)    // TODO add translated commands? add translations?
         {
             case "help":
             case "HELP":
@@ -151,7 +157,7 @@ namespace CLI
                 uint8 tile_1_y;
                 uint8 tile_2_x;
                 uint8 tile_2_y;
-                if (!parse_cli ((!) cli, size, out tile_1_x, out tile_1_y, out tile_2_x, out tile_2_y))
+                if (!parse_cli (cli, size, out tile_1_x, out tile_1_y, out tile_2_x, out tile_2_y))
                 {
                     warning ("Cannot parse “--cli” command, aborting." + "\n");
                     return Posix.EXIT_FAILURE;
