@@ -5,7 +5,7 @@
     <value value="2" nick="nostalgia"/>
     <value value="3" nick="synesthesia"/>
   </enum>
-  <schema id="org.gnome.Tetravex" path="/org/gnome/Tetravex/" gettext-domain="gnome-tetravex">
+  <schema id="org.gnome.Tetravex" path="/org/gnome/Tetravex/" gettext-domain="gnome-tetravex-gui">
     <key name="grid-size" type="i">
       <default>3</default>
       <range min="2" max="6" />
