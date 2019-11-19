@@ -54,7 +54,7 @@ if get_option('build_gui')
     vala_args: [ '--pkg=posix',
                  '--enable-experimental-non-null' ],
     c_args: [ '-DVERSION="@0@"'.format (meson.project_version ()),
-              '-DGETTEXT_PACKAGE="gnome-tetravex"',
+              '-DGETTEXT_PACKAGE="gnome-tetravex-gui"',
               '-DLOCALEDIR="@0@"'.format (localedir) ],
     install: true
   )
