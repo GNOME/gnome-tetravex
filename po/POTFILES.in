@@ -4,14 +4,16 @@ data/org.gnome.Tetravex.appdata.xml.in
 data/org.gnome.Tetravex.desktop.in
 data/org.gnome.Tetravex.gschema.xml
 src/app-menu.ui
+src/gnome-tetravex-cli.vala
 src/gnome-tetravex.ui
 src/gnome-tetravex.vala
 src/help-overlay.ui
+src/history.vala
 src/puzzle.vala
 src/puzzle-view.vala
 src/score-dialog.vala
-src/score-overlay.vala
 src/score-overlay.ui
+src/score-overlay.vala
 src/theme-extrusion.vala
 src/theme-neoretro.vala
 src/theme-nostalgia.vala

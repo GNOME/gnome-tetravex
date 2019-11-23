@@ -1,4 +1,6 @@
 src/gnome-tetravex.c
+src/gnome-tetravex-cli.c
+src/history.c
 src/puzzle.c
 src/puzzle-view.c
 src/score-dialog.c
