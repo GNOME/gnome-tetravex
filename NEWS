@@ -1,3 +1,30 @@
+GNOME Tetravex 3.35.2
+======================
+
+Many changes, again! First, the current game is being saved if the window is
+closed, and a button was added to restore it (you can also directly restore,
+using the “--restore” command-line option). The game can also be played with
+the keyboard (using arrows), and finally you can move all the tiles from one
+of the half-board using the mouse, by clicking on an empty border tile (even
+if this function is for now hidden). Also, Tetravex can for now be played in
+command-line, using the “--cli” option (see “--cli help” documentation; have
+also a look to the “Distributors” section below). And finally on a technical
+side, GNOME Tetravex should be D-Bus activatable, what is more future-proof.
+
+Distributors: using the “meson configure -Dbuild_gui=false -Dbuild_cli=true”
+options, you can build a different binary, `gnome-tetravex-cli`, that can be
+co-installed with `gnome-tetravex` (normally). It allows to play Tetravex in
+command-line, but it does not require the Gtk library, only GLib. You surely
+want to package it for installations made without a graphical interface. :·)
+
+Translations updated:
+  Basque: Asier Sarasua Garmendia
+  Catalan: Jordi Mas
+  Czech: Marek Černocký
+  Friulian: Fabio Tomat
+  Persian: Danial Behzadi
+  Spanish: Daniel Mustieles
+
 GNOME Tetravex 3.35.1
 ======================
 
