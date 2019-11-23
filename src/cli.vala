@@ -31,7 +31,9 @@ namespace CLI
 
         if ((game_size != int.MIN || colors != 10) && cli != "new")
         {
-            warning ("Game size and colors number can only be given for new puzzles.\n");
+            /* Translators: command-line error message, displayed if the user plays in CLI and tries to use the change the number of colors or the game size while not specifying a new game; try `gnome-tetravex --cli show --size 3` */
+            warning (_("Game size and colors number can only be given for new puzzles.") + "\n");
+            puzzle = new Puzzle (2, 10); /* garbage */
             return Posix.EXIT_FAILURE;
         }
 
@@ -83,39 +85,47 @@ namespace CLI
 
             case "up":
             case "l-up":
-                if (!cli_move_tiles (puzzle, new_puzzle, /* left board */ true, Direction.UP, "Cannot move up left-board tiles."))
+                /* Translators: command-line error message, displayed if the user plays in CLI and tries to use the “up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli up` */
+                if (!cli_move_tiles (puzzle, new_puzzle, true, Direction.UP, _("Cannot move up left-board tiles.")))
                     return Posix.EXIT_FAILURE;
                 break;
             case "down":
             case "l-down":
-                if (!cli_move_tiles (puzzle, new_puzzle, /* left board */ true, Direction.DOWN, "Cannot move down left-board tiles."))
+                /* Translators: command-line error message, displayed if the user plays in CLI and tries to use the “down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli down` */
+                if (!cli_move_tiles (puzzle, new_puzzle, true, Direction.DOWN, _("Cannot move down left-board tiles.")))
                     return Posix.EXIT_FAILURE;
                 break;
             case "left":
             case "l-left":
-                if (!cli_move_tiles (puzzle, new_puzzle, /* left board */ true, Direction.LEFT, "Cannot move left left-board tiles."))
+                /* Translators: command-line error message, displayed if the user plays in CLI and tries to use the “left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli left` */
+                if (!cli_move_tiles (puzzle, new_puzzle, true, Direction.LEFT, _("Cannot move left left-board tiles.")))
                     return Posix.EXIT_FAILURE;
                 break;
             case "right":
             case "l-right":
-                if (!cli_move_tiles (puzzle, new_puzzle, /* left board */ true, Direction.RIGHT, "Cannot move right left-board tiles."))
+                /* Translators: command-line error message, displayed if the user plays in CLI and tries to use the “right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli right` */
+                if (!cli_move_tiles (puzzle, new_puzzle, true, Direction.RIGHT, _("Cannot move right left-board tiles.")))
                     return Posix.EXIT_FAILURE;
                 break;
 
             case "r-up":
-                if (!cli_move_tiles (puzzle, new_puzzle, /* left board */ false, Direction.UP, "Cannot move up right-board tiles."))
+                /* Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-up` */
+                if (!cli_move_tiles (puzzle, new_puzzle, false, Direction.UP, _("Cannot move up right-board tiles.")))
                     return Posix.EXIT_FAILURE;
                 break;
             case "r-down":
-                if (!cli_move_tiles (puzzle, new_puzzle, /* left board */ false, Direction.DOWN, "Cannot move down right-board tiles."))
+                /* Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-down` */
+                if (!cli_move_tiles (puzzle, new_puzzle, false, Direction.DOWN, _("Cannot move down right-board tiles.")))
                     return Posix.EXIT_FAILURE;
                 break;
             case "r-left":
-                if (!cli_move_tiles (puzzle, new_puzzle, /* left board */ false, Direction.LEFT, "Cannot move left right-board tiles."))
+                /* Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-left` */
+                if (!cli_move_tiles (puzzle, new_puzzle, false, Direction.LEFT, _("Cannot move left right-board tiles.")))
                     return Posix.EXIT_FAILURE;
                 break;
             case "r-right":
-                if (!cli_move_tiles (puzzle, new_puzzle, /* left board */ false, Direction.RIGHT, "Cannot move right right-board tiles."))
+                /* Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-right` */
+                if (!cli_move_tiles (puzzle, new_puzzle, false, Direction.RIGHT, _("Cannot move right right-board tiles.")))
                     return Posix.EXIT_FAILURE;
                 break;
 
@@ -131,7 +141,8 @@ namespace CLI
                     puzzle.finish (/* duration */ 0);
                 else if (!puzzle.move_last_tile_if_possible ())
                 {
-                    warning ("Cannot finish automatically. If you want to give up and view the solution, use “solve”." + "\n");
+                    /* Translators: command-line error message, displayed if the user plays in CLI and tries to use the “finish” command while the saved puzzle cannot be automatically finished; try `gnome-tetravex --cli new; gnome-tetravex --cli finish` */
+                    warning (_("Cannot finish automatically. If you want to give up and view the solution, use “solve”.") + "\n");
                     return Posix.EXIT_FAILURE;
                 }
                 break;
@@ -159,18 +170,21 @@ namespace CLI
                 uint8 tile_2_y;
                 if (!parse_cli (cli, size, out tile_1_x, out tile_1_y, out tile_2_x, out tile_2_y))
                 {
-                    warning ("Cannot parse “--cli” command, aborting." + "\n");
+                    /* Translators: command-line error message, displayed if the string is not a known command nor a valid move instruction; try `gnome-tetravex --cli new; gnome-tetravex --cli A2838I8U` */
+                    warning (_("Cannot parse instruction, aborting.") + "\n");
                     return Posix.EXIT_FAILURE;
                 }
                 if (puzzle.get_tile (tile_1_x, tile_1_y) == null
                  && puzzle.get_tile (tile_2_x, tile_2_y) == null)
                 {
-                    warning ("Both given tiles are empty, aborting." + "\n");
+                    /* Translators: command-line error message, displayed if the user plays in CLI and tries to invert two empty tiles */
+                    warning (_("Both given tiles are empty, aborting.") + "\n");
                     return Posix.EXIT_FAILURE;
                 }
                 if (!puzzle.can_switch (tile_1_x, tile_1_y, tile_2_x, tile_2_y))
                 {
-                    warning ("Cannot swap the given tiles, aborting." + "\n");
+                    /* Translators: command-line error message, displayed if the user plays in CLI and tries to do an invalid move */
+                    warning (_("Cannot swap the given tiles, aborting.") + "\n");
                     print_board (puzzle, size);
                     return Posix.EXIT_FAILURE;
                 }
@@ -212,9 +226,11 @@ namespace CLI
     private static void puzzle_is_solved_message (bool alternative_message = false)
     {
         if (alternative_message)
-            warning ("Puzzle is already solved! If you want to start a new one, use “new”." + "\n");
+            /* Translators: command-line error message, displayed if the user tries to solve the puzzle using CLI (with the “solve” or “finish” commands), while the puzzle is already solved */
+            warning (_("Puzzle is already solved! If you want to start a new one, use “new”.") + "\n");
         else
-            warning ("Puzzle is solved! If you want to start a new one, use “new”." + "\n");
+            /* Translators: command-line error message, displayed if the user tries to do a move using CLI, while the puzzle is solved */
+            warning (_("Puzzle is solved! If you want to start a new one, use “new”.") + "\n");
     }
 
     private static void print_board (Puzzle puzzle, uint8 size)
@@ -258,7 +274,8 @@ namespace CLI
         }
         stdout.printf ("\n");
         if (puzzle.is_solved)
-            stdout.printf ("Puzzle is solved!\n\n");
+            /* Translators: command-line message, displayed when playing Tetravex in CLI under the board, if the puzzle was solved */
+            stdout.printf (_("Puzzle is solved!") + "\n\n");
     }
 
     private static bool parse_cli (string cli, uint8 size,

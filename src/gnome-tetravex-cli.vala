@@ -20,28 +20,9 @@
 
 private class TetravexCli : GLib.Application
 {
-    private string help_text = "\n  A1b2          " + "Invert two tiles, the one in A1, and the one in b2."
-                             + "\n                " + "An uppercase targets a tile from the initial board."
-                             + "\n                " + "A lowercase targets a tile in the left/final board."
-                             + "\n                " + "Digits specify the rows of the two tiles to invert."
-                             + "\n"
-                             + "\n  (nothing)     " + "Show the current puzzle. Alias: “status” or “show”."
-                             + "\n  new           " + "Create a new puzzle; for changing size, use --size."
-                             + "\n  solve         " + "Give up with current puzzle, and view the solution."
-                             + "\n"
-                             + "\n  finish        " + "Finish current puzzle, automatically. Alias: “end”."
-                             + "\n                " + "Works for puzzles solved right or if one tile left."
-                             + "\n"
-                             + "\n  up            " + "Move all left-board tiles up by one."
-                             + "\n  down          " + "Move all left-board tiles down by one."
-                             + "\n  left          " + "Move all left-board tiles left by one."
-                             + "\n  right         " + "Move all left-board tiles right by one."
-                             + "\n"
-                             + "\n  r-up          " + "Move all right-board tiles up by one."
-                             + "\n  r-down        " + "Move all right-board tiles down by one."
-                             + "\n  r-left        " + "Move all right-board tiles left by one."
-                             + "\n  r-right       " + "Move all right-board tiles right by one."
-                             + "\n";
+    /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explaination of what will happen when no command is given; would be similar to “(no command)” or “(empty)”, for example */
+    private string nothing_text = _("(nothing)");
+    private string help_text;
 
     private const string KEY_GRID_SIZE = "grid-size";
 
@@ -93,8 +74,71 @@ private class TetravexCli : GLib.Application
     {
         Object (application_id: "org.gnome.TetravexCli", flags: ApplicationFlags.FLAGS_NONE);
 
-        set_option_context_parameter_string ("[COMMAND]");
-        set_option_context_description ("Available commands:" + help_text);
+        /* pad nothing_text with spaces */
+        if (nothing_text.length > 13)
+            nothing_text = "()";
+        nothing_text = "  " + nothing_text;
+        for (int x = nothing_text.length; x < 16; x++)
+            nothing_text += " ";
+
+        help_text = ""
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command */
+            + "\n" + "  A1b2          " + _("Invert two tiles, the one in A1, and the one in b2.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after */
+            + "\n" + "                " + _("An uppercase targets a tile from the initial board.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after */
+            + "\n" + "                " + _("A lowercase targets a tile in the left/final board.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before */
+            + "\n" + "                " + _("Digits specify the rows of the two tiles to invert.")
+            + "\n"
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given */
+            + "\n" + nothing_text       + _("Show the current puzzle. Alias: “status” or “show”.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command */
+            + "\n" + "  new           " + _("Create a new puzzle; for changing size, use --size.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command */
+            + "\n" + "  solve         " + _("Give up with current puzzle, and view the solution.")
+            + "\n"
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands */
+            + "\n" + "  finish        " + _("Finish current puzzle, automatically. Alias: “end”.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically */
+            + "\n" + "                " + _("Works for puzzles solved right or if one tile left.")
+            + "\n"
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command */
+            + "\n" + "  up            " + _("Move all left-board tiles up by one.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command */
+            + "\n" + "  down          " + _("Move all left-board tiles down by one.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command */
+            + "\n" + "  left          " + _("Move all left-board tiles left by one.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command */
+            + "\n" + "  right         " + _("Move all left-board tiles right by one.")
+            + "\n"
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command */
+            + "\n" + "  r-up          " + _("Move all right-board tiles up by one.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command */
+            + "\n" + "  r-down        " + _("Move all right-board tiles down by one.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command */
+            + "\n" + "  r-left        " + _("Move all right-board tiles left by one.")
+
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command */
+            + "\n" + "  r-right       " + _("Move all right-board tiles right by one.")
+            + "\n";
+
+        /* Translators: command-line message, seen when running `gnome-tetravex-cli --help` */
+        set_option_context_parameter_string (_("[COMMAND]"));
+
+        /* Translators: command-line help message, seen when running `gnome-tetravex-cli --help`; introduction of a list of options */
+        set_option_context_description (_("Available commands:") + help_text);
         add_main_option_entries (option_entries);
     }
 
@@ -111,21 +155,21 @@ private class TetravexCli : GLib.Application
         if (game_size != int.MIN && (game_size < 2 || game_size > 6))
         {
             /* Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1' */
-            stderr.printf (N_("Size could only be from 2 to 6.\n"));
+            stderr.printf (_("Size could only be from 2 to 6.") + "\n");
             return Posix.EXIT_FAILURE;
         }
 
         if (colors < 2 || colors > 10)
         {
             /* Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1' */
-            stderr.printf (N_("There could only be between 2 and 10 colors.\n"));
+            stderr.printf (_("There could only be between 2 and 10 colors.") + "\n");
             return Posix.EXIT_FAILURE;
         }
 
         if (remaining [1] != null)
         {
             /* Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2' */
-            stderr.printf (N_("Failed to parse command-line arguments.\n"));
+            stderr.printf (_("Failed to parse command-line arguments.") + "\n");
             return Posix.EXIT_FAILURE;
         }
 
@@ -134,7 +178,8 @@ private class TetravexCli : GLib.Application
         if ((!) cli == "help" || (!) cli == "HELP")
         {
             stdout.printf ("\n");
-            stdout.printf ("To use `gnome-tetravex-cli`, pass as arg:");
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options */
+            stdout.printf (_("To use `gnome-tetravex-cli`, pass as argument:"));
             stdout.printf (help_text);
             stdout.printf ("\n");
             return Posix.EXIT_SUCCESS;
