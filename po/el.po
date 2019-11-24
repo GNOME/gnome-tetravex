@@ -36,8 +36,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.el\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-02-06 19:35+0000\n"
-"PO-Revision-Date: 2019-03-09 19:40+0200\n"
+"POT-Creation-Date: 2019-11-23 18:51+0000\n"
+"PO-Revision-Date: 2019-11-24 12:22+0200\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
@@ -45,7 +45,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:7
@@ -57,11 +57,6 @@ msgid "Reorder tiles to fit a square"
 msgstr "Επανατοποθετήστε τα πλακίδια ώστε να χωρούν στο τετράγωνο"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:10
-#| msgid ""
-#| "Each square piece has a number on each side. Position the pieces on the "
-#| "left side of the board so that the same numbers are next to each other. "
-#| "If the numbers don't match, you can't put the piece there. Move quickly: "
-#| "you're being timed!"
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -84,9 +79,10 @@ msgstr ""
 msgid "The GNOME Project"
 msgstr "Το έργο GNOME"
 
-#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
-#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
-#: src/gnome-tetravex.vala:389
+#. Translators: application name, as seen in GNOME Shell
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:23
+#: src/gnome-tetravex.vala:27
 msgid "Tetravex"
 msgstr "Τετραβέξ"
 
@@ -101,130 +97,531 @@ msgstr "Ολοκληρώστε το πρόβλημα ταιριάζοντας α
 msgid "game;logic;board;"
 msgstr "παιχνίδι;λογική;πίνακας;game;logic;board;"
 
-#. TRANSLATORS: Do NOT translate or transliterate this text!
-#. This is an icon file name.
-#: data/org.gnome.Tetravex.desktop.in:12
-#| msgid "gnome-tetravex"
-msgid "org.gnome.Tetravex"
-msgstr "org.gnome.Tetravex"
-
-#: data/org.gnome.Tetravex.gschema.xml:6
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
+#: data/org.gnome.Tetravex.gschema.xml:13
 msgid "The size of the playing grid"
 msgstr "Το μέγεθος του πλέγματος του παιχνιδιού"
 
-#: data/org.gnome.Tetravex.gschema.xml:7
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
 "Η τιμή αυτού του κλειδιού χρησιμοποιείται για να αποφασιστεί το μέγεθος του "
 "πλέγματος του παιχνιδιού."
 
-#: data/org.gnome.Tetravex.gschema.xml:11
-msgid "Width of the window in pixels"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:20
+msgid "Use “Back” and “Forward” mouse button events"
+msgstr "Χρήση κουμπιών ποντικιού, «Μπροστά» και «Πίσω»"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:22
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key "
+"will determine if any action is taken inside of the window when either is "
+"pressed."
+msgstr ""
+"Για χρήστες με ποντίκια που διαθέτουν κουμπιά «Μπροστά» και «Πίσω», αυτό το "
+"κλειδί καθορίζει αν οποιαδήποτε ενέργεια έχει ληφθεί μέσα στο παράθυρο όταν "
+"πατηθεί κάποιο από αυτά."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:28
+msgid "Mouse button to activate the “Undo” command"
+msgstr "Κουμπί ποντικιού που θα εκτελεί την εντολή «Αναίρεση»"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:30
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key "
+"will set which button activates the “Undo” command. Possible values range "
+"between 6 and 14."
+msgstr ""
+"Για χρήστες με ποντίκια που διαθέτουν κουμπιά «Μπροστά» και «Πίσω», αυτό το "
+"κλειδί καθορίζει ποιο κουμπί θα ενεργοποιεί την εντολή «Αναίρεση». Οι "
+"επιτρεπτές τιμές είναι από 6 μέχρι 14."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:36
+msgid "Mouse button to activate the “Redo” command"
+msgstr "Κουμπί ποντικιού που θα εκτελεί την εντολή «Αναίρεση»"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:38
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key "
+"will set which button activates the “Redo” command. Possible values range "
+"between 6 and 14."
+msgstr ""
+"Για χρήστες με ποντίκια που διαθέτουν κουμπιά «Μπροστά» και «Πίσω», αυτό το "
+"κλειδί καθορίζει ποιο κουμπί θα ενεργοποιεί την εντολή «Επαναφορά». Οι "
+"επιτρεπτές τιμές είναι από 6 μέχρι 14."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
+#: data/org.gnome.Tetravex.gschema.xml:43
+msgid "Saved game, if any"
+msgstr "Αποθηκευμένα παιχνίδια, εάν υπάρχουν"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) »
+#: data/org.gnome.Tetravex.gschema.xml:45
+msgid ""
+"The key has value “nothing” if there is no saved game. Else, it contains a "
+"description of the board, with its size, the number of colors, and the time "
+"elapsed, then the list of tiles, saved as properties: their current position "
+"(x and y), their colors (north, east, south and west), and their original "
+"position (x and y), and finally the history, with the last move index, and "
+"history entries saved as properties: coordinates of the two tiles swapped, "
+"and the move id."
+msgstr ""
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
+#: data/org.gnome.Tetravex.gschema.xml:50
+msgid "Theme"
+msgstr "Θέμα"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
+#: data/org.gnome.Tetravex.gschema.xml:56
+msgid "The width of the window"
+msgstr "Το πλάτος του παραθύρου"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
+#: data/org.gnome.Tetravex.gschema.xml:58
+#, fuzzy
+#| msgid "Width of the window in pixels"
+msgid "The width of the main window in pixels."
 msgstr "Το πλάτος του παραθύρου σε εικονοστοιχεία"
 
-#: data/org.gnome.Tetravex.gschema.xml:15
-msgid "Height of the window in pixels"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
+#: data/org.gnome.Tetravex.gschema.xml:63
+msgid "The height of the window"
+msgstr "Το ύψος του παραθύρου"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
+#: data/org.gnome.Tetravex.gschema.xml:65
+#, fuzzy
+#| msgid "Height of the window in pixels"
+msgid "The height of the main window in pixels."
 msgstr "Το ύψος του παραθύρου σε εικονοστοιχεία"
 
-#: data/org.gnome.Tetravex.gschema.xml:19
-msgid "true if the window is maximized"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
+#: data/org.gnome.Tetravex.gschema.xml:70
+msgid "A flag to enable maximized mode"
+msgstr "Σημαία για την ενεργοποίηση της λειτουργίας μεγιστοποίησης"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
+#: data/org.gnome.Tetravex.gschema.xml:72
+#, fuzzy
+#| msgid "true if the window is maximized"
+msgid "If “true”, the main window starts in maximized mode."
 msgstr "αληθής αν το παράθυρο είναι μεγιστοποιημένο"
 
-#: src/app-menu.ui:5
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
+#: src/app-menu.ui:23
 msgid "_New Game"
 msgstr "_Νέο παιχνίδι"
 
-#: src/app-menu.ui:9
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: src/app-menu.ui:28
 msgid "_Scores"
 msgstr "_Βαθμολογίες"
 
-#: src/app-menu.ui:15
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
+#: src/app-menu.ui:33
+msgid "A_ppearance"
+msgstr "_Εμφάνιση"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:37
+msgid "_Extrusion"
+msgstr ""
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:43
+msgid "Neo_Retro"
+msgstr ""
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
+#: src/app-menu.ui:49
+msgid "_Nostalgia"
+msgstr ""
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
+#: src/app-menu.ui:55
+msgid "_Synesthesia"
+msgstr ""
+
+#. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
+#: src/app-menu.ui:65
 msgid "Si_ze"
 msgstr "Μέ_γεθος"
 
-#: src/app-menu.ui:18
-msgid "_2x2"
-msgstr "_2x2"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
+#: src/app-menu.ui:69
+msgid "_2 × 2"
+msgstr "_2 × 2"
 
-#: src/app-menu.ui:23
-msgid "_3x3"
-msgstr "_3x3"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
+#: src/app-menu.ui:75
+msgid "_3 × 3"
+msgstr "_3 × 3"
 
-#: src/app-menu.ui:28
-msgid "_4x4"
-msgstr "_4x4"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
+#: src/app-menu.ui:81
+msgid "_4 × 4"
+msgstr "_4 × 4"
 
-#: src/app-menu.ui:33
-msgid "_5x5"
-msgstr "_5x5"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
+#: src/app-menu.ui:87
+msgid "_5 × 5"
+msgstr "_5 × 5"
 
-#: src/app-menu.ui:38
-msgid "_6x6"
-msgstr "_6x6"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
+#: src/app-menu.ui:93
+msgid "_6 × 6"
+msgstr "_6 × 6"
 
-#: src/app-menu.ui:47
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
+#: src/app-menu.ui:103
 msgid "_Keyboard Shortcuts"
 msgstr "Συντομεύσεις _πληκτρολογίου"
 
-#: src/app-menu.ui:51
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help
+#: src/app-menu.ui:108
 msgid "_Help"
 msgstr "_Βοήθεια"
 
-#: src/app-menu.ui:55
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
+#: src/app-menu.ui:113
 msgid "_About Tetravex"
 msgstr "_Περί του Τετραβέξ"
 
-#: src/gnome-tetravex.vala:38
-msgid "Print release version and exit"
-msgstr "Προβολή πληροφοριών έκδοσης και έξοδος"
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explaination of what will happen when no command is given; would be similar to “(no command)” or “(empty)”, for example
+#: src/gnome-tetravex-cli.vala:24
+msgid "(nothing)"
+msgstr "τίποτα (nothing)"
 
-#: src/gnome-tetravex.vala:39
-msgid "Start the game paused"
-msgstr "Εκκίνηση του παιχνιδιού που είχε τεθεί σε παύση"
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:77
+msgid "Set number of colors (2-10)"
+msgstr "Ορισμός αριθμού χρωμάτων (2-10)"
 
-#: src/gnome-tetravex.vala:40
+#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex-cli --help'
+#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:80
+msgid "NUMBER"
+msgstr "ΑΡΙΘΜΟΣ"
+
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:89
 msgid "Set size of board (2-6)"
 msgstr "Ορισμός μεγέθους του πίνακα (2-6)"
 
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex-cli --help'
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:92
+msgid "SIZE"
+msgstr "ΜΕΓΕΘΟΣ"
+
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:95
+msgid "Print release version and exit"
+msgstr "Προβολή πληροφοριών έκδοσης και έξοδος"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
+#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:194
+msgid "Invert two tiles, the one in A1, and the one in b2."
+msgstr "Αντιστροφή δύο κομματιών, το πρώτο σε Α1 και το άλλο σε b2"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
+#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:197
+msgid "An uppercase targets a tile from the initial board."
+msgstr ""
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:200
+msgid "A lowercase targets a tile in the left/final board."
+msgstr ""
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
+#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:203
+msgid "Digits specify the rows of the two tiles to invert."
+msgstr ""
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
+#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:206
+msgid "Show the current puzzle. Alias: “status” or “show”."
+msgstr ""
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
+#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:209
+msgid "Create a new puzzle; for changing size, use --size."
+msgstr ""
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
+#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:212
+#, fuzzy
+#| msgid "Give up and view the solution"
+msgid "Give up with current puzzle, and view the solution."
+msgstr "Εγκαταλείψτε και δείτε τη λύση"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands
+#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:215
+msgid "Finish current puzzle, automatically. Alias: “end”."
+msgstr ""
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:218
+msgid "Works for puzzles solved right or if one tile left."
+msgstr ""
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command
+#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:221
+msgid "Move all left-board tiles up by one."
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα επάνω κατά ένα."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command
+#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:224
+msgid "Move all left-board tiles down by one."
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα κάτω κατά ένα."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command
+#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:227
+msgid "Move all left-board tiles left by one."
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα αριστερά κατά ένα."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command
+#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:230
+msgid "Move all left-board tiles right by one."
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα δεξιά κατά ένα."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
+#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:233
+msgid "Move all right-board tiles up by one."
+msgstr "Μετακινήστε όλα τα κομμάτια στο δεξιό πλαίσιο προς τα επάνω κατά ένα."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
+#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:236
+msgid "Move all right-board tiles down by one."
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα κάτω κατά ένα."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command
+#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:239
+msgid "Move all right-board tiles left by one."
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα επάνω κατά ένα."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command
+#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:242
+msgid "Move all right-board tiles right by one."
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα δεξιά κατά ένα."
+
+#. Translators: command-line message, seen when running `gnome-tetravex-cli --help`
+#: src/gnome-tetravex-cli.vala:138
+msgid "[COMMAND]"
+msgstr "[ΕΝΤΟΛΗ]"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli --help`; introduction of a list of options
+#: src/gnome-tetravex-cli.vala:141
+msgid "Available commands:"
+msgstr "Διαθέσιμες εντολές:"
+
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1'
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
+#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:167
+msgid "Size could only be from 2 to 6."
+msgstr "Το μέγεθος θα μπορούσε να είναι μόνο από 2 έως 6."
+
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1'
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
+#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:174
+msgid "There could only be between 2 and 10 colors."
+msgstr "Μπορεί να υπάρχουν μόνο από 2 έως 10 χρώματα."
+
+#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2'
+#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
+#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:181
+msgid "Failed to parse command-line arguments."
+msgstr ""
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options
+#: src/gnome-tetravex-cli.vala:182
+msgid "To use `gnome-tetravex-cli`, pass as argument:"
+msgstr ""
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:71
+msgid "Play in the terminal (see “--cli=help”)"
+msgstr ""
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:74
+msgid "COMMAND"
+msgstr "ΕΝΤΟΛΗ"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:83
+msgid "Start the game paused"
+msgstr "Εκκίνηση του παιχνιδιού που είχε τεθεί σε παύση"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:86
+msgid "Restore last game, if any"
+msgstr "Συνέχιση του τελευταίου παιχνιδιού, εάν υπάρχει"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
+#: src/gnome-tetravex.vala:191
+msgid "To play GNOME Tetravex in command-line:"
+msgstr "Για να παίξετε το GNOME Τετραβέξ στην γραμμή εντολών:"
+
+#. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
+#: src/gnome-tetravex.vala:356
+msgid "Restore last game"
+msgstr "Συνέχιση του τρέχοντος παιχνιδιού"
+
 #. not a typo
-#: src/gnome-tetravex.vala:137
+#. Translators: tooltip text of the "play"/unpause button, in the bottom bar
+#: src/gnome-tetravex.vala:407
 msgid "Resume the game"
 msgstr "Συνέχιση του τρέχοντος παιχνιδιού"
 
-#: src/gnome-tetravex.vala:149
+#. Translators: tooltip text of the pause button, in the bottom bar
+#: src/gnome-tetravex.vala:414
 msgid "Pause the game"
 msgstr "Παύση παιχνιδιού"
 
-#: src/gnome-tetravex.vala:166
+#. Translators: tooltip text of the "restart"/new game button, in the bottom bar
+#: src/gnome-tetravex.vala:427
 msgid "Start a new game"
 msgstr "Εκκίνηση νέου παιχνιδιού"
 
-#: src/gnome-tetravex.vala:178
+#. Translators: tooltip text of the "solve"/give up button, in the bottom bar
+#: src/gnome-tetravex.vala:434
 msgid "Give up and view the solution"
 msgstr "Εγκαταλείψτε και δείτε τη λύση"
 
-#: src/gnome-tetravex.vala:247
-msgid "Size could only be from 2 to 6.\n"
-msgstr "Το μέγεθος θα μπορούσε να είναι μόνο από 2 έως 6.\n"
+#. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
+#: src/gnome-tetravex.vala:441
+msgid "Move all tiles left"
+msgstr "Μετακίνηση όλων των κομματιών προς τα αριστερά"
 
-#: src/gnome-tetravex.vala:355
-msgid "Are you sure you want to give up and view the solution?"
-msgstr "Είστε σίγουροι ότι θέλετε να εγκαταλείψετε και να δείτε τη λύση;"
+#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"
+#: src/gnome-tetravex.vala:741
+#, fuzzy
+#| msgid ""
+#| "Are you sure you want to start a new game with a different board size?"
+msgid "Are you sure you want to start a new game with same board size?"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να εκκινήσετε νέο παιχνίδι με διαφορετικό μέγεθος "
+"πίνακα;"
 
-#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game"
+#: src/gnome-tetravex.vala:744 src/gnome-tetravex.vala:815
+#: src/gnome-tetravex.vala:859
 msgid "_Keep Playing"
 msgstr "_Συνέχεια παιχνιδιού"
 
-#: src/gnome-tetravex.vala:358
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing"
+#: src/gnome-tetravex.vala:747 src/gnome-tetravex.vala:862
+msgid "_Start New Game"
+msgstr "_Εκκίνηση νέου παιχνιδιού"
+
+#. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
+#: src/gnome-tetravex.vala:773
+msgid ""
+"Looks like you haven’t finished a game yet.\n"
+"\n"
+"Try maybe a 2 × 2 grid, they are easy. 🙂️"
+msgstr ""
+"Φαίνεται ότι δεν έχετε τελειώσει ακόμα ένα παιχνίδι.\n"
+"\n"
+"Δοκιμάστε ίσως ένα 2 × 2 πλέγμα, είναι εύκολο. 🙂️"
+
+#. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
+#: src/gnome-tetravex.vala:812
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Είστε σίγουροι ότι θέλετε να εγκαταλείψετε και να δείτε τη λύση;"
+
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
+#: src/gnome-tetravex.vala:818
 msgid "_Give Up"
 msgstr "_Εγκατάλειψη"
 
-#: src/gnome-tetravex.vala:392
+#. Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game"
+#: src/gnome-tetravex.vala:856
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr ""
+"Είστε σίγουροι ότι θέλετε να εκκινήσετε νέο παιχνίδι με διαφορετικό μέγεθος "
+"πίνακα;"
+
+#. Translators: text crediting a game author, seen in the About dialog
+#: src/gnome-tetravex.vala:991
+msgid "Lars Rydlinge"
+msgstr "Lars Rydlinge"
+
+#. Translators: text crediting a game author, seen in the About dialog
+#: src/gnome-tetravex.vala:995
+msgid "Robert Ancell"
+msgstr "Robert Ancell"
+
+#. Translators: text crediting a game documenter, seen in the About dialog
+#: src/gnome-tetravex.vala:999
+msgid "Rob Bradford"
+msgstr "Rob Bradford"
+
+#. Translators: short description of the application, seen in the About dialog
+#: src/gnome-tetravex.vala:1003
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
-"Τοποθετήστε τα κομμάτια έτσι ώστε οι ίδιοι αριθμοί να εφάπτονται μεταξύ τους."
+"Τοποθετήστε τα κομμάτια έτσι ώστε οι ίδιοι αριθμοί να εφάπτονται μεταξύ τους"
 
-#: src/gnome-tetravex.vala:399
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/gnome-tetravex.vala:1007
+#, c-format
+msgid "Copyright © %u-%u – Lars Rydlinge"
+msgstr "Πνευματική ιδιοκτησία © %u-%u – Lars Rydlinge"
+
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/gnome-tetravex.vala:1011
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "Πνευματική ιδιοκτησία © %u-%u – Arnaud Bonatti"
+
+#. Translators: about dialog text; label of the website link
+#: src/gnome-tetravex.vala:1015
+msgid "Page on GNOME wiki"
+msgstr "Σελίδα στο wiki του GNOME"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/gnome-tetravex.vala:1027
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
@@ -239,94 +636,354 @@ msgstr ""
 "Για περισσότερες πληροφορίες, επισκεφθείτε την σελίδα\n"
 "http://gnome.gr/"
 
-#: src/gnome-tetravex.vala:417
-msgid "Are you sure you want to start a new game with a different board size?"
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play", "Play on selected tile", "Select the given row", etc.
+#: src/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "Παίξτε με το πληκτρολόγιο"
+
+#. Translators: Left/Right/Up/Down arrows actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; moves highlight
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move keyboard highlight"
 msgstr ""
-"Είστε σίγουροι ότι θέλετε να εκκινήσετε νέο παιχνίδι με διαφορετικό μέγεθος "
-"πίνακα;"
 
-#: src/gnome-tetravex.vala:419
-msgid "_Start New Game"
-msgstr "_Εκκίνηση νέου παιχνιδιού"
+#. Translators: Return/space actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depend on context
+#: src/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Select, move or unselect"
+msgstr ""
 
-#: src/help-overlay.ui:16
+#. Translators: numbers (1 to 6) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use 1 to 2 or up to 1 to 6
+#: src/help-overlay.ui:53
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr ""
+
+#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is splitted in two parts, that is for the left one
+#: src/help-overlay.ui:61
+msgctxt "shortcut window"
+msgid "Select left box column"
+msgstr ""
+
+#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is splitted in two parts, that is for the right one
+#: src/help-overlay.ui:69
+msgctxt "shortcut window"
+msgid "Select right box column"
+msgstr ""
+
+#. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
+#: src/help-overlay.ui:78
+msgctxt "shortcut window"
+msgid "Validate right box"
+msgstr ""
+
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
+#: src/help-overlay.ui:87
+msgctxt "shortcut window"
+msgid "History"
+msgstr "Ιστορικό"
+
+#. Translators: Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, undoes last move
+#: src/help-overlay.ui:93
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "Αναίρεση"
+
+#. Translators: Shift-Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, redoes undone move
+#: src/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "Ακύρωση αναίρεσης"
+
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"...
+#: src/help-overlay.ui:110
+msgctxt "shortcut window"
+msgid "Main functions"
+msgstr "Κύριες λειτουργίες"
+
+#. Translators: Ctrl-N shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:116
 msgctxt "shortcut window"
 msgid "Start a new game"
 msgstr "Έναρξη νέου παιχνιδιού"
 
-#: src/help-overlay.ui:23
+#. Translators: Ctrl-P shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Pause the game"
 msgstr "Παύση παιχνιδιού"
 
-#: src/help-overlay.ui:30
+#. Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:132
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box up by one"
-msgstr "Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο επάνω κατά ένα"
+msgid "Solve the game"
+msgstr "Επίλυση παιχνιδιού"
 
-#: src/help-overlay.ui:37
+#. Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:140
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box down by one"
-msgstr "Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο κάτω κατά ένα"
+msgid "Show scores"
+msgstr "Εμφάνιση βαθμολογιών"
 
-#: src/help-overlay.ui:44
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Show Help", "Show Keyboard Shortcuts", "Quit"...
+#: src/help-overlay.ui:149
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box left by one"
-msgstr "Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο αριστερά κατά ένα"
+msgid "Generic"
+msgstr "Γενικά"
 
-#: src/help-overlay.ui:51
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left box right by one"
-msgstr "Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο δεξιά κατά ένα"
-
-#: src/help-overlay.ui:58
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "Εμφάνιση βοήθειας"
-
-#: src/help-overlay.ui:65
+#. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
+#: src/help-overlay.ui:155
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
 msgstr "Εμφάνιση συντομεύσεων πληκτρολογίου"
 
-#: src/help-overlay.ui:72
+#. Translators: F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows application help
+#: src/help-overlay.ui:163
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Εμφάνιση βοήθειας"
+
+#. Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog
+#: src/help-overlay.ui:171
+msgctxt "shortcut window"
+msgid "Show About"
+msgstr "Εμφάνιση περί"
+
+#. Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application
+#: src/help-overlay.ui:179
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: src/puzzle-view.vala:356
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note...
+#: src/help-overlay.ui:188
+msgctxt "shortcut window"
+msgid "Advanced gameplay"
+msgstr ""
+
+#. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:194
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα επάνω κατά ένα"
+
+#. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:202
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα κάτω κατά ένα"
+
+#. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:210
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα αριστερά κατά ένα"
+
+#. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:218
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο αριστερό πλαίσιο προς τα δεξιά κατά ένα"
+
+#. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:226
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box up by one"
+msgstr "Μετακινήστε όλα τα κομμάτια στο δεξιό πλαίσιο προς τα επάνω κατά ένα"
+
+#. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:234
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box down by one"
+msgstr "Μετακινήστε όλα τα κομμάτια στο δεξιό πλαίσιο προς τα κάτω κατά ένα"
+
+#. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:242
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box left by one"
+msgstr ""
+"Μετακινήστε όλα τα κομμάτια στο δεξιό πλαίσιο προς τα αριστερά κατά ένα"
+
+#. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:250
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box right by one"
+msgstr "Μετακινήστε όλα τα κομμάτια στο δεξιό πλαίσιο προς τα δεξιά κατά ένα"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
+#: src/history.vala:314
+#, c-format
+msgid "%uh %um %us"
+msgstr "%uh %um %us"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
+#: src/history.vala:318
+#, c-format
+msgid "%um %us"
+msgstr "%um %us"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
+#: src/history.vala:322
+#, c-format
+msgid "%us"
+msgstr "%us"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
+#: src/history.vala:326
+#, c-format
+msgid "%.0fs"
+msgstr "%.0fs"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
+#: src/history.vala:330
+#, c-format
+msgid "%.1fs"
+msgstr "%.1fs"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
+#: src/history.vala:334
+#, c-format
+msgid "%.2fs"
+msgstr "%.2fs"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
+#: src/history.vala:338
+#, c-format
+msgid "%.3fs"
+msgstr "%.3fs"
+
+#. Translators: text that appears as an overlay on the board when the game is paused
+#: src/puzzle-view.vala:532
 msgid "Paused"
 msgstr "Παύση"
 
-#: src/score-dialog.vala:29
-msgid "Quit"
-msgstr "Έξοδος"
-
-#: src/score-dialog.vala:30
-msgid "New Game"
-msgstr "Νέο παιχνίδι"
-
-#: src/score-dialog.vala:33
-msgid "OK"
-msgstr "Εντάξει"
-
-#: src/score-dialog.vala:45
-msgid "Size:"
-msgstr "Μέγεθος:"
-
-#: src/score-dialog.vala:70
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
+#: src/score-dialog.vala:72
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: src/score-dialog.vala:73
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
+#: src/score-dialog.vala:76
 msgid "Time"
 msgstr "Χρόνος"
 
+#. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
+#: src/score-dialog.vala:145
+#, c-format
+msgid "%u × %u"
+msgstr "%u × %u"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete
+#: src/score-overlay.ui:37
+msgid "Congratulations!"
+msgstr "Συγχαρητήρια!"
+
+#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
+#: src/score-overlay.ui:78
+msgid "Show scores"
+msgstr "Εμφάνιση βαθμολογιών"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the game time
+#: src/score-overlay.vala:57
+msgid "New best time!"
+msgstr "Νέος καλύτερος χρόνος!"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the second best time (in a corner case)
+#: src/score-overlay.vala:61 src/score-overlay.vala:117
+#: src/score-overlay.vala:156
+msgid "Second:"
+msgstr "Δεύτερος:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the third best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the third best time (in a corner case)
+#: src/score-overlay.vala:68 src/score-overlay.vala:94
+#: src/score-overlay.vala:121 src/score-overlay.vala:163
+msgid "Third:"
+msgstr "Τρίτος:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old third best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old third best time
+#: src/score-overlay.vala:75 src/score-overlay.vala:101
+msgid "Out of podium:"
+msgstr "Εκτός πόντιουμ:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the game best time (in a corner case)
+#: src/score-overlay.vala:86 src/score-overlay.vala:112
+#: src/score-overlay.vala:149
+msgid "Best time:"
+msgstr "Καλύτερος χρόνος:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the game time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the game time
+#: src/score-overlay.vala:90 src/score-overlay.vala:129
+msgid "Your time:"
+msgstr "Ο χρόνος σας:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank before the one of the game played
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank after the one of the game played
+#: src/score-overlay.vala:125 src/score-overlay.vala:133
+#, c-format
+msgid "Place %u:"
+msgstr "Θέση  %u:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the worst time (in a corner case)
+#: src/score-overlay.vala:172
+msgid "Worst time:"
+msgstr "Χειρότερος χρόνος:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the fourth time (in a corner case)
+#: src/score-overlay.vala:178
+msgid "Fourth:"
+msgstr "Τέταρτος:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made one of the worst scores for a game of this size; says that the rank after the one of the game is "free", inviting to do worse
+#: src/score-overlay.vala:205
+msgid "Free!"
+msgstr ""
+
+#~| msgid "gnome-tetravex"
+#~ msgid "org.gnome.Tetravex"
+#~ msgstr "org.gnome.Tetravex"
+
+#~ msgid "_2x2"
+#~ msgstr "_2x2"
+
+#~ msgid "_3x3"
+#~ msgstr "_3x3"
+
+#~ msgid "_4x4"
+#~ msgstr "_4x4"
+
+#~ msgid "_5x5"
+#~ msgstr "_5x5"
+
+#~ msgid "_6x6"
+#~ msgstr "_6x6"
+
+#~ msgid "Quit"
+#~ msgstr "Έξοδος"
+
+#~ msgid "New Game"
+#~ msgstr "Νέο παιχνίδι"
+
+#~ msgid "OK"
+#~ msgstr "Εντάξει"
+
+#~ msgid "Size:"
+#~ msgstr "Μέγεθος:"
+
 #~ msgid "_Size"
 #~ msgstr "_Μέγεθος"
-
-#~ msgid "_About"
-#~ msgstr "_Περί"
 
 #~ msgid "_Quit"
 #~ msgstr "Έ_ξοδος"
