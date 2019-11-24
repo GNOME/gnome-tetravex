@@ -20,7 +20,7 @@
 
 private class TetravexCli : GLib.Application
 {
-    /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explaination of what will happen when no command is given; would be similar to “(no command)” or “(empty)”, for example */
+    /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explaination of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example */
     private string nothing_text = _("(nothing)");
     private string help_text;
 
