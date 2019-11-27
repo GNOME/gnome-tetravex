@@ -9,8 +9,8 @@
 msgid ""
 msgstr "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-10-19 00:52+0000\n"
-"PO-Revision-Date: 2019-11-02 10:00+0100\n"
+"POT-Creation-Date: 2019-11-23 18:51+0000\n"
+"PO-Revision-Date: 2019-11-27 10:00+0100\n"
 "Last-Translator: Asier Sarasua Garmendia <asier.sarasua@gmail.com>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
 "Language: eu\n"
@@ -243,103 +243,253 @@ msgstr "_Laguntza"
 msgid "_About Tetravex"
 msgstr "Tetravex jokoari _buruz"
 
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explaination of what will happen when no command is given; would be similar to “(no command)” or “(empty)”, for example
+#: src/gnome-tetravex-cli.vala:24
+msgid "(nothing)"
+msgstr "(ezer ere ez)"
+
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:70
+#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:77
 msgid "Set number of colors (2-10)"
 msgstr "Ezarri kolore kopurua (2-10)"
 
+#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex-cli --help'
 #. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:73
+#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:80
 msgid "NUMBER"
 msgstr "ZENBAKIA"
 
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:76
+#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:89
+msgid "Set size of board (2-6)"
+msgstr "Ezarri taularen tamaina (2-6)"
+
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex-cli --help'
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:92
+msgid "SIZE"
+msgstr "TAMAINA"
+
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:95
+msgid "Print release version and exit"
+msgstr "Erakutsi bertsioaren informazioa eta irten"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
+#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:194
+msgid "Invert two tiles, the one in A1, and the one in b2."
+msgstr "Trukatu bi lauzak, A1 tokikoa eta b2 tokikoa."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
+#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:197
+msgid "An uppercase targets a tile from the initial board."
+msgstr "Maiuskulak hasierako taulako lauza bat adierazten du."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:200
+msgid "A lowercase targets a tile in the left/final board."
+msgstr "Minuskulak ezkerreko/amaierako taulako lauza bat adierazten du."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
+#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:203
+msgid "Digits specify the rows of the two tiles to invert."
+msgstr "Digituek zehazten dituzte trukatuko diren bi lauzen errenkadak."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
+#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:206
+msgid "Show the current puzzle. Alias: “status” or “show”."
+msgstr "Erakutsi uneko puzzlea. Aliasa: “status” edo “show”."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
+#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:209
+msgid "Create a new puzzle; for changing size, use --size."
+msgstr "Sortu puzzle berria; tamaina aldatzeko, erabili --size."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
+#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:212
+msgid "Give up with current puzzle, and view the solution."
+msgstr "Amore eman uneko puzzlean eta ikusi ebazpena."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands
+#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:215
+msgid "Finish current puzzle, automatically. Alias: “end”."
+msgstr "Amaitu uneko puzzlea, automatikoki. Aliasa: “end”."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:218
+msgid "Works for puzzles solved right or if one tile left."
+msgstr "Ondo ebatzi diren edo lauza bat falta zaien puzzleekin funtzionatzen du."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command
+#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:221
+msgid "Move all left-board tiles up by one."
+msgstr "Mugitu ezkerreko taulako lauza guztiak posizio bat gora."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command
+#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:224
+msgid "Move all left-board tiles down by one."
+msgstr "Mugitu ezkerreko taulako lauza guztiak posizio bat behera."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command
+#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:227
+msgid "Move all left-board tiles left by one."
+msgstr "Mugitu ezkerreko taulako lauza guztiak posizio bat ezkerrera."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command
+#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:230
+msgid "Move all left-board tiles right by one."
+msgstr "Mugitu ezkerreko taulako lauza guztiak posizio bat eskuinera."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
+#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:233
+msgid "Move all right-board tiles up by one."
+msgstr "Mugitu eskuineko taulako lauza guztiak posizio bat gora."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
+#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:236
+msgid "Move all right-board tiles down by one."
+msgstr "Mugitu eskuineko taulako lauza guztiak posizio bat behera."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command
+#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:239
+msgid "Move all right-board tiles left by one."
+msgstr "Mugitu eskuineko taulako lauza guztiak posizio bat ezkerrera."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command
+#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:242
+msgid "Move all right-board tiles right by one."
+msgstr "Mugitu eskuineko taulako lauza guztiak posizio bat eskuinera."
+
+#. Translators: command-line message, seen when running `gnome-tetravex-cli --help`
+#: src/gnome-tetravex-cli.vala:138
+msgid "[COMMAND]"
+msgstr "[KOMANDOA]"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli --help`; introduction of a list of options
+#: src/gnome-tetravex-cli.vala:141
+msgid "Available commands:"
+msgstr "Komando erabilgarriak:"
+
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1'
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
+#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:167
+msgid "Size could only be from 2 to 6."
+msgstr "Tamaina 2 eta 6 artekoa soilik izan daiteke."
+
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1'
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
+#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:174
+msgid "There could only be between 2 and 10 colors."
+msgstr "2 eta 10 kolore artean soilik izan daitezke."
+
+#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2'
+#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
+#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:181
+msgid "Failed to parse command-line arguments."
+msgstr "Huts egin du komando-lerroko argumentuak analizatzeak."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options
+#: src/gnome-tetravex-cli.vala:182
+msgid "To use `gnome-tetravex-cli`, pass as argument:"
+msgstr "`gnome-tetravex-cli` erabiltzeko, pasatu argumentu bat:"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:71
+msgid "Play in the terminal (see “--cli=help”)"
+msgstr "Jokatu germinalean (ikus “--cli=help”)"
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:74
+msgid "COMMAND"
+msgstr "KOMANDOA"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:83
 msgid "Start the game paused"
 msgstr "Hasi pausatutako jokoa"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:79
+#: src/gnome-tetravex.vala:86
 msgid "Restore last game, if any"
 msgstr "Leheneratu azken jokoa, halakorik badago"
 
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:82
-msgid "Set size of board (2-6)"
-msgstr "Ezarri taularen tamaina (2-6)"
-
-#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:85
-msgid "SIZE"
-msgstr "TAMAINA"
-
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:88
-msgid "Print release version and exit"
-msgstr "Erakutsi bertsioaren informazioa eta irten"
-
-#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
-#: src/gnome-tetravex.vala:151
-msgid "Size could only be from 2 to 6.\n"
-msgstr "Tamaina 2 eta 6 artekoa soilik izan daiteke.\n"
-
-#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
-#: src/gnome-tetravex.vala:158
-msgid "There could only be between 2 and 10 colors.\n"
-msgstr "2 eta 10 kolore artean soilik izan daitezke.\n"
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
+#: src/gnome-tetravex.vala:191
+msgid "To play GNOME Tetravex in command-line:"
+msgstr "GNOME Tetravex komando-lerroan jokatzeko:"
 
 #. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
-#: src/gnome-tetravex.vala:267
+#: src/gnome-tetravex.vala:356
 msgid "Restore last game"
 msgstr "Leheneratu azken jokoa"
 
 #. not a typo
 #. Translators: tooltip text of the "play"/unpause button, in the bottom bar
-#: src/gnome-tetravex.vala:317
+#: src/gnome-tetravex.vala:407
 msgid "Resume the game"
 msgstr "Berrekin jokoa"
 
 #. Translators: tooltip text of the pause button, in the bottom bar
-#: src/gnome-tetravex.vala:324
+#: src/gnome-tetravex.vala:414
 msgid "Pause the game"
 msgstr "Pausatu jokoa"
 
 #. Translators: tooltip text of the "restart"/new game button, in the bottom bar
-#: src/gnome-tetravex.vala:336
+#: src/gnome-tetravex.vala:427
 msgid "Start a new game"
 msgstr "Hasi joko berria"
 
 #. Translators: tooltip text of the "solve"/give up button, in the bottom bar
-#: src/gnome-tetravex.vala:343
+#: src/gnome-tetravex.vala:434
 msgid "Give up and view the solution"
 msgstr "Amore eman eta ikusi ebazpena"
 
 #. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
-#: src/gnome-tetravex.vala:350
+#: src/gnome-tetravex.vala:441
 msgid "Move all tiles left"
 msgstr "Eraman lauza guztiak ezkerrera"
 
 #. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:621
+#: src/gnome-tetravex.vala:741
 msgid "Are you sure you want to start a new game with same board size?"
 msgstr "Ziur zaude tamaina bereko taulako joko berria abiarazi nahi duzula?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game"
-#: src/gnome-tetravex.vala:624 src/gnome-tetravex.vala:696
-#: src/gnome-tetravex.vala:741
+#: src/gnome-tetravex.vala:744 src/gnome-tetravex.vala:815
+#: src/gnome-tetravex.vala:859
 msgid "_Keep Playing"
 msgstr "Ja_rraitu jokatzen"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:627 src/gnome-tetravex.vala:744
+#: src/gnome-tetravex.vala:747 src/gnome-tetravex.vala:862
 msgid "_Start New Game"
 msgstr "_Hasi joko berria"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
-#: src/gnome-tetravex.vala:654
+#: src/gnome-tetravex.vala:773
 msgid ""
 "Looks like you haven’t finished a game yet.\n"
 "\n"
@@ -349,59 +499,59 @@ msgstr "Badirudi oraindik ez duzula joko bat amaitu.\n"
 "Probatu beharbada 2 x 2 sareta, errazak dira. 🙂️"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
-#: src/gnome-tetravex.vala:693
+#: src/gnome-tetravex.vala:812
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Ziur zaude amore eman eta ebazpena ikustea nahi duzula?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:699
+#: src/gnome-tetravex.vala:818
 msgid "_Give Up"
 msgstr "_Amore eman"
 
 #. Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:738
+#: src/gnome-tetravex.vala:856
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr "Ziur zaude tamaina desberdineko taulako joko berria abiarazi nahi duzula?"
 
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:874
+#: src/gnome-tetravex.vala:991
 msgid "Lars Rydlinge"
 msgstr "Lars Rydlinge"
 
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:878
+#: src/gnome-tetravex.vala:995
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting a game documenter, seen in the About dialog
-#: src/gnome-tetravex.vala:882
+#: src/gnome-tetravex.vala:999
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. Translators: short description of the application, seen in the About dialog
-#: src/gnome-tetravex.vala:886
+#: src/gnome-tetravex.vala:1003
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "Fitxa zenbakidunak kokatu behar dira, eta elkar ukitzen duten zenbakiek berdinak izan behar dute"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:890
+#: src/gnome-tetravex.vala:1007
 #, c-format
 msgid "Copyright © %u-%u – Lars Rydlinge"
 msgstr "Copyright © %u-%u – Lars Rydlinge"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:894
+#: src/gnome-tetravex.vala:1011
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
 #. Translators: about dialog text; label of the website link
-#: src/gnome-tetravex.vala:898
+#: src/gnome-tetravex.vala:1015
 msgid "Page on GNOME wiki"
 msgstr "Orria GNOME wikian"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-tetravex.vala:910
+#: src/gnome-tetravex.vala:1027
 msgid "translator-credits"
 msgstr "Asier Sarasua Garmendia <asier.sarasua@gmail.com>"
 
@@ -579,6 +729,48 @@ msgctxt "shortcut window"
 msgid "Move all the pieces in the right box right by one"
 msgstr "Mugitu eskuineko kutxako pieza guztiak posizio bat eskuinera"
 
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
+#: src/history.vala:314
+#, c-format
+msgid "%uh %um %us"
+msgstr "%uh %um %us"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
+#: src/history.vala:318
+#, c-format
+msgid "%um %us"
+msgstr "%um %us"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
+#: src/history.vala:322
+#, c-format
+msgid "%us"
+msgstr "%us"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
+#: src/history.vala:326
+#, c-format
+msgid "%.0fs"
+msgstr "%.0fs"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
+#: src/history.vala:330
+#, c-format
+msgid "%.1fs"
+msgstr "%.1fs"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
+#: src/history.vala:334
+#, c-format
+msgid "%.2fs"
+msgstr "%.2fs"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
+#: src/history.vala:338
+#, c-format
+msgid "%.3fs"
+msgstr "%.3fs"
+
 #. Translators: text that appears as an overlay on the board when the game is paused
 #: src/puzzle-view.vala:532
 msgid "Paused"
@@ -600,6 +792,16 @@ msgstr "Ordua"
 msgid "%u × %u"
 msgstr "%u × %u"
 
+#. Translators: text of the score overlay, displayed after a puzzle is complete
+#: src/score-overlay.ui:37
+msgid "Congratulations!"
+msgstr "Zorionak!"
+
+#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
+#: src/score-overlay.ui:78
+msgid "Show scores"
+msgstr "Erakutsi puntuazioak"
+
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the game time
 #: src/score-overlay.vala:57
 msgid "New best time!"
@@ -607,15 +809,18 @@ msgstr "Denborarik onena berria!"
 
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old best time
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the second best time (in a corner case)
 #: src/score-overlay.vala:61 src/score-overlay.vala:117
+#: src/score-overlay.vala:156
 msgid "Second:"
 msgstr "Bigarrena:"
 
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the third best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the third best time (in a corner case)
 #: src/score-overlay.vala:68 src/score-overlay.vala:94
-#: src/score-overlay.vala:121
+#: src/score-overlay.vala:121 src/score-overlay.vala:163
 msgid "Third:"
 msgstr "Hirugarrena:"
 
@@ -627,7 +832,9 @@ msgstr "Podiumetik kanpo"
 
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the game best time (in a corner case)
 #: src/score-overlay.vala:86 src/score-overlay.vala:112
+#: src/score-overlay.vala:149
 msgid "Best time:"
 msgstr "Denborarik onena:"
 
@@ -644,20 +851,20 @@ msgstr "Zure denbora:"
 msgid "Place %u:"
 msgstr "%u tokia:"
 
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the worst time (in a corner case)
+#: src/score-overlay.vala:172
+msgid "Worst time:"
+msgstr "Denborarik txarrena:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the fourth time (in a corner case)
+#: src/score-overlay.vala:178
+msgid "Fourth:"
+msgstr "Laugarrena:"
+
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made one of the worst scores for a game of this size; says that the rank after the one of the game is "free", inviting to do worse
-#: src/score-overlay.vala:164
+#: src/score-overlay.vala:205
 msgid "Free!"
 msgstr "Libre!"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete
-#: src/score-overlay.ui:37
-msgid "Congratulations!"
-msgstr "Zorionak!"
-
-#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
-#: src/score-overlay.ui:78
-msgid "Show scores"
-msgstr "Erakutsi puntuazioak"
 
 #~ msgid "_2x2"
 #~ msgstr "_2×2"
