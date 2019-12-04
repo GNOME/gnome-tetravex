@@ -24,8 +24,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-02-06 19:35+0000\n"
-"PO-Revision-Date: 2019-03-02 21:03+0100\n"
+"POT-Creation-Date: 2019-10-19 00:52+0000\n"
+"PO-Revision-Date: 2019-11-03 14:52+0100\n"
 "Last-Translator: Tim Sabsch <tim@sabsch.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.2.4\n"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
@@ -66,9 +66,10 @@ msgstr ""
 msgid "The GNOME Project"
 msgstr "Das GNOME-Projekt"
 
-#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
-#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
-#: src/gnome-tetravex.vala:389
+#. Translators: application name, as seen in GNOME Shell
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:23
+#: src/gnome-tetravex.vala:27
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -83,130 +84,369 @@ msgstr "Durch Zusammenfügen von nummerierten Kacheln das Puzzle lösen"
 msgid "game;logic;board;"
 msgstr "Spiel;Logik;Brettspiel;"
 
-#. TRANSLATORS: Do NOT translate or transliterate this text!
-#. This is an icon file name.
-#: data/org.gnome.Tetravex.desktop.in:12
-msgid "org.gnome.Tetravex"
-msgstr "org.gnome.Tetravex"
-
-#: data/org.gnome.Tetravex.gschema.xml:6
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
+#: data/org.gnome.Tetravex.gschema.xml:13
 msgid "The size of the playing grid"
 msgstr "Die Größe des Spielbretts"
 
-#: data/org.gnome.Tetravex.gschema.xml:7
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
 "Der Wert dieses Schlüssels wird verwendet, um die Größe des Spielfelds "
 "festzulegen."
 
-#: data/org.gnome.Tetravex.gschema.xml:11
-msgid "Width of the window in pixels"
-msgstr "Fensterbreite in Pixeln"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:20
+msgid "Use “Back” and “Forward” mouse button events"
+msgstr "Mausknöpfe »Zurück« und »Vorwärts« verwenden"
 
-#: data/org.gnome.Tetravex.gschema.xml:15
-msgid "Height of the window in pixels"
-msgstr "Fensterhöhe in Pixeln"
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:22
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key "
+"will determine if any action is taken inside of the window when either is "
+"pressed."
+msgstr ""
+"Nutzer einer Maus, die die Knöpfe »Zurück« und »Vorwärts« besitzt, können "
+"hiermit festlegen, ob diese Knöpfe Aktionen im Spiel auslösen können."
 
-#: data/org.gnome.Tetravex.gschema.xml:19
-msgid "true if the window is maximized"
-msgstr "Wahr, falls das Fenster maximiert ist"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:28
+msgid "Mouse button to activate the “Undo” command"
+msgstr "Mausknopf für den Befehl »Rückgängig«"
 
-#: src/app-menu.ui:5
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:30
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key "
+"will set which button activates the “Undo” command. Possible values range "
+"between 6 and 14."
+msgstr ""
+"Nutzer einer Maus, die die Knöpfe »Zurück« und »Vorwärts« besitzt, können "
+"hiermit festlegen, welcher Knopf den Befehl »Rückgängig« auslöst. Mögliche "
+"Werte liegen zwischen 6 und 14."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:36
+msgid "Mouse button to activate the “Redo” command"
+msgstr "Mausknopf für den Befehl »Wiederholen«"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:38
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key "
+"will set which button activates the “Redo” command. Possible values range "
+"between 6 and 14."
+msgstr ""
+"Nutzer einer Maus, die die Knöpfe »Zurück« und »Vorwärts« besitzt, können "
+"hiermit festlegen, welcher Knopf den Befehl »Wiederholen« auslöst. Mögliche "
+"Werte liegen zwischen 6 und 14."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
+#: data/org.gnome.Tetravex.gschema.xml:43
+msgid "Saved game, if any"
+msgstr "Gespeichertes Spiel, sofern vorhanden"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) »
+#: data/org.gnome.Tetravex.gschema.xml:45
+msgid ""
+"The key has value “nothing” if there is no saved game. Else, it contains a "
+"description of the board, with its size, the number of colors, and the time "
+"elapsed, then the list of tiles, saved as properties: their current position "
+"(x and y), their colors (north, east, south and west), and their original "
+"position (x and y), and finally the history, with the last move index, and "
+"history entries saved as properties: coordinates of the two tiles swapped, "
+"and the move id."
+msgstr ""
+"Dieser Schlüssel hat den Wert »nothing« (kein), wenn es kein gespeichertes "
+"Spiel gibt. Andernfalls enthält es eine Beschreibung des Spielfeldes mit "
+"dessen Größe, Anzahl an Farben, vergangener Spielzeit, Liste der Kacheln als "
+"Eigenschaften (aktuelle und originale Positionen als x und y sowie Farben in "
+"Nord, Ost, Süd und West) sowie den Spielverlauf als Eigenschaften "
+"(Koordinaten der getauschten Kacheln und Kennung des Spielzugs)."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
+#: data/org.gnome.Tetravex.gschema.xml:50
+msgid "Theme"
+msgstr "Thema"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
+#: data/org.gnome.Tetravex.gschema.xml:56
+msgid "The width of the window"
+msgstr "Fensterbreite"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
+#: data/org.gnome.Tetravex.gschema.xml:58
+msgid "The width of the main window in pixels."
+msgstr "Breite des Hauptfensters in Pixeln."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
+#: data/org.gnome.Tetravex.gschema.xml:63
+msgid "The height of the window"
+msgstr "Fensterhöhe"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
+#: data/org.gnome.Tetravex.gschema.xml:65
+msgid "The height of the main window in pixels."
+msgstr "Höhe des Hauptfensters in Pixeln."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
+#: data/org.gnome.Tetravex.gschema.xml:70
+msgid "A flag to enable maximized mode"
+msgstr "Maximierten Modus aktivieren"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
+#: data/org.gnome.Tetravex.gschema.xml:72
+msgid "If “true”, the main window starts in maximized mode."
+msgstr "Legt fest, ob das Hauptfenster im maximierten Modus gestartet wird."
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
+#: src/app-menu.ui:23
 msgid "_New Game"
 msgstr "_Neues Spiel"
 
-#: src/app-menu.ui:9
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: src/app-menu.ui:28
 msgid "_Scores"
 msgstr "Er_gebnisse"
 
-#: src/app-menu.ui:15
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
+#: src/app-menu.ui:33
+msgid "A_ppearance"
+msgstr "Er_scheinung"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:37
+msgid "_Extrusion"
+msgstr "_Extrusion"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:43
+msgid "Neo_Retro"
+msgstr "Neu-_Retro"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
+#: src/app-menu.ui:49
+msgid "_Nostalgia"
+msgstr "_Nostalgie"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
+#: src/app-menu.ui:55
+msgid "_Synesthesia"
+msgstr "_Synästhesie"
+
+#. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
+#: src/app-menu.ui:65
 msgid "Si_ze"
 msgstr "_Größe"
 
-#: src/app-menu.ui:18
-msgid "_2x2"
-msgstr "_2x2"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
+#: src/app-menu.ui:69
+msgid "_2 × 2"
+msgstr "_2 x 2"
 
-#: src/app-menu.ui:23
-msgid "_3x3"
-msgstr "_3x3"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
+#: src/app-menu.ui:75
+msgid "_3 × 3"
+msgstr "_3 x 3"
 
-#: src/app-menu.ui:28
-msgid "_4x4"
-msgstr "_4x4"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
+#: src/app-menu.ui:81
+msgid "_4 × 4"
+msgstr "_4 x 4"
 
-#: src/app-menu.ui:33
-msgid "_5x5"
-msgstr "_5x5"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
+#: src/app-menu.ui:87
+msgid "_5 × 5"
+msgstr "_5 x 5"
 
-#: src/app-menu.ui:38
-msgid "_6x6"
-msgstr "_6x6"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
+#: src/app-menu.ui:93
+msgid "_6 × 6"
+msgstr "_6 x 6"
 
-#: src/app-menu.ui:47
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
+#: src/app-menu.ui:103
 msgid "_Keyboard Shortcuts"
 msgstr "_Tastenkombinationen"
 
-#: src/app-menu.ui:51
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help
+#: src/app-menu.ui:108
 msgid "_Help"
 msgstr "_Hilfe"
 
-#: src/app-menu.ui:55
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
+#: src/app-menu.ui:113
 msgid "_About Tetravex"
 msgstr "_Info zu Tetravex"
 
-#: src/gnome-tetravex.vala:38
-msgid "Print release version and exit"
-msgstr "Version anzeigen und beenden"
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:70
+msgid "Set number of colors (2-10)"
+msgstr "Anzahl an Farben festlegen (2-10)"
 
-#: src/gnome-tetravex.vala:39
+#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:73
+msgid "NUMBER"
+msgstr "ANZAHL"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:76
 msgid "Start the game paused"
 msgstr "Das Spiel im angehaltenen Zustand starten"
 
-#: src/gnome-tetravex.vala:40
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:79
+msgid "Restore last game, if any"
+msgstr "Letztes Spiel wiederherstellen, sofern vorhanden"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:82
 msgid "Set size of board (2-6)"
 msgstr "Spielfeldgröße festlegen (2-6)"
 
-#. not a typo
-#: src/gnome-tetravex.vala:137
-msgid "Resume the game"
-msgstr "Spiel fortsetzen"
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:85
+msgid "SIZE"
+msgstr "GRÖSSE"
 
-#: src/gnome-tetravex.vala:149
-msgid "Pause the game"
-msgstr "Spiel anhalten"
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:88
+msgid "Print release version and exit"
+msgstr "Version anzeigen und beenden"
 
-#: src/gnome-tetravex.vala:166
-msgid "Start a new game"
-msgstr "Ein neues Spiel beginnen"
-
-#: src/gnome-tetravex.vala:178
-msgid "Give up and view the solution"
-msgstr "Aufgeben und Lösung anzeigen"
-
-#: src/gnome-tetravex.vala:247
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
+#: src/gnome-tetravex.vala:151
 msgid "Size could only be from 2 to 6.\n"
 msgstr "Nur Größen zwischen 2 und 6 zulässig.\n"
 
-#: src/gnome-tetravex.vala:355
-msgid "Are you sure you want to give up and view the solution?"
-msgstr "Sind Sie sicher, dass Sie aufgeben und die Lösung sehen wollen?"
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
+#: src/gnome-tetravex.vala:158
+msgid "There could only be between 2 and 10 colors.\n"
+msgstr "Es können nur zwei bis zehn Farben ausgewählt werden.\n"
 
-#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
+#. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
+#: src/gnome-tetravex.vala:267
+msgid "Restore last game"
+msgstr "Letztes Spiel wiederherstellen"
+
+#. not a typo
+#. Translators: tooltip text of the "play"/unpause button, in the bottom bar
+#: src/gnome-tetravex.vala:317
+msgid "Resume the game"
+msgstr "Spiel fortsetzen"
+
+#. Translators: tooltip text of the pause button, in the bottom bar
+#: src/gnome-tetravex.vala:324
+msgid "Pause the game"
+msgstr "Spiel anhalten"
+
+#. Translators: tooltip text of the "restart"/new game button, in the bottom bar
+#: src/gnome-tetravex.vala:336
+msgid "Start a new game"
+msgstr "Ein neues Spiel beginnen"
+
+#. Translators: tooltip text of the "solve"/give up button, in the bottom bar
+#: src/gnome-tetravex.vala:343
+msgid "Give up and view the solution"
+msgstr "Aufgeben und Lösung anzeigen"
+
+#. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
+#: src/gnome-tetravex.vala:350
+msgid "Move all tiles left"
+msgstr "Alle Kacheln nach links verschieben"
+
+#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"
+#: src/gnome-tetravex.vala:621
+msgid "Are you sure you want to start a new game with same board size?"
+msgstr ""
+"Sind Sie sicher, dass Sie ein neues Spiel mit der gleichen Spielfeldgröße "
+"beginnen wollen?"
+
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game"
+#: src/gnome-tetravex.vala:624 src/gnome-tetravex.vala:696
+#: src/gnome-tetravex.vala:741
 msgid "_Keep Playing"
 msgstr "_Weiterspielen"
 
-#: src/gnome-tetravex.vala:358
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing"
+#: src/gnome-tetravex.vala:627 src/gnome-tetravex.vala:744
+msgid "_Start New Game"
+msgstr "Ein neues Spiel _beginnen"
+
+#. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
+#: src/gnome-tetravex.vala:654
+msgid ""
+"Looks like you haven’t finished a game yet.\n"
+"\n"
+"Try maybe a 2 × 2 grid, they are easy. 🙂️"
+msgstr ""
+"Es sieht so aus, als hätten Sie noch kein Spiel gelöst.\n"
+"\n"
+"Versuchen Sie es mal mit einem 2x2 Spielfeld, die sind einfach. 🙂"
+
+#. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
+#: src/gnome-tetravex.vala:693
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "Sind Sie sicher, dass Sie aufgeben und die Lösung sehen wollen?"
+
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
+#: src/gnome-tetravex.vala:699
 msgid "_Give Up"
 msgstr "_Aufgeben"
 
-#: src/gnome-tetravex.vala:392
+#. Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game"
+#: src/gnome-tetravex.vala:738
+msgid "Are you sure you want to start a new game with a different board size?"
+msgstr ""
+"Sind Sie sicher, dass Sie ein neues Spiel mit anderer Spielfeldgröße "
+"beginnen wollen?"
+
+#. Translators: text crediting a game author, seen in the About dialog
+#: src/gnome-tetravex.vala:874
+msgid "Lars Rydlinge"
+msgstr "Lars Rydlinge"
+
+#. Translators: text crediting a game author, seen in the About dialog
+#: src/gnome-tetravex.vala:878
+msgid "Robert Ancell"
+msgstr "Robert Ancell"
+
+#. Translators: text crediting a game documenter, seen in the About dialog
+#: src/gnome-tetravex.vala:882
+msgid "Rob Bradford"
+msgstr "Rob Bradford"
+
+#. Translators: short description of the application, seen in the About dialog
+#: src/gnome-tetravex.vala:886
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
 "Positionieren Sie die Kacheln so, dass sich gleiche Ziffern gegenseitig "
 "berühren"
 
-#: src/gnome-tetravex.vala:399
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/gnome-tetravex.vala:890
+#, c-format
+msgid "Copyright © %u-%u – Lars Rydlinge"
+msgstr "Copyright © %u-%u – Lars Rydlinge"
+
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/gnome-tetravex.vala:894
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "Copyright © %u-%u – Arnaud Bonatti"
+
+#. Translators: about dialog text; label of the website link
+#: src/gnome-tetravex.vala:898
+msgid "Page on GNOME wiki"
+msgstr "Seite im GNOME-Wiki"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/gnome-tetravex.vala:910
 msgid "translator-credits"
 msgstr ""
 "Karl Eichwalder <ke@suse.de>\n"
@@ -226,94 +466,292 @@ msgstr ""
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>\n"
 "Tim Sabsch <tim@sabsch.com>"
 
-#: src/gnome-tetravex.vala:417
-msgid "Are you sure you want to start a new game with a different board size?"
-msgstr ""
-"Sind Sie sicher, dass Sie ein neues Spiel mit anderer Spielfeldgröße "
-"beginnen wollen?"
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play", "Play on selected tile", "Select the given row", etc.
+#: src/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "Mit Tastatur spielen"
 
-#: src/gnome-tetravex.vala:419
-msgid "_Start New Game"
-msgstr "Ein neues Spiel _beginnen"
+#. Translators: Left/Right/Up/Down arrows actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; moves highlight
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move keyboard highlight"
+msgstr "Hervorhebung per Tastatur ändern"
 
-#: src/help-overlay.ui:16
+#. Translators: Return/space actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depend on context
+#: src/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Select, move or unselect"
+msgstr "Auswählen, Verschieben oder Auswahl entfernen"
+
+#. Translators: numbers (1 to 6) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use 1 to 2 or up to 1 to 6
+#: src/help-overlay.ui:53
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "Reihe auswählen"
+
+#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is splitted in two parts, that is for the left one
+#: src/help-overlay.ui:61
+msgctxt "shortcut window"
+msgid "Select left box column"
+msgstr "Spalte in linker Box auswählen"
+
+#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is splitted in two parts, that is for the right one
+#: src/help-overlay.ui:69
+msgctxt "shortcut window"
+msgid "Select right box column"
+msgstr "Spalte in rechter Box auswählen"
+
+#. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
+#: src/help-overlay.ui:78
+msgctxt "shortcut window"
+msgid "Validate right box"
+msgstr "Rechte Box validieren"
+
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
+#: src/help-overlay.ui:87
+msgctxt "shortcut window"
+msgid "History"
+msgstr "Verlauf"
+
+#. Translators: Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, undoes last move
+#: src/help-overlay.ui:93
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "Rückgängig"
+
+#. Translators: Shift-Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, redoes undone move
+#: src/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "Wiederholen"
+
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"...
+#: src/help-overlay.ui:110
+msgctxt "shortcut window"
+msgid "Main functions"
+msgstr "Hauptfunktionen"
+
+#. Translators: Ctrl-N shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:116
 msgctxt "shortcut window"
 msgid "Start a new game"
 msgstr "Ein neues Spiel beginnen"
 
-#: src/help-overlay.ui:23
+#. Translators: Ctrl-P shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Pause the game"
 msgstr "Spiel anhalten"
 
-#: src/help-overlay.ui:30
+#. Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:132
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box up by one"
-msgstr "Alle Kacheln in der linken Box einmal nach oben verschieben"
+msgid "Solve the game"
+msgstr "Spiel lösen"
 
-#: src/help-overlay.ui:37
+#. Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:140
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box down by one"
-msgstr "Alle Kacheln in der linken Box einmal nach unten verschieben"
+msgid "Show scores"
+msgstr "Ergebnisse anzeigen"
 
-#: src/help-overlay.ui:44
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Show Help", "Show Keyboard Shortcuts", "Quit"...
+#: src/help-overlay.ui:149
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box left by one"
-msgstr "Alle Kacheln in der linken Box einmal nach links verschieben"
+msgid "Generic"
+msgstr "Allgemein"
 
-#: src/help-overlay.ui:51
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left box right by one"
-msgstr "Alle Kacheln in der linken Box einmal nach rechts verschieben"
-
-#: src/help-overlay.ui:58
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "Hilfe anzeigen"
-
-#: src/help-overlay.ui:65
+#. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
+#: src/help-overlay.ui:155
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
 msgstr "Tastenkürzel anzeigen"
 
-#: src/help-overlay.ui:72
+#. Translators: F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows application help
+#: src/help-overlay.ui:163
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Hilfe anzeigen"
+
+#. Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog
+#: src/help-overlay.ui:171
+msgctxt "shortcut window"
+msgid "Show About"
+msgstr "Info anzeigen"
+
+#. Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application
+#: src/help-overlay.ui:179
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Beenden"
 
-#: src/puzzle-view.vala:356
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note...
+#: src/help-overlay.ui:188
+msgctxt "shortcut window"
+msgid "Advanced gameplay"
+msgstr "Fortgeschrittene Funktionen"
+
+#. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:194
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "Alle Kacheln in der linken Box einmal nach oben verschieben"
+
+#. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:202
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "Alle Kacheln in der linken Box einmal nach unten verschieben"
+
+#. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:210
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "Alle Kacheln in der linken Box einmal nach links verschieben"
+
+#. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:218
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "Alle Kacheln in der linken Box einmal nach rechts verschieben"
+
+#. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:226
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box up by one"
+msgstr "Alle Kacheln in der rechten Box einmal nach rechts verschieben"
+
+#. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:234
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box down by one"
+msgstr "Alle Kacheln in der rechten Box einmal nach unten verschieben"
+
+#. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:242
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box left by one"
+msgstr "Alle Kacheln in der rechten Box einmal nach links verschieben"
+
+#. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:250
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right box right by one"
+msgstr "Alle Kacheln in der rechten Box einmal nach rechts verschieben"
+
+#. Translators: text that appears as an overlay on the board when the game is paused
+#: src/puzzle-view.vala:532
 msgid "Paused"
 msgstr "Pausiert"
 
-#: src/score-dialog.vala:29
-msgid "Quit"
-msgstr "Beenden"
-
-#: src/score-dialog.vala:30
-msgid "New Game"
-msgstr "Neues Spiel"
-
-#: src/score-dialog.vala:33
-msgid "OK"
-msgstr "OK"
-
-#: src/score-dialog.vala:45
-msgid "Size:"
-msgstr "Größe:"
-
-#: src/score-dialog.vala:70
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
+#: src/score-dialog.vala:72
 msgid "Date"
 msgstr "Datum"
 
-#: src/score-dialog.vala:73
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
+#: src/score-dialog.vala:76
 msgid "Time"
 msgstr "Zeit"
 
+#. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
+#: src/score-dialog.vala:145
+#, c-format
+msgid "%u × %u"
+msgstr "%u × %u"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the game time
+#: src/score-overlay.vala:57
+msgid "New best time!"
+msgstr "Neue Bestzeit!"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the second best time
+#: src/score-overlay.vala:61 src/score-overlay.vala:117
+msgid "Second:"
+msgstr "Zweite:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the third best time
+#: src/score-overlay.vala:68 src/score-overlay.vala:94
+#: src/score-overlay.vala:121
+msgid "Third:"
+msgstr "Dritte:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old third best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old third best time
+#: src/score-overlay.vala:75 src/score-overlay.vala:101
+msgid "Out of podium:"
+msgstr "Nicht auf dem Podium:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever
+#: src/score-overlay.vala:86 src/score-overlay.vala:112
+msgid "Best time:"
+msgstr "Bestzeit:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the game time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the game time
+#: src/score-overlay.vala:90 src/score-overlay.vala:129
+msgid "Your time:"
+msgstr "Ihre Zeit:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank before the one of the game played
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank after the one of the game played
+#: src/score-overlay.vala:125 src/score-overlay.vala:133
+#, c-format
+msgid "Place %u:"
+msgstr "Platz %u:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made one of the worst scores for a game of this size; says that the rank after the one of the game is "free", inviting to do worse
+#: src/score-overlay.vala:164
+msgid "Free!"
+msgstr "Unbesetzt!"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete
+#: src/score-overlay.ui:37
+msgid "Congratulations!"
+msgstr "Herzlichen Glückwunsch!"
+
+#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
+#: src/score-overlay.ui:78
+msgid "Show scores"
+msgstr "Ergebnisse anzeigen"
+
+#~ msgid "org.gnome.Tetravex"
+#~ msgstr "org.gnome.Tetravex"
+
+#~ msgid "_2x2"
+#~ msgstr "_2x2"
+
+#~ msgid "_3x3"
+#~ msgstr "_3x3"
+
+#~ msgid "_4x4"
+#~ msgstr "_4x4"
+
+#~ msgid "_5x5"
+#~ msgstr "_5x5"
+
+#~ msgid "_6x6"
+#~ msgstr "_6x6"
+
+#~ msgid "Quit"
+#~ msgstr "Beenden"
+
+#~ msgid "New Game"
+#~ msgstr "Neues Spiel"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgid "Size:"
+#~ msgstr "Größe:"
+
 #~ msgid "_Size"
 #~ msgstr "_Größe"
-
-#~ msgid "_About"
-#~ msgstr "_Info"
 
 #~ msgid "_Quit"
 #~ msgstr "_Beenden"
