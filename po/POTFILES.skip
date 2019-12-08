@@ -1,3 +1,4 @@
+src/cli.c
 src/gnome-tetravex.c
 src/gnome-tetravex-cli.c
 src/history.c

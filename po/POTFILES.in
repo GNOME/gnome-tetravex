@@ -4,6 +4,7 @@ data/org.gnome.Tetravex.appdata.xml.in
 data/org.gnome.Tetravex.desktop.in
 data/org.gnome.Tetravex.gschema.xml
 src/app-menu.ui
+src/cli.vala
 src/gnome-tetravex-cli.vala
 src/gnome-tetravex.ui
 src/gnome-tetravex.vala
