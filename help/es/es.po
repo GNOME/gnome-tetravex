@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
-"POT-Creation-Date: 2019-03-03 11:36+0000\n"
+"POT-Creation-Date: 2019-11-23 15:32+0000\n"
 "PO-Revision-Date: 2019-03-14 15:34+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
@@ -261,7 +261,7 @@ msgid ""
 "<link xref=\"shortcut\"/> for more information."
 msgstr ""
 "Las piezas en la caja de la izquierda se pueden mover a la ven en una "
-"dirección. Para obtener más información consulte la <link xref=\"shortcut\"/"
+"dirección. Para obtener más información consulte la sección <link xref=\"shortcut\"/"
 ">."
 
 #. (itstool) path: info/desc
@@ -276,10 +276,6 @@ msgstr "Tamaño del tablero de juego"
 
 #. (itstool) path: page/p
 #: C/size.page:21
-#| msgid ""
-#| "To change the size of the game board, in order to increase or decrease "
-#| "the complexity of the game, click <gui>Tetravex</gui> in the top bar and "
-#| "click <gui>Size</gui>, then select the dimension of the board."
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
 "complexity of the game, press the menu button in the top-right corner of the "
