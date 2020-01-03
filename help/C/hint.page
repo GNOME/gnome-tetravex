@@ -4,8 +4,8 @@
   <info>
     <link type="guide" xref="index#tips"/>
     <link type="seealso" xref="usage"/>
-    <desc>Use hints or solve the game automatically.</desc>
-    <revision pkgversion="2.30" version="0.1" date="2009-12-23" status="draft"/>
+    <desc>Solve the game automatically.</desc>
+    <revision pkgversion="3.34" version="0.2" date="2020-01-03" status="draft"/>
     <credit type="author">
       <name>Milo Casagrande</name>
       <email>milo@ubuntu.com</email>
@@ -23,8 +23,8 @@
   <section id="hint-solve">
     <title>Solve the game</title>
     <p>
-      If you get stuck in the game, or you want to solve it automatically, 
-      choose <guiseq><gui style="menu">Game</gui><gui style="menuitem">Solve</gui></guiseq>.
+      If you get stuck in the game and want to solve it automatically,
+      press the question mark button in the bottom-right corner.
     </p>
   </section>
 </page>
