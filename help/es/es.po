@@ -1,19 +1,19 @@
 # translation of gnotravex.master.po to Español
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2019.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex.master\n"
-"POT-Creation-Date: 2019-11-23 15:32+0000\n"
-"PO-Revision-Date: 2019-03-14 15:34+0100\n"
+"POT-Creation-Date: 2020-01-03 14:24+0000\n"
+"PO-Revision-Date: 2020-01-07 16:49+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: es <gnome-es-list@gnome.org>\n"
-"Language: es\n"
+"Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 3.31.90\n"
+"X-Generator: Gtranslator 3.34.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
@@ -25,11 +25,12 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/hint.page:7
-msgid "Use hints or solve the game automatically."
-msgstr "Use las sugerencias para resolver la partida automáticamente."
+#| msgid "Use hints or solve the game automatically."
+msgid "Solve the game automatically."
+msgstr "Resolver la partida automáticamente."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/size.page:12 C/usage.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:12 C/size.page:12 C/usage.page:12
 #: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
@@ -56,13 +57,11 @@ msgstr "Resolver la partida."
 #. (itstool) path: section/p
 #: C/hint.page:25
 msgid ""
-"If you get stuck in the game, or you want to solve it automatically, choose "
-"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
-"guiseq>."
+"If you get stuck in the game and want to solve it automatically, press the "
+"question mark button in the bottom-right corner."
 msgstr ""
-"Si se queda atascado en la partida o quiere resolverla automáticamente elija "
-"<guiseq><gui style=\"menu\">Juego</gui><gui style=\"menuitem\">Resolver</"
-"gui></guiseq>."
+"Si se queda atascado en la partida y quiere resolverla automáticamente pulse "
+"el botón de la interrogación en la esquina inferior derecha."
 
 #. (itstool) path: info/title
 #: C/index.page:8
@@ -87,7 +86,7 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/size.page:16 C/usage.page:20
+#: C/index.page:21 C/move.page:16 C/size.page:16 C/usage.page:20
 #: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
@@ -231,17 +230,17 @@ msgid "How to move the pieces on the game board."
 msgstr "Cómo mover las piezas en el tablero de juego."
 
 #. (itstool) path: page/title
-#: C/move.page:19
+#: C/move.page:20
 msgid "Move the pieces"
 msgstr "Mover las piezas"
 
 #. (itstool) path: section/title
-#: C/move.page:22
+#: C/move.page:23
 msgid "Move a piece"
 msgstr "Mover una pieza"
 
 #. (itstool) path: section/p
-#: C/move.page:23
+#: C/move.page:24
 msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
@@ -250,19 +249,24 @@ msgstr ""
 "sobre el cuadrado donde situarla o arrastrarla y soltarla al cuadrado nuevo"
 
 #. (itstool) path: section/p
-#: C/move.page:26
+#: C/move.page:27
 msgid "These moves are not permanent and can be reversed."
 msgstr "Estos movimientos no son permanentes y se pueden deshacer."
 
 #. (itstool) path: note/p
-#: C/move.page:30
+#: C/move.page:31
+#| msgid ""
+#| "The pieces in the left box can be moved all at once in one direction. See "
+#| "<link xref=\"shortcut\"/> for more information."
 msgid ""
-"The pieces in the left box can be moved all at once in one direction. See "
-"<link xref=\"shortcut\"/> for more information."
+"The pieces in the left box can be moved all at once in one direction. Press "
+"the menu button in the top-right corner of the window and select <gui style="
+"\"menuitem\">Keyboard Shortcuts</gui> for more information."
 msgstr ""
-"Las piezas en la caja de la izquierda se pueden mover a la ven en una "
-"dirección. Para obtener más información consulte la sección <link xref=\"shortcut\"/"
-">."
+"Las piezas en la caja de la izquierda se pueden mover todas a la vez en una "
+"dirección. Pulse el botón de menú en la esquina superior derecha de la "
+"ventana y elija <gui style=\"menuitem\">Atajos del teclado</gui> para "
+"obtener más información."
 
 #. (itstool) path: info/desc
 #: C/size.page:7
@@ -476,6 +480,15 @@ msgstr ""
 "Si tiene alguna sugerencia acerca de <app>Tetravex</app> o cualquier otro "
 "juego de GNOME, escríbanos a gnome-doc-list@gnome.org. Las añadiremos todas "
 "aquí."
+
+#~ msgid ""
+#~ "If you get stuck in the game, or you want to solve it automatically, "
+#~ "choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem"
+#~ "\">Solve</gui></guiseq>."
+#~ msgstr ""
+#~ "Si se queda atascado en la partida o quiere resolverla automáticamente "
+#~ "elija <guiseq><gui style=\"menu\">Juego</gui><gui style=\"menuitem"
+#~ "\">Resolver</gui></guiseq>."
 
 #~ msgid "Use the keyboard to play the game."
 #~ msgstr "Use el teclado para jugar al juego."
