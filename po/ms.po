@@ -4,220 +4,269 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gnome-Games 2.0.x\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-04 04:52+0100\n"
-"PO-Revision-Date: 2003-11-24 01:54+0800\n"
-"Last-Translator: Hasbullah Bin Pit <sebol@ikhlas.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
+"POT-Creation-Date: 2019-09-18 16:02+0000\n"
+"PO-Revision-Date: 2019-12-27 18:23+0800\n"
+"Last-Translator: abuyop <abuyop@gmail.com>\n"
 "Language-Team: Projek Gabai <gabai-penyumbang@lists.sourceforge.org>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
-#, fuzzy
+#: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
-msgstr "Tetravex"
+msgstr "Tetravex GNOME"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
+#: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
-msgstr ""
+msgstr "Susun semula jubin supaya muat dalam satu petak"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
+#: data/org.gnome.Tetravex.appdata.xml.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're "
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
 "being timed!"
 msgstr ""
+"Setiap kepingan petak mempunyai nombor pada setiap sisinya. Letak kepingan "
+"di bahagian kiri papan supaya nombor yang serupa bersebelahan antara satu "
+"sama lain. Jika nombor tidak sepadan, anda tidak boleh letak kepingan "
+"tersebut. Bergerak pantas: kerana permainan ini diberi masa!"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
+#: data/org.gnome.Tetravex.appdata.xml.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
+"Anda boleh tentukan permainan ini lebih mudah atau lebih sukar dengan "
+"mengubah saiz papan."
 
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:381
+#: data/org.gnome.Tetravex.appdata.xml.in:32
+msgid "The GNOME Project"
+msgstr "Projek GNOME"
+
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
+#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
+#: src/gnome-tetravex.vala:389
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: ../data/gnome-tetravex.desktop.in.h:2
+#: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
-msgstr ""
+msgstr "Selesaikan teka-teki dengan memadankan jubin-jubin bernombor"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
-msgstr ""
+msgstr "permainan;logik;papan;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#: data/org.gnome.Tetravex.gschema.xml:6
 msgid "The size of the playing grid"
-msgstr "Saiz bagi grid permainan"
+msgstr "Saiz grid permainan"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
+#: data/org.gnome.Tetravex.gschema.xml:7
 msgid "The value of this key is used to decide the size of the playing grid."
-msgstr ""
+msgstr "Nilai bagi kunci ini digunakan untuk menentukan saiz grid permainan."
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
-#, fuzzy
+#: data/org.gnome.Tetravex.gschema.xml:11
 msgid "Width of the window in pixels"
-msgstr "Lebar bagi tetingkap utama, dalam piksel, pada permulaan"
+msgstr "Lebar tetingkap dalam piksel"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
-#, fuzzy
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "Height of the window in pixels"
-msgstr "Tinggi bagi tetingkap utama, dalam piksel, pada permulaan"
+msgstr "Tinggi tetingkap dalam piksel"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
+#: data/org.gnome.Tetravex.gschema.xml:19
 msgid "true if the window is maximized"
-msgstr ""
+msgstr "benar jika tetingkap dimaksimumkan"
 
-#: ../src/app-menu.ui.h:1
-#, fuzzy
+#: src/app-menu.ui:5
 msgid "_New Game"
-msgstr "Permainan Baru"
+msgstr "Permainan _Baharu"
 
-#: ../src/app-menu.ui.h:2
-#, fuzzy
+#: src/app-menu.ui:9
 msgid "_Scores"
-msgstr "Markah."
+msgstr "_Skor"
 
-#: ../src/app-menu.ui.h:3
-#, fuzzy
-msgid "_Size"
-msgstr "Masa:"
+#: src/app-menu.ui:15
+msgid "Si_ze"
+msgstr "Sai_z"
 
-#: ../src/app-menu.ui.h:4
+#: src/app-menu.ui:18
 msgid "_2x2"
-msgstr ""
+msgstr "_2x2"
 
-#: ../src/app-menu.ui.h:5
+#: src/app-menu.ui:23
 msgid "_3x3"
-msgstr ""
+msgstr "_3x3"
 
-#: ../src/app-menu.ui.h:6
+#: src/app-menu.ui:28
 msgid "_4x4"
-msgstr ""
+msgstr "_4x4"
 
-#: ../src/app-menu.ui.h:7
+#: src/app-menu.ui:33
 msgid "_5x5"
-msgstr ""
+msgstr "_5x5"
 
-#: ../src/app-menu.ui.h:8
+#: src/app-menu.ui:38
 msgid "_6x6"
-msgstr ""
+msgstr "_6x6"
 
-#: ../src/app-menu.ui.h:9
-#, fuzzy
+#: src/app-menu.ui:47
+msgid "_Keyboard Shortcuts"
+msgstr "Pintasan Papan _Kekunci"
+
+#: src/app-menu.ui:51
 msgid "_Help"
-msgstr "Bantuan"
+msgstr "_Bantuan"
 
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr ""
+#: src/app-menu.ui:55
+msgid "_About Tetravex"
+msgstr "Perih_al Tetravex"
 
-#: ../src/app-menu.ui.h:11
-msgid "_Quit"
-msgstr ""
-
-#: ../src/gnome-tetravex.vala:38
+#: src/gnome-tetravex.vala:38
 msgid "Print release version and exit"
-msgstr ""
+msgstr "Cetak versi keluaran dan keluar"
 
-#: ../src/gnome-tetravex.vala:39
-#, fuzzy
+#: src/gnome-tetravex.vala:39
 msgid "Start the game paused"
-msgstr "Mula semula permainan"
+msgstr "Mulakan permainan dijeda"
 
-#: ../src/gnome-tetravex.vala:40
-#, fuzzy
+#: src/gnome-tetravex.vala:40
 msgid "Set size of board (2-6)"
-msgstr "Saiz papan (2-6)"
+msgstr "Tetapkan saiz papan (2-6)"
 
 #. not a typo
-#: ../src/gnome-tetravex.vala:129
-#, fuzzy
+#: src/gnome-tetravex.vala:137
 msgid "Resume the game"
-msgstr "Mula semula permainan"
+msgstr "Sambung semula permainan"
 
-#: ../src/gnome-tetravex.vala:141
-#, fuzzy
+#: src/gnome-tetravex.vala:149
 msgid "Pause the game"
-msgstr "Berhenti sejenak"
+msgstr "Jeda permainan"
 
-#: ../src/gnome-tetravex.vala:158
+#: src/gnome-tetravex.vala:166
 msgid "Start a new game"
-msgstr "Mula permainan baru"
+msgstr "Mula satu permainan baharu"
 
-#: ../src/gnome-tetravex.vala:170
-#, fuzzy
+#: src/gnome-tetravex.vala:178
 msgid "Give up and view the solution"
-msgstr "Gerakkan kad ke  Tapak"
+msgstr "Mengalah dan lihat jawapannya"
 
-#: ../src/gnome-tetravex.vala:239
+#: src/gnome-tetravex.vala:247
 msgid "Size could only be from 2 to 6.\n"
-msgstr ""
+msgstr "Saiz hanya boleh dari 2 hingga 6.\n"
 
-#: ../src/gnome-tetravex.vala:347
-#, fuzzy
+#: src/gnome-tetravex.vala:355
 msgid "Are you sure you want to give up and view the solution?"
-msgstr "Telah digunakan! Dimana anda ingin meletakkanya?"
+msgstr "Anda pasti mahu mengalah dan melihat jawapannya?"
 
-#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
-#, fuzzy
+#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
 msgid "_Keep Playing"
-msgstr "Teks Plain"
+msgstr "_Terus Bermain"
 
-#: ../src/gnome-tetravex.vala:350
+#: src/gnome-tetravex.vala:358
 msgid "_Give Up"
-msgstr ""
+msgstr "_Mengalah"
 
-#: ../src/gnome-tetravex.vala:384
+#: src/gnome-tetravex.vala:392
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
+"Letak kepingan-kepingan supaya nombor yang sama bersentuhan antara satu sama "
+"lain"
 
-#: ../src/gnome-tetravex.vala:391
+#: src/gnome-tetravex.vala:399
 msgid "translator-credits"
 msgstr ""
-"\"kenang daku semasa bermain..ahaks...'\n"
-"Noor Azurah Anuar <gbumla@yahoo.com>, Bandar Hilir."
+"abuyop\n"
+"kenang daku semasa bermain..ahaks...\n"
+"Noor Azurah Anuar <gbumla@yahoo.com>, Bandar Hilir"
 
-#: ../src/gnome-tetravex.vala:409
+#: src/gnome-tetravex.vala:417
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr ""
+"Anda pasti mahu memulakan satu permainan baharu dengan saiz papan berbeza?"
 
-#: ../src/gnome-tetravex.vala:411
-#, fuzzy
+#: src/gnome-tetravex.vala:419
 msgid "_Start New Game"
-msgstr "Mula semula permainan"
+msgstr "_Mula Permainan Baharu"
 
-#: ../src/puzzle-view.vala:356
-msgid "Paused"
-msgstr "Kaku"
+#: src/help-overlay.ui:16
+msgctxt "shortcut window"
+msgid "Start a new game"
+msgstr "Mulakan satu permainan baharu"
 
-#: ../src/score-dialog.vala:29
+#: src/help-overlay.ui:23
+msgctxt "shortcut window"
+msgid "Pause the game"
+msgstr "Jeda permainan"
+
+#: src/help-overlay.ui:30
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box up by one"
+msgstr "Alih semua kepingan dalam kotak kiri ke arah atas"
+
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box down by one"
+msgstr "Alih semua kepingan dalam kotak kiri ke arah bawah"
+
+#: src/help-overlay.ui:44
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box left by one"
+msgstr "Alih semua kepingan dalam kotak kiri ke arah kiri"
+
+#: src/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left box right by one"
+msgstr "Alih semua kepingan dalam kotak kiri ke arah kanan"
+
+#: src/help-overlay.ui:58
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Tunjuk Bantuan"
+
+#: src/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Tunjuk Pintasan Papan Kekunci"
+
+#: src/help-overlay.ui:72
+msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
+msgstr "Keluar"
 
-#: ../src/score-dialog.vala:30
+#: src/puzzle-view.vala:356
+msgid "Paused"
+msgstr "Dijeda"
+
+#: src/score-dialog.vala:29
+msgid "Quit"
+msgstr "Keluar"
+
+#: src/score-dialog.vala:30
 msgid "New Game"
-msgstr "Permainan Baru"
+msgstr "Permainan Baharu"
 
-#: ../src/score-dialog.vala:33
+#: src/score-dialog.vala:33
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
-#: ../src/score-dialog.vala:45
-#, fuzzy
+#: src/score-dialog.vala:45
 msgid "Size:"
-msgstr "Masa:"
+msgstr "Saiz:"
 
-#: ../src/score-dialog.vala:70
-#, fuzzy
+#: src/score-dialog.vala:70
 msgid "Date"
-msgstr "Kilas"
+msgstr "Tarikh"
 
-#: ../src/score-dialog.vala:73
-#, fuzzy
+#: src/score-dialog.vala:73
 msgid "Time"
-msgstr "Masa:"
+msgstr "Masa"
+
+#, fuzzy
+#~ msgid "_Size"
+#~ msgstr "Masa:"
