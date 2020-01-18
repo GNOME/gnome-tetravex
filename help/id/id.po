@@ -1,0 +1,476 @@
+# Indonesian translation for gnome-tetravex.
+# Copyright (C) 2020 gnome-tetravex's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-tetravex package.
+# Andika Triwidada <atriwidada@gnome.org>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-tetravex master\n"
+"POT-Creation-Date: 2020-01-07 16:07+0000\n"
+"PO-Revision-Date: 2020-01-18 12:53+0700\n"
+"Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
+"Last-Translator: Andika Triwidada <atriwidada@gnome.org>\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Andika Triwidada <atriwidada@gnome.org>, 2020."
+
+#. (itstool) path: info/desc
+#: C/hint.page:7
+msgid "Solve the game automatically."
+msgstr "Pecahkan permainan secara otomatis."
+
+#. (itstool) path: credit/name
+#: C/hint.page:10 C/index.page:17 C/move.page:12 C/size.page:12 C/usage.page:12
+#: C/winning.page:12
+msgid "Milo Casagrande"
+msgstr "Milo Casagrande"
+
+#. (itstool) path: page/title
+#: C/hint.page:14
+msgid "Hints"
+msgstr "Petunjuk"
+
+#. (itstool) path: note/p
+#: C/hint.page:17
+msgid ""
+"If you use the following method to complete the game, your score will not be "
+"included among the high scores."
+msgstr ""
+"Bila Anda memakai metode berikut untuk menyelesaikan permainan, nilai Anda "
+"tidak akan disertakan dalam nilai-nilai tertinggi."
+
+#. (itstool) path: section/title
+#: C/hint.page:24
+msgid "Solve the game"
+msgstr "Pecahkan permainan"
+
+#. (itstool) path: section/p
+#: C/hint.page:25
+msgid ""
+"If you get stuck in the game and want to solve it automatically, press the "
+"question mark button in the bottom-right corner."
+msgstr ""
+"Bila Anda mengalami kebuntuan dalam permainan dan ingin memecahkannya secara "
+"otomatis, tekan tombol tanda tanya di pojok kanan bawah."
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "link"
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "text"
+msgid "GNOME Tetravex"
+msgstr "GNOME Tetravex"
+
+#. (itstool) path: info/desc
+#: C/index.page:10
+msgid "GNOME Tetravex help."
+msgstr "Bantuan GNOME Tetravex."
+
+#. (itstool) path: credit/name
+#: C/index.page:13 C/usage.page:16
+msgid "Rob Bradford"
+msgstr "0"
+
+#. (itstool) path: license/p
+#: C/index.page:21 C/move.page:16 C/size.page:16 C/usage.page:20
+#: C/winning.page:16
+msgid "Creative Commons Share Alike 3.0"
+msgstr "0"
+
+#. (itstool) path: media/span
+#: C/index.page:26
+msgid "GNOME Tetravex logo"
+msgstr "Logo GNOME Tetravex"
+
+#. (itstool) path: page/title
+#: C/index.page:25
+msgid "<_:media-1/> GNOME Tetravex"
+msgstr "<_:media-1/> GNOME Tetravex"
+
+#. (itstool) path: page/p
+#: C/index.page:30
+msgid ""
+"<app>GNOME Tetravex</app> is a simple puzzle game which scope is to move the "
+"various pieces from one side of the board to the other side, so that the "
+"same numbers depicted on the pieces are touching each other."
+msgstr ""
+"<app>GNOME Tetravex</app> adalah permainan teka-teki sederhana yang "
+"tujuannya adalah untuk memindah berbagai keping dari satu sisi papan ke sisi "
+"lain, sehingga angka yang sama yang tergambar pada keping-keping saling "
+"menyentuh."
+
+#. (itstool) path: page/p
+#: C/index.page:35
+msgid ""
+"The game is timed, and these times are used as the score for the game. You "
+"have to move all the pieces in the least time possible."
+msgstr ""
+"Permainan diukur waktunya, dan waktu-waktu ini dipakai sebagai nilai "
+"permainan. Anda mesti memindah semua keping dalam waktu sesingkat mungkin."
+
+#. (itstool) path: section/title
+#: C/index.page:41
+msgid "Basic Gameplay &amp; Usage"
+msgstr "Dasar Permainan &ampl Cara Pakai"
+
+#. (itstool) path: section/title
+#: C/index.page:45
+msgid "Tips &amp; Tricks"
+msgstr "Tip &amp; Trik"
+
+#. (itstool) path: info/desc
+#: C/license.page:8
+msgid "Legal information."
+msgstr "Informasi legal."
+
+#. (itstool) path: page/title
+#: C/license.page:11
+msgid "License"
+msgstr "Lisensi"
+
+#. (itstool) path: page/p
+#: C/license.page:12
+msgid ""
+"This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
+"Unported license."
+msgstr ""
+"Karya ini didistribusikan di bawah lisensi CreativeCommons Attribution-Share "
+"Alike 3.0 Unported."
+
+#. (itstool) path: page/p
+#: C/license.page:20
+msgid "You are free:"
+msgstr "Anda bebas:"
+
+#. (itstool) path: item/title
+#: C/license.page:25
+msgid "<em>To share</em>"
+msgstr "<em>Untuk berbagi</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:26
+msgid "To copy, distribute and transmit the work."
+msgstr "Untuk menyalin, mendistribusikan, dan mentransmisikan karya ini."
+
+#. (itstool) path: item/title
+#: C/license.page:29
+msgid "<em>To remix</em>"
+msgstr "<em>Untuk mencampur ulang</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:30
+msgid "To adapt the work."
+msgstr "Untuk mengadaptasi karya ini."
+
+#. (itstool) path: page/p
+#: C/license.page:33
+msgid "Under the following conditions:"
+msgstr "Di bawah syarat-syarat berikut:"
+
+#. (itstool) path: item/title
+#: C/license.page:38
+msgid "<em>Attribution</em>"
+msgstr "<em>Atribusi</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:39
+msgid ""
+"You must attribute the work in the manner specified by the author or "
+"licensor (but not in any way that suggests that they endorse you or your use "
+"of the work)."
+msgstr ""
+"Anda harus memberi penghargaan atas karya dalam cara yang ditentukan oleh "
+"pengarang atau pemberi lisensi (tapi tidak dengan cara apapun yang "
+"mengesankan bahwa mereka mendorong Anda atau penggunaan Anda terhadap karya)."
+
+#. (itstool) path: item/title
+#: C/license.page:46
+msgid "<em>Share Alike</em>"
+msgstr "<em>Saling Berbagi</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:47
+msgid ""
+"If you alter, transform, or build upon this work, you may distribute the "
+"resulting work only under the same, similar or a compatible license."
+msgstr ""
+"Jika Anda mengubah, mengubah, atau membangun atas dasar karya ini, Anda "
+"dapat mendistribusikan karya yang dihasilkan hanya di bawah lisensi yang "
+"sama, mirip, atau yang kompatibel."
+
+#. (itstool) path: page/p
+#: C/license.page:53
+msgid ""
+"For the full text of the license, see the <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
+"link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">Commons Deed</link>."
+msgstr ""
+"Untuk teks lengkap lisensi, lihat <link href=\"http://creativecommons.org/"
+"licenses/by-sa/3.0/legalcode\">situs web CreativeCommons</link> atau baca "
+"<link href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Commons Deed</"
+"link> yang lengkap."
+
+#. (itstool) path: info/desc
+#: C/move.page:8
+msgid "How to move the pieces on the game board."
+msgstr "Bagaimana memindah keping-keping dalam papan permainan."
+
+#. (itstool) path: page/title
+#: C/move.page:20
+msgid "Move the pieces"
+msgstr "Memindah keping"
+
+#. (itstool) path: section/title
+#: C/move.page:23
+msgid "Move a piece"
+msgstr "Memindah suatu keping"
+
+#. (itstool) path: section/p
+#: C/move.page:24
+msgid ""
+"To move a piece, you can either click on it to select it, and click on the "
+"square to place it or drag it to the new square."
+msgstr ""
+"Untuk memindah suatu keping, Anda dapat mengklik itu untuk memilihnya, dan "
+"mengklik pada kotak untuk menempatkannya, atau menyeretnya ke kotak baru."
+
+#. (itstool) path: section/p
+#: C/move.page:27
+msgid "These moves are not permanent and can be reversed."
+msgstr "Perpindahan ini tidak permanen dan dapat dibalik."
+
+#. (itstool) path: note/p
+#: C/move.page:31
+msgid ""
+"The pieces in the left box can be moved all at once in one direction. Press "
+"the menu button in the top-right corner of the window and select <gui style="
+"\"menuitem\">Keyboard Shortcuts</gui> for more information."
+msgstr ""
+"Keping-keping pada kotak kiri dapat dipindah semua sekaligus pada satu arah. "
+"Tekan tombol menu di pojok kanan atas jendela dan pilih <gui style=\"menuitem"
+"\">Pintasan Papan Ketik</gui> untuk informasi lebih lanjut."
+
+#. (itstool) path: info/desc
+#: C/size.page:7
+msgid "Change the size of the game board."
+msgstr "Mengubah ukuran papan permainan."
+
+#. (itstool) path: page/title
+#: C/size.page:19
+msgid "Game board size"
+msgstr "Ukuran papan permainan"
+
+#. (itstool) path: page/p
+#: C/size.page:21
+msgid ""
+"To change the size of the game board, in order to increase or decrease the "
+"complexity of the game, press the menu button in the top-right corner of the "
+"window and select <gui style=\"menuitem\">Size</gui>, then select the "
+"dimension of the board."
+msgstr ""
+"Untuk mengubah ukuran papan permainan, agar dapat meningkatkan atau "
+"menurunkan kompleksitas permainan, tekan tombol menu di pojok kanan atas "
+"jendela dan pilih <gui style=\"menuitem\">Ukuran</gui>, lalu pilih dimensi "
+"papan."
+
+#. (itstool) path: page/p
+#: C/size.page:27
+msgid ""
+"You can select from five different dimension, from 2×2 to 6×6. The default "
+"one is 3×3."
+msgstr ""
+"Anda dapat memilih dari lima dimensi yang berbeda, dari 2×2 sampai 6×6. "
+"Ukuran baku adalah 3×3."
+
+#. (itstool) path: note/p
+#: C/size.page:31
+msgid ""
+"If the pieces are too small, resizing the window will change their size."
+msgstr ""
+"Bila keping-keping terlalu kecil, mengubah ukuran jendela akan mengubah "
+"ukuran mereka."
+
+#. (itstool) path: info/desc
+#: C/usage.page:9
+msgid "How to play <app>GNOME Tetravex</app>."
+msgstr "Bagaimana bermain <app>GNOME Tetravex</app>."
+
+#. (itstool) path: page/title
+#: C/usage.page:24
+msgid "Play <app>GNOME Tetravex</app>"
+msgstr "Bermain <app>GNOME Tetravex</app>"
+
+#. (itstool) path: section/title
+#: C/usage.page:27
+msgid "Basic usage"
+msgstr "Penggunaan dasar"
+
+#. (itstool) path: section/p
+#: C/usage.page:28
+msgid ""
+"The game window is divided into two boxes: the one on the right side of the "
+"window contains the pieces that needs to be arranged; the one on the left "
+"side of the window is where the pieces from the right box will be arranged "
+"and moved. Each piece is divided into four little triangles containing a "
+"number."
+msgstr ""
+"Jendela permainan dibagi menjadi dua kotak: satu di sisi kanan jendela "
+"berisi keping-keping yang perlu disusun; yang di sisi kiri jendela adalah "
+"tempat keping-keping dari kotak kanan akan disusun dan dipindah. Setiap "
+"keping dibagi menjadi empat segi tiga kecil yang berisi sebuah angka."
+
+#. (itstool) path: section/p
+#: C/usage.page:35
+msgid ""
+"The scope of the game is to position the pieces so that only two identical "
+"numbers are next to each other."
+msgstr ""
+"Sasaran permainan adalah untuk menempatkan keping-keping sehingga hanya dua "
+"angka identik yang bersebelahan."
+
+#. (itstool) path: section/p
+#: C/usage.page:39
+msgid ""
+"It is not possible to position the pieces so that different number are next "
+"to each other."
+msgstr ""
+"Tidak mungkin menempatkan keping-keping sehingga angka yang berbeda "
+"bersebelahan."
+
+#. (itstool) path: section/p
+#: C/usage.page:43
+msgid ""
+"The game is completed when you have positioned all the pieces in their right "
+"positions."
+msgstr ""
+"Permainan selesai ketika Anda telah menempatkan semua keping pada posisi "
+"yang benar."
+
+#. (itstool) path: note/p
+#: C/usage.page:48
+msgid ""
+"When you start <app>GNOME Tetravex</app>, the game will start immediately, "
+"and the time will start counting."
+msgstr ""
+"Ketika Anda memulai <app>GNOME Tetravex</app>, permainan akan dimulai "
+"seketika, dan waktu akan mulai dihitung."
+
+#. (itstool) path: section/title
+#: C/usage.page:57
+msgid "Video demonstration"
+msgstr "Video demonstrasi"
+
+#. (itstool) path: section/p
+#: C/usage.page:58
+msgid ""
+"This short video shows how the game works, and what are the possible "
+"movements."
+msgstr ""
+"Video pendek ini menunjukkan bagaimana permainan berjalan, dan apa "
+"pergerakan-pergerakan yang mungkin."
+
+#. (itstool) path: media/p
+#: C/usage.page:62
+msgid "Demo"
+msgstr "Demo"
+
+#. (itstool) path: div/p
+#: C/usage.page:66
+msgid ""
+"Drag pieces from the right to the left, making sure that adjacent edges have "
+"the same number and color."
+msgstr ""
+"Seret keping dari kanan ke kiri, memastikan bahwa tepi-tepi yang "
+"bersebelahan memiliki angka dan warna yang sama."
+
+#. (itstool) path: div/p
+#: C/usage.page:70
+msgid ""
+"Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
+"at once."
+msgstr ""
+"Tahan <key>Ctrl</key> dan tekan tombol panah untuk memindah semua keping "
+"sekaligus."
+
+#. (itstool) path: div/p
+#: C/usage.page:74
+msgid "Continue dragging pieces until they all fit together on the left."
+msgstr "Lanjutkan menyeret keping sampai semua pas menjadi satu di kiri."
+
+#. (itstool) path: info/desc
+#: C/winning.page:9
+msgid "Simple tips on how to possibly win a game."
+msgstr "Tip sederhana tentang bagaimana cara memenangkan suatu permainan."
+
+#. (itstool) path: page/title
+#: C/winning.page:20
+msgid "Win <app>GNOME Tetravex</app>"
+msgstr "Memenangkan <app>GNOME Tetravex</app>"
+
+#. (itstool) path: note/p
+#: C/winning.page:23
+msgid ""
+"The following tips will not assure you to win a game, they are intended as a "
+"simple aid."
+msgstr ""
+"Tip berikut tidak akan menjamin Anda memenangkan suatu permainan, mereka "
+"ditujukan hanya sebagai bantuan sederhana."
+
+#. (itstool) path: section/title
+#: C/winning.page:30
+msgid "Look for a single number"
+msgstr "Cari sebuah angka tunggal"
+
+#. (itstool) path: section/p
+#: C/winning.page:31
+msgid ""
+"When you start a new game, look for a single number, or a number that has no "
+"similar numbers that can be placed next to it."
+msgstr ""
+"Ketika Anda memulai sebuah permainan, cari sebuah angka tunggal, atau sebuah "
+"angka yang tidak memiliki angka serupa yang dapat ditempatkan di sebelahnya."
+
+#. (itstool) path: section/p
+#: C/winning.page:35
+msgid ""
+"If you have one such number, that piece is a valid starting piece, since you "
+"know where it has to be placed."
+msgstr ""
+"Bila Anda memiliki angka seperti itu, keping tersebut adalah sebuah keping "
+"awal yang valid, karena Anda tahu di mana itu mesti ditempatkan."
+
+#. (itstool) path: section/p
+#: C/winning.page:39
+msgid ""
+"Note that the bigger the size of the board, the harder is to find such a "
+"number."
+msgstr ""
+"Perhatikan bahwa semakin besar ukuran papan, semakin sulit mencari angka "
+"seperti itu."
+
+#. (itstool) path: section/title
+#: C/winning.page:46
+msgid "Have a tip to share?"
+msgstr "Punya tip untuk dibagikan?"
+
+#. (itstool) path: section/p
+#: C/winning.page:47
+msgid ""
+"If you have a tip to share about <app>GNOME Tetravex</app>, or any other "
+"GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
+msgstr ""
+"Bila Anda punya tip untuk dibagikan tentang <app>GNOME Tetravex</app>, atau "
+"sebarang permainan GNOME lain, tulislah ke kami di gnome-doc-list@gnome.org. "
+"Kami akan menambahkan mereka di sini!"
