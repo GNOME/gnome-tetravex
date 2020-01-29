@@ -21,7 +21,7 @@
 
 private abstract class Theme : Object
 {
-    // FIXME it is of the responsability of the themes to ensure the overdraw does NOT draw over an neighbor tile; else bad things happen
+    // FIXME it is of the responsibility of the themes to ensure the overdraw does NOT draw over an neighbor tile; else bad things happen
     internal int overdraw_top    { internal get; protected set; default = 0; }
     internal int overdraw_left   { internal get; protected set; default = 0; }
     internal int overdraw_right  { internal get; protected set; default = 0; }

@@ -20,7 +20,7 @@
 
 private class TetravexCli : GLib.Application
 {
-    /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explaination of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example */
+    /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explanation of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example */
     private string nothing_text = _("(nothing)");
     private string help_text;
 
@@ -85,13 +85,13 @@ private class TetravexCli : GLib.Application
             /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command */
             + "\n" + "  A1b2          " + _("Invert two tiles, the one in A1, and the one in b2.")
 
-            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after */
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after */
             + "\n" + "                " + _("An uppercase targets a tile from the initial board.")
 
-            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after */
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after */
             + "\n" + "                " + _("A lowercase targets a tile in the left/final board.")
 
-            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before */
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before */
             + "\n" + "                " + _("Digits specify the rows of the two tiles to invert.")
             + "\n"
             /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given */
@@ -106,7 +106,7 @@ private class TetravexCli : GLib.Application
             /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands */
             + "\n" + "  finish        " + _("Finish current puzzle, automatically. Alias: “end”.")
 
-            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically */
+            /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically */
             + "\n" + "                " + _("Works for puzzles solved right or if one tile left.")
             + "\n"
             /* Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command */

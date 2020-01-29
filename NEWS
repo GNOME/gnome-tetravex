@@ -29,7 +29,7 @@ GNOME Tetravex 3.35.1
 ======================
 
 Many changes! The most visible is the end of a game, where instead of having
-the Scores dialog popped-up, the ranking is overlayed on the now-empty right
+the Scores dialog popped-up, the ranking is overlaid on the now-empty right
 part of the board. Or maybe it is instead the default new theme, designed by
 Jakub Steiner, or the fact that multiple themes are available (including the
 old one, under the name Nostalgia). Or maybe even the undo/redo functions, a
@@ -228,7 +228,7 @@ GNOME Tetravex 3.11.4
 =====================
 
 * Updated About dialog
-* Translation updates (Portugese)
+* Translation updates (Portuguese)
 
 GNOME Tetravex 3.11.3
 =====================
