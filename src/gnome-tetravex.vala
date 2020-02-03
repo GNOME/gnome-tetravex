@@ -770,7 +770,7 @@ private class Tetravex : Gtk.Application
                                         MessageType.INFO,
                                         ButtonsType.CLOSE,
             /* Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet */
-                                        _("Looks like you haven’t finished a game yet.\n\nTry maybe a 2 × 2 grid, they are easy. 🙂️"));
+                                        _("Looks like you haven’t finished a game yet.\n\nMaybe try a 2 × 2 grid, they are easy. 🙂️"));
         else
         {
             dialog = new ScoreDialog (history, puzzle.size, puzzle.is_solved ? last_history_entry : null);
