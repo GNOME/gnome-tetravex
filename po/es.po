@@ -5,14 +5,14 @@
 # Lucas Vieites <lucas@codexion.com>, 2007, 2008.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2009, 2010, 2011.
 # Chris Leonard <cjl@laptop.org>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2019.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2008-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-12-08 12:15+0000\n"
-"PO-Revision-Date: 2019-12-11 09:41+0100\n"
+"POT-Creation-Date: 2020-02-03 01:25+0000\n"
+"PO-Revision-Date: 2020-02-03 12:07+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -280,55 +280,46 @@ msgstr ""
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli up`
 #: src/cli.vala:89
-#| msgid "Move all left-board tiles up by one."
 msgid "Cannot move up left-board tiles."
 msgstr "No se pueden mover arriba las fichas de la izquierda."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli down`
 #: src/cli.vala:95
-#| msgid "Move all left-board tiles up by one."
 msgid "Cannot move down left-board tiles."
 msgstr "No se pueden mover abajo las fichas de la izquierda."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli left`
 #: src/cli.vala:101
-#| msgid "Move all left-board tiles up by one."
 msgid "Cannot move left left-board tiles."
 msgstr "No se pueden mover a la izquierda las fichas de la izquierda."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli right`
 #: src/cli.vala:107
-#| msgid "Move all left-board tiles up by one."
 msgid "Cannot move right left-board tiles."
 msgstr "No se pueden mover a la derecha las fichas de la izquierda."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-up`
 #: src/cli.vala:113
-#| msgid "Move all right-board tiles up by one."
 msgid "Cannot move up right-board tiles."
 msgstr "No se pueden mover arriba las fichas de la derecha."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-down`
 #: src/cli.vala:118
-#| msgid "Move all right-board tiles up by one."
 msgid "Cannot move down right-board tiles."
 msgstr "No se pueden mover abajo las fichas de la derecha."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-left`
 #: src/cli.vala:123
-#| msgid "Move all right-board tiles up by one."
 msgid "Cannot move left right-board tiles."
 msgstr "No se pueden mover a la izquierda las fichas de la derecha."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-right`
 #: src/cli.vala:128
-#| msgid "Move all right-board tiles up by one."
 msgid "Cannot move right right-board tiles."
 msgstr "No se pueden mover a la derecha las fichas de la derecha."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “finish” command while the saved puzzle cannot be automatically finished; try `gnome-tetravex --cli new; gnome-tetravex --cli finish`
 #: src/cli.vala:145
-#| msgid "Are you sure you want to give up and view the solution?"
 msgid ""
 "Cannot finish automatically. If you want to give up and view the solution, "
 "use “solve”."
@@ -366,7 +357,7 @@ msgstr "Puzle resuelto. Si quiere empezar uno nuevo use «new»."
 msgid "Puzzle is solved!"
 msgstr "¡Puzle resuelto!"
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explaination of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explanation of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
 #: src/gnome-tetravex-cli.vala:24
 msgid "(nothing)"
 msgstr "(nada)"
@@ -407,13 +398,13 @@ msgstr "Mostrar el número de versión y salir"
 msgid "Invert two tiles, the one in A1, and the one in b2."
 msgstr "Invertir dos fichas, la A1 y la b2."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
 #: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:197
 msgid "An uppercase targets a tile from the initial board."
 msgstr "Una letra mayúscula marca como objetivo una ficha del tablero inicial."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
 #: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:200
 msgid "A lowercase targets a tile in the left/final board."
@@ -421,7 +412,7 @@ msgstr ""
 "Una letra minúscula marca como objetivo una ficha del tablero de la "
 "izquierda/final."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
 #: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:203
 msgid "Digits specify the rows of the two tiles to invert."
@@ -451,7 +442,7 @@ msgstr "Renunciar al puzle actual y ver la solución."
 msgid "Finish current puzzle, automatically. Alias: “end”."
 msgstr "Terminar el puzle actual automáticamente. Alias: «end»"
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
 #: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:218
 msgid "Works for puzzles solved right or if one tile left."
@@ -616,10 +607,14 @@ msgstr "_Iniciar un juego nuevo"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
 #: src/gnome-tetravex.vala:773
+#| msgid ""
+#| "Looks like you haven’t finished a game yet.\n"
+#| "\n"
+#| "Try maybe a 2 × 2 grid, they are easy. 🙂️"
 msgid ""
 "Looks like you haven’t finished a game yet.\n"
 "\n"
-"Try maybe a 2 × 2 grid, they are easy. 🙂️"
+"Maybe try a 2 × 2 grid, they are easy. 🙂️"
 msgstr ""
 "Parece que todavía no ha terminado la partida.\n"
 "\n"
@@ -713,23 +708,29 @@ msgctxt "shortcut window"
 msgid "Select the given row"
 msgstr "Seleccione la fila"
 
-#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is splitted in two parts, that is for the left one
+#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is split in two parts, that is for the left one
 #: src/help-overlay.ui:61
+#| msgctxt "shortcut window"
+#| msgid "Select left box column"
 msgctxt "shortcut window"
-msgid "Select left box column"
-msgstr "Seleccionar la columna de la caja izquierda"
+msgid "Select left half-board column"
+msgstr "Seleccionar la columna de la mitad izquierda del tablero"
 
-#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is splitted in two parts, that is for the right one
+#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is split in two parts, that is for the right one
 #: src/help-overlay.ui:69
+#| msgctxt "shortcut window"
+#| msgid "Select right box column"
 msgctxt "shortcut window"
-msgid "Select right box column"
-msgstr "Seleccionar la columna de la caja derecha"
+msgid "Select right half-board column"
+msgstr "Seleccionar la columna de la mitad derecha del tablero"
 
 #. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
 #: src/help-overlay.ui:78
+#| msgctxt "shortcut window"
+#| msgid "Validate right box"
 msgctxt "shortcut window"
-msgid "Validate right box"
-msgstr "Validar caja derecha"
+msgid "Validate right half-board"
+msgstr "Validar la mitad derecha del tablero"
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
 #: src/help-overlay.ui:87
@@ -817,55 +818,79 @@ msgstr "Juego avanzado"
 
 #. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:194
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the left box up by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box up by one"
-msgstr "Mover arriba una posición todas las piezas en la caja de la izquierda"
+msgid "Move all the pieces in the left half-board up by one"
+msgstr ""
+"Mover arriba una posición todas las piezas de la mitad izquierda del tablero"
 
 #. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:202
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the left box down by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box down by one"
-msgstr "Mover abajo una posición todas piezas en la caja de la izquierda"
+msgid "Move all the pieces in the left half-board down by one"
+msgstr ""
+"Mover abajo una posición todas las piezas de la mitad izquierda del tablero"
 
 #. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:210
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the left box left by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box left by one"
+msgid "Move all the pieces in the left half-board left by one"
 msgstr ""
-"Mover a la izquierda una posición todas las piezas en la caja de la izquierda"
+"Mover a la izquierda una posición todas las piezas de la mitad izquierda del "
+"tablero"
 
 #. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:218
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the left box right by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box right by one"
+msgid "Move all the pieces in the left half-board right by one"
 msgstr ""
-"Mover a la derecha una posición todas las piezas en la caja de la izquierda"
+"Mover a la derecha una posición todas las piezas de la mitad izquierda del "
+"tablero"
 
 #. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:226
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the right box up by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box up by one"
-msgstr "Mover arriba una posición todas piezas en la caja de la derecha"
+msgid "Move all the pieces in the right half-board up by one"
+msgstr ""
+"Mover arriba una posición todas las piezas de la mitad derecha del tablero"
 
 #. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:234
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the right box down by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box down by one"
-msgstr "Mover abajo una posición todas las piezas en la caja de la derecha"
+msgid "Move all the pieces in the right half-board down by one"
+msgstr ""
+"Mover abajo una posición todas las piezas de la mitad derecha del tablero"
 
 #. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:242
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the right box left by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box left by one"
+msgid "Move all the pieces in the right half-board left by one"
 msgstr ""
-"Mover a la izquierda una posición todas las piezas en la caja de la derecha"
+"Mover a la izquierda una posición todas las piezas de la mitad derecha del "
+"tablero"
 
 #. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:250
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the right box right by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box right by one"
+msgid "Move all the pieces in the right half-board right by one"
 msgstr ""
-"Mover a la derecha una posición todas las piezas en la caja de la derecha"
+"Mover a la derecha una posición todas las piezas de la mitad derecha del "
+"tablero"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
 #: src/history.vala:314
