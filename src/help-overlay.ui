@@ -58,7 +58,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <!-- Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is split in two parts, that is for the left one -->
-                <property name="title" translatable="yes" context="shortcut window">Select left box column</property>
+                <property name="title" translatable="yes" context="shortcut window">Select left half-board column</property>
                 <property name="accelerator">a...f</property>
               </object>
             </child>
@@ -66,7 +66,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <!-- Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is split in two parts, that is for the right one -->
-                <property name="title" translatable="yes" context="shortcut window">Select right box column</property>
+                <property name="title" translatable="yes" context="shortcut window">Select right half-board column</property>
                 <property name="accelerator">&lt;Shift&gt;A...&lt;Shift&gt;F</property>
               </object>
             </child>
@@ -75,7 +75,7 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Left</property>
                 <!-- Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board -->
-                <property name="title" translatable="yes" context="shortcut window">Validate right box</property>
+                <property name="title" translatable="yes" context="shortcut window">Validate right half-board</property>
               </object>
             </child>
           </object>
@@ -191,7 +191,7 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Up</property>
                 <!-- Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
-                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left box up by one</property>
+                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left half-board up by one</property>
               </object>
             </child>
             <child>
@@ -199,7 +199,7 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Down</property>
                 <!-- Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
-                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left box down by one</property>
+                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left half-board down by one</property>
               </object>
             </child>
             <child>
@@ -207,7 +207,7 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Left</property>
                 <!-- Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
-                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left box left by one</property>
+                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left half-board left by one</property>
               </object>
             </child>
             <child>
@@ -215,7 +215,7 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Right</property>
                 <!-- Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
-                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left box right by one</property>
+                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left half-board right by one</property>
               </object>
             </child>
             <child>
@@ -223,7 +223,7 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Ctrl&gt;Up</property>
                 <!-- Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
-                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right box up by one</property>
+                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right half-board up by one</property>
               </object>
             </child>
             <child>
@@ -231,7 +231,7 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Ctrl&gt;Down</property>
                 <!-- Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
-                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right box down by one</property>
+                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right half-board down by one</property>
               </object>
             </child>
             <child>
@@ -239,7 +239,7 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Ctrl&gt;Left</property>
                 <!-- Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
-                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right box left by one</property>
+                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right half-board left by one</property>
               </object>
             </child>
             <child>
@@ -247,7 +247,7 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Ctrl&gt;Right</property>
                 <!-- Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
-                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right box right by one</property>
+                <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right half-board right by one</property>
               </object>
             </child>
           </object>
