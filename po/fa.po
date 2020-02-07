@@ -5,15 +5,15 @@
 # Elnaz Sarbar <elnaz@farsiweb.info>, 2005, 2006.
 # Meelad Zakaria <meelad@farsiweb.info>, 2005.
 # Farzaneh Sarafraz <farzaneh@farsiweb.info>, 2006.
-# Danial Behzadi <dani.behzi@gmail.com>, 2012, 2014, 2015, 2017, 2018, 2019.
+# Danial Behzadi <dani.behzi@gmail.com>, 2012, 2014, 2015, 2017, 2018, 2019, 2020.
 # Arash Mousavi <mousavi.arash@gmail.com>, 2012, 2013, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games HEAD\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-10-07 18:14+0000\n"
-"PO-Revision-Date: 2019-10-19 21:11+0330\n"
+"POT-Creation-Date: 2020-02-03 01:25+0000\n"
+"PO-Revision-Date: 2020-02-07 15:22+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian\n"
 "Language: fa\n"
@@ -34,14 +34,13 @@ msgstr "مهره‌ها را جابه‌جا کنید تا در یک خانه ج
 
 #: data/org.gnome.Tetravex.appdata.xml.in:10
 msgid ""
-"Each square piece has a number on each side. Position the pieces on the left "
-"side of the board so that the same numbers are next to each other. If the "
-"numbers don’t match, you can’t put the piece there. Move quickly: you’re being "
-"timed!"
+"Each square piece has a number on each side. Position the pieces on the left side "
+"of the board so that the same numbers are next to each other. If the numbers don’t "
+"match, you can’t put the piece there. Move quickly: you’re being timed!"
 msgstr ""
-"هر خانه یک عدد در کنار خود دارد. مهره‌ها را در سمت چپ تخته جمع کنید تا اعداد "
-"یکسان در کنار یکدیگر قرار گیرند. اگر عددها منطبق نشوند، نمی‌توانید مهره‌ای آن‌جا "
-"بگذارید. سریع حرکت کنید: زمان شما ثبت می‌شود!"
+"هر خانه یک عدد در کنار خود دارد. مهره‌ها را در سمت چپ تخته جمع کنید تا اعداد یکسان "
+"در کنار یکدیگر قرار گیرند. اگر عددها منطبق نشوند، نمی‌توانید مهره‌ای آن‌جا بگذارید. "
+"سریع حرکت کنید: زمان شما ثبت می‌شود!"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:16
 msgid "You can make the game easier or harder by changing the size of the board."
@@ -101,9 +100,8 @@ msgstr "دکمهٔ موشی برای فعّال‌سازی دستور «برگر
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:30
 msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key will "
-"set which button activates the “Undo” command. Possible values range between 6 "
-"and 14."
+"For users which have a mouse with “Forward” and “Back” buttons, this key will set "
+"which button activates the “Undo” command. Possible values range between 6 and 14."
 msgstr ""
 "برای کاربرانی که موشی‌ای با دکمه‌های «جلو» و «عقب» دارند، این کلید تنظیم خواهد کرد "
 "که کدام دکمه دستور «برگردان» را فعّال می‌کند. دامنهٔ مقادیر ممکن بین ۶ و ۱۴ است."
@@ -116,13 +114,11 @@ msgstr "دکمهٔ موشی برای فعّال‌سازی دستور «انجا
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:38
 msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key will "
-"set which button activates the “Redo” command. Possible values range between 6 "
-"and 14."
+"For users which have a mouse with “Forward” and “Back” buttons, this key will set "
+"which button activates the “Redo” command. Possible values range between 6 and 14."
 msgstr ""
 "برای کاربرانی که موشی‌ای با دکمه‌های «جلو» و «عقب» دارند، این کلید تنظیم خواهد کرد "
-"که کدام دکمه دستور «انجام دوباره» را فعّال می‌کند. دامنهٔ مقادیر ممکن بین ۶ و ۱۴ "
-"است."
+"که کدام دکمه دستور «انجام دوباره» را فعّال می‌کند. دامنهٔ مقادیر ممکن بین ۶ و ۱۴ است."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
 #: data/org.gnome.Tetravex.gschema.xml:43
@@ -135,17 +131,16 @@ msgid ""
 "The key has value “nothing” if there is no saved game. Else, it contains a "
 "description of the board, with its size, the number of colors, and the time "
 "elapsed, then the list of tiles, saved as properties: their current position (x "
-"and y), their colors (north, east, south and west), and their original position "
-"(x and y), and finally the history, with the last move index, and history "
-"entries saved as properties: coordinates of the two tiles swapped, and the move "
-"id."
+"and y), their colors (north, east, south and west), and their original position (x "
+"and y), and finally the history, with the last move index, and history entries "
+"saved as properties: coordinates of the two tiles swapped, and the move id."
 msgstr ""
 "اگر بازی ذخیره‌شده‌ای وجود نداشته باشد، مقدار کلید «nothing» است. در غیر این صورت، "
-"شامل توصیفی از صفحه است، با اندازه‌اش، تعداد رنگ‌ها و زمان گذشته، سپس فهرست "
-"کاشی‌ها، ذخیره‌شده به عنوان ویژگی‌ها: موقعیت کنونیشان (x و y)، رنگ‌هایشان (شمال، "
-"شرق، جنوب و غرب) و موقعیت اصلیشان (x و y) و در نهایت تاریخچه، با نمایهٔ آخرین "
-"جابه‌جایی و ورودی‌های تاریخچهٔ ذخیره‌شده به عنوان ویژگی‌ها: مختصات دو کاشی عوض‌شده، و "
-"شناسهٔ جابه‌جایی."
+"شامل توصیفی از صفحه است، با اندازه‌اش، تعداد رنگ‌ها و زمان گذشته، سپس فهرست کاشی‌ها، "
+"ذخیره‌شده به عنوان ویژگی‌ها: موقعیت کنونیشان (x و y)، رنگ‌هایشان (شمال، شرق، جنوب و "
+"غرب) و موقعیت اصلیشان (x و y) و در نهایت تاریخچه، با نمایهٔ آخرین جابه‌جایی و "
+"ورودی‌های تاریخچهٔ ذخیره‌شده به عنوان ویژگی‌ها: مختصات دو کاشی عوض‌شده، و شناسهٔ "
+"جابه‌جایی."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
 #: data/org.gnome.Tetravex.gschema.xml:50
@@ -262,166 +257,400 @@ msgstr "_راهنما"
 msgid "_About Tetravex"
 msgstr "_دربارهٔ تتراوکس"
 
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the change the number of colors or the game size while not specifying a new game; try `gnome-tetravex --cli show --size 3`
+#: src/cli.vala:35
+msgid "Game size and colors number can only be given for new puzzles."
+msgstr "عدد رنگ‌ها و اندازهٔ بازی فقط می‌تواند برای پازل‌های جدید داده شود."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli up`
+#: src/cli.vala:89
+msgid "Cannot move up left-board tiles."
+msgstr "نمی‌توان مهره‌های جعبهٔ چپ را به بالا جابه‌جا کرد."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli down`
+#: src/cli.vala:95
+msgid "Cannot move down left-board tiles."
+msgstr "نمی‌توان مهره‌های جعبهٔ چپ را به پایین جابه‌جا کرد."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli left`
+#: src/cli.vala:101
+msgid "Cannot move left left-board tiles."
+msgstr "نمی‌توان مهره‌های جعبهٔ چپ را به چپ جابه‌جا کرد."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli right`
+#: src/cli.vala:107
+msgid "Cannot move right left-board tiles."
+msgstr "نمی‌توان مهره‌های جعبهٔ چپ را به زاست جابه‌جا کرد."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-up`
+#: src/cli.vala:113
+msgid "Cannot move up right-board tiles."
+msgstr "نمی‌توان مهره‌های جعبهٔ راست را به بالا جابه‌جا کرد."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-down`
+#: src/cli.vala:118
+msgid "Cannot move down right-board tiles."
+msgstr "نمی‌توان مهره‌های جعبهٔ راست را به پایین جابه‌جا کرد."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-left`
+#: src/cli.vala:123
+msgid "Cannot move left right-board tiles."
+msgstr "نمی‌توان مهره‌های جعبهٔ راست را به چپ جابه‌جا کرد."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-right`
+#: src/cli.vala:128
+msgid "Cannot move right right-board tiles."
+msgstr "نمی‌توان مهره‌های جعبهٔ راست را به راست جابه‌جا کرد."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “finish” command while the saved puzzle cannot be automatically finished; try `gnome-tetravex --cli new; gnome-tetravex --cli finish`
+#: src/cli.vala:145
+msgid ""
+"Cannot finish automatically. If you want to give up and view the solution, use "
+"“solve”."
+msgstr ""
+"نمی‌توان به صورت خودکار پایان داد. اگر می‌خواهید وا داده و راه‌حل را ببینید، از «حل» "
+"استفاده کنید."
+
+#. Translators: command-line error message, displayed if the string is not a known command nor a valid move instruction; try `gnome-tetravex --cli new; gnome-tetravex --cli A2838I8U`
+#: src/cli.vala:174
+msgid "Cannot parse instruction, aborting."
+msgstr "نمی‌تواند دستورالعمل را تفسیر کرد، رد شدن."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to invert two empty tiles
+#: src/cli.vala:181
+msgid "Both given tiles are empty, aborting."
+msgstr "هر دو مهرهٔ داده‌شده خالیند، رد شدن."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to do an invalid move
+#: src/cli.vala:187
+msgid "Cannot swap the given tiles, aborting."
+msgstr "نمی‌توان مهره‌های داده شده را تعویض کرد* رد شدن."
+
+#. Translators: command-line error message, displayed if the user tries to solve the puzzle using CLI (with the “solve” or “finish” commands), while the puzzle is already solved
+#: src/cli.vala:230
+msgid "Puzzle is already solved! If you want to start a new one, use “new”."
+msgstr "پازل پیش‌تر حل شده است! برای آغاز یکی دیگر، از «جدید» استفاده کنید."
+
+#. Translators: command-line error message, displayed if the user tries to do a move using CLI, while the puzzle is solved
+#: src/cli.vala:233
+msgid "Puzzle is solved! If you want to start a new one, use “new”."
+msgstr "پازل حل شده است! برای آغاز یکی دیگر از «جدید» استفاده کنید."
+
+#. Translators: command-line message, displayed when playing Tetravex in CLI under the board, if the puzzle was solved
+#: src/cli.vala:278
+msgid "Puzzle is solved!"
+msgstr "پازل حل شده است!"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explanation of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
+#: src/gnome-tetravex-cli.vala:24
+msgid "(nothing)"
+msgstr "(خالی)"
+
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:70
+#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:77
 msgid "Set number of colors (2-10)"
 msgstr "تنظیم تعداد رنگ‌ها (۲-۱۰)"
 
+#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex-cli --help'
 #. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:73
+#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:80
 msgid "NUMBER"
 msgstr "NUMBER"
 
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:76
+#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:89
+msgid "Set size of board (2-6)"
+msgstr "اندازه‌ی تخته (۲-۶)"
+
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex-cli --help'
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:92
+msgid "SIZE"
+msgstr "SIZE"
+
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:95
+msgid "Print release version and exit"
+msgstr "نمایش نسخه‌ی انتشار و خروج"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
+#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:194
+msgid "Invert two tiles, the one in A1, and the one in b2."
+msgstr "برگرداندن دو مهره، یکی در A1 و دیگری در b2."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
+#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:197
+msgid "An uppercase targets a tile from the initial board."
+msgstr "حرف بزرگ مهره‌ای را از صفحهٔ ابتدایی هدف مي‌گیرد."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:200
+msgid "A lowercase targets a tile in the left/final board."
+msgstr "حرف کوچک مهره‌ای را از صفحهٔ نهایی (چپ) هدف می‌گیرد."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
+#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:203
+msgid "Digits specify the rows of the two tiles to invert."
+msgstr "رقم‌ها ردیف‌های دو مهره را برای برگرداندن مشخَص می‌کنند."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
+#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:206
+msgid "Show the current puzzle. Alias: “status” or “show”."
+msgstr "نمایش پازل کنونی. مستعار: status یا show."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
+#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:209
+msgid "Create a new puzzle; for changing size, use --size."
+msgstr "ایجاد یک پازل جدید. برای تغییر اندازه از ‪--size‬ استفاده کنید."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
+#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:212
+msgid "Give up with current puzzle, and view the solution."
+msgstr "وا دادن پازل کنونی و دیدن راه‌حل."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands
+#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:215
+msgid "Finish current puzzle, automatically. Alias: “end”."
+msgstr "پایان خودکار پازل کنونی. مستعار: end."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:218
+msgid "Works for puzzles solved right or if one tile left."
+msgstr "برای پازل‌هایی که به درستی حل شده یا اگر فقط یک مهره باقی مانده کار می‌کند."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command
+#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:221
+msgid "Move all left-board tiles up by one."
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به بالا."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command
+#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:224
+msgid "Move all left-board tiles down by one."
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به پایین."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command
+#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:227
+msgid "Move all left-board tiles left by one."
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به چپ."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command
+#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:230
+msgid "Move all left-board tiles right by one."
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به راست."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
+#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:233
+msgid "Move all right-board tiles up by one."
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به بالا."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
+#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:236
+msgid "Move all right-board tiles down by one."
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به پایین."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command
+#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:239
+msgid "Move all right-board tiles left by one."
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به چپ."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command
+#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:242
+msgid "Move all right-board tiles right by one."
+msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به راست."
+
+#. Translators: command-line message, seen when running `gnome-tetravex-cli --help`
+#: src/gnome-tetravex-cli.vala:138
+msgid "[COMMAND]"
+msgstr "[دستور]"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli --help`; introduction of a list of options
+#: src/gnome-tetravex-cli.vala:141
+msgid "Available commands:"
+msgstr "دستورهای موجود:"
+
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1'
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
+#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:167
+msgid "Size could only be from 2 to 6."
+msgstr "اندازه فقط می‌تواند بین ۲ تا ۶ باشد."
+
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1'
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
+#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:174
+msgid "There could only be between 2 and 10 colors."
+msgstr "فقط می‌تواند بین ۲ و ۱۰ رنگ وجود داشته باشد."
+
+#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2'
+#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
+#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:181
+msgid "Failed to parse command-line arguments."
+msgstr "شکست در تجزیه‌ٔ آرگومان‌های خط فرمان."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options
+#: src/gnome-tetravex-cli.vala:182
+msgid "To use `gnome-tetravex-cli`, pass as argument:"
+msgstr "برای استفاده از gnome-tetravex-cli، آرگومانی بفرستید:"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:71
+msgid "Play in the terminal (see “--cli=help”)"
+msgstr "بازی در پایانه (‪--cli=help‬ را ببینید)"
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:74
+msgid "COMMAND"
+msgstr "COMMAND"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:83
 msgid "Start the game paused"
 msgstr "شروع بازی در حالت مکث"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:79
+#: src/gnome-tetravex.vala:86
 msgid "Restore last game, if any"
 msgstr "بازآوری آخرین بازی در صورت وجود"
 
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:82
-msgid "Set size of board (2-6)"
-msgstr "اندازه‌ی تخته (۲-۶)"
-
-#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:85
-msgid "SIZE"
-msgstr "SIZE"
-
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:88
-msgid "Print release version and exit"
-msgstr "نمایش نسخه‌ی انتشار و خروج"
-
-#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
-#: src/gnome-tetravex.vala:151
-msgid "Size could only be from 2 to 6.\n"
-msgstr "اندازه فقط می‌تواند بین ۲ تا ۶ باشد.\n"
-
-#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
-#: src/gnome-tetravex.vala:158
-msgid "There could only be between 2 and 10 colors.\n"
-msgstr "فقط می‌تواند بین ۲ و ده رنگ وجود داشته باشد.\n"
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
+#: src/gnome-tetravex.vala:191
+msgid "To play GNOME Tetravex in command-line:"
+msgstr "برای بازی تتراوکس گنوم در خط فرمان:"
 
 #. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
-#: src/gnome-tetravex.vala:267
+#: src/gnome-tetravex.vala:356
 msgid "Restore last game"
 msgstr "بازآوری آخرین بازی"
 
 #. not a typo
 #. Translators: tooltip text of the "play"/unpause button, in the bottom bar
-#: src/gnome-tetravex.vala:317
+#: src/gnome-tetravex.vala:407
 msgid "Resume the game"
 msgstr "از سر گرفتن بازی"
 
 #. Translators: tooltip text of the pause button, in the bottom bar
-#: src/gnome-tetravex.vala:324
+#: src/gnome-tetravex.vala:414
 msgid "Pause the game"
 msgstr "متوقف کردن بازی"
 
 #. Translators: tooltip text of the "restart"/new game button, in the bottom bar
-#: src/gnome-tetravex.vala:336
+#: src/gnome-tetravex.vala:427
 msgid "Start a new game"
 msgstr "شروع بازی جدید"
 
 #. Translators: tooltip text of the "solve"/give up button, in the bottom bar
-#: src/gnome-tetravex.vala:343
+#: src/gnome-tetravex.vala:434
 msgid "Give up and view the solution"
 msgstr "تسلیم شده و راه حل را ببینید"
 
 #. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
-#: src/gnome-tetravex.vala:350
+#: src/gnome-tetravex.vala:441
 msgid "Move all tiles left"
 msgstr "جابه‌جایی همهٔ کاشی‌ها به چپ"
 
 #. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:621
+#: src/gnome-tetravex.vala:741
 msgid "Are you sure you want to start a new game with same board size?"
 msgstr "مطمئنید می‌خواهید بازی جدیدی با اندازهٔ تختهٔ مشابه شروع کنید؟"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game"
-#: src/gnome-tetravex.vala:624 src/gnome-tetravex.vala:696
-#: src/gnome-tetravex.vala:741
+#: src/gnome-tetravex.vala:744 src/gnome-tetravex.vala:815
+#: src/gnome-tetravex.vala:859
 msgid "_Keep Playing"
 msgstr "_ادامهٔ بازی"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:627 src/gnome-tetravex.vala:744
+#: src/gnome-tetravex.vala:747 src/gnome-tetravex.vala:862
 msgid "_Start New Game"
 msgstr "_شروع بازی جدید"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
-#: src/gnome-tetravex.vala:654
+#: src/gnome-tetravex.vala:773
 msgid ""
 "Looks like you haven’t finished a game yet.\n"
 "\n"
-"Try maybe a 2 × 2 grid, they are easy. 🙂️"
+"Maybe try a 2 × 2 grid, they are easy. 🙂️"
 msgstr ""
 "به نظر می‌رسد هنوز بازی‌ای را تمام نکرده‌اید.\n"
 "\n"
-"مثلاً یک شبکهٔ ۲×۲ را بیازمایید؛ آسانند. 🙂️"
+"یک شبکهٔ مثلاً ۲×۲ را بیازمایید؛ آسانند. 🙂️"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
-#: src/gnome-tetravex.vala:693
+#: src/gnome-tetravex.vala:812
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "آیا مطمئنید که می‌خواهید تسلیم شوید و راه حل را ببینید؟"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:699
+#: src/gnome-tetravex.vala:818
 msgid "_Give Up"
 msgstr "_تسلیم"
 
 #. Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:738
+#: src/gnome-tetravex.vala:856
 msgid "Are you sure you want to start a new game with a different board size?"
 msgstr "آیا مطمئنید که می‌خواهید یک بازی جدید با اندازه تخته متفاوت شروع کنید؟"
 
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:874
+#: src/gnome-tetravex.vala:991
 msgid "Lars Rydlinge"
 msgstr "لارس ریدلینگ"
 
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:878
+#: src/gnome-tetravex.vala:995
 msgid "Robert Ancell"
 msgstr "رابرت انسل"
 
 #. Translators: text crediting a game documenter, seen in the About dialog
-#: src/gnome-tetravex.vala:882
+#: src/gnome-tetravex.vala:999
 msgid "Rob Bradford"
 msgstr "راب برادفورد"
 
 #. Translators: short description of the application, seen in the About dialog
-#: src/gnome-tetravex.vala:886
+#: src/gnome-tetravex.vala:1003
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "مهره‌ها را به گونه‌ای جابه‌جا کنید که عددهای یکسان در کنار هم قرار بگیرند"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:890
+#: src/gnome-tetravex.vala:1007
 #, c-format
 msgid "Copyright © %u-%u – Lars Rydlinge"
 msgstr "حق رونوشت © %Iu-%Iu – لارس ریدلینگ"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:894
+#: src/gnome-tetravex.vala:1011
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "حق رونوشت © %Iu-%Iu – آرناد بوناتی"
 
 #. Translators: about dialog text; label of the website link
-#: src/gnome-tetravex.vala:898
+#: src/gnome-tetravex.vala:1015
 msgid "Page on GNOME wiki"
 msgstr "صفحه روی ویکی گنوم"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-tetravex.vala:910
+#: src/gnome-tetravex.vala:1027
 msgid "translator-credits"
 msgstr ""
 "آرش موسوی <mousavi.arash@gmail.com>\n"
@@ -451,22 +680,22 @@ msgctxt "shortcut window"
 msgid "Select the given row"
 msgstr "گزینش ردیف داده‌شده"
 
-#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is splitted in two parts, that is for the left one
+#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is split in two parts, that is for the left one
 #: src/help-overlay.ui:61
 msgctxt "shortcut window"
-msgid "Select left box column"
+msgid "Select left half-board column"
 msgstr "گزینش ستون جعبهٔ چپ"
 
-#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is splitted in two parts, that is for the right one
+#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is split in two parts, that is for the right one
 #: src/help-overlay.ui:69
 msgctxt "shortcut window"
-msgid "Select right box column"
+msgid "Select right half-board column"
 msgstr "گزینش ستون جعبهٔ راست"
 
 #. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
 #: src/help-overlay.ui:78
 msgctxt "shortcut window"
-msgid "Validate right box"
+msgid "Validate right half-board"
 msgstr "تأیید اعتبار جعبهٔ راست"
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
@@ -556,50 +785,92 @@ msgstr "روند بازی پیش‌رفته"
 #. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:194
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box up by one"
+msgid "Move all the pieces in the left half-board up by one"
 msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به بالا"
 
 #. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:202
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box down by one"
+msgid "Move all the pieces in the left half-board down by one"
 msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به پایین"
 
 #. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:210
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box left by one"
+msgid "Move all the pieces in the left half-board left by one"
 msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به چپ"
 
 #. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:218
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box right by one"
+msgid "Move all the pieces in the left half-board right by one"
 msgstr "جابه‌جایی تمام مهره‌های جعبهٔ چپ یکی به راست"
 
 #. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:226
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box up by one"
+msgid "Move all the pieces in the right half-board up by one"
 msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به بالا"
 
 #. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:234
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box down by one"
+msgid "Move all the pieces in the right half-board down by one"
 msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به پایین"
 
 #. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:242
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box left by one"
+msgid "Move all the pieces in the right half-board left by one"
 msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به چپ"
 
 #. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:250
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box right by one"
+msgid "Move all the pieces in the right half-board right by one"
 msgstr "جابه‌جایی تمام مهره‌های جعبهٔ راست یکی به راست"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
+#: src/history.vala:314
+#, c-format
+msgid "%uh %um %us"
+msgstr "%Iuس %Iuد %Iuث"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
+#: src/history.vala:318
+#, c-format
+msgid "%um %us"
+msgstr "%Iuد %Iuث"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
+#: src/history.vala:322
+#, c-format
+msgid "%us"
+msgstr "%Iuث"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
+#: src/history.vala:326
+#, c-format
+msgid "%.0fs"
+msgstr "%I.0fث"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
+#: src/history.vala:330
+#, c-format
+msgid "%.1fs"
+msgstr "%I.1fث"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
+#: src/history.vala:334
+#, c-format
+msgid "%.2fs"
+msgstr "%I.2fث"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
+#: src/history.vala:338
+#, c-format
+msgid "%.3fs"
+msgstr "%I.3fث"
 
 #. Translators: text that appears as an overlay on the board when the game is paused
 #: src/puzzle-view.vala:532
@@ -622,6 +893,16 @@ msgstr "زمان"
 msgid "%u × %u"
 msgstr "%Iu × %Iu"
 
+#. Translators: text of the score overlay, displayed after a puzzle is complete
+#: src/score-overlay.ui:37
+msgid "Congratulations!"
+msgstr "تبریک!"
+
+#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
+#: src/score-overlay.ui:78
+msgid "Show scores"
+msgstr "نمایش امتیازها"
+
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the game time
 #: src/score-overlay.vala:57
 msgid "New best time!"
@@ -629,14 +910,17 @@ msgstr "بهترین زمان جدید!"
 
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old best time
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the second best time
-#: src/score-overlay.vala:61 src/score-overlay.vala:117
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the second best time (in a corner case)
+#: src/score-overlay.vala:61 src/score-overlay.vala:117 src/score-overlay.vala:156
 msgid "Second:"
 msgstr "دوم:"
 
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the third best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the third best time (in a corner case)
 #: src/score-overlay.vala:68 src/score-overlay.vala:94 src/score-overlay.vala:121
+#: src/score-overlay.vala:163
 msgid "Third:"
 msgstr "سوم:"
 
@@ -648,7 +932,8 @@ msgstr "خارج از سکّو:"
 
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever
-#: src/score-overlay.vala:86 src/score-overlay.vala:112
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the game best time (in a corner case)
+#: src/score-overlay.vala:86 src/score-overlay.vala:112 src/score-overlay.vala:149
 msgid "Best time:"
 msgstr "بهترین زمان:"
 
@@ -663,22 +948,22 @@ msgstr "زمانتان:"
 #: src/score-overlay.vala:125 src/score-overlay.vala:133
 #, c-format
 msgid "Place %u:"
-msgstr "مکان %Iu:"
+msgstr "جایگاه %Iu:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the worst time (in a corner case)
+#: src/score-overlay.vala:172
+msgid "Worst time:"
+msgstr "بدترین زمان:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the fourth time (in a corner case)
+#: src/score-overlay.vala:178
+msgid "Fourth:"
+msgstr "چهارم:"
 
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made one of the worst scores for a game of this size; says that the rank after the one of the game is "free", inviting to do worse
-#: src/score-overlay.vala:164
+#: src/score-overlay.vala:205
 msgid "Free!"
 msgstr "مفت!"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete
-#: src/score-overlay.ui:37
-msgid "Congratulations!"
-msgstr "تبریک!"
-
-#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
-#: src/score-overlay.ui:78
-msgid "Show scores"
-msgstr "نمایش امتیازها"
 
 #~ msgid "_Size"
 #~ msgstr "_اندازه"
