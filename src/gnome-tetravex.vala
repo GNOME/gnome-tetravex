@@ -325,6 +325,7 @@ private class Tetravex : Gtk.Application
         hamburger_button = new MenuButton ();
         hamburger_button.set_image (new Image.from_icon_name ("open-menu-symbolic", IconSize.BUTTON));
         ((Widget) hamburger_button).set_focus_on_click (false);
+        hamburger_button.valign = Align.CENTER;
         hamburger_button.show ();
         hamburger_button.set_menu_model (appmenu);
         headerbar.pack_end (hamburger_button);
@@ -332,11 +333,13 @@ private class Tetravex : Gtk.Application
         Button undo_button = new Button.from_icon_name ("edit-undo-symbolic");
         undo_button.set_action_name ("app.undo");
         ((Widget) undo_button).set_focus_on_click (false);
+        undo_button.valign = Align.CENTER;
         undo_button.show ();
 
         Button redo_button = new Button.from_icon_name ("edit-redo-symbolic");
         redo_button.set_action_name ("app.redo");
         ((Widget) redo_button).set_focus_on_click (false);
+        redo_button.valign = Align.CENTER;
         redo_button.show ();
 
         Box undo_redo_box = new Box (Orientation.HORIZONTAL, /* spacing */ 0);
@@ -356,6 +359,7 @@ private class Tetravex : Gtk.Application
             Button restore_button = new Button.with_label (_("Restore last game"));
             restore_button.clicked.connect (restore_game);
             ((Widget) restore_button).set_focus_on_click (false);
+            restore_button.valign = Align.CENTER;
             restore_button.show ();
 
             restore_stack.add (restore_button);
