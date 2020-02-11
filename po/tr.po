@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-12-16 16:12+0000\n"
-"PO-Revision-Date: 2020-01-28 01:09+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"POT-Creation-Date: 2020-02-03 01:25+0000\n"
+"PO-Revision-Date: 2020-02-04 19:18+0300\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -41,10 +41,10 @@ msgid ""
 "numbers don’t match, you can’t put the piece there. Move quickly: you’re "
 "being timed!"
 msgstr ""
-"Her kare parçasının her bir yanda numarası vardır. Aynı numaralar "
-"birbiriyle bitişik olsun diye parçaları tahtanın sol tarafında "
-"konumlandırın. Eğer numaralar eşleşmezse, parçayı oraya koyamazsınız. Hızlı "
-"hareket edin: zamanınız başladı!"
+"Her kare parçasının her bir yanda numarası vardır. Aynı numaralar birbiriyle "
+"bitişik olsun diye parçaları tahtanın sol tarafında konumlandırın. Eğer "
+"numaralar eşleşmezse, parçayı oraya koyamazsınız. Hızlı hareket edin: "
+"zamanınız başladı!"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:16
 msgid ""
@@ -355,15 +355,14 @@ msgstr ""
 #. Translators: command-line error message, displayed if the user tries to do a move using CLI, while the puzzle is solved
 #: src/cli.vala:233
 msgid "Puzzle is solved! If you want to start a new one, use “new”."
-msgstr ""
-"Bulmaca çözüldü! Yeni bir oyun başlatmak için “new” komutunu kullanın."
+msgstr "Bulmaca çözüldü! Yeni bir oyun başlatmak için “new” komutunu kullanın."
 
 #. Translators: command-line message, displayed when playing Tetravex in CLI under the board, if the puzzle was solved
 #: src/cli.vala:278
 msgid "Puzzle is solved!"
 msgstr "Bulmaca çözüldü!"
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explaination of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explanation of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
 #: src/gnome-tetravex-cli.vala:24
 msgid "(nothing)"
 msgstr "(hiçbir şey)"
@@ -404,19 +403,19 @@ msgstr "Yayım sürümünü yazdır ve çık"
 msgid "Invert two tiles, the one in A1, and the one in b2."
 msgstr "Biri A1’de diğeri b2’de olan iki karoyu yer değiştir."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
 #: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:197
 msgid "An uppercase targets a tile from the initial board."
 msgstr "Büyük harf ilk tahtadaki karoyu hedefler."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
 #: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:200
 msgid "A lowercase targets a tile in the left/final board."
 msgstr "Küçük harf sol/sonuç tahtasındaki karoyu hedefler."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
 #: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:203
 msgid "Digits specify the rows of the two tiles to invert."
@@ -432,8 +431,7 @@ msgstr "Geçerli bulmacayı görüntüle. Takma ad: “status” veya “show”
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
 #: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:209
 msgid "Create a new puzzle; for changing size, use --size."
-msgstr ""
-"Yeni bulmaca oluştur; boyutu değiştirmek için --size kullanın."
+msgstr "Yeni bulmaca oluştur; boyutu değiştirmek için --size kullanın."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
@@ -447,7 +445,7 @@ msgstr "Pes et ve çözümü görüntüle."
 msgid "Finish current puzzle, automatically. Alias: “end”."
 msgstr "Geçerli bulmacayı kendiliğinden bitir. Takma ad: “end”."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
 #: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:218
 msgid "Works for puzzles solved right or if one tile left."
@@ -614,7 +612,7 @@ msgstr "_Yeni Oyun Başlat"
 msgid ""
 "Looks like you haven’t finished a game yet.\n"
 "\n"
-"Try maybe a 2 × 2 grid, they are easy. 🙂️"
+"Maybe try a 2 × 2 grid, they are easy. 🙂️"
 msgstr ""
 "Henüz oyunu bitirmemiş gibisin.\n"
 "\n"
@@ -705,22 +703,22 @@ msgctxt "shortcut window"
 msgid "Select the given row"
 msgstr "Verilen satırı seç"
 
-#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is splitted in two parts, that is for the left one
+#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is split in two parts, that is for the left one
 #: src/help-overlay.ui:61
 msgctxt "shortcut window"
-msgid "Select left box column"
+msgid "Select left half-board column"
 msgstr "Sol kutu satırını seç"
 
-#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is splitted in two parts, that is for the right one
+#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is split in two parts, that is for the right one
 #: src/help-overlay.ui:69
 msgctxt "shortcut window"
-msgid "Select right box column"
+msgid "Select right half-board column"
 msgstr "Sağ kutu satırını seç"
 
 #. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
 #: src/help-overlay.ui:78
 msgctxt "shortcut window"
-msgid "Validate right box"
+msgid "Validate right half-board"
 msgstr "Sağ kutuyu doğrula"
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
@@ -813,49 +811,49 @@ msgstr "Gelişmiş oyun seçenekleri"
 #. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:194
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box up by one"
+msgid "Move all the pieces in the left half-board up by one"
 msgstr "Sol kutudaki tüm parçaları birer birer yukarı taşı"
 
 #. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:202
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box down by one"
+msgid "Move all the pieces in the left half-board down by one"
 msgstr "Sol kutudaki tüm parçaları birer birer aşağı taşı"
 
 #. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:210
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box left by one"
+msgid "Move all the pieces in the left half-board left by one"
 msgstr "Sol kutudaki tüm parçaları birer birer sola taşı"
 
 #. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:218
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box right by one"
+msgid "Move all the pieces in the left half-board right by one"
 msgstr "Sol kutudaki tüm parçaları birer birer sağa taşı"
 
 #. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:226
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box up by one"
+msgid "Move all the pieces in the right half-board up by one"
 msgstr "Sağ kutudaki tüm parçaları birer birer yukarı taşı"
 
 #. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:234
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box down by one"
+msgid "Move all the pieces in the right half-board down by one"
 msgstr "Sağ kutudaki tüm parçaları birer birer aşağı taşı"
 
 #. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:242
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box left by one"
+msgid "Move all the pieces in the right half-board left by one"
 msgstr "Sağ kutudaki tüm parçaları birer birer sola taşı"
 
 #. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:250
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box right by one"
+msgid "Move all the pieces in the right half-board right by one"
 msgstr "Sağ kutudaki tüm parçaları birer birer sağa taşı"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
