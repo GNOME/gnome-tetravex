@@ -27,7 +27,7 @@ bindir      = join_paths (get_option ('prefix'), get_option ('bindir'))
 gio_dep     = dependency ('gio-2.0',    version: '>= 2.42.0')
 glib_dep    = dependency ('glib-2.0',   version: '>= 2.42.0')
 if get_option('build_gui')
-  gtk_dep   = dependency ('gtk+-3.0',   version: '>= 3.14')
+  gtk_dep   = dependency ('gtk+-3.0',   version: '>= 3.22.0')
 endif
 # TODO build requires vala 0.46.3 for GLib vapi
 
