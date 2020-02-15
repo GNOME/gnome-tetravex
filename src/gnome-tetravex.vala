@@ -48,8 +48,9 @@ private class Tetravex : Gtk.Application
     private ApplicationWindow window;
     private int window_width;
     private int window_height;
-    private bool is_maximized;
-    private bool is_tiled;
+    private bool window_is_maximized;
+    private bool window_is_fullscreen;
+    private bool window_is_tiled;
 
     private Stack new_game_solve_stack;
     private Stack play_pause_stack;
@@ -522,18 +523,35 @@ private class Tetravex : Gtk.Application
 
     private void size_allocate_cb (Allocation allocation)
     {
-        if (is_maximized || is_tiled)
+        if (window_is_maximized || window_is_tiled || window_is_fullscreen)
             return;
-        window.get_size (out window_width, out window_height);
+        int? _window_width = null;
+        int? _window_height = null;
+        window.get_size (out _window_width, out _window_height);
+        if (_window_width == null || _window_height == null)
+            return;
+        window_width = (!) _window_width;
+        window_height = (!) _window_height;
     }
 
     private bool window_state_event_cb (Gdk.EventWindowState event)
     {
         if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
-            is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
-        /* We don’t save this state, but track it for saving size allocation */
-        if ((event.changed_mask & Gdk.WindowState.TILED) != 0)
-            is_tiled = (event.new_window_state & Gdk.WindowState.TILED) != 0;
+            window_is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+
+        /* fullscreen: saved as maximized */
+        if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
+            window_is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
+
+        /* tiled: not saved, but should not change saved window size */
+        Gdk.WindowState tiled_state = Gdk.WindowState.TILED
+                                    | Gdk.WindowState.TOP_TILED
+                                    | Gdk.WindowState.BOTTOM_TILED
+                                    | Gdk.WindowState.LEFT_TILED
+                                    | Gdk.WindowState.RIGHT_TILED;
+        if ((event.changed_mask & tiled_state) != 0)
+            window_is_tiled = (event.new_window_state & tiled_state) != 0;
+
         return false;
     }
 
@@ -544,7 +562,7 @@ private class Tetravex : Gtk.Application
         settings.delay ();
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
-        settings.set_boolean ("window-is-maximized", is_maximized);
+        settings.set_boolean ("window-is-maximized", window_is_maximized || window_is_fullscreen);
         if (puzzle.game_in_progress)
             settings.set_value ("saved-game", puzzle.to_variant (/* save time */ !puzzle.tainted_by_command_line));
         else if (!can_restore)
