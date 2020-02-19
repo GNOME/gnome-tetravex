@@ -125,7 +125,8 @@ private class Tetravex : Gtk.Application
         { "redo",           redo_cb         },
         { "size",           null,           "s",    "'2'",  size_changed    },
         { "help",           help_cb         },
-        { "about",          about_cb        }
+        { "about",          about_cb        },
+        { "hamburger",      hamburger_cb    }
     };
 
     private static int main (string[] args)
@@ -283,6 +284,7 @@ private class Tetravex : Gtk.Application
         set_accels_for_action ("app.move-right-r",  { "<Shift><Primary>Right"   });
         set_accels_for_action ("app.undo",          {        "<Primary>z"       });
         set_accels_for_action ("app.redo",          { "<Shift><Primary>z"       });
+        set_accels_for_action ("app.hamburger",     {                 "F10"     });
         // F1 and friends are managed manually
 
         Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
@@ -992,6 +994,11 @@ private class Tetravex : Gtk.Application
         }
         about_cb ();
         return true;
+    }
+
+    private void hamburger_cb ()
+    {
+        hamburger_button.active = !hamburger_button.active;
     }
 
     private void help_cb ()
