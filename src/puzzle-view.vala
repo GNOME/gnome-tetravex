@@ -193,6 +193,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     construct
     {
+        init_mouse ();
         init_keyboard ();
 
         set_events (Gdk.EventMask.EXPOSURE_MASK
@@ -671,48 +672,64 @@ private class PuzzleView : Gtk.DrawingArea
         assert_not_reached ();
     }
 
+    /*\
+    * * mouse user actions
+    \*/
+
+    private Gtk.GestureMultiPress click_controller;         // for keeping in memory
+
+    private void init_mouse ()  // called on construct
+    {
+        click_controller = new Gtk.GestureMultiPress (this);
+        click_controller.pressed.connect (on_click);
+        click_controller.released.connect (on_release);
+    }
+
     [CCode (notify = false)] internal bool mouse_use_extra_buttons  { private get; internal set; default = true; }
     [CCode (notify = false)] internal int  mouse_back_button        { private get; internal set; default = 8; }
     [CCode (notify = false)] internal int  mouse_forward_button     { private get; internal set; default = 9; }
 
-    protected override bool button_press_event (Gdk.EventButton event)
+    private inline void on_click (Gtk.GestureMultiPress _click_controller, int n_press, double event_x, double event_y)
     {
         if (puzzle.paused || puzzle.is_solved)
-            return false;
+            return;
         clear_keyboard_highlight (/* only selection */ false);
 
-        if (event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
-            return main_button_pressed (event);
+        uint button = _click_controller.get_button ();
+        if (button == Gdk.BUTTON_PRIMARY || button == Gdk.BUTTON_SECONDARY)
+        {
+            main_button_pressed (n_press, event_x, event_y);
+            return;
+        }
 
         if (!mouse_use_extra_buttons)
-            return false;
-        if (event.button == mouse_back_button)
+            return;
+        if (button == mouse_back_button)
             undo ();
-        else if (event.button == mouse_forward_button)
+        else if (button == mouse_forward_button)
             redo ();
-        return false;
     }
 
-    private inline bool main_button_pressed (Gdk.EventButton event)
+    private inline void main_button_pressed (int n_press, double event_x, double event_y)
     {
         if (puzzle.is_solved)   // security
-            return false;
+            return;
 
-        if (event.type == Gdk.EventType.BUTTON_PRESS)
+        if (n_press == 1)
         {
             if (selected_tile == null)
-                pick_tile (event.x, event.y);
+                pick_tile (event_x, event_y);
             else
-                drop_tile (event.x, event.y);
+                drop_tile (event_x, event_y);
         }
-        else if (event.type == Gdk.EventType.DOUBLE_BUTTON_PRESS)
+        else
         {
             bool had_selected_tile = selected_tile != null;
 
             /* Move tile from left to right on double click */
-            pick_tile (event.x, event.y);
+            pick_tile (event_x, event_y);
             if (selected_tile == null)
-                return false;
+                return;
 
             if (on_right_half (((!) selected_tile).x))
             {
@@ -727,15 +744,15 @@ private class PuzzleView : Gtk.DrawingArea
                     else    /* consider double click as a single click */
                     {
                         if (had_selected_tile)
-                            drop_tile (event.x, event.y);
-                        return false;
+                            drop_tile (event_x, event_y);
+                        return;
                     }
                 }
                 else        /* consider double click as a single click */
                 {
                     if (had_selected_tile)
-                        drop_tile (event.x, event.y);
-                    return false;
+                        drop_tile (event_x, event_y);
+                    return;
                 }
             }
             else if (!had_selected_tile)
@@ -744,25 +761,22 @@ private class PuzzleView : Gtk.DrawingArea
             selected_tile = null;
             tile_selected = false;
         }
-
-        return false;
     }
 
-    protected override bool button_release_event (Gdk.EventButton event)
+    private inline void on_release (Gtk.GestureMultiPress _click_controller, int n_press, double event_x, double event_y)
     {
         if (puzzle.paused || puzzle.is_solved)
-            return false;
+            return;
         clear_keyboard_highlight (/* only selection */ false);
 
-        if ((event.button == Gdk.BUTTON_PRIMARY || event.button == Gdk.BUTTON_SECONDARY)
+        uint button = _click_controller.get_button ();
+        if ((button == Gdk.BUTTON_PRIMARY || button == Gdk.BUTTON_SECONDARY)
          && selected_tile != null && selection_timeout == 0)
-            drop_tile (event.x, event.y);
+            drop_tile (event_x, event_y);
 
         if (selection_timeout != 0)
             Source.remove (selection_timeout);
         selection_timeout = 0;
-
-        return false;
     }
 
     protected override bool motion_notify_event (Gdk.EventMotion event)

@@ -381,7 +381,8 @@ private class Tetravex : Gtk.Application
         view.vexpand = true;
         view.can_focus = true;
         view.show ();
-        view.button_release_event.connect (view_button_release_event);
+        view_click_controller = new GestureMultiPress (view);
+        view_click_controller.released.connect (on_release_on_view);
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
         Overlay overlay = new Overlay ();
@@ -450,7 +451,8 @@ private class Tetravex : Gtk.Application
                                                     /* align end */ true,
                                                     sizegroup);
 
-        new_game_button.button_press_event.connect (() => { view.disable_highlight (); return false; });
+        new_game_button_click_controller = new GestureMultiPress (new_game_button);
+        new_game_button_click_controller.pressed.connect (on_new_game_button_click);
         new_game_solve_stack = new Stack ();
         new_game_solve_stack.add_named (solve_button, "solve");
         new_game_solve_stack.add_named (new_game_button, "new-game");
@@ -808,19 +810,6 @@ private class Tetravex : Gtk.Application
         scores_dialog_visible = false;
     }
 
-    private bool view_button_release_event (Widget widget, Gdk.EventButton event)
-    {
-        /* Cancel pause on click */
-        if (puzzle.paused)
-        {
-            puzzle.paused = false;
-            update_bottom_button_states ();
-            return true;
-        }
-
-        return false;
-    }
-
     private bool has_been_solved = false;
     private void solve_cb ()
     {
@@ -978,6 +967,23 @@ private class Tetravex : Gtk.Application
             return on_f1_pressed (state);   // TODO fix dance done with the F1 & <Primary>F1 shortcuts that show help overlay
 
         return false;
+    }
+
+    private GestureMultiPress new_game_button_click_controller;
+    private inline void on_new_game_button_click (GestureMultiPress _new_game_button_click_controller, int n_press, double event_x, double event_y)
+    {
+        view.disable_highlight ();
+    }
+
+    private GestureMultiPress view_click_controller;
+    private inline void on_release_on_view (GestureMultiPress _view_click_controller, int n_press, double event_x, double event_y)
+    {
+        /* Cancel pause on click */
+        if (puzzle.paused)
+        {
+            puzzle.paused = false;
+            update_bottom_button_states ();
+        }
     }
 
     /*\
