@@ -306,8 +306,9 @@ private class Tetravex : Gtk.Application
 
         window = (ApplicationWindow) builder.get_object ("gnome-tetravex-window");
         this.add_window (window);
-        key_controller = new EventControllerKey (window);
+        key_controller = new EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
+        ((Widget) window).add_controller (key_controller);
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
@@ -383,9 +384,10 @@ private class Tetravex : Gtk.Application
         view.vexpand = true;
         view.can_focus = true;
         view.show ();
-        view_click_controller = new GestureMultiPress (view);
+        view_click_controller = new GestureClick ();
         view_click_controller.set_button (/* all buttons */ 0);
         view_click_controller.released.connect (on_release_on_view);
+        view.add_controller (view_click_controller);
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
         Overlay overlay = new Overlay ();
@@ -454,8 +456,9 @@ private class Tetravex : Gtk.Application
                                                     /* align end */ true,
                                                     sizegroup);
 
-        new_game_button_click_controller = new GestureMultiPress (new_game_button);
+        new_game_button_click_controller = new GestureClick ();
         new_game_button_click_controller.pressed.connect (on_new_game_button_click);
+        new_game_button.add_controller (new_game_button_click_controller);
         new_game_solve_stack = new Stack ();
         new_game_solve_stack.add_named (solve_button, "solve");
         new_game_solve_stack.add_named (new_game_button, "new-game");
@@ -962,14 +965,14 @@ private class Tetravex : Gtk.Application
         return false;
     }
 
-    private GestureMultiPress new_game_button_click_controller;
-    private inline void on_new_game_button_click (GestureMultiPress _new_game_button_click_controller, int n_press, double event_x, double event_y)
+    private GestureClick new_game_button_click_controller;
+    private inline void on_new_game_button_click (GestureClick _new_game_button_click_controller, int n_press, double event_x, double event_y)
     {
         view.disable_highlight ();
     }
 
-    private GestureMultiPress view_click_controller;
-    private inline void on_release_on_view (GestureMultiPress _view_click_controller, int n_press, double event_x, double event_y)
+    private GestureClick view_click_controller;
+    private inline void on_release_on_view (GestureClick _view_click_controller, int n_press, double event_x, double event_y)
     {
         /* Cancel pause on click */
         if (puzzle.paused)

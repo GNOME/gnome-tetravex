@@ -677,26 +677,28 @@ private class PuzzleView : Gtk.DrawingArea
     \*/
 
     private Gtk.EventControllerMotion motion_controller;    // for keeping in memory
-    private Gtk.GestureMultiPress click_controller;         // for keeping in memory
+    private Gtk.GestureClick click_controller;              // for keeping in memory
 
     private void init_mouse ()  // called on construct
     {
-        motion_controller = new Gtk.EventControllerMotion (this);
+        motion_controller = new Gtk.EventControllerMotion ();
         motion_controller.motion.connect (on_motion);
-//        motion_controller.enter.connect (on_mouse_in);                        // FIXME should work, 1/8
-//        motion_controller.leave.connect (on_mouse_out);                       // FIXME should work, 2/8
+        motion_controller.enter.connect (on_mouse_in);
+        motion_controller.leave.connect (on_mouse_out);
+        add_controller (motion_controller);
 
-        click_controller = new Gtk.GestureMultiPress (this);
+        click_controller = new Gtk.GestureClick ();
         click_controller.set_button (/* all buttons */ 0);
         click_controller.pressed.connect (on_click);
         click_controller.released.connect (on_release);
+        add_controller (click_controller);
     }
 
     [CCode (notify = false)] internal bool mouse_use_extra_buttons  { private get; internal set; default = true; }
     [CCode (notify = false)] internal int  mouse_back_button        { private get; internal set; default = 8; }
     [CCode (notify = false)] internal int  mouse_forward_button     { private get; internal set; default = 9; }
 
-    private inline void on_click (Gtk.GestureMultiPress _click_controller, int n_press, double event_x, double event_y)
+    private inline void on_click (Gtk.GestureClick _click_controller, int n_press, double event_x, double event_y)
     {
         if (puzzle.paused || puzzle.is_solved)
             return;
@@ -770,7 +772,7 @@ private class PuzzleView : Gtk.DrawingArea
         }
     }
 
-    private inline void on_release (Gtk.GestureMultiPress _click_controller, int n_press, double event_x, double event_y)
+    private inline void on_release (Gtk.GestureClick _click_controller, int n_press, double event_x, double event_y)
     {
         if (puzzle.paused || puzzle.is_solved)
             return;
@@ -803,25 +805,19 @@ private class PuzzleView : Gtk.DrawingArea
         }
     }
 
-//    private inline void on_mouse_out (Gtk.EventControllerMotion _motion_controller)   // FIXME should work, 3/8
-    protected override bool leave_notify_event (Gdk.EventCrossing event)                // FIXME should work, 4/8
+    private inline void on_mouse_out ()
     {
         if (selected_tile != null)
             ((!) selected_tile).snap_to_cursor = false;
-
-        return false;                                                                   // FIXME should work, 5/8
     }
 
-//    private inline void on_mouse_in (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)    // FIXME should work, 6/8
-    protected override bool enter_notify_event (Gdk.EventCrossing event)                                                // FIXME should work, 7/8
+    private inline void on_mouse_in ()
     {
         if (selected_tile != null)
         {
             ((!) selected_tile).snap_to_cursor = false;
             ((!) selected_tile).duration = half_animation_duration;
         }
-
-        return false;                                                                   // FIXME should work, 8/8
     }
 
     internal void finish ()
@@ -923,8 +919,9 @@ private class PuzzleView : Gtk.DrawingArea
 
     private void init_keyboard ()  // called on construct
     {
-        key_controller = new Gtk.EventControllerKey (this);
+        key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
+        add_controller (key_controller);
     }
 
     private inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
