@@ -304,7 +304,8 @@ private class Tetravex : Gtk.Application
 
         window = (ApplicationWindow) builder.get_object ("gnome-tetravex-window");
         this.add_window (window);
-        window.key_press_event.connect (on_key_press_event);
+        key_controller = new EventControllerKey (window);
+        key_controller.key_pressed.connect (on_key_pressed);
         window.size_allocate.connect (size_allocate_cb);
         window.window_state_event.connect (window_state_event_cb);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
@@ -955,9 +956,10 @@ private class Tetravex : Gtk.Application
         play_pause_stack.set_visible_child_name (puzzle.paused ? "play" : "pause");
     }
 
-    private bool on_key_press_event (Widget widget, Gdk.EventKey event)
+    private EventControllerKey key_controller;    // for keeping in memory
+    private inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
-        string name = (!) (Gdk.keyval_name (event.keyval) ?? "");
+        string name = (!) (Gdk.keyval_name (keyval) ?? "");
 
         if (name == "Escape" && !puzzle.is_solved)
         {
@@ -973,7 +975,7 @@ private class Tetravex : Gtk.Application
             }
         }
         else if (name == "F1")
-            return on_f1_pressed (event);   // TODO fix dance done with the F1 & <Primary>F1 shortcuts that show help overlay
+            return on_f1_pressed (state);   // TODO fix dance done with the F1 & <Primary>F1 shortcuts that show help overlay
 
         return false;
     }
@@ -982,12 +984,12 @@ private class Tetravex : Gtk.Application
     * * help/about
     \*/
 
-    private bool on_f1_pressed (Gdk.EventKey event)
+    private bool on_f1_pressed (Gdk.ModifierType state)
     {
         // TODO close popovers
-        if ((event.state & Gdk.ModifierType.CONTROL_MASK) != 0)
+        if ((state & Gdk.ModifierType.CONTROL_MASK) != 0)
             return false;                           // help overlay
-        if ((event.state & Gdk.ModifierType.SHIFT_MASK) == 0)
+        if ((state & Gdk.ModifierType.SHIFT_MASK) == 0)
         {
             help_cb ();
             return true;

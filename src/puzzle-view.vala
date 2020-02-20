@@ -193,6 +193,8 @@ private class PuzzleView : Gtk.DrawingArea
 
     construct
     {
+        init_keyboard ();
+
         set_events (Gdk.EventMask.EXPOSURE_MASK
                   | Gdk.EventMask.BUTTON_PRESS_MASK
                   | Gdk.EventMask.POINTER_MOTION_MASK
@@ -875,8 +877,10 @@ private class PuzzleView : Gtk.DrawingArea
     }
 
     /*\
-    * * keyboard
+    * * keyboard user actions
     \*/
+
+    private Gtk.EventControllerKey key_controller;    // for keeping in memory
 
     private bool show_highlight = false;
 
@@ -890,7 +894,13 @@ private class PuzzleView : Gtk.DrawingArea
     private uint8 kbd_selected_x = uint8.MAX;
     private uint8 kbd_selected_y = uint8.MAX;
 
-    protected override bool key_press_event (Gdk.EventKey event)
+    private void init_keyboard ()  // called on construct
+    {
+        key_controller = new Gtk.EventControllerKey (this);
+        key_controller.key_pressed.connect (on_key_pressed);
+    }
+
+    private inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
         if (!puzzle_init_done)
             return false;
@@ -901,7 +911,7 @@ private class PuzzleView : Gtk.DrawingArea
         if (tile_selected)
             return false;
 
-        string key = (!) (Gdk.keyval_name (event.keyval) ?? "");
+        string key = (!) (Gdk.keyval_name (keyval) ?? "");
         if (key == "")
             return false;
 
