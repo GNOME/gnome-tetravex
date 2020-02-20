@@ -309,8 +309,7 @@ private class Tetravex : Gtk.Application
         key_controller = new EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
         ((Widget) window).add_controller (key_controller);
-        window.size_allocate.connect (size_allocate_cb);
-        window.window_state_event.connect (window_state_event_cb);
+        window.map.connect (init_state_watcher);
         window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
         if (settings.get_boolean ("window-is-maximized"))
             window.maximize ();
@@ -532,38 +531,39 @@ private class Tetravex : Gtk.Application
         }
     }
 
-    private void size_allocate_cb (Allocation allocation)
+    private void init_state_watcher ()
+    {
+        Gdk.Surface? nullable_surface = window.get_surface ();  // TODO report bug, get_surface() returns a nullable Surface
+        if (nullable_surface == null || !((!) nullable_surface is Gdk.Toplevel))
+            assert_not_reached ();
+        surface = (Gdk.Toplevel) (!) nullable_surface;
+        surface.notify ["state"].connect (on_window_state_event);
+        surface.size_changed.connect (on_size_changed);
+    }
+
+    private inline void on_size_changed (Gdk.Surface _surface, int width, int height)
     {
         if (window_is_maximized || window_is_tiled || window_is_fullscreen)
             return;
-        int? _window_width = null;
-        int? _window_height = null;
-        window.get_size (out _window_width, out _window_height);
-        if (_window_width == null || _window_height == null)
-            return;
-        window_width = (!) _window_width;
-        window_height = (!) _window_height;
+        window_width  = width;
+        window_height = height;
     }
 
-    private const Gdk.WindowState tiled_state = Gdk.WindowState.TILED
-                                              | Gdk.WindowState.TOP_TILED
-                                              | Gdk.WindowState.BOTTOM_TILED
-                                              | Gdk.WindowState.LEFT_TILED
-                                              | Gdk.WindowState.RIGHT_TILED;
-    private bool window_state_event_cb (Gdk.EventWindowState event)
+    private Gdk.Toplevel surface;
+    private const Gdk.ToplevelState tiled_state = Gdk.ToplevelState.TILED
+                                                | Gdk.ToplevelState.TOP_TILED
+                                                | Gdk.ToplevelState.BOTTOM_TILED
+                                                | Gdk.ToplevelState.LEFT_TILED
+                                                | Gdk.ToplevelState.RIGHT_TILED;
+    private void on_window_state_event ()
     {
-        if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
-            window_is_maximized = (event.new_window_state & Gdk.WindowState.MAXIMIZED) != 0;
+        Gdk.ToplevelState state = surface.get_state ();
 
+        window_is_maximized  = (state & Gdk.ToplevelState.MAXIMIZED)  != 0;
         /* fullscreen: saved as maximized */
-        if ((event.changed_mask & Gdk.WindowState.FULLSCREEN) != 0)
-            window_is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
-
+        window_is_fullscreen = (state & Gdk.ToplevelState.FULLSCREEN) != 0;
         /* tiled: not saved, but should not change saved window size */
-        if ((event.changed_mask & tiled_state) != 0)
-            window_is_tiled = (event.new_window_state & tiled_state) != 0;
-
-        return false;
+        window_is_tiled      = (state & tiled_state)                  != 0;
     }
 
     protected override void shutdown ()
