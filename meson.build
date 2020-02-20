@@ -30,7 +30,7 @@ podir       = meson.project_source_root() / 'po'
 # Dependencies
 gio_dep     = dependency ('gio-2.0',    version: '>= 2.42.0')
 glib_dep    = dependency ('glib-2.0',   version: '>= 2.42.0')
-gtk_dep     = dependency ('gtk+-3.0',   version: '>= 3.22.23')
+gtk_dep     = dependency ('gtk4',       version: '>= 3.99.1')
 libm_dep    = meson.get_compiler('c').find_library('m', required: false)
 
 subdir ('po')
