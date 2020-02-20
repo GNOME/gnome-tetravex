@@ -676,10 +676,16 @@ private class PuzzleView : Gtk.DrawingArea
     * * mouse user actions
     \*/
 
+    private Gtk.EventControllerMotion motion_controller;    // for keeping in memory
     private Gtk.GestureMultiPress click_controller;         // for keeping in memory
 
     private void init_mouse ()  // called on construct
     {
+        motion_controller = new Gtk.EventControllerMotion (this);
+        motion_controller.motion.connect (on_motion);
+//        motion_controller.enter.connect (on_mouse_in);                        // FIXME should work, 1/8
+//        motion_controller.leave.connect (on_mouse_out);                       // FIXME should work, 2/8
+
         click_controller = new Gtk.GestureMultiPress (this);
         click_controller.pressed.connect (on_click);
         click_controller.released.connect (on_release);
@@ -779,12 +785,12 @@ private class PuzzleView : Gtk.DrawingArea
         selection_timeout = 0;
     }
 
-    protected override bool motion_notify_event (Gdk.EventMotion event)
+    private inline void on_motion (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)
     {
         if (selected_tile != null)
         {
-            int new_x = ((int) (event.x - selected_x_offset)).clamp (0, board_x_maxi);
-            int new_y = ((int) (event.y - selected_y_offset)).clamp (0, board_y_maxi);
+            int new_x = ((int) (event_x - selected_x_offset)).clamp (0, board_x_maxi);
+            int new_y = ((int) (event_y - selected_y_offset)).clamp (0, board_y_maxi);
 
             double duration;
             if (((!) selected_tile).snap_to_cursor)
@@ -794,19 +800,19 @@ private class PuzzleView : Gtk.DrawingArea
 
             move_tile ((!) selected_tile, new_x, new_y, duration);
         }
-
-        return false;
     }
 
-    protected override bool leave_notify_event (Gdk.EventCrossing event)
+//    private inline void on_mouse_out (Gtk.EventControllerMotion _motion_controller)   // FIXME should work, 3/8
+    protected override bool leave_notify_event (Gdk.EventCrossing event)                // FIXME should work, 4/8
     {
         if (selected_tile != null)
             ((!) selected_tile).snap_to_cursor = false;
 
-        return false;
+        return false;                                                                   // FIXME should work, 5/8
     }
 
-    protected override bool enter_notify_event (Gdk.EventCrossing event)
+//    private inline void on_mouse_in (Gtk.EventControllerMotion _motion_controller, double event_x, double event_y)    // FIXME should work, 6/8
+    protected override bool enter_notify_event (Gdk.EventCrossing event)                                                // FIXME should work, 7/8
     {
         if (selected_tile != null)
         {
@@ -814,7 +820,7 @@ private class PuzzleView : Gtk.DrawingArea
             ((!) selected_tile).duration = half_animation_duration;
         }
 
-        return false;
+        return false;                                                                   // FIXME should work, 8/8
     }
 
     internal void finish ()
