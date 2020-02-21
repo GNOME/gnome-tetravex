@@ -466,7 +466,7 @@ private class Tetravex : Gtk.Application
         grid.attach (new_game_solve_stack, 2, 1, 1, 1);
 
         clock_box = new Box (Orientation.HORIZONTAL, /* spacing */ 8);
-        Image image = new Image.from_icon_name ("preferences-system-time-symbolic", IconSize.MENU);
+        Image image = new Image.from_icon_name ("preferences-system-time-symbolic");
         image.show ();
         clock_box.add (image);
         clock_label = new Label ("");
@@ -515,7 +515,7 @@ private class Tetravex : Gtk.Application
 
         internal BottomButton (string icon_name, string action_name, string tooltip_text, bool align_end, SizeGroup sizegroup)
         {
-            Image _image = new Image.from_icon_name (icon_name, IconSize.DND);
+            Image _image = new Image.from_icon_name (icon_name);
             _image.margin = 10;
             Object (action_name: action_name,
                     tooltip_text: tooltip_text,
