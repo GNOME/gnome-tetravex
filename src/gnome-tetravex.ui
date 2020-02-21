@@ -16,15 +16,13 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <!-- interface-requires gtk+ 3.10 -->
+  <requires lib="gtk+" version="3.99"/>
   <object class="GtkApplicationWindow" id="gnome-tetravex-window">
-    <property name="can_focus">False</property>
     <!-- Translators: application name, as seen in GNOME Shell -->
     <property name="title" translatable="yes">Tetravex</property>
     <property name="icon-name">org.gnome.Tetravex</property>
     <child>
       <object class="GtkGrid" id="grid">
-        <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="margin-bottom">25</property>
         <property name="column-homogeneous">True</property> <!-- else the clock regularly triggers a view redraw... -->

@@ -18,9 +18,8 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
+  <requires lib="gtk+" version="3.99"/>
   <template class="ScoreOverlay" parent="GtkGrid">
-    <property name="visible">True</property>
     <property name="valign">center</property>
     <property name="orientation">vertical</property>
     <property name="row-homogeneous">True</property>
@@ -31,47 +30,49 @@
     </style>
     <child>
       <object class="GtkLabel">
-        <property name="visible">True</property>
         <property name="hexpand">True</property>
         <!-- Translators: text of the score overlay, displayed after a puzzle is complete -->
         <property name="label" translatable="yes">Congratulations!</property>
         <style>
           <class name="score-title"/>
         </style>
+        <layout>
+          <property name="top-attach">0</property>
+          <property name="left-attach">0</property>
+          <property name="row-span">2</property>
+        </layout>
       </object>
-      <packing>
-        <property name="top-attach">0</property>
-        <property name="left-attach">0</property>
-        <property name="height">2</property>
-      </packing>
     </child>
     <child>
-      <object class="ScoreOverlayEntry" id="score_0"/>
-      <packing>
-        <property name="top-attach">2</property>
-      </packing>
+      <object class="ScoreOverlayEntry" id="score_0">
+        <layout>
+          <property name="top-attach">2</property>
+        </layout>
+      </object>
     </child>
     <child>
-      <object class="ScoreOverlayEntry" id="score_1"/>
-      <packing>
-        <property name="top-attach">3</property>
-      </packing>
+      <object class="ScoreOverlayEntry" id="score_1">
+        <layout>
+          <property name="top-attach">3</property>
+        </layout>
+      </object>
     </child>
     <child>
-      <object class="ScoreOverlayEntry" id="score_2"/>
-      <packing>
-        <property name="top-attach">4</property>
-      </packing>
+      <object class="ScoreOverlayEntry" id="score_2">
+        <layout>
+          <property name="top-attach">4</property>
+        </layout>
+      </object>
     </child>
     <child>
-      <object class="ScoreOverlayEntry" id="score_3"/>
-      <packing>
-        <property name="top-attach">5</property>
-      </packing>
+      <object class="ScoreOverlayEntry" id="score_3">
+        <layout>
+          <property name="top-attach">5</property>
+        </layout>
+      </object>
     </child>
     <child>
       <object class="GtkButton">
-        <property name="visible">True</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
         <!-- Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog -->
@@ -81,12 +82,12 @@
         <style>
           <class name="rounded-button"/>
         </style>
+        <layout>
+          <property name="top-attach">6</property>
+          <property name="left-attach">0</property>
+          <property name="row-span">2</property>
+        </layout>
       </object>
-      <packing>
-        <property name="top-attach">6</property>
-        <property name="left-attach">0</property>
-        <property name="height">2</property>
-      </packing>
     </child>
   </template>
 </interface>
