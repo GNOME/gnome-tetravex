@@ -209,18 +209,20 @@ private class PuzzleView : Gtk.DrawingArea
 
     private void redraw_tile (TileImage image)
     {
-        queue_draw_area ((int) image.x - theme.overdraw_left,
-                         (int) image.y - theme.overdraw_top,
-                         (int) tilesize + theme.overdraw_left + theme.overdraw_right,
-                         (int) tilesize + theme.overdraw_top + theme.overdraw_bottom);
+        queue_draw ();
+//        queue_draw_area ((int) image.x - theme.overdraw_left,
+//                         (int) image.y - theme.overdraw_top,
+//                         (int) tilesize + theme.overdraw_left + theme.overdraw_right,
+//                         (int) tilesize + theme.overdraw_top + theme.overdraw_bottom);
     }
 
     private void queue_draw_tile (uint8 x, uint8 y)
     {
-        queue_draw_area ((int) sockets_xs [x, y] - theme.overdraw_left,
-                         (int) sockets_ys [x, y] - theme.overdraw_top,
-                         (int) tilesize + theme.overdraw_left + theme.overdraw_right,
-                         (int) tilesize + theme.overdraw_top + theme.overdraw_bottom);
+        queue_draw ();
+//        queue_draw_area ((int) sockets_xs [x, y] - theme.overdraw_left,
+//                         (int) sockets_ys [x, y] - theme.overdraw_top,
+//                         (int) tilesize + theme.overdraw_left + theme.overdraw_right,
+//                         (int) tilesize + theme.overdraw_top + theme.overdraw_bottom);
     }
 
     private void move_tile_to_location (TileImage image, uint x, uint y, double duration = 0)
