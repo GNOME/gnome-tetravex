@@ -322,7 +322,7 @@ private class Tetravex : Gtk.Application
 
         HeaderBar headerbar = new HeaderBar ();
         headerbar.title = PROGRAM_NAME;
-        headerbar.show_close_button = true;
+        headerbar.show_title_buttons = true;
         headerbar.show ();
         window.set_titlebar (headerbar);
 
