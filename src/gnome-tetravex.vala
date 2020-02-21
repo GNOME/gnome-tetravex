@@ -395,7 +395,7 @@ private class Tetravex : Gtk.Application
 
         score_overlay = new ScoreOverlay ();
         overlay.add_overlay (score_overlay);
-        overlay.set_overlay_pass_through (score_overlay, true);
+//        overlay.set_overlay_pass_through (score_overlay, true);
 
         view.bind_property ("boardsize",        score_overlay,  "boardsize",        BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
         view.bind_property ("x-offset-right",   score_overlay,  "margin-left",      BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
