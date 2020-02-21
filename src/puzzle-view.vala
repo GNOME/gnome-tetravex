@@ -195,6 +195,7 @@ private class PuzzleView : Gtk.DrawingArea
     {
         init_mouse ();
         init_keyboard ();
+        size_allocate.connect (on_size_allocate);
 
         set_events (Gdk.EventMask.EXPOSURE_MASK
                   | Gdk.EventMask.BUTTON_PRESS_MASK
@@ -335,7 +336,7 @@ private class PuzzleView : Gtk.DrawingArea
     }
 
     internal const double gap_factor = 0.5;
-    protected override bool configure_event (Gdk.EventConfigure event)
+    private inline void on_size_allocate ()
     {
         if (puzzle_init_done)
         {
@@ -390,8 +391,6 @@ private class PuzzleView : Gtk.DrawingArea
             ((!) selected_tile).snap_to_cursor = true;
         selected_tile = null;
         tile_selected = false;
-
-        return false;
     }
 
     private inline void init_patterns (Cairo.Context context)
