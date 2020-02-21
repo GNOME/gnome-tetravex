@@ -329,7 +329,7 @@ private class Tetravex : Gtk.Application
         Builder menu_builder = new Builder.from_resource ("/org/gnome/Tetravex/app-menu.ui");
         MenuModel appmenu = (MenuModel) menu_builder.get_object ("app-menu");
         hamburger_button = new MenuButton ();
-        hamburger_button.set_image (new Image.from_icon_name ("open-menu-symbolic", IconSize.BUTTON));
+        hamburger_button.set_icon_name ("open-menu-symbolic");
         ((Widget) hamburger_button).set_focus_on_click (false);
         hamburger_button.valign = Align.CENTER;
         hamburger_button.show ();
@@ -1002,7 +1002,7 @@ private class Tetravex : Gtk.Application
 
     private void hamburger_cb ()
     {
-        hamburger_button.active = !hamburger_button.active;
+//        hamburger_button.active = !hamburger_button.active;
     }
 
     private void help_cb ()
