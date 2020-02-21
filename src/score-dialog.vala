@@ -61,7 +61,6 @@ private class ScoreDialog : Dialog
         scroll.show ();
 
         Box content_area = get_content_area ();
-        content_area.border_width = 0;
         content_area.pack_start (scroll, true, true, 0);
 
         score_model = new Gtk.ListStore (3, typeof (string), typeof (string), typeof (int));
