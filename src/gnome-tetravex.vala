@@ -258,8 +258,8 @@ private class Tetravex : Gtk.Application
 
         Box undo_redo_box = new Box (Orientation.HORIZONTAL, /* spacing */ 0);
         undo_redo_box.get_style_context ().add_class ("linked");
-        undo_redo_box.pack_start (undo_button);
-        undo_redo_box.pack_start (redo_button);
+        undo_redo_box.add (undo_button);
+        undo_redo_box.add (redo_button);
         undo_redo_box.show ();
         headerbar.pack_start (undo_redo_box);
 
