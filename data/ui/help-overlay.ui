@@ -18,21 +18,17 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <!-- interface-requires gtk+ 3.17 -->
+  <requires lib="gtk+" version="3.99"/>
   <object class="GtkShortcutsWindow" id="help_overlay">
-    <property name="modal">1</property>
     <child>
       <object class="GtkShortcutsSection">
-        <property name="visible">1</property>
         <property name="max-height">11</property>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">1</property>
             <!-- Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play", "Play on selected tile", "Select the given row", etc. -->
             <property name="title" translatable="yes" context="shortcut window">Play with keyboard</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <!-- Translators: Left/Right/Up/Down arrows actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; moves highlight -->
                 <property name="title" translatable="yes" context="shortcut window">Move keyboard highlight</property>
                 <property name="accelerator">Left Right Up Down</property>
@@ -40,7 +36,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <!-- Translators: Return/space actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depend on context -->
                 <property name="title" translatable="yes" context="shortcut window">Select, move or unselect</property>
                 <property name="accelerator">Return space</property>
@@ -48,7 +43,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <!-- Translators: numbers (1 to 6) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use 1 to 2 or up to 1 to 6 -->
                 <property name="title" translatable="yes" context="shortcut window">Select the given row</property>
                 <property name="accelerator">1...6</property>
@@ -56,7 +50,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <!-- Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is split in two parts, that is for the left one -->
                 <property name="title" translatable="yes" context="shortcut window">Select left half-board column</property>
                 <property name="accelerator">a...f</property>
@@ -64,7 +57,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <!-- Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is split in two parts, that is for the right one -->
                 <property name="title" translatable="yes" context="shortcut window">Select right half-board column</property>
                 <property name="accelerator">&lt;Shift&gt;A...&lt;Shift&gt;F</property>
@@ -72,7 +64,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Left</property>
                 <!-- Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board -->
                 <property name="title" translatable="yes" context="shortcut window">Validate right half-board</property>
@@ -82,12 +73,10 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">1</property>
             <!-- Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo" -->
             <property name="title" translatable="yes" context="shortcut window">History</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Primary&gt;z</property>
                 <!-- Translators: Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, undoes last move -->
                 <property name="title" translatable="yes" context="shortcut window">Undo</property>
@@ -95,7 +84,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Primary&gt;z</property>
                 <!-- Translators: Shift-Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, redoes undone move -->
                 <property name="title" translatable="yes" context="shortcut window">Redo</property>
@@ -103,7 +91,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Primary&gt;r</property>
                 <!-- Translators: Shift-Ctrl-R shortcut description in the Keyboard Shortcuts dialog, section History; undoes all the moves -->
                 <property name="title" translatable="yes" context="shortcut window">Reload initial position</property>
@@ -113,12 +100,10 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">1</property>
             <!-- Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"... -->
             <property name="title" translatable="yes" context="shortcut window">Main functions</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;N</property>
                 <!-- Translators: Ctrl-N shortcut description in the Keyboard Shortcuts dialog, section Main Functions -->
                 <property name="title" translatable="yes" context="shortcut window">Start a new game</property>
@@ -126,7 +111,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;P Pause</property>
                 <!-- Translators: Ctrl-P shortcut description in the Keyboard Shortcuts dialog, section Main Functions -->
                 <property name="title" translatable="yes" context="shortcut window">Pause the game</property>
@@ -134,7 +118,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;H</property>
                 <!-- Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog, section Main Functions -->
                 <property name="title" translatable="yes" context="shortcut window">Solve the game</property>
@@ -142,7 +125,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;I</property>
                 <!-- Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog, section Main Functions -->
                 <property name="title" translatable="yes" context="shortcut window">Show scores</property>
@@ -152,12 +134,10 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">1</property>
             <!-- Translators: title of a section in the Keyboard Shortcuts dialog; contains "Show Help", "Show Keyboard Shortcuts", "Quit"... -->
             <property name="title" translatable="yes" context="shortcut window">Generic</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">F10</property>
                 <!-- Translators: F10 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows menu -->
                 <property name="title" translatable="yes" context="shortcut window">Toggle main menu</property>
@@ -165,7 +145,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Primary&gt;question &lt;Primary&gt;F1</property>
                 <!-- Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Show Keyboard Shortcuts</property>
@@ -173,7 +152,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">F1</property>
                 <!-- Translators: F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows application help -->
                 <property name="title" translatable="yes" context="shortcut window">Show Help</property>
@@ -181,7 +159,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;F1</property>
                 <!-- Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Show About</property>
@@ -189,7 +166,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Q</property>
                 <!-- Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application -->
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
@@ -199,12 +175,10 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">1</property>
             <!-- Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note... -->
             <property name="title" translatable="yes" context="shortcut window">Advanced gameplay</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Up</property>
                 <!-- Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left half-board up by one</property>
@@ -212,7 +186,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Down</property>
                 <!-- Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left half-board down by one</property>
@@ -220,7 +193,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Left</property>
                 <!-- Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left half-board left by one</property>
@@ -228,7 +200,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Ctrl&gt;Right</property>
                 <!-- Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the left half-board right by one</property>
@@ -236,7 +207,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Ctrl&gt;Up</property>
                 <!-- Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right half-board up by one</property>
@@ -244,7 +214,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Ctrl&gt;Down</property>
                 <!-- Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right half-board down by one</property>
@@ -252,7 +221,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Ctrl&gt;Left</property>
                 <!-- Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right half-board left by one</property>
@@ -260,7 +228,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;Shift&gt;&lt;Ctrl&gt;Right</property>
                 <!-- Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay -->
                 <property name="title" translatable="yes" context="shortcut window">Move all the pieces in the right half-board right by one</property>
