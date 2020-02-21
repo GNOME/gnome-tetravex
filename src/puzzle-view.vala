@@ -195,6 +195,7 @@ private class PuzzleView : Gtk.DrawingArea
     {
         init_mouse ();
         init_keyboard ();
+        set_draw_func (draw);
         size_allocate.connect (on_size_allocate);
 
         animation_timer.start ();
@@ -417,10 +418,10 @@ private class PuzzleView : Gtk.DrawingArea
         socket_pattern = new Cairo.Pattern.for_surface (tmp_surface);
     }
 
-    protected override bool draw (Cairo.Context context)
+    private void draw (Gtk.DrawingArea _this, Cairo.Context context, int width, int height)
     {
         if (!puzzle_init_done)
-            return false;
+            return;
 
         if (arrow_pattern == null || socket_pattern == null || render_size != tilesize)
             init_patterns (context);
@@ -492,8 +493,6 @@ private class PuzzleView : Gtk.DrawingArea
             theme.draw_highlight (context, puzzle.get_tile (highlight_x, highlight_y) != null);
             context.restore ();
         }
-
-        return false;
     }
     private void draw_image (Cairo.Context context, TileImage image)
     {
