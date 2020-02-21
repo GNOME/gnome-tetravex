@@ -515,17 +515,16 @@ private class Tetravex : Gtk.Application
 
         internal BottomButton (string icon_name, string action_name, string tooltip_text, bool align_end, SizeGroup sizegroup)
         {
-            Image _image = new Image.from_icon_name (icon_name);
-            _image.margin = 10;
             Object (action_name: action_name,
                     tooltip_text: tooltip_text,
                     halign: align_end ? Align.END : Align.START,
                     valign: Align.CENTER,
                     margin_start: 35,
                     margin_end: 35,
-                    image: _image,
+                    icon_name: icon_name,
                     focus_on_click: false,
                     visible: true);
+//            _image.margin = 10;
 
             sizegroup.add_widget (this);
         }
