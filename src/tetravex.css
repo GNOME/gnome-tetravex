@@ -48,7 +48,7 @@ grid.score-overlay button {
 
 button.rounded-button {
   border-radius:       9999px;
-  -gtk-outline-radius: 9999px;
+/*  -gtk-outline-radius: 9999px;*/
 }
 
 /*\
