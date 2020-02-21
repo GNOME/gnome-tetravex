@@ -285,8 +285,8 @@ private class Tetravex : Gtk.Application
 //        overlay.set_overlay_pass_through (score_overlay, true);
 
         view.bind_property ("boardsize",        score_overlay,  "boardsize",        BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        view.bind_property ("x-offset-right",   score_overlay,  "margin-left",      BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        view.bind_property ("right-margin",     score_overlay,  "margin-right",     BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        view.bind_property ("x-offset-right",   score_overlay,  "margin-start",     BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        view.bind_property ("right-margin",     score_overlay,  "margin-end",       BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
         view.bind_property ("y-offset",         score_overlay,  "margin-top",       BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
         view.bind_property ("y-offset",         score_overlay,  "margin-bottom",    BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
 
