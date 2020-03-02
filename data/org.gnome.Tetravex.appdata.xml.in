@@ -70,7 +70,7 @@
   </content_rating>
 
   ​<releases>
-  ​  <release version="3.35.91" date="2020-02-15" type="development" urgency="low"/>
+  ​  <release version="3.35.92" date="2020-03-02" type="development" urgency="low"/>
     <release version="3.34.4" date="2020-02-14" type="stable" urgency="medium"/>
   </releases>
 </component>

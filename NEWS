@@ -1,3 +1,17 @@
+GNOME Tetravex 3.35.92
+======================
+
+The F10 keyboard shortcut has been added, as a toggle
+for the hamburger button menu. Documentation for this
+shortcut will be added next cycle, no string changed.
+
+Translations updated:
+  Croatian: Goran Vidović
+  Danish: Ask Hjorth Larsen
+  Finnish: Jiri Grönroos
+  French: Charles Monzat
+  Hungarian: Balázs Meskó
+
 GNOME Tetravex 3.35.91
 ======================
 
