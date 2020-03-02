@@ -1,12 +1,12 @@
 # Daniel Nylander <po@danielnylander.se>, 2007, 2009.
 # Erik Sköldås <erik.skoldas@tele2.se>, 2015.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2016, 2019.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2016, 2019, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex doc\n"
-"POT-Creation-Date: 2019-03-03 11:36+0000\n"
-"PO-Revision-Date: 2019-03-03 23:46+0100\n"
+"POT-Creation-Date: 2020-01-03 14:24+0000\n"
+"PO-Revision-Date: 2020-03-02 21:32+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.3\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -27,11 +27,11 @@ msgstr ""
 
 #. (itstool) path: info/desc
 #: C/hint.page:7
-msgid "Use hints or solve the game automatically."
-msgstr "Använd tips eller lös spelet automatiskt."
+msgid "Solve the game automatically."
+msgstr "Lös spelet automatiskt."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/size.page:12 C/usage.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:12 C/size.page:12 C/usage.page:12
 #: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
@@ -58,13 +58,11 @@ msgstr "Lösa spelet"
 #. (itstool) path: section/p
 #: C/hint.page:25
 msgid ""
-"If you get stuck in the game, or you want to solve it automatically, choose "
-"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
-"guiseq>."
+"If you get stuck in the game and want to solve it automatically, press the "
+"question mark button in the bottom-right corner."
 msgstr ""
-"Om du fastnar i spelet, eller om du vill lösa det automatiskt, välj "
-"<guiseq><gui style=\"menu\">Spel</gui><gui style=\"menuitem\">Lös</gui></"
-"guiseq>."
+"Om du kör fast i spelet och vill lösa det automatiskt, tryck på "
+"frågeteckenknappen i det nedre högra hörnet."
 
 #. (itstool) path: info/title
 #: C/index.page:8
@@ -89,7 +87,7 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/size.page:16 C/usage.page:20
+#: C/index.page:21 C/move.page:16 C/size.page:16 C/usage.page:20
 #: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons DelaLika 3.0"
@@ -232,17 +230,17 @@ msgid "How to move the pieces on the game board."
 msgstr "Hur man flyttar bitar på spelplanen."
 
 #. (itstool) path: page/title
-#: C/move.page:19
+#: C/move.page:20
 msgid "Move the pieces"
 msgstr "Att flytta bitarna"
 
 #. (itstool) path: section/title
-#: C/move.page:22
+#: C/move.page:23
 msgid "Move a piece"
 msgstr "Flytta en bit"
 
 #. (itstool) path: section/p
-#: C/move.page:23
+#: C/move.page:24
 msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
@@ -252,18 +250,20 @@ msgstr ""
 "cellen."
 
 #. (itstool) path: section/p
-#: C/move.page:26
+#: C/move.page:27
 msgid "These moves are not permanent and can be reversed."
 msgstr "Dessa drag är inte permanenta och kan ångras."
 
 #. (itstool) path: note/p
-#: C/move.page:30
+#: C/move.page:31
 msgid ""
-"The pieces in the left box can be moved all at once in one direction. See "
-"<link xref=\"shortcut\"/> for more information."
+"The pieces in the left box can be moved all at once in one direction. Press "
+"the menu button in the top-right corner of the window and select <gui style="
+"\"menuitem\">Keyboard Shortcuts</gui> for more information."
 msgstr ""
-"Bitarna i den vänstra rutan kan flyttas alla på en gång i en riktning. Se "
-"<link xref=\"shortcut\"/> för mer information."
+"Bitarna i den vänstra rutan kan flyttas alla på en gång i en riktning. Tryck "
+"på menyknappen i fönstrets övre högra hörn och välj <gui style=\"menuitem"
+"\">Tangentbordsgenvägar</gui> för mer information."
 
 #. (itstool) path: info/desc
 #: C/size.page:7
@@ -477,6 +477,15 @@ msgstr ""
 "Om du har ett tips att dela med dig om <app>GNOME Tetravex</app>, eller "
 "något annat av GNOME-spelen, skriv till oss på gnome-doc-list@gnome.org. Vi "
 "kommer att lägga till dem här!"
+
+#~ msgid ""
+#~ "If you get stuck in the game, or you want to solve it automatically, "
+#~ "choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem"
+#~ "\">Solve</gui></guiseq>."
+#~ msgstr ""
+#~ "Om du fastnar i spelet, eller om du vill lösa det automatiskt, välj "
+#~ "<guiseq><gui style=\"menu\">Spel</gui><gui style=\"menuitem\">Lös</gui></"
+#~ "guiseq>."
 
 #~ msgid "Use the keyboard to play the game."
 #~ msgstr "Spela med hjälp av tangentbordet."
