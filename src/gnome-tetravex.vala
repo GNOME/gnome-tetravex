@@ -523,8 +523,14 @@ private class Tetravex : Gtk.Application
                     margin_end: 35,
                     icon_name: icon_name,
                     focus_on_click: false,
+                    height_request: 60,
+                    width_request: 60,
                     visible: true);
-//            _image.margin = 10;
+
+            Widget? image = get_child ();
+            if (image == null || !((!) image is Image))
+                assert_not_reached ();
+            ((Image) (!) image).pixel_size = 30;
 
             sizegroup.add_widget (this);
         }
