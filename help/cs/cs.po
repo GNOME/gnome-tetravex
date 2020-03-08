@@ -1,13 +1,13 @@
 # Czech translation of gnotravex help.
 # Copyright (C) 2009 the author(s) of gnome-games.
 # This file is distributed under the same license as the gnotravex help.
-# Marek Černocký <marek@manet.cz>, 2009, 2011, 2013, 2014, 2019.
+# Marek Černocký <marek@manet.cz>, 2009, 2011, 2013, 2014, 2019, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"POT-Creation-Date: 2019-03-03 11:36+0000\n"
-"PO-Revision-Date: 2019-03-11 09:44+0100\n"
+"POT-Creation-Date: 2020-01-03 14:24+0000\n"
+"PO-Revision-Date: 2020-03-08 09:00+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -24,11 +24,11 @@ msgstr "Marek Černocký <marek@manet.cz>"
 
 #. (itstool) path: info/desc
 #: C/hint.page:7
-msgid "Use hints or solve the game automatically."
-msgstr "Používejte rady nebo nechte hru vyřešit automaticky."
+msgid "Solve the game automatically."
+msgstr "Jak hru vyřešit automaticky."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/size.page:12 C/usage.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:12 C/size.page:12 C/usage.page:12
 #: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
@@ -55,13 +55,11 @@ msgstr "Řešení hry"
 #. (itstool) path: section/p
 #: C/hint.page:25
 msgid ""
-"If you get stuck in the game, or you want to solve it automatically, choose "
-"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
-"guiseq>."
+"If you get stuck in the game and want to solve it automatically, press the "
+"question mark button in the bottom-right corner."
 msgstr ""
-"Pokud jste se při hře zasekli nebo ji chcete vyřešit automaticky, zvolte "
-"<guiseq><gui style=\"menu\">Hra</gui><gui style=\"menuitem\">Vyřešit</gui></"
-"guiseq>."
+"Pokud ve hře uvíznete na mrtvém bodě a budete ji chtít vyřešit počítačem, "
+"zmáčkněte tlačítko s otazníkem v pravém dolním rohu."
 
 #. (itstool) path: info/title
 #: C/index.page:8
@@ -86,7 +84,7 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/size.page:16 C/usage.page:20
+#: C/index.page:21 C/move.page:16 C/size.page:16 C/usage.page:20
 #: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
@@ -228,17 +226,17 @@ msgid "How to move the pieces on the game board."
 msgstr "Jak posouvat kameny po hrací desce."
 
 #. (itstool) path: page/title
-#: C/move.page:19
+#: C/move.page:20
 msgid "Move the pieces"
 msgstr "Tahy kameny"
 
 #. (itstool) path: section/title
-#: C/move.page:22
+#: C/move.page:23
 msgid "Move a piece"
 msgstr "Tahy kameny"
 
 #. (itstool) path: section/p
-#: C/move.page:23
+#: C/move.page:24
 msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
@@ -247,18 +245,20 @@ msgstr ""
 "kliknutím na čtverec umístit nebo jej na nový čtverec přetáhnout."
 
 #. (itstool) path: section/p
-#: C/move.page:26
+#: C/move.page:27
 msgid "These moves are not permanent and can be reversed."
 msgstr "Tahy nejsou konečné a můžete je klidně vrátit."
 
 #. (itstool) path: note/p
-#: C/move.page:30
+#: C/move.page:31
 msgid ""
-"The pieces in the left box can be moved all at once in one direction. See "
-"<link xref=\"shortcut\"/> for more information."
+"The pieces in the left box can be moved all at once in one direction. Press "
+"the menu button in the top-right corner of the window and select <gui style="
+"\"menuitem\">Keyboard Shortcuts</gui> for more information."
 msgstr ""
-"Kameny v levém poli lze přesouvat i naráz. Viz <link xref=\"shortcut\"/> pro "
-"více informací."
+"Kameny v levém poli lze přesouvat i všechny naráz. Pro více informací "
+"zmáčkněte tlačítko nabídky v pravém horním rohu okna a vyberte <gui style="
+"\"menuitem\">Klávesové zkratky</gui>"
 
 #. (itstool) path: info/desc
 #: C/size.page:7
@@ -279,8 +279,8 @@ msgid ""
 "dimension of the board."
 msgstr ""
 "Pokud chcete změnit velikost hrací desky, což zvýší nebo sníží náročnost "
-"hry, zmáčkněte tlačítko nabídky v pravém horním rohu okna, vyberte "
-"<gui style=\"menuitem\">Velikost</gui> a následně vyberte rozměry hrací desky."
+"hry, zmáčkněte tlačítko nabídky v pravém horním rohu okna, vyberte <gui "
+"style=\"menuitem\">Velikost</gui> a následně vyberte rozměry hrací desky."
 
 #. (itstool) path: page/p
 #: C/size.page:27
