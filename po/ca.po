@@ -2,7 +2,7 @@
 # Copyright © 2002-2008 Free Software Foundation, Inc.
 # Jordi Vila <gnome@softcatala.net>, 2002.
 # Jordi Mallach <jordi@sindominio.net>, 2002, 2003, 2005.
-# Jordi Mas i Hernàndez <jmas@softcatala.org> 2003.
+# Jordi Mas i Hernàndez <jmas@softcatala.org> 2003, 2020.
 # Xavier Conde Rueda <xavi.conde@gmail.com>, 2004.
 # Jesús Corrius <jesus@softcatala.org>, 2005.
 # Josep Puigdemont i Casamajó <josep.puigdemont@gmail.com>, 2007.
@@ -418,7 +418,7 @@ msgstr "Ambdues caselles donades tenen aborting ."
 #. and tries to do an invalid move
 #: src/cli.vala:187
 msgid "Cannot swap the given tiles, aborting."
-msgstr "No es poden intercanviar les fitxers, s'interromp."
+msgstr "No es poden intercanviar les fitxes, s'interromp."
 
 #. Translators: command-line error message, displayed if the user tries to
 #. solve the puzzle using CLI (with the “solve” or “finish” commands), while
@@ -492,7 +492,7 @@ msgstr "Mostra la versió i surt"
 #. --cli help`; description of the action of the “--cli A1b2” command
 #: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:196
 msgid "Invert two tiles, the one in A1, and the one in b2."
-msgstr "Inverteix dos fitxes, la d'A1 i la que es troba a b2."
+msgstr "Inverteix dues fitxes, la d'A1 i la que es troba a b2."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-
 #. cli help`; explanation of the behavior of the (as an example) “A1b2”
@@ -730,7 +730,7 @@ msgstr "Per jugar al GNOME Tetravex a la línia d'ordres:"
 #. saved game
 #: src/gnome-tetravex.vala:362
 msgid "Restore last game"
-msgstr "Continua la última partida"
+msgstr "Continua l'última partida"
 
 #. not a typo
 #. Translators: tooltip text of the "play"/unpause button, in the bottom bar
@@ -877,7 +877,8 @@ msgstr ""
 "Xavier Conde <xaviconde@eresmas.com>\n"
 "Jesús Corrius <jesus@softcatala.org>\n"
 "Josep Puigdemont <josep.puigdemont@gmail.com>\n"
-"David Planella <david.planella@gmail.com>"
+"David Planella <david.planella@gmail.com>\n"
+"Jordi Mas i Hernàndez <jmas@softcatala.org>"
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains
 #. "Select where to play", "Play on selected tile", "Select the given row",
@@ -1038,7 +1039,7 @@ msgstr "Surt"
 #: src/help-overlay.ui:188
 msgctxt "shortcut window"
 msgid "Advanced gameplay"
-msgstr "Jocs avançat"
+msgstr "Joc avançat"
 
 #. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog,
 #. section Advanced gameplay
@@ -1203,7 +1204,7 @@ msgstr "Enhorabona"
 #. puzzle is complete; opens Scores dialog
 #: src/score-overlay.ui:78
 msgid "Show scores"
-msgstr "Mostra els puntuacions"
+msgstr "Mostra les puntuacions"
 
 #. Translators: text of the score overlay, displayed after a puzzle is
 #. complete; appears if the player has been the fastest for a puzzle of this
