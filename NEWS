@@ -1,3 +1,22 @@
+GNOME Tetravex 3.36.0
+======================
+
+Here is a new stable release! This cycle has seen one
+of the biggest update of the application since a long
+time, including a new default theme, the presentation
+of best scores in the main window, the possibility of
+playing using keyboard or in terminal, and many more.
+
+Translations updated (since 3.35.92):
+  Catalan: Jordi Mas
+  Czech: Marek Černocký (help)
+  Dutch: Nathan Follens
+  Hungarian: Balázs Úr
+  Indonesian: Kukuh Syafaat
+  Italian: Milo Casagrande
+  Polish: Piotr Drąg
+  Swedish: Anders Jonsson
+
 GNOME Tetravex 3.35.92
 ======================
 
