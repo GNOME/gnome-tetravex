@@ -40,7 +40,7 @@ msgstr "Creative Commons compartir igual 3.0"
 
 #: C/winning.page:20(title)
 msgid "Win <app>GNOME Tetravex</app>"
-msgstr "Guanyeu al <app>GNOME Tetravex</app>"
+msgstr "Guanyar al <app>GNOME Tetravex</app>"
 
 #: C/winning.page:23(p)
 msgid ""
@@ -51,7 +51,7 @@ msgstr ""
 
 #: C/winning.page:30(title)
 msgid "Look for a single number"
-msgstr "Cerqueu un nombre únic"
+msgstr "Cercar un nombre únic"
 
 #: C/winning.page:31(p)
 msgid ""
@@ -79,14 +79,14 @@ msgstr ""
 
 #: C/winning.page:46(title)
 msgid "Have a tip to share?"
-msgstr "Teniu un consell per compartir?"
+msgstr "Teniu un consell per a compartir?"
 
 #: C/winning.page:47(p)
 msgid ""
 "If you have a tip to share about <app>GNOME Tetravex</app>, or any other "
 "GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
 msgstr ""
-"Si teniu un consell per compartir sobre el <app>GNOME Tetravex</app>, o "
+"Si teniu un consell per a compartir sobre el <app>GNOME Tetravex</app>, o "
 "qualsevol altre joc del GNOME, escriviu-nos a gnome-doc-list@gnome.org i "
 "l'afegirem aquí."
 
@@ -112,7 +112,7 @@ msgstr "robster@debian.org"
 
 #: C/usage.page:24(title)
 msgid "Play <app>GNOME Tetravex</app>"
-msgstr "Jugueu al <app>GNOME Tetravex</app>"
+msgstr "Jugar al <app>GNOME Tetravex</app>"
 
 #: C/usage.page:27(title)
 msgid "Basic usage"
@@ -191,7 +191,7 @@ msgid ""
 "at once."
 msgstr ""
 "Mantingueu premuda la tecla <key>Ctrl</key> i premeu les tecles de cursor "
-"per moure totes peces ja disposades conjuntament."
+"per a moure totes peces ja disposades conjuntament."
 
 #: C/usage.page:74(p)
 msgid "Continue dragging pieces until they all fit together on the left."
@@ -336,11 +336,11 @@ msgstr "Com moure les fitxes sobre el tauler de joc."
 
 #: C/move.page:19(title)
 msgid "Move the pieces"
-msgstr "Moviment les fitxes"
+msgstr "Moure les fitxes"
 
 #: C/move.page:22(title)
 msgid "Move a piece"
-msgstr "Moviment d'una fitxa"
+msgstr "Moure una fitxa"
 
 #: C/move.page:23(p)
 msgid ""
@@ -461,7 +461,7 @@ msgid ""
 "link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
 "sa/3.0/\">Commons Deed</link>."
 msgstr ""
-"Per veure el text de la llicència completa, aneu al <link href=\"http://"
+"Per a veure el text de la llicència completa, aneu al <link href=\"http://"
 "creativecommons.org/licenses/by-sa/3.0/legalcode\">lloc web de "
 "CreativeCommons</link> o llegiu la pàgina <link href=\"http://"
 "creativecommons.org/licenses/by-sa/3.0/\">Commons Deed</link>."
@@ -556,7 +556,7 @@ msgstr ""
 
 #: C/hint.page:52(title)
 msgid "Solve the game"
-msgstr "Resoleu la partida"
+msgstr "Resoldre la partida"
 
 #: C/hint.page:53(p)
 msgid ""
