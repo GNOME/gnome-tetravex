@@ -74,6 +74,8 @@ private class ScoreDialog : Dialog
         /* Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games */
         scores.insert_column_with_attributes (-1, _("Time"), renderer, "text", 1, "weight", 2);
         scores.model = score_model;
+        scores.hexpand = true;
+        scores.vexpand = true;
         scores.show ();
         scroll.add (scores);
 
