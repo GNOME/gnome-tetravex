@@ -76,6 +76,8 @@ private class ScoreDialog : Dialog
         foreach (var column in scores.get_columns ())
             column.set_expand (true);
         scores.model = score_model;
+        scores.hexpand = true;
+        scores.vexpand = true;
         scores.show ();
         scroll.add (scores);
 
