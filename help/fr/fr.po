@@ -6,14 +6,15 @@
 # Bruno Brouard <annoa.b@gmail.com>, 2007,2010, 2012.
 # Claude Paroz <claude@2xlibre.net>, 2007, 2011.
 # Laurent Coudeur <laurentc@iol.ie>, 2010.
-# Guillaume Bernard <associations@guillaume-bernard.fr>, 2019.
+# Guillaume Bernard <associations@guillaume-bernard.fr>, 2019-2020.
+# Charles Monzat <charles.monzat@free.fr>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex doc fr\n"
-"POT-Creation-Date: 2019-03-17 14:06+0000\n"
-"PO-Revision-Date: 2019-11-10 12:08+0100\n"
-"Last-Translator: Guillaume Bernard <associations@guillaume-bernard.fr>\n"
+"POT-Creation-Date: 2020-03-16 18:19+0000\n"
+"PO-Revision-Date: 2020-03-25 17:47+0100\n"
+"Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -28,15 +29,17 @@ msgid "translator-credits"
 msgstr ""
 "Bruno Brouard <annoa.b@gmail.com>, 2007,2010,2012\n"
 "Claude Paroz <claude@2xlibre.net>, 2007-2011\n"
-"Laurent Coudeur <laurentc@iol.ie>, 2010"
+"Laurent Coudeur <laurentc@iol.ie>, 2010\n"
+"Guillaume Bernard <associations@guillaume-bernard.fr>, 2019-2020\n"
+"Charles Monzat <charles.monzat@free.fr>, 2020"
 
 #. (itstool) path: info/desc
 #: C/hint.page:7
-msgid "Use hints or solve the game automatically."
-msgstr "Utiliser des astuces ou résoudre le puzzle automatiquement."
+msgid "Solve the game automatically."
+msgstr "Résoudre le puzzle automatiquement."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/size.page:12 C/usage.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:12 C/size.page:12 C/usage.page:12
 #: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
@@ -63,13 +66,12 @@ msgstr "Résolution du puzzle"
 #. (itstool) path: section/p
 #: C/hint.page:25
 msgid ""
-"If you get stuck in the game, or you want to solve it automatically, choose "
-"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
-"guiseq>."
+"If you get stuck in the game and want to solve it automatically, press the "
+"question mark button in the bottom-right corner."
 msgstr ""
-"Si vous êtes coincé dans le jeu ou si vous voulez le résoudre "
-"automatiquement, choisissez <guiseq><gui style=\"menu\">Jeu</gui><gui style="
-"\"menuitem\">Résoudre</gui></guiseq>."
+"Si vous êtes coincé dans le jeu et que vous souhaitez le résoudre "
+"automatiquement, cliquez sur le bouton point d’interrogation situé dans le "
+"coin inférieur droit."
 
 #. (itstool) path: info/title
 #: C/index.page:8
@@ -94,10 +96,11 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/size.page:16 C/usage.page:20
+#: C/index.page:21 C/move.page:16 C/size.page:16 C/usage.page:20
 #: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
-msgstr "Creative Commons Share Alike 3.0"
+msgstr ""
+"Creative Commons Paternité-Partage des Conditions Initiales à l’Identique 3.0"
 
 #. (itstool) path: media/span
 #: C/index.page:26
@@ -156,7 +159,7 @@ msgid ""
 "Unported license."
 msgstr ""
 "Cette œuvre est distribuée sous licence Creative Commons Paternité-Partage "
-"des Conditions Initiales à l’Identique 3.0 Unported."
+"des Conditions Initiales à l’Identique 3.0 non transposé."
 
 #. (itstool) path: page/p
 #: C/license.page:20
@@ -239,17 +242,17 @@ msgid "How to move the pieces on the game board."
 msgstr "Comment déplacer les pièces sur le plateau de jeu."
 
 #. (itstool) path: page/title
-#: C/move.page:19
+#: C/move.page:20
 msgid "Move the pieces"
 msgstr "Déplacement des pièces"
 
 #. (itstool) path: section/title
-#: C/move.page:22
+#: C/move.page:23
 msgid "Move a piece"
 msgstr "Déplacement d’une pièce"
 
 #. (itstool) path: section/p
-#: C/move.page:23
+#: C/move.page:24
 msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
@@ -259,19 +262,21 @@ msgstr ""
 "le nouveau carré."
 
 #. (itstool) path: section/p
-#: C/move.page:26
+#: C/move.page:27
 msgid "These moves are not permanent and can be reversed."
 msgstr "Ces déplacements ne sont pas définitifs et peuvent être inversés."
 
 #. (itstool) path: note/p
-#: C/move.page:30
+#: C/move.page:31
 msgid ""
-"The pieces in the left box can be moved all at once in one direction. See "
-"<link xref=\"shortcut\"/> for more information."
+"The pieces in the left box can be moved all at once in one direction. Press "
+"the menu button in the top-right corner of the window and select <gui style="
+"\"menuitem\">Keyboard Shortcuts</gui> for more information."
 msgstr ""
 "Les pièces dans la boîte de gauche peuvent être déplacées toutes ensemble "
-"dans une direction. Consultez <link xref=\"shortcut\"/> pour plus "
-"d’informations."
+"dans une direction. Cliquez sur le bouton de menu situé dans le coin "
+"supérieur droit de la fenêtre, et sélectionnez <gui style=\"menuitem"
+"\">Raccourcis clavier</gui> pour plus d’informations."
 
 #. (itstool) path: info/desc
 #: C/size.page:7
@@ -487,6 +492,15 @@ msgstr ""
 "Si vous avez une astuce à partager à propos de <app>GNOME Tetravex</app> ou "
 "de n’importe quel jeu GNOME, écrivez-nous à l’adresse gnome-doc-list@gnome."
 "org. Nous les ajouterons ici !"
+
+#~ msgid ""
+#~ "If you get stuck in the game, or you want to solve it automatically, "
+#~ "choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem"
+#~ "\">Solve</gui></guiseq>."
+#~ msgstr ""
+#~ "Si vous êtes coincé dans le jeu ou si vous voulez le résoudre "
+#~ "automatiquement, choisissez <guiseq><gui style=\"menu\">Jeu</gui><gui "
+#~ "style=\"menuitem\">Résoudre</gui></guiseq>."
 
 #~ msgid "Use the keyboard to play the game."
 #~ msgstr "Utiliser le clavier pour jouer."
