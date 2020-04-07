@@ -172,23 +172,23 @@ private class Tetravex : Gtk.Application
         add_action_entries (action_entries, this);
         add_action (settings.create_action ("theme"));
 
-        set_accels_for_action ("app.solve",         {        "<Primary>h"       });
-        set_accels_for_action ("app.scores",        {        "<Primary>i"       });
-        set_accels_for_action ("app.new-game",      {        "<Primary>n"       });
-        set_accels_for_action ("app.pause",         {        "<Primary>p",
+        set_accels_for_action ("app.solve",         {        "<Control>h"       });
+        set_accels_for_action ("app.scores",        {        "<Control>i"       });
+        set_accels_for_action ("app.new-game",      {        "<Control>n"       });
+        set_accels_for_action ("app.pause",         {        "<Control>p",
                                                                       "Pause"   });
-        set_accels_for_action ("app.quit",          {        "<Primary>q"       });
-        set_accels_for_action ("app.move-up-l",     {        "<Primary>Up"      });
-        set_accels_for_action ("app.move-down-l",   {        "<Primary>Down"    });
-        set_accels_for_action ("app.move-left-l",   {        "<Primary>Left"    });
-        set_accels_for_action ("app.move-right-l",  {        "<Primary>Right"   });
-        set_accels_for_action ("app.move-up-r",     { "<Shift><Primary>Up"      });
-        set_accels_for_action ("app.move-down-r",   { "<Shift><Primary>Down"    });
-        set_accels_for_action ("app.move-left-r",   { "<Shift><Primary>Left"    });
-        set_accels_for_action ("app.move-right-r",  { "<Shift><Primary>Right"   });
-        set_accels_for_action ("app.undo",          {        "<Primary>z"       });
-        set_accels_for_action ("app.redo",          { "<Shift><Primary>z"       });
-        set_accels_for_action ("app.reload",        { "<Shift><Primary>r"       });
+        set_accels_for_action ("app.quit",          {        "<Control>q"       });
+        set_accels_for_action ("app.move-up-l",     {        "<Control>Up"      });
+        set_accels_for_action ("app.move-down-l",   {        "<Control>Down"    });
+        set_accels_for_action ("app.move-left-l",   {        "<Control>Left"    });
+        set_accels_for_action ("app.move-right-l",  {        "<Control>Right"   });
+        set_accels_for_action ("app.move-up-r",     { "<Shift><Control>Up"      });
+        set_accels_for_action ("app.move-down-r",   { "<Shift><Control>Down"    });
+        set_accels_for_action ("app.move-left-r",   { "<Shift><Control>Left"    });
+        set_accels_for_action ("app.move-right-r",  { "<Shift><Control>Right"   });
+        set_accels_for_action ("app.undo",          {        "<Control>z"       });
+        set_accels_for_action ("app.redo",          { "<Shift><Control>z"       });
+        set_accels_for_action ("app.reload",        { "<Shift><Control>r"       });
         set_accels_for_action ("app.hamburger",     {                 "F10"     });
         // F1 and friends are managed manually
     }
@@ -775,7 +775,7 @@ private class Tetravex : Gtk.Application
             }
         }
         else if (name == "F1")
-            return on_f1_pressed (state);   // TODO fix dance done with the F1 & <Primary>F1 shortcuts that show help overlay
+            return on_f1_pressed (state);   // TODO fix dance done with the F1 & <Control>F1 shortcuts that show help overlay
 
         return false;
     }
