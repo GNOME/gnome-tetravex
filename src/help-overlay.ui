@@ -77,21 +77,21 @@
             <property name="title" translatable="yes" context="shortcut window">History</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;Primary&gt;z</property>
+                <property name="accelerator">&lt;Control&gt;z</property>
                 <!-- Translators: Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, undoes last move -->
                 <property name="title" translatable="yes" context="shortcut window">Undo</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;Shift&gt;&lt;Primary&gt;z</property>
+                <property name="accelerator">&lt;Shift&gt;&lt;Control&gt;z</property>
                 <!-- Translators: Shift-Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, redoes undone move -->
                 <property name="title" translatable="yes" context="shortcut window">Redo</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;Shift&gt;&lt;Primary&gt;r</property>
+                <property name="accelerator">&lt;Shift&gt;&lt;Control&gt;r</property>
                 <!-- Translators: Shift-Ctrl-R shortcut description in the Keyboard Shortcuts dialog, section History; undoes all the moves -->
                 <property name="title" translatable="yes" context="shortcut window">Reload initial position</property>
               </object>
@@ -145,7 +145,7 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;Primary&gt;question &lt;Primary&gt;F1</property>
+                <property name="accelerator">&lt;Control&gt;question &lt;Control&gt;F1</property>
                 <!-- Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Show Keyboard Shortcuts</property>
               </object>
