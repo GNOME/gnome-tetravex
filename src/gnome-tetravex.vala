@@ -382,6 +382,7 @@ private class Tetravex : Gtk.Application
         view.can_focus = true;
         view.show ();
         view_click_controller = new GestureMultiPress (view);
+        view_click_controller.set_button (/* all buttons */ 0);
         view_click_controller.released.connect (on_release_on_view);
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 

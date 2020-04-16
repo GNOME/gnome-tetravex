@@ -687,6 +687,7 @@ private class PuzzleView : Gtk.DrawingArea
 //        motion_controller.leave.connect (on_mouse_out);                       // FIXME should work, 2/8
 
         click_controller = new Gtk.GestureMultiPress (this);
+        click_controller.set_button (/* all buttons */ 0);
         click_controller.pressed.connect (on_click);
         click_controller.released.connect (on_release);
     }
@@ -701,7 +702,7 @@ private class PuzzleView : Gtk.DrawingArea
             return;
         clear_keyboard_highlight (/* only selection */ false);
 
-        uint button = _click_controller.get_button ();
+        uint button = _click_controller.get_current_button ();
         if (button == Gdk.BUTTON_PRIMARY || button == Gdk.BUTTON_SECONDARY)
         {
             main_button_pressed (n_press, event_x, event_y);
