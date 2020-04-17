@@ -55,9 +55,7 @@ private class ScoreDialog : Dialog
         ((HeaderBar) get_header_bar ()).set_custom_title (size_combo);
 
         ScrolledWindow scroll = new ScrolledWindow (null, null);
-        scroll.shadow_type = ShadowType.ETCHED_IN;
         scroll.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
-        scroll.set_shadow_type (ShadowType.NONE);
         scroll.show ();
 
         Box content_area = get_content_area ();
