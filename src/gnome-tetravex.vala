@@ -822,14 +822,7 @@ private class Tetravex : Gtk.Application
 
     private void help_cb ()
     {
-        try
-        {
-            show_uri_on_window (window, "help:gnome-tetravex", get_current_event_time ());
-        }
-        catch (Error e)
-        {
-            warning ("Failed to show help: %s", e.message);
-        }
+        show_uri (window, "help:gnome-tetravex", Gdk.CURRENT_TIME);
     }
 
     private void about_cb ()
