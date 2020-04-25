@@ -40,7 +40,7 @@ private class ScoreDialog : Dialog
         history.entry_added.connect (entry_added_cb);
         this.selected_entry = selected_entry;
 
-        set_size_request (210, 300);
+        set_size_request (230, 320);
 
         size_model = new Gtk.ListStore (2, typeof (string), typeof (int));
 
