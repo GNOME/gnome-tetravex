@@ -136,6 +136,9 @@ private class Tetravex : Gtk.Application
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
+        Environment.set_application_name (PROGRAM_NAME);
+        Window.set_default_icon_name ("org.gnome.Tetravex");
+
         Tetravex app = new Tetravex ();
         return app.run (args);
     }
@@ -256,9 +259,6 @@ private class Tetravex : Gtk.Application
     protected override void startup ()
     {
         base.startup ();
-
-        Environment.set_application_name (PROGRAM_NAME);
-        Window.set_default_icon_name ("org.gnome.Tetravex");
 
         settings = new GLib.Settings ("org.gnome.Tetravex");
 
