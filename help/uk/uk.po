@@ -1,0 +1,478 @@
+# Ukrainian translation for gnome-tetravex.
+# Copyright (C) 2020 gnome-tetravex's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-tetravex package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-tetravex master\n"
+"POT-Creation-Date: 2020-05-04 16:33+0000\n"
+"PO-Revision-Date: 2020-05-06 14:31+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.07.70\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2020"
+
+#. (itstool) path: info/desc
+#: C/hint.page:7
+msgid "Solve the game automatically."
+msgstr "Розв'язування гри автоматично."
+
+#. (itstool) path: credit/name
+#: C/hint.page:10 C/index.page:17 C/move.page:12 C/size.page:12 C/usage.page:12
+#: C/winning.page:12
+msgid "Milo Casagrande"
+msgstr "Milo Casagrande"
+
+#. (itstool) path: page/title
+#: C/hint.page:14
+msgid "Hints"
+msgstr "Підказки"
+
+#. (itstool) path: note/p
+#: C/hint.page:17
+msgid ""
+"If you use the following method to complete the game, your score will not be "
+"included among the high scores."
+msgstr ""
+"Якщо ви скористаєтеся вказаним нижче методом для завершення гри, ваш"
+" результат не буде включено до найкращих результатів."
+
+#. (itstool) path: section/title
+#: C/hint.page:24
+msgid "Solve the game"
+msgstr "Розв'язати гру"
+
+#. (itstool) path: section/p
+#: C/hint.page:25
+msgid ""
+"If you get stuck in the game and want to solve it automatically, press the "
+"question mark button in the bottom-right corner."
+msgstr ""
+"Якщо ви не знаєте, як виграти гру, і вам потрібна допомога комп'ютера,"
+" натисніть кнопку із знаком питання у нижньому правому куті вікна програми."
+
+#. (itstool) path: info/title
+#: C/index.page:8
+msgctxt "link"
+msgid "GNOME Tetravex"
+msgstr "Тетравекс GNOME"
+
+#. (itstool) path: info/title
+#: C/index.page:9
+msgctxt "text"
+msgid "GNOME Tetravex"
+msgstr "Тетравекс GNOME"
+
+#. (itstool) path: info/desc
+#: C/index.page:10
+msgid "GNOME Tetravex help."
+msgstr "Довідка до «Тетравекс GNOME»."
+
+#. (itstool) path: credit/name
+#: C/index.page:13 C/usage.page:16
+msgid "Rob Bradford"
+msgstr "Rob Bradford"
+
+#. (itstool) path: license/p
+#: C/index.page:21 C/move.page:16 C/size.page:16 C/usage.page:20
+#: C/winning.page:16
+msgid "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Share Alike 3.0"
+
+#. (itstool) path: media/span
+#: C/index.page:26
+msgid "GNOME Tetravex logo"
+msgstr "Логотип «Тетравекс GNOME»"
+
+#. (itstool) path: page/title
+#: C/index.page:25
+msgid "<_:media-1/> GNOME Tetravex"
+msgstr "<_:media-1/> Тетравекс GNOME"
+
+#. (itstool) path: page/p
+#: C/index.page:30
+msgid ""
+"<app>GNOME Tetravex</app> is a simple puzzle game which scope is to move the "
+"various pieces from one side of the board to the other side, so that the "
+"same numbers depicted on the pieces are touching each other."
+msgstr ""
+"<app>Тетравекс GNOME</app> — проста гра-головоломка, ігровий процес у якій"
+" полягає у пересуванні плиток з однієї частини дошки до іншої так, щоб числа"
+" на сусідніх плитках збігалися."
+
+#. (itstool) path: page/p
+#: C/index.page:35
+msgid ""
+"The game is timed, and these times are used as the score for the game. You "
+"have to move all the pieces in the least time possible."
+msgstr ""
+"Складання головоломки у грі виконується на час. Чим менше витрачено часу, тим"
+" кращим буде результат. Вам слід поспішати зі збиранням."
+
+#. (itstool) path: section/title
+#: C/index.page:41
+msgid "Basic Gameplay &amp; Usage"
+msgstr "Базові прийоми гри та користування"
+
+#. (itstool) path: section/title
+#: C/index.page:45
+msgid "Tips &amp; Tricks"
+msgstr "Підказки та поради"
+
+#. (itstool) path: info/desc
+#: C/license.page:8
+msgid "Legal information."
+msgstr "Правові відомості."
+
+#. (itstool) path: page/title
+#: C/license.page:11
+msgid "License"
+msgstr "Ліцензія"
+
+#. (itstool) path: page/p
+#: C/license.page:12
+msgid ""
+"This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
+"Unported license."
+msgstr ""
+"Ця робота поширюється за умов ліцензування CreativeCommons Attribution-Share "
+"Alike 3.0 Unported."
+
+#. (itstool) path: page/p
+#: C/license.page:20
+msgid "You are free:"
+msgstr "Ви можете:"
+
+#. (itstool) path: item/title
+#: C/license.page:25
+msgid "<em>To share</em>"
+msgstr "<em>Ділитися</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:26
+msgid "To copy, distribute and transmit the work."
+msgstr "Копіювати, поширювати і передавати цю роботу"
+
+#. (itstool) path: item/title
+#: C/license.page:29
+msgid "<em>To remix</em>"
+msgstr "<em>Змінювати</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:30
+msgid "To adapt the work."
+msgstr "Адаптувати цю роботу."
+
+#. (itstool) path: page/p
+#: C/license.page:33
+msgid "Under the following conditions:"
+msgstr "За дотримання таких умов:"
+
+#. (itstool) path: item/title
+#: C/license.page:38
+msgid "<em>Attribution</em>"
+msgstr "<em>Посилання на джерело</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:39
+msgid ""
+"You must attribute the work in the manner specified by the author or "
+"licensor (but not in any way that suggests that they endorse you or your use "
+"of the work)."
+msgstr ""
+"Ви маєте вказати авторство так, як це визначено автором або ліцензіатом (але "
+"не у такий спосіб, наче вони підтримують вас або ваше використання роботи)."
+
+#. (itstool) path: item/title
+#: C/license.page:46
+msgid "<em>Share Alike</em>"
+msgstr "<em>Поширення на тих самих умовах</em>"
+
+#. (itstool) path: item/p
+#: C/license.page:47
+msgid ""
+"If you alter, transform, or build upon this work, you may distribute the "
+"resulting work only under the same, similar or a compatible license."
+msgstr ""
+"Якщо ви змінюєте, перетворюєте або створюєте роботу на основі цієї роботи, "
+"ви можете поширювати результати лише за тих самих, подібних або сумісних "
+"умов ліцензування."
+
+#. (itstool) path: page/p
+#: C/license.page:53
+msgid ""
+"For the full text of the license, see the <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
+"link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">Commons Deed</link>."
+msgstr ""
+"Щоб ознайомитися із повним текстом ліцензційних умов, скористайтеся <link "
+"href=\"http://creativecommons.org/licenses/by-sa/3.0/legalcode\">сайтом "
+"CreativeCommons</link> або прочитайте повністю <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/\">Commons Deed</link>."
+
+#. (itstool) path: info/desc
+#: C/move.page:8
+msgid "How to move the pieces on the game board."
+msgstr "Як пересувати плитки ігровою дошкою."
+
+#. (itstool) path: page/title
+#: C/move.page:20
+msgid "Move the pieces"
+msgstr "Пересування плиток"
+
+#. (itstool) path: section/title
+#: C/move.page:23
+msgid "Move a piece"
+msgstr "Пересуньте фішку"
+
+#. (itstool) path: section/p
+#: C/move.page:24
+msgid ""
+"To move a piece, you can either click on it to select it, and click on the "
+"square to place it or drag it to the new square."
+msgstr ""
+"Щоб пересунути плитку, вам слід або клацнути на ній, щоб її позначити, а"
+" потім клацнути на квадраті, у якому її слід розташувати, або просто"
+" перетягти плитку на нове місце."
+
+#. (itstool) path: section/p
+#: C/move.page:27
+msgid "These moves are not permanent and can be reversed."
+msgstr "Ці ходи не є остаточними — їх можна скасувати."
+
+#. (itstool) path: note/p
+#: C/move.page:31
+msgid ""
+"The pieces in the left box can be moved all at once in one direction. Press "
+"the menu button in the top-right corner of the window and select <gui style="
+"\"menuitem\">Keyboard Shortcuts</gui> for more information."
+msgstr ""
+"Плитки у лівій частині ігрової дошки можна пересувати по декілька одразу у"
+" одному напрямку. Натисніть кнопку меню у верхньому правому куті вікна"
+" програми і виберіть <gui style=\"menuitem\">Клавіатурні скорочення</gui>,"
+" щоб дізнатися більше."
+
+#. (itstool) path: info/desc
+#: C/size.page:7
+msgid "Change the size of the game board."
+msgstr "Зміна розмірів ігрової дошки."
+
+#. (itstool) path: page/title
+#: C/size.page:19
+msgid "Game board size"
+msgstr "Розмір ігрової дошки"
+
+#. (itstool) path: page/p
+#: C/size.page:21
+msgid ""
+"To change the size of the game board, in order to increase or decrease the "
+"complexity of the game, press the menu button in the top-right corner of the "
+"window and select <gui style=\"menuitem\">Size</gui>, then select the "
+"dimension of the board."
+msgstr ""
+"Щоб змінити розмір дошки з метою збільшити або зменшити складність гри,"
+" натисніть кнопку меню у верхньому правому куті вікна і виберіть пункт <gui"
+" style=\"menuitem\">Розмір</gui>, а потім виберіть розмірність дошки."
+
+#. (itstool) path: page/p
+#: C/size.page:27
+msgid ""
+"You can select from five different dimension, from 2×2 to 6×6. The default "
+"one is 3×3."
+msgstr ""
+"Ви можете вибрати будь-яку з п'яти різних розмірностей, від 2×2 до 6×6."
+" Типовими є розміри дошки 3×3."
+
+#. (itstool) path: note/p
+#: C/size.page:31
+msgid ""
+"If the pieces are too small, resizing the window will change their size."
+msgstr ""
+"Якщо плитки виглядають надто маленькими, можна змінити розміри вікна, щоб"
+" збільшити розміри плиток."
+
+#. (itstool) path: info/desc
+#: C/usage.page:9
+msgid "How to play <app>GNOME Tetravex</app>."
+msgstr "Як грати у <app>Тетравекс GNOME</app>."
+
+#. (itstool) path: page/title
+#: C/usage.page:24
+msgid "Play <app>GNOME Tetravex</app>"
+msgstr "Гра у <app>Тетравекс GNOME</app>"
+
+#. (itstool) path: section/title
+#: C/usage.page:27
+msgid "Basic usage"
+msgstr "Основні прийоми користування"
+
+#. (itstool) path: section/p
+#: C/usage.page:28
+msgid ""
+"The game window is divided into two boxes: the one on the right side of the "
+"window contains the pieces that needs to be arranged; the one on the left "
+"side of the window is where the pieces from the right box will be arranged "
+"and moved. Each piece is divided into four little triangles containing a "
+"number."
+msgstr ""
+"Ігрове вікно поділено на дві панелі. На панелі у правій частині вікна"
+" містяться плитки, які слід упорядкувати. На лівій панелі слід розташувати"
+" плитки з правої панелі. Кожну плитку поділено на чотири маленьких"
+" трикутнички, у кожному з яких записано число."
+
+#. (itstool) path: section/p
+#: C/usage.page:35
+msgid ""
+"The scope of the game is to position the pieces so that only two identical "
+"numbers are next to each other."
+msgstr ""
+"Метою гри є розташувати плитки так, щоб у сусідніх трикутничках було записано"
+" однакові числа."
+
+#. (itstool) path: section/p
+#: C/usage.page:39
+msgid ""
+"It is not possible to position the pieces so that different number are next "
+"to each other."
+msgstr ""
+"Розташовувати плитки так, щоб у сусідніх трикутничках були різні числа,"
+" заборонено правилами."
+
+#. (itstool) path: section/p
+#: C/usage.page:43
+msgid ""
+"The game is completed when you have positioned all the pieces in their right "
+"positions."
+msgstr ""
+"Гра вважається завершеною, коли всі плитки буде пересунуто на правильні"
+" позиції."
+
+#. (itstool) path: note/p
+#: C/usage.page:48
+msgid ""
+"When you start <app>GNOME Tetravex</app>, the game will start immediately, "
+"and the time will start counting."
+msgstr ""
+"Одразу після запуску <app>Тетравекс GNOME</app> розпочнеться гра і відлік"
+" часу."
+
+#. (itstool) path: section/title
+#: C/usage.page:57
+msgid "Video demonstration"
+msgstr "Відеодемонстрація"
+
+#. (itstool) path: section/p
+#: C/usage.page:58
+msgid ""
+"This short video shows how the game works, and what are the possible "
+"movements."
+msgstr ""
+"У цьому короткому відео продемонстровано гру та можливі варіанти ходів."
+
+#. (itstool) path: media/p
+#: C/usage.page:62
+msgid "Demo"
+msgstr "Демонстрація"
+
+#. (itstool) path: div/p
+#: C/usage.page:66
+msgid ""
+"Drag pieces from the right to the left, making sure that adjacent edges have "
+"the same number and color."
+msgstr ""
+"Перетягніть плитки з правої панелі на ліву так, щоб за сусідніми гранями"
+" плиток були однакові числа."
+
+#. (itstool) path: div/p
+#: C/usage.page:70
+msgid ""
+"Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
+"at once."
+msgstr ""
+"Утримуйте натиснутою клавішу <key>Ctrl</key> і натискайте клавіші зі"
+" стрілками для пересування усіх розташованих плиток одночасно."
+
+#. (itstool) path: div/p
+#: C/usage.page:74
+msgid "Continue dragging pieces until they all fit together on the left."
+msgstr ""
+"Продовжуйте перетягування плиток, аж доки їх не буде розташовано у правильних"
+" позиціях на лівій панелі."
+
+#. (itstool) path: info/desc
+#: C/winning.page:9
+msgid "Simple tips on how to possibly win a game."
+msgstr "Прості підказки, які допоможуть вам грати краще."
+
+#. (itstool) path: page/title
+#: C/winning.page:20
+msgid "Win <app>GNOME Tetravex</app>"
+msgstr "Стратегія у <app>Тетравекс GNOME</app>"
+
+#. (itstool) path: note/p
+#: C/winning.page:23
+msgid ""
+"The following tips will not assure you to win a game, they are intended as a "
+"simple aid."
+msgstr ""
+"За допомогою наведених нижче підказок вам буде простіше виграти, але вони не"
+" гарантують перемоги."
+
+#. (itstool) path: section/title
+#: C/winning.page:30
+msgid "Look for a single number"
+msgstr "Шукайте числа, які не повторюються"
+
+#. (itstool) path: section/p
+#: C/winning.page:31
+msgid ""
+"When you start a new game, look for a single number, or a number that has no "
+"similar numbers that can be placed next to it."
+msgstr ""
+"На початку гри шукайте на плитках число, яке є унікальним, або число, яке не"
+" може мати сусідніх плиток із таким самим числом."
+
+#. (itstool) path: section/p
+#: C/winning.page:35
+msgid ""
+"If you have one such number, that piece is a valid starting piece, since you "
+"know where it has to be placed."
+msgstr ""
+"Якщо ви знайшли таке число, можна почати з плитки, яка його містить, оскільки"
+" можна точно встановити, де слід розташувати цю плитку."
+
+#. (itstool) path: section/p
+#: C/winning.page:39
+msgid ""
+"Note that the bigger the size of the board, the harder is to find such a "
+"number."
+msgstr ""
+"Зауважте, що чим більшим є розмір дошки, тим складніше знайти таке число."
+
+#. (itstool) path: section/title
+#: C/winning.page:46
+msgid "Have a tip to share?"
+msgstr "Маєте якусь підказку?"
+
+#. (itstool) path: section/p
+#: C/winning.page:47
+msgid ""
+"If you have a tip to share about <app>GNOME Tetravex</app>, or any other "
+"GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
+msgstr ""
+"Якщо маєте якусь корисну підказку щодо <app>Тетравекс GNOME</app> або"
+" будь-якої іншої з ігор "
+"GNOME, повідомте нам про це за адресою gnome-doc-list@gnome.org. Ми врахуємо"
+" ваші пропозиції у нашій документації!"
