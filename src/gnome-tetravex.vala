@@ -603,7 +603,7 @@ private class Tetravex : Gtk.Application
         can_restore = false;
     }
 
-    private void new_game (Variant? saved_game = null)
+    private void new_game (Variant? saved_game = null, int? given_size = null)
     {
         puzzle_is_finished = false;
         has_been_finished = false;
@@ -626,7 +626,11 @@ private class Tetravex : Gtk.Application
 
         if (saved_game == null)
         {
-            int size = settings.get_int (KEY_GRID_SIZE);
+            int size;
+            if (given_size == null)
+                size = settings.get_int (KEY_GRID_SIZE);
+            else
+                size = (!) given_size;
             puzzle = new Puzzle ((uint8) size, (uint8) colors);
             clock_box.show ();
         }
@@ -759,14 +763,15 @@ private class Tetravex : Gtk.Application
 
     private void new_game_cb ()
     {
+        int size = settings.get_int (KEY_GRID_SIZE);
         if (puzzle.game_in_progress && !puzzle.is_solved)
         {
             MessageDialog dialog = new MessageDialog (window,
                                                       DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
                                                       MessageType.QUESTION,
                                                       ButtonsType.NONE,
-        /* Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game" */
-                                                      _("Are you sure you want to start a new game with same board size?"));
+        /* Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with  */
+                                                      _("Are you sure you want to start a new %u × %u game?").printf (size, size));
 
         /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game" */
             dialog.add_buttons (_("_Keep Playing"),   ResponseType.REJECT,
@@ -780,7 +785,7 @@ private class Tetravex : Gtk.Application
             if (response != ResponseType.ACCEPT)
                 return;
         }
-        new_game ();
+        new_game (/* saved game */ null, size);
     }
 
     private HistoryEntry? last_history_entry = null;
@@ -861,31 +866,8 @@ private class Tetravex : Gtk.Application
 
         if (size == settings.get_int (KEY_GRID_SIZE))
             return;
-        if (puzzle.game_in_progress && !puzzle.is_solved)
-        {
-            MessageDialog dialog = new MessageDialog (window,
-                                                      DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
-                                                      MessageType.QUESTION,
-                                                      ButtonsType.NONE,
-        /* Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game" */
-                                                      _("Are you sure you want to start a new game with a different board size?"));
-
-        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game" */
-            dialog.add_buttons (_("_Keep Playing"),   ResponseType.REJECT,
-
-        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing" */
-                                _("_Start New Game"), ResponseType.ACCEPT);
-
-            int response = dialog.run ();
-            dialog.destroy ();
-
-            if (response != ResponseType.ACCEPT)
-                return;
-            hamburger_button.set_active (false);
-        }
         settings.set_int (KEY_GRID_SIZE, size);
         action.set_state (variant);
-        new_game ();
     }
 
     private void move_up_l ()     { view.move_up    (/* left board */ true);  }

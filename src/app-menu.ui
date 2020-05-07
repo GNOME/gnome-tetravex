@@ -23,43 +23,6 @@
         <attribute name="label" translatable="yes">_New Game</attribute>
         <attribute name="action">app.new-game</attribute>
       </item>
-      <item>
-        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog -->
-        <attribute name="label" translatable="yes">_Scores</attribute>
-        <attribute name="action">app.scores</attribute>
-      </item>
-      <submenu>
-        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme -->
-        <attribute name="label" translatable="yes">A_ppearance</attribute>
-        <section>
-          <item>
-            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia -->
-            <attribute name="label" translatable="yes">_Extrusion</attribute>
-            <attribute name="action">app.theme</attribute>
-            <attribute name="target">extrusion</attribute>
-          </item>
-          <item>
-            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia -->
-            <attribute name="label" translatable="yes">Neo_Retro</attribute>
-            <attribute name="action">app.theme</attribute>
-            <attribute name="target">neoretro</attribute>
-          </item>
-          <item>
-            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia -->
-            <attribute name="label" translatable="yes">_Nostalgia</attribute>
-            <attribute name="action">app.theme</attribute>
-            <attribute name="target">nostalgia</attribute>
-          </item>
-          <item>
-            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia -->
-            <attribute name="label" translatable="yes">_Synesthesia</attribute>
-            <attribute name="action">app.theme</attribute>
-            <attribute name="target">synesthesia</attribute>
-          </item>
-        </section>
-      </submenu>
-    </section>
-    <section>
       <submenu>
         <!-- Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board -->
         <attribute name="label" translatable="yes">Si_ze</attribute>
@@ -93,6 +56,50 @@
             <attribute name="label" translatable="yes">_6 × 6</attribute>
             <attribute name="action">app.size</attribute>
             <attribute name="target">6</attribute>
+          </item>
+        </section>
+        <section>
+          <item>
+            <!-- Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game -->
+            <attribute name="label" translatable="yes">_New Game</attribute>
+            <attribute name="action">app.new-game</attribute>
+          </item>
+        </section>
+      </submenu>
+    </section>
+    <section>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog -->
+        <attribute name="label" translatable="yes">_Scores</attribute>
+        <attribute name="action">app.scores</attribute>
+      </item>
+      <submenu>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme -->
+        <attribute name="label" translatable="yes">A_ppearance</attribute>
+        <section>
+          <item>
+            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia -->
+            <attribute name="label" translatable="yes">_Extrusion</attribute>
+            <attribute name="action">app.theme</attribute>
+            <attribute name="target">extrusion</attribute>
+          </item>
+          <item>
+            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia -->
+            <attribute name="label" translatable="yes">Neo_Retro</attribute>
+            <attribute name="action">app.theme</attribute>
+            <attribute name="target">neoretro</attribute>
+          </item>
+          <item>
+            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia -->
+            <attribute name="label" translatable="yes">_Nostalgia</attribute>
+            <attribute name="action">app.theme</attribute>
+            <attribute name="target">nostalgia</attribute>
+          </item>
+          <item>
+            <!-- Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia -->
+            <attribute name="label" translatable="yes">_Synesthesia</attribute>
+            <attribute name="action">app.theme</attribute>
+            <attribute name="target">synesthesia</attribute>
           </item>
         </section>
       </submenu>
