@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games.HEAD.ro\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-03-28 08:34+0000\n"
-"PO-Revision-Date: 2020-05-05 16:36+0300\n"
+"POT-Creation-Date: 2020-05-14 14:17+0000\n"
+"PO-Revision-Date: 2020-05-22 11:03+0200\n"
 "Last-Translator: Florentina Mușat <florentina.musat.28 [at] gmail [dot] "
 "com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
@@ -195,82 +195,83 @@ msgid "If “true”, the main window starts in maximized mode."
 msgstr "Dacă este „adevăvat”, fereastra principală începe în modul maximizat."
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
-#: src/app-menu.ui:23
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
+#: src/app-menu.ui:23 src/app-menu.ui:64
 msgid "_New Game"
 msgstr "Joc _nou"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
-#: src/app-menu.ui:28
-msgid "_Scores"
-msgstr "_Scoruri"
-
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
-#: src/app-menu.ui:33
-msgid "A_ppearance"
-msgstr "As_pect"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:37
-msgid "_Extrusion"
-msgstr "_Extrudare"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:43
-msgid "Neo_Retro"
-msgstr "_Retro nou"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
-#: src/app-menu.ui:49
-msgid "_Nostalgia"
-msgstr "_Nostalgie"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
-#: src/app-menu.ui:55
-msgid "_Synesthesia"
-msgstr "_Sinestezia"
-
 #. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
-#: src/app-menu.ui:65
+#: src/app-menu.ui:28
 msgid "Si_ze"
 msgstr "Di_mensiune"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
-#: src/app-menu.ui:69
+#: src/app-menu.ui:32
 msgid "_2 × 2"
 msgstr "_2 × 2"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
-#: src/app-menu.ui:75
+#: src/app-menu.ui:38
 msgid "_3 × 3"
 msgstr "_3 × 3"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
-#: src/app-menu.ui:81
+#: src/app-menu.ui:44
 msgid "_4 × 4"
 msgstr "_4 × 4"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
-#: src/app-menu.ui:87
+#: src/app-menu.ui:50
 msgid "_5 × 5"
 msgstr "_5 × 5"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
-#: src/app-menu.ui:93
+#: src/app-menu.ui:56
 msgid "_6 × 6"
 msgstr "_6 × 6"
 
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: src/app-menu.ui:73
+msgid "_Scores"
+msgstr "_Scoruri"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
+#: src/app-menu.ui:78
+msgid "A_ppearance"
+msgstr "As_pect"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:82
+msgid "_Extrusion"
+msgstr "_Extrudare"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:88
+msgid "Neo_Retro"
+msgstr "_Retro nou"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
+#: src/app-menu.ui:94
+msgid "_Nostalgia"
+msgstr "_Nostalgie"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
+#: src/app-menu.ui:100
+msgid "_Synesthesia"
+msgstr "_Sinestezia"
+
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
-#: src/app-menu.ui:103
+#: src/app-menu.ui:110
 msgid "_Keyboard Shortcuts"
 msgstr "Scurtături de _tastatură"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help
-#: src/app-menu.ui:108
+#: src/app-menu.ui:115
 msgid "_Help"
 msgstr "_Ajutor"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
-#: src/app-menu.ui:113
+#: src/app-menu.ui:120
 msgid "_About Tetravex"
 msgstr "_Despre Tetravex"
 
@@ -400,105 +401,105 @@ msgstr "Tipărește versiunea de lansare și ieși"
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
-#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:196
+#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:199
 msgid "Invert two tiles, the one in A1, and the one in b2."
 msgstr "Inversează două dale, una în A1, și una în b2."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
-#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:199
+#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:202
 msgid "An uppercase targets a tile from the initial board."
 msgstr "O tastă majusculă țintește o dală din tabla inițială."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:202
+#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:205
 msgid "A lowercase targets a tile in the left/final board."
 msgstr "O tastă minusculă țintește o dală în tabla din stânga/finală."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
-#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:205
+#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:208
 msgid "Digits specify the rows of the two tiles to invert."
 msgstr "Cifrele specifică rândurile celor două dale de inversat."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
-#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:208
+#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:211
 msgid "Show the current puzzle. Alias: “status” or “show”."
 msgstr "Arată puzzle-ul curent. Alias: „stare” sau „arată”."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
-#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:211
+#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:214
 msgid "Create a new puzzle; for changing size, use --size."
 msgstr ""
 "Creează un puzzle nou; pentru a schimba dimensiunea, utilizează --size."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
-#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:214
+#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:217
 msgid "Give up with current puzzle, and view the solution."
 msgstr "Renunță la puzzle-ul curent și vizualizează soluția."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands
-#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:217
+#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:220
 msgid "Finish current puzzle, automatically. Alias: “end”."
 msgstr "Termină puzzle-ul curent, automat. Alias: „sfârșit”."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:220
+#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:223
 msgid "Works for puzzles solved right or if one tile left."
 msgstr ""
 "Funcționează pentru puzzle-uri rezolvate corect sau dacă a mai rămas o dală."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command
-#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:223
+#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:226
 msgid "Move all left-board tiles up by one."
 msgstr "Mută toate piesele din cutia din stânga în sus cu una."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command
-#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:226
+#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:229
 msgid "Move all left-board tiles down by one."
 msgstr "Mută toate piesele din cutia din stânga în jos cu una."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command
-#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:229
+#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:232
 msgid "Move all left-board tiles left by one."
 msgstr "Mută toate piesele din cutia din stânga la stânga cu una."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command
-#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:232
+#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:235
 msgid "Move all left-board tiles right by one."
 msgstr "Mută toate piesele din cutia din stânga la dreapta cu una."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
-#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:235
+#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:238
 msgid "Move all right-board tiles up by one."
 msgstr "Mută toate dalele de pe tabla din dreapta în sus cu una."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
-#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:238
+#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:241
 msgid "Move all right-board tiles down by one."
 msgstr "Mută toate piesele din cutia din stânga în jos cu una."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command
-#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:241
+#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:244
 msgid "Move all right-board tiles left by one."
 msgstr "Mută toate piesele din cutia din stânga în sus cu una."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command
-#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:244
+#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:247
 msgid "Move all right-board tiles right by one."
 msgstr "Mută toate piesele din cutia din stânga la dreapta cu una."
 
@@ -514,19 +515,19 @@ msgstr "Comenzi disponibile:"
 
 #. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1'
 #. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
-#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:169
+#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:172
 msgid "Size could only be from 2 to 6."
 msgstr "Dimensiunea poate fi doar de la 2 la 6."
 
 #. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1'
 #. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
-#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:176
+#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:179
 msgid "There could only be between 2 and 10 colors."
 msgstr "Pot fi doar între 2 și 10 culori."
 
 #. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2'
 #. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
-#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:183
+#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:186
 msgid "Failed to parse command-line arguments."
 msgstr "Nu s-au putut parsa argumentele în linie de comandă."
 
@@ -556,7 +557,7 @@ msgid "Restore last game, if any"
 msgstr "Restaurează ultimul joc, dacă există"
 
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
-#: src/gnome-tetravex.vala:193
+#: src/gnome-tetravex.vala:196
 msgid "To play GNOME Tetravex in command-line:"
 msgstr "Pentru a juca Tetravex GNOME în linia de comandă:"
 
@@ -567,51 +568,50 @@ msgstr "Restaurează ultimul joc"
 
 #. not a typo
 #. Translators: tooltip text of the "play"/unpause button, in the bottom bar
-#: src/gnome-tetravex.vala:416
+#: src/gnome-tetravex.vala:417
 msgid "Resume the game"
 msgstr "Continuă jocul"
 
 #. Translators: tooltip text of the pause button, in the bottom bar
-#: src/gnome-tetravex.vala:423
+#: src/gnome-tetravex.vala:424
 msgid "Pause the game"
 msgstr "Întrerupe temporar jocul"
 
 #. Translators: tooltip text of the "restart"/new game button, in the bottom bar
-#: src/gnome-tetravex.vala:436
+#: src/gnome-tetravex.vala:437
 msgid "Start a new game"
 msgstr "Începe un joc nou"
 
 #. Translators: tooltip text of the "solve"/give up button, in the bottom bar
-#: src/gnome-tetravex.vala:443
+#: src/gnome-tetravex.vala:444
 msgid "Give up and view the solution"
 msgstr "Renunță și vezi soluția"
 
 #. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
-#: src/gnome-tetravex.vala:450
+#: src/gnome-tetravex.vala:451
 msgid "Move all tiles left"
 msgstr "Mută toate dalele la stânga"
 
-#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:768
-msgid "Are you sure you want to start a new game with same board size?"
-msgstr "Sigur doriți să începeți un joc nou cu aceeași dimensiune a tablei?"
+#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
+#: src/gnome-tetravex.vala:774
+#, c-format
+msgid "Are you sure you want to start a new %u × %u game?"
+msgstr ""
+"Sigur doriți să începeți un joc nou cu dimensiunea tablei de %u × %u  ?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game"
-#: src/gnome-tetravex.vala:771 src/gnome-tetravex.vala:829
-#: src/gnome-tetravex.vala:873
+#: src/gnome-tetravex.vala:777 src/gnome-tetravex.vala:835
 msgid "_Keep Playing"
 msgstr "_Continuă să joci"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:774 src/gnome-tetravex.vala:876
+#: src/gnome-tetravex.vala:780
 msgid "_Start New Game"
 msgstr "Î_ncepe joc nou"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
-#: src/gnome-tetravex.vala:800
+#: src/gnome-tetravex.vala:806
 msgid ""
 "Looks like you haven’t finished a game yet.\n"
 "\n"
@@ -622,64 +622,60 @@ msgstr ""
 "Poate încercați o grilă 2 x 2, sunt ușoare. 🙂️"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
-#: src/gnome-tetravex.vala:826
+#: src/gnome-tetravex.vala:832
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Sigur doriți să renunțați și să vedeți soluția?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:832
+#: src/gnome-tetravex.vala:838
 msgid "_Give Up"
 msgstr "R_enunță"
 
-#. Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:870
-msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Sigur doriți să începeți un joc nou cu o dimensiune de tablă diferită?"
-
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:1028
+#: src/gnome-tetravex.vala:1011
 msgid "Lars Rydlinge"
 msgstr "Lars Rydlinge"
 
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:1032
+#: src/gnome-tetravex.vala:1015
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting a game documenter, seen in the About dialog
-#: src/gnome-tetravex.vala:1036
+#: src/gnome-tetravex.vala:1019
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. Translators: short description of the application, seen in the About dialog
-#: src/gnome-tetravex.vala:1040
+#: src/gnome-tetravex.vala:1023
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "Poziționați piese astfel încât aceleași numere se află în contact"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1044
+#: src/gnome-tetravex.vala:1027
 #, c-format
 msgid "Copyright © %u-%u – Lars Rydlinge"
 msgstr "Drepturi de autor © %u-%u – Lars Rydlinge"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1048
+#: src/gnome-tetravex.vala:1031
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Drepturi de autor © %u-%u – Arnaud Bonatti"
 
 #. Translators: about dialog text; label of the website link
-#: src/gnome-tetravex.vala:1052
+#: src/gnome-tetravex.vala:1035
 msgid "Page on GNOME wiki"
 msgstr "Pagină pe wiki GNOME"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-tetravex.vala:1064
+#: src/gnome-tetravex.vala:1047
 msgid "translator-credits"
 msgstr ""
 "Mugurel Tudor <mugurelu@gnome.ro>\n"
 "Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
 "Florentina Mușat <emryslokadottir [at] gmail [dot] com>, 2019-2020\n"
+"Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>, 2020\n"
 "\n"
 "Launchpad Contributions:\n"
 "  Adi Roiban https://launchpad.net/~adiroiban\n"
@@ -1007,6 +1003,11 @@ msgstr "Al patrulea:"
 #: src/score-overlay.vala:205
 msgid "Free!"
 msgstr "Liber!"
+
+#~ msgid ""
+#~ "Are you sure you want to start a new game with a different board size?"
+#~ msgstr ""
+#~ "Sigur doriți să începeți un joc nou cu o dimensiune de tablă diferită?"
 
 #~ msgid "org.gnome.Tetravex"
 #~ msgstr "org.gnome.Tetravex"
