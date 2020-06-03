@@ -1,12 +1,8 @@
 # Install icons
 if get_option('build_gui')
-  foreach size: [ '16x16', '22x22', '24x24', '32x32', '48x48']
-    install_data (join_paths ('icons', 'hicolor', size, project_id + '.png'),
-                  install_dir: join_paths (datadir, 'icons', 'hicolor', size, 'apps'))
-  endforeach
   install_data (join_paths ('icons', 'hicolor', 'scalable', project_id + '.svg'),
                 install_dir: join_paths (datadir, 'icons', 'hicolor', 'scalable', 'apps'))
-  install_data (join_paths ('icons', 'hicolor', 'scalable', project_id + '-symbolic.svg'),
+  install_data (join_paths ('icons', 'hicolor', 'symbolic', project_id + '-symbolic.svg'),
                 install_dir: join_paths (datadir, 'icons', 'hicolor', 'scalable', 'apps'))
 endif
 
