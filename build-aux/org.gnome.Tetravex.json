@@ -19,6 +19,7 @@
     ],
     "modules": [{
         "name": "gnome-tetravex",
+        "buildsystem": "meson",
         "sources": [{
             "type": "git",
             "url": "https://gitlab.gnome.org/GNOME/gnome-tetravex.git"
