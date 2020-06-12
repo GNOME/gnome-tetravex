@@ -150,6 +150,14 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
+                <property name="accelerator">F10</property>
+                <!-- Translators: F10 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows menu -->
+                <property name="title" translatable="yes" context="shortcut window">Toggle main menu</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
                 <property name="accelerator">&lt;Primary&gt;question &lt;Primary&gt;F1</property>
                 <!-- Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog -->
                 <property name="title" translatable="yes" context="shortcut window">Show Keyboard Shortcuts</property>
@@ -177,14 +185,6 @@
                 <property name="accelerator">&lt;Ctrl&gt;Q</property>
                 <!-- Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application -->
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
-                <property name="accelerator">F10</property>
-                <!-- Translators: F10 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows menu -->
-                <property name="title" translatable="yes" context="shortcut window">Show Menu</property>
               </object>
             </child>
           </object>
