@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-05-07 09:11+0000\n"
-"PO-Revision-Date: 2020-05-07 12:58+0300\n"
+"POT-Creation-Date: 2020-06-12 15:38+0000\n"
+"PO-Revision-Date: 2020-06-12 18:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -605,7 +605,6 @@ msgstr "Пересунути усі плитки ліворуч"
 #. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
 #: src/gnome-tetravex.vala:774
 #, c-format
-#| msgid "Are you sure you want to start a new game with same board size?"
 msgid "Are you sure you want to start a new %u × %u game?"
 msgstr "Розпочати нову гру із розміром дошки %u × %u?"
 
@@ -783,80 +782,86 @@ msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Загальні"
 
-#. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
+#. Translators: F10 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows menu
 #: src/help-overlay.ui:155
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Перемкнути головне меню"
+
+#. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
+#: src/help-overlay.ui:163
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
 msgstr "Показати клавіатурні скорочення"
 
 #. Translators: F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows application help
-#: src/help-overlay.ui:163
+#: src/help-overlay.ui:171
 msgctxt "shortcut window"
 msgid "Show Help"
 msgstr "Показати довідку"
 
 #. Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog
-#: src/help-overlay.ui:171
+#: src/help-overlay.ui:179
 msgctxt "shortcut window"
 msgid "Show About"
 msgstr "Показати вікно відомостей щодо програми"
 
 #. Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application
-#: src/help-overlay.ui:179
+#: src/help-overlay.ui:187
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Вийти"
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note...
-#: src/help-overlay.ui:188
+#: src/help-overlay.ui:196
 msgctxt "shortcut window"
 msgid "Advanced gameplay"
 msgstr "Додаткові ігрові можливості"
 
 #. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:194
+#: src/help-overlay.ui:202
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left half-board up by one"
 msgstr "Пересунути усі плитки у лівій половині дошки на одну клітинку вище"
 
 #. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:202
+#: src/help-overlay.ui:210
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left half-board down by one"
 msgstr "Пересунути усі плитки у лівій половині дошки на одну клітинку нижче"
 
 #. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:210
+#: src/help-overlay.ui:218
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left half-board left by one"
 msgstr "Пересунути усі плитки у лівій половині дошки на одну клітинку ліворуч"
 
 #. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:218
+#: src/help-overlay.ui:226
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left half-board right by one"
 msgstr "Пересунути усі плитки у лівій половині дошки на одну клітинку праворуч"
 
 #. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:226
+#: src/help-overlay.ui:234
 msgctxt "shortcut window"
 msgid "Move all the pieces in the right half-board up by one"
 msgstr "Пересунути усі плитки у правій половині дошки на одну клітинку вище"
 
 #. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:234
+#: src/help-overlay.ui:242
 msgctxt "shortcut window"
 msgid "Move all the pieces in the right half-board down by one"
 msgstr "Пересунути усі плитки у правій половині дошки на одну клітинку нижче"
 
 #. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:242
+#: src/help-overlay.ui:250
 msgctxt "shortcut window"
 msgid "Move all the pieces in the right half-board left by one"
 msgstr "Пересунути усі плитки у правій половині дошки на одну клітинку ліворуч"
 
 #. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:250
+#: src/help-overlay.ui:258
 msgctxt "shortcut window"
 msgid "Move all the pieces in the right half-board right by one"
 msgstr ""
