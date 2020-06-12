@@ -858,6 +858,12 @@ private class PuzzleView : Gtk.DrawingArea
         puzzle.redo ();
     }
 
+    internal void reload ()
+    {
+        last_selected_tile = null;
+        puzzle.reload ();
+    }
+
     /*\
     * * final animation
     \*/

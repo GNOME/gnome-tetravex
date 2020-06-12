@@ -123,6 +123,7 @@ private class Tetravex : Gtk.Application
         { "move-right-r",   move_right_r    },
         { "undo",           undo_cb         },
         { "redo",           redo_cb         },
+        { "reload",         reload_cb       },
         { "size",           null,           "s",    "'2'",  size_changed    },
         { "help",           help_cb         },
         { "about",          about_cb        },
@@ -284,6 +285,7 @@ private class Tetravex : Gtk.Application
         set_accels_for_action ("app.move-right-r",  { "<Shift><Primary>Right"   });
         set_accels_for_action ("app.undo",          {        "<Primary>z"       });
         set_accels_for_action ("app.redo",          { "<Shift><Primary>z"       });
+        set_accels_for_action ("app.reload",        { "<Shift><Primary>r"       });
         set_accels_for_action ("app.hamburger",     {                 "F10"     });
         // F1 and friends are managed manually
 
@@ -899,6 +901,14 @@ private class Tetravex : Gtk.Application
             view.release_selected_tile ();
         else
             view.redo ();
+    }
+
+    private void reload_cb ()
+    {
+        if (view.tile_selected)
+            view.release_selected_tile ();
+        else
+            view.reload ();
     }
 
     private void pause_cb (/* SimpleAction action, Variant? parameter */)

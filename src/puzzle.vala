@@ -745,6 +745,31 @@ private class Puzzle : Object
         _switch_tiles (x0, y0, x1, y1, animation_duration, /* no log */ true, /* garbage */ 0);
     }
 
+    internal void reload ()
+    {
+        if (!can_undo)
+            return;
+
+        unowned List<Inversion>? inversion_item = reversed_history.nth (last_move_index);
+        if (inversion_item == null) assert_not_reached ();
+
+        unowned Inversion? inversion;
+        do
+        {
+            inversion = ((!) inversion_item).data;
+            if (inversion == null) assert_not_reached ();
+
+            undo_move (((!) inversion).x0, ((!) inversion).y0,
+                       ((!) inversion).x1, ((!) inversion).y1);
+
+            inversion_item = ((!) inversion_item).next;
+        }
+        while (inversion_item != null);
+
+        can_undo = false;
+        can_redo = true;
+    }
+
     /*\
     * * save and restore
     \*/
