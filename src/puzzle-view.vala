@@ -47,14 +47,14 @@ private class PuzzleView : Gtk.DrawingArea
         internal double x = 0.0;
         internal double y = 0.0;
 
-        /* Co-ordinates to move from */
+        /* Coordinates to move from */
         internal double source_x = 0.0;
         internal double source_y = 0.0;
 
         /* Time started moving */
         internal double source_time = 0.0;
 
-        /* Co-ordinates to target for */
+        /* Coordinates to target for */
         internal double target_x = 0.0;
         internal double target_y = 0.0;
 
