@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
 "POT-Creation-Date: 2020-05-30 10:08+0000\n"
-"PO-Revision-Date: 2020-06-10 11:38+0200\n"
+"PO-Revision-Date: 2020-06-16 18:55+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -95,11 +95,13 @@ msgid ""
 "will determine if any action is taken inside of the window when either is "
 "pressed."
 msgstr ""
+"Za miške, ki imajo na voljo gumba »Naprej« in »Nazaj«, ta ključ določi "
+"delovanje gumbov znotraj okna brskalnika."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:28
 msgid "Mouse button to activate the “Undo” command"
-msgstr ""
+msgstr "Gumb miške za izvedbo ukaza »Razveljavi«"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:30
@@ -108,11 +110,13 @@ msgid ""
 "will set which button activates the “Undo” command. Possible values range "
 "between 6 and 14."
 msgstr ""
+"Za miške, ki imajo na voljo gumba »Naprej« in »Nazaj«, ta ključ določi "
+"izvedbo ukaza »Razveljavi«. Dovoljene vrednosti so med 6 in 14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:36
 msgid "Mouse button to activate the “Redo” command"
-msgstr ""
+msgstr "Gumb miške za izvedbo ukaza »Ponovno uveljavi«"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:38
@@ -121,6 +125,8 @@ msgid ""
 "will set which button activates the “Redo” command. Possible values range "
 "between 6 and 14."
 msgstr ""
+"Za miške, ki imajo na voljo gumba »Naprej« in »Nazaj«, ta ključ določi "
+"izvedbo ukaza »Ponovno uveljavi«. Dovoljene vrednosti so med 6 in 14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
 #: data/org.gnome.Tetravex.gschema.xml:43
