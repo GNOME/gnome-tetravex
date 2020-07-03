@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-01-08 17:15+0000\n"
-"PO-Revision-Date: 2019-02-16 21:04+0100\n"
+"POT-Creation-Date: 2020-06-26 08:42+0000\n"
+"PO-Revision-Date: 2020-07-03 17:27+0200\n"
 "Last-Translator: Cătălin Bălan <laserbeam333@gmail.com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net\n"
 "Language: ro\n"
@@ -12,22 +12,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.3.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
 "Cătălin Bălan <laserbeam333@gmail.com>, 2011\n"
-"Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>, 2019"
+"Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>, 2019-2020"
 
 #. (itstool) path: info/desc
 #: C/hint.page:7
-msgid "Use hints or solve the game automatically."
-msgstr "Folosiți sugestii pentru a rezolva jocul automat."
+msgid "Solve the game automatically."
+msgstr "Rezolvă jocul automat."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/size.page:11 C/usage.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:12 C/size.page:12 C/usage.page:12
 #: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
@@ -54,13 +54,11 @@ msgstr "Rezolvă jocul"
 #. (itstool) path: section/p
 #: C/hint.page:25
 msgid ""
-"If you get stuck in the game, or you want to solve it automatically, choose "
-"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
-"guiseq>."
+"If you get stuck in the game and want to solve it automatically, press the "
+"question mark button in the bottom-right corner."
 msgstr ""
-"Dacă vă blocați în timpul jocului, sau doriți să îl rezolvați automat, "
-"alegeți <guiseq><gui style=\"menu\">Joc</gui><gui style=\"menuitem"
-"\">Rezolvă</gui></guiseq>."
+"Dacă rămâneți blocat în joc și doriți să se rezolve automat, apăsați butonul "
+"semn de întrebare din colțul dreapta jos."
 
 #. (itstool) path: info/title
 #: C/index.page:8
@@ -85,7 +83,7 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/size.page:15 C/usage.page:20
+#: C/index.page:21 C/move.page:16 C/size.page:16 C/usage.page:20
 #: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Distribuire în condiții identice 3.0"
@@ -221,7 +219,7 @@ msgstr ""
 "Pentru textul complet al licenței, consultați <link href=\"https://"
 "creativecommons.org/licenses/by-sa/3.0/legalcode.ro\">Situl CreativeCommons</"
 "link>, sau citiți întregul <link href=\"https://creativecommons.org/licenses/"
-"by-sa/3.0/deed.ro\">rezumat Commons</link>"
+"by-sa/3.0/deed.ro\">rezumat Commons</link>."
 
 #. (itstool) path: info/desc
 #: C/move.page:8
@@ -229,17 +227,17 @@ msgid "How to move the pieces on the game board."
 msgstr "Cum să mișcați piesele pe tablă."
 
 #. (itstool) path: page/title
-#: C/move.page:19
+#: C/move.page:20
 msgid "Move the pieces"
 msgstr "Mișcați piesele"
 
 #. (itstool) path: section/title
-#: C/move.page:22
+#: C/move.page:23
 msgid "Move a piece"
 msgstr "Mișcați o piesă"
 
 #. (itstool) path: section/p
-#: C/move.page:23
+#: C/move.page:24
 msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
@@ -249,18 +247,20 @@ msgstr ""
 "nou pătrat."
 
 #. (itstool) path: section/p
-#: C/move.page:26
+#: C/move.page:27
 msgid "These moves are not permanent and can be reversed."
 msgstr "Aceste mișcări nu sunt permanente și pot fi inversate."
 
 #. (itstool) path: note/p
-#: C/move.page:30
+#: C/move.page:31
 msgid ""
-"The pieces in the left box can be moved all at once in one direction. See "
-"<link xref=\"shortcut\"/> for more information."
+"The pieces in the left box can be moved all at once in one direction. Press "
+"the menu button in the top-right corner of the window and select <gui style="
+"\"menuitem\">Keyboard Shortcuts</gui> for more information."
 msgstr ""
-"Piesele de pe caseta din stânga pot fi mutate toate într-o direcție. "
-"Consultați <link xref=\"shortcut\"/> pentru mai multe informații."
+"Piesele de pe caseta din stânga pot fi mutate toate într-o direcție. Apăsați "
+"butonul meniu din colțul dreapta sus al ferestrei și selectați <gui style="
+"\"menuitem\">Scurtături de tastatură</gui> pentru mai multe informații."
 
 #. (itstool) path: info/desc
 #: C/size.page:7
@@ -268,32 +268,33 @@ msgid "Change the size of the game board."
 msgstr "Modificați mărimea tablei de joc."
 
 #. (itstool) path: page/title
-#: C/size.page:18
+#: C/size.page:19
 msgid "Game board size"
 msgstr "Mărimea tablei de joc"
 
 #. (itstool) path: page/p
-#: C/size.page:20
+#: C/size.page:21
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
-"complexity of the game, click <gui>Tetravex</gui> in the top bar and click "
-"<gui>Size</gui>, then select the dimension of the board."
+"complexity of the game, press the menu button in the top-right corner of the "
+"window and select <gui style=\"menuitem\">Size</gui>, then select the "
+"dimension of the board."
 msgstr ""
 "Pentru a schimba mărimea tablei de joc și a crește sau scădea dificultatea "
-"jocului, clic pe<gui>Tetravex</gui> din bara de sus și apăsați "
-"<gui>Dimensiune</gui>, apoi alegeți dimensiunea tablei."
+"jocului, apăsați butonul meniu din colțul dreapta sus al ferestrei și "
+"selectați <gui>Dimensiune</gui>, apoi alegeți dimensiunea tablei."
 
 #. (itstool) path: page/p
-#: C/size.page:25
+#: C/size.page:27
 msgid ""
 "You can select from five different dimension, from 2×2 to 6×6. The default "
 "one is 3×3."
 msgstr ""
 "Puteți alege cinci dimensiuni diferite, de la 2×2 la 6×6. Cea implicită este "
-"3x3"
+"3x3."
 
 #. (itstool) path: note/p
-#: C/size.page:29
+#: C/size.page:31
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
@@ -302,7 +303,7 @@ msgstr ""
 #. (itstool) path: info/desc
 #: C/usage.page:9
 msgid "How to play <app>GNOME Tetravex</app>."
-msgstr "Cum să jucați <app>GNOME Tetravex</app>"
+msgstr "Cum se joacă <app>GNOME Tetravex</app>."
 
 #. (itstool) path: page/title
 #: C/usage.page:24
@@ -469,6 +470,15 @@ msgid ""
 msgstr ""
 "Dacă aveți un sfat de impărtășit despre <app>GNOME Tetravex</app>, sau orice "
 "alt joc GNOME, scrieți-ne la gnome-doc-list@gnome.org. Le vom adăuga aici!"
+
+#~ msgid ""
+#~ "If you get stuck in the game, or you want to solve it automatically, "
+#~ "choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem"
+#~ "\">Solve</gui></guiseq>."
+#~ msgstr ""
+#~ "Dacă vă blocați în timpul jocului, sau doriți să îl rezolvați automat, "
+#~ "alegeți <guiseq><gui style=\"menu\">Joc</gui><gui style=\"menuitem"
+#~ "\">Rezolvă</gui></guiseq>."
 
 #, fuzzy
 #~| msgid ""
