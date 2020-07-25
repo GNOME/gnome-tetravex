@@ -31,7 +31,7 @@ msgstr "GNOME Tetravex"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:8
 msgid "Reorder tiles to fit a square"
-msgstr "Reordena les fitxes per ajustar-se a un quadrat"
+msgstr "Reordena les fitxes per a ajustar-se a un quadrat"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:10
 msgid ""
@@ -81,7 +81,7 @@ msgstr "La mida de la graella de joc"
 #: data/org.gnome.Tetravex.gschema.xml:15
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr ""
-"El valor d'aquesta clau s'utilitza per decidir la mida de la graella de joc."
+"El valor d'aquesta clau s'utilitza per a decidir la mida de la graella de joc."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:20
@@ -102,7 +102,7 @@ msgstr ""
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:28
 msgid "Mouse button to activate the “Undo” command"
-msgstr "Botó del ratolí per activar l'ordre «Desfés»"
+msgstr "Botó del ratolí per a activar l'ordre «Desfés»"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:30
@@ -113,12 +113,12 @@ msgid ""
 msgstr ""
 "Per als usuaris que tenen un ratolí amb els botons «Enrere» i «Endavant», "
 "aquesta clau estableix quin botó activarà l'ordre «Desfés». Els valors "
-"possibles és entre 6 i 14."
+"possibles són entre 6 i 14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:36
 msgid "Mouse button to activate the “Redo” command"
-msgstr "Botó del ratolí per activar l'ordre «Refés»"
+msgstr "Botó del ratolí per a activar l'ordre «Refés»"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:38
@@ -129,7 +129,7 @@ msgid ""
 msgstr ""
 "Per als usuaris que tenen un ratolí amb els botons «Enrere» i «Endavant», "
 "aquesta clau estableix quin botó activarà l'ordre «Refés». Els valors "
-"possibles és entre 6 i 14."
+"possibles són entre 6 i 14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
 #: data/org.gnome.Tetravex.gschema.xml:43
@@ -183,7 +183,7 @@ msgstr "L'alçada de la finestra principal en píxels."
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
 #: data/org.gnome.Tetravex.gschema.xml:70
 msgid "A flag to enable maximized mode"
-msgstr "Un senyalador per habilitar el mode maximitzat"
+msgstr "Un senyalador per a habilitar el mode maximitzat"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
 #: data/org.gnome.Tetravex.gschema.xml:72
@@ -324,8 +324,8 @@ msgid ""
 "Cannot finish automatically. If you want to give up and view the solution, "
 "use “solve”."
 msgstr ""
-"No es pot finalitzar automàticament . Si voleu renunciar i veure la solució, "
-"utilitzeu \"soluciona\"."
+"No es pot finalitzar automàticament. Si voleu renunciar i veure la solució, "
+"utilitzeu «resol»."
 
 #. Translators: command-line error message, displayed if the string is not a known command nor a valid move instruction; try `gnome-tetravex --cli new; gnome-tetravex --cli A2838I8U`
 #: src/cli.vala:174
@@ -527,12 +527,12 @@ msgstr "S'ha produït un error en analitzar els arguments de la línia d'ordres.
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options
 #: src/gnome-tetravex-cli.vala:182
 msgid "To use `gnome-tetravex-cli`, pass as argument:"
-msgstr "Per a usar  `gnome-tetravex-cli`, passeu el argument:"
+msgstr "Per a usar «gnome-tetravex-cli», passeu com a argument:"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
 #: src/gnome-tetravex.vala:72
 msgid "Play in the terminal (see “--cli=help”)"
-msgstr "Executeu al terminal (mireu “--cli=help”)"
+msgstr "Executeu al terminal (mireu «--cli=help»)"
 
 #. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help'
 #: src/gnome-tetravex.vala:75
@@ -552,7 +552,7 @@ msgstr "Restaura la darrera partida, si n'hi ha cap"
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
 #: src/gnome-tetravex.vala:197
 msgid "To play GNOME Tetravex in command-line:"
-msgstr "Per jugar al GNOME Tetravex a la línia d'ordres:"
+msgstr "Per a jugar al GNOME Tetravex a la línia d'ordres:"
 
 #. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
 #: src/gnome-tetravex.vala:365
@@ -737,7 +737,7 @@ msgstr "Refés"
 #: src/help-overlay.ui:109
 msgctxt "shortcut window"
 msgid "Reload initial position"
-msgstr "Torna a carregar la posició inicial."
+msgstr "Torna a carregar la posició inicial"
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"...
 #: src/help-overlay.ui:118
