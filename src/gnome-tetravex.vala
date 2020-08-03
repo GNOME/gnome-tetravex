@@ -789,11 +789,13 @@ private class Tetravex : Gtk.Application
         /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing" */
                                 _("_Start New Game"), ResponseType.ACCEPT);
 
-            int response = dialog.run ();
-            dialog.destroy ();
-
-            if (response != ResponseType.ACCEPT)
-                return;
+            dialog.response.connect ((_dialog, response) => {
+                    _dialog.destroy ();
+                    if (response == ResponseType.ACCEPT)
+                        new_game (/* saved game */ null, size);
+                });
+            dialog.present ();
+            return;
         }
         new_game (/* saved game */ null, size);
     }
@@ -821,9 +823,12 @@ private class Tetravex : Gtk.Application
             dialog.set_transient_for (window);
         }
 
-        dialog.run ();
-        dialog.destroy ();
-        scores_dialog_visible = false;
+        dialog.close_request.connect (() => {
+                scores_dialog_visible = false;
+
+                return /* do your usual stuff */ false;
+            });
+        dialog.present ();
     }
 
     private bool has_been_solved = false;
@@ -847,13 +852,18 @@ private class Tetravex : Gtk.Application
             /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing" */
                                 _("_Give Up"),      ResponseType.ACCEPT);
 
-            int response = dialog.run ();
-            dialog.destroy ();
-
-            if (response != ResponseType.ACCEPT)
-                return;
+            dialog.response.connect ((_dialog, response) => {
+                    _dialog.destroy ();
+                    if (response == ResponseType.ACCEPT)
+                        after_solve_cb ();
+                });
+            dialog.present ();
+            return;
         }
-
+        after_solve_cb ();
+    }
+    private void after_solve_cb ()
+    {
         has_been_solved = true;
         puzzle.solve ();
         new_game_solve_stack.set_visible_child_name ("new-game");
