@@ -542,6 +542,11 @@ private class Tetravex : Gtk.Application
         window_height = (!) _window_height;
     }
 
+    private const Gdk.WindowState tiled_state = Gdk.WindowState.TILED
+                                              | Gdk.WindowState.TOP_TILED
+                                              | Gdk.WindowState.BOTTOM_TILED
+                                              | Gdk.WindowState.LEFT_TILED
+                                              | Gdk.WindowState.RIGHT_TILED;
     private bool window_state_event_cb (Gdk.EventWindowState event)
     {
         if ((event.changed_mask & Gdk.WindowState.MAXIMIZED) != 0)
@@ -552,11 +557,6 @@ private class Tetravex : Gtk.Application
             window_is_fullscreen = (event.new_window_state & Gdk.WindowState.FULLSCREEN) != 0;
 
         /* tiled: not saved, but should not change saved window size */
-        Gdk.WindowState tiled_state = Gdk.WindowState.TILED
-                                    | Gdk.WindowState.TOP_TILED
-                                    | Gdk.WindowState.BOTTOM_TILED
-                                    | Gdk.WindowState.LEFT_TILED
-                                    | Gdk.WindowState.RIGHT_TILED;
         if ((event.changed_mask & tiled_state) != 0)
             window_is_tiled = (event.new_window_state & tiled_state) != 0;
 
