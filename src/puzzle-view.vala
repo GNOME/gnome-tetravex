@@ -196,7 +196,7 @@ private class PuzzleView : Gtk.DrawingArea
         init_mouse ();
         init_keyboard ();
         set_draw_func (draw);
-        size_allocate.connect (on_size_allocate);
+        resize.connect (on_resize);
 
         animation_timer.start ();
     }
@@ -339,12 +339,10 @@ private class PuzzleView : Gtk.DrawingArea
     }
 
     internal const double gap_factor = 0.5;
-    private inline void on_size_allocate ()
+    private inline void on_resize (int allocated_width, int allocated_height)
     {
         if (puzzle_init_done)
         {
-            int allocated_width  = get_allocated_width ();
-            int allocated_height = get_allocated_height ();
             /* Fit in with a half tile border and spacing between boards */
             uint width  = (uint) (allocated_width  / (2 * puzzle.size + 1.0 + /* 1 × */ gap_factor));
             uint height = (uint) (allocated_height / (puzzle.size + 1.0));
