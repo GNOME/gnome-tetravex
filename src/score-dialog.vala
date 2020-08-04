@@ -54,7 +54,7 @@ private class ScoreDialog : Dialog
         size_combo.show ();
         ((HeaderBar) get_header_bar ()).set_custom_title (size_combo);
 
-        ScrolledWindow scroll = new ScrolledWindow (null, null);
+        ScrolledWindow scroll = new ScrolledWindow ();
         scroll.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
         scroll.show ();
 
@@ -77,7 +77,7 @@ private class ScoreDialog : Dialog
         scores.hexpand = true;
         scores.vexpand = true;
         scores.show ();
-        scroll.add (scores);
+        scroll.set_child (scores);
 
         foreach (HistoryEntry entry in history.entries)
             entry_added_cb (entry);
