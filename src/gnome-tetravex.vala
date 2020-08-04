@@ -324,7 +324,6 @@ private class Tetravex : Gtk.Application
         ((SimpleAction) lookup_action ("size")).set_state ("%d".printf (game_size));
 
         HeaderBar headerbar = new HeaderBar ();
-        headerbar.title = PROGRAM_NAME;
         headerbar.show_title_buttons = true;
         headerbar.show ();
         window.set_titlebar (headerbar);
