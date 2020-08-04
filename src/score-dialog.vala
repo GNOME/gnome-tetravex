@@ -52,7 +52,7 @@ private class ScoreDialog : Dialog
         size_combo.add_attribute (renderer, "text", 0);
         size_combo.width_request = 90;
         size_combo.show ();
-        ((HeaderBar) get_header_bar ()).set_custom_title (size_combo);
+        ((HeaderBar) get_header_bar ()).set_title_widget (size_combo);
 
         ScrolledWindow scroll = new ScrolledWindow ();
         scroll.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
