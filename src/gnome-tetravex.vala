@@ -350,8 +350,8 @@ private class Tetravex : Gtk.Application
 
         Box undo_redo_box = new Box (Orientation.HORIZONTAL, /* spacing */ 0);
         undo_redo_box.get_style_context ().add_class ("linked");
-        undo_redo_box.add (undo_button);
-        undo_redo_box.add (redo_button);
+        undo_redo_box.append (undo_button);
+        undo_redo_box.append (redo_button);
         undo_redo_box.show ();
 
         if (can_restore && !restore_on_start)
@@ -368,7 +368,7 @@ private class Tetravex : Gtk.Application
             restore_button.valign = Align.CENTER;
             restore_button.show ();
 
-            restore_stack.add (restore_button);
+            restore_button.insert_before (restore_stack, /* insert last */ null);
             restore_stack.set_visible_child (restore_button);
             restore_stack.visible = true;
             headerbar.pack_start (restore_stack);
@@ -390,7 +390,7 @@ private class Tetravex : Gtk.Application
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
         Overlay overlay = new Overlay ();
-        overlay.add (view);
+        overlay.set_child (view);
         overlay.show ();
 
         score_overlay = new ScoreOverlay ();
@@ -468,10 +468,10 @@ private class Tetravex : Gtk.Application
         clock_box = new Box (Orientation.HORIZONTAL, /* spacing */ 8);
         Image image = new Image.from_icon_name ("preferences-system-time-symbolic");
         image.show ();
-        clock_box.add (image);
+        clock_box.append (image);
         clock_label = new Label ("");
         clock_label.show ();
-        clock_box.add (clock_label);
+        clock_box.append (clock_label);
         clock_box.halign = Align.CENTER;
         clock_box.valign = Align.BASELINE;
         clock_box.set_margin_top (20);

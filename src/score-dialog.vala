@@ -59,7 +59,7 @@ private class ScoreDialog : Dialog
         scroll.show ();
 
         Box content_area = get_content_area ();
-        content_area.add (scroll);
+        content_area.append (scroll);
 
         score_model = new Gtk.ListStore (3, typeof (string), typeof (string), typeof (int));
 
