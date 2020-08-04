@@ -258,8 +258,8 @@ private class Tetravex : Gtk.Application
 
         Box undo_redo_box = new Box (Orientation.HORIZONTAL, /* spacing */ 0);
         undo_redo_box.get_style_context ().add_class ("linked");
-        undo_redo_box.add (undo_button);
-        undo_redo_box.add (redo_button);
+        undo_redo_box.append (undo_button);
+        undo_redo_box.append (redo_button);
         undo_redo_box.show ();
         headerbar.pack_start (undo_redo_box);
 
@@ -277,7 +277,7 @@ private class Tetravex : Gtk.Application
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
         Overlay overlay = new Overlay ();
-        overlay.add (view);
+        overlay.set_child (view);
         overlay.show ();
 
         score_overlay = new ScoreOverlay ();
