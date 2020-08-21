@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-05-30 10:08+0000\n"
-"PO-Revision-Date: 2020-06-16 19:06+0200\n"
+"POT-Creation-Date: 2020-07-05 21:09+0000\n"
+"PO-Revision-Date: 2020-08-21 18:02+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.3\n"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
@@ -95,11 +95,13 @@ msgid ""
 "will determine if any action is taken inside of the window when either is "
 "pressed."
 msgstr ""
+"Za miške, ki imajo na voljo gumba »Naprej« in »Nazaj«, ta ključ določi "
+"delovanje gumbov znotraj okna brskalnika, ko je katerikoli pritisnjen."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:28
 msgid "Mouse button to activate the “Undo” command"
-msgstr ""
+msgstr "Gumb miške za izvedbo ukaza »Razveljavi«"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:30
@@ -108,11 +110,13 @@ msgid ""
 "will set which button activates the “Undo” command. Possible values range "
 "between 6 and 14."
 msgstr ""
+"Za miške, ki imajo na voljo gumba »Naprej« in »Nazaj«, ta ključ določi "
+"izvedbo ukaza »Razveljavi«. Dovoljene vrednosti so med 6 in 14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:36
 msgid "Mouse button to activate the “Redo” command"
-msgstr ""
+msgstr "Gumb miške za izvedbo ukaza »Ponovno uveljavi«"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:38
@@ -121,6 +125,8 @@ msgid ""
 "will set which button activates the “Redo” command. Possible values range "
 "between 6 and 14."
 msgstr ""
+"Za miške, ki imajo na voljo gumba »Naprej« in »Nazaj«, ta ključ določi "
+"izvedbo ukaza »Ponovno uveljavi«. Dovoljene vrednosti so med 6 in 14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
 #: data/org.gnome.Tetravex.gschema.xml:43
@@ -400,7 +406,7 @@ msgstr ""
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
 #: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:205
 msgid "Digits specify the rows of the two tiles to invert."
-msgstr ""
+msgstr "Številke določajo vrstice dveh ploščic za preobrnitev."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
@@ -463,7 +469,7 @@ msgstr "Premakni vse ploščice v levem polju za eno mesto v desno."
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
 #: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:235
 msgid "Move all right-board tiles up by one."
-msgstr "Premakni vse ploščice na desni za eno polje višje."
+msgstr "Premakni vse ploščice v desnem polju za eno mesto navzgor."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
@@ -509,12 +515,14 @@ msgstr "Razčlenjevanje argumentov ukazne vrstice je spodletelo."
 #. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
 #: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:183
 msgid "Failed to parse command-line arguments."
-msgstr ""
+msgstr "Razčlenjevanje argumentov ukazne vrstice je spodletelo."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options
 #: src/gnome-tetravex-cli.vala:182
 msgid "To use `gnome-tetravex-cli`, pass as argument:"
 msgstr ""
+"Za igranje v terminalnem oknu z ukazom »gnome-tetravex-cli« je treba "
+"vključiti argument:"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
 #: src/gnome-tetravex.vala:72
@@ -539,7 +547,7 @@ msgstr "Obnovi zadnjo igro, če ta obstaja"
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
 #: src/gnome-tetravex.vala:193
 msgid "To play GNOME Tetravex in command-line:"
-msgstr ""
+msgstr "Za igranje igre Tetravex GNOME prek ukazne vrstice:"
 
 #. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
 #: src/gnome-tetravex.vala:362
