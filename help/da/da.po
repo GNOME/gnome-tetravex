@@ -1,18 +1,15 @@
-# Danish translation manual GNOME Teravex.
+# Danish translation for gnome-tetravex.
 # Copyright (C) 2011 Joe Hansen.
-# This file is distributed under the same license as the gnome-games package.
-#
-# Joe Hansen (joedalton2@yahoo.dk), 2009, 2010, 2011.
-# scootergrisen, 2015.
+# This file is distributed under the same license as the gnome-tetravex package.
+# Joe Hansen <joedalton2@yahoo.dk>, 2009, 2010, 2011.
+# scootergrisen, 2015, 2020.
 # Gennemgået (delvist) Ask Hjorth Larsen <asklarsen@gmail.com>, 2016.
 #
-# Bug 595771 er indsendt på den her vedrørende to ting
-# Gnotravex -> Tretravex og Settings -> Size (de er rettet)
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games master\n"
-"POT-Creation-Date: 2016-03-18 10:46+0000\n"
-"PO-Revision-Date: 2016-10-02 15:28+0200\n"
+"Project-Id-Version: gnome-tetravex master\n"
+"POT-Creation-Date: 2020-06-18 16:02+0000\n"
+"PO-Revision-Date: 2020-03-04 07:59+0200\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -26,26 +23,27 @@ msgctxt "_"
 msgid "translator-credits"
 msgstr ""
 "Joe Hansen <joedalton2@yahoo.dk>, 2009, 2010, 2011\n"
-"scootergrisen, 2015\n"
+"scootergrisen <>, 2015, 2020\n"
 "\n"
-"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
-"Mere info: http://www.dansk-gruppen.dk"
+"Dansk-gruppen\n"
+"Websted http://dansk-gruppen.dk\n"
+"E-mail <dansk@dansk-gruppen.dk>"
 
 #. (itstool) path: info/desc
 #: C/hint.page:7
-msgid "Use hints or solve the game automatically."
-msgstr "Brug fif eller løs spillet automatisk."
+msgid "Solve the game automatically."
+msgstr "Løs spillet automatisk."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/shortcut.page:11
-#: C/size.page:11 C/usage.page:12 C/winning.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:12 C/size.page:12 C/usage.page:12
+#: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
 
 #. (itstool) path: page/title
 #: C/hint.page:14
 msgid "Hints"
-msgstr "Fif"
+msgstr "Tips"
 
 #. (itstool) path: note/p
 #: C/hint.page:17
@@ -53,8 +51,8 @@ msgid ""
 "If you use the following method to complete the game, your score will not be "
 "included among the high scores."
 msgstr ""
-"Hvis du bruger følgende metode til at færdiggøre spillet, vil dit resultat "
-"ikke blive vist i listen over bedste resultater."
+"Hvis du bruger følgende metode til at fuldføre spillet, medtages dit "
+"resultat ikke i listen over de bedste resultater."
 
 #. (itstool) path: section/title
 #: C/hint.page:24
@@ -64,13 +62,11 @@ msgstr "Løs spillet"
 #. (itstool) path: section/p
 #: C/hint.page:25
 msgid ""
-"If you get stuck in the game, or you want to solve it automatically, choose "
-"<guiseq><gui style=\"menu\">Game</gui><gui "
-"style=\"menuitem\">Solve</gui></guiseq>."
+"If you get stuck in the game and want to solve it automatically, press the "
+"question mark button in the bottom-right corner."
 msgstr ""
-"Hvis du sidder fast i spillet eller du ønsker at løse det automatisk vælges "
-"<guiseq><gui style=\"menu\">Game</gui><gui "
-"style=\"menuitem\">Løs</gui></guiseq>."
+"Hvis du ikke kan komme videre og vil løse det automatisk, så tryk på knappen "
+"med spørgsmålstegnet i nederste højre hjørne."
 
 #. (itstool) path: info/title
 #: C/index.page:8
@@ -95,10 +91,10 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/shortcut.page:15 C/size.page:15
-#: C/usage.page:20 C/winning.page:16
+#: C/index.page:21 C/move.page:16 C/size.page:16 C/usage.page:20
+#: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
-msgstr "Creative Commons Share Alike 3.0"
+msgstr "Creative Commons Deling på samme vilkår 3.0"
 
 #. (itstool) path: media/span
 #: C/index.page:26
@@ -117,9 +113,9 @@ msgid ""
 "various pieces from one side of the board to the other side, so that the "
 "same numbers depicted on the pieces are touching each other."
 msgstr ""
-"<app>GNOME Tetravex</app> er et simpelt puslespil, hvis formål er at flytte "
-"de forskellige brikker fra en side af brættet til den anden, på en måde så "
-"de samme tal afbilledet på brikkerne støder op imod hinanden."
+"<app>GNOME Tetravex</app> er et simpelt opgavespil, hvor målet er at flytte "
+"de forskellige brikker fra den ene side af brættet til den anden, så de tal "
+"som er ens, der ses på brikkerne, rør hinanden."
 
 #. (itstool) path: page/p
 #: C/index.page:35
@@ -127,18 +123,18 @@ msgid ""
 "The game is timed, and these times are used as the score for the game. You "
 "have to move all the pieces in the least time possible."
 msgstr ""
-"Spillet løses på tid og din tid bruges til resultatgivning. Du skal flytte "
-"alle brikkerne på den kortest mulige tid."
+"Der tages tid i spillet og tiderne bruges som resultatet i spillet. Du skal "
+"flytte alle brikkerne så hurtigt som muligt."
 
 #. (itstool) path: section/title
 #: C/index.page:41
 msgid "Basic Gameplay &amp; Usage"
-msgstr "Grundlæggende spil &amp; brug"
+msgstr "Grundlæggende gameplay og anvendelse"
 
 #. (itstool) path: section/title
 #: C/index.page:45
 msgid "Tips &amp; Tricks"
-msgstr "Fif &amp; ideer"
+msgstr "Tips og tricks"
 
 #. (itstool) path: info/desc
 #: C/license.page:8
@@ -156,26 +152,24 @@ msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
 msgstr ""
-"Denne manual er distribueret under CreativeCommons Attribution-Share Alike "
-"3.0 Unported license."
+"Værket distribueres under en CreativeCommons Kreditering-Deling på samme "
+"vilkår 3.0 Ikke porteret-licens."
 
 #. (itstool) path: page/p
 #: C/license.page:20
 msgid "You are free:"
 msgstr "Du kan frit:"
 
-# https://creativecommons.org/licenses/by-sa/3.0/deed.da
 #. (itstool) path: item/title
 #: C/license.page:25
 msgid "<em>To share</em>"
-msgstr "<em>At dele</em>"
+msgstr "<em>Dele</em>"
 
 #. (itstool) path: item/p
 #: C/license.page:26
 msgid "To copy, distribute and transmit the work."
-msgstr "Kopiere, distribuere og overføre denne manual."
+msgstr "Kopiere, videredistribuere og overføre værket."
 
-# https://creativecommons.org/licenses/by-sa/3.0/deed.da
 #. (itstool) path: item/title
 #: C/license.page:29
 msgid "<em>To remix</em>"
@@ -184,14 +178,13 @@ msgstr "<em>Tilpasse</em>"
 #. (itstool) path: item/p
 #: C/license.page:30
 msgid "To adapt the work."
-msgstr "Ændre i manualen."
+msgstr "Tilpasse værket."
 
 #. (itstool) path: page/p
 #: C/license.page:33
 msgid "Under the following conditions:"
-msgstr "Under de følgende betingelser:"
+msgstr "Under følgende vilkår:"
 
-# https://creativecommons.org/licenses/by-sa/3.0/deed.da
 #. (itstool) path: item/title
 #: C/license.page:38
 msgid "<em>Attribution</em>"
@@ -204,15 +197,14 @@ msgid ""
 "licensor (but not in any way that suggests that they endorse you or your use "
 "of the work)."
 msgstr ""
-"Du skal attributere manualen, på den måde som er angivet af forfatteren "
-"eller licensindehaveren (men ikke på en måde som antyder at de tilslutter "
-"sig dig eller din brug af deres arbejde)."
+"Du skal kreditere værket på den måde, der er angivet af forfatteren eller "
+"licensgiveren (men ikke på en måde der antyder at de støtter dig eller din "
+"brug af værket)."
 
-# https://creativecommons.org/licenses/by-sa/3.0/deed.da
 #. (itstool) path: item/title
 #: C/license.page:46
 msgid "<em>Share Alike</em>"
-msgstr "<em>Del på samme vilkår</em>"
+msgstr "<em>Deling på samme vilkår</em>"
 
 #. (itstool) path: item/p
 #: C/license.page:47
@@ -220,41 +212,40 @@ msgid ""
 "If you alter, transform, or build upon this work, you may distribute the "
 "resulting work only under the same, similar or a compatible license."
 msgstr ""
-"Hvis du ændrer, transformerer eller bygger videre på dette arbejde, må du "
-"kun distribuere resultatet under den samme, lignende eller en kompatibel "
-"licens."
+"Hvis du ændrer, omarbejder eller bygger videre på værket, må du kun "
+"videredistribuere det resulterende værk under en licens, der er identisk, "
+"lignende eller kompatibel."
 
 #. (itstool) path: page/p
 #: C/license.page:53
 msgid ""
-"For the full text of the license, see the <link "
-"href=\"http://creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons "
-"website</link>, or read the full <link "
-"href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Commons Deed</link>."
+"For the full text of the license, see the <link href=\"http://"
+"creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
+"link>, or read the full <link href=\"http://creativecommons.org/licenses/by-"
+"sa/3.0/\">Commons Deed</link>."
 msgstr ""
-"For den fulde licenstekst se <link "
-"href=\"http://creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons "
-"hjemmeside</link>, eller læs <link "
-"href=\"http://creativecommons.org/licenses/by-sa/3.0/\">the full Commons "
-"Deed</link>."
+"Se licensens fulde tekst på <link href=\"http://creativecommons.org/licenses/"
+"by-sa/3.0/legalcode\">CreativeCommons-webstedet</link> eller læs den fulde "
+"<link href=\"http://creativecommons.org/licenses/by-sa/3.0/\">Commons Deed</"
+"link>."
 
 #. (itstool) path: info/desc
 #: C/move.page:8
 msgid "How to move the pieces on the game board."
-msgstr "Sådan flytter du brikker på spilbrættet."
+msgstr "Sådan flyttes brikkerne på spilbrættet."
 
 #. (itstool) path: page/title
-#: C/move.page:19
+#: C/move.page:20
 msgid "Move the pieces"
 msgstr "Flyt brikkerne"
 
 #. (itstool) path: section/title
-#: C/move.page:22
+#: C/move.page:23
 msgid "Move a piece"
 msgstr "Flyt en brik"
 
 #. (itstool) path: section/p
-#: C/move.page:23
+#: C/move.page:24
 msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
@@ -263,149 +254,60 @@ msgstr ""
 "klikke på firkanten for at placere den eller trække den til en ny firkant."
 
 #. (itstool) path: section/p
-#: C/move.page:26
+#: C/move.page:27
 msgid "These moves are not permanent and can be reversed."
-msgstr "Disse flytninger er ikke permanentet og kan omgøres."
+msgstr "Flytningerne er ikke permanente og kan fortrydes."
 
 #. (itstool) path: note/p
-#: C/move.page:30
+#: C/move.page:31
 msgid ""
-"The pieces in the left box can be moved all at once in one direction. See "
-"<link xref=\"shortcut\"/> for more information."
+"The pieces in the left box can be moved all at once in one direction. Press "
+"the menu button in the top-right corner of the window and select <gui style="
+"\"menuitem\">Keyboard Shortcuts</gui> for more information."
 msgstr ""
-"Brikkerne i den venstre boks kan flyttes på en gang i en retning. Se <link "
-"xref=\"shortcut\"/> for yderligere information."
-
-#. (itstool) path: info/desc
-#: C/shortcut.page:8
-msgid "Use the keyboard to play the game."
-msgstr "Brug tastaturet til spillet."
-
-#. (itstool) path: page/title
-#: C/shortcut.page:19
-msgid "Keyboard shortcuts"
-msgstr "Tastaturgenveje"
-
-#. (itstool) path: section/title
-#: C/shortcut.page:22
-msgid "Game shortcuts"
-msgstr "Spilgenveje"
-
-#. (itstool) path: section/p
-#: C/shortcut.page:23
-msgid ""
-"The following table groups the most useful shortcuts for playing <app>GNOME "
-"Tetravex</app>."
-msgstr ""
-"Den følgende tabel grupperer de mest brugbare genveje til spillet <app>GNOME "
-"Tetravex</app>."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:28
-msgid "Shortcut"
-msgstr "Genvej"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:28
-msgid "Description"
-msgstr "Beskrivelse"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:32
-msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:35
-msgid "Start a new game."
-msgstr "Start et nyt spil."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:40
-msgid "<key>Pause</key>"
-msgstr "<key>Pause</key>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:43
-msgid "Pause or resume the game."
-msgstr "Pause eller genoptag spillet."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:48
-msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Op</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:53
-msgid "Move all the pieces in the left box up by one."
-msgstr "Flyt alle brikkerne i den venstre boks et felt op."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:58
-msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Ned</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:61
-msgid "Move all the pieces in the left box down by one."
-msgstr "Flyt alle brikkerne i den venstre boks et felt ned."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:66
-msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Venstre</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:69
-msgid "Move all the pieces in the left box left by one."
-msgstr "Flyt alle brikkerne i den venstre boks en mod venstre."
-
-#. (itstool) path: td/p
-#: C/shortcut.page:74
-msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>Højre</key></keyseq>"
-
-#. (itstool) path: td/p
-#: C/shortcut.page:77
-msgid "Move all the pieces in the left box right by one."
-msgstr "Flyt alle brikkerne i den venstre boks en mod højre."
+"Alle brikkerne i den venstre boks kan flyttes samtidigt i en retning. Tryk "
+"på menuknappen i øverste højre hjørne af vinduet og vælg <gui style="
+"\"menuitem\">Tastaturgenveje</gui> for mere information."
 
 #. (itstool) path: info/desc
 #: C/size.page:7
 msgid "Change the size of the game board."
-msgstr "Ændr størrelsen på spillebrættet."
+msgstr "Ændr størrelsen på spilbrættet."
 
 #. (itstool) path: page/title
-#: C/size.page:18
+#: C/size.page:19
 msgid "Game board size"
-msgstr "Spillebrættes størrelse"
+msgstr "Brætstørrelsen i spillet"
 
 #. (itstool) path: page/p
-#: C/size.page:20
+#: C/size.page:21
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
-"complexity of the game, click <gui>Tetravex</gui> in the top bar and click "
-"<gui>Size</gui>, then select the dimension of the board."
+"complexity of the game, press the menu button in the top-right corner of the "
+"window and select <gui style=\"menuitem\">Size</gui>, then select the "
+"dimension of the board."
 msgstr ""
-"For at ændre størrelsen på spillebrættet klikkes på <gui>Tetravex</gui> i "
-"toplinjen, og dernæst <gui>Størrelse</gui>.  Her vælges dimensionerne på "
-"brættet. Dette øger eller formindsker spillets kompleksitet."
+"For at ændre størrelsen på spilbrættet, hvorved spillet gøres mere eller "
+"mindre komplekst, trykkes på menuknappen i øverste højre hjørne af vinduet "
+"og så vælges <gui style=\"menuitem\">Størrelse</gui> og herefter vælges "
+"brættets dimensioner."
 
 #. (itstool) path: page/p
-#: C/size.page:25
+#: C/size.page:27
 msgid ""
 "You can select from five different dimension, from 2×2 to 6×6. The default "
 "one is 3×3."
 msgstr ""
-"Du kan vælge fem forskellige dimensioner, fra 2×2 til 6×6. Standarden er 3×3."
+"Du kan vælge blandt fem forskellige dimensioner, fra 2×2 til 6×6. Standarden "
+"er 3×3."
 
 #. (itstool) path: note/p
-#: C/size.page:29
+#: C/size.page:31
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr ""
-"Hvis brikkerne er for små, vil en ændring af vinduesstørrelsen ændre "
-"størrelsen på brikkerne."
+"Hvis brikkerne er for små, så kan du ændre deres størrelse ved at ændre "
+"vinduets størrelse."
 
 #. (itstool) path: info/desc
 #: C/usage.page:9
@@ -420,7 +322,7 @@ msgstr "Spil <app>GNOME Tetravex</app>"
 #. (itstool) path: section/title
 #: C/usage.page:27
 msgid "Basic usage"
-msgstr "Grundlæggende brug"
+msgstr "Grundlæggende anvendelse"
 
 #. (itstool) path: section/p
 #: C/usage.page:28
@@ -431,10 +333,10 @@ msgid ""
 "and moved. Each piece is divided into four little triangles containing a "
 "number."
 msgstr ""
-"Spilområdet er inddelt i to bokse: Boksen til højre i vinduet består af de "
-"brikker som skal arrangeres korrekt; boksen til venstre i vinduet er stedet "
-"hvor brikkerne fra den højre boks skal placeres og eventuelt flyttes "
-"omkring. Hver brik er opdelt i fire små trekanter, der indeholder et tal."
+"Spilvinduet er inddelt i to bokse: Den i højre side af vinduet indeholder de "
+"brikker som skal arrangeres; den i venstre side af vinduet er stedet hvor "
+"brikkerne fra den højre boks flyttes til og arrangeres. Hver brik er inddelt "
+"i fire små trekanter, der indeholder et tal."
 
 #. (itstool) path: section/p
 #: C/usage.page:35
@@ -442,8 +344,8 @@ msgid ""
 "The scope of the game is to position the pieces so that only two identical "
 "numbers are next to each other."
 msgstr ""
-"Formålet med spillet er at placere brikkerne så kun to identiske tal er "
-"placeret ved siden af hinanden."
+"Målet i spillet er at placere brikkerne så de to tal der er ved siden af "
+"hinanden er identiske."
 
 #. (itstool) path: section/p
 #: C/usage.page:39
@@ -451,8 +353,8 @@ msgid ""
 "It is not possible to position the pieces so that different number are next "
 "to each other."
 msgstr ""
-"Det er ikke muligt, at placere brikkerne så at forskellige tal står ved "
-"siden af hinanden."
+"Det er ikke muligt at placere brikkerne, så der er forskellige tal ved siden "
+"af hinanden."
 
 #. (itstool) path: section/p
 #: C/usage.page:43
@@ -460,8 +362,8 @@ msgid ""
 "The game is completed when you have positioned all the pieces in their right "
 "positions."
 msgstr ""
-"Spillet er færdigt, når du har placeret alle brikkerne på deres korrekte "
-"placering."
+"Spillet er fuldført, når du har placeret alle brikkerne på deres korrekte "
+"placeringer."
 
 #. (itstool) path: note/p
 #: C/usage.page:48
@@ -469,8 +371,8 @@ msgid ""
 "When you start <app>GNOME Tetravex</app>, the game will start immediately, "
 "and the time will start counting."
 msgstr ""
-"Når du starter <app>GNOME Tetravex</app>, vil spillet starte automatisk, og "
-"tidsregistreringen vil gå i gang."
+"Når du starter <app>GNOME Tetravex</app>, startes spillet automatisk, og "
+"tiden begynder at tælle."
 
 #. (itstool) path: section/title
 #: C/usage.page:57
@@ -483,7 +385,7 @@ msgid ""
 "This short video shows how the game works, and what are the possible "
 "movements."
 msgstr ""
-"Denne korte video viser hvordan spillet virker og de mulige placeringer."
+"Denne korte video viser hvordan spillet virker og de mulige flytninger."
 
 #. (itstool) path: media/p
 #: C/usage.page:62
@@ -496,8 +398,8 @@ msgid ""
 "Drag pieces from the right to the left, making sure that adjacent edges have "
 "the same number and color."
 msgstr ""
-"Træk brikker fra højre mod venstre, sikr dig at forbundne kanter har det "
-"samme tal og den samme farve."
+"Træk brikker fra højre mod venstre, mens du sørger for at kanter, som er ved "
+"siden af hinanden, har det samme tal og den samme farve."
 
 #. (itstool) path: div/p
 #: C/usage.page:70
@@ -506,23 +408,23 @@ msgid ""
 "at once."
 msgstr ""
 "Hold <key>Ctrl</key> nede og tryk på piletasterne for at flytte alle de "
-"placerede brikker på en gang."
+"placerede brikker samtidigt."
 
 #. (itstool) path: div/p
 #: C/usage.page:74
 msgid "Continue dragging pieces until they all fit together on the left."
 msgstr ""
-"Fortsæt med at trække brikker indtil de alle passer sammen på venstre side."
+"Fortsæt med at trække brikker indtil de alle passer sammen i venstre side."
 
 #. (itstool) path: info/desc
 #: C/winning.page:9
 msgid "Simple tips on how to possibly win a game."
-msgstr "Enkle fif til hvordan spillet vindes."
+msgstr "Simple tips til hvordan et spil muligvis kan vindes."
 
 #. (itstool) path: page/title
 #: C/winning.page:20
 msgid "Win <app>GNOME Tetravex</app>"
-msgstr "Vind i <app>GNOME Teravex</app>"
+msgstr "Vind i <app>GNOME Tetravex</app>"
 
 #. (itstool) path: note/p
 #: C/winning.page:23
@@ -530,8 +432,8 @@ msgid ""
 "The following tips will not assure you to win a game, they are intended as a "
 "simple aid."
 msgstr ""
-"De følgende fif vil ikke garantere at du kan gennemføre et spil. De er i "
-"steden for ment som en hjælp."
+"Følgende tips giver ikke nogen garanti for at du vinder et spil. De har til "
+"hensigt at være en simpel hjælp."
 
 #. (itstool) path: section/title
 #: C/winning.page:30
@@ -544,8 +446,8 @@ msgid ""
 "When you start a new game, look for a single number, or a number that has no "
 "similar numbers that can be placed next to it."
 msgstr ""
-"Når du starter et nyt spil, så kig efter et tal der er alene, eller et tal "
-"som ikke har lignende tal som kan placeres ved siden af."
+"Når du starter et nyt spil, så kig efter et tal der kun er ét af, eller et "
+"tal hvor der ikke er andre med samme tal som kan placeres ved siden af det."
 
 #. (itstool) path: section/p
 #: C/winning.page:35
@@ -553,7 +455,7 @@ msgid ""
 "If you have one such number, that piece is a valid starting piece, since you "
 "know where it has to be placed."
 msgstr ""
-"Hvis du har et sådant tal, er den brik en gyldig startbrik, da du ved hvor "
+"Hvis du har et sådant tal, er brikken en gyldig startbrik, da du ved hvor "
 "den skal placeres."
 
 #. (itstool) path: section/p
@@ -567,7 +469,7 @@ msgstr ""
 #. (itstool) path: section/title
 #: C/winning.page:46
 msgid "Have a tip to share?"
-msgstr "Har du et fif du ønsker at dele?"
+msgstr "Har du et tip du vil dele?"
 
 #. (itstool) path: section/p
 #: C/winning.page:47
@@ -575,7 +477,6 @@ msgid ""
 "If you have a tip to share about <app>GNOME Tetravex</app>, or any other "
 "GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
 msgstr ""
-"Hvis du har et fif til <app>GNOME Tetravex</app> du ønsker at dele, eller "
-"til et andet GNOME-spil så skriv til os på gnome-doc-list@gnome.org. Vi vil "
-"tilføje dem her! (Bemærk at fiffet skal indsendes på engelsk)."
-
+"Hvis du har et tip til <app>GNOME Tetravex</app> som du vil dele, eller til "
+"et andet GNOME-spil så skriv til os på gnome-doc-list@gnome.org. Så tilføjer "
+"vi dem her!"
