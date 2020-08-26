@@ -23,23 +23,23 @@
 # Djavan Fagundes <djavan@comum.org>, 2012.
 # Ricardo Barbosa <barbosa.cisco@gmail.com>, 2014.
 # Felipe Braga <fbobraga@gmail.com>, 2015.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2013-2020.
 # Enrico Nicoletto <liverig@gmail.com>, 2013, 2020.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2013-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-07-03 15:29+0000\n"
-"PO-Revision-Date: 2020-08-26 09:26-0300\n"
-"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"POT-Creation-Date: 2020-08-26 12:27+0000\n"
+"PO-Revision-Date: 2020-08-26 10:21-0300\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 3.36.0\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:7
@@ -252,7 +252,7 @@ msgstr "_Pontuações"
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
 #: src/app-menu.ui:78
 msgid "A_ppearance"
-msgstr "A_parência"
+msgstr "_Aparência"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
 #: src/app-menu.ui:82
@@ -806,7 +806,7 @@ msgstr "Genérico"
 #: src/help-overlay.ui:163
 msgctxt "shortcut window"
 msgid "Toggle main menu"
-msgstr "Altera o menu principal"
+msgstr "Acessa o menu principal"
 
 #. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
 #: src/help-overlay.ui:171
