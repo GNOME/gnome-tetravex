@@ -1,3 +1,35 @@
+GNOME Tetravex 3.37.91
+======================
+
+Probably the only beta on the road of the future 3.38
+stable release. Some small additions to the main menu
+and the Shortcuts dialog, a shortcut for undoing all,
+a new icon designed by Jakub Steiner, and some needed
+continuous integration works done by Jordan Petridis.
+
+Translations updated:
+  Basque: Asier Sarasua Garmendia
+  Catalan: Jordi Mas
+  Chinese (China): Boyuan Yang
+  Croatian: Goran Vidović
+  Czech: Marek Černocký
+  Danish: Ask Hjorth Larsen
+  Dutch: Nathan Follens
+  British English: Bruce Cowan
+  French: Charles Monzat
+  Friulian: Fabio Tomat
+  Galician: Fran Dieguez
+  Indonesian: Kukuh Syafaat
+  Kazakh: Baurzhan Muftakhidinov
+  Lithuanian: Aurimas Černius
+  Brazilian Portuguese: Enrico Nicoletto and Rafael Fontenelle
+  Romanian: Florentina Mușat and Daniel Șerbănescu
+  Slovenian: Matej Urbančič
+  Spanish: Daniel Mustieles
+  Swedish: Anders Jonsson
+  Turkish: Emin Tufan Çetin
+  Ukrainian: Yuri Chornoivan
+
 GNOME Tetravex 3.37.1
 ======================
 
