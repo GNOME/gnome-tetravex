@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-02-03 01:25+0000\n"
-"PO-Revision-Date: 2020-02-27 23:18+0200\n"
+"POT-Creation-Date: 2020-07-03 15:29+0000\n"
+"PO-Revision-Date: 2020-08-30 14:25+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Launchpad-Export-Date: 2010-09-13 15:09+0000\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:7
@@ -90,6 +90,7 @@ msgstr "Tämän avaimen arvoa käytetään pelialueen koon määrittelyyn."
 #: data/org.gnome.Tetravex.gschema.xml:20
 msgid "Use “Back” and “Forward” mouse button events"
 msgstr ""
+"Käytä hiiren painikkeita \"Takaisinpäin\"- ja \"Eteenpäin\"-tapahtumiin"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:22
@@ -98,11 +99,13 @@ msgid ""
 "will determine if any action is taken inside of the window when either is "
 "pressed."
 msgstr ""
+"Käyttäjille, joiden hiiressä on “Eteenpäin”- ja “Takaisinpäin”-painikkeet, "
+"tämä avain määrittää tehdäänkö mitään, jos kyseisiä painikkeita painetaan."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:28
 msgid "Mouse button to activate the “Undo” command"
-msgstr ""
+msgstr "Hiiren painike, joka aktivoi “Kumoa”-komennon"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:30
@@ -111,11 +114,14 @@ msgid ""
 "will set which button activates the “Undo” command. Possible values range "
 "between 6 and 14."
 msgstr ""
+"Jos käyttäjän hiiressä on ”Eteenpäin”- ja ”Taaksepäin”-painikkeet, tämä "
+"avain määrittää mikä painike käynnistää ”Kumoa”-komennon. Mahdolliset arvot "
+"ovat väliltä 6-14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:36
 msgid "Mouse button to activate the “Redo” command"
-msgstr ""
+msgstr "Hiiren painike, joka aktivoi “Tee uudelleen”-komennon"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
 #: data/org.gnome.Tetravex.gschema.xml:38
@@ -124,11 +130,14 @@ msgid ""
 "will set which button activates the “Redo” command. Possible values range "
 "between 6 and 14."
 msgstr ""
+"Jos käyttäjän hiiressä on ”Eteenpäin”- ja ”Taaksepäin”-painikkeet, tämä "
+"avain määrittää mikä painike käynnistää ”Tee uudelleen”-komennon. "
+"Mahdolliset arvot ovat väliltä 6-14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
 #: data/org.gnome.Tetravex.gschema.xml:43
 msgid "Saved game, if any"
-msgstr ""
+msgstr "Tallennettu peli, jos mitään"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) »
 #: data/org.gnome.Tetravex.gschema.xml:45
@@ -141,6 +150,13 @@ msgid ""
 "history entries saved as properties: coordinates of the two tiles swapped, "
 "and the move id."
 msgstr ""
+"Avaimella on arvo “nothing”, jos tallennettua peliä ei ole. Muussa "
+"tapauksessa se sisältää laudan kuvauksen ja koon, värien numerot, kuluneen "
+"ajan, luettelon tiilistä (tallennettuna ominaisuuksiksi): nykyisen sijainnin "
+"(x ja y), värit (pohjoinen, itä, etelä ja länsi), alkuperäisen sijainnin (x "
+"ja y) ja lopulta historian, jossa on viimeisimmän siirron indeksi ja "
+"historiatietueet tallennettuna ominaisuuksiksi; kahden siirretyn tiilen "
+"koordinaatit ja siirron id:n."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
 #: data/org.gnome.Tetravex.gschema.xml:50
@@ -178,153 +194,154 @@ msgid "If “true”, the main window starts in maximized mode."
 msgstr "Jos “true”, pääikkuna käynnistyy suurennetussa tilassa."
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
-#: src/app-menu.ui:23
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
+#: src/app-menu.ui:23 src/app-menu.ui:64
 msgid "_New Game"
 msgstr "_Uusi peli"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
-#: src/app-menu.ui:28
-msgid "_Scores"
-msgstr "_Pisteet"
-
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
-#: src/app-menu.ui:33
-msgid "A_ppearance"
-msgstr "_Ulkoasu"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:37
-msgid "_Extrusion"
-msgstr "_Ekstruusio"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:43
-msgid "Neo_Retro"
-msgstr "Neo_Retro"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
-#: src/app-menu.ui:49
-msgid "_Nostalgia"
-msgstr "_Nostalgia"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
-#: src/app-menu.ui:55
-msgid "_Synesthesia"
-msgstr "_Synestesia"
-
 #. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
-#: src/app-menu.ui:65
+#: src/app-menu.ui:28
 msgid "Si_ze"
 msgstr "_Koko"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
-#: src/app-menu.ui:69
+#: src/app-menu.ui:32
 msgid "_2 × 2"
 msgstr "_2 × 2"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
-#: src/app-menu.ui:75
+#: src/app-menu.ui:38
 msgid "_3 × 3"
 msgstr "_3 × 3"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
-#: src/app-menu.ui:81
+#: src/app-menu.ui:44
 msgid "_4 × 4"
 msgstr "_4 × 4"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
-#: src/app-menu.ui:87
+#: src/app-menu.ui:50
 msgid "_5 × 5"
 msgstr "_5 × 5"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
-#: src/app-menu.ui:93
+#: src/app-menu.ui:56
 msgid "_6 × 6"
 msgstr "_6 × 6"
 
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: src/app-menu.ui:73
+msgid "_Scores"
+msgstr "_Pisteet"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
+#: src/app-menu.ui:78
+msgid "A_ppearance"
+msgstr "_Ulkoasu"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:82
+msgid "_Extrusion"
+msgstr "_Ekstruusio"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:88
+msgid "Neo_Retro"
+msgstr "Neo_Retro"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
+#: src/app-menu.ui:94
+msgid "_Nostalgia"
+msgstr "_Nostalgia"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
+#: src/app-menu.ui:100
+msgid "_Synesthesia"
+msgstr "_Synestesia"
+
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
-#: src/app-menu.ui:103
+#: src/app-menu.ui:110
 msgid "_Keyboard Shortcuts"
 msgstr "_Pikanäppäimet"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help
-#: src/app-menu.ui:108
+#: src/app-menu.ui:115
 msgid "_Help"
 msgstr "O_hje"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
-#: src/app-menu.ui:113
+#: src/app-menu.ui:120
 msgid "_About Tetravex"
 msgstr "_Tietoja - Tetravex"
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the change the number of colors or the game size while not specifying a new game; try `gnome-tetravex --cli show --size 3`
 #: src/cli.vala:35
 msgid "Game size and colors number can only be given for new puzzles."
-msgstr ""
+msgstr "Pelin koko ja värinumerot voi antaa vain uusille pulmille."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli up`
 #: src/cli.vala:89
 msgid "Cannot move up left-board tiles."
-msgstr ""
+msgstr "Vasemman laatikon tiilejä ei voi siirtää ylös."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli down`
 #: src/cli.vala:95
 msgid "Cannot move down left-board tiles."
-msgstr ""
+msgstr "Vasemman laatikon tiilejä ei voi siirtää alas."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli left`
 #: src/cli.vala:101
 msgid "Cannot move left left-board tiles."
-msgstr ""
+msgstr "Vasemman laatikon tiilejä ei voi siirtää vasemmalle."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli right`
 #: src/cli.vala:107
 msgid "Cannot move right left-board tiles."
-msgstr ""
+msgstr "Vasemman laatikon tiilejä ei voi siirtää oikealle."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-up`
 #: src/cli.vala:113
 msgid "Cannot move up right-board tiles."
-msgstr ""
+msgstr "Oikean laatikon tiilejä ei voi siirtää ylös."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-down`
 #: src/cli.vala:118
 msgid "Cannot move down right-board tiles."
-msgstr ""
+msgstr "Oikean laatikon tiilejä ei voi siirtää alas."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-left`
 #: src/cli.vala:123
 msgid "Cannot move left right-board tiles."
-msgstr ""
+msgstr "Oikean laatikon tiilejä ei voi siirtää vasemmalle."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-right`
 #: src/cli.vala:128
 msgid "Cannot move right right-board tiles."
-msgstr ""
+msgstr "Oikean laatikon tiilejä ei voi siirtää oikealle."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “finish” command while the saved puzzle cannot be automatically finished; try `gnome-tetravex --cli new; gnome-tetravex --cli finish`
 #: src/cli.vala:145
-#, fuzzy
-#| msgid "Are you sure you want to give up and view the solution?"
 msgid ""
 "Cannot finish automatically. If you want to give up and view the solution, "
 "use “solve”."
-msgstr "Haluatko varmasti luovuttaa ja nähdä ratkaisun?"
+msgstr ""
+"Viimeistely ei onnnistu automaattisesti. Jos haluat luovuttaa ja nähdä "
+"ratkaisun, käytä \"solve\"."
 
 #. Translators: command-line error message, displayed if the string is not a known command nor a valid move instruction; try `gnome-tetravex --cli new; gnome-tetravex --cli A2838I8U`
 #: src/cli.vala:174
 msgid "Cannot parse instruction, aborting."
-msgstr ""
+msgstr "Komentoa ei voi jäsentää, perutaan."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to invert two empty tiles
 #: src/cli.vala:181
 msgid "Both given tiles are empty, aborting."
-msgstr ""
+msgstr "Molemmat annetut tiilet ovat tyhjiä, perutaan."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to do an invalid move
 #: src/cli.vala:187
 msgid "Cannot swap the given tiles, aborting."
-msgstr ""
+msgstr "Annettuja tiilejä ei voi vaihtaa, perutaan."
 
 #. Translators: command-line error message, displayed if the user tries to solve the puzzle using CLI (with the “solve” or “finish” commands), while the puzzle is already solved
 #: src/cli.vala:230
@@ -348,156 +365,135 @@ msgstr "(ei mitään)"
 
 #. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:77
+#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:78
 msgid "Set number of colors (2-10)"
 msgstr "Aseta värien määrä (2-10)"
 
 #. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex-cli --help'
 #. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:80
+#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:81
 msgid "NUMBER"
 msgstr "NUMERO"
 
 #. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:89
+#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:90
 msgid "Set size of board (2-6)"
 msgstr "Aseta laudan koko (2-6)"
 
 #. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex-cli --help'
 #. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:92
+#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:93
 msgid "SIZE"
 msgstr "KOKO"
 
 #. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:95
+#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:96
 msgid "Print release version and exit"
 msgstr "Näytä julkaisuversio ja sulkeudu"
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
-#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:194
+#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:200
 msgid "Invert two tiles, the one in A1, and the one in b2."
-msgstr ""
+msgstr "Vaihda kaksi tiiltä, yksi A1:ssä, toinen B2:ssa."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
-#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:197
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
+#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:203
 msgid "An uppercase targets a tile from the initial board."
-msgstr ""
+msgstr "Iso kirjain kohdistaa tiileen alkulaudalta."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:200
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:206
 msgid "A lowercase targets a tile in the left/final board."
-msgstr ""
+msgstr "Pieni kirjain kohdistaa tiileen vasemmassa/lopullisessa laudassa."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
-#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:203
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
+#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:209
 msgid "Digits specify the rows of the two tiles to invert."
-msgstr ""
+msgstr "Numerot määrittävät vaihdettavien tiilten rivit."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
-#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:206
+#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:212
 msgid "Show the current puzzle. Alias: “status” or “show”."
-msgstr ""
+msgstr "Näytä nykyinen pulma. Alias: “status” tai “show”."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
-#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:209
+#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:215
 msgid "Create a new puzzle; for changing size, use --size."
-msgstr ""
+msgstr "Luo uusi pulma; muuta kokoa käyttämällä --size."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
-#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:212
+#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:218
 msgid "Give up with current puzzle, and view the solution."
 msgstr "Luovuta pulma, ja katso ratkaisu siihen."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands
-#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:215
+#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:221
 msgid "Finish current puzzle, automatically. Alias: “end”."
-msgstr ""
+msgstr "Viimeistele nykyinen pulma automaattisesti. Alias: “end”."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:218
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:224
 msgid "Works for puzzles solved right or if one tile left."
-msgstr ""
+msgstr "Toimii oikein selvitetyissä pulmissa tai jos yksi tiili on jäljellä."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command
-#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:221
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box up by one"
+#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:227
 msgid "Move all left-board tiles up by one."
-msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä ylös"
+msgstr "Siirrä kaikki tiilet vasemmassa laatikossa yhdellä ylös."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command
-#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:224
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box down by one"
+#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:230
 msgid "Move all left-board tiles down by one."
-msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä alas"
+msgstr "Siirrä kaikki tiilet vasemmassa laatikossa yhdellä alas."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command
-#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:227
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box left by one"
+#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:233
 msgid "Move all left-board tiles left by one."
-msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä vasemmalle"
+msgstr "Siirrä kaikki tiilet vasemmassa laatikossa yhdellä vasemmalle."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command
-#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:230
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box right by one"
+#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:236
 msgid "Move all left-board tiles right by one."
-msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä oikealle"
+msgstr "Siirrä kaikki tiilet vasemmassa laatikossa yhdellä oikealle."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
-#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:233
+#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:239
 msgid "Move all right-board tiles up by one."
-msgstr ""
+msgstr "Siirrä kaikki tiilet oikeassa laatikossa yhdellä ylös."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
-#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:236
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box down by one"
+#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:242
 msgid "Move all right-board tiles down by one."
-msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä alas"
+msgstr "Siirrä kaikki tiilet oikeassa laatikossa yhdellä alas."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command
-#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:239
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box up by one"
+#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:245
 msgid "Move all right-board tiles left by one."
-msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä ylös"
+msgstr "Siirrä kaikki tiilet oikeassa laatikossa yhdellä vasemmalle."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command
-#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:242
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box right by one"
+#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:248
 msgid "Move all right-board tiles right by one."
-msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä oikealle"
+msgstr "Siirrä kaikki tiilet oikeassa laatikossa yhdellä oikealle."
 
 #. Translators: command-line message, seen when running `gnome-tetravex-cli --help`
 #: src/gnome-tetravex-cli.vala:138
@@ -511,19 +507,19 @@ msgstr "Mahdolliset komennot:"
 
 #. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1'
 #. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
-#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:167
+#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:173
 msgid "Size could only be from 2 to 6."
 msgstr "Koko voi olla olla kahdesta kuuteen."
 
 #. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1'
 #. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
-#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:174
+#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:180
 msgid "There could only be between 2 and 10 colors."
 msgstr "Värejä voi olla kahdesta kymmeneen asti."
 
 #. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2'
 #. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
-#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:181
+#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:187
 msgid "Failed to parse command-line arguments."
 msgstr "Komentorivivalitsimien jäsentäminen epäonnistui."
 
@@ -533,82 +529,80 @@ msgid "To use `gnome-tetravex-cli`, pass as argument:"
 msgstr "Käyttääksesi`gnome-tetravex-cli`, välitä argumenttina:"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:71
+#: src/gnome-tetravex.vala:72
 msgid "Play in the terminal (see “--cli=help”)"
 msgstr "Pelaa päätteessä (lue “--cli=help”)"
 
 #. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:74
+#: src/gnome-tetravex.vala:75
 msgid "COMMAND"
 msgstr "KOMENTO"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:83
+#: src/gnome-tetravex.vala:84
 msgid "Start the game paused"
 msgstr "Aloita peli keskeytettynä"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:86
+#: src/gnome-tetravex.vala:87
 msgid "Restore last game, if any"
 msgstr "Palauta viimeisin peli, jos mitään"
 
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
-#: src/gnome-tetravex.vala:191
+#: src/gnome-tetravex.vala:197
 msgid "To play GNOME Tetravex in command-line:"
 msgstr "Pelaa Gnomen Tetravexia komentoriviltä:"
 
 #. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
-#: src/gnome-tetravex.vala:356
+#: src/gnome-tetravex.vala:365
 msgid "Restore last game"
 msgstr "Palauta viimeisin peli"
 
 #. not a typo
 #. Translators: tooltip text of the "play"/unpause button, in the bottom bar
-#: src/gnome-tetravex.vala:407
+#: src/gnome-tetravex.vala:419
 msgid "Resume the game"
 msgstr "Jatka peliä"
 
 #. Translators: tooltip text of the pause button, in the bottom bar
-#: src/gnome-tetravex.vala:414
+#: src/gnome-tetravex.vala:426
 msgid "Pause the game"
 msgstr "Keskeytä peli"
 
 #. Translators: tooltip text of the "restart"/new game button, in the bottom bar
-#: src/gnome-tetravex.vala:427
+#: src/gnome-tetravex.vala:439
 msgid "Start a new game"
 msgstr "Aloita uusi peli"
 
 #. Translators: tooltip text of the "solve"/give up button, in the bottom bar
-#: src/gnome-tetravex.vala:434
+#: src/gnome-tetravex.vala:446
 msgid "Give up and view the solution"
 msgstr "Luovuta ja katso ratkaisu"
 
 #. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
-#: src/gnome-tetravex.vala:441
+#: src/gnome-tetravex.vala:453
 msgid "Move all tiles left"
 msgstr "Siirrä kaikki laatat vasemmalle"
 
-#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:741
-msgid "Are you sure you want to start a new game with same board size?"
-msgstr "Haluatko varmasti aloittaa uuden pelin samalla laudan koolla?"
+#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
+#: src/gnome-tetravex.vala:776
+#, c-format
+msgid "Are you sure you want to start a new %u × %u game?"
+msgstr "Haluatko varmasti aloittaa uuden pelin, jonka koko on %u × %u?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game"
-#: src/gnome-tetravex.vala:744 src/gnome-tetravex.vala:815
-#: src/gnome-tetravex.vala:859
+#: src/gnome-tetravex.vala:779 src/gnome-tetravex.vala:837
 msgid "_Keep Playing"
 msgstr "_Jatka pelaamista"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:747 src/gnome-tetravex.vala:862
+#: src/gnome-tetravex.vala:782
 msgid "_Start New Game"
 msgstr "_Aloita uusi peli"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
-#: src/gnome-tetravex.vala:773
+#: src/gnome-tetravex.vala:808
 msgid ""
 "Looks like you haven’t finished a game yet.\n"
 "\n"
@@ -619,59 +613,54 @@ msgstr ""
 "Kokeile 2 × 2 -ruudukkoa, ne ovat helppoja. 🙂️"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
-#: src/gnome-tetravex.vala:812
+#: src/gnome-tetravex.vala:834
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Haluatko varmasti luovuttaa ja nähdä ratkaisun?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:818
+#: src/gnome-tetravex.vala:840
 msgid "_Give Up"
 msgstr "_Luovuta"
 
-#. Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:856
-msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Haluatko varmasti aloittaa uuden pelin eri laudan koolla?"
-
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:991
+#: src/gnome-tetravex.vala:1021
 msgid "Lars Rydlinge"
 msgstr "Lars Rydlinge"
 
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:995
+#: src/gnome-tetravex.vala:1025
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting a game documenter, seen in the About dialog
-#: src/gnome-tetravex.vala:999
+#: src/gnome-tetravex.vala:1029
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. Translators: short description of the application, seen in the About dialog
-#: src/gnome-tetravex.vala:1003
+#: src/gnome-tetravex.vala:1033
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "Asettele palaset siten, että samat numerot koskevat toisiaan"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1007
+#: src/gnome-tetravex.vala:1037
 #, c-format
 msgid "Copyright © %u-%u – Lars Rydlinge"
 msgstr "Tekijänoikeus © %u-%u – Lars Rydlinge"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1011
+#: src/gnome-tetravex.vala:1041
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Tekijänoikeus © %u-%u – Arnaud Bonatti"
 
 #. Translators: about dialog text; label of the website link
-#: src/gnome-tetravex.vala:1015
+#: src/gnome-tetravex.vala:1045
 msgid "Page on GNOME wiki"
 msgstr "Sivu Gnomen wikissä"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-tetravex.vala:1027
+#: src/gnome-tetravex.vala:1057
 msgid "translator-credits"
 msgstr ""
 "Jiri Grönroos, 2012-2020\n"
@@ -752,116 +741,128 @@ msgctxt "shortcut window"
 msgid "Redo"
 msgstr "Tee uudestaan"
 
+#. Translators: Shift-Ctrl-R shortcut description in the Keyboard Shortcuts dialog, section History; undoes all the moves
+#: src/help-overlay.ui:109
+msgctxt "shortcut window"
+msgid "Reload initial position"
+msgstr "Lataa uudelleen alkuasetelma"
+
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"...
-#: src/help-overlay.ui:110
+#: src/help-overlay.ui:118
 msgctxt "shortcut window"
 msgid "Main functions"
 msgstr "Keskeisimmät toiminnot"
 
 #. Translators: Ctrl-N shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:116
+#: src/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Start a new game"
 msgstr "Aloita uusi peli"
 
 #. Translators: Ctrl-P shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:124
+#: src/help-overlay.ui:132
 msgctxt "shortcut window"
 msgid "Pause the game"
 msgstr "Keskeytä peli"
 
 #. Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:132
+#: src/help-overlay.ui:140
 msgctxt "shortcut window"
 msgid "Solve the game"
 msgstr "Ratkaise peli"
 
 #. Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:140
+#: src/help-overlay.ui:148
 msgctxt "shortcut window"
 msgid "Show scores"
 msgstr "Näytä pisteet"
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Show Help", "Show Keyboard Shortcuts", "Quit"...
-#: src/help-overlay.ui:149
+#: src/help-overlay.ui:157
 msgctxt "shortcut window"
 msgid "Generic"
 msgstr "Yleiset"
 
+#. Translators: F10 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows menu
+#: src/help-overlay.ui:163
+msgctxt "shortcut window"
+msgid "Toggle main menu"
+msgstr "Avaa tai sulje päävalikko"
+
 #. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
-#: src/help-overlay.ui:155
+#: src/help-overlay.ui:171
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
 msgstr "Näytä pikanäppäimet"
 
 #. Translators: F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows application help
-#: src/help-overlay.ui:163
+#: src/help-overlay.ui:179
 msgctxt "shortcut window"
 msgid "Show Help"
 msgstr "Näytä ohje"
 
 #. Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog
-#: src/help-overlay.ui:171
+#: src/help-overlay.ui:187
 msgctxt "shortcut window"
 msgid "Show About"
 msgstr "Näytä tietoja"
 
 #. Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application
-#: src/help-overlay.ui:179
+#: src/help-overlay.ui:195
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Lopeta"
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note...
-#: src/help-overlay.ui:188
+#: src/help-overlay.ui:204
 msgctxt "shortcut window"
 msgid "Advanced gameplay"
 msgstr "Edistynyt peli"
 
 #. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:194
+#: src/help-overlay.ui:210
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left half-board up by one"
 msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä ylös"
 
 #. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:202
+#: src/help-overlay.ui:218
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left half-board down by one"
 msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä alas"
 
 #. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:210
+#: src/help-overlay.ui:226
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left half-board left by one"
 msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä vasemmalle"
 
 #. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:218
+#: src/help-overlay.ui:234
 msgctxt "shortcut window"
 msgid "Move all the pieces in the left half-board right by one"
 msgstr "Siirrä kaikki palat vasemmassa laatikossa yhdellä oikealle"
 
 #. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:226
+#: src/help-overlay.ui:242
 msgctxt "shortcut window"
 msgid "Move all the pieces in the right half-board up by one"
 msgstr "Siirrä kaikki palat oikeassa laatikossa yhdellä ylös"
 
 #. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:234
+#: src/help-overlay.ui:250
 msgctxt "shortcut window"
 msgid "Move all the pieces in the right half-board down by one"
 msgstr "Siirrä kaikki palat oikeassa laatikossa yhdellä alas"
 
 #. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:242
+#: src/help-overlay.ui:258
 msgctxt "shortcut window"
 msgid "Move all the pieces in the right half-board left by one"
 msgstr "Siirrä kaikki palat oikeassa laatikossa yhdellä vasemmalle"
 
 #. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:250
+#: src/help-overlay.ui:266
 msgctxt "shortcut window"
 msgid "Move all the pieces in the right half-board right by one"
 msgstr "Siirrä kaikki palat oikeassa laatikossa yhdellä oikealle"
@@ -909,7 +910,7 @@ msgid "%.3fs"
 msgstr "%.3f s"
 
 #. Translators: text that appears as an overlay on the board when the game is paused
-#: src/puzzle-view.vala:532
+#: src/puzzle-view.vala:535
 msgid "Paused"
 msgstr "Keskeytetty"
 
@@ -1002,6 +1003,10 @@ msgstr "Neljäs:"
 #: src/score-overlay.vala:205
 msgid "Free!"
 msgstr "Vapaana!"
+
+#~ msgid ""
+#~ "Are you sure you want to start a new game with a different board size?"
+#~ msgstr "Haluatko varmasti aloittaa uuden pelin eri laudan koolla?"
 
 #~ msgid "org.gnome.Tetravex"
 #~ msgstr "org.gnome.Tetravex"
