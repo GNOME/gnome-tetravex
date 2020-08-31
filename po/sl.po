@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
 "POT-Creation-Date: 2020-07-05 21:09+0000\n"
-"PO-Revision-Date: 2020-08-21 18:02+0200\n"
+"PO-Revision-Date: 2020-08-28 19:00+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -144,6 +144,12 @@ msgid ""
 "history entries saved as properties: coordinates of the two tiles swapped, "
 "and the move id."
 msgstr ""
+"Ključ ima določeno vrednost »nothing (ni shranjenih predmetov«, če ni nobene "
+"shranjene igre. V nasprotnem vsebuje opis plošče s podatki o velikosti, "
+"številom barv, pretečenim časom in celoten seznam ploščic, shranjenih kot "
+"lastnosti: trenutni položaj (x in y), barva (sever, vzhod, jug in zahod), "
+"začetni položaj (x in y) in celotno zgodovino potez (zgodovina koordinat "
+"zadnjih zamenjanih ploščic in ID poteze)."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
 #: data/org.gnome.Tetravex.gschema.xml:50
@@ -352,7 +358,7 @@ msgstr "Sestavljanka je razrešena!"
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explanation of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
 #: src/gnome-tetravex-cli.vala:24
 msgid "(nothing)"
-msgstr ""
+msgstr "(prazno polje)"
 
 #. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
@@ -388,19 +394,19 @@ msgstr "Izpiši različico programa in končaj"
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
 #: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:196
 msgid "Invert two tiles, the one in A1, and the one in b2."
-msgstr ""
+msgstr "Obrni dve ploščici, eno v A1 in eno in b2."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
 #: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:199
 msgid "An uppercase targets a tile from the initial board."
-msgstr ""
+msgstr "Velika črka določa zamenjavo ploščice na začetni postavitvi."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
 #: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:202
 msgid "A lowercase targets a tile in the left/final board."
-msgstr ""
+msgstr "Mala črka določa  zamenjavo ploščice na levi, končni postavitvi."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
