@@ -1,15 +1,15 @@
 # German translation of the Tetravex manual.
 #
 # Thomas Konstantinides <gntr1@tkonstantinides.de>, 2007.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2008-2013, 2019.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2008-2013, 2019, 2020.
 # Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnotravex help master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-17 14:06+0000\n"
-"PO-Revision-Date: 2019-04-05 14:48+0200\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"POT-Creation-Date: 2020-09-02 17:51+0000\n"
+"PO-Revision-Date: 2020-09-06 21:09+0200\n"
+"Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 18.12.3\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
 "Thomas Konstantinides <gntr1@tkonstantinides.de>, 2007\n"
-"Mario Blättermann <mario.blaettermann@gmail.com>, 2008-2012, 2019\n"
-"Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010, 2015"
+"Mario Blättermann <mario.blaettermann@gmail.com>, 2008-2012, 2019, 2020\n"
+"Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010, 2015, 2020"
 
 #. (itstool) path: info/desc
 #: C/hint.page:7
-msgid "Use hints or solve the game automatically."
-msgstr "Hinweise benutzen oder das Spiel automatisch lösen."
+msgid "Solve the game automatically."
+msgstr "Das Spiel automatisch lösen."
 
 #. (itstool) path: credit/name
-#: C/hint.page:10 C/index.page:17 C/move.page:11 C/size.page:12 C/usage.page:12
+#: C/hint.page:10 C/index.page:17 C/move.page:12 C/size.page:12 C/usage.page:12
 #: C/winning.page:12
 msgid "Milo Casagrande"
 msgstr "Milo Casagrande"
@@ -60,13 +60,11 @@ msgstr "Das Spiel lösen"
 #. (itstool) path: section/p
 #: C/hint.page:25
 msgid ""
-"If you get stuck in the game, or you want to solve it automatically, choose "
-"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
-"guiseq>."
+"If you get stuck in the game and want to solve it automatically, press the "
+"question mark button in the bottom-right corner."
 msgstr ""
-"Falls Ihnen das Spiel zu langweilig wird oder Sie es automatisch lösen "
-"lassen wollen, wählen Sie <guiseq><gui style=\"menu\">Spiel</gui><gui style="
-"\"menuitem\">Lösen</gui></guiseq>."
+"Falls Sie im Spiel nicht mehr weiterkommen und es automatisch lösen lassen "
+"wollen, klicken Sie auf den Fragezeichen-Knopf in der rechten unteren Ecke."
 
 #. (itstool) path: info/title
 #: C/index.page:8
@@ -91,7 +89,7 @@ msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. (itstool) path: license/p
-#: C/index.page:21 C/move.page:15 C/size.page:16 C/usage.page:20
+#: C/index.page:21 C/move.page:16 C/size.page:16 C/usage.page:20
 #: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
@@ -241,17 +239,17 @@ msgid "How to move the pieces on the game board."
 msgstr "Verschieben der Spielsteine auf dem Spielfeld."
 
 #. (itstool) path: page/title
-#: C/move.page:19
+#: C/move.page:20
 msgid "Move the pieces"
 msgstr "Bewegen der Spielsteine"
 
 #. (itstool) path: section/title
-#: C/move.page:22
+#: C/move.page:23
 msgid "Move a piece"
 msgstr "Bewegen eines Spielsteins"
 
 #. (itstool) path: section/p
-#: C/move.page:23
+#: C/move.page:24
 msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
@@ -261,19 +259,21 @@ msgstr ""
 "oder Sie ziehen ihn einfach an die gewünschte Position."
 
 #. (itstool) path: section/p
-#: C/move.page:26
+#: C/move.page:27
 msgid "These moves are not permanent and can be reversed."
 msgstr "Diese Züge sind nicht permanent und können rückgängig gemacht werden."
 
 #. (itstool) path: note/p
-#: C/move.page:30
+#: C/move.page:31
 msgid ""
-"The pieces in the left box can be moved all at once in one direction. See "
-"<link xref=\"shortcut\"/> for more information."
+"The pieces in the left box can be moved all at once in one direction. Press "
+"the menu button in the top-right corner of the window and select <gui style="
+"\"menuitem\">Keyboard Shortcuts</gui> for more information."
 msgstr ""
 "Die Steine im linken Spielfeldbereich können alle gleichzeitig in eine "
-"bestimmte Richtung verschoben werden. Weitere Informationen finden Sie in "
-"<link xref=\"shortcut\"/>."
+"bestimmte Richtung verschoben werden. Klicken Sie auf den Menüknopf in der "
+"rechten oberen Fensterecke und wählen Sie für weitere Informationen<gui "
+"style=\"menuitem\">Tastenkombinationen</gui>."
 
 #. (itstool) path: info/desc
 #: C/size.page:7
@@ -294,9 +294,9 @@ msgid ""
 "dimension of the board."
 msgstr ""
 "Um den Schwierigkeitsgrad des Spiels anzupassen, können Sie die Größe des "
-"Spielfelds ändern. Klicken Sie hierzu auf den Menüknopf in der oberen "
-"Leiste und dann auf <gui>Größe</gui>. Wählen Sie anschließend die gewünschte "
-"Größe des Spielfelds aus."
+"Spielfelds ändern. Klicken Sie hierzu auf den Menüknopf in der oberen Leiste "
+"und dann auf <gui>Größe</gui>. Wählen Sie anschließend die gewünschte Größe "
+"des Spielfelds aus."
 
 #. (itstool) path: page/p
 #: C/size.page:27
@@ -490,3 +490,12 @@ msgstr ""
 "Wenn Sie einen Tipp zu <app>GNOME Tetravex</app> oder zu einem der anderen "
 "der GNOME-Spiele haben, den Sie gern weitergeben möchten, dann schreiben Sie "
 "an gnome-doc-list@gnome.org. Wir werden ihn gern hier veröffentlichen!"
+
+#~ msgid ""
+#~ "If you get stuck in the game, or you want to solve it automatically, "
+#~ "choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem"
+#~ "\">Solve</gui></guiseq>."
+#~ msgstr ""
+#~ "Falls Ihnen das Spiel zu langweilig wird oder Sie es automatisch lösen "
+#~ "lassen wollen, wählen Sie <guiseq><gui style=\"menu\">Spiel</gui><gui "
+#~ "style=\"menuitem\">Lösen</gui></guiseq>."
