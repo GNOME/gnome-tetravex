@@ -9,7 +9,7 @@
 # Updated for gnome-tetravex:
 #
 # Changwoo Ryu <cwryu@debian.org>, 2013-2015.
-# Seong-ho Cho <shcho@gnome.org>, 2019.
+# Seong-ho Cho <shcho@gnome.org>, 2019-2020.
 #
 #
 # 새로 번역하신 분은 아래 "translator-credits"에 추가하세요.
@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-03-26 18:26+0000\n"
-"PO-Revision-Date: 2019-09-02 10:11+0900\n"
+"POT-Creation-Date: 2020-06-12 16:12+0000\n"
+"PO-Revision-Date: 2020-09-07 22:13+0900\n"
 "Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -30,7 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
@@ -60,9 +60,10 @@ msgstr "게임판 크기를 바꿔서 게임을 더 쉽거나 더 어렵게 만�
 msgid "The GNOME Project"
 msgstr "그놈 프로젝트"
 
-#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:7
-#: src/gnome-tetravex.vala:71 src/gnome-tetravex.vala:106
-#: src/gnome-tetravex.vala:389
+#. Translators: application name, as seen in GNOME Shell
+#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
+#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:23
+#: src/gnome-tetravex.vala:27
 msgid "Tetravex"
 msgstr "테트라벡스"
 
@@ -77,211 +78,943 @@ msgstr "조각의 번호를 맞춰서 퍼즐을 풉니다"
 msgid "game;logic;board;"
 msgstr "game;게임;logic;논리;로직;board;보드;"
 
-#: data/org.gnome.Tetravex.gschema.xml:6
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
+#: data/org.gnome.Tetravex.gschema.xml:13
 msgid "The size of the playing grid"
 msgstr "플레이하는 격자의 크기"
 
-#: data/org.gnome.Tetravex.gschema.xml:7
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
+#: data/org.gnome.Tetravex.gschema.xml:15
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "이 키는 플레이 격자의 크기를 결정합니다."
 
-#: data/org.gnome.Tetravex.gschema.xml:11
-msgid "Width of the window in pixels"
-msgstr "창의 너비, 픽셀 단위."
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:20
+msgid "Use “Back” and “Forward” mouse button events"
+msgstr "“이전”, “다음” 마우스 단추 이벤트 사용"
 
-#: data/org.gnome.Tetravex.gschema.xml:15
-msgid "Height of the window in pixels"
-msgstr "창의 높이, 픽셀 단위."
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:22
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key "
+"will determine if any action is taken inside of the window when either is "
+"pressed."
+msgstr ""
+"“이전”, “다음” 단추가 있는 마우스를 사용한다면, 이 키를 눌렀을 때 창 내부에"
+"서 어떤 동작을 취할지 결정합니다."
 
-#: data/org.gnome.Tetravex.gschema.xml:19
-msgid "true if the window is maximized"
-msgstr "참이면 창을 최대화"
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:28
+msgid "Mouse button to activate the “Undo” command"
+msgstr "“되돌리기” 명령을 실행할 마우스 단추"
 
-#: src/app-menu.ui:5
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:30
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key "
+"will set which button activates the “Undo” command. Possible values range "
+"between 6 and 14."
+msgstr ""
+"“이전”, “다음” 단추가 있는 마우스를 사용한다면, 어떤 단추를 눌렀을 때 “되돌리"
+"기” 명령을 실행할 지를 설정합니다. 가능한 값은 6부터 14까지입니다."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:36
+msgid "Mouse button to activate the “Redo” command"
+msgstr "“다시 실행” 명령을 실행할 마우스 단추"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
+#: data/org.gnome.Tetravex.gschema.xml:38
+msgid ""
+"For users which have a mouse with “Forward” and “Back” buttons, this key "
+"will set which button activates the “Redo” command. Possible values range "
+"between 6 and 14."
+msgstr ""
+"“이전”, “다음” 단추가 있는 마우스를 사용한다면, 어떤 단추를 눌렀을 때 “다시 "
+"실행” 명령을 실행할 지를 설정합니다. 가능한 값은 6부터 14까지입니다."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
+#: data/org.gnome.Tetravex.gschema.xml:43
+msgid "Saved game, if any"
+msgstr "저장한 게임이 있다면 열기"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) »
+#: data/org.gnome.Tetravex.gschema.xml:45
+msgid ""
+"The key has value “nothing” if there is no saved game. Else, it contains a "
+"description of the board, with its size, the number of colors, and the time "
+"elapsed, then the list of tiles, saved as properties: their current position "
+"(x and y), their colors (north, east, south and west), and their original "
+"position (x and y), and finally the history, with the last move index, and "
+"history entries saved as properties: coordinates of the two tiles swapped, "
+"and the move id."
+msgstr ""
+"저장한 게임이 없다면 키에 “없음” 값을 갖습니다. 아니면, 보드 설명, 크기, 색"
+"상 수, 진행 시간, 조각 목록, 속성으로 저장한 현재 위치(x, y), 색상(동, 서, "
+"남, 북), 원래 위치(x, y), 가장 마지막에 옮긴 인덱스, 이력 목록, 서로 바꾼 조"
+"각의 좌표와 이동 ID 값을 갖습니다."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
+#: data/org.gnome.Tetravex.gschema.xml:50
+msgid "Theme"
+msgstr "테마"
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
+#: data/org.gnome.Tetravex.gschema.xml:56
+msgid "The width of the window"
+msgstr "창의 너비"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
+#: data/org.gnome.Tetravex.gschema.xml:58
+msgid "The width of the main window in pixels."
+msgstr "메인 창의 너비, 픽셀 단위."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
+#: data/org.gnome.Tetravex.gschema.xml:63
+msgid "The height of the window"
+msgstr "창의 높이"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
+#: data/org.gnome.Tetravex.gschema.xml:65
+msgid "The height of the main window in pixels."
+msgstr "메인 창의 높이, 픽셀 단위."
+
+#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
+#: data/org.gnome.Tetravex.gschema.xml:70
+msgid "A flag to enable maximized mode"
+msgstr "최대화 모드를 켜는 플래그"
+
+#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
+#: data/org.gnome.Tetravex.gschema.xml:72
+msgid "If “true”, the main window starts in maximized mode."
+msgstr "“참”이면 메인 창을 최대화 모드로 시작."
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
+#: src/app-menu.ui:23 src/app-menu.ui:64
 msgid "_New Game"
 msgstr "새 게임(_N)"
 
-#: src/app-menu.ui:9
-msgid "_Scores"
-msgstr "점수(_S)"
-
-#: src/app-menu.ui:15
+#. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
+#: src/app-menu.ui:28
 msgid "Si_ze"
 msgstr "크기(_Z)"
 
-#: src/app-menu.ui:18
-msgid "_2x2"
-msgstr "_2x2"
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
+#: src/app-menu.ui:32
+msgid "_2 × 2"
+msgstr "2 × 2(_2)"
 
-#: src/app-menu.ui:23
-msgid "_3x3"
-msgstr "_3x3"
-
-#: src/app-menu.ui:28
-msgid "_4x4"
-msgstr "_4x4"
-
-#: src/app-menu.ui:33
-msgid "_5x5"
-msgstr "_5x5"
-
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
 #: src/app-menu.ui:38
-msgid "_6x6"
-msgstr "_6x6"
+msgid "_3 × 3"
+msgstr "3 × 3(_3)"
 
-#: src/app-menu.ui:47
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
+#: src/app-menu.ui:44
+msgid "_4 × 4"
+msgstr "4 × 4(_4)"
+
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
+#: src/app-menu.ui:50
+msgid "_5 × 5"
+msgstr "5 × 5(_5)"
+
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
+#: src/app-menu.ui:56
+msgid "_6 × 6"
+msgstr "6 × 6(_6)"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: src/app-menu.ui:73
+msgid "_Scores"
+msgstr "점수(_S)"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
+#: src/app-menu.ui:78
+msgid "A_ppearance"
+msgstr "모양새(_P)"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:82
+msgid "_Extrusion"
+msgstr "익스트루젼(_E)"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:88
+msgid "Neo_Retro"
+msgstr "네오레트로(_R)"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
+#: src/app-menu.ui:94
+msgid "_Nostalgia"
+msgstr "노스탈지아(_N)"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
+#: src/app-menu.ui:100
+msgid "_Synesthesia"
+msgstr "시네스테샤(_S)"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
+#: src/app-menu.ui:110
 msgid "_Keyboard Shortcuts"
 msgstr "키보드 바로 가기(_K)"
 
-#: src/app-menu.ui:51
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help
+#: src/app-menu.ui:115
 msgid "_Help"
 msgstr "도움말(_H)"
 
-#: src/app-menu.ui:55
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
+#: src/app-menu.ui:120
 msgid "_About Tetravex"
 msgstr "테트라벡스 정보(_A)"
 
-#: src/gnome-tetravex.vala:38
-msgid "Print release version and exit"
-msgstr "릴리스 버전을 표시하고 끝냅니다"
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the change the number of colors or the game size while not specifying a new game; try `gnome-tetravex --cli show --size 3`
+#: src/cli.vala:35
+msgid "Game size and colors number can only be given for new puzzles."
+msgstr "게임판 크기와 색상 수는 새 퍼즐 시작시 주어집니다."
 
-#: src/gnome-tetravex.vala:39
-msgid "Start the game paused"
-msgstr "일시 중지했던 게임을 시작합니다"
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli up`
+#: src/cli.vala:89
+msgid "Cannot move up left-board tiles."
+msgstr "좌측 게임판의 조각을 위로 옮길 수 없습니다."
 
-#: src/gnome-tetravex.vala:40
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli down`
+#: src/cli.vala:95
+msgid "Cannot move down left-board tiles."
+msgstr "좌측 게임판의 조각을 아래로 옮길 수 없습니다."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli left`
+#: src/cli.vala:101
+msgid "Cannot move left left-board tiles."
+msgstr "좌측 게임판의 조각을 좌측으로 옮길 수 없습니다."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli right`
+#: src/cli.vala:107
+msgid "Cannot move right left-board tiles."
+msgstr "좌측 게임판의 조각을 우측으로 옮길 수 없습니다."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-up`
+#: src/cli.vala:113
+msgid "Cannot move up right-board tiles."
+msgstr "우측 게임판의 조각을 위로 옮길 수 없습니다."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-down`
+#: src/cli.vala:118
+msgid "Cannot move down right-board tiles."
+msgstr "우측 게임판의 조각을 아래로 옮길 수 없습니다."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-left`
+#: src/cli.vala:123
+msgid "Cannot move left right-board tiles."
+msgstr "우측 게임판의 조각을 좌측으로 옮길 수 없습니다."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-right`
+#: src/cli.vala:128
+msgid "Cannot move right right-board tiles."
+msgstr "우측 게임판의 조각을 우측으로 옮길 수 없습니다."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “finish” command while the saved puzzle cannot be automatically finished; try `gnome-tetravex --cli new; gnome-tetravex --cli finish`
+#: src/cli.vala:145
+msgid ""
+"Cannot finish automatically. If you want to give up and view the solution, "
+"use “solve”."
+msgstr "자동으로 끝낼 수 없습니다. 포기하고 해법을 보려면 “퍼즐 풀기”를 선택하십시오."
+
+#. Translators: command-line error message, displayed if the string is not a known command nor a valid move instruction; try `gnome-tetravex --cli new; gnome-tetravex --cli A2838I8U`
+#: src/cli.vala:174
+msgid "Cannot parse instruction, aborting."
+msgstr "절차를 해석할 수 없습니다, 중단."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to invert two empty tiles
+#: src/cli.vala:181
+msgid "Both given tiles are empty, aborting."
+msgstr "주어진 조각이 비어있습니다, 중단."
+
+#. Translators: command-line error message, displayed if the user plays in CLI and tries to do an invalid move
+#: src/cli.vala:187
+msgid "Cannot swap the given tiles, aborting."
+msgstr "주어진 조각을 서로 바꿀 수 없습니다, 중단."
+
+#. Translators: command-line error message, displayed if the user tries to solve the puzzle using CLI (with the “solve” or “finish” commands), while the puzzle is already solved
+#: src/cli.vala:230
+msgid "Puzzle is already solved! If you want to start a new one, use “new”."
+msgstr "퍼즐을 이미 풀었습니다! 새 게임을 시작하려면 “새 게임”을 선택하십시오."
+
+#. Translators: command-line error message, displayed if the user tries to do a move using CLI, while the puzzle is solved
+#: src/cli.vala:233
+msgid "Puzzle is solved! If you want to start a new one, use “new”."
+msgstr "퍼즐을 풀었습니다! 새 게임을 시작하려면 “새 게임”을 선택하십시오."
+
+#. Translators: command-line message, displayed when playing Tetravex in CLI under the board, if the puzzle was solved
+#: src/cli.vala:278
+msgid "Puzzle is solved!"
+msgstr "퍼즐을 풀었습니다!"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explanation of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
+#: src/gnome-tetravex-cli.vala:24
+msgid "(nothing)"
+msgstr "(없음)"
+
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:78
+msgid "Set number of colors (2-10)"
+msgstr "게임판 크기를 설정합니다(2-10)"
+
+#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex-cli --help'
+#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:81
+msgid "NUMBER"
+msgstr "<숫자>"
+
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:90
 msgid "Set size of board (2-6)"
 msgstr "게임판 크기를 설정합니다(2-6)"
 
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex-cli --help'
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:93
+msgid "SIZE"
+msgstr "<크기>"
+
+#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:96
+msgid "Print release version and exit"
+msgstr "릴리스 버전을 표시하고 끝냅니다"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
+#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:200
+msgid "Invert two tiles, the one in A1, and the one in b2."
+msgstr "A1의 조각과 b2의 조각을 맞바꿉니다."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
+#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:203
+msgid "An uppercase targets a tile from the initial board."
+msgstr "대문자는 초기 게임판의 조각 대상을 가리킵니다."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:206
+msgid "A lowercase targets a tile in the left/final board."
+msgstr "소문자는 죄측/최종 게임판의 대상을 가리킵니다."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
+#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:209
+msgid "Digits specify the rows of the two tiles to invert."
+msgstr "숫자 값은 맞바꿀 두 타일의 행을 지정합니다."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
+#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:212
+msgid "Show the current puzzle. Alias: “status” or “show”."
+msgstr "현재 퍼즐을 보여줍니다. 별칭. “status” 또는 “show”."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
+#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:215
+msgid "Create a new puzzle; for changing size, use --size."
+msgstr "새 퍼즐을 만듭니다. 게임판 크기를 바꾸려면 --size를 사용하십시오."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
+#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:218
+msgid "Give up with current puzzle, and view the solution."
+msgstr "현재 퍼즐을 포기하고 해법을 봅니다."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands
+#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:221
+msgid "Finish current puzzle, automatically. Alias: “end”."
+msgstr "현재 퍼즐을 자동으로 끝냅니다. 별칭: “end”."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:224
+msgid "Works for puzzles solved right or if one tile left."
+msgstr "방금 풀어낸 퍼즐 또는 조각 하나만 남은 퍼즐에 동작합니다."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command
+#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:227
+msgid "Move all left-board tiles up by one."
+msgstr "좌측 게임판의 모든 조각을 위로 한 칸씩 이동."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command
+#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:230
+msgid "Move all left-board tiles down by one."
+msgstr "좌측 게임판의 모든 조각을 아래로 한 칸씩 이동."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command
+#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:233
+msgid "Move all left-board tiles left by one."
+msgstr "좌측 게임판의 모든 조각을 좌측으로 한 칸씩 이동."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command
+#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:236
+msgid "Move all left-board tiles right by one."
+msgstr "좌측 게임판의 모든 조각을 우측으로 한 칸씩 이동."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
+#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:239
+msgid "Move all right-board tiles up by one."
+msgstr "우측 게임판의 모든 조각을 위로 한 칸씩 이동."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
+#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:242
+msgid "Move all right-board tiles down by one."
+msgstr "우측 게임판의 모든 조각을 아래로 한 칸씩 이동."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command
+#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:245
+msgid "Move all right-board tiles left by one."
+msgstr "우측 게임판의 모든 조각을 좌측으로 한 칸씩 이동."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command
+#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:248
+msgid "Move all right-board tiles right by one."
+msgstr "우측 게임판의 모든 조각을 우측으로 한 칸씩 이동."
+
+#. Translators: command-line message, seen when running `gnome-tetravex-cli --help`
+#: src/gnome-tetravex-cli.vala:138
+msgid "[COMMAND]"
+msgstr "[<명령>]"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli --help`; introduction of a list of options
+#: src/gnome-tetravex-cli.vala:141
+msgid "Available commands:"
+msgstr "사용할 수 있는 명령:"
+
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1'
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
+#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:173
+msgid "Size could only be from 2 to 6."
+msgstr "크기는 2에서 6까지만 쓸 수 있습니다."
+
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1'
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
+#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:180
+msgid "There could only be between 2 and 10 colors."
+msgstr "2가지로부터 10가지까지 지정할 수 있습니다."
+
+#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2'
+#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
+#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:187
+msgid "Failed to parse command-line arguments."
+msgstr "명령행 인자 해석에 실패했습니다."
+
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options
+#: src/gnome-tetravex-cli.vala:182
+msgid "To use `gnome-tetravex-cli`, pass as argument:"
+msgstr "`gnome-tetravex-cli` 명령을 활용하려면, 인자로 전달하십시오:"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:72
+msgid "Play in the terminal (see “--cli=help”)"
+msgstr "터미널에서 플레이합니다(“--cli=help” 참고)"
+
+#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:75
+msgid "COMMAND"
+msgstr "<명령>"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:84
+msgid "Start the game paused"
+msgstr "일시 중지했던 게임을 시작합니다"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:87
+msgid "Restore last game, if any"
+msgstr "마지막으로 진행한 게임이 있다면 재개"
+
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
+#: src/gnome-tetravex.vala:197
+msgid "To play GNOME Tetravex in command-line:"
+msgstr "명령행에서 그놈 테트라벡스를 플레이하려면:"
+
+#. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
+#: src/gnome-tetravex.vala:365
+msgid "Restore last game"
+msgstr "마지막 게임 재개"
+
 #. not a typo
-#: src/gnome-tetravex.vala:137
+#. Translators: tooltip text of the "play"/unpause button, in the bottom bar
+#: src/gnome-tetravex.vala:419
 msgid "Resume the game"
 msgstr "게임을 다시 시작합니다"
 
-#: src/gnome-tetravex.vala:149
+#. Translators: tooltip text of the pause button, in the bottom bar
+#: src/gnome-tetravex.vala:426
 msgid "Pause the game"
 msgstr "게임을 일시 중지합니다"
 
-#: src/gnome-tetravex.vala:166
+#. Translators: tooltip text of the "restart"/new game button, in the bottom bar
+#: src/gnome-tetravex.vala:439
 msgid "Start a new game"
 msgstr "새 게임을 시작합니다"
 
-#: src/gnome-tetravex.vala:178
+#. Translators: tooltip text of the "solve"/give up button, in the bottom bar
+#: src/gnome-tetravex.vala:446
 msgid "Give up and view the solution"
 msgstr "포기하고 해법을 봅니다"
 
-#: src/gnome-tetravex.vala:247
-msgid "Size could only be from 2 to 6.\n"
-msgstr "크기는 2에서 6까지만 쓸 수 있습니다.\n"
+#. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
+#: src/gnome-tetravex.vala:453
+msgid "Move all tiles left"
+msgstr "모든 조각을 좌측으로 이동"
 
-#: src/gnome-tetravex.vala:355
-msgid "Are you sure you want to give up and view the solution?"
-msgstr "정말로 포기하고 해법을 보시겠습니까?"
+#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
+#: src/gnome-tetravex.vala:776
+#, c-format
+#| msgid ""
+#| "Are you sure you want to start a new game with a different board size?"
+msgid "Are you sure you want to start a new %u × %u game?"
+msgstr "%u × %u 크기의 새 게임판으로 시작하시겠습니까?"
 
-#: src/gnome-tetravex.vala:357 src/gnome-tetravex.vala:418
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
+#: src/gnome-tetravex.vala:779 src/gnome-tetravex.vala:837
 msgid "_Keep Playing"
 msgstr "계속 플레이(_K)"
 
-#: src/gnome-tetravex.vala:358
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
+#: src/gnome-tetravex.vala:782
+msgid "_Start New Game"
+msgstr "새 게임 시작(_S)"
+
+#. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
+#: src/gnome-tetravex.vala:808
+msgid ""
+"Looks like you haven’t finished a game yet.\n"
+"\n"
+"Maybe try a 2 × 2 grid, they are easy. 🙂️"
+msgstr ""
+"아직 게임을 끝내지 못한 것 같습니다.\n"
+"\n"
+"2 × 2 격자를 해보시면, 쉽습니다. 🙂️"
+
+#. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
+#: src/gnome-tetravex.vala:834
+msgid "Are you sure you want to give up and view the solution?"
+msgstr "정말로 포기하고 해법을 보시겠습니까?"
+
+#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
+#: src/gnome-tetravex.vala:840
 msgid "_Give Up"
 msgstr "포기(_G)"
 
-#: src/gnome-tetravex.vala:392
+#. Translators: text crediting a game author, seen in the About dialog
+#: src/gnome-tetravex.vala:1021
+msgid "Lars Rydlinge"
+msgstr "Lars Rydlinge"
+
+#. Translators: text crediting a game author, seen in the About dialog
+#: src/gnome-tetravex.vala:1025
+msgid "Robert Ancell"
+msgstr "Robert Ancell"
+
+#. Translators: text crediting a game documenter, seen in the About dialog
+#: src/gnome-tetravex.vala:1029
+msgid "Rob Bradford"
+msgstr "Rob Bradford"
+
+#. Translators: short description of the application, seen in the About dialog
+#: src/gnome-tetravex.vala:1033
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr "같은 번호가 맞닿도록 조각을 옮기는 퍼즐"
 
-#: src/gnome-tetravex.vala:399
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/gnome-tetravex.vala:1037
+#, c-format
+msgid "Copyright © %u-%u – Lars Rydlinge"
+msgstr "Copyright © %u-%u – Lars Rydlinge"
+
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
+#: src/gnome-tetravex.vala:1041
+#, c-format
+msgid "Copyright © %u-%u – Arnaud Bonatti"
+msgstr "Copyright © %u-%u – Arnaud Bonatti"
+
+#. Translators: about dialog text; label of the website link
+#: src/gnome-tetravex.vala:1045
+msgid "Page on GNOME wiki"
+msgstr "그놈 위키 페이지"
+
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
+#: src/gnome-tetravex.vala:1057
 msgid "translator-credits"
 msgstr ""
 "류창우 <cwryu@debian.org>\n"
 "조성호 <shcho@gnome.org>"
 
-#: src/gnome-tetravex.vala:417
-msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "정말로 다른 보드 크기로 게임을 새로 시작하시겠습니까?"
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play", "Play on selected tile", "Select the given row", etc.
+#: src/help-overlay.ui:32
+msgctxt "shortcut window"
+msgid "Play with keyboard"
+msgstr "키보드로 게임하기"
 
-#: src/gnome-tetravex.vala:419
-msgid "_Start New Game"
-msgstr "새 게임 시작(_S)"
+#. Translators: Left/Right/Up/Down arrows actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; moves highlight
+#: src/help-overlay.ui:37
+msgctxt "shortcut window"
+msgid "Move keyboard highlight"
+msgstr "키보드로 강조 이동"
 
-#: src/help-overlay.ui:16
+#. Translators: Return/space actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depend on context
+#: src/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Select, move or unselect"
+msgstr "선택, 이동, 선택 취소"
+
+#. Translators: numbers (1 to 6) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use 1 to 2 or up to 1 to 6
+#: src/help-overlay.ui:53
+msgctxt "shortcut window"
+msgid "Select the given row"
+msgstr "주어진 행 선택"
+
+#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is split in two parts, that is for the left one
+#: src/help-overlay.ui:61
+msgctxt "shortcut window"
+msgid "Select left half-board column"
+msgstr "게임판 좌측 절반 열 선택"
+
+#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is split in two parts, that is for the right one
+#: src/help-overlay.ui:69
+msgctxt "shortcut window"
+msgid "Select right half-board column"
+msgstr "게임판 우측 절반 열 선택"
+
+#. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
+#: src/help-overlay.ui:78
+msgctxt "shortcut window"
+msgid "Validate right half-board"
+msgstr "게임판 우측 절반 검증"
+
+# 출력 기록을 전/후로 조정하는게 아니므로 "기록"으로 번역하지 않는다
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
+#: src/help-overlay.ui:87
+msgctxt "shortcut window"
+msgid "History"
+msgstr "이력"
+
+#. Translators: Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, undoes last move
+#: src/help-overlay.ui:93
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "되돌리기"
+
+#. Translators: Shift-Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, redoes undone move
+#: src/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "다시 진행"
+
+#. Translators: Shift-Ctrl-R shortcut description in the Keyboard Shortcuts dialog, section History; undoes all the moves
+#: src/help-overlay.ui:109
+msgctxt "shortcut window"
+msgid "Reload initial position"
+msgstr "초기 위치 다시 불러오기"
+
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"...
+#: src/help-overlay.ui:118
+msgctxt "shortcut window"
+msgid "Main functions"
+msgstr "주요 기능"
+
+#. Translators: Ctrl-N shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Start a new game"
 msgstr "새 게임 시작"
 
-#: src/help-overlay.ui:23
+#. Translators: Ctrl-P shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:132
 msgctxt "shortcut window"
 msgid "Pause the game"
 msgstr "게임 일시 중지"
 
-#: src/help-overlay.ui:30
+#. Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:140
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box up by one"
-msgstr "좌측 상자의 모든 조각을 위로 한 칸씩 이동"
+msgid "Solve the game"
+msgstr "퍼즐 풀기"
 
-#: src/help-overlay.ui:37
+#. Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog, section Main Functions
+#: src/help-overlay.ui:148
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box down by one"
-msgstr "좌측 상자의 모든 조각을 아래로 한 칸씩 이동"
+msgid "Show scores"
+msgstr "점수 표시"
 
-#: src/help-overlay.ui:44
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Show Help", "Show Keyboard Shortcuts", "Quit"...
+#: src/help-overlay.ui:157
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box left by one"
-msgstr "좌측 상자의 모든 조각을 좌측으로 한 칸씩 이동"
+msgid "Generic"
+msgstr "일반"
 
-#: src/help-overlay.ui:51
+#. Translators: F10 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows menu
+#: src/help-overlay.ui:163
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box right by one"
-msgstr "좌측 상자의 모든 조각을 우측으로 한 칸씩 이동"
+msgid "Toggle main menu"
+msgstr "주요 메뉴 전환"
 
-#: src/help-overlay.ui:58
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "도움말 표시"
-
-#: src/help-overlay.ui:65
+#. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
+#: src/help-overlay.ui:171
 msgctxt "shortcut window"
 msgid "Show Keyboard Shortcuts"
 msgstr "키보드 바로 가기 표시"
 
-#: src/help-overlay.ui:72
+#. Translators: F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows application help
+#: src/help-overlay.ui:179
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "도움말 표시"
+
+#. Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog
+#: src/help-overlay.ui:187
+msgctxt "shortcut window"
+msgid "Show About"
+msgstr "정보 표시"
+
+#. Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application
+#: src/help-overlay.ui:195
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "끝내기"
 
-#: src/puzzle-view.vala:356
+#. Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note...
+#: src/help-overlay.ui:204
+msgctxt "shortcut window"
+msgid "Advanced gameplay"
+msgstr "고급 게임 플레이"
+
+#. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:210
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left half-board up by one"
+msgstr "좌측 게임판의 모든 조각을 위로 한 칸씩 이동"
+
+#. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:218
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left half-board down by one"
+msgstr "좌측 게임판의 모든 조각을 아래로 한 칸씩 이동"
+
+#. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:226
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left half-board left by one"
+msgstr "좌측 게임판의 모든 조각을 좌측으로 한 칸씩 이동"
+
+#. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:234
+msgctxt "shortcut window"
+msgid "Move all the pieces in the left half-board right by one"
+msgstr "좌측 게임판의 모든 조각을 우측으로 한 칸씩 이동"
+
+#. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:242
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right half-board up by one"
+msgstr "우측 게임판의 모든 조각을 위로 한 칸씩 이동"
+
+#. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:250
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right half-board down by one"
+msgstr "우측 게임판의 모든 조각을 아래로 한 칸씩 이동"
+
+#. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:258
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right half-board left by one"
+msgstr "우측 게임판의 모든 조각을 좌측으로 한 칸씩 이동"
+
+#. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
+#: src/help-overlay.ui:266
+msgctxt "shortcut window"
+msgid "Move all the pieces in the right half-board right by one"
+msgstr "우측 게임판의 모든 조각을 우측으로 한 칸씩 이동"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
+#: src/history.vala:314
+#, c-format
+msgid "%uh %um %us"
+msgstr "%u시간 %u분 %u초"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
+#: src/history.vala:318
+#, c-format
+msgid "%um %us"
+msgstr "%u분 %u초"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
+#: src/history.vala:322
+#, c-format
+msgid "%us"
+msgstr "%u초"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
+#: src/history.vala:326
+#, c-format
+msgid "%.0fs"
+msgstr "%.0f초"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
+#: src/history.vala:330
+#, c-format
+msgid "%.1fs"
+msgstr "%.1f초"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
+#: src/history.vala:334
+#, c-format
+msgid "%.2fs"
+msgstr "%.2f초"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
+#: src/history.vala:338
+#, c-format
+msgid "%.3fs"
+msgstr "%.3f초"
+
+#. Translators: text that appears as an overlay on the board when the game is paused
+#: src/puzzle-view.vala:535
 msgid "Paused"
 msgstr "일시 중지"
 
-#: src/score-dialog.vala:29
-msgid "Quit"
-msgstr "끝내기"
-
-#: src/score-dialog.vala:30
-msgid "New Game"
-msgstr "새 게임"
-
-#: src/score-dialog.vala:33
-msgid "OK"
-msgstr "확인"
-
-#: src/score-dialog.vala:45
-msgid "Size:"
-msgstr "크기:"
-
-#: src/score-dialog.vala:70
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
+#: src/score-dialog.vala:72
 msgid "Date"
 msgstr "시각"
 
-#: src/score-dialog.vala:73
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
+#: src/score-dialog.vala:76
 msgid "Time"
 msgstr "시간"
 
+#. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
+#: src/score-dialog.vala:145
+#, c-format
+msgid "%u × %u"
+msgstr "%u × %u"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete
+#: src/score-overlay.ui:37
+msgid "Congratulations!"
+msgstr "축하합니다!"
+
+#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
+#: src/score-overlay.ui:78
+msgid "Show scores"
+msgstr "점수 표시"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the game time
+#: src/score-overlay.vala:57
+msgid "New best time!"
+msgstr "새 최고 기록 달성!"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the second best time (in a corner case)
+#: src/score-overlay.vala:61 src/score-overlay.vala:117
+#: src/score-overlay.vala:156
+msgid "Second:"
+msgstr "2위:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the third best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the third best time (in a corner case)
+#: src/score-overlay.vala:68 src/score-overlay.vala:94
+#: src/score-overlay.vala:121 src/score-overlay.vala:163
+msgid "Third:"
+msgstr "3위:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old third best time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old third best time
+#: src/score-overlay.vala:75 src/score-overlay.vala:101
+msgid "Out of podium:"
+msgstr "순위권 제외:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the game best time (in a corner case)
+#: src/score-overlay.vala:86 src/score-overlay.vala:112
+#: src/score-overlay.vala:149
+msgid "Best time:"
+msgstr "최고 기록 시간:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the game time
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the game time
+#: src/score-overlay.vala:90 src/score-overlay.vala:129
+msgid "Your time:"
+msgstr "여러분의 기록:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank before the one of the game played
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank after the one of the game played
+#: src/score-overlay.vala:125 src/score-overlay.vala:133
+#, c-format
+msgid "Place %u:"
+msgstr "%u등:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the worst time (in a corner case)
+#: src/score-overlay.vala:172
+msgid "Worst time:"
+msgstr "최저 기록 시간:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the fourth time (in a corner case)
+#: src/score-overlay.vala:178
+msgid "Fourth:"
+msgstr "4위:"
+
+#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made one of the worst scores for a game of this size; says that the rank after the one of the game is "free", inviting to do worse
+#: src/score-overlay.vala:205
+msgid "Free!"
+msgstr "없음!"
+
+#~ msgid "_2x2"
+#~ msgstr "_2x2"
+
+#~ msgid "_3x3"
+#~ msgstr "_3x3"
+
+#~ msgid "_4x4"
+#~ msgstr "_4x4"
+
+#~ msgid "_5x5"
+#~ msgstr "_5x5"
+
+#~ msgid "_6x6"
+#~ msgstr "_6x6"
+
+#~ msgid "Quit"
+#~ msgstr "끝내기"
+
+#~ msgid "New Game"
+#~ msgstr "새 게임"
+
+#~ msgid "OK"
+#~ msgstr "확인"
+
+#~ msgid "Size:"
+#~ msgstr "크기:"
+
 #~ msgid "_Size"
 #~ msgstr "크기(_S)"
-
-#~ msgid "_About"
-#~ msgstr "정보(_A)"
 
 #~ msgid "_Quit"
 #~ msgstr "끝내기(_Q)"
