@@ -1,6 +1,6 @@
-# Danish translation of gnome-games.
+# Danish translation of gnome-tetravex.
 # Copyright (C) 1998-2015, 2019 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-games package.
+# This file is distributed under the same license as the gnome-tetravex package.
 # Anders Wegge Jakobsen <wegge@wegge.dk>, 1998.
 # Kenneth Christiansen <kenneth@ripen.dk>, 1998-2001.
 # Keld Simonsen <keld@dkuug.dk>, 2000-2002.
@@ -11,12 +11,13 @@
 # scootergrisen, 2020.
 #
 # Husk at tilføje dig i credit-listen (besked id "translator-credits")
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games\n"
+"Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2019-12-08 12:15+0000\n"
-"PO-Revision-Date: 2020-02-28 00:00+0200\n"
+"POT-Creation-Date: 2020-05-07 09:11+0000\n"
+"PO-Revision-Date: 2020-05-08 13:50+0200\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -64,7 +65,7 @@ msgstr "Tetravex"
 
 #: data/org.gnome.Tetravex.desktop.in:4
 msgid "Complete the puzzle by matching numbered tiles"
-msgstr "Fuldfør opgaven ved at samle brikker så tilstødende numre er ens"
+msgstr "Fuldfør opgaven ved at samle brikkerne så tilstødende tal er ens"
 
 #. TRANSLATORS: Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
@@ -163,25 +164,21 @@ msgstr "Tema"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
 #: data/org.gnome.Tetravex.gschema.xml:56
-#| msgid "Width of the window in pixels"
 msgid "The width of the window"
 msgstr "Bredden af vinduet"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
 #: data/org.gnome.Tetravex.gschema.xml:58
-#| msgid "Width of the window in pixels"
 msgid "The width of the main window in pixels."
 msgstr "Bredden af hovedvinduet i billedpunkter."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
 #: data/org.gnome.Tetravex.gschema.xml:63
-#| msgid "Height of the window in pixels"
 msgid "The height of the window"
 msgstr "Højden af vinduet"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
 #: data/org.gnome.Tetravex.gschema.xml:65
-#| msgid "Height of the window in pixels"
 msgid "The height of the main window in pixels."
 msgstr "Højden af hovedvinduet i billedpunkter."
 
@@ -192,87 +189,87 @@ msgstr "Et flag til at aktivere maksimeret tilstand"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
 #: data/org.gnome.Tetravex.gschema.xml:72
-#| msgid "true if the window is maximized"
 msgid "If “true”, the main window starts in maximized mode."
 msgstr "Hvis “true” starter hovedvinduet i maksimeret tilstand."
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
-#: src/app-menu.ui:23
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
+#: src/app-menu.ui:23 src/app-menu.ui:64
 msgid "_New Game"
 msgstr "_Nyt spil"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
-#: src/app-menu.ui:28
-msgid "_Scores"
-msgstr "_Resultater"
-
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
-#: src/app-menu.ui:33
-msgid "A_ppearance"
-msgstr "_Udseende"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:37
-msgid "_Extrusion"
-msgstr "_Ekstrudering"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:43
-msgid "Neo_Retro"
-msgstr "Neo_retro"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
-#: src/app-menu.ui:49
-msgid "_Nostalgia"
-msgstr "_Nostalgi"
-
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
-#: src/app-menu.ui:55
-msgid "_Synesthesia"
-msgstr "_Synæstesi"
-
 #. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
-#: src/app-menu.ui:65
+#: src/app-menu.ui:28
 msgid "Si_ze"
 msgstr "_Størrelse"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
-#: src/app-menu.ui:69
+#: src/app-menu.ui:32
 msgid "_2 × 2"
 msgstr "_2 × 2"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
-#: src/app-menu.ui:75
+#: src/app-menu.ui:38
 msgid "_3 × 3"
 msgstr "_3 × 3"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
-#: src/app-menu.ui:81
+#: src/app-menu.ui:44
 msgid "_4 × 4"
 msgstr "_4 × 4"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
-#: src/app-menu.ui:87
+#: src/app-menu.ui:50
 msgid "_5 × 5"
 msgstr "_5 × 5"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
-#: src/app-menu.ui:93
+#: src/app-menu.ui:56
 msgid "_6 × 6"
 msgstr "_6 × 6"
 
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: src/app-menu.ui:73
+msgid "_Scores"
+msgstr "_Resultater"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
+#: src/app-menu.ui:78
+msgid "A_ppearance"
+msgstr "_Udseende"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:82
+msgid "_Extrusion"
+msgstr "_Ekstrudering"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
+#: src/app-menu.ui:88
+msgid "Neo_Retro"
+msgstr "Neo_retro"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
+#: src/app-menu.ui:94
+msgid "_Nostalgia"
+msgstr "_Nostalgi"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
+#: src/app-menu.ui:100
+msgid "_Synesthesia"
+msgstr "_Synæstesi"
+
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
-#: src/app-menu.ui:103
+#: src/app-menu.ui:110
 msgid "_Keyboard Shortcuts"
 msgstr "_Tastaturgenveje"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help
-#: src/app-menu.ui:108
+#: src/app-menu.ui:115
 msgid "_Help"
 msgstr "_Hjælp"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
-#: src/app-menu.ui:113
+#: src/app-menu.ui:120
 msgid "_About Tetravex"
 msgstr "_Om Tetravex"
 
@@ -323,7 +320,6 @@ msgstr "Kan ikke flytte brikker til højre i det højre bræt."
 
 #. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “finish” command while the saved puzzle cannot be automatically finished; try `gnome-tetravex --cli new; gnome-tetravex --cli finish`
 #: src/cli.vala:145
-#| msgid "Are you sure you want to give up and view the solution?"
 msgid ""
 "Cannot finish automatically. If you want to give up and view the solution, "
 "use “solve”."
@@ -361,156 +357,140 @@ msgstr "Opgaven er løst! Brug “new” hvis du vil starte et nyt spil."
 msgid "Puzzle is solved!"
 msgstr "Opgaven er løst!"
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explaination of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explanation of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
 #: src/gnome-tetravex-cli.vala:24
 msgid "(nothing)"
 msgstr "(ingen)"
 
 #. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:77
-#| msgid "Set size of board (2-6)"
+#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:78
 msgid "Set number of colors (2-10)"
 msgstr "Angiv antal farver (2-10)"
 
 #. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex-cli --help'
 #. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:80
+#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:81
 msgid "NUMBER"
 msgstr "NUMMER"
 
 #. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:89
+#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:90
 msgid "Set size of board (2-6)"
 msgstr "Angiv brætstørrelse (2-6)"
 
 #. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex-cli --help'
 #. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:92
+#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:93
 msgid "SIZE"
 msgstr "STØRRELSE"
 
 #. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:95
+#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:96
 msgid "Print release version and exit"
 msgstr "Vis udgivelsesversion og afslut"
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
-#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:194
+#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:199
 msgid "Invert two tiles, the one in A1, and the one in b2."
 msgstr "Byt to brikker — den på A1 og den på b2."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
-#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:197
+#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:202
 msgid "An uppercase targets a tile from the initial board."
 msgstr "Et lille bogstav gælder for en brik på det første bræt."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:200
+#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:205
 msgid "A lowercase targets a tile in the left/final board."
 msgstr "Et stort bogstav gælder for en brik på det venstre/sidste bræt."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
-#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:203
+#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:208
 msgid "Digits specify the rows of the two tiles to invert."
 msgstr "Tal angiver rækkerne på de to brikker som skal byttes."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
-#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:206
+#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:211
 msgid "Show the current puzzle. Alias: “status” or “show”."
 msgstr "Vis den nuværende opgave. Alias: “status” eller “show”."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
-#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:209
+#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:214
 msgid "Create a new puzzle; for changing size, use --size."
 msgstr "Opret en nyt opgave; brug --size til at skifte størrelse."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
-#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:212
-#| msgid "Give up and view the solution"
+#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:217
 msgid "Give up with current puzzle, and view the solution."
 msgstr "Opgiv den nuværende opgave og se løsningen."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands
-#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:215
+#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:220
 msgid "Finish current puzzle, automatically. Alias: “end”."
 msgstr "Færdiggør nuværende opgave — automatisk. Alias: “end”."
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explaination of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:218
+#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:223
 msgid "Works for puzzles solved right or if one tile left."
 msgstr "Virker ved opgaver som er løst korrekt eller der er en brik tilbage."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command
-#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:221
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box up by one"
+#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:226
 msgid "Move all left-board tiles up by one."
 msgstr "Flyt alle brikker i det venstre bræt et trin op."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command
-#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:224
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box down by one"
+#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:229
 msgid "Move all left-board tiles down by one."
 msgstr "Flyt alle brikker i det venstre bræt et trin ned."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command
-#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:227
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box left by one"
+#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:232
 msgid "Move all left-board tiles left by one."
 msgstr "Flyt alle brikker i det venstre bræt et trin til venstre."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command
-#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:230
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box right by one"
+#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:235
 msgid "Move all left-board tiles right by one."
 msgstr "Flyt alle brikker i det venstre bræt et trin til højre."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
-#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:233
+#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:238
 msgid "Move all right-board tiles up by one."
 msgstr "Flyt alle brikker i det højre bræt et trin op."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
-#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:236
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box down by one"
+#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:241
 msgid "Move all right-board tiles down by one."
 msgstr "Flyt alle brikker i det højre bræt et trin ned."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command
-#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:239
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box up by one"
+#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:244
 msgid "Move all right-board tiles left by one."
 msgstr "Flyt alle brikker i det højre bræt et trin til venstre."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command
-#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:242
-#| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box right by one"
+#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:247
 msgid "Move all right-board tiles right by one."
 msgstr "Flyt alle brikker i det højre bræt et trin til højre."
 
@@ -526,20 +506,19 @@ msgstr "Tilgængelige kommandoer:"
 
 #. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1'
 #. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
-#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:167
-#| msgid "Size could only be from 2 to 6.\n"
+#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:172
 msgid "Size could only be from 2 to 6."
 msgstr "Størrelse kan kun være fra 2 til 6."
 
 #. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1'
 #. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
-#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:174
+#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:179
 msgid "There could only be between 2 and 10 colors."
 msgstr "Der kan kun være mellem 2 og 10 farver."
 
 #. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2'
 #. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
-#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:181
+#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:186
 msgid "Failed to parse command-line arguments."
 msgstr "Kunne ikke fortolke kommandolinjeargumenter."
 
@@ -549,149 +528,143 @@ msgid "To use `gnome-tetravex-cli`, pass as argument:"
 msgstr "Brug `gnome-tetravex-cli` ved at angive et argument:"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:71
+#: src/gnome-tetravex.vala:72
 msgid "Play in the terminal (see “--cli=help”)"
 msgstr "Spil i terminalen (se “--cli=help”)"
 
 #. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:74
+#: src/gnome-tetravex.vala:75
 msgid "COMMAND"
 msgstr "KOMMANDO"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:83
+#: src/gnome-tetravex.vala:84
 msgid "Start the game paused"
 msgstr "Start spillet i pausetilstand"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:86
+#: src/gnome-tetravex.vala:87
 msgid "Restore last game, if any"
 msgstr "Gendan det sidste spil, hvis der er noget"
 
 #. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
-#: src/gnome-tetravex.vala:191
+#: src/gnome-tetravex.vala:196
 msgid "To play GNOME Tetravex in command-line:"
 msgstr "Spil GNOME Tetravex på kommandolinjen:"
 
 #. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
-#: src/gnome-tetravex.vala:356
-#| msgid "Resume the game"
+#: src/gnome-tetravex.vala:363
 msgid "Restore last game"
 msgstr "Genoptag sidste spil"
 
 #. not a typo
 #. Translators: tooltip text of the "play"/unpause button, in the bottom bar
-#: src/gnome-tetravex.vala:407
+#: src/gnome-tetravex.vala:417
 msgid "Resume the game"
 msgstr "Genoptag spillet"
 
 #. Translators: tooltip text of the pause button, in the bottom bar
-#: src/gnome-tetravex.vala:414
+#: src/gnome-tetravex.vala:424
 msgid "Pause the game"
 msgstr "Sæt spillet på pause"
 
 #. Translators: tooltip text of the "restart"/new game button, in the bottom bar
-#: src/gnome-tetravex.vala:427
+#: src/gnome-tetravex.vala:437
 msgid "Start a new game"
 msgstr "Start et nyt spil"
 
 #. Translators: tooltip text of the "solve"/give up button, in the bottom bar
-#: src/gnome-tetravex.vala:434
+#: src/gnome-tetravex.vala:444
 msgid "Give up and view the solution"
 msgstr "Opgiv og se løsningen"
 
 #. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
-#: src/gnome-tetravex.vala:441
+#: src/gnome-tetravex.vala:451
 msgid "Move all tiles left"
 msgstr "Flyt alle brikker til venstre"
 
-#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:741
-#| msgid ""
-#| "Are you sure you want to start a new game with a different board size?"
-msgid "Are you sure you want to start a new game with same board size?"
-msgstr ""
-"Er du sikker på, at du vil starte et nyt spil med den samme brætstørrelse?"
+#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
+#: src/gnome-tetravex.vala:774
+#, c-format
+#| msgid "Are you sure you want to start a new game with same board size?"
+msgid "Are you sure you want to start a new %u × %u game?"
+msgstr "Er du sikker på, at du vil starte et nyt spil på %u × %u?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Start New Game"
-#: src/gnome-tetravex.vala:744 src/gnome-tetravex.vala:815
-#: src/gnome-tetravex.vala:859
+#: src/gnome-tetravex.vala:777 src/gnome-tetravex.vala:835
 msgid "_Keep Playing"
 msgstr "_Fortsæt spillet"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user changes size from the hamburger menu submenu, while a game is started; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:747 src/gnome-tetravex.vala:862
+#: src/gnome-tetravex.vala:780
 msgid "_Start New Game"
 msgstr "_Start et nyt spil"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
-#: src/gnome-tetravex.vala:773
+#: src/gnome-tetravex.vala:806
+#| msgid ""
+#| "Looks like you haven’t finished a game yet.\n"
+#| "\n"
+#| "Try maybe a 2 × 2 grid, they are easy. 🙂️"
 msgid ""
 "Looks like you haven’t finished a game yet.\n"
 "\n"
-"Try maybe a 2 × 2 grid, they are easy. 🙂️"
+"Maybe try a 2 × 2 grid, they are easy. 🙂️"
 msgstr ""
 "Det ser ikke ud til at du har gennemført et spil endnu.\n"
 "\n"
 "Prøv eventuelt et gitter på 2 × 2 — de er lette. 🙂️"
 
 #. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
-#: src/gnome-tetravex.vala:812
+#: src/gnome-tetravex.vala:832
 msgid "Are you sure you want to give up and view the solution?"
 msgstr "Er du sikker på, at du vil give op og se løsningen?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:818
+#: src/gnome-tetravex.vala:838
 msgid "_Give Up"
 msgstr "_Opgiv"
 
-#. Translators: popup dialog main text; appearing when user changes size from the hamburger menu submenu, while a game is started; possible answers are "Keep playing"/"Start New Game"
-#: src/gnome-tetravex.vala:856
-msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Er du sikker på, at du vil starte et nyt spil med anden brætstørrelse?"
-
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:991
+#: src/gnome-tetravex.vala:1011
 msgid "Lars Rydlinge"
 msgstr "Lars Rydlinge"
 
 #. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:995
+#: src/gnome-tetravex.vala:1015
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
 #. Translators: text crediting a game documenter, seen in the About dialog
-#: src/gnome-tetravex.vala:999
+#: src/gnome-tetravex.vala:1019
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
 #. Translators: short description of the application, seen in the About dialog
-#: src/gnome-tetravex.vala:1003
+#: src/gnome-tetravex.vala:1023
 msgid "Position pieces so that the same numbers are touching each other"
-msgstr "Arrangér brikker så de samme numre rører hinanden"
+msgstr "Placér brikkerne så de samme tal rører hinanden"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1007
+#: src/gnome-tetravex.vala:1027
 #, c-format
 msgid "Copyright © %u-%u – Lars Rydlinge"
 msgstr "Ophavsret © %u-%u – Lars Rydlinge"
 
 #. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1011
+#: src/gnome-tetravex.vala:1031
 #, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Ophavsret © %u-%u – Arnaud Bonatti"
 
 #. Translators: about dialog text; label of the website link
-#: src/gnome-tetravex.vala:1015
+#: src/gnome-tetravex.vala:1035
 msgid "Page on GNOME wiki"
 msgstr "Side på GNOME wiki"
 
 #. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-tetravex.vala:1027
+#: src/gnome-tetravex.vala:1047
 msgid "translator-credits"
 msgstr ""
 "Anders Wegge Jakobsen\n"
@@ -710,13 +683,13 @@ msgstr ""
 #: src/help-overlay.ui:32
 msgctxt "shortcut window"
 msgid "Play with keyboard"
-msgstr "Spil med tastatur"
+msgstr "Spil med tastaturet"
 
 #. Translators: Left/Right/Up/Down arrows actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; moves highlight
 #: src/help-overlay.ui:37
 msgctxt "shortcut window"
 msgid "Move keyboard highlight"
-msgstr "Fremhævning for flytning med tastatur"
+msgstr "Flyt tastaturets fremhævning"
 
 #. Translators: Return/space actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depend on context
 #: src/help-overlay.ui:45
@@ -730,23 +703,29 @@ msgctxt "shortcut window"
 msgid "Select the given row"
 msgstr "Vælg rækken"
 
-#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is splitted in two parts, that is for the left one
+#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is split in two parts, that is for the left one
 #: src/help-overlay.ui:61
+#| msgctxt "shortcut window"
+#| msgid "Select left box column"
 msgctxt "shortcut window"
-msgid "Select left box column"
-msgstr "Vælg kolonnen i venstre kasse"
+msgid "Select left half-board column"
+msgstr "Vælg kolonne i den venstre halvdel af brættet"
 
-#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is splitted in two parts, that is for the right one
+#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is split in two parts, that is for the right one
 #: src/help-overlay.ui:69
+#| msgctxt "shortcut window"
+#| msgid "Select right box column"
 msgctxt "shortcut window"
-msgid "Select right box column"
-msgstr "Vælg kolonnen i højre kasse"
+msgid "Select right half-board column"
+msgstr "Vælg kolonne i den højre halvdel af brættet"
 
 #. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
 #: src/help-overlay.ui:78
+#| msgctxt "shortcut window"
+#| msgid "Validate right box"
 msgctxt "shortcut window"
-msgid "Validate right box"
-msgstr "Valider højre kasse"
+msgid "Validate right half-board"
+msgstr "Valider højre halvdel af brættet"
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
 #: src/help-overlay.ui:87
@@ -786,14 +765,12 @@ msgstr "Sæt spillet på pause"
 
 #. Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog, section Main Functions
 #: src/help-overlay.ui:132
-#| msgid "Pause the game"
 msgctxt "shortcut window"
 msgid "Solve the game"
 msgstr "Løs spillet"
 
 #. Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog, section Main Functions
 #: src/help-overlay.ui:140
-#| msgid "_Scores"
 msgctxt "shortcut window"
 msgid "Show scores"
 msgstr "Vis resultater"
@@ -818,7 +795,6 @@ msgstr "Vis hjælp"
 
 #. Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog
 #: src/help-overlay.ui:171
-#| msgid "_About"
 msgctxt "shortcut window"
 msgid "Show About"
 msgstr "Vis Om"
@@ -837,59 +813,68 @@ msgstr "Avanceret gameplay"
 
 #. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:194
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the left box up by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box up by one"
-msgstr "Flyt alle brikkerne i den venstre kasse et trin op"
+msgid "Move all the pieces in the left half-board up by one"
+msgstr "Flyt alle brikkerne i den venstre halvdel af brættet et trin op"
 
 #. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:202
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the left box down by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box down by one"
-msgstr "Flyt alle brikkerne i den venstre kasse et trin ned"
+msgid "Move all the pieces in the left half-board down by one"
+msgstr "Flyt alle brikkerne i den venstre halvdel af brættet et trin ned"
 
 #. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:210
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the left box left by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box left by one"
-msgstr "Flyt alle brikkerne i den venstre kasse et trin til venstre"
+msgid "Move all the pieces in the left half-board left by one"
+msgstr ""
+"Flyt alle brikkerne i den venstre halvdel af brættet et trin til venstre"
 
 #. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:218
+#| msgctxt "shortcut window"
+#| msgid "Move all the pieces in the left box right by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the left box right by one"
-msgstr "Flyt alle brikkerne i den venstre kasse et trin til højre"
+msgid "Move all the pieces in the left half-board right by one"
+msgstr "Flyt alle brikkerne i den venstre halvdel af brættet et trin til højre"
 
 #. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:226
 #| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box up by one"
+#| msgid "Move all the pieces in the right box up by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box up by one"
-msgstr "Flyt alle brikkerne i den højre kasse et trin op"
+msgid "Move all the pieces in the right half-board up by one"
+msgstr "Flyt alle brikkerne i den højre halvdel af brættet et trin op"
 
 #. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:234
 #| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box down by one"
+#| msgid "Move all the pieces in the right box down by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box down by one"
-msgstr "Flyt alle brikkerne i den højre kasse et trin ned"
+msgid "Move all the pieces in the right half-board down by one"
+msgstr "Flyt alle brikkerne i den højre halvdel af brættet et trin ned"
 
 #. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:242
 #| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box left by one"
+#| msgid "Move all the pieces in the right box left by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box left by one"
-msgstr "Flyt alle brikkerne i den højre kasse et trin til venstre"
+msgid "Move all the pieces in the right half-board left by one"
+msgstr "Flyt alle brikkerne i den højre halvdel af brættet et trin til venstre"
 
 #. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
 #: src/help-overlay.ui:250
 #| msgctxt "shortcut window"
-#| msgid "Move all the pieces in the left box right by one"
+#| msgid "Move all the pieces in the right box right by one"
 msgctxt "shortcut window"
-msgid "Move all the pieces in the right box right by one"
-msgstr "Flyt alle brikkerne i den højre kasse et trin til højre"
+msgid "Move all the pieces in the right half-board right by one"
+msgstr "Flyt alle brikkerne i den højre halvdel af brættet et trin til højre"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
 #: src/history.vala:314
@@ -934,7 +919,7 @@ msgid "%.3fs"
 msgstr "%.3fs"
 
 #. Translators: text that appears as an overlay on the board when the game is paused
-#: src/puzzle-view.vala:532
+#: src/puzzle-view.vala:535
 msgid "Paused"
 msgstr "Pause"
 
@@ -961,7 +946,6 @@ msgstr "Tillykke!"
 
 #. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
 #: src/score-overlay.ui:78
-#| msgid "_Scores"
 msgid "Show scores"
 msgstr "Vis resultater"
 
