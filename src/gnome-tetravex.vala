@@ -367,7 +367,7 @@ private class Tetravex : Gtk.Application
             restore_button.valign = Align.CENTER;
             restore_button.show ();
 
-            restore_button.insert_before (restore_stack, /* insert last */ null);
+            restore_stack.add_child (restore_button);
             restore_stack.set_visible_child (restore_button);
             restore_stack.visible = true;
             headerbar.pack_start (restore_stack);
