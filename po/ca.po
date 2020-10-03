@@ -589,7 +589,7 @@ msgstr "Mou totes les fitxes a l'esquerra"
 #: src/gnome-tetravex.vala:776
 #, c-format
 msgid "Are you sure you want to start a new %u × %u game?"
-msgstr "Segur que voleu començar una partida %u × %u nova ?"
+msgstr "Segur que voleu començar una partida %u × %u nova?"
 
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
 #. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
@@ -689,7 +689,7 @@ msgstr "Mou el teclat ressaltat"
 #: src/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Select, move or unselect"
-msgstr "Seleccioneu moveu o desseleccioneu"
+msgstr "Seleccioneu, moveu o desseleccioneu"
 
 #. Translators: numbers (1 to 6) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use 1 to 2 or up to 1 to 6
 #: src/help-overlay.ui:53
