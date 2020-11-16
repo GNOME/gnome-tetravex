@@ -57,7 +57,7 @@ msgstr ""
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
-"Hru si můžete usnadnit a nebo nakopat ztížit změnou velikosti herní desky."
+"Hru si můžete usnadnit, a nebo naopak ztížit, změnou velikosti herní desky."
 
 #: data/org.gnome.Tetravex.appdata.xml.in:32
 msgid "The GNOME Project"
