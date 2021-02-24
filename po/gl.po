@@ -16,10 +16,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games-master-po-gl-54590\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-07-03 15:29+0000\n"
+"POT-Creation-Date: 2020-11-22 15:39+0000\n"
 "PO-Revision-Date: 2020-08-13 00:42+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language-Team: Proxecto Trasno <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -592,7 +592,6 @@ msgstr "Mover todas as teselas á esquerda"
 #. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
 #: src/gnome-tetravex.vala:776
 #, c-format
-#| msgid "Are you sure you want to start a new game with same board size?"
 msgid "Are you sure you want to start a new %u × %u game?"
 msgstr "Quere comezar unha partida nova %u × %u?"
 
