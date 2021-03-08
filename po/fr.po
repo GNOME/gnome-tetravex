@@ -31,16 +31,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-07-03 15:29+0000\n"
-"PO-Revision-Date: 2020-08-26 22:16+0200\n"
-"Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
+"POT-Creation-Date: 2021-02-24 19:12+0000\n"
+"PO-Revision-Date: 2021-03-07 10:27+0100\n"
+"Last-Translator: Guillaume Bernard <associations@guillaume-bernard.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
@@ -561,12 +561,12 @@ msgstr "Il ne peut y avoir qu’entre 2 et 10 couleurs."
 #. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
 #: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:187
 msgid "Failed to parse command-line arguments."
-msgstr "Impossible d’analyser les arguments de la ligne de commande."
+msgstr "Impossible d’analyser les paramètres de la ligne de commande."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options
 #: src/gnome-tetravex-cli.vala:182
 msgid "To use `gnome-tetravex-cli`, pass as argument:"
-msgstr "Pour utiliser `gnome-tetravex-cli`, passez un argument :"
+msgstr "Pour utiliser `gnome-tetravex-cli`, passez un paramètre :"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
 #: src/gnome-tetravex.vala:72
@@ -627,7 +627,6 @@ msgstr "Déplacer toutes les pièces à gauche"
 #. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
 #: src/gnome-tetravex.vala:776
 #, c-format
-#| msgid "Are you sure you want to start a new game with same board size?"
 msgid "Are you sure you want to start a new %u × %u game?"
 msgstr "Voulez-vous vraiment commencer une nouvelle partie de taille %u × %u ?"
 
