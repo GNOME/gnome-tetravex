@@ -38,10 +38,10 @@ private class ScoreOverlay : Grid
     * * updating labels
     \*/
 
-    [GtkChild] private ScoreOverlayEntry score_0;
-    [GtkChild] private ScoreOverlayEntry score_1;
-    [GtkChild] private ScoreOverlayEntry score_2;
-    [GtkChild] private ScoreOverlayEntry score_3;
+    [GtkChild] private unowned ScoreOverlayEntry score_0;
+    [GtkChild] private unowned ScoreOverlayEntry score_1;
+    [GtkChild] private unowned ScoreOverlayEntry score_2;
+    [GtkChild] private unowned ScoreOverlayEntry score_3;
 
     internal void set_score (uint8          puzzle_size,
                              uint /* [1[ */ position,
@@ -184,8 +184,8 @@ private class ScoreOverlay : Grid
 [GtkTemplate (ui = "/org/gnome/Tetravex/score-overlay-entry.ui")]
 private class ScoreOverlayEntry : Grid
 {
-    [GtkChild] private Label place_label;
-    [GtkChild] private Label value_label;
+    [GtkChild] private unowned Label place_label;
+    [GtkChild] private unowned Label value_label;
 
     internal void set_place_label (string label)
     {
