@@ -911,9 +911,14 @@ private class Puzzle : Object
         for (uint8 x = 0; x < board_size; x++)
             for (uint8 y = 0; y < board_size - 1; y++)
             {
-                if (((!) initial_board [x, y]).color_south != ((!) initial_board [x, y + 1]).color_north)
+                SavedTile? x_y = initial_board [x, y];
+                SavedTile? x_yplus1 = initial_board [x, y + 1];
+                SavedTile? y_x = initial_board [y, x];
+                SavedTile? yplus1_x = initial_board [y + 1, x];
+
+                if (((!) x_y).color_south != ((!) x_yplus1).color_north)
                     return false;
-                if (((!) initial_board [y, x]).color_east != ((!) initial_board [y + 1, x]).color_west)
+                if (((!) y_x).color_east != ((!) yplus1_x).color_west)
                     return false;
             }
 
