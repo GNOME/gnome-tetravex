@@ -916,6 +916,16 @@ private class Puzzle : Object
                 SavedTile? y_x = initial_board [y, x];
                 SavedTile? yplus1_x = initial_board [y + 1, x];
 
+                // We checked that there are enough saved tiles to fill
+                // the initial board, and we checked that each saved
+                // tile is in a unique position on the original board,
+                // so by the pigeonhole principle, all positions on the
+                // original board must have been filled by now
+                assert (x_y != null);
+                assert (x_yplus1 != null);
+                assert (y_x != null);
+                assert (yplus1_x != null);
+
                 if (((!) x_y).color_south != ((!) x_yplus1).color_north)
                     return false;
                 if (((!) y_x).color_east != ((!) yplus1_x).color_west)
