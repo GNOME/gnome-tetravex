@@ -7,79 +7,98 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"POT-Creation-Date: 2012-09-10 10:13+0000\n"
-"PO-Revision-Date: 2013-08-23 21:31+0800\n"
+"POT-Creation-Date: 2020-05-31 06:36+0000\n"
+"PO-Revision-Date: 2021-09-21 10:58-0400\n"
 "Last-Translator: Yuwen Dai <yuwend@gmail.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Xhacker Liu <liu.dongyuan@gmail.com>, 2010\n"
+msgstr ""
+"Xhacker Liu <liu.dongyuan@gmail.com>, 2010\n"
 "Yuwen Dai <yuwend@gmail.com>, 2012"
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#.
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/index.page:25(media)
-msgctxt "_"
-msgid ""
-"external ref='figures/gnotravex-logo.png' "
-"md5='daf379ccd659b42a71cd0f2661f651e4'"
-msgstr ""
-"external ref='figures/gnotravex-logo.png' "
-"md5='daf379ccd659b42a71cd0f2661f651e4'"
+#. (itstool) path: info/desc
+#: C/hint.page:7
+msgid "Solve the game automatically."
+msgstr "自动解决游戏。"
 
-#: C/index.page:7(info/title)
+#. (itstool) path: credit/name
+#: C/hint.page:10 C/index.page:17 C/move.page:12 C/size.page:12 C/usage.page:12
+#: C/winning.page:12
+msgid "Milo Casagrande"
+msgstr "Milo Casagrande"
+
+#. (itstool) path: page/title
+#: C/hint.page:14
+msgid "Hints"
+msgstr "提示"
+
+#. (itstool) path: note/p
+#: C/hint.page:17
+msgid ""
+"If you use the following method to complete the game, your score will not be "
+"included among the high scores."
+msgstr "如果您使用下面的方法完成游戏，您的分数将不会包含在得分排行榜上面。"
+
+#. (itstool) path: section/title
+#: C/hint.page:24
+msgid "Solve the game"
+msgstr "解决游戏"
+
+#. (itstool) path: section/p
+#: C/hint.page:25
+msgid ""
+"If you get stuck in the game and want to solve it automatically, press the "
+"question mark button in the bottom-right corner."
+msgstr "如果您游玩遇到了困难并想要自动解开谜题，可以按下右下角的问号按钮。"
+
+#. (itstool) path: info/title
+#: C/index.page:8
 msgctxt "link"
 msgid "GNOME Tetravex"
 msgstr "GNOME 四邻"
 
-#: C/index.page:8(info/title)
+#. (itstool) path: info/title
+#: C/index.page:9
 msgctxt "text"
 msgid "GNOME Tetravex"
 msgstr "GNOME 四邻"
 
-#: C/index.page:9(info/desc)
+#. (itstool) path: info/desc
+#: C/index.page:10
 msgid "GNOME Tetravex help."
 msgstr "GNOME 四邻 帮助。"
 
-#: C/index.page:12(credit/name) C/usage.page:15(credit/name)
+#. (itstool) path: credit/name
+#: C/index.page:13 C/usage.page:16
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
 
-#: C/index.page:16(credit/name) C/hint.page:10(credit/name)
-#: C/move.page:11(credit/name) C/shortcut.page:11(credit/name)
-#: C/size.page:10(credit/name) C/usage.page:11(credit/name)
-#: C/winning.page:12(credit/name)
-msgid "Milo Casagrande"
-msgstr "Milo Casagrande"
-
-#: C/index.page:20(license/p) C/move.page:15(license/p)
-#: C/shortcut.page:15(license/p) C/size.page:14(license/p)
-#: C/usage.page:19(license/p) C/winning.page:16(license/p)
+#. (itstool) path: license/p
+#: C/index.page:21 C/move.page:16 C/size.page:16 C/usage.page:20
+#: C/winning.page:16
 msgid "Creative Commons Share Alike 3.0"
 msgstr "Creative Commons Share Alike 3.0"
 
-#: C/index.page:24(page/title)
-msgid ""
-"<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
-"\">GNOME Tetravex logo</media> GNOME Tetravex"
-msgstr ""
-"<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
-"\">GNOME 四邻 标志</media> GNOME 四邻"
+#. (itstool) path: media/span
+#: C/index.page:26
+msgid "GNOME Tetravex logo"
+msgstr "GNOME 四邻图标"
 
-#: C/index.page:29(page/p)
+#. (itstool) path: page/title
+#: C/index.page:25
+msgid "<_:media-1/> GNOME Tetravex"
+msgstr "<_:media-1/> GNOME 四邻"
+
+#. (itstool) path: page/p
+#: C/index.page:30
 msgid ""
 "<app>GNOME Tetravex</app> is a simple puzzle game which scope is to move the "
 "various pieces from one side of the board to the other side, so that the "
@@ -88,101 +107,90 @@ msgstr ""
 "<app>GNOME 四邻</app> 是一个简单的解谜游戏，目标是把右侧的方块全部移动到左"
 "侧，每个方块的四面都邻接着相同的数字。"
 
-#: C/index.page:34(page/p)
+#. (itstool) path: page/p
+#: C/index.page:35
 msgid ""
 "The game is timed, and these times are used as the score for the game. You "
 "have to move all the pieces in the least time possible."
 msgstr "游戏会计时，用来确定得分排行榜。您需要尽快把所有的方块都搞定。"
 
-#: C/index.page:40(section/title)
+#. (itstool) path: section/title
+#: C/index.page:41
 msgid "Basic Gameplay &amp; Usage"
 msgstr "基本游戏使用"
 
-#: C/index.page:44(section/title)
+#. (itstool) path: section/title
+#: C/index.page:45
 msgid "Tips &amp; Tricks"
 msgstr "技巧和诀窍"
 
-#: C/hint.page:7(info/desc)
-msgid "Use hints or solve the game automatically."
-msgstr "使用提示来自动解决游戏"
-
-#: C/hint.page:14(page/title)
-msgid "Hints"
-msgstr "提示"
-
-#: C/hint.page:17(note/p)
-msgid ""
-"If you use the following method to complete the game, your score will not be "
-"included among the high scores."
-msgstr "如果您使用下面的方法完成游戏，您的分数将不会包含在得分排行榜上面。"
-
-#: C/hint.page:24(section/title)
-msgid "Solve the game"
-msgstr "解决游戏"
-
-#: C/hint.page:25(section/p)
-msgid ""
-"If you get stuck in the game, or you want to solve it automatically, choose "
-"<guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem\">Solve</gui></"
-"guiseq>."
-msgstr ""
-"如果您已经被游戏搞晕了，想要自动解决游戏，选择菜单中的 <guiseq><gui style="
-"\"menu\">游戏</gui><gui style=\"menuitem\">解开</gui></guiseq>。"
-
-#: C/license.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/license.page:8
 msgid "Legal information."
 msgstr "法律信息。"
 
-#: C/license.page:11(page/title)
+#. (itstool) path: page/title
+#: C/license.page:11
 msgid "License"
 msgstr "许可"
 
-#: C/license.page:12(page/p)
+#. (itstool) path: page/p
+#: C/license.page:12
 msgid ""
 "This work is distributed under a CreativeCommons Attribution-Share Alike 3.0 "
 "Unported license."
 msgstr "这个作品基于 署名-相同方式共享 3.0 Unported 进行发布。"
 
-#: C/license.page:20(page/p)
+#. (itstool) path: page/p
+#: C/license.page:20
 msgid "You are free:"
 msgstr "您可以自由地："
 
-#: C/license.page:25(item/title)
+#. (itstool) path: item/title
+#: C/license.page:25
 msgid "<em>To share</em>"
 msgstr "<em>分享</em>"
 
-#: C/license.page:26(item/p)
+#. (itstool) path: item/p
+#: C/license.page:26
 msgid "To copy, distribute and transmit the work."
 msgstr "复制、发行或传播本作品"
 
-#: C/license.page:29(item/title)
+#. (itstool) path: item/title
+#: C/license.page:29
 msgid "<em>To remix</em>"
 msgstr "<em>创作演绎</em>"
 
-#: C/license.page:30(item/p)
+#. (itstool) path: item/p
+#: C/license.page:30
 msgid "To adapt the work."
 msgstr "创作或演绎本作品"
 
-#: C/license.page:33(page/p)
+#. (itstool) path: page/p
+#: C/license.page:33
 msgid "Under the following conditions:"
 msgstr "惟须遵守下列条件："
 
-#: C/license.page:38(item/title)
+#. (itstool) path: item/title
+#: C/license.page:38
 msgid "<em>Attribution</em>"
 msgstr "<em>署名</em>"
 
-#: C/license.page:39(item/p)
+#. (itstool) path: item/p
+#: C/license.page:39
 msgid ""
 "You must attribute the work in the manner specified by the author or "
 "licensor (but not in any way that suggests that they endorse you or your use "
 "of the work)."
 msgstr "必须按照作者或者许可人指定的方式对作品进行署名。"
 
-#: C/license.page:46(item/title)
+#. (itstool) path: item/title
+#: C/license.page:46
 msgid "<em>Share Alike</em>"
 msgstr "<em>相同方式共享</em>"
 
-#: C/license.page:47(item/p)
+#. (itstool) path: item/p
+#: C/license.page:47
 msgid ""
 "If you alter, transform, or build upon this work, you may distribute the "
 "resulting work only under the same, similar or a compatible license."
@@ -190,7 +198,8 @@ msgstr ""
 "如果您改变、转换本作品或者以本作品为基础进行创作，您只能采用与本协议相同的许"
 "可协议发布基于本作品的演绎作品。"
 
-#: C/license.page:53(page/p)
+#. (itstool) path: page/p
+#: C/license.page:53
 msgid ""
 "For the full text of the license, see the <link href=\"http://"
 "creativecommons.org/licenses/by-sa/3.0/legalcode\">CreativeCommons website</"
@@ -201,19 +210,23 @@ msgstr ""
 "licenses/by-sa/3.0/legalcode\">创作共用网站</link>，或者阅读完整的 <link "
 "href=\"http://creativecommons.org/licenses/by-sa/3.0/\">普通文本</link>。"
 
-#: C/move.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/move.page:8
 msgid "How to move the pieces on the game board."
-msgstr "如何移动盘面上的方块"
+msgstr "如何移动盘面上的方块。"
 
-#: C/move.page:19(page/title)
+#. (itstool) path: page/title
+#: C/move.page:20
 msgid "Move the pieces"
 msgstr "移动方块"
 
-#: C/move.page:22(section/title)
+#. (itstool) path: section/title
+#: C/move.page:23
 msgid "Move a piece"
 msgstr "移动方块"
 
-#: C/move.page:23(section/p)
+#. (itstool) path: section/p
+#: C/move.page:24
 msgid ""
 "To move a piece, you can either click on it to select it, and click on the "
 "square to place it or drag it to the new square."
@@ -221,145 +234,72 @@ msgstr ""
 "为了移动一个方块，你可以点击选中它，然后点击要放置它的方格，或者把它拖动到方"
 "格里。"
 
-#: C/move.page:26(section/p)
+#. (itstool) path: section/p
+#: C/move.page:27
 msgid "These moves are not permanent and can be reversed."
 msgstr "这些移动并不是永久的，可以恢复。"
 
-#: C/move.page:30(note/p)
+#. (itstool) path: note/p
+#: C/move.page:31
 msgid ""
-"The pieces in the left box can be moved all at once in one direction. See "
-"<link xref=\"shortcut\"/> for more information."
+"The pieces in the left box can be moved all at once in one direction. Press "
+"the menu button in the top-right corner of the window and select <gui style="
+"\"menuitem\">Keyboard Shortcuts</gui> for more information."
 msgstr ""
-"左侧盒子里面的方块可以同时向某个方向移动一格，详见 <link xref=\"快捷键\"/>。"
+"左侧盒子里面的方块可以同时向某个方向移动一格，如需了解更多信息，请按下右下角"
+"的菜单按钮并选择 <gui style=\"menuitem\">快捷键</gui>。"
 
-#: C/shortcut.page:8(info/desc)
-msgid "Use the keyboard to play the game."
-msgstr "使用键盘进行游戏。"
-
-#: C/shortcut.page:19(page/title)
-msgid "Keyboard shortcuts"
-msgstr "键盘快捷键"
-
-#: C/shortcut.page:22(section/title)
-msgid "Game shortcuts"
-msgstr "游戏快捷键"
-
-#: C/shortcut.page:23(section/p)
-msgid ""
-"The following table groups the most useful shortcuts for playing <app>GNOME "
-"Tetravex</app>."
-msgstr "下面的表格显示了玩 <app>GNOME 四邻</app> 时可以用到的一些快捷键。"
-
-#: C/shortcut.page:28(td/p)
-msgid "Shortcut"
-msgstr "快捷键"
-
-#: C/shortcut.page:28(td/p)
-msgid "Description"
-msgstr "介绍"
-
-#: C/shortcut.page:32(td/p)
-msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
-
-#: C/shortcut.page:35(td/p)
-msgid "Start a new game."
-msgstr "新建一盘游戏。"
-
-#: C/shortcut.page:40(td/p)
-msgid "<key>Pause</key>"
-msgstr "<key>Pause</key>"
-
-#: C/shortcut.page:43(td/p)
-msgid "Pause or resume the game."
-msgstr "暂停/继续游戏。"
-
-#: C/shortcut.page:48(td/p)
-msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>↑</key></keyseq>"
-
-#: C/shortcut.page:53(td/p)
-msgid "Move all the pieces in the left box up by one."
-msgstr "将左侧盒子里的所有方块上移一格。"
-
-#: C/shortcut.page:58(td/p)
-msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>↓</key></keyseq>"
-
-#: C/shortcut.page:61(td/p)
-msgid "Move all the pieces in the left box down by one."
-msgstr "将左侧盒子里的所有方块下移一格。"
-
-#: C/shortcut.page:66(td/p)
-msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>←</key></keyseq>"
-
-#: C/shortcut.page:69(td/p)
-msgid "Move all the pieces in the left box left by one."
-msgstr "将左侧盒子里的所有方块左移一格。"
-
-#: C/shortcut.page:74(td/p)
-msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
-msgstr "<keyseq><key>Ctrl</key><key>→</key></keyseq>"
-
-#: C/shortcut.page:77(td/p)
-msgid "Move all the pieces in the left box right by one."
-msgstr "将左侧盒子里的所有方块右移一格。"
-
-#: C/size.page:7(info/desc)
+#. (itstool) path: info/desc
+#: C/size.page:7
 msgid "Change the size of the game board."
 msgstr "改变游戏盘面尺寸。"
 
-#: C/size.page:17(page/title)
+#. (itstool) path: page/title
+#: C/size.page:19
 msgid "Game board size"
 msgstr "游戏盘面尺寸"
 
-#: C/size.page:19(page/p)
+#. (itstool) path: page/p
+#: C/size.page:21
 msgid ""
 "To change the size of the game board, in order to increase or decrease the "
-"complexity of the game, choose <gui>Size</gui> from the main menu bar, and "
-"then select the dimension of the board."
+"complexity of the game, press the menu button in the top-right corner of the "
+"window and select <gui style=\"menuitem\">Size</gui>, then select the "
+"dimension of the board."
 msgstr ""
-"要改变游戏盘面尺寸，也就是调整游戏的难度，从菜单栏选择 <gui>大小</gui>，并选"
-"取合适的盘面尺寸。"
+"要改变游戏盘面尺寸，也就是调整游戏的难度，请按下窗口右下角的菜单按钮并选择 "
+"<gui style=\"menuitem\">大小</gui>，并选取合适的盘面尺寸。"
 
-#: C/size.page:24(page/p)
+#. (itstool) path: page/p
+#: C/size.page:27
 msgid ""
 "You can select from five different dimension, from 2×2 to 6×6. The default "
 "one is 3×3."
 msgstr "您可以从五种盘面尺寸中进行选择，从 2×2 到 6×6。默认尺寸是 3×3。"
 
-#: C/size.page:28(note/p)
+#. (itstool) path: note/p
+#: C/size.page:31
 msgid ""
 "If the pieces are too small, resizing the window will change their size."
 msgstr "如果觉得方块太小的，调整窗口的大小可以调整它们的尺寸。"
 
-#. This is a reference to an external file such as an image or video. When
-#. the file changes, the md5 hash will change to let you know you need to
-#. update your localized copy. The msgstr is not used at all. Set it to
-#. whatever you like once you have updated your copy of the file.
-#: C/usage.page:60(media)
-msgctxt "_"
-msgid ""
-"external ref='figures/gnotravex-video.ogv' "
-"md5='14cface4ec2b0c84aa5a925242694de0'"
-msgstr ""
-"external ref='figures/gnotravex-video.ogv' "
-"md5='14cface4ec2b0c84aa5a925242694de0'"
-
-#: C/usage.page:8(info/desc)
+#. (itstool) path: info/desc
+#: C/usage.page:9
 msgid "How to play <app>GNOME Tetravex</app>."
 msgstr "如何玩 <app>GNOME 四邻</app>。"
 
-#: C/usage.page:23(page/title)
+#. (itstool) path: page/title
+#: C/usage.page:24
 msgid "Play <app>GNOME Tetravex</app>"
 msgstr "玩 <app>GNOME 四邻</app>"
 
-#: C/usage.page:26(section/title)
+#. (itstool) path: section/title
+#: C/usage.page:27
 msgid "Basic usage"
 msgstr "基本使用"
 
-#: C/usage.page:27(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:28
 msgid ""
 "The game window is divided into two boxes: the one on the right side of the "
 "window contains the pieces that needs to be arranged; the one on the left "
@@ -370,85 +310,101 @@ msgstr ""
 "游戏窗口分成了两个盒子：窗口右侧的盒子包含了一打堆需要摆放的方块；这些方块要"
 "放到窗口左侧的盒子里面去。每个方块由四个三角形组成，它们各包含一个数字。"
 
-#: C/usage.page:34(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:35
 msgid ""
 "The scope of the game is to position the pieces so that only two identical "
 "numbers are next to each other."
 msgstr "游戏的目标是合理地摆放所有方块，使相邻的两个数字是一样的。"
 
-#: C/usage.page:38(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:39
 msgid ""
 "It is not possible to position the pieces so that different number are next "
 "to each other."
 msgstr "不能这样摆放方块，否则相邻的数字就不一样了。"
 
-#: C/usage.page:42(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:43
 msgid ""
 "The game is completed when you have positioned all the pieces in their right "
 "positions."
 msgstr "当您把所有的方块放在正确的位置时，游戏就完成了。"
 
-#: C/usage.page:47(note/p)
+#. (itstool) path: note/p
+#: C/usage.page:48
 msgid ""
 "When you start <app>GNOME Tetravex</app>, the game will start immediately, "
 "and the time will start counting."
 msgstr "当您启动 <app>GNOME 四邻</app>，游戏会立即开始，同时开始计时。"
 
-#: C/usage.page:56(section/title)
+#. (itstool) path: section/title
+#: C/usage.page:57
 msgid "Video demonstration"
 msgstr "视频演示"
 
-#: C/usage.page:57(section/p)
+#. (itstool) path: section/p
+#: C/usage.page:58
 msgid ""
 "This short video shows how the game works, and what are the possible "
 "movements."
 msgstr "这个小视频告诉您游戏是怎么玩的，怎样的移动是正确的。"
 
-#: C/usage.page:61(media/p)
+#. (itstool) path: media/p
+#: C/usage.page:62
 msgid "Demo"
 msgstr "演示"
 
-#: C/usage.page:65(div/p)
+#. (itstool) path: div/p
+#: C/usage.page:66
 msgid ""
 "Drag pieces from the right to the left, making sure that adjacent edges have "
 "the same number and color."
 msgstr "把方块从右边拖动到左边，并确保相邻的边含有相同的数字和颜色。"
 
-#: C/usage.page:69(div/p)
+#. (itstool) path: div/p
+#: C/usage.page:70
 msgid ""
 "Hold down <key>Ctrl</key> and press the arrow keys to move all placed pieces "
 "at once."
 msgstr "按住 <key>Ctrl</key> 键的同时按箭头键，可整体移动已放置的方块。"
 
-#: C/usage.page:73(div/p)
+#. (itstool) path: div/p
+#: C/usage.page:74
 msgid "Continue dragging pieces until they all fit together on the left."
 msgstr "继续拖动方块，直到它们完全合适地放进左边方框。"
 
-#: C/winning.page:9(info/desc)
+#. (itstool) path: info/desc
+#: C/winning.page:9
 msgid "Simple tips on how to possibly win a game."
 msgstr "赢得游戏的一些小技巧。"
 
-#: C/winning.page:20(page/title)
+#. (itstool) path: page/title
+#: C/winning.page:20
 msgid "Win <app>GNOME Tetravex</app>"
 msgstr "赢得 <app>GNOME 四邻</app>"
 
-#: C/winning.page:23(note/p)
+#. (itstool) path: note/p
+#: C/winning.page:23
 msgid ""
 "The following tips will not assure you to win a game, they are intended as a "
 "simple aid."
 msgstr "下面的技巧并不能保证您赢得游戏，他们只是简单地帮帮您。"
 
-#: C/winning.page:30(section/title)
+#. (itstool) path: section/title
+#: C/winning.page:30
 msgid "Look for a single number"
 msgstr "看看有没有单独的数字"
 
-#: C/winning.page:31(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:31
 msgid ""
 "When you start a new game, look for a single number, or a number that has no "
 "similar numbers that can be placed next to it."
 msgstr "游戏开始的时候，看看有没有单独的数字，或者没法在旁边放置任何块的数字。"
 
-#: C/winning.page:35(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:35
 msgid ""
 "If you have one such number, that piece is a valid starting piece, since you "
 "know where it has to be placed."
@@ -456,23 +412,113 @@ msgstr ""
 "如果找到这这样的一个数字，那么从这一块开始会十分不错，你知道应该把它放在哪"
 "里。"
 
-#: C/winning.page:39(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:39
 msgid ""
 "Note that the bigger the size of the board, the harder is to find such a "
 "number."
 msgstr "注意盘面的尺寸越大，越难找到这样的数字。"
 
-#: C/winning.page:46(section/title)
+#. (itstool) path: section/title
+#: C/winning.page:46
 msgid "Have a tip to share?"
 msgstr "想要分享一条技巧？"
 
-#: C/winning.page:47(section/p)
+#. (itstool) path: section/p
+#: C/winning.page:47
 msgid ""
 "If you have a tip to share about <app>GNOME Tetravex</app>, or any other "
 "GNOME games, write us at gnome-doc-list@gnome.org. We will add them here!"
 msgstr ""
 "如果您有什么关于 <app>GNOME 四邻</app> 或者其他 GNOME 游戏的小技巧，请写信至 "
 "gnome-doc-list@gnome.org。我们会把它加到这里的！"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/gnotravex-logo.png' "
+#~ "md5='daf379ccd659b42a71cd0f2661f651e4'"
+#~ msgstr ""
+#~ "external ref='figures/gnotravex-logo.png' "
+#~ "md5='daf379ccd659b42a71cd0f2661f651e4'"
+
+#~ msgid ""
+#~ "<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
+#~ "\">GNOME Tetravex logo</media> GNOME Tetravex"
+#~ msgstr ""
+#~ "<media type=\"image\" mime=\"image/png\" src=\"figures/gnotravex-logo.png"
+#~ "\">GNOME 四邻 标志</media> GNOME 四邻"
+
+#~ msgid ""
+#~ "If you get stuck in the game, or you want to solve it automatically, "
+#~ "choose <guiseq><gui style=\"menu\">Game</gui><gui style=\"menuitem"
+#~ "\">Solve</gui></guiseq>."
+#~ msgstr ""
+#~ "如果您已经被游戏搞晕了，想要自动解决游戏，选择菜单中的 <guiseq><gui style="
+#~ "\"menu\">游戏</gui><gui style=\"menuitem\">解开</gui></guiseq>。"
+
+#~ msgid "Use the keyboard to play the game."
+#~ msgstr "使用键盘进行游戏。"
+
+#~ msgid "Keyboard shortcuts"
+#~ msgstr "键盘快捷键"
+
+#~ msgid "Game shortcuts"
+#~ msgstr "游戏快捷键"
+
+#~ msgid ""
+#~ "The following table groups the most useful shortcuts for playing "
+#~ "<app>GNOME Tetravex</app>."
+#~ msgstr "下面的表格显示了玩 <app>GNOME 四邻</app> 时可以用到的一些快捷键。"
+
+#~ msgid "Shortcut"
+#~ msgstr "快捷键"
+
+#~ msgid "Description"
+#~ msgstr "介绍"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>N</key></keyseq>"
+
+#~ msgid "Start a new game."
+#~ msgstr "新建一盘游戏。"
+
+#~ msgid "<key>Pause</key>"
+#~ msgstr "<key>Pause</key>"
+
+#~ msgid "Pause or resume the game."
+#~ msgstr "暂停/继续游戏。"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Up</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>↑</key></keyseq>"
+
+#~ msgid "Move all the pieces in the left box up by one."
+#~ msgstr "将左侧盒子里的所有方块上移一格。"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Down</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>↓</key></keyseq>"
+
+#~ msgid "Move all the pieces in the left box down by one."
+#~ msgstr "将左侧盒子里的所有方块下移一格。"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Left</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>←</key></keyseq>"
+
+#~ msgid "Move all the pieces in the left box left by one."
+#~ msgstr "将左侧盒子里的所有方块左移一格。"
+
+#~ msgid "<keyseq><key>Ctrl</key><key>Right</key></keyseq>"
+#~ msgstr "<keyseq><key>Ctrl</key><key>→</key></keyseq>"
+
+#~ msgid "Move all the pieces in the left box right by one."
+#~ msgstr "将左侧盒子里的所有方块右移一格。"
+
+#~ msgctxt "_"
+#~ msgid ""
+#~ "external ref='figures/gnotravex-video.ogv' "
+#~ "md5='14cface4ec2b0c84aa5a925242694de0'"
+#~ msgstr ""
+#~ "external ref='figures/gnotravex-video.ogv' "
+#~ "md5='14cface4ec2b0c84aa5a925242694de0'"
 
 #~ msgid "milo@ubuntu.com"
 #~ msgstr "milo@ubuntu.com"
