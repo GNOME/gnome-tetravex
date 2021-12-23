@@ -6,22 +6,22 @@
 # Vincent Sebastian The <vincent.s.the@gmail.com>, 2011, 2012.
 # Dirgita <dirgitadevina@yahoo.co.id>, 2012.
 # Adamas Subagya <adamasgendut@gmail.com>, 2019.
-# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019, 2020
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-06-12 16:12+0000\n"
-"PO-Revision-Date: 2020-06-13 13:19+0700\n"
+"POT-Creation-Date: 2021-04-14 12:43+0000\n"
+"PO-Revision-Date: 2021-12-23 11:30+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural= n!=1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Rosetta-Export-Date: 2007-04-23 05:58:10+0000\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 3.0\n"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
@@ -399,19 +399,19 @@ msgid "Invert two tiles, the one in A1, and the one in b2."
 msgstr "Balikkan dua ubin, satu di A1, dan satu di b2."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
 #: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:203
 msgid "An uppercase targets a tile from the initial board."
 msgstr "Huruf besar menargetkan ubin dari papan awal."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
 #: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:206
 msgid "A lowercase targets a tile in the left/final board."
 msgstr "Huruf kecil menargetkan ubin di papan kiri/terakhir."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
 #: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:209
 msgid "Digits specify the rows of the two tiles to invert."
 msgstr "Digit menentukan baris dari dua ubin untuk dibalik."
@@ -441,7 +441,7 @@ msgid "Finish current puzzle, automatically. Alias: “end”."
 msgstr "Selesaikan teka-teki saat ini, secara otomatis. Alias: “end”."
 
 #. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explaination of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
+#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
 #: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:224
 msgid "Works for puzzles solved right or if one tile left."
 msgstr ""
@@ -670,7 +670,7 @@ msgstr ""
 "Vincent Sebastian The <vincent.s.the@gmail.com>, 2011, 2012.\n"
 "Dirgita <dirgitadevina@yahoo.co.id>, 2012.\n"
 "Adamas Subagya <adamasgendut@gmail.com>, 2019.\n"
-"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019, 2020."
+"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019, 2020, 2021."
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play", "Play on selected tile", "Select the given row", etc.
 #: src/help-overlay.ui:32
