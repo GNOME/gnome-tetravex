@@ -19,7 +19,7 @@
   </description>
   <screenshots>
     <screenshot type="default" width="748" height="462">
-      <image>https://people.gnome.org/~mcatanzaro/gnome-tetravex.png</image>
+      <image>https://gitlab.gnome.org/GNOME/gnome-tetravex/-/raw/master/data/screenshot.png</image>
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">org.gnome.Tetravex.desktop</launchable>
