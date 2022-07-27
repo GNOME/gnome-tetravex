@@ -4,7 +4,6 @@ variables:
     BUNDLE: "tetravex-dev.flatpak"
 
 flatpak:
-    image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master'
     variables:
         MANIFEST_PATH: "build-aux/org.gnome.Tetravex.json"
         FLATPAK_MODULE: "gnome-tetravex"
