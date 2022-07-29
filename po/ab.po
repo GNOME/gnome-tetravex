@@ -1,20 +1,14 @@
-# Copyright (C) 2022 The Abkhazian language development fund named after Bagrat Shinkuba
-# This file is distributed under the same license as the gnome-tetravex package.
-# Нанба Наала <naala-nanba@rambler.ru>, 2022.
-#
-
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
 "POT-Creation-Date: 2022-02-18 19:29+0000\n"
-"PO-Revision-Date: 2022-07-22 16:00+0000\n"
 "Last-Translator: Нанба Наала <naala-nanba@rambler.ru>\n"
-"Language-Team: Abkhazian <LL@li.org>\n"
+"Language-Team: Abkhazian <ab@li.org>\n"
 "Language: ab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
@@ -39,7 +33,7 @@ msgstr ""
 
 #: data/org.gnome.Tetravex.appdata.xml.in:32
 msgid "The GNOME Project"
-msgstr ""
+msgstr "The GNOME Project"
 
 #. Translators: application name, as seen in GNOME Shell
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
@@ -171,22 +165,27 @@ msgstr ""
 msgid "Si_ze"
 msgstr ""
 
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
 #: src/app-menu.ui:32
 msgid "_2 × 2"
 msgstr "_2 × 2"
 
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
 #: src/app-menu.ui:38
 msgid "_3 × 3"
 msgstr "_3 × 3"
 
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
 #: src/app-menu.ui:44
 msgid "_4 × 4"
 msgstr "_4 × 4"
 
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
 #: src/app-menu.ui:50
 msgid "_5 × 5"
 msgstr "_5 × 5"
 
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
 #: src/app-menu.ui:56
 msgid "_6 × 6"
 msgstr "_6 × 6"
@@ -345,7 +344,7 @@ msgstr ""
 #. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
 #: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:93
 msgid "SIZE"
-msgstr ""
+msgstr "SIZE"
 
 #. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
@@ -579,14 +578,17 @@ msgstr ""
 msgid "_Give Up"
 msgstr ""
 
+#. Translators: text crediting a game author, seen in the About dialog
 #: src/gnome-tetravex.vala:1021
 msgid "Lars Rydlinge"
 msgstr "Lars Rydlinge"
 
+#. Translators: text crediting a game author, seen in the About dialog
 #: src/gnome-tetravex.vala:1025
 msgid "Robert Ancell"
 msgstr "Robert Ancell"
 
+#. Translators: text crediting a game documenter, seen in the About dialog
 #: src/gnome-tetravex.vala:1029
 msgid "Rob Bradford"
 msgstr "Rob Bradford"
@@ -596,11 +598,15 @@ msgstr "Rob Bradford"
 msgid "Position pieces so that the same numbers are touching each other"
 msgstr ""
 
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
 #: src/gnome-tetravex.vala:1037
+#, c-format
 msgid "Copyright © %u-%u – Lars Rydlinge"
 msgstr "Copyright © %u-%u – Lars Rydlinge"
 
+#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
 #: src/gnome-tetravex.vala:1041
+#, c-format
 msgid "Copyright © %u-%u – Arnaud Bonatti"
 msgstr "Copyright © %u-%u – Arnaud Bonatti"
 
@@ -609,16 +615,10 @@ msgstr "Copyright © %u-%u – Arnaud Bonatti"
 msgid "Page on GNOME wiki"
 msgstr ""
 
+#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
 #: src/gnome-tetravex.vala:1057
 msgid "translator-credits"
-msgstr ""
-"Александр Кострикин\n"
-"Валек Филиппов aka frob\n"
-"Дмитри Мастрюков\n"
-"Вячеслав Диконов\n"
-"Михаил Иахонтов\n"
-"Леонид Кантер\n"
-"Ser82-png, 2022"
+msgstr "Нанба Наала <naala-nanba@rambler.ru>, 2022"
 
 #. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play", "Play on selected tile", "Select the given row", etc.
 #: src/help-overlay.ui:32
@@ -806,31 +806,45 @@ msgctxt "shortcut window"
 msgid "Move all the pieces in the right half-board right by one"
 msgstr ""
 
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
 #: src/history.vala:314
+#, c-format
 msgid "%uh %um %us"
 msgstr "%uh %um %us"
 
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
 #: src/history.vala:318
+#, c-format
 msgid "%um %us"
 msgstr "%um %us"
 
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
 #: src/history.vala:322
+#, c-format
 msgid "%us"
 msgstr "%us"
 
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
 #: src/history.vala:326
+#, c-format
 msgid "%.0fs"
 msgstr "%.0fs"
 
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
 #: src/history.vala:330
+#, c-format
 msgid "%.1fs"
 msgstr "%.1fs"
 
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
 #: src/history.vala:334
+#, c-format
 msgid "%.2fs"
 msgstr "%.2fs"
 
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
 #: src/history.vala:338
+#, c-format
 msgid "%.3fs"
 msgstr "%.3fs"
 
@@ -839,6 +853,7 @@ msgstr "%.3fs"
 msgid "Paused"
 msgstr ""
 
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
 #: src/score-dialog.vala:72
 msgid "Date"
 msgstr "Аамҭарба"
@@ -848,7 +863,9 @@ msgstr "Аамҭарба"
 msgid "Time"
 msgstr ""
 
+#. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
 #: src/score-dialog.vala:145
+#, c-format
 msgid "%u × %u"
 msgstr "%u × %u"
 
