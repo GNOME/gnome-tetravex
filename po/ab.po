@@ -3,7 +3,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
 "POT-Creation-Date: 2022-02-18 19:29+0000\n"
 "Last-Translator: Нанба Наала <naala-nanba@rambler.ru>\n"
-"Language-Team: Abkhazian <ab@li.org>\n"
+"Language-Team: Abkhazian <daniel.abzakh@gmail.com>\n"
 "Language: ab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,12 +137,12 @@ msgstr ""
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
 #: data/org.gnome.Tetravex.gschema.xml:63
 msgid "The height of the window"
-msgstr ""
+msgstr "Аԥенџьыр аҳаракыра"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
 #: data/org.gnome.Tetravex.gschema.xml:65
 msgid "The height of the main window in pixels."
-msgstr ""
+msgstr "Ихадоу аԥенџьыр аҳаракыра пиксельла"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
 #: data/org.gnome.Tetravex.gschema.xml:70
@@ -198,7 +198,7 @@ msgstr ""
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
 #: src/app-menu.ui:78
 msgid "A_ppearance"
-msgstr ""
+msgstr "_Аԥшра"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
 #: src/app-menu.ui:82
@@ -861,7 +861,7 @@ msgstr "Аамҭарба"
 #. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
 #: src/score-dialog.vala:76
 msgid "Time"
-msgstr ""
+msgstr "Аамҭа"
 
 #. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
 #: src/score-dialog.vala:145
@@ -890,7 +890,7 @@ msgstr ""
 #: src/score-overlay.vala:61 src/score-overlay.vala:117
 #: src/score-overlay.vala:156
 msgid "Second:"
-msgstr ""
+msgstr "Аҩбатәи алҵшәа:"
 
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time
 #. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time
