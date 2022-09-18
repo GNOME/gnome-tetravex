@@ -1,6 +1,6 @@
 # Turkish translation of gnome tetravex.
 # Copyright (C) 2000-2002, 2004, 2005, 2008 Free Software Foundation, Inc.
-# Copyright (C) 2009-2020 gnome tetravex'S COPYRIGHT HOLDER
+# Copyright (C) 2009-2022 gnome tetravex's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome tetravex package.
 #
 # Onur Kucuk, <okucuk@yahoo.com>, 2000.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-07-03 15:29+0000\n"
+"POT-Creation-Date: 2022-07-26 10:59+0000\n"
 "PO-Revision-Date: 2020-08-19 12:50+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
@@ -997,44 +997,3 @@ msgstr "Dördüncü:"
 #: src/score-overlay.vala:205
 msgid "Free!"
 msgstr "Serbest!"
-
-#~ msgid ""
-#~ "Are you sure you want to start a new game with a different board size?"
-#~ msgstr ""
-#~ "Farklı tahta boyutu ile yeni oyun başlatmak istediğinizden emin misiniz?"
-
-#~ msgid "org.gnome.Tetravex"
-#~ msgstr "org.gnome.Tetravex"
-
-#~ msgid "_2x2"
-#~ msgstr "_2x2"
-
-#~ msgid "_3x3"
-#~ msgstr "_3x3"
-
-#~ msgid "_4x4"
-#~ msgstr "_4x4"
-
-#~ msgid "_5x5"
-#~ msgstr "_5x5"
-
-#~ msgid "_6x6"
-#~ msgstr "_6x6"
-
-#~ msgid "Quit"
-#~ msgstr "Çık"
-
-#~ msgid "New Game"
-#~ msgstr "Yeni Oyun"
-
-#~ msgid "OK"
-#~ msgstr "Tamam"
-
-#~ msgid "Size:"
-#~ msgstr "Boyut:"
-
-#~ msgid "_Size"
-#~ msgstr "_Boyut"
-
-#~ msgid "_Quit"
-#~ msgstr "_Çıkış"
