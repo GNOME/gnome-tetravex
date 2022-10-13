@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
 "POT-Creation-Date: 2022-10-03 08:04+0000\n"
-"PO-Revision-Date: 2022-10-10 17:35+0200\n"
+"PO-Revision-Date: 2022-10-13 10:27+0200\n"
 "Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "Language: bg\n"
@@ -167,17 +167,17 @@ msgstr "Широчината на прозореца"
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
 #: data/org.gnome.Tetravex.gschema.xml:58
 msgid "The width of the main window in pixels."
-msgstr "Широчината на прозореца в пиксели."
+msgstr "Широчината на главния прозорец в пиксели."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
 #: data/org.gnome.Tetravex.gschema.xml:63
 msgid "The height of the window"
-msgstr "Височината на прозорец"
+msgstr "Височината на прозореца"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
 #: data/org.gnome.Tetravex.gschema.xml:65
 msgid "The height of the main window in pixels."
-msgstr "Височината на прозореца в пиксели."
+msgstr "Височината на главния прозорец в пиксели."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
 #: data/org.gnome.Tetravex.gschema.xml:70
@@ -187,9 +187,7 @@ msgstr "Флаг за включване на максимизирания ре�
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
 #: data/org.gnome.Tetravex.gschema.xml:72
 msgid "If “true”, the main window starts in maximized mode."
-msgstr ""
-"Когато е зададено, основният прозорец на програмата се отваря в "
-"максимизирано състояние."
+msgstr "Когато е включено, основният прозорец на програмата се отваря в максимизирано състояние."
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
