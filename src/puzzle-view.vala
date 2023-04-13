@@ -331,7 +331,7 @@ private class PuzzleView : Gtk.DrawingArea
 
     private void tile_moved_cb (Puzzle puzzle, Tile tile, uint8 x, uint8 y)
     {
-        move_tile_to_location (tiles.lookup (tile), x, y, animation_duration);
+        move_tile_to_location ((!) tiles.lookup (tile), x, y, animation_duration);
     }
 
     internal const double gap_factor = 0.5;
