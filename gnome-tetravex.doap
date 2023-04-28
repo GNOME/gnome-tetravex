@@ -11,7 +11,7 @@
   <description xml:lang="en">Complete the puzzle by matching numbered tiles</description>
 
   <homepage rdf:resource="https://wiki.gnome.org/Apps/Tetravex" />
-  <mailing-list rdf:resource="https://mail.gnome.org/mailman/listinfo/games-list" />
+  <support-forum rdf:resource="https://discourse.gnome.org/tag/games" />
   <download-page rdf:resource="https://download.gnome.org/sources/gnome-tetravex/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/" />
   <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
