@@ -111,7 +111,6 @@ private class History : Object
         best_time_item = entry_item;
         do { best_time_item = best_time_item.prev; }
         while (best_time_item != entries && best_time_item.data.size == puzzle_size);
-        best_time_item = best_time_item.next;
         return entries.position (best_time_item);
     }
 
