@@ -15,16 +15,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2022-07-26 10:59+0000\n"
-"PO-Revision-Date: 2020-08-19 12:50+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"POT-Creation-Date: 2023-01-25 19:44+0000\n"
+"PO-Revision-Date: 2024-05-10 22:39+0300\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 3.4.3\n"
 
 #: data/org.gnome.Tetravex.appdata.xml.in:7
 msgid "GNOME Tetravex"
@@ -73,7 +73,7 @@ msgstr "Numaralandırılmış karoları eşleştirerek bulmacayı tamamla"
 #. Search terms to find this application.
 #: data/org.gnome.Tetravex.desktop.in:8
 msgid "game;logic;board;"
-msgstr "oyun;mantık;tahta;"
+msgstr "Tetravex;game;logic;board;oyun;mantık;tahta;"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
 #: data/org.gnome.Tetravex.gschema.xml:13
