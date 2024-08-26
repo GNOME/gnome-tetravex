@@ -138,6 +138,7 @@ private class Tetravex : Gtk.Application
         Intl.textdomain (GETTEXT_PACKAGE);
 
         Environment.set_application_name (PROGRAM_NAME);
+        Environment.set_prgname ("org.gnome.Tetravex");
         Window.set_default_icon_name ("org.gnome.Tetravex");
 
         Tetravex app = new Tetravex ();
