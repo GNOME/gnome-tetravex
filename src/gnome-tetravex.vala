@@ -288,7 +288,9 @@ private class Tetravex : Gtk.Application
         set_accels_for_action ("app.reload",        { "<Shift><Primary>r"       });
         set_accels_for_action ("app.hamburger",     {                 "F10"     });
         // F1 and friends are managed manually
+    }
 
+    private void create_window () {
         Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
 
         string history_path;
@@ -504,6 +506,7 @@ private class Tetravex : Gtk.Application
         else
             new_game ();
     }
+
     private class BottomButton : Button
     {
         construct
@@ -571,15 +574,20 @@ private class Tetravex : Gtk.Application
         settings.set_int ("window-width", window_width);
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", window_is_maximized || window_is_fullscreen);
-        if (puzzle.game_in_progress)
-            settings.set_value ("saved-game", puzzle.to_variant (/* save time */ !puzzle.tainted_by_command_line));
-        else if (!can_restore)
-            settings.@set ("saved-game", "m(yyda(yyyyyyyy)ua(yyyyu))", null);
+        if (puzzle_init_done) {
+            if (puzzle.game_in_progress)
+                settings.set_value ("saved-game", puzzle.to_variant (/* save time */ !puzzle.tainted_by_command_line));
+            else if (!can_restore)
+                settings.@set ("saved-game", "m(yyda(yyyyyyyy)ua(yyyyu))", null);
+        }
         settings.apply ();
     }
 
     protected override void activate ()
     {
+        if (get_active_window () == null)
+            create_window ();
+
         window.present ();
     }
 
