@@ -1,5 +1,5 @@
 project ('gnome-tetravex', ['vala', 'c'],
-         version: '3.38.2',
+         version: '3.38.3',
          license: 'GPLv2+',
          default_options: [
              'warning_level=1',

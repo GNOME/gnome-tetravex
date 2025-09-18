@@ -1,3 +1,16 @@
+Tetravex 3.38.3
+===============
+
+* Fix drag and drop not releasing tile
+* Fix off by one error in score overlay
+* Fix compilation error with newer Meson versions
+* Fix crash with newer Vala versions
+* Improve label alignment in score overlay
+* Increase size of Scores dialog
+* Modernize appdata
+* Use appstreamcli to validate appdata
+* Translation updates
+
 GNOME Tetravex 3.38.2
 ======================
 
