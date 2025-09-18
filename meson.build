@@ -32,7 +32,7 @@ endif
 # TODO build requires vala 0.46.3 for GLib vapi
 
 if get_option('build_gui')
-  appstream_util        = find_program('appstream-util',        required: false)
+  appstreamcli          = find_program('appstreamcli',          required: false)
   desktop_file_validate = find_program('desktop-file-validate', required: false)
 endif
 glib_compile_schema     = find_program('glib-compile-schemas',  required: true) # useful?
