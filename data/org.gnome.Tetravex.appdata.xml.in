@@ -4,7 +4,7 @@
   <id>org.gnome.Tetravex</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-or-later</project_license>
-  <name>GNOME Tetravex</name>
+  <name>Tetravex</name>
   <summary>Reorder tiles to fit a square</summary>
   <description>
     <p>
@@ -23,13 +23,13 @@
     </screenshot>
   </screenshots>
   <launchable type="desktop-id">org.gnome.Tetravex.desktop</launchable>
-  <url type="homepage">https://wiki.gnome.org/Apps/Tetravex</url>
+  <url type="homepage">https://gitlab.gnome.org/GNOME/gnome-tetravex</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-tetravex/issues</url>
-  <url type="donation">https://www.gnome.org/friends/</url>
-  <url type="help">https://help.gnome.org/users/gnome-tetravex/stable/</url>
-  <update_contact>mcatanzaro_at_gnome.org</update_contact>
-  <project_group>GNOME</project_group>
-  <developer_name>The GNOME Project</developer_name>
+  <url type="translate">https://l10n.gnome.org/module/gnome-tetravex/</url>
+  <url type="vcs-browser">https://gitlab.gnome.org/GNOME/gnome-tetravex</url>
+  <developer id="org.gnome.tetravex">
+    <name>The Tetravex Team</name>
+  </developer>
   <provides>
     <id>gnome-tetravex.desktop</id>
   </provides>

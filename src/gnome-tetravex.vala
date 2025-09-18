@@ -1065,7 +1065,7 @@ private class Tetravex : Gtk.Application
         /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
                            "translator-credits",    _("translator-credits"),
                            "logo-icon-name",        "org.gnome.Tetravex",
-                           "website",               "https://wiki.gnome.org/Apps/Tetravex",
+                           "website",               "https://gitlab.gnome.org/GNOME/gnome-tetravex",
                            "website-label",         website_label,
                            null);
     }

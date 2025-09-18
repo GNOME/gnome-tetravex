@@ -1,10 +1,13 @@
 # Tetravex
 
-A tetravex game for GNOME.
+Reorder tiles to fit a square.
 
 ## Useful links
 
-- Homepage: <https://wiki.gnome.org/Apps/Tetravex>
+- Homepage: <https://gitlab.gnome.org/GNOME/gnome-tetravex>
 - Report issues: <https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/>
-- Translate: <https://wiki.gnome.org/TranslationProject>
-- Code of Conduct: <https://gitlab.gnome.org/GNOME/gnome-tetravex/blob/master/code-of-conduct.md>
+- Translate: <https://l10n.gnome.org/module/gnome-tetravex/>
+
+## Code of Conduct
+
+This project follows the [GNOME Code of Conduct](https://conduct.gnome.org/).
