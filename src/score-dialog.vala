@@ -40,7 +40,7 @@ private class ScoreDialog : Dialog
         history.entry_added.connect (entry_added_cb);
         this.selected_entry = selected_entry;
 
-        set_size_request (230, 320);
+        set_size_request (360, 475);
 
         size_model = new Gtk.ListStore (2, typeof (string), typeof (int));
 
@@ -74,6 +74,8 @@ private class ScoreDialog : Dialog
         renderer.xalign = 1.0f;
         /* Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games */
         scores.insert_column_with_attributes (-1, _("Time"), renderer, "text", 1, "weight", 2);
+        foreach (var column in scores.get_columns ())
+            column.set_expand (true);
         scores.model = score_model;
         scores.show ();
         scroll.add (scores);
