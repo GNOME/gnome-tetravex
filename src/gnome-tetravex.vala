@@ -390,15 +390,16 @@ private class Tetravex : Gtk.Application
             assert_not_reached ();
         surface = (Gdk.Toplevel) (!) nullable_surface;
         surface.notify ["state"].connect (on_window_state_event);
-        surface.size_changed.connect (on_size_changed);
+        window.notify ["width"].connect (on_size_changed);
+        window.notify ["height"].connect (on_size_changed);
     }
 
-    private inline void on_size_changed (Gdk.Surface _surface, int width, int height)
+    private inline void on_size_changed ()
     {
         if (window_is_maximized || window_is_tiled || window_is_fullscreen)
             return;
-        window_width  = width;
-        window_height = height;
+        window_width  = window.get_width ();
+        window_height = window.get_height ();
     }
 
     private Gdk.Toplevel surface;
