@@ -21,13 +21,14 @@
   <requires lib="gtk+" version="3.12"/>
   <template class="ScoreOverlayEntry" parent="GtkGrid">
     <property name="visible">True</property>
+    <property name="column-spacing">6</property>
     <property name="width-request">160</property> <!-- two tiles of 80 max -->
-    <property name="halign">center</property>
     <child>
       <object class="GtkLabel" id="place_label">
         <property name="visible">True</property>
         <property name="hexpand">True</property>
-        <property name="halign">start</property>
+        <property name="wrap">True</property>
+        <property name="xalign">0</property>
         <style>
           <class name="bold-label"/>
         </style>
@@ -41,7 +42,7 @@
       <object class="GtkLabel" id="value_label">
         <property name="visible">True</property>
         <property name="hexpand">True</property>
-        <property name="halign">end</property>
+        <property name="xalign">1</property>
       </object>
       <packing>
         <property name="top-attach">2</property>
