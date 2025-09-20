@@ -5,7 +5,7 @@ project ('gnome-tetravex', ['vala', 'c'],
              'warning_level=1',
              'buildtype=debugoptimized',
          ],
-         meson_version: '>= 0.50.0')
+         meson_version: '>= 0.59.0')
 
 project_id      = 'org.gnome.Tetravex'
 cli_project_id  = 'org.gnome.TetravexCli'
@@ -29,7 +29,6 @@ glib_dep    = dependency ('glib-2.0',   version: '>= 2.42.0')
 if get_option('build_gui')
   gtk_dep   = dependency ('gtk+-3.0',   version: '>= 3.22.23')
 endif
-# TODO build requires vala 0.46.3 for GLib vapi
 
 if get_option('build_gui')
   appstreamcli          = find_program('appstreamcli',          required: false)
@@ -47,4 +46,8 @@ if get_option('build_gui')
 endif
 subdir ('src')
 
-meson.add_install_script('build-aux/meson_post_install.py')
+gnome.post_install(
+  gtk_update_icon_cache: true,
+  update_desktop_database: true,
+  glib_compile_schemas: true,
+)
