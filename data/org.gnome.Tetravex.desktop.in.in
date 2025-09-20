@@ -5,10 +5,10 @@ Comment=Complete the puzzle by matching numbered tiles
 #              The list MUST also end with a semicolon!
 #              Search terms to find this application.
 Keywords=game;logic;board;
-Exec=gnome-tetravex
+Exec=@exec-name@
 # TRANSLATORS: Do NOT translate or transliterate this text!
 #              This is an icon file name.
-Icon=org.gnome.Tetravex
+Icon=@app-id@
 Terminal=false
 Type=Application
 Categories=GNOME;GTK;Game;LogicGame;
