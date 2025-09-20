@@ -28,9 +28,9 @@ private class ScoreOverlay : Grid
         internal set
         {
             if (value < 250 && value != 0)
-                get_style_context ().add_class ("small-window");
+                add_css_class ("small-window");
             else
-                get_style_context ().remove_class ("small-window");
+                remove_css_class ("small-window");
         }
     }
 
@@ -156,18 +156,18 @@ private class ScoreOverlayEntry : Grid
         if (label != null)
         {
             value_label.set_label ((!) label);
-            value_label.get_style_context ().remove_class ("italic-label");
+            value_label.remove_css_class ("italic-label");
         }
         else
         {
             /* Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made one of the worst scores for a game of this size; says that the rank after the one of the game is "free", inviting to do worse */
             value_label.set_label (_("Free!"));
-            value_label.get_style_context ().add_class ("italic-label");
+            value_label.add_css_class ("italic-label");
         }
 
         if (bold_label)
-            value_label.get_style_context ().add_class ("bold-label");
+            value_label.add_css_class ("bold-label");
         else
-            value_label.get_style_context ().remove_class ("bold-label");
+            value_label.remove_css_class ("bold-label");
     }
 }

@@ -226,7 +226,7 @@ private class Tetravex : Gtk.Application
         ((SimpleAction) lookup_action ("size")).set_state ("%d".printf (game_size));
 
         if (APP_ID.has_suffix (".Devel"))
-            window.get_style_context ().add_class ("devel");
+            window.add_css_class ("devel");
 
         HeaderBar headerbar = new HeaderBar ();
         headerbar.title_widget = new Gtk.Label (PROGRAM_NAME);
@@ -252,7 +252,7 @@ private class Tetravex : Gtk.Application
         redo_button.valign = Align.CENTER;
 
         Box undo_redo_box = new Box (Orientation.HORIZONTAL, /* spacing */ 0);
-        undo_redo_box.get_style_context ().add_class ("linked");
+        undo_redo_box.add_css_class ("linked");
         undo_redo_box.append (undo_button);
         undo_redo_box.append (redo_button);
         headerbar.pack_start (undo_redo_box);

@@ -34,7 +34,7 @@ private class ScoreDialog : Dialog
     {
         Object (use_header_bar: /* true */ 1);
 
-        get_style_context ().add_class ("score-dialog");
+        add_css_class ("score-dialog");
 
         this.history = history;
         history.entry_added.connect (entry_added_cb);
