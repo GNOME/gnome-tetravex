@@ -70,17 +70,36 @@
       </packing>
     </child>
     <child>
-      <object class="GtkButton">
+      <object class="GtkBox">
         <property name="visible">True</property>
         <property name="halign">center</property>
-        <property name="valign">center</property>
-        <!-- Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog -->
-        <property name="label" translatable="yes">Show scores</property>
-        <property name="action-name">app.scores</property>
-        <property name="focus-on-click">False</property>
-        <style>
-          <class name="rounded-button"/>
-        </style>
+        <property name="spacing">6</property>
+        <child>
+          <object class="GtkButton">
+            <property name="visible">True</property>
+            <property name="valign">center</property>
+            <property name="label" translatable="yes">_New Game</property>
+            <property name="use-underline">True</property>
+            <property name="action-name">app.new-game</property>
+            <property name="focus-on-click">False</property>
+            <style>
+              <class name="rounded-button"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="visible">True</property>
+            <property name="valign">center</property>
+            <property name="label" translatable="yes">_Scores</property>
+            <property name="use-underline">True</property>
+            <property name="action-name">app.scores</property>
+            <property name="focus-on-click">False</property>
+            <style>
+              <class name="rounded-button"/>
+            </style>
+          </object>
+        </child>
       </object>
       <packing>
         <property name="top-attach">6</property>

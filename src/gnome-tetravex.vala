@@ -36,8 +36,6 @@ private class Tetravex : Gtk.Application
 
     private Puzzle puzzle;
     private bool puzzle_init_done = false;
-    private Label clock_label;
-    private Box clock_box;
     private History history;
 
     private PuzzleView view;
@@ -414,48 +412,51 @@ private class Tetravex : Gtk.Application
         settings.bind ("mouse-forward-button",      view,
                        "mouse-forward-button",      SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
-        SizeGroup sizegroup = new SizeGroup (SizeGroupMode.BOTH);
-
-        Button play_button      = new BottomButton ("media-playback-start-symbolic",
-                                                    "app.pause", /* not a typo */
+        Button play_button = new Button.from_icon_name ("media-playback-start-symbolic");
+        play_button.set_action_name ("app.pause");
+        ((Widget) play_button).set_focus_on_click (false);
+        play_button.valign = Align.CENTER;
         /* Translators: tooltip text of the "play"/unpause button, in the bottom bar */
-                                                    _("Resume the game"),
-                                                    /* align end */ false,
-                                                    sizegroup);
+        play_button.set_tooltip_text (_("Resume the game"));
+        play_button.show ();
 
-        pause_button            = new BottomButton ("media-playback-pause-symbolic",
-                                                    "app.pause",
+        pause_button = new Button.from_icon_name ("media-playback-pause-symbolic");
+        pause_button.set_action_name ("app.pause");
+        ((Widget) pause_button).set_focus_on_click (false);
+        pause_button.valign = Align.CENTER;
         /* Translators: tooltip text of the pause button, in the bottom bar */
-                                                    _("Pause the game"),
-                                                    /* align end */ false,
-                                                    sizegroup);
+        pause_button.set_tooltip_text (_("Pause the game"));
+        pause_button.show ();
 
         play_pause_stack = new Stack ();
         play_pause_stack.add_named (play_button, "play");
         play_pause_stack.add_named (pause_button, "pause");
         play_pause_stack.show ();
-        grid.attach (play_pause_stack, 0, 1, 1, 1);
+        headerbar.pack_end (play_pause_stack);
 
-        new_game_button         = new BottomButton ("view-refresh-symbolic",
-                                                    "app.new-game",
+        new_game_button = new Button.from_icon_name ("view-refresh-symbolic");
+        new_game_button.set_action_name ("app.new-game");
+        ((Widget) new_game_button).set_focus_on_click (false);
+        new_game_button.valign = Align.CENTER;
         /* Translators: tooltip text of the "restart"/new game button, in the bottom bar */
-                                                    _("Start a new game"),
-                                                    /* align end */ true,
-                                                    sizegroup);
+        new_game_button.set_tooltip_text (_("Start a new game"));
+        new_game_button.show ();
 
-        Button solve_button     = new BottomButton ("dialog-question-symbolic",
-                                                    "app.solve",
+        Button solve_button = new Button.from_icon_name ("dialog-question-symbolic");
+        solve_button.set_action_name ("app.solve");
+        ((Widget) solve_button).set_focus_on_click (false);
+        solve_button.valign = Align.CENTER;
         /* Translators: tooltip text of the "solve"/give up button, in the bottom bar */
-                                                    _("Give up and view the solution"),
-                                                    /* align end */ true,
-                                                    sizegroup);
+        solve_button.set_tooltip_text (_("Give up and view the solution"));
+        solve_button.show ();
 
-        Button finish_button    = new BottomButton ("go-previous-symbolic",
-                                                    "app.finish",
+        Button finish_button = new Button.from_icon_name ("go-previous-symbolic");
+        finish_button.set_action_name ("app.finish");
+        ((Widget) finish_button).set_focus_on_click (false);
+        finish_button.valign = Align.CENTER;
         /* Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board */
-                                                    _("Move all tiles left"),
-                                                    /* align end */ true,
-                                                    sizegroup);
+        finish_button.set_tooltip_text (_("Move all tiles left"));
+        finish_button.show ();
 
         new_game_button_click_controller = new GestureMultiPress (new_game_button);
         new_game_button_click_controller.pressed.connect (on_new_game_button_click);
@@ -464,20 +465,7 @@ private class Tetravex : Gtk.Application
         new_game_solve_stack.add_named (new_game_button, "new-game");
         new_game_solve_stack.add_named (finish_button, "finish");
         new_game_solve_stack.show ();
-        grid.attach (new_game_solve_stack, 2, 1, 1, 1);
-
-        clock_box = new Box (Orientation.HORIZONTAL, /* spacing */ 8);
-        Image image = new Image.from_icon_name ("preferences-system-time-symbolic", IconSize.MENU);
-        image.show ();
-        clock_box.add (image);
-        clock_label = new Label ("");
-        clock_label.show ();
-        clock_box.add (clock_label);
-        clock_box.halign = Align.CENTER;
-        clock_box.valign = Align.BASELINE;
-        clock_box.set_margin_top (20);
-        clock_box.set_margin_bottom (20);
-        grid.attach (clock_box, 1, 1, 1, 1);
+        headerbar.pack_end (new_game_solve_stack);
 
         undo_action   = (SimpleAction) lookup_action ("undo");
         redo_action   = (SimpleAction) lookup_action ("redo");
@@ -506,31 +494,6 @@ private class Tetravex : Gtk.Application
             new_game (saved_game);
         else
             new_game ();
-    }
-
-    private class BottomButton : Button
-    {
-        construct
-        {
-            get_style_context ().add_class ("image-button");
-        }
-
-        internal BottomButton (string icon_name, string action_name, string tooltip_text, bool align_end, SizeGroup sizegroup)
-        {
-            Image _image = new Image.from_icon_name (icon_name, IconSize.DND);
-            _image.margin = 10;
-            Object (action_name: action_name,
-                    tooltip_text: tooltip_text,
-                    halign: align_end ? Align.END : Align.START,
-                    valign: Align.CENTER,
-                    margin_start: 35,
-                    margin_end: 35,
-                    image: _image,
-                    focus_on_click: false,
-                    visible: true);
-
-            sizegroup.add_widget (this);
-        }
     }
 
     private void size_allocate_cb (Allocation allocation)
@@ -643,15 +606,12 @@ private class Tetravex : Gtk.Application
             else
                 size = (!) given_size;
             puzzle = new Puzzle ((uint8) size, (uint8) colors);
-            clock_box.show ();
         }
         else
         {
             puzzle = new Puzzle.restore ((!) saved_game);
             if (puzzle.is_solved_right)
                 solved_right_cb ();
-            if (puzzle.tainted_by_command_line)
-                clock_box.hide ();
         }
         puzzle_init_done = true;
         puzzle.tick.connect (tick_cb);
@@ -688,6 +648,7 @@ private class Tetravex : Gtk.Application
         if (puzzle_init_done && puzzle.tainted_by_command_line)
             return;
 
+        var headerbar = (Gtk.HeaderBar) window.get_titlebar ();
         int elapsed = 0;
         if (puzzle_init_done)
             elapsed = (int) puzzle.elapsed; // felt better when + 0.5, but as the clock is still displayed while the score-overlay displays the exact time, that is regularly feeling odd
@@ -695,9 +656,9 @@ private class Tetravex : Gtk.Application
         int minutes = (elapsed - hours * 3600) / 60;
         int seconds = elapsed - hours * 3600 - minutes * 60;
         if (hours > 0)
-            clock_label.set_text ("%02d∶\xE2\x80\x8E%02d∶\xE2\x80\x8E%02d".printf (hours, minutes, seconds));
+            headerbar.title = "%02d∶\xE2\x80\x8E%02d∶\xE2\x80\x8E%02d".printf (hours, minutes, seconds);
         else
-            clock_label.set_text ("%02d∶\xE2\x80\x8E%02d".printf (minutes, seconds));
+            headerbar.title = "%02d∶\xE2\x80\x8E%02d".printf (minutes, seconds);
     }
 
     private bool puzzle_is_finished = false;
@@ -922,14 +883,18 @@ private class Tetravex : Gtk.Application
 
     private void pause_cb (/* SimpleAction action, Variant? parameter */)
     {
+        var headerbar = (Gtk.HeaderBar) window.get_titlebar ();
         puzzle.paused = !puzzle.paused;
         undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused);
         redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused);
         update_bottom_button_states ();
-        if (puzzle.paused)
+        if (puzzle.paused) {
             pause_button.grab_focus ();
-        else
+            headerbar.subtitle = _("Paused");
+        } else {
             view.grab_focus ();
+            headerbar.subtitle = "";
+        }
     }
 
     private void update_bottom_button_states ()

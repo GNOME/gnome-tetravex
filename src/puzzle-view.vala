@@ -499,10 +499,6 @@ private class PuzzleView : Gtk.DrawingArea
             context.restore ();
         }
 
-        /* Draw pause overlay */
-        if (puzzle.paused)
-            draw_pause_overlay (context);
-
         return false;
     }
     private void draw_image (Cairo.Context context, TileImage image)
@@ -522,22 +518,6 @@ private class PuzzleView : Gtk.DrawingArea
             theme.draw_tile (context, image.tile, highlight);
         }
         context.restore ();
-    }
-    private inline void draw_pause_overlay (Cairo.Context context)
-    {
-        context.set_source_rgba (0, 0, 0, 0.75);
-        context.paint ();
-
-        context.select_font_face ("Sans", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
-        context.set_font_size (get_allocated_width () * 0.125);
-
-        /* Translators: text that appears as an overlay on the board when the game is paused */
-        string text = _("Paused");
-        Cairo.TextExtents extents;
-        context.text_extents (text, out extents);
-        context.move_to ((get_allocated_width () - extents.width) / 2.0, (get_allocated_height () + extents.height) / 2.0);
-        context.set_source_rgb (1, 1, 1);
-        context.show_text (text);
     }
 
     private void pick_tile (double x, double y)
