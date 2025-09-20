@@ -66,13 +66,6 @@
             <attribute name="target">6</attribute>
           </item>
         </section>
-        <section>
-          <item>
-            <!-- Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game -->
-            <attribute name="label" translatable="yes">_New Game</attribute>
-            <attribute name="action">app.new-game</attribute>
-          </item>
-        </section>
       </submenu>
       <submenu>
         <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme -->

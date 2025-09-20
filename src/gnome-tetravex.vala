@@ -691,6 +691,7 @@ private class Tetravex : Gtk.Application
             return;
         settings.set_int ("grid-size", size);
         action.set_state (variant);
+        new_game_cb ();
     }
 
     private void move_up_l ()     { view.move_up    (/* left board */ true);  }
