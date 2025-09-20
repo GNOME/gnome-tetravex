@@ -397,7 +397,7 @@ private class Tetravex : Adw.Application
         settings.set_int ("window-height", window_height);
         settings.set_boolean ("window-is-maximized", window_is_maximized || window_is_fullscreen);
         if (puzzle_init_done) {
-            if (puzzle.game_in_progress)
+            if (puzzle.game_in_progress && !puzzle.is_solved)
                 settings.set_value ("saved-game", puzzle.to_variant ());
             else
                 settings.@set ("saved-game", "m(yyda(yyyyyyyy)ua(yyyyu))", null);
