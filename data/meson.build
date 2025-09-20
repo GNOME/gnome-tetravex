@@ -69,6 +69,7 @@ endif
 metainfo_conf = configuration_data()
 metainfo_conf.set('app-id', app_id)
 metainfo_conf.set('developer-id', app_id.to_lower())
+metainfo_conf.set('gettext-package', meson.project_name())
 
 metainfo_file = i18n.merge_file(
   input: configure_file(

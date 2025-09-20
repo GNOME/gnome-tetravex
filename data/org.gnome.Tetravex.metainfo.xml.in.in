@@ -44,7 +44,7 @@
     <control>pointing</control>
     <control>touch</control>
   </supports>
-  <translation type="gettext">gnome-tetravex</translation>
+  <translation type="gettext">@gettext-package@</translation>
   <content_rating type="oars-1.1" />
   ​<releases>
     <release version="3.38.3" date="2025-09-18">
