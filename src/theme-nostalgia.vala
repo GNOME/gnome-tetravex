@@ -84,7 +84,6 @@ private class NostalgiaTheme : Theme
     \*/
 
     private uint size = 0;
-    private uint8 animation_level = 0;
 
     /* arrow */
     private double arrow_half_h;
@@ -164,18 +163,11 @@ private class NostalgiaTheme : Theme
         size = new_size;
     }
 
-    internal override void set_animation_level (uint8 new_animation_level /* 0-16 */)
-    {
-        animation_level = new_animation_level;
-        configure_arrow (size);
-        configure_socket (size);
-    }
-
     private void configure_arrow (uint new_size)
     {
         arrow_half_h = new_size * 0.75;
         neg_arrow_half_h = -arrow_half_h;
-        arrow_depth = double.min (new_size * 0.025, 2.0) - (double) animation_level / 6.0;
+        arrow_depth = double.min (new_size * 0.025, 2.0);
         arrow_depth = double.max (arrow_depth, 0.0);
         arrow_dx = Math.SQRT2 * arrow_depth;
         arrow_dy = arrow_half_h - 6.1623 * arrow_depth;
@@ -187,7 +179,7 @@ private class NostalgiaTheme : Theme
 
     private void configure_socket (uint new_size)
     {
-        socket_depth = double.min (new_size * 0.05, 4.0) - (double) animation_level / 4.0;
+        socket_depth = double.min (new_size * 0.05, 4.0);
         socket_depth = double.max (socket_depth, 0.0);
         size_minus_socket_depth = (double) new_size - socket_depth;
         size_minus_two_socket_depths = (double) new_size - socket_depth * 2.0;
@@ -206,10 +198,7 @@ private class NostalgiaTheme : Theme
         context.line_to (arrow_w, arrow_half_h);
         context.line_to (arrow_w, neg_arrow_half_h);
         context.close_path ();
-        if (animation_level == 0)
-            context.set_source_rgba (0.0, 0.0, 0.0, 0.125);
-        else
-            context.set_source_rgba (0.0, 0.0, 0.0, 0.125 * (16.0 - (double) animation_level) / 16.0);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.125);
         context.fill ();
 
         /* Arrow highlight */
@@ -218,10 +207,7 @@ private class NostalgiaTheme : Theme
         context.line_to (arrow_w_minus_depth, arrow_dy);
         context.line_to (arrow_w_minus_depth, neg_arrow_dy);
         context.close_path ();
-        if (animation_level == 0)
-            context.set_source_rgba (0.6, 0.6, 0.5, 0.125);
-        else
-            context.set_source_rgba (0.6, 0.6, 0.5, 0.125 * (16.0 - (double) animation_level) / 16.0);
+        context.set_source_rgba (0.6, 0.6, 0.5, 0.125);
         context.fill ();
 
         /* Arrow shadow */
@@ -232,10 +218,7 @@ private class NostalgiaTheme : Theme
         context.line_to (arrow_dx, 0.0);
         context.line_to (arrow_w_minus_depth, neg_arrow_dy);
         context.close_path ();
-        if (animation_level == 0)
-            context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
-        else
-            context.set_source_rgba (0.0, 0.0, 0.0, 0.25 * (16.0 - (double) animation_level) / 16.0);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
         context.fill ();
     }
 
@@ -247,10 +230,7 @@ private class NostalgiaTheme : Theme
     {
         /* Background */
         context.rectangle (socket_depth, socket_depth, size_minus_two_socket_depths, size_minus_two_socket_depths);
-        if (animation_level == 0)
-            context.set_source_rgba (0.0, 0.0, 0.0, 0.125);
-        else
-            context.set_source_rgba (0.0, 0.0, 0.0, 0.125 * (16.0 - (double) animation_level) / 16.0);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.125);
         context.fill ();
 
         /* Highlight */
@@ -261,10 +241,7 @@ private class NostalgiaTheme : Theme
         context.line_to (size_minus_socket_depth, size_minus_socket_depth);
         context.line_to (socket_depth, size_minus_socket_depth);
         context.close_path ();
-        if (animation_level == 0)
-            context.set_source_rgba (0.6, 0.6, 0.5, 0.125);
-        else
-            context.set_source_rgba (0.6, 0.6, 0.5, 0.125 * (16.0 - (double) animation_level) / 16.0);
+        context.set_source_rgba (0.6, 0.6, 0.5, 0.125);
         context.fill ();
 
         /* Shadow */
@@ -275,10 +252,7 @@ private class NostalgiaTheme : Theme
         context.line_to (socket_depth, socket_depth);
         context.line_to (size_minus_socket_depth, socket_depth);
         context.close_path ();
-        if (animation_level == 0)
-            context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
-        else
-            context.set_source_rgba (0.0, 0.0, 0.0, 0.25 * (16.0 - (double) animation_level) / 16.0);
+        context.set_source_rgba (0.0, 0.0, 0.0, 0.25);
         context.fill ();
     }
 

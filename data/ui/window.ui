@@ -20,10 +20,5 @@
   <object class="GtkApplicationWindow" id="gnome-tetravex-window">
     <!-- Translators: application name, as seen in GNOME Shell -->
     <property name="title" translatable="yes">Tetravex</property>
-    <child>
-      <object class="GtkGrid" id="grid">
-        <property name="column-homogeneous">True</property> <!-- else the clock regularly triggers a view redraw... -->
-      </object>
-    </child>
   </object>
 </interface>

@@ -30,90 +30,6 @@ private class History : Object
 
     internal signal void entry_added (HistoryEntry entry);
 
-    internal uint get_place (HistoryEntry   entry,
-                             uint8          puzzle_size,
-                         out HistoryEntry?  other_entry_0,
-                         out HistoryEntry?  other_entry_1,
-                         out HistoryEntry?  other_entry_2)
-    {
-        entries.insert_sorted (entry, compare_entries);
-        entry_added (entry);
-        save ();
-
-        unowned List<HistoryEntry> entry_item = entries.find (entry);
-        unowned List<HistoryEntry> best_time_item;
-        uint best_position = get_best_time_position (entry_item, out best_time_item);
-        uint position = entries.position (entry_item) - best_position + 1;
-        switch (position)
-        {
-            case 1:
-                unowned List<HistoryEntry>? tmp_item = entry_item.next;
-                if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
-                {
-                    other_entry_0 = null;
-                    other_entry_1 = null;
-                    other_entry_2 = null;
-                    break;
-                }
-                other_entry_0 = ((!) tmp_item).data;
-                tmp_item = ((!) tmp_item).next;
-                if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
-                {
-                    other_entry_1 = null;
-                    other_entry_2 = null;
-                    break;
-                }
-                other_entry_1 = ((!) tmp_item).data;
-                tmp_item = ((!) tmp_item).next;
-                if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
-                    other_entry_2 = null;
-                else
-                    other_entry_2 = ((!) tmp_item).data;
-                break;
-
-            case 2:
-                other_entry_0 = best_time_item.data;
-                unowned List<HistoryEntry>? tmp_item = entry_item.next;
-                if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
-                {
-                    other_entry_1 = null;
-                    other_entry_2 = null;
-                    break;
-                }
-                other_entry_1 = ((!) tmp_item).data;
-                tmp_item = ((!) tmp_item).next;
-                if (tmp_item == null || ((!) tmp_item).data.size != puzzle_size)
-                    other_entry_2 = null;
-                else
-                    other_entry_2 = ((!) tmp_item).data;
-                break;
-
-            default:
-                other_entry_0 = best_time_item.data;
-                other_entry_1 = entry_item.prev.data;
-                unowned List<HistoryEntry>? next_entry_item = entry_item.next;
-                if (next_entry_item == null || ((!) next_entry_item).data.size != puzzle_size)
-                    other_entry_2 = null;
-                else
-                    other_entry_2 = ((!) next_entry_item).data;
-                break;
-        }
-        return position;
-    }
-
-    private uint get_best_time_position (List<HistoryEntry> entry_item, out unowned List<HistoryEntry> best_time_item)
-    {
-        uint8 puzzle_size = entry_item.data.size;
-        best_time_item = entries.first ();
-        if (puzzle_size == 2 || entry_item == best_time_item)
-            return 0;
-
-        best_time_item = entry_item;
-        do { best_time_item = best_time_item.prev; }
-        while (best_time_item != entries && best_time_item.data.size == puzzle_size);
-        return entries.position (best_time_item);
-    }
-
     internal bool is_empty ()
     {
         unowned List<HistoryEntry>? first_entry = entries.first ();
@@ -178,6 +94,12 @@ private class History : Object
     /*\
     * * saving
     \*/
+
+    public void add (HistoryEntry entry) {
+        entries.insert_sorted (entry, compare_entries);
+        entry_added (entry);
+        save ();
+    }
 
     private inline void save ()
     {

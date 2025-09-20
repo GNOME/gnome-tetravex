@@ -117,7 +117,6 @@ private class ExtrusionTheme : Theme
     \*/
 
     private uint size = 0;
-    private uint8 animation_level = 0;
 
     /* arrow */
     private double arrow_half_h;
@@ -129,8 +128,6 @@ private class ExtrusionTheme : Theme
     private double arrow_clip_y;
     private double arrow_clip_w;
     private double arrow_clip_h;
-
-    private double arrow_opacity;
 
     /* highlight */
     private Cairo.Pattern highlight_tile_pattern;
@@ -146,8 +143,6 @@ private class ExtrusionTheme : Theme
     private double lateral_shadow_width;
     private double west_shadow_limit;
     private double north_shadow_limit;
-
-    private double socket_opacity;
 
     /* numbers */
     private double font_size;
@@ -209,13 +204,6 @@ private class ExtrusionTheme : Theme
         size = new_size;
     }
 
-    internal override void set_animation_level (uint8 new_animation_level /* 0-16 */)
-    {
-        animation_level = new_animation_level;
-        arrow_opacity = 0.4 * (16.0 - (double) animation_level) / 16.0;
-        socket_opacity = 0.3 * (16.0 - (double) animation_level) / 16.0;
-    }
-
     /*\
     * * drawing arrow
     \*/
@@ -228,7 +216,7 @@ private class ExtrusionTheme : Theme
         context.line_to (arrow_w, arrow_half_h);
         context.line_to (arrow_w, neg_arrow_half_h);
         context.close_path ();
-        context.set_source_rgba (0.5, 0.5, 0.5, arrow_opacity);
+        context.set_source_rgba (0.5, 0.5, 0.5, 1);
         context.fill ();
     }
 
@@ -240,7 +228,7 @@ private class ExtrusionTheme : Theme
     {
         context.save ();
 
-        context.set_source_rgba (0.5, 0.5, 0.5, socket_opacity);
+        context.set_source_rgba (0.5, 0.5, 0.5, 1);
         rounded_square (context,
           /* x and y */ tile_margin, tile_margin,
           /* size    */ tile_size,

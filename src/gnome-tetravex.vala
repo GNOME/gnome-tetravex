@@ -57,8 +57,6 @@ private class Tetravex : Adw.Application
     private SimpleAction solve_action;
     private SimpleAction finish_action;
 
-    private ScoreOverlay score_overlay;
-
     private MenuButton hamburger_button;
 
     private const OptionEntry [] option_entries =
@@ -257,8 +255,6 @@ private class Tetravex : Adw.Application
         undo_redo_box.append (redo_button);
         headerbar.pack_start (undo_redo_box);
 
-        Grid grid = (Grid) builder.get_object ("grid");
-
         view = new PuzzleView ();
         view.hexpand = true;
         view.vexpand = true;
@@ -269,27 +265,14 @@ private class Tetravex : Adw.Application
         view.add_controller (view_click_controller);
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
-        Overlay overlay = new Overlay ();
-        overlay.set_child (view);
-
-        score_overlay = new ScoreOverlay ();
-        overlay.add_overlay (score_overlay);
-//        overlay.set_overlay_pass_through (score_overlay, true);
-
-        view.bind_property ("boardsize",        score_overlay,  "boardsize",        BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        view.bind_property ("x-offset-right",   score_overlay,  "margin-start",     BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        view.bind_property ("right-margin",     score_overlay,  "margin-end",       BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        view.bind_property ("y-offset",         score_overlay,  "margin-top",       BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        view.bind_property ("y-offset",         score_overlay,  "margin-bottom",    BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-
-        grid.attach (overlay, 0, 0, 3, 1);
-
         settings.bind ("mouse-use-extra-buttons",   view,
                        "mouse-use-extra-buttons",   SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
         settings.bind ("mouse-back-button",         view,
                        "mouse-back-button",         SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
         settings.bind ("mouse-forward-button",      view,
                        "mouse-forward-button",      SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
+
+        window.child = view;
 
         Button play_button = new Button.from_icon_name ("media-playback-start-symbolic");
         play_button.set_action_name ("app.pause");
@@ -442,7 +425,6 @@ private class Tetravex : Adw.Application
         solve_action.set_enabled (true);
         finish_action.set_enabled (false);
         new_game_solve_stack.set_visible_child_name ("solve");
-        score_overlay.set_visible (false);
 
         if (puzzle_init_done)
             SignalHandler.disconnect_by_func (puzzle, null, this);
@@ -558,20 +540,10 @@ private class Tetravex : Adw.Application
         if (!puzzle_is_finished) // Ctrl-n has been hit before the animation finished
             return;
 
-        HistoryEntry? other_score_0;
-        HistoryEntry? other_score_1;
-        HistoryEntry? other_score_2;
-        uint position = history.get_place ((!) last_history_entry,
-                                           puzzle.size,
-                                       out other_score_0,
-                                       out other_score_1,
-                                       out other_score_2);
-        score_overlay.set_score (puzzle.size, position, (!) last_history_entry, other_score_0, other_score_1, other_score_2);
+        history.add (last_history_entry);
 
         new_game_solve_stack.set_visible_child_name ("new-game");
-        view.hide_right_sockets ();
-
-        new_game_button.grab_focus ();
+        scores_cb ();
     }
 
     private void new_game_cb ()

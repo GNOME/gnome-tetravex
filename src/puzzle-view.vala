@@ -33,7 +33,6 @@ private abstract class Theme : Object
     internal abstract void draw_highlight (Cairo.Context context, bool has_tile);
     internal abstract void draw_paused_tile (Cairo.Context context);
     internal abstract void draw_tile (Cairo.Context context, Tile tile, bool highlight);
-    internal abstract void set_animation_level (uint8 animation_level /* 0-16 */);
 }
 
 private class PuzzleView : Gtk.DrawingArea
@@ -86,7 +85,6 @@ private class PuzzleView : Gtk.DrawingArea
         private get { if (!puzzle_init_done) assert_not_reached (); return _puzzle; }
         internal set
         {
-            show_right_sockets ();
             uint8 old_puzzle_size = 0;
             if (puzzle_init_done)
             {
@@ -146,7 +144,6 @@ private class PuzzleView : Gtk.DrawingArea
                 theme.configure (tilesize);
             arrow_pattern = null;
             socket_pattern = null;
-            theme.set_animation_level (socket_animation_level);
             queue_draw ();
         }
     }
@@ -836,45 +833,6 @@ private class PuzzleView : Gtk.DrawingArea
     {
         last_selected_tile = null;
         puzzle.reload ();
-    }
-
-    /*\
-    * * final animation
-    \*/
-
-    private uint8 socket_animation_level = 0;
-    private uint socket_timeout_id = 0;
-
-    internal void hide_right_sockets ()
-    {
-        socket_timeout_id = Timeout.add (75, () => {
-                socket_animation_level++;
-                theme.set_animation_level (socket_animation_level);
-                arrow_pattern = null;
-                socket_pattern = null;
-                queue_draw ();
-
-                if (socket_animation_level < 17)
-                    return Source.CONTINUE;
-                else
-                {
-                    socket_timeout_id = 0;
-                    return Source.REMOVE;
-                }
-            });
-    }
-
-    private inline void show_right_sockets ()
-    {
-        if (socket_timeout_id != 0)
-        {
-            Source.remove (socket_timeout_id);
-            socket_timeout_id = 0;
-        }
-        socket_animation_level = 0;
-        theme.set_animation_level (0);
-        arrow_pattern = null;
-        socket_pattern = null;
     }
 
     /*\

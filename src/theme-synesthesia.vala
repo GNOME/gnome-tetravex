@@ -72,7 +72,6 @@ private class SynesthesiaTheme : Theme
     \*/
 
     private uint size = 0;
-    private uint8 animation_level = 0;
 
     /* arrow */
     private double arrow_half_h;
@@ -152,12 +151,6 @@ private class SynesthesiaTheme : Theme
         size = new_size;
     }
 
-    internal override void set_animation_level (uint8 new_animation_level /* 0-16 */)
-    {
-        animation_level = new_animation_level;
-        init_socket_pattern ();
-    }
-
     private void init_socket_pattern ()
     {
         socket_pattern = new Cairo.MeshPattern ();
@@ -166,20 +159,10 @@ private class SynesthesiaTheme : Theme
         socket_pattern.line_to (1.0, 0.5);
         socket_pattern.line_to (0.5, 1.0);
         socket_pattern.line_to (0.0, 0.5);
-        if (animation_level == 0)
-        {
-            socket_pattern.set_corner_color_rgba (0, 0.45, 0.45, 0.45, 0.5);
-            socket_pattern.set_corner_color_rgba (1, 0.6 , 0.6 , 0.6 , 0.5);
-            socket_pattern.set_corner_color_rgba (2, 0.7 , 0.7 , 0.7 , 0.5);
-            socket_pattern.set_corner_color_rgba (3, 0.55, 0.55, 0.55, 0.5);
-        }
-        else
-        {
-            socket_pattern.set_corner_color_rgba (0, 0.45, 0.45, 0.45, 0.5 * (16.0 - (double) animation_level) / 16.0);
-            socket_pattern.set_corner_color_rgba (1, 0.6 , 0.6 , 0.6 , 0.5 * (16.0 - (double) animation_level) / 16.0);
-            socket_pattern.set_corner_color_rgba (2, 0.7 , 0.7 , 0.7 , 0.5 * (16.0 - (double) animation_level) / 16.0);
-            socket_pattern.set_corner_color_rgba (3, 0.55, 0.55, 0.55, 0.5 * (16.0 - (double) animation_level) / 16.0);
-        }
+        socket_pattern.set_corner_color_rgba (0, 0.45, 0.45, 0.45, 0.5);
+        socket_pattern.set_corner_color_rgba (1, 0.6 , 0.6 , 0.6 , 0.5);
+        socket_pattern.set_corner_color_rgba (2, 0.7 , 0.7 , 0.7 , 0.5);
+        socket_pattern.set_corner_color_rgba (3, 0.55, 0.55, 0.55, 0.5);
         socket_pattern.end_patch ();
         socket_pattern.set_matrix (matrix);
     }
@@ -196,10 +179,7 @@ private class SynesthesiaTheme : Theme
         context.line_to (arrow_w, arrow_half_h);
         context.line_to (arrow_w, neg_arrow_half_h);
         context.close_path ();
-        if (animation_level == 0)
-            context.set_source_rgba (0.5, 0.5, 0.6, 0.4);
-        else
-            context.set_source_rgba (0.5, 0.5, 0.6, 0.4 * (16.0 - (double) animation_level) / 16.0);
+        context.set_source_rgba (0.5, 0.5, 0.6, 0.4);
         context.fill ();
     }
 
@@ -222,10 +202,7 @@ private class SynesthesiaTheme : Theme
         context.fill_preserve ();
 
         context.set_line_width (1.0);
-        if (animation_level == 0)
-            context.set_source_rgba (0.4, 0.4, 0.4, 0.3);
-        else
-            context.set_source_rgba (0.4, 0.4, 0.4, 0.3 * (16.0 - (double) animation_level) / 16.0);
+        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);
         context.stroke ();
 
         context.restore ();
