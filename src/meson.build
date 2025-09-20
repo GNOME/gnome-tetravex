@@ -1,33 +1,31 @@
-gui_resources = gnome.compile_resources ('resources', 'gnome-tetravex.gresource.xml',
-                                         source_dir: '.',
-                                         c_name: 'resources')
-
-gui_sources = files (
-  'config.vapi',
-  'gnome-tetravex.vala',
-  'history.vala',
-  'puzzle.vala',
-  'puzzle-view.vala',
-  'score-dialog.vala',
-  'score-overlay.vala',
-  'theme-extrusion.vala',
-  'theme-neoretro.vala',
-  'theme-nostalgia.vala',
-  'theme-synesthesia.vala'
-)
-
-gnome_tetravex_gui = executable (
-  'gnome-tetravex',
-  gui_sources + gui_resources,
-  dependencies: [ gio_dep,
-                  glib_dep,
-                  gtk_dep,
-                  libm_dep ],
-  vala_args: [ '--pkg=posix',
-               '--enable-experimental-non-null' ],
-  c_args: [ '-DAPP_ID="@0@"'.format(app_id),
-            '-DVERSION="@0@"'.format (meson.project_version ()),
-            '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
-            '-DLOCALEDIR="@0@"'.format (localedir) ],
+gnome_tetravex = executable (
+  meson.project_name(),
+  resources + files(
+    'config.vapi',
+    'gnome-tetravex.vala',
+    'history.vala',
+    'puzzle.vala',
+    'puzzle-view.vala',
+    'score-dialog.vala',
+    'score-overlay.vala',
+    'theme-extrusion.vala',
+    'theme-neoretro.vala',
+    'theme-nostalgia.vala',
+    'theme-synesthesia.vala',
+  ),
+  dependencies: [
+    gio_dep,
+    glib_dep,
+    gtk_dep,
+    libm_dep,
+  ],
+  vala_args: [ '--pkg=posix' ],
+  c_args: [
+    '-DAPP_ID="@0@"'.format(app_id),
+    '-DVERSION="@0@"'.format(meson.project_version()),
+    '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
+    '-DLOCALEDIR="@0@"'.format(localedir),
+    '-w'
+  ],
   install: true
 )

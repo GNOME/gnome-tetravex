@@ -92,5 +92,20 @@ if appstreamcli.found()
   )
 endif
 
+# Resources
+resources_conf = configuration_data()
+resources_conf.set('app-id', app_id)
+resources_conf.set('base-id-slashed', '/' + base_id.replace('.', '/'))
+resources = gnome.compile_resources(
+  'resources',
+  configure_file(
+    input: '@0@.gresource.xml.in'.format(base_id),
+    output: '@BASENAME@',
+    configuration: resources_conf,
+  ),
+  source_dir : meson.current_source_dir(),
+  dependencies: metainfo_file,
+)
+
 # Man page
 install_man('@0@.6'.format(meson.project_name()))

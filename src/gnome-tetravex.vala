@@ -201,7 +201,7 @@ private class Tetravex : Gtk.Application
     }
 
     private void create_window () {
-        Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/gnome-tetravex.ui");
+        Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/ui/window.ui");
 
         string history_path;
         if (colors == 10)
@@ -211,7 +211,7 @@ private class Tetravex : Gtk.Application
         history = new History (history_path);
 
         CssProvider css_provider = new CssProvider ();
-        css_provider.load_from_resource ("/org/gnome/Tetravex/tetravex.css");
+        css_provider.load_from_resource ("/org/gnome/Tetravex/style.css");
         Gdk.Screen? gdk_screen = Gdk.Screen.get_default ();
         if (gdk_screen != null) // else..?
             StyleContext.add_provider_for_screen ((!) gdk_screen, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -241,8 +241,8 @@ private class Tetravex : Gtk.Application
         headerbar.show ();
         window.set_titlebar (headerbar);
 
-        Builder menu_builder = new Builder.from_resource ("/org/gnome/Tetravex/app-menu.ui");
-        MenuModel appmenu = (MenuModel) menu_builder.get_object ("app-menu");
+        Builder menu_builder = new Builder.from_resource ("/org/gnome/Tetravex/ui/menu.ui");
+        MenuModel appmenu = (MenuModel) menu_builder.get_object ("menu");
         hamburger_button = new MenuButton ();
         hamburger_button.set_image (new Image.from_icon_name ("open-menu-symbolic", IconSize.BUTTON));
         ((Widget) hamburger_button).set_focus_on_click (false);

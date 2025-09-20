@@ -16,7 +16,7 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <interface>
-  <menu id="app-menu">
+  <menu id="menu">
     <section>
       <item>
         <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game -->

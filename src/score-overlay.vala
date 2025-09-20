@@ -20,7 +20,7 @@
 
 using Gtk;
 
-[GtkTemplate (ui = "/org/gnome/Tetravex/score-overlay.ui")]
+[GtkTemplate (ui = "/org/gnome/Tetravex/ui/score-overlay.ui")]
 private class ScoreOverlay : Grid
 {
     [CCode (notify = true)] internal uint boardsize
@@ -140,7 +140,7 @@ private class ScoreOverlay : Grid
     }
 }
 
-[GtkTemplate (ui = "/org/gnome/Tetravex/score-overlay-entry.ui")]
+[GtkTemplate (ui = "/org/gnome/Tetravex/ui/score-overlay-entry.ui")]
 private class ScoreOverlayEntry : Grid
 {
     [GtkChild] private unowned Label place_label;
