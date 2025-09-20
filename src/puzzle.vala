@@ -71,11 +71,13 @@ private class Puzzle : Object
                 else
                     continue_clock ();
             }
+            paused_changed ();
         }
         internal get { return _paused; }
     }
 
     internal signal void tile_moved (Tile tile, uint8 x, uint8 y);
+    internal signal void paused_changed ();
     internal signal void solved ();
     internal signal void solved_right (bool is_solved);
     internal signal void show_end_game ();
