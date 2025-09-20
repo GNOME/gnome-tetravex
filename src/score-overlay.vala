@@ -138,47 +138,6 @@ private class ScoreOverlay : Grid
                 break;
         }
     }
-
-    internal void display_fallback_scores (uint8          puzzle_size,
-                                           HistoryEntry?  best_score,
-                                           HistoryEntry?  second_score,
-                                           HistoryEntry?  third_score,
-                                           HistoryEntry?  worst_score)
-    {
-        /* Translators: text of the score overlay, displayed after a puzzle is complete; introduces the game best time (in a corner case) */
-        score_0.set_place_label (_("Best time:"));
-        if (best_score != null)
-            score_0.set_value_label (HistoryEntry.get_duration_string ((!) best_score));
-        else
-            score_0.set_value_label (null);
-
-        /* Translators: text of the score overlay, displayed after a puzzle is complete; introduces the second best time (in a corner case) */
-        score_1.set_place_label (_("Second:"));
-        if (second_score != null)
-            score_1.set_value_label (HistoryEntry.get_duration_string ((!) second_score));
-        else
-            score_1.set_value_label (null);
-
-        /* Translators: text of the score overlay, displayed after a puzzle is complete; introduces the third best time (in a corner case) */
-        score_2.set_place_label (_("Third:"));
-        if (third_score != null)
-            score_2.set_value_label (HistoryEntry.get_duration_string ((!) third_score));
-        else
-            score_2.set_value_label (null);
-
-        if (worst_score != null)
-        {
-            /* Translators: text of the score overlay, displayed after a puzzle is complete; introduces the worst time (in a corner case) */
-            score_3.set_place_label (_("Worst time:"));
-            score_3.set_value_label (HistoryEntry.get_duration_string ((!) worst_score));
-        }
-        else
-        {
-            /* Translators: text of the score overlay, displayed after a puzzle is complete; introduces the fourth time (in a corner case) */
-            score_3.set_place_label (_("Fourth:"));
-            score_3.set_value_label (null);
-        }
-    }
 }
 
 [GtkTemplate (ui = "/org/gnome/Tetravex/score-overlay-entry.ui")]

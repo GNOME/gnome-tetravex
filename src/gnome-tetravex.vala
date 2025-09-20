@@ -30,7 +30,6 @@ private class Tetravex : Gtk.Application
     private static bool restore_on_start = false;
     private static int game_size = int.MIN;
     private static int colors = 10;
-    private static string? cli = null;
 
     private GLib.Settings settings;
 
@@ -63,15 +62,8 @@ private class Tetravex : Gtk.Application
 
     private MenuButton hamburger_button;
 
-    private static string? [] remaining = new string? [1];
     private const OptionEntry [] option_entries =
     {
-        /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "cli", 0,       OptionFlags.OPTIONAL_ARG, OptionArg.CALLBACK, (void*) _cli,   N_("Play in the terminal (see “--cli=help”)"),
-
-        /* Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help' */
-                                                                                        N_("COMMAND") },
-
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
         { "colors",  'c', OptionFlags.NONE, OptionArg.INT,  ref colors,                 N_("Set number of colors (2-10)"),
 
@@ -92,16 +84,8 @@ private class Tetravex : Gtk.Application
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
         { "version", 'v', OptionFlags.NONE, OptionArg.NONE, null,                       N_("Print release version and exit"),   null },
-
-        { OPTION_REMAINING, 0, OptionFlags.NONE, OptionArg.STRING_ARRAY, ref remaining, "args", null },
         {}
     };
-
-    private bool _cli (string? option_name, string? val)
-    {
-        cli = option_name == null ? "" : (!) option_name;  // TODO report bug: should probably be val...
-        return true;
-    }
 
     private const GLib.ActionEntry[] action_entries =
     {
@@ -152,8 +136,7 @@ private class Tetravex : Gtk.Application
 
     protected override int handle_local_options (GLib.VariantDict options)
     {
-        if (options.contains ("version")
-         || remaining [0] != null && (!) remaining [0] == "version")
+        if (options.contains ("version"))
         {
             /* NOTE: Is not translated so can be easily parsed */
             stderr.printf ("%1$s %2$s\n", "gnome-tetravex", VERSION);
@@ -180,78 +163,6 @@ private class Tetravex : Gtk.Application
             return Posix.EXIT_FAILURE;
         }
 
-        if (remaining [0] != null)
-        {
-            /* Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2' */
-            stderr.printf (_("Failed to parse command-line arguments.") + "\n");
-            return Posix.EXIT_FAILURE;
-        }
-
-        if (cli != null)
-        {
-            if ((!) cli == "help" || (!) cli == "HELP")
-            {
-                string help_string = ""
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options */
-                    + "\n" + _("To play GNOME Tetravex in command-line:")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command */
-                    + "\n" + "  --cli A1b2    " + _("Invert two tiles, the one in A1, and the one in b2.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after */
-                    + "\n" + "                " + _("An uppercase targets a tile from the initial board.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after */
-                    + "\n" + "                " + _("A lowercase targets a tile in the left/final board.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before */
-                    + "\n" + "                " + _("Digits specify the rows of the two tiles to invert.")
-                    + "\n"
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands */
-                    + "\n" + "  --cli         " + _("Show the current puzzle. Alias: “status” or “show”.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command */
-                    + "\n" + "  --cli new     " + _("Create a new puzzle; for changing size, use --size.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command */
-                    + "\n" + "  --cli solve   " + _("Give up with current puzzle, and view the solution.")
-                    + "\n"
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands */
-                    + "\n" + "  --cli finish  " + _("Finish current puzzle, automatically. Alias: “end”.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically */
-                    + "\n" + "                " + _("Works for puzzles solved right or if one tile left.")
-                    + "\n"
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command */
-                    + "\n" + "  --cli up      " + _("Move all left-board tiles up by one.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command */
-                    + "\n" + "  --cli down    " + _("Move all left-board tiles down by one.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command */
-                    + "\n" + "  --cli left    " + _("Move all left-board tiles left by one.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command */
-                    + "\n" + "  --cli right   " + _("Move all left-board tiles right by one.")
-                    + "\n"
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command */
-                    + "\n" + "  --cli r-up    " + _("Move all right-board tiles up by one.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command */
-                    + "\n" + "  --cli r-down  " + _("Move all right-board tiles down by one.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command */
-                    + "\n" + "  --cli r-left  " + _("Move all right-board tiles left by one.")
-
-                /* Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command */
-                    + "\n" + "  --cli r-right " + _("Move all right-board tiles right by one.")
-                    + "\n\n";
-                stdout.printf (help_string);
-                return Posix.EXIT_SUCCESS;
-            }
-            return CLI.play_cli ((!) cli, "org.gnome.Tetravex", out settings, out saved_game, out can_restore, out puzzle, ref colors, ref game_size);
-        }
-
         /* Activate */
         return -1;
     }
@@ -263,7 +174,7 @@ private class Tetravex : Gtk.Application
         settings = new GLib.Settings ("org.gnome.Tetravex");
 
         saved_game = settings.get_value ("saved-game");
-        can_restore = Puzzle.is_valid_saved_game (saved_game, /* restore finished game */ false);
+        can_restore = Puzzle.is_valid_saved_game (saved_game);
 
         add_action_entries (action_entries, this);
         add_action (settings.create_action ("theme"));
@@ -316,9 +227,9 @@ private class Tetravex : Gtk.Application
             window.maximize ();
 
         if (game_size != int.MIN)
-            settings.set_int (KEY_GRID_SIZE, game_size);
+            settings.set_int ("grid-size", game_size);
         else
-            game_size = settings.get_int (KEY_GRID_SIZE);
+            game_size = settings.get_int ("grid-size");
         ((SimpleAction) lookup_action ("size")).set_state ("%d".printf (game_size));
 
         HeaderBar headerbar = new HeaderBar ();
@@ -540,7 +451,7 @@ private class Tetravex : Gtk.Application
         settings.set_boolean ("window-is-maximized", window_is_maximized || window_is_fullscreen);
         if (puzzle_init_done) {
             if (puzzle.game_in_progress)
-                settings.set_value ("saved-game", puzzle.to_variant (/* save time */ !puzzle.tainted_by_command_line));
+                settings.set_value ("saved-game", puzzle.to_variant ());
             else if (!can_restore)
                 settings.@set ("saved-game", "m(yyda(yyyyyyyy)ua(yyyyu))", null);
         }
@@ -602,7 +513,7 @@ private class Tetravex : Gtk.Application
         {
             int size;
             if (given_size == null)
-                size = settings.get_int (KEY_GRID_SIZE);
+                size = settings.get_int ("grid-size");
             else
                 size = (!) given_size;
             puzzle = new Puzzle ((uint8) size, (uint8) colors);
@@ -645,9 +556,6 @@ private class Tetravex : Gtk.Application
 
     private void tick_cb ()
     {
-        if (puzzle_init_done && puzzle.tainted_by_command_line)
-            return;
-
         var headerbar = (Gtk.HeaderBar) window.get_titlebar ();
         int elapsed = 0;
         if (puzzle_init_done)
@@ -691,40 +599,21 @@ private class Tetravex : Gtk.Application
 
     private void show_end_game_cb (Puzzle puzzle)
     {
-        if (puzzle.tainted_by_command_line)
-        {
-            if (!puzzle_is_finished) // Ctrl-n has been hit before the animation finished
-                return;
+        DateTime date = new DateTime.now_local ();
+        last_history_entry = new HistoryEntry (date, puzzle.size, puzzle.elapsed, /* old history format */ false);
 
-            HistoryEntry? best_score;
-            HistoryEntry? second_score;
-            HistoryEntry? third_score;
-            HistoryEntry? worst_score;
-            history.get_fallback_scores (puzzle.size,
-                                     out best_score,
-                                     out second_score,
-                                     out third_score,
-                                     out worst_score);
-            score_overlay.display_fallback_scores (puzzle.size, best_score, second_score, third_score, worst_score);
-        }
-        else
-        {
-            DateTime date = new DateTime.now_local ();
-            last_history_entry = new HistoryEntry (date, puzzle.size, puzzle.elapsed, /* old history format */ false);
+        if (!puzzle_is_finished) // Ctrl-n has been hit before the animation finished
+            return;
 
-            if (!puzzle_is_finished) // Ctrl-n has been hit before the animation finished
-                return;
-
-            HistoryEntry? other_score_0;
-            HistoryEntry? other_score_1;
-            HistoryEntry? other_score_2;
-            uint position = history.get_place ((!) last_history_entry,
-                                               puzzle.size,
-                                           out other_score_0,
-                                           out other_score_1,
-                                           out other_score_2);
-            score_overlay.set_score (puzzle.size, position, (!) last_history_entry, other_score_0, other_score_1, other_score_2);
-        }
+        HistoryEntry? other_score_0;
+        HistoryEntry? other_score_1;
+        HistoryEntry? other_score_2;
+        uint position = history.get_place ((!) last_history_entry,
+                                           puzzle.size,
+                                       out other_score_0,
+                                       out other_score_1,
+                                       out other_score_2);
+        score_overlay.set_score (puzzle.size, position, (!) last_history_entry, other_score_0, other_score_1, other_score_2);
 
         new_game_solve_stack.set_visible_child_name ("new-game");
         view.hide_right_sockets ();
@@ -735,7 +624,7 @@ private class Tetravex : Gtk.Application
 
     private void new_game_cb ()
     {
-        int size = settings.get_int (KEY_GRID_SIZE);
+        int size = settings.get_int ("grid-size");
         if (puzzle.game_in_progress && !puzzle.is_solved)
         {
             MessageDialog dialog = new MessageDialog (window,
@@ -791,7 +680,7 @@ private class Tetravex : Gtk.Application
     private bool has_been_solved = false;
     private void solve_cb ()
     {
-        if (!puzzle.tainted_by_command_line && puzzle.elapsed < 0.2)   // security against multi-click on new-game button
+        if (puzzle.elapsed < 0.2)   // security against multi-click on new-game button
             return;
 
         if (puzzle.game_in_progress)
@@ -836,9 +725,9 @@ private class Tetravex : Gtk.Application
         if (size < 2 || size > 6)
             assert_not_reached ();
 
-        if (size == settings.get_int (KEY_GRID_SIZE))
+        if (size == settings.get_int ("grid-size"))
             return;
-        settings.set_int (KEY_GRID_SIZE, size);
+        settings.set_int ("grid-size", size);
         action.set_state (variant);
     }
 

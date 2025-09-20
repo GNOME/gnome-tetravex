@@ -47,14 +47,11 @@ private class Puzzle : Object
     private Timer? clock = null;    // TODO ask for Timer.do_not_start() constructor
     private uint clock_timeout;
     [CCode (notify = false)] public double initial_time { private get; protected construct; default = 0.0; }
-    [CCode (notify = false)] public bool tainted_by_command_line { internal get; protected construct; }
 
     [CCode (notify = false)] internal double elapsed
     {
         get
         {
-            if (tainted_by_command_line)
-                assert_not_reached ();
             if (clock == null)
                 return 0.0;
             return initial_time + ((!) clock).elapsed ();
@@ -106,7 +103,7 @@ private class Puzzle : Object
     [CCode (notify = false)] public bool restored { private get; protected construct; default = false; }
     internal Puzzle (uint8 size, uint8 colors)
     {
-        Object (size: size, colors: colors, tainted_by_command_line: false);
+        Object (size: size, colors: colors);
     }
 
     construct
@@ -527,28 +524,6 @@ private class Puzzle : Object
                 switch_tiles (x + size, y, x, y, duration);
     }
 
-    internal bool move_last_tile_if_possible ()
-    {
-        uint8 empty_x;
-        uint8 empty_y;
-        if (!only_one_remaining_tile (out empty_x, out empty_y))
-            return false;
-
-        for (uint8 x = size; x < 2 * size; x++)
-            for (uint8 y = 0; y < size; y++)
-                if (get_tile (x, y) != null)
-                {
-                    if (can_switch (x, y, empty_x, empty_y))
-                    {
-                        switch_tiles (x, y, empty_x, empty_y);
-                        return true;
-                    }
-                    else
-                        return false;
-                }
-        assert_not_reached ();
-    }
-
     internal bool only_one_remaining_tile (out uint8 empty_x, out uint8 empty_y)
     {
         bool empty_found = false;
@@ -576,8 +551,6 @@ private class Puzzle : Object
 
     private void start_clock ()
     {
-        if (tainted_by_command_line)
-            return;
         if (clock == null)
             clock = new Timer ();
         timeout_cb ();
@@ -585,8 +558,6 @@ private class Puzzle : Object
 
     private void stop_clock ()
     {
-        if (tainted_by_command_line)
-            return;
         if (clock == null)
             return;
         if (clock_timeout != 0)
@@ -598,8 +569,6 @@ private class Puzzle : Object
 
     private void continue_clock ()
     {
-        if (tainted_by_command_line)
-            return;
         if (clock == null)
             clock = new Timer ();
         else
@@ -609,7 +578,6 @@ private class Puzzle : Object
 
     private bool timeout_cb ()
         requires (clock != null)
-        requires (!tainted_by_command_line)
     {
         /* Notify on the next tick */
         double elapsed = ((!) clock).elapsed ();
@@ -774,7 +742,7 @@ private class Puzzle : Object
     * * save and restore
     \*/
 
-    internal Variant to_variant (bool save_time)
+    internal Variant to_variant ()
     {
         VariantBuilder builder = new VariantBuilder (new VariantType ("m(yyda(yyyyyyyy)ua(yyyyu))"));
         builder.open (new VariantType ("(yyda(yyyyyyyy)ua(yyyyu))"));
@@ -782,10 +750,7 @@ private class Puzzle : Object
         // board
         builder.add ("y", size);
         builder.add ("y", colors);
-        if (save_time)
-            builder.add ("d", elapsed);
-        else
-            builder.add ("d", double.MAX);
+        builder.add ("d", elapsed);
 
         // tiles
         builder.open (new VariantType ("a(yyyyyyyy)"));
@@ -833,7 +798,7 @@ private class Puzzle : Object
         public uint8 initial_y;
     }
 
-    internal static bool is_valid_saved_game (Variant maybe_variant, bool restore_finished_game)
+    internal static bool is_valid_saved_game (Variant maybe_variant)
     {
         Variant? variant = maybe_variant.get_maybe ();
         if (variant == null)
@@ -934,15 +899,7 @@ private class Puzzle : Object
 
         // TODO validate history 1/2
 
-        if (restore_finished_game)
-            return true;
-
-        // return false if the game is finished, true otherwise
-        for (uint8 x = board_size; x < board_size * 2; x++)
-            for (uint8 y = 0; y < board_size; y++)
-                if (current_board [x, y])
-                    return true;
-        return false;
+        return true;
     }
 
     internal Puzzle.restore (Variant maybe_variant)
@@ -957,7 +914,7 @@ private class Puzzle : Object
         ((!) variant).get_child (0, "y", out _size);
         ((!) variant).get_child (1, "y", out _colors);
         ((!) variant).get_child (2, "d", out _elapsed);
-        Object (size: _size, colors: _colors, restored: true, initial_time: _elapsed, tainted_by_command_line: _elapsed == double.MAX);
+        Object (size: _size, colors: _colors, restored: true, initial_time: _elapsed);
 
         Variant array_variant = ((!) variant).get_child_value (3);
         board = new Tile? [size * 2, size];
