@@ -37,7 +37,7 @@ private class Tile : Object
     }
 }
 
-private class Puzzle : Object
+public class Puzzle : Object
 {
     [CCode (notify = false)] public uint8 size   { internal get; protected construct; }
     [CCode (notify = false)] public uint8 colors { internal get; protected construct; }

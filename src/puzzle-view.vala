@@ -35,7 +35,7 @@ private abstract class Theme : Object
     internal abstract void draw_tile (Cairo.Context context, Tile tile, bool highlight);
 }
 
-private class PuzzleView : Gtk.DrawingArea
+public class PuzzleView : Gtk.DrawingArea
 {
     private class TileImage : Object
     {
@@ -190,6 +190,8 @@ private class PuzzleView : Gtk.DrawingArea
 
     construct
     {
+        focusable = true;
+
         init_mouse ();
         init_keyboard ();
         set_draw_func (draw);
@@ -1075,11 +1077,6 @@ private class PuzzleView : Gtk.DrawingArea
             kbd_selected_x = uint8.MAX;
             kbd_selected_y = uint8.MAX;
         }
-    }
-
-    internal void disable_highlight ()
-    {
-        clear_keyboard_highlight (/* only selection */ false);
     }
 
     /*\

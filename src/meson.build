@@ -11,6 +11,7 @@ gnome_tetravex = executable (
     'theme-neoretro.vala',
     'theme-nostalgia.vala',
     'theme-synesthesia.vala',
+    'window.vala',
   ),
   dependencies: [
     gio_dep,

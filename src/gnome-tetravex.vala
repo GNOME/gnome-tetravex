@@ -38,26 +38,11 @@ private class Tetravex : Adw.Application
 
     private PuzzleView view;
 
-    private Button pause_button;
-    private Button new_game_button;
-
-    private ApplicationWindow window;
-    private int window_width;
-    private int window_height;
-    private bool window_is_maximized;
-    private bool window_is_fullscreen;
-    private bool window_is_tiled;
-
-    private Stack new_game_solve_stack;
-    private Stack play_pause_stack;
-
     private SimpleAction undo_action;
     private SimpleAction redo_action;
     private SimpleAction pause_action;
     private SimpleAction solve_action;
     private SimpleAction finish_action;
-
-    private MenuButton hamburger_button;
 
     private const OptionEntry [] option_entries =
     {
@@ -102,8 +87,7 @@ private class Tetravex : Adw.Application
         { "reload",         reload_cb       },
         { "size",           null,           "s",    "'2'",  size_changed    },
         { "help",           help_cb         },
-        { "about",          about_cb        },
-        { "hamburger",      hamburger_cb    }
+        { "about",          about_cb        }
     };
 
     private static int main (string[] args)
@@ -114,8 +98,6 @@ private class Tetravex : Adw.Application
         Intl.textdomain (GETTEXT_PACKAGE);
 
         Environment.set_application_name (PROGRAM_NAME);
-        Environment.set_prgname (APP_ID);
-        Window.set_default_icon_name (APP_ID);
 
         Tetravex app = new Tetravex ();
         return app.run (args);
@@ -123,8 +105,10 @@ private class Tetravex : Adw.Application
 
     private Tetravex ()
     {
-        Object (application_id: APP_ID, flags: ApplicationFlags.FLAGS_NONE);
-
+        Object (
+            application_id: APP_ID,
+            resource_base_path: "/org/gnome/Tetravex"
+        );
         add_main_option_entries (option_entries);
     }
 
@@ -192,8 +176,6 @@ private class Tetravex : Adw.Application
     }
 
     private void create_window () {
-        Builder builder = new Builder.from_resource ("/org/gnome/Tetravex/ui/window.ui");
-
         string history_path;
         if (colors == 10)
             history_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history");
@@ -201,64 +183,7 @@ private class Tetravex : Adw.Application
             history_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history-" + colors.to_string ());
         history = new History (history_path);
 
-        CssProvider css_provider = new CssProvider ();
-        css_provider.load_from_resource ("/org/gnome/Tetravex/style.css");
-        Gdk.Display? gdk_display = Gdk.Display.get_default ();
-        if (gdk_display != null) // else..?
-            StyleContext.add_provider_for_display ((!) gdk_display, css_provider, STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        window = (ApplicationWindow) builder.get_object ("gnome-tetravex-window");
-        this.add_window (window);
-        key_controller = new EventControllerKey ();
-        key_controller.key_pressed.connect (on_key_pressed);
-        ((Widget) window).add_controller (key_controller);
-        window.map.connect (init_state_watcher);
-        window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
-        if (settings.get_boolean ("window-is-maximized"))
-            window.maximize ();
-
-        if (game_size != int.MIN)
-            settings.set_int ("grid-size", game_size);
-        else
-            game_size = settings.get_int ("grid-size");
-        ((SimpleAction) lookup_action ("size")).set_state ("%d".printf (game_size));
-
-        if (APP_ID.has_suffix (".Devel"))
-            window.add_css_class ("devel");
-
-        HeaderBar headerbar = new HeaderBar ();
-        headerbar.title_widget = new Gtk.Label (PROGRAM_NAME);
-        window.set_titlebar (headerbar);
-
-        Builder menu_builder = new Builder.from_resource ("/org/gnome/Tetravex/ui/menu.ui");
-        MenuModel appmenu = (MenuModel) menu_builder.get_object ("menu");
-        hamburger_button = new MenuButton ();
-        hamburger_button.set_icon_name ("open-menu-symbolic");
-        ((Widget) hamburger_button).set_focus_on_click (false);
-        hamburger_button.valign = Align.CENTER;
-        hamburger_button.set_menu_model (appmenu);
-        headerbar.pack_end (hamburger_button);
-
-        Button undo_button = new Button.from_icon_name ("edit-undo-symbolic");
-        undo_button.set_action_name ("app.undo");
-        ((Widget) undo_button).set_focus_on_click (false);
-        undo_button.valign = Align.CENTER;
-
-        Button redo_button = new Button.from_icon_name ("edit-redo-symbolic");
-        redo_button.set_action_name ("app.redo");
-        ((Widget) redo_button).set_focus_on_click (false);
-        redo_button.valign = Align.CENTER;
-
-        Box undo_redo_box = new Box (Orientation.HORIZONTAL, /* spacing */ 0);
-        undo_redo_box.add_css_class ("linked");
-        undo_redo_box.append (undo_button);
-        undo_redo_box.append (redo_button);
-        headerbar.pack_start (undo_redo_box);
-
         view = new PuzzleView ();
-        view.hexpand = true;
-        view.vexpand = true;
-        view.can_focus = true;
         view_click_controller = new GestureClick ();
         view_click_controller.set_button (/* all buttons */ 0);
         view_click_controller.released.connect (on_release_on_view);
@@ -272,56 +197,20 @@ private class Tetravex : Adw.Application
         settings.bind ("mouse-forward-button",      view,
                        "mouse-forward-button",      SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
-        window.child = view;
+        new TetravexWindow (this, view);
+        settings.bind ("window-width", active_window, "default-width", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-height", active_window, "default-height", SettingsBindFlags.DEFAULT);
+        settings.bind ("window-is-maximized", active_window, "maximized", SettingsBindFlags.DEFAULT);
 
-        Button play_button = new Button.from_icon_name ("media-playback-start-symbolic");
-        play_button.set_action_name ("app.pause");
-        ((Widget) play_button).set_focus_on_click (false);
-        play_button.valign = Align.CENTER;
-        /* Translators: tooltip text of the "play"/unpause button, in the bottom bar */
-        play_button.set_tooltip_text (_("Resume the game"));
+        key_controller = new EventControllerKey ();
+        key_controller.key_pressed.connect (on_key_pressed);
+        ((Widget) active_window).add_controller (key_controller);
 
-        pause_button = new Button.from_icon_name ("media-playback-pause-symbolic");
-        pause_button.set_action_name ("app.pause");
-        ((Widget) pause_button).set_focus_on_click (false);
-        pause_button.valign = Align.CENTER;
-        /* Translators: tooltip text of the pause button, in the bottom bar */
-        pause_button.set_tooltip_text (_("Pause the game"));
-
-        play_pause_stack = new Stack ();
-        play_pause_stack.add_named (play_button, "play");
-        play_pause_stack.add_named (pause_button, "pause");
-        headerbar.pack_end (play_pause_stack);
-
-        new_game_button = new Button.from_icon_name ("view-refresh-symbolic");
-        new_game_button.set_action_name ("app.new-game");
-        ((Widget) new_game_button).set_focus_on_click (false);
-        new_game_button.valign = Align.CENTER;
-        /* Translators: tooltip text of the "restart"/new game button, in the bottom bar */
-        new_game_button.set_tooltip_text (_("Start a new game"));
-
-        Button solve_button = new Button.from_icon_name ("dialog-question-symbolic");
-        solve_button.set_action_name ("app.solve");
-        ((Widget) solve_button).set_focus_on_click (false);
-        solve_button.valign = Align.CENTER;
-        /* Translators: tooltip text of the "solve"/give up button, in the bottom bar */
-        solve_button.set_tooltip_text (_("Give up and view the solution"));
-
-        Button finish_button = new Button.from_icon_name ("go-previous-symbolic");
-        finish_button.set_action_name ("app.finish");
-        ((Widget) finish_button).set_focus_on_click (false);
-        finish_button.valign = Align.CENTER;
-        /* Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board */
-        finish_button.set_tooltip_text (_("Move all tiles left"));
-
-        new_game_button_click_controller = new GestureClick ();
-        new_game_button_click_controller.pressed.connect (on_new_game_button_click);
-        new_game_button.add_controller (new_game_button_click_controller);
-        new_game_solve_stack = new Stack ();
-        new_game_solve_stack.add_named (solve_button, "solve");
-        new_game_solve_stack.add_named (new_game_button, "new-game");
-        new_game_solve_stack.add_named (finish_button, "finish");
-        headerbar.pack_end (new_game_solve_stack);
+        if (game_size != int.MIN)
+            settings.set_int ("grid-size", game_size);
+        else
+            game_size = settings.get_int ("grid-size");
+        ((SimpleAction) lookup_action ("size")).set_state ("%d".printf (game_size));
 
         undo_action   = (SimpleAction) lookup_action ("undo");
         redo_action   = (SimpleAction) lookup_action ("redo");
@@ -345,47 +234,10 @@ private class Tetravex : Adw.Application
                 finish_action.set_enabled (!view.tile_selected);
             });
 
-        tick_cb ();
         if (can_restore)
             new_game (saved_game);
         else
             new_game ();
-    }
-
-    private void init_state_watcher ()
-    {
-        Gdk.Surface? nullable_surface = window.get_surface ();  // TODO report bug, get_surface() returns a nullable Surface
-        if (nullable_surface == null || !((!) nullable_surface is Gdk.Toplevel))
-            assert_not_reached ();
-        surface = (Gdk.Toplevel) (!) nullable_surface;
-        surface.notify ["state"].connect (on_window_state_event);
-        window.notify ["width"].connect (on_size_changed);
-        window.notify ["height"].connect (on_size_changed);
-    }
-
-    private inline void on_size_changed ()
-    {
-        if (window_is_maximized || window_is_tiled || window_is_fullscreen)
-            return;
-        window_width  = window.get_width ();
-        window_height = window.get_height ();
-    }
-
-    private Gdk.Toplevel surface;
-    private const Gdk.ToplevelState tiled_state = Gdk.ToplevelState.TILED
-                                                | Gdk.ToplevelState.TOP_TILED
-                                                | Gdk.ToplevelState.BOTTOM_TILED
-                                                | Gdk.ToplevelState.LEFT_TILED
-                                                | Gdk.ToplevelState.RIGHT_TILED;
-    private void on_window_state_event ()
-    {
-        Gdk.ToplevelState state = surface.get_state ();
-
-        window_is_maximized  = (state & Gdk.ToplevelState.MAXIMIZED)  != 0;
-        /* fullscreen: saved as maximized */
-        window_is_fullscreen = (state & Gdk.ToplevelState.FULLSCREEN) != 0;
-        /* tiled: not saved, but should not change saved window size */
-        window_is_tiled      = (state & tiled_state)                  != 0;
     }
 
     protected override void shutdown ()
@@ -393,9 +245,6 @@ private class Tetravex : Adw.Application
         base.shutdown ();
 
         settings.delay ();
-        settings.set_int ("window-width", window_width);
-        settings.set_int ("window-height", window_height);
-        settings.set_boolean ("window-is-maximized", window_is_maximized || window_is_fullscreen);
         if (puzzle_init_done) {
             if (puzzle.game_in_progress && !puzzle.is_solved)
                 settings.set_value ("saved-game", puzzle.to_variant ());
@@ -407,10 +256,10 @@ private class Tetravex : Adw.Application
 
     protected override void activate ()
     {
-        if (get_active_window () == null)
+        if (active_window == null)
             create_window ();
 
-        window.present ();
+        active_window.present ();
     }
 
     private Variant saved_game;
@@ -418,13 +267,9 @@ private class Tetravex : Adw.Application
 
     private void new_game (Variant? saved_game = null, int? given_size = null)
     {
-        puzzle_is_finished = false;
-        has_been_finished = false;
-        has_been_solved = false;
         pause_action.set_enabled (true);
         solve_action.set_enabled (true);
         finish_action.set_enabled (false);
-        new_game_solve_stack.set_visible_child_name ("solve");
 
         if (puzzle_init_done)
             SignalHandler.disconnect_by_func (puzzle, null, this);
@@ -445,7 +290,6 @@ private class Tetravex : Adw.Application
                 solved_right_cb ();
         }
         puzzle_init_done = true;
-        puzzle.tick.connect (tick_cb);
         puzzle.paused_changed.connect (paused_changed_cb);
         puzzle.solved.connect (solved_cb);
         puzzle.notify ["is-solved-right"].connect (solved_right_cb);
@@ -454,60 +298,41 @@ private class Tetravex : Adw.Application
         puzzle.notify ["can-redo"].connect (() =>
             redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused));
         puzzle.show_end_game.connect (show_end_game_cb);
+        ((TetravexWindow) active_window).new_game (puzzle);
         view.puzzle = puzzle;
-        tick_cb ();
 
         if (start_paused)
         {
             puzzle.paused = true;
             start_paused = false;
-            pause_button.grab_focus ();
         }
         else if (saved_game != null)
-        {
             puzzle.paused = true;
-            pause_button.grab_focus ();
-        }
         else
             view.grab_focus ();
-        update_bottom_button_states ();
-    }
-
-    private void tick_cb ()
-    {
-        var headerbar = (Gtk.HeaderBar) window.get_titlebar ();
-        var title_widget = (Gtk.Label) headerbar.title_widget;
-        int elapsed = 0;
-        if (puzzle_init_done)
-            elapsed = (int) puzzle.elapsed; // felt better when + 0.5, but as the clock is still displayed while the score-overlay displays the exact time, that is regularly feeling odd
-        int hours = elapsed / 3600;
-        int minutes = (elapsed - hours * 3600) / 60;
-        int seconds = elapsed - hours * 3600 - minutes * 60;
-        if (hours > 0)
-            title_widget.label = "%02d∶\xE2\x80\x8E%02d∶\xE2\x80\x8E%02d".printf (hours, minutes, seconds);
-        else
-            title_widget.label = "%02d∶\xE2\x80\x8E%02d".printf (minutes, seconds);
     }
 
     private void paused_changed_cb () {
-        var headerbar = (Gtk.HeaderBar) window.get_titlebar ();
         undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused);
         redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused);
-        update_bottom_button_states ();
 
-        if (puzzle.paused) {
-            pause_button.grab_focus ();
-            // headerbar.subtitle = _("Paused");
-        } else {
-            view.grab_focus ();
-            // headerbar.subtitle = "";
+        if (puzzle.is_solved_right)
+        {
+            solve_action.set_enabled (false);
+            finish_action.set_enabled (!puzzle.paused && !view.tile_selected);
         }
+        else
+        {
+            solve_action.set_enabled (!puzzle.paused && !view.tile_selected);
+            finish_action.set_enabled (false);
+        }
+
+        if (!puzzle.paused)
+            view.grab_focus ();
     }
 
-    private bool puzzle_is_finished = false;
     private void solved_cb (Puzzle puzzle)
     {
-        puzzle_is_finished = true;
         undo_action.set_enabled (false);
         redo_action.set_enabled (false);
         pause_action.set_enabled (false);
@@ -521,14 +346,11 @@ private class Tetravex : Adw.Application
         {
             solve_action.set_enabled (false);
             finish_action.set_enabled (/* should never happen */ !puzzle.paused);
-            new_game_solve_stack.set_visible_child_name ("finish");
         }
         else
         {
             solve_action.set_enabled (/* should never happen */ !puzzle.paused);
             finish_action.set_enabled (false);
-            if (!has_been_finished) // keep the "finish" button if clicked (it is replaced after animation by the new-game button anyway)
-                new_game_solve_stack.set_visible_child_name ("solve");
         }
     }
 
@@ -536,13 +358,8 @@ private class Tetravex : Adw.Application
     {
         DateTime date = new DateTime.now_local ();
         last_history_entry = new HistoryEntry (date, puzzle.size, puzzle.elapsed, /* old history format */ false);
-
-        if (!puzzle_is_finished) // Ctrl-n has been hit before the animation finished
-            return;
-
         history.add (last_history_entry);
 
-        new_game_solve_stack.set_visible_child_name ("new-game");
         scores_cb ();
     }
 
@@ -551,7 +368,7 @@ private class Tetravex : Adw.Application
         int size = settings.get_int ("grid-size");
         if (puzzle.game_in_progress && !puzzle.is_solved)
         {
-            MessageDialog dialog = new MessageDialog (window,
+            MessageDialog dialog = new MessageDialog (active_window,
                                                       DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
                                                       MessageType.QUESTION,
                                                       ButtonsType.NONE,
@@ -585,7 +402,7 @@ private class Tetravex : Adw.Application
 
         Dialog dialog;
         if (history.is_empty ())
-            dialog = new MessageDialog (window,
+            dialog = new MessageDialog (active_window,
                                         DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
                                         MessageType.INFO,
                                         ButtonsType.CLOSE,
@@ -595,7 +412,7 @@ private class Tetravex : Adw.Application
         {
             dialog = new ScoreDialog (history, puzzle.size, puzzle.is_solved ? last_history_entry : null);
             dialog.set_modal (true);
-            dialog.set_transient_for (window);
+            dialog.set_transient_for (active_window);
         }
 
         dialog.close_request.connect (() => {
@@ -606,7 +423,6 @@ private class Tetravex : Adw.Application
         dialog.present ();
     }
 
-    private bool has_been_solved = false;
     private void solve_cb ()
     {
         if (puzzle.elapsed < 0.2)   // security against multi-click on new-game button
@@ -614,7 +430,7 @@ private class Tetravex : Adw.Application
 
         if (puzzle.game_in_progress)
         {
-            MessageDialog dialog = new MessageDialog (window,
+            MessageDialog dialog = new MessageDialog (active_window,
                                                       DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
                                                       MessageType.QUESTION,
                                                       ButtonsType.NONE,
@@ -630,26 +446,16 @@ private class Tetravex : Adw.Application
             dialog.response.connect ((_dialog, response) => {
                     _dialog.destroy ();
                     if (response == ResponseType.ACCEPT)
-                        after_solve_cb ();
+                        puzzle.solve ();
                 });
             dialog.present ();
             return;
         }
-        after_solve_cb ();
-    }
-    private void after_solve_cb ()
-    {
-        has_been_solved = true;
         puzzle.solve ();
-        new_game_solve_stack.set_visible_child_name ("new-game");
-        new_game_button.grab_focus ();
     }
 
-    private bool has_been_finished = false;
     private void finish_cb ()
     {
-        finish_action.set_enabled (false);
-        has_been_finished = true;
         view.finish ();
     }
 
@@ -710,21 +516,6 @@ private class Tetravex : Adw.Application
         puzzle.paused = !puzzle.paused;
     }
 
-    private void update_bottom_button_states ()
-    {
-        if (puzzle.is_solved_right)
-        {
-            solve_action.set_enabled (false);
-            finish_action.set_enabled (!puzzle.paused && !view.tile_selected);
-        }
-        else
-        {
-            solve_action.set_enabled (!puzzle.paused && !view.tile_selected);
-            finish_action.set_enabled (false);
-        }
-        play_pause_stack.set_visible_child_name (puzzle.paused ? "play" : "pause");
-    }
-
     private EventControllerKey key_controller;    // for keeping in memory
     private inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
@@ -749,21 +540,12 @@ private class Tetravex : Adw.Application
         return false;
     }
 
-    private GestureClick new_game_button_click_controller;
-    private inline void on_new_game_button_click (GestureClick _new_game_button_click_controller, int n_press, double event_x, double event_y)
-    {
-        view.disable_highlight ();
-    }
-
     private GestureClick view_click_controller;
     private inline void on_release_on_view (GestureClick _view_click_controller, int n_press, double event_x, double event_y)
     {
         /* Cancel pause on click */
         if (puzzle.paused)
-        {
             puzzle.paused = false;
-            update_bottom_button_states ();
-        }
     }
 
     /*\
@@ -784,14 +566,9 @@ private class Tetravex : Adw.Application
         return true;
     }
 
-    private void hamburger_cb ()
-    {
-//        hamburger_button.active = !hamburger_button.active;
-    }
-
     private void help_cb ()
     {
-        show_uri (window, "help:gnome-tetravex", Gdk.CURRENT_TIME);
+        show_uri (active_window, "help:gnome-tetravex", Gdk.CURRENT_TIME);
     }
 
     private void about_cb ()
@@ -824,7 +601,7 @@ private class Tetravex : Adw.Application
         /* Translators: about dialog text; label of the website link */
         string website_label = _("Page on GNOME wiki");
 
-        show_about_dialog (window,
+        show_about_dialog (active_window,
                            "program-name",          PROGRAM_NAME,
                            "version",               VERSION,
                            "comments",              comments,

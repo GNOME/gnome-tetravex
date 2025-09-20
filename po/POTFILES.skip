@@ -7,3 +7,4 @@ src/theme-extrusion.c
 src/theme-neoretro.c
 src/theme-nostalgia.c
 src/theme-synesthesia.c
+src/window.c
