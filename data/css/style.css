@@ -52,23 +52,5 @@ button.rounded-button {
 }
 
 /*\
-* * Scores dialog
-\*/
-
-.score-dialog treeview:dir(ltr) {
-  padding-left: 0.3rem;
-  padding-right: 0.6rem;
-}
-.score-dialog treeview:dir(rtl) {
-  padding-left: 0.6rem;
-  padding-right: 0.3rem;
-}
-
-.score-dialog treeview > header > button {
-  padding-left:0.6rem;
-  padding-right:0.6rem;
-}
-
-/*\
 * * the end
 \*/
