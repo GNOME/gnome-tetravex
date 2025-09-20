@@ -28,15 +28,16 @@ bindir      = get_option('prefix') / get_option('bindir')
 podir       = meson.project_source_root() / 'po'
 
 # Dependencies
-gio_dep     = dependency ('gio-2.0',    version: '>= 2.42.0')
-glib_dep    = dependency ('glib-2.0',   version: '>= 2.42.0')
-gtk_dep     = dependency ('gtk4',       version: '>= 3.99.1')
+gio_dep     = dependency('gio-2.0',      version: '>= 2.42.0')
+glib_dep    = dependency('glib-2.0',     version: '>= 2.42.0')
+gtk_dep     = dependency('gtk4',         version: '>= 4.20')
+adwaita_dep = dependency('libadwaita-1', version: '>= 1.8.0')
 libm_dep    = meson.get_compiler('c').find_library('m', required: false)
 
-subdir ('po')
-subdir ('data')
-subdir ('help')
-subdir ('src')
+subdir('po')
+subdir('data')
+subdir('help')
+subdir('src')
 
 gnome.post_install(
   gtk_update_icon_cache: true,

@@ -21,7 +21,7 @@
 
 using Gtk;
 
-private class Tetravex : Gtk.Application
+private class Tetravex : Adw.Application
 {
     /* Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog */
     private const string PROGRAM_NAME = _("Tetravex");

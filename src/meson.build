@@ -17,6 +17,7 @@ gnome_tetravex = executable (
     gio_dep,
     glib_dep,
     gtk_dep,
+    adwaita_dep,
     libm_dep,
   ],
   vala_args: [ '--pkg=posix' ],
