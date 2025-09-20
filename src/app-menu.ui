@@ -23,6 +23,13 @@
         <attribute name="label" translatable="yes">_New Game</attribute>
         <attribute name="action">app.new-game</attribute>
       </item>
+      <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog -->
+        <attribute name="label" translatable="yes">_Scores</attribute>
+        <attribute name="action">app.scores</attribute>
+      </item>
+    </section>
+    <section>
       <submenu>
         <!-- Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board -->
         <attribute name="label" translatable="yes">Si_ze</attribute>
@@ -66,13 +73,6 @@
           </item>
         </section>
       </submenu>
-    </section>
-    <section>
-      <item>
-        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog -->
-        <attribute name="label" translatable="yes">_Scores</attribute>
-        <attribute name="action">app.scores</attribute>
-      </item>
       <submenu>
         <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme -->
         <attribute name="label" translatable="yes">A_ppearance</attribute>
