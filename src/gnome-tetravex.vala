@@ -229,6 +229,7 @@ private class Tetravex : Gtk.Application
             window.get_style_context ().add_class ("devel");
 
         HeaderBar headerbar = new HeaderBar ();
+        headerbar.title_widget = new Gtk.Label (PROGRAM_NAME);
         headerbar.show_title_buttons = true;
         headerbar.show ();
         window.set_titlebar (headerbar);
@@ -508,6 +509,7 @@ private class Tetravex : Gtk.Application
     private void tick_cb ()
     {
         var headerbar = (Gtk.HeaderBar) window.get_titlebar ();
+        var title_widget = (Gtk.Label) headerbar.title_widget;
         int elapsed = 0;
         if (puzzle_init_done)
             elapsed = (int) puzzle.elapsed; // felt better when + 0.5, but as the clock is still displayed while the score-overlay displays the exact time, that is regularly feeling odd
@@ -515,9 +517,9 @@ private class Tetravex : Gtk.Application
         int minutes = (elapsed - hours * 3600) / 60;
         int seconds = elapsed - hours * 3600 - minutes * 60;
         if (hours > 0)
-            headerbar.title = "%02d∶\xE2\x80\x8E%02d∶\xE2\x80\x8E%02d".printf (hours, minutes, seconds);
+            title_widget.label = "%02d∶\xE2\x80\x8E%02d∶\xE2\x80\x8E%02d".printf (hours, minutes, seconds);
         else
-            headerbar.title = "%02d∶\xE2\x80\x8E%02d".printf (minutes, seconds);
+            title_widget.label = "%02d∶\xE2\x80\x8E%02d".printf (minutes, seconds);
     }
 
     private void paused_changed_cb () {
@@ -528,10 +530,10 @@ private class Tetravex : Gtk.Application
 
         if (puzzle.paused) {
             pause_button.grab_focus ();
-            headerbar.subtitle = _("Paused");
+            // headerbar.subtitle = _("Paused");
         } else {
             view.grab_focus ();
-            headerbar.subtitle = "";
+            // headerbar.subtitle = "";
         }
     }
 
