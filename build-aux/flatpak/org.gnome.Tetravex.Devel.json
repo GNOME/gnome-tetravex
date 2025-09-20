@@ -1,0 +1,28 @@
+{
+    "id" : "org.gnome.Tetravex.Devel",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "master",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "gnome-tetravex",
+    "finish-args" : [
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland"
+    ],
+    "modules" : [
+        {
+            "name" : "gnome-tetravex",
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "-Dprofile=development"
+            ],
+            "run-tests" : true,
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/gnome-tetravex.git"
+                }
+            ]
+        }
+    ]
+}

@@ -7,28 +7,31 @@ project ('gnome-tetravex', ['vala', 'c'],
          ],
          meson_version: '>= 0.59.0')
 
-project_id = 'org.gnome.Tetravex'
-
 gnome = import('gnome')
 i18n = import('i18n')
 
+# App ID
+if get_option('profile') == 'development'
+  profile = '.Devel'
+else
+  profile = ''
+endif
+
+base_id = 'org.gnome.Tetravex'
+app_id  = 'org.gnome.Tetravex@0@'.format(profile)
+
 # Paths
-mandir      = join_paths (get_option ('prefix'), get_option ('mandir'))
-localedir   = join_paths (get_option ('prefix'), get_option ('localedir'))
-datadir     = join_paths (get_option ('prefix'), get_option ('datadir'))
-bindir      = join_paths (get_option ('prefix'), get_option ('bindir'))
+mandir      = get_option('prefix') / get_option('mandir')
+localedir   = get_option('prefix') / get_option('localedir')
+datadir     = get_option('prefix') / get_option('datadir')
+bindir      = get_option('prefix') / get_option('bindir')
+podir       = meson.project_source_root() / 'po'
 
 # Dependencies
 gio_dep     = dependency ('gio-2.0',    version: '>= 2.42.0')
 glib_dep    = dependency ('glib-2.0',   version: '>= 2.42.0')
 gtk_dep     = dependency ('gtk+-3.0',   version: '>= 3.22.23')
-
-appstreamcli            = find_program('appstreamcli',          required: false)
-desktop_file_validate   = find_program('desktop-file-validate', required: false)
-glib_compile_schema     = find_program('glib-compile-schemas',  required: true) # useful?
-
-cc = meson.get_compiler('c')
-libm_dep = cc.find_library('m')
+libm_dep    = meson.get_compiler('c').find_library('m', required: false)
 
 subdir ('po')
 subdir ('data')

@@ -1,11 +1,11 @@
 <schemalist>
-  <enum id="org.gnome.Tetravex.Theme">
+  <enum id="@app-id@.Theme">
     <value value="0" nick="extrusion"/>
     <value value="1" nick="neoretro"/>
     <value value="2" nick="nostalgia"/>
     <value value="3" nick="synesthesia"/>
   </enum>
-  <schema id="org.gnome.Tetravex" path="/org/gnome/Tetravex/" gettext-domain="gnome-tetravex-gui">
+  <schema id="@app-id@" path="@base-id-slashed@/" gettext-domain="@gettext-package@">
     <key name="grid-size" type="i">
       <default>3</default>
       <range min="2" max="6" />
@@ -44,7 +44,7 @@
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) » -->
       <description>The key has value “nothing” if there is no saved game. Else, it contains a description of the board, with its size, the number of colors, and the time elapsed, then the list of tiles, saved as properties: their current position (x and y), their colors (north, east, south and west), and their original position (x and y), and finally the history, with the last move index, and history entries saved as properties: coordinates of the two tiles swapped, and the move id.</description>
     </key>
-    <key name="theme" enum="org.gnome.Tetravex.Theme">
+    <key name="theme" enum="@app-id@.Theme">
       <default>'extrusion'</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme' -->
       <summary>Theme</summary>

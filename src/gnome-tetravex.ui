@@ -20,7 +20,6 @@
   <object class="GtkApplicationWindow" id="gnome-tetravex-window">
     <!-- Translators: application name, as seen in GNOME Shell -->
     <property name="title" translatable="yes">Tetravex</property>
-    <property name="icon-name">org.gnome.Tetravex</property>
     <child>
       <object class="GtkGrid" id="grid">
         <property name="visible">True</property>

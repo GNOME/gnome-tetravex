@@ -1,64 +1,96 @@
-# Install icons
-install_data (join_paths ('icons', 'hicolor', 'scalable', project_id + '.svg'),
-              install_dir: join_paths (datadir, 'icons', 'hicolor', 'scalable', 'apps'))
-install_data (join_paths ('icons', 'hicolor', 'symbolic', project_id + '-symbolic.svg'),
-              install_dir: join_paths (datadir, 'icons', 'hicolor', 'scalable', 'apps'))
+# Icon files
+install_data(
+  'icons' / 'hicolor' / 'scalable' / '@0@.svg'.format(app_id),
+  install_dir: datadir / 'icons' / 'hicolor' / 'scalable' / 'apps'
+)
+install_data(
+  'icons' / 'hicolor' / 'symbolic' / '@0@-symbolic.svg'.format(base_id),
+  install_dir: datadir / 'icons' / 'hicolor' / 'symbolic' / 'apps',
+  rename: '@0@-symbolic.svg'.format(app_id)
+)
 
-# Install gschema
-install_data (project_id + '.gschema.xml',
-              install_dir: join_paths (datadir, 'glib-2.0', 'schemas'))
-
-# Make D-Bus activatable
-service_conf = configuration_data()
-service_conf.set('bindir', bindir)
-
-service = project_id + '.service'
+# GSchema file
+gschema_conf = configuration_data()
+gschema_conf.set('app-id', app_id)
+gschema_conf.set('base-id-slashed', '/' + base_id.replace('.', '/'))
+gschema_conf.set('gettext-package', meson.project_name())
 
 configure_file(
-  input: service + '.in',
-  output: service,
+  input: '@0@.gschema.xml.in'.format(base_id),
+  output: '@0@.gschema.xml'.format(app_id),
   install: true,
-  install_dir: join_paths(datadir, 'dbus-1', 'services'),
+  install_dir: datadir / 'glib-2.0' / 'schemas',
+  configuration: gschema_conf
+)
+
+# DBus service file
+service_conf = configuration_data()
+service_conf.set('app-id', app_id)
+service_conf.set('bindir', bindir)
+service_conf.set('exec-name', meson.project_name())
+
+configure_file(
+  input: '@0@.service.in'.format(base_id),
+  output: '@0@.service'.format(app_id),
+  install: true,
+  install_dir: datadir / 'dbus-1' / 'services',
   configuration: service_conf
 )
 
 # Desktop file
-desktop_file = i18n.merge_file (
-                         input: project_id + '.desktop.in',
-                        output: project_id + '.desktop',
-                       install: true,
-                   install_dir: join_paths (datadir, 'applications'),
-                        po_dir: '../po',
-                          type: 'desktop')
+desktop_conf = configuration_data()
+desktop_conf.set('app-id', app_id)
+desktop_conf.set('exec-name', meson.project_name())
 
-# Validate desktop file
+desktop_file = i18n.merge_file(
+  input: configure_file(
+    input: '@0@.desktop.in.in'.format(base_id),
+    output: '@BASENAME@',
+    configuration: desktop_conf
+  ),
+  output: '@0@.desktop'.format(app_id),
+  install: true,
+  install_dir: datadir / 'applications',
+  po_dir: podir,
+  type: 'desktop'
+)
+
+desktop_file_validate = find_program('desktop-file-validate', required: false)
 if desktop_file_validate.found()
   test(
-    'validate-desktop',
-    desktop_file_validate,
+    'validate-desktop', desktop_file_validate,
     args: [
       desktop_file.full_path()
     ]
   )
 endif
 
-# AppData file
-appdata_file = i18n.merge_file (
-                         input: project_id + '.appdata.xml.in',
-                        output: project_id + '.appdata.xml',
-                       install: true,
-                   install_dir: join_paths (datadir, 'metainfo'),
-                        po_dir: '../po')
+# MetaInfo file
+metainfo_conf = configuration_data()
+metainfo_conf.set('app-id', app_id)
+metainfo_conf.set('developer-id', app_id.to_lower())
 
-# Validate AppData file
+metainfo_file = i18n.merge_file(
+  input: configure_file(
+    input: '@0@.metainfo.xml.in.in'.format(base_id),
+    output: '@BASENAME@',
+    configuration: metainfo_conf
+  ),
+  output: '.metainfo.xml'.format(app_id),
+  install: true,
+  install_dir: datadir / 'metainfo',
+  po_dir: podir
+)
+
+appstreamcli = find_program('appstreamcli', required: false)
 if appstreamcli.found()
   test(
     'validate-metainfo', appstreamcli,
     args: [
-      'validate', '--no-net', '--explain', appdata_file.full_path()
+      'validate', '--no-net', '--explain', metainfo_file.full_path()
     ]
   )
 endif
 
-# Install man page
-install_man('gnome-tetravex.6')
+# Man page
+install_man('@0@.6'.format(meson.project_name()))

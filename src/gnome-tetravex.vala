@@ -120,8 +120,8 @@ private class Tetravex : Gtk.Application
         Intl.textdomain (GETTEXT_PACKAGE);
 
         Environment.set_application_name (PROGRAM_NAME);
-        Environment.set_prgname ("org.gnome.Tetravex");
-        Window.set_default_icon_name ("org.gnome.Tetravex");
+        Environment.set_prgname (APP_ID);
+        Window.set_default_icon_name (APP_ID);
 
         Tetravex app = new Tetravex ();
         return app.run (args);
@@ -129,7 +129,7 @@ private class Tetravex : Gtk.Application
 
     private Tetravex ()
     {
-        Object (application_id: "org.gnome.Tetravex", flags: ApplicationFlags.FLAGS_NONE);
+        Object (application_id: APP_ID, flags: ApplicationFlags.FLAGS_NONE);
 
         add_main_option_entries (option_entries);
     }
@@ -171,7 +171,7 @@ private class Tetravex : Gtk.Application
     {
         base.startup ();
 
-        settings = new GLib.Settings ("org.gnome.Tetravex");
+        settings = new GLib.Settings (APP_ID);
 
         saved_game = settings.get_value ("saved-game");
         can_restore = Puzzle.is_valid_saved_game (saved_game);
@@ -231,6 +231,9 @@ private class Tetravex : Gtk.Application
         else
             game_size = settings.get_int ("grid-size");
         ((SimpleAction) lookup_action ("size")).set_state ("%d".printf (game_size));
+
+        if (APP_ID.has_suffix (".Devel"))
+            window.get_style_context ().add_class ("devel");
 
         HeaderBar headerbar = new HeaderBar ();
         headerbar.title = PROGRAM_NAME;
@@ -918,7 +921,7 @@ private class Tetravex : Gtk.Application
                            "documenters",           documenters,
         /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
                            "translator-credits",    _("translator-credits"),
-                           "logo-icon-name",        "org.gnome.Tetravex",
+                           "logo-icon-name",        APP_ID,
                            "website",               "https://gitlab.gnome.org/GNOME/gnome-tetravex",
                            "website-label",         website_label,
                            null);

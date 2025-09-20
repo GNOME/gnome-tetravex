@@ -25,8 +25,9 @@ gnome_tetravex_gui = executable (
                   libm_dep ],
   vala_args: [ '--pkg=posix',
                '--enable-experimental-non-null' ],
-  c_args: [ '-DVERSION="@0@"'.format (meson.project_version ()),
-            '-DGETTEXT_PACKAGE="gnome-tetravex"',
+  c_args: [ '-DAPP_ID="@0@"'.format(app_id),
+            '-DVERSION="@0@"'.format (meson.project_version ()),
+            '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
             '-DLOCALEDIR="@0@"'.format (localedir) ],
   install: true
 )
