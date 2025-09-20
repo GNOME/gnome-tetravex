@@ -6,10 +6,10 @@ include:
       dist-job-name: 'flatpak@x86_64'
 
 variables:
-    APP_ID: 'org.gnome.Tetravex'
-    BUNDLE: 'tetravex-dev.flatpak'
+    APP_ID: 'org.gnome.Tetravex.Devel'
+    BUNDLE: 'org.gnome.Tetravex.Devel.flatpak'
     RUNTIME_REPO: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo'
-    MANIFEST_PATH: 'build-aux/org.gnome.Tetravex.json'
+    MANIFEST_PATH: 'build-aux/flatpak/org.gnome.Tetravex.Devel.json'
     FLATPAK_MODULE: 'gnome-tetravex'
 
 stages:
