@@ -51,12 +51,10 @@ private class ScoreDialog : Dialog
         size_combo.pack_start (renderer, true);
         size_combo.add_attribute (renderer, "text", 0);
         size_combo.width_request = 90;
-        size_combo.show ();
         ((HeaderBar) get_header_bar ()).set_title_widget (size_combo);
 
         ScrolledWindow scroll = new ScrolledWindow ();
         scroll.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
-        scroll.show ();
 
         Box content_area = get_content_area ();
         content_area.append (scroll);
@@ -76,7 +74,6 @@ private class ScoreDialog : Dialog
         scores.model = score_model;
         scores.hexpand = true;
         scores.vexpand = true;
-        scores.show ();
         scroll.set_child (scores);
 
         foreach (HistoryEntry entry in history.entries)

@@ -230,8 +230,6 @@ private class Tetravex : Gtk.Application
 
         HeaderBar headerbar = new HeaderBar ();
         headerbar.title_widget = new Gtk.Label (PROGRAM_NAME);
-        headerbar.show_title_buttons = true;
-        headerbar.show ();
         window.set_titlebar (headerbar);
 
         Builder menu_builder = new Builder.from_resource ("/org/gnome/Tetravex/ui/menu.ui");
@@ -240,7 +238,6 @@ private class Tetravex : Gtk.Application
         hamburger_button.set_icon_name ("open-menu-symbolic");
         ((Widget) hamburger_button).set_focus_on_click (false);
         hamburger_button.valign = Align.CENTER;
-        hamburger_button.show ();
         hamburger_button.set_menu_model (appmenu);
         headerbar.pack_end (hamburger_button);
 
@@ -248,19 +245,16 @@ private class Tetravex : Gtk.Application
         undo_button.set_action_name ("app.undo");
         ((Widget) undo_button).set_focus_on_click (false);
         undo_button.valign = Align.CENTER;
-        undo_button.show ();
 
         Button redo_button = new Button.from_icon_name ("edit-redo-symbolic");
         redo_button.set_action_name ("app.redo");
         ((Widget) redo_button).set_focus_on_click (false);
         redo_button.valign = Align.CENTER;
-        redo_button.show ();
 
         Box undo_redo_box = new Box (Orientation.HORIZONTAL, /* spacing */ 0);
         undo_redo_box.get_style_context ().add_class ("linked");
         undo_redo_box.append (undo_button);
         undo_redo_box.append (redo_button);
-        undo_redo_box.show ();
         headerbar.pack_start (undo_redo_box);
 
         Grid grid = (Grid) builder.get_object ("grid");
@@ -269,7 +263,6 @@ private class Tetravex : Gtk.Application
         view.hexpand = true;
         view.vexpand = true;
         view.can_focus = true;
-        view.show ();
         view_click_controller = new GestureClick ();
         view_click_controller.set_button (/* all buttons */ 0);
         view_click_controller.released.connect (on_release_on_view);
@@ -278,7 +271,6 @@ private class Tetravex : Gtk.Application
 
         Overlay overlay = new Overlay ();
         overlay.set_child (view);
-        overlay.show ();
 
         score_overlay = new ScoreOverlay ();
         overlay.add_overlay (score_overlay);
@@ -305,7 +297,6 @@ private class Tetravex : Gtk.Application
         play_button.valign = Align.CENTER;
         /* Translators: tooltip text of the "play"/unpause button, in the bottom bar */
         play_button.set_tooltip_text (_("Resume the game"));
-        play_button.show ();
 
         pause_button = new Button.from_icon_name ("media-playback-pause-symbolic");
         pause_button.set_action_name ("app.pause");
@@ -313,12 +304,10 @@ private class Tetravex : Gtk.Application
         pause_button.valign = Align.CENTER;
         /* Translators: tooltip text of the pause button, in the bottom bar */
         pause_button.set_tooltip_text (_("Pause the game"));
-        pause_button.show ();
 
         play_pause_stack = new Stack ();
         play_pause_stack.add_named (play_button, "play");
         play_pause_stack.add_named (pause_button, "pause");
-        play_pause_stack.show ();
         headerbar.pack_end (play_pause_stack);
 
         new_game_button = new Button.from_icon_name ("view-refresh-symbolic");
@@ -327,7 +316,6 @@ private class Tetravex : Gtk.Application
         new_game_button.valign = Align.CENTER;
         /* Translators: tooltip text of the "restart"/new game button, in the bottom bar */
         new_game_button.set_tooltip_text (_("Start a new game"));
-        new_game_button.show ();
 
         Button solve_button = new Button.from_icon_name ("dialog-question-symbolic");
         solve_button.set_action_name ("app.solve");
@@ -335,7 +323,6 @@ private class Tetravex : Gtk.Application
         solve_button.valign = Align.CENTER;
         /* Translators: tooltip text of the "solve"/give up button, in the bottom bar */
         solve_button.set_tooltip_text (_("Give up and view the solution"));
-        solve_button.show ();
 
         Button finish_button = new Button.from_icon_name ("go-previous-symbolic");
         finish_button.set_action_name ("app.finish");
@@ -343,7 +330,6 @@ private class Tetravex : Gtk.Application
         finish_button.valign = Align.CENTER;
         /* Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board */
         finish_button.set_tooltip_text (_("Move all tiles left"));
-        finish_button.show ();
 
         new_game_button_click_controller = new GestureClick ();
         new_game_button_click_controller.pressed.connect (on_new_game_button_click);
@@ -352,7 +338,6 @@ private class Tetravex : Gtk.Application
         new_game_solve_stack.add_named (solve_button, "solve");
         new_game_solve_stack.add_named (new_game_button, "new-game");
         new_game_solve_stack.add_named (finish_button, "finish");
-        new_game_solve_stack.show ();
         headerbar.pack_end (new_game_solve_stack);
 
         undo_action   = (SimpleAction) lookup_action ("undo");
@@ -457,7 +442,7 @@ private class Tetravex : Gtk.Application
         solve_action.set_enabled (true);
         finish_action.set_enabled (false);
         new_game_solve_stack.set_visible_child_name ("solve");
-        score_overlay.hide ();
+        score_overlay.set_visible (false);
 
         if (puzzle_init_done)
             SignalHandler.disconnect_by_func (puzzle, null, this);
@@ -586,7 +571,6 @@ private class Tetravex : Gtk.Application
         new_game_solve_stack.set_visible_child_name ("new-game");
         view.hide_right_sockets ();
 
-        score_overlay.show ();
         new_game_button.grab_focus ();
     }
 
