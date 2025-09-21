@@ -36,7 +36,6 @@ libm_dep    = meson.get_compiler('c').find_library('m', required: false)
 
 subdir('po')
 subdir('data')
-subdir('help')
 subdir('src')
 
 gnome.post_install(

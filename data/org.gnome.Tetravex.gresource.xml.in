@@ -3,7 +3,13 @@
   <gresource prefix="@base-id-slashed@">
     <file alias="metainfo.xml" compressed="true">@app-id@.metainfo.xml</file>
     <file preprocess="xml-stripblanks">ui/menu.ui</file>
+    <file preprocess="xml-stripblanks">ui/rules-dialog.ui</file>
     <file alias="shortcuts-dialog.ui" preprocess="xml-stripblanks">ui/shortcuts-dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/window.ui</file>
+    <file compressed="true">icons/scalable/actions/edit-redo-symbolic.svg</file>
+    <file compressed="true">icons/scalable/actions/edit-redo-symbolic-rtl.svg</file>
+    <file compressed="true">icons/scalable/actions/edit-undo-symbolic.svg</file>
+    <file compressed="true">icons/scalable/actions/edit-undo-symbolic-rtl.svg</file>
+    <file compressed="true">icons/scalable/actions/stopwatch-symbolic.svg</file>
   </gresource>
 </gresources>

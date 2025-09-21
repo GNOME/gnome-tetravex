@@ -6,6 +6,7 @@ gnome_tetravex = executable (
     'history.vala',
     'puzzle.vala',
     'puzzle-view.vala',
+    'rules-dialog.vala',
     'score-dialog.vala',
     'theme-extrusion.vala',
     'theme-neoretro.vala',

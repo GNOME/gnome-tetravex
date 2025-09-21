@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Tetravex.
+
+   GNOME Tetravex is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 2 of the License, or
+   (at your option) any later version.
+
+   GNOME Tetravex is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <template class="RulesDialog" parent="AdwPreferencesDialog">
+    <property name="content-width">600</property>
+    <property name="title" translatable="yes">Game Rules</property>
+    <child>
+      <object class="AdwPreferencesPage">
+        <child>
+          <object class="AdwPreferencesGroup">
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes" context="game rules">Complete the empty board by placing tiles on it</property>
+                <child type="prefix">
+                  <object class="GtkImage" id="game_image"/>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes" context="game rules">Tile edge numbers must match with adjacent tiles</property>
+                <child type="prefix">
+                  <object class="GtkImage">
+                    <property name="icon-name">object-select-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes" context="game rules">Rounds are scored based on completion time</property>
+                <child type="prefix">
+                  <object class="GtkImage">
+                    <property name="icon-name">stopwatch-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes" context="game rules">You can pause the game</property>
+                <property name="subtitle" translatable="yes" context="game rules">Tile faces will be hidden</property>
+                <child type="prefix">
+                  <object class="GtkImage">
+                    <property name="icon-name">media-playback-pause-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes" context="game rules">You can undo or redo a move</property>
+                <property name="subtitle" translatable="yes" context="game rules">No time penalty is added</property>
+                <child type="prefix">
+                  <object class="GtkImage">
+                    <property name="icon-name">edit-undo-symbolic</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -2,6 +2,7 @@ src/gnome-tetravex.c
 src/history.c
 src/puzzle.c
 src/puzzle-view.c
+src/rules-dialog.c
 src/score-dialog.c
 src/theme-extrusion.c
 src/theme-neoretro.c

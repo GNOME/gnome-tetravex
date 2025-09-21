@@ -85,7 +85,7 @@ private class Tetravex : Adw.Application
         { "redo",           redo_cb         },
         { "reload",         reload_cb       },
         { "size",           null,           "s",    "'2'",  size_changed    },
-        { "help",           help_cb         },
+        { "rules",          rules_cb        },
         { "about",          about_cb        },
         { "quit",           quit            }
     };
@@ -169,7 +169,7 @@ private class Tetravex : Adw.Application
         set_accels_for_action ("app.undo",          {        "<Control>z"       });
         set_accels_for_action ("app.redo",          { "<Shift><Control>z"       });
         set_accels_for_action ("app.reload",        { "<Shift><Control>r"       });
-        set_accels_for_action ("app.help",          {                 "F1"      });
+        set_accels_for_action ("app.rules",         {                 "F1"      });
         set_accels_for_action ("app.quit",          {        "<Control>q"       });
         set_accels_for_action ("window.close",      { "<Primary>w"              });
     }
@@ -545,12 +545,12 @@ private class Tetravex : Adw.Application
     }
 
     /*\
-    * * help/about
+    * * rules/about
     \*/
 
-    private void help_cb ()
-    {
-        show_uri (active_window, "help:gnome-tetravex", Gdk.CURRENT_TIME);
+    private void rules_cb () {
+        new RulesDialog ()
+            .present (active_window);
     }
 
     private void about_cb ()

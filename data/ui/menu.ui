@@ -99,14 +99,14 @@
     </section>
     <section>
       <item>
+        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows Game Rules dialog -->
+        <attribute name="label" translatable="yes">Game R_ules</attribute>
+        <attribute name="action">app.rules</attribute>
+      </item>
+      <item>
         <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog -->
         <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
         <attribute name="action">app.shortcuts</attribute>
-      </item>
-      <item>
-        <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help -->
-        <attribute name="label" translatable="yes">_Help</attribute>
-        <attribute name="action">app.help</attribute>
       </item>
       <item>
         <!-- Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog -->
