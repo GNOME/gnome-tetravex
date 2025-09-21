@@ -3,9 +3,7 @@
   <gresource prefix="@base-id-slashed@">
     <file alias="metainfo.xml" compressed="true">@app-id@.metainfo.xml</file>
     <file preprocess="xml-stripblanks">ui/menu.ui</file>
+    <file alias="shortcuts-dialog.ui" preprocess="xml-stripblanks">ui/shortcuts-dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/window.ui</file>
-  </gresource>
-  <gresource prefix="@base-id-slashed@/gtk">
-    <file alias="help-overlay.ui" preprocess="xml-stripblanks">ui/help-overlay.ui</file>
   </gresource>
 </gresources>

@@ -3,8 +3,8 @@
 data/org.gnome.Tetravex.desktop.in.in
 data/org.gnome.Tetravex.gschema.xml.in
 data/org.gnome.Tetravex.metainfo.xml.in.in
-data/ui/help-overlay.ui
 data/ui/menu.ui
+data/ui/shortcuts-dialog.ui
 data/ui/window.ui
 src/gnome-tetravex.vala
 src/history.vala

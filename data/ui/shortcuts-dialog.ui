@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   This file is part of GNOME Tetravex.
+
+   Copyright (C) 2019-2020 Arnaud Bonatti
+
+   GNOME Tetravex is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 2 of the License, or
+   (at your option) any later version.
+
+   GNOME Tetravex is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License along
+   with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<interface>
+  <object class="AdwShortcutsDialog" id="shortcuts_dialog">
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes" context="shortcut window">Game</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.new-game</property>
+            <property name="title" translatable="yes" context="shortcut window">New Game</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.pause</property>
+            <property name="title" translatable="yes" context="shortcut window">Pause Game</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.undo</property>
+            <property name="title" translatable="yes" context="shortcut window">Undo</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.redo</property>
+            <property name="title" translatable="yes" context="shortcut window">Redo</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.reload</property>
+            <property name="title" translatable="yes" context="shortcut window">Reset Board</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.solve</property>
+            <property name="title" translatable="yes" context="shortcut window">Show Solution</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes" context="shortcut window">Tile Selection</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="title" translatable="yes" context="shortcut window">Move Tile Focus</property>
+            <property name="accelerator">Left Right Up Down</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="title" translatable="yes" context="shortcut window">Select / Move / Unselect Tile</property>
+            <property name="accelerator">Return space</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="title" translatable="yes" context="shortcut window">Select Row</property>
+            <property name="accelerator">1...6</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="title" translatable="yes" context="shortcut window">Select Left-Side Column</property>
+            <property name="accelerator">a...f</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="title" translatable="yes" context="shortcut window">Select Right-Side Column</property>
+            <property name="accelerator">&lt;Shift&gt;A...&lt;Shift&gt;F</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">&lt;Ctrl&gt;Left</property>
+            <property name="title" translatable="yes" context="shortcut window">Finish Right-Side Board</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes" context="shortcut window">Tile Shifting</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.move-up-l</property>
+            <property name="title" translatable="yes" context="shortcut window">Shift Left-Side Tiles Up</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.move-down-l</property>
+            <property name="title" translatable="yes" context="shortcut window">Shift Left-Side Tiles Down</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.move-left-l</property>
+            <property name="title" translatable="yes" context="shortcut window">Shift Left-Side Tiles Left</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.move-right-l</property>
+            <property name="title" translatable="yes" context="shortcut window">Shift Left-Side Tiles Right</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.move-up-r</property>
+            <property name="title" translatable="yes" context="shortcut window">Shift Right-Side Tiles Up</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.move-down-r</property>
+            <property name="title" translatable="yes" context="shortcut window">Shift Right-Side Tiles Down</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.move-left-r</property>
+            <property name="title" translatable="yes" context="shortcut window">Shift Right-Side Tiles Left</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.move-right-r</property>
+            <property name="title" translatable="yes" context="shortcut window">Shift Right-Side Tiles Right</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes" context="shortcut window">General</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.help</property>
+            <property name="title" translatable="yes" context="shortcut window">Show Help</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">F10</property>
+            <property name="title" translatable="yes" context="shortcut window">Show Main Menu</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.shortcuts</property>
+            <property name="title" translatable="yes" context="shortcut window">Show Keyboard Shortcuts</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">window.close</property>
+            <property name="title" translatable="yes" context="shortcut window">Close Window</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="action-name">app.quit</property>
+            <property name="title" translatable="yes" context="shortcut window">Quit</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

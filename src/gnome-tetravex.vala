@@ -73,7 +73,6 @@ private class Tetravex : Adw.Application
         { "solve",          solve_cb        },
         { "finish",         finish_cb       },
         { "scores",         scores_cb       },
-        { "quit",           quit            },
         { "move-up-l",      move_up_l       },
         { "move-down-l",    move_down_l     },
         { "move-left-l",    move_left_l     },
@@ -87,7 +86,8 @@ private class Tetravex : Adw.Application
         { "reload",         reload_cb       },
         { "size",           null,           "s",    "'2'",  size_changed    },
         { "help",           help_cb         },
-        { "about",          about_cb        }
+        { "about",          about_cb        },
+        { "quit",           quit            }
     };
 
     private static int main (string[] args)
@@ -155,11 +155,9 @@ private class Tetravex : Adw.Application
         add_action (settings.create_action ("theme"));
 
         set_accels_for_action ("app.solve",         {        "<Control>h"       });
-        set_accels_for_action ("app.scores",        {        "<Control>i"       });
         set_accels_for_action ("app.new-game",      {        "<Control>n"       });
         set_accels_for_action ("app.pause",         {        "<Control>p",
                                                                       "Pause"   });
-        set_accels_for_action ("app.quit",          {        "<Control>q"       });
         set_accels_for_action ("app.move-up-l",     {        "<Control>Up"      });
         set_accels_for_action ("app.move-down-l",   {        "<Control>Down"    });
         set_accels_for_action ("app.move-left-l",   {        "<Control>Left"    });
@@ -171,8 +169,9 @@ private class Tetravex : Adw.Application
         set_accels_for_action ("app.undo",          {        "<Control>z"       });
         set_accels_for_action ("app.redo",          { "<Shift><Control>z"       });
         set_accels_for_action ("app.reload",        { "<Shift><Control>r"       });
-        set_accels_for_action ("app.hamburger",     {                 "F10"     });
-        // F1 and friends are managed manually
+        set_accels_for_action ("app.help",          {                 "F1"      });
+        set_accels_for_action ("app.quit",          {        "<Control>q"       });
+        set_accels_for_action ("window.close",      { "<Primary>w"              });
     }
 
     private void create_window () {
@@ -534,9 +533,6 @@ private class Tetravex : Adw.Application
                 return true;
             }
         }
-        else if (name == "F1")
-            return on_f1_pressed (state);   // TODO fix dance done with the F1 & <Control>F1 shortcuts that show help overlay
-
         return false;
     }
 
@@ -551,20 +547,6 @@ private class Tetravex : Adw.Application
     /*\
     * * help/about
     \*/
-
-    private bool on_f1_pressed (Gdk.ModifierType state)
-    {
-        // TODO close popovers
-        if ((state & Gdk.ModifierType.CONTROL_MASK) != 0)
-            return false;                           // help overlay
-        if ((state & Gdk.ModifierType.SHIFT_MASK) == 0)
-        {
-            help_cb ();
-            return true;
-        }
-        about_cb ();
-        return true;
-    }
 
     private void help_cb ()
     {
