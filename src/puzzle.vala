@@ -602,7 +602,6 @@ private class Puzzle : Object
     private uint last_move_index = 0;
 
     private List<Inversion> reversed_history = new List<Inversion> ();
-    private const uint animation_duration = 250; // FIXME might better be in view
 
     private class Inversion : Object
     {
@@ -672,7 +671,7 @@ private class Puzzle : Object
     }
     private inline void undo_move (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {
-        _switch_tiles (x0, y0, x1, y1, animation_duration, /* no log */ true, /* garbage */ 0);
+        _switch_tiles (x0, y0, x1, y1, /* delay if finished */ 0, /* no log */ true, /* garbage */ 0);
 
         last_move_index++;
     }
@@ -712,7 +711,7 @@ private class Puzzle : Object
     {
         last_move_index--;
 
-        _switch_tiles (x0, y0, x1, y1, animation_duration, /* no log */ true, /* garbage */ 0);
+        _switch_tiles (x0, y0, x1, y1, /* delay if finished */ 0, /* no log */ true, /* garbage */ 0);
     }
 
     internal void reload ()
