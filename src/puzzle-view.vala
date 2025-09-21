@@ -588,9 +588,8 @@ public class PuzzleView : Gtk.DrawingArea {
         add_controller (click_controller);
     }
 
-    public bool mouse_use_extra_buttons { private get; set; default = true; }
-    public int mouse_back_button { private get; set; default = 8; }
-    public int mouse_forward_button { private get; set; default = 9; }
+    private const int MOUSE_BACK_BUTTON = 8;
+    private const int MOUSE_FORWARD_BUTTON = 9;
 
     private inline void on_click (Gtk.GestureClick _controller, int n_press, double event_x, double event_y) {
         if (puzzle.is_solved || !puzzle.attempt_move () || puzzle.paused)
@@ -603,11 +602,9 @@ public class PuzzleView : Gtk.DrawingArea {
             return;
         }
 
-        if (!mouse_use_extra_buttons)
-            return;
-        if (button == mouse_back_button)
+        if (button == MOUSE_BACK_BUTTON)
             undo ();
-        else if (button == mouse_forward_button)
+        else if (button == MOUSE_FORWARD_BUTTON)
             redo ();
     }
 

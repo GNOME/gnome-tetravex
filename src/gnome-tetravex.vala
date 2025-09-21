@@ -170,13 +170,6 @@ private class Tetravex : Adw.Application {
         view = new PuzzleView ();
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
-        settings.bind ("mouse-use-extra-buttons", view,
-                       "mouse-use-extra-buttons", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
-        settings.bind ("mouse-back-button", view,
-                       "mouse-back-button", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
-        settings.bind ("mouse-forward-button", view,
-                       "mouse-forward-button", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
-
         new TetravexWindow (this, view);
         settings.bind ("window-width", active_window, "default-width", SettingsBindFlags.DEFAULT);
         settings.bind ("window-height", active_window, "default-height", SettingsBindFlags.DEFAULT);

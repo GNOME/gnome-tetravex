@@ -14,29 +14,6 @@
       <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size' -->
       <description>The value of this key is used to decide the size of the playing grid.</description>
     </key>
-    <key name="mouse-use-extra-buttons" type="b">
-      <default>true</default>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons' -->
-      <summary>Use “Back” and “Forward” mouse button events</summary>
-      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons' -->
-      <description>For users which have a mouse with “Forward” and “Back” buttons, this key will determine if any action is taken inside of the window when either is pressed.</description>
-    </key>
-    <key name="mouse-back-button" type="i">
-      <default>8</default>
-      <range min="6" max="14"/>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons' -->
-      <summary>Mouse button to activate the “Undo” command</summary>
-      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons' -->
-      <description>For users which have a mouse with “Forward” and “Back” buttons, this key will set which button activates the “Undo” command. Possible values range between 6 and 14.</description>
-    </key>
-    <key name="mouse-forward-button" type="i">
-      <default>9</default>
-      <range min="6" max="14"/>
-      <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons' -->
-      <summary>Mouse button to activate the “Redo” command</summary>
-      <!-- Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons' -->
-      <description>For users which have a mouse with “Forward” and “Back” buttons, this key will set which button activates the “Redo” command. Possible values range between 6 and 14.</description>
-    </key>
     <key name="saved-game" type="m(yyda(yyyyyyyy)ua(yyyyu))">
       <default>nothing</default>
       <!-- Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game' -->
