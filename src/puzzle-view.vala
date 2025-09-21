@@ -69,9 +69,6 @@ public class PuzzleView : Gtk.DrawingArea
         }
     }
 
-    /* Minimum size of a tile */
-    private const int minimum_size = 80;
-
     /* Animations duration */
     private const double animation_duration = 0.25;
     private const uint final_animation_duration = 250;
@@ -307,29 +304,6 @@ public class PuzzleView : Gtk.DrawingArea
 
         animation_timeout = 0;
         return false;
-    }
-
-    protected override void measure (Gtk.Orientation orientation,
-                                     int for_size,
-                                 out int minimum,
-                                 out int natural,
-                                 out int minimum_baseline,
-                                 out int natural_baseline)
-    {
-        int size = 0;
-        if (orientation == Gtk.Orientation.VERTICAL)
-        {
-            if (puzzle_init_done)
-                size = (int) ((puzzle.size + 1.0) * minimum_size);
-            minimum = natural = int.max (size, 300);
-        }
-        else
-        {
-            if (puzzle_init_done)
-                size = (int) ((puzzle.size * 2 + 1.0 + /* 1 × */ gap_factor) * minimum_size);
-            minimum = natural = int.max (size, 500);
-        }
-        minimum_baseline = natural_baseline = 0;    // garbage
     }
 
     private void tile_moved_cb (Puzzle puzzle, Tile tile, uint8 x, uint8 y)
