@@ -18,17 +18,16 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class ExtrusionTheme : Theme
-{
+private class ExtrusionTheme : Theme {
     /*\
     * * colors arrays
     \*/
 
-    private Cairo.Pattern tile_colors_h     [10];
-    private Cairo.Pattern tile_colors_v     [10];
+    private Cairo.Pattern tile_colors_h [10];
+    private Cairo.Pattern tile_colors_v [10];
     private Cairo.Pattern tile_highlights_h [10];
     private Cairo.Pattern tile_highlights_v [10];
-    private Cairo.Pattern tile_shadows      [10];
+    private Cairo.Pattern tile_shadows [10];
 
     private unowned Cairo.Pattern text_colors [10];
     private Cairo.Pattern black_text_color = new Cairo.Pattern.rgb (0.0, 0.0, 0.0);
@@ -37,31 +36,30 @@ private class ExtrusionTheme : Theme
     private Cairo.Pattern paused_color_h;
     private Cairo.Pattern paused_color_v;
 
-    public ExtrusionTheme ()
-    { // based on GNOME color palette // white text
-        make_color_pattern (0, "3d3846", true  );   // black        // Dark 3
-        make_color_pattern (1, "C01C28", true  );   // red          // Red 4
+    public ExtrusionTheme () {
+        // based on GNOME color palette             // white text
+        make_color_pattern (0, "3d3846", true );    // black        // Dark 3
+        make_color_pattern (1, "C01C28", true );    // red          // Red 4
         make_color_pattern (2, "FFA348", false );   // orange       // Orange 2
         make_color_pattern (3, "f6d32d", false );   // yellow       // Yellow 3
         make_color_pattern (4, "57E389", false );   // green        // Green 2
-        make_color_pattern (5, "B5835A", true  );   // brown        // Brown 2
+        make_color_pattern (5, "B5835A", true );    // brown        // Brown 2
         make_color_pattern (6, "99c1f1", false );   // light blue   // Blue 1
-        make_color_pattern (7, "1a5fb4", true  );   // dark blue    // Blue 5
-        make_color_pattern (8, "c061cb", true  );   // purple       // Purple 2
+        make_color_pattern (7, "1a5fb4", true );    // dark blue    // Blue 5
+        make_color_pattern (8, "c061cb", true );    // purple       // Purple 2
         make_color_pattern (9, "f6f5f4", false );   // white        // Light 2
 
         paused_color_h = make_dir_color_pattern ("CCCCCC", /* vertical */ false, 1.0);
         paused_color_v = make_dir_color_pattern ("CCCCCC", /* vertical */ true , 1.0);
     }
 
-    private void make_color_pattern (uint position, string color, bool white_text)
-    {
-        tile_colors_h     [position] = make_dir_color_pattern (color, /* vertical */ false, 1.00);
-        tile_colors_v     [position] = make_dir_color_pattern (color, /* vertical */ true , 1.00);
+    private void make_color_pattern (uint position, string color, bool white_text) {
+        tile_colors_h [position] = make_dir_color_pattern (color, /* vertical */ false, 1.00);
+        tile_colors_v [position] = make_dir_color_pattern (color, /* vertical */ true , 1.00);
         tile_highlights_h [position] = make_dir_color_pattern (color, /* vertical */ false, 1.35);
         tile_highlights_v [position] = make_dir_color_pattern (color, /* vertical */ true , 1.35);
 
-        tile_shadows  [position] = make_shadow_color_pattern (color);
+        tile_shadows [position] = make_shadow_color_pattern (color);
 
         if (white_text)
             text_colors [position] = white_text_color;
@@ -69,8 +67,7 @@ private class ExtrusionTheme : Theme
             text_colors [position] = black_text_color;
     }
 
-    private static Cairo.Pattern make_dir_color_pattern (string color, bool vertical, double color_factor)
-    {
+    private static Cairo.Pattern make_dir_color_pattern (string color, bool vertical, double color_factor) {
         double r0 = (hex_value (color [0]) * 16 + hex_value (color [1])) / 255.0 * color_factor;
         double g0 = (hex_value (color [2]) * 16 + hex_value (color [3])) / 255.0 * color_factor;
         double b0 = (hex_value (color [4]) * 16 + hex_value (color [5])) / 255.0 * color_factor;
@@ -84,15 +81,14 @@ private class ExtrusionTheme : Theme
             pattern = new Cairo.Pattern.linear (0.0, 0.0, 1.0, 0.0);
         else
             pattern = new Cairo.Pattern.linear (0.0, 0.0, 0.0, 1.0);
-        pattern.add_color_stop_rgba (0.00,  r0,  g0,  b0, 1.0);
-        pattern.add_color_stop_rgba (0.50,  r1,  g1,  b1, 1.0);
-        pattern.add_color_stop_rgba (1.00,  r0,  g0,  b0, 1.0);
+        pattern.add_color_stop_rgba (0.00, r0, g0, b0, 1.0);
+        pattern.add_color_stop_rgba (0.50, r1, g1, b1, 1.0);
+        pattern.add_color_stop_rgba (1.00, r0, g0, b0, 1.0);
 
         return pattern;
     }
 
-    private static Cairo.Pattern make_shadow_color_pattern (string color)
-    {
+    private static Cairo.Pattern make_shadow_color_pattern (string color) {
         double r = (hex_value (color [0]) * 16 + hex_value (color [1])) * 0.0032;    // * 0.82 / 255.0;
         double g = (hex_value (color [2]) * 16 + hex_value (color [3])) * 0.0032;
         double b = (hex_value (color [4]) * 16 + hex_value (color [5])) * 0.0032;
@@ -100,8 +96,7 @@ private class ExtrusionTheme : Theme
         return new Cairo.Pattern.rgb (r, g, b);
     }
 
-    private static double hex_value (char c)
-    {
+    private static double hex_value (char c) {
         if (c >= '0' && c <= '9')
             return c - '0';
         else if (c >= 'a' && c <= 'f')
@@ -133,7 +128,7 @@ private class ExtrusionTheme : Theme
     private Cairo.Pattern highlight_tile_pattern;
 
     /* tile only */
-    private const uint radius_percent = 8;
+    private const uint RADIUS_PERCENT = 8;
     private Cairo.Matrix matrix;
     private uint tile_margin;
     private int tile_size;
@@ -152,14 +147,13 @@ private class ExtrusionTheme : Theme
     private double east_number_x;
     private double west_number_x;
 
-    public override void configure (uint new_size)
-    {
+    public override void configure (uint new_size) {
         if (size != 0 && size == new_size)
             return;
 
         /* arrow */
-        arrow_w = new_size * PuzzleView.gap_factor / 3.0;
-        arrow_x = (new_size * PuzzleView.gap_factor - arrow_w) * 0.5;
+        arrow_w = new_size * PuzzleView.GAP_FACTOR / 3.0;
+        arrow_x = (new_size * PuzzleView.GAP_FACTOR - arrow_w) * 0.5;
         arrow_half_h = arrow_w;
         neg_arrow_half_h = -arrow_half_h;
 
@@ -188,17 +182,17 @@ private class ExtrusionTheme : Theme
         overdraw_top = (int) (1.5 * tile_margin);
         extrusion = -overdraw_top;
 
-        lateral_shadow_width = tile_margin + tile_size * (Math.SQRT2 / /* 2) * radius_percent / (2 * 100); */ 50.0);
+        lateral_shadow_width = tile_margin + tile_size * (Math.SQRT2 / /* 2) * RADIUS_PERCENT / (2 * 100); */ 50.0);
         west_shadow_limit = new_size - lateral_shadow_width;
-        north_shadow_limit = tile_margin + tile_size * (Math.SQRT2 / /* 2) * radius_percent / 100 */ 25.0) + extrusion;
+        north_shadow_limit = tile_margin + tile_size * (Math.SQRT2 / /* 2) * RADIUS_PERCENT / 100 */ 25.0) + extrusion;
 
         /* numbers */
         font_size = new_size * 4.0 / 19.0;
-        half_tile_size_extruded = half_tile_size         + extrusion;
-        north_number_y_extruded = new_size *  4.0 / 18.0 + extrusion;
+        half_tile_size_extruded = half_tile_size + extrusion;
+        north_number_y_extruded = new_size * 4.0 / 18.0 + extrusion;
         south_number_y_extruded = new_size * 14.0 / 18.0 + extrusion;
-         east_number_x          = new_size * 15.0 / 19.0;
-         west_number_x          = new_size *  4.0 / 19.0;
+        east_number_x = new_size * 15.0 / 19.0;
+        west_number_x = new_size * 4.0 / 19.0;
 
         /* end */
         size = new_size;
@@ -208,8 +202,7 @@ private class ExtrusionTheme : Theme
     * * drawing arrow
     \*/
 
-    public override void draw_arrow (Cairo.Context context)
-    {
+    public override void draw_arrow (Cairo.Context context) {
         context.translate (arrow_x, 0.0);
 
         context.move_to (0.0, 0.0);
@@ -224,15 +217,14 @@ private class ExtrusionTheme : Theme
     * * drawing sockets
     \*/
 
-    public override void draw_socket (Cairo.Context context)
-    {
+    public override void draw_socket (Cairo.Context context) {
         context.save ();
 
         context.set_source_rgba (0.5, 0.5, 0.5, 0.3);
         rounded_square (context,
           /* x and y */ tile_margin, tile_margin,
           /* size    */ tile_size,
-          /* radius  */ radius_percent);
+          /* radius  */ RADIUS_PERCENT);
         context.fill ();
 
         context.restore ();
@@ -242,8 +234,7 @@ private class ExtrusionTheme : Theme
     * * drawing highlight
     \*/
 
-    public override void draw_highlight (Cairo.Context context, bool has_tile)
-    {
+    public override void draw_highlight (Cairo.Context context, bool has_tile) {
         context.save ();
 
         if (has_tile)
@@ -259,14 +250,12 @@ private class ExtrusionTheme : Theme
     * * drawing tiles
     \*/
 
-    public override void draw_paused_tile (Cairo.Context context)
-    {
+    public override void draw_paused_tile (Cairo.Context context) {
         draw_tile_shadow (context, paused_color_h, paused_color_v, paused_color_h, paused_color_v);
         draw_tile_background (context, paused_color_h, paused_color_v, paused_color_h, paused_color_v);
     }
 
-    public override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
-    {
+    public override void draw_tile (Cairo.Context context, Tile tile, bool highlight) {
         tile_colors_h [tile.north].set_matrix (matrix);
         tile_colors_h [tile.east ].set_matrix (matrix);
         tile_colors_h [tile.south].set_matrix (matrix);
@@ -276,11 +265,20 @@ private class ExtrusionTheme : Theme
         tile_colors_v [tile.south].set_matrix (matrix);
         tile_colors_v [tile.west ].set_matrix (matrix);
 
-        draw_tile_shadow (context, tile_shadows [tile.north], tile_shadows [tile.east], tile_shadows [tile.south], tile_shadows [tile.west]);
+        draw_tile_shadow (
+            context, tile_shadows [tile.north], tile_shadows [tile.east], tile_shadows [tile.south],
+            tile_shadows [tile.west]
+        );
         if (highlight)
-            draw_tile_background (context, tile_highlights_h [tile.north], tile_highlights_v [tile.east], tile_highlights_h [tile.south], tile_highlights_v [tile.west]);
+            draw_tile_background (
+                context, tile_highlights_h [tile.north], tile_highlights_v [tile.east],
+                tile_highlights_h [tile.south], tile_highlights_v [tile.west]
+            );
         else
-            draw_tile_background (context, tile_colors_h [tile.north], tile_colors_v [tile.east], tile_colors_h [tile.south], tile_colors_v [tile.west]);
+            draw_tile_background (
+                context, tile_colors_h [tile.north], tile_colors_v [tile.east], tile_colors_h [tile.south],
+                tile_colors_v [tile.west]
+            );
 
         context.select_font_face ("sans-serif", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
         context.set_font_size (font_size);
@@ -290,15 +288,15 @@ private class ExtrusionTheme : Theme
         draw_number (context, text_colors [tile.west ], west_number_x , half_tile_size_extruded, tile.west);
     }
 
-    private void draw_tile_shadow (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
-    {
+    private void draw_tile_shadow (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color,
+                                   Cairo.Pattern south_color, Cairo.Pattern west_color) {
         context.save ();
 
         /* Only write in the bottom of a rounded square */
         rounded_square (context,
           /* x and y */ tile_margin, tile_margin,
           /* size    */ tile_size,
-          /* radius  */ radius_percent);
+          /* radius  */ RADIUS_PERCENT);
         context.clip ();
 
         context.rectangle (/* x and y */ 0.0, north_shadow_limit, /* width and height */ size, size);
@@ -339,7 +337,7 @@ private class ExtrusionTheme : Theme
         rounded_square (context,
           /* x and y */ tile_margin, tile_margin,
           /* size    */ tile_size,
-          /* radius  */ radius_percent);
+          /* radius  */ RADIUS_PERCENT);
 
         context.set_source_rgba (0.0, 0.0, 0.0, 0.2);
         context.set_line_width (0.75);
@@ -357,8 +355,8 @@ private class ExtrusionTheme : Theme
         context.restore ();
     }
 
-    private void draw_tile_background (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
-    {
+    private void draw_tile_background (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color,
+                                       Cairo.Pattern south_color, Cairo.Pattern west_color) {
 
         context.save ();
 
@@ -368,7 +366,7 @@ private class ExtrusionTheme : Theme
         rounded_square (context,
           /* x and y */ tile_margin, tile_margin,
           /* size    */ tile_size,
-          /* radius  */ radius_percent);
+          /* radius  */ RADIUS_PERCENT);
         context.clip_preserve ();
 
         /* North */
@@ -423,7 +421,7 @@ private class ExtrusionTheme : Theme
         rounded_square (context,
           /* x and y */ tile_margin, tile_margin,
           /* size    */ tile_size,
-          /* radius  */ radius_percent);
+          /* radius  */ RADIUS_PERCENT);
 
         context.set_source_rgba (0.0, 0.0, 0.0, 0.2);
         context.set_line_width (0.75);
@@ -441,8 +439,8 @@ private class ExtrusionTheme : Theme
         context.restore ();
     }
 
-    private static void draw_number (Cairo.Context context, Cairo.Pattern text_color, double x, double y, uint8 number)
-    {
+    private static void draw_number (Cairo.Context context, Cairo.Pattern text_color, double x, double y,
+                                     uint8 number) {
         context.set_source (text_color);
 
         string text = "%hu".printf (number);
@@ -457,8 +455,7 @@ private class ExtrusionTheme : Theme
     \*/
 
     private const double HALF_PI = Math.PI_2;
-    private static void rounded_square (Cairo.Context context, double x, double y, int size, double radius_percent)
-    {
+    private static void rounded_square (Cairo.Context context, double x, double y, int size, double radius_percent) {
         if (radius_percent <= 0.0)
             assert_not_reached ();  // could be replaced by drawing a rectangle, but not used here
 
@@ -471,10 +468,10 @@ private class ExtrusionTheme : Theme
         double y2 = y + size - radius_arc;
 
         context.move_to (x, y1);
-        context.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
-        context.arc (x2, y1, radius_arc, -HALF_PI,      0.0);
-        context.arc (x2, y2, radius_arc,      0.0,  HALF_PI);
-        context.arc (x1, y2, radius_arc,  HALF_PI,  Math.PI);
+        context.arc (x1, y1, radius_arc, Math.PI, -HALF_PI);
+        context.arc (x2, y1, radius_arc, -HALF_PI, 0.0);
+        context.arc (x2, y2, radius_arc, 0.0, HALF_PI);
+        context.arc (x1, y2, radius_arc, HALF_PI, Math.PI);
         context.close_path ();
     }
 }

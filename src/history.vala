@@ -19,8 +19,7 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-public class History
-{
+public class History {
     private string filename;
     public List<HistoryEntry> entries = new List<HistoryEntry> ();
 
@@ -34,28 +33,23 @@ public class History
     * * loading
     \*/
 
-    public History (string filename)
-    {
+    public History (string filename) {
         this.filename = filename;
         load ();
     }
 
-    private inline void load ()
-    {
+    private inline void load () {
         string contents = "";
-        try
-        {
+        try {
             FileUtils.get_contents (filename, out contents);
         }
-        catch (FileError e)
-        {
+        catch (FileError e) {
             if (!(e is FileError.NOENT))
                 warning ("Failed to load history: %s", e.message);
             return;
         }
 
-        foreach (string line in contents.split ("\n"))
-        {
+        foreach (string line in contents.split ("\n")) {
             string [] tokens = line.split (" ");
             if (tokens.length != 3)
                 continue;
@@ -95,12 +89,10 @@ public class History
         save ();
     }
 
-    private inline void save ()
-    {
+    private inline void save () {
         string contents = "";
 
-        foreach (HistoryEntry entry in entries)
-        {
+        foreach (HistoryEntry entry in entries) {
             string line;
             if (entry.int_duration)
                 line = "%s %hu %u\n".printf (entry.date.to_string (), entry.size, (uint) entry.duration);
@@ -109,13 +101,11 @@ public class History
             contents += line;
         }
 
-        try
-        {
+        try {
             DirUtils.create_with_parents (Path.get_dirname (filename), 0775);
             FileUtils.set_contents (filename, contents);
         }
-        catch (FileError e)
-        {
+        catch (FileError e) {
             warning ("Failed to save history: %s", e.message);
         }
     }
@@ -124,8 +114,7 @@ public class History
     * * comparing
     \*/
 
-    private static int compare_entries (HistoryEntry a, HistoryEntry b)
-    {
+    private static int compare_entries (HistoryEntry a, HistoryEntry b) {
         /* in size order, 2 first */
         if (a.size != b.size)
             return (int) a.size - (int) b.size;
@@ -153,15 +142,13 @@ public class History
     }
 }
 
-public class HistoryEntry : Object
-{
-    [CCode (notify = false)] public DateTime date       { get; protected construct; }
-    [CCode (notify = false)] public uint8 size          { get; protected construct; }
-    [CCode (notify = false)] public double duration     { get; protected construct; }
-    [CCode (notify = false)] public bool int_duration   { get; protected construct; }
+public class HistoryEntry : Object {
+    [CCode (notify = false)] public DateTime date { get; protected construct; }
+    [CCode (notify = false)] public uint8 size { get; protected construct; }
+    [CCode (notify = false)] public double duration { get; protected construct; }
+    [CCode (notify = false)] public bool int_duration { get; protected construct; }
 
-    public HistoryEntry (DateTime date, uint8 size, double duration, bool int_duration)
-    {
+    public HistoryEntry (DateTime date, uint8 size, double duration, bool int_duration) {
         Object (date: date, size: size, duration: duration, int_duration: int_duration);
     }
 
@@ -169,11 +156,12 @@ public class HistoryEntry : Object
     * * utilities
     \*/
 
-    public static string get_duration_string (HistoryEntry entry)
-    {
+    public static string get_duration_string (HistoryEntry entry) {
         if (entry.duration >= 3600.0)
             /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */
-            return _("%uh %um %us").printf ((uint) entry.duration / 3600, ((uint) entry.duration / 60) % 60, (uint) entry.duration % 60);
+            return _("%uh %um %us").printf (
+                (uint) entry.duration / 3600, ((uint) entry.duration / 60) % 60, (uint) entry.duration % 60
+            );
 
         if (entry.duration >= 60.0)
             /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */

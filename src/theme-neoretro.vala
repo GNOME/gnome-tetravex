@@ -18,14 +18,13 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class NeoRetroTheme : Theme
-{
+private class NeoRetroTheme : Theme {
     /*\
     * * colors arrays
     \*/
 
-    private Cairo.Pattern tile_colors_h     [10];
-    private Cairo.Pattern tile_colors_v     [10];
+    private Cairo.Pattern tile_colors_h [10];
+    private Cairo.Pattern tile_colors_v [10];
     private Cairo.Pattern tile_highlights_h [10];
     private Cairo.Pattern tile_highlights_v [10];
 
@@ -36,27 +35,26 @@ private class NeoRetroTheme : Theme
     private Cairo.Pattern paused_color_h;
     private Cairo.Pattern paused_color_v;
 
-    public NeoRetroTheme ()                         // white text //  L    H    V
-    {                                               //          +45
-        make_color_pattern (0, "000000", true  );   //  0           // dark
-        make_color_pattern (1, "850023", true  );   // 20   75   10 // red
+    public NeoRetroTheme () {                       // white text //  L    H    V
+                                                    //          +45
+        make_color_pattern (0, "000000", true );    //  0           // dark
+        make_color_pattern (1, "850023", true );    // 20   75   10 // red
         make_color_pattern (2, "e26e1e", false );   // 60   75   55 // orange
         make_color_pattern (3, "cccc24", false );   // 80   75  100 // yellow
         make_color_pattern (4, "00c656", false );   // 70   75  145 // light green
-        make_color_pattern (5, "005c59", true  );   // 30   75  190 // dark green
+        make_color_pattern (5, "005c59", true );    // 30   75  190 // dark green
         make_color_pattern (6, "008de0", false );   // 50   75  235 // light blue
-        make_color_pattern (7, "001d87", true  );   // 10   75  280 // dark blue
-        make_color_pattern (8, "a021a6", true  );   // 40   75  325 // purple
+        make_color_pattern (7, "001d87", true );    // 10   75  280 // dark blue
+        make_color_pattern (8, "a021a6", true );    // 40   75  325 // purple
         make_color_pattern (9, "e2e2e2", false );   // 90           // white
 
         paused_color_h = make_dir_color_pattern ("CCCCCC", /* vertical */ false, 1.0);
         paused_color_v = make_dir_color_pattern ("CCCCCC", /* vertical */ true , 1.0);
     }
 
-    private void make_color_pattern (uint position, string color, bool white_text)
-    {
-        tile_colors_h     [position] = make_dir_color_pattern (color, /* vertical */ false, 1.0);
-        tile_colors_v     [position] = make_dir_color_pattern (color, /* vertical */ true , 1.0);
+    private void make_color_pattern (uint position, string color, bool white_text) {
+        tile_colors_h [position] = make_dir_color_pattern (color, /* vertical */ false, 1.0);
+        tile_colors_v [position] = make_dir_color_pattern (color, /* vertical */ true , 1.0);
         tile_highlights_h [position] = make_dir_color_pattern (color, /* vertical */ false, 1.4);
         tile_highlights_v [position] = make_dir_color_pattern (color, /* vertical */ true , 1.4);
 
@@ -66,8 +64,7 @@ private class NeoRetroTheme : Theme
             text_colors [position] = black_text_color;
     }
 
-    private static Cairo.Pattern make_dir_color_pattern (string color, bool vertical, double color_factor)
-    {
+    private static Cairo.Pattern make_dir_color_pattern (string color, bool vertical, double color_factor) {
         double r0 = (hex_value (color [0]) * 16 + hex_value (color [1])) / 255.0 * color_factor;
         double g0 = (hex_value (color [2]) * 16 + hex_value (color [3])) / 255.0 * color_factor;
         double b0 = (hex_value (color [4]) * 16 + hex_value (color [5])) / 255.0 * color_factor;
@@ -89,17 +86,16 @@ private class NeoRetroTheme : Theme
             pattern = new Cairo.Pattern.linear (0.0, 0.0, 1.0, 0.0);
         else
             pattern = new Cairo.Pattern.linear (0.0, 0.0, 0.0, 1.0);
-        pattern.add_color_stop_rgba (0.00,  r2,  g2,  b2, 1.0);
-        pattern.add_color_stop_rgba (0.08,  r1,  g1,  b1, 1.0);
-        pattern.add_color_stop_rgba (0.50,  r5,  g5,  b5, 1.0);
-        pattern.add_color_stop_rgba (0.92,  r1,  g1,  b1, 1.0);
-        pattern.add_color_stop_rgba (1.00,  r0,  g0,  b0, 1.0);
+        pattern.add_color_stop_rgba (0.00, r2, g2, b2, 1.0);
+        pattern.add_color_stop_rgba (0.08, r1, g1, b1, 1.0);
+        pattern.add_color_stop_rgba (0.50, r5, g5, b5, 1.0);
+        pattern.add_color_stop_rgba (0.92, r1, g1, b1, 1.0);
+        pattern.add_color_stop_rgba (1.00, r0, g0, b0, 1.0);
 
         return pattern;
     }
 
-    private static double hex_value (char c)
-    {
+    private static double hex_value (char c) {
         if (c >= '0' && c <= '9')
             return c - '0';
         else if (c >= 'a' && c <= 'f')
@@ -145,19 +141,18 @@ private class NeoRetroTheme : Theme
     private double font_size;
     private double north_number_y;
     private double south_number_y;
-    private double  east_number_x;
-    private double  west_number_x;
+    private double east_number_x;
+    private double west_number_x;
 
-    public override void configure (uint new_size)
-    {
+    public override void configure (uint new_size) {
         if (size != 0 && size == new_size)
             return;
 
         /* arrow */
         arrow_half_h = new_size * 0.5;
         neg_arrow_half_h = -arrow_half_h;
-        arrow_w = new_size * PuzzleView.gap_factor * 0.5;
-        arrow_x = (new_size * PuzzleView.gap_factor - arrow_w) * 0.5;
+        arrow_w = new_size * PuzzleView.GAP_FACTOR * 0.5;
+        arrow_x = (new_size * PuzzleView.GAP_FACTOR - arrow_w) * 0.5;
 
         arrow_clip_x = -arrow_x;
         arrow_clip_y = -new_size;
@@ -192,17 +187,16 @@ private class NeoRetroTheme : Theme
 
         /* numbers */
         font_size = new_size * 4.0 / 19.0;
-        north_number_y = new_size *  4.0 / 18.0;
+        north_number_y = new_size * 4.0 / 18.0;
         south_number_y = new_size * 14.0 / 18.0;
-         east_number_x = new_size * 15.0 / 19.0;
-         west_number_x = new_size *  4.0 / 19.0;
+        east_number_x = new_size * 15.0 / 19.0;
+        west_number_x = new_size * 4.0 / 19.0;
 
         /* end */
         size = new_size;
     }
 
-    private void init_socket_pattern ()
-    {
+    private void init_socket_pattern () {
         socket_pattern = new Cairo.MeshPattern ();
         socket_pattern.begin_patch ();
         socket_pattern.move_to (0.0, 0.0);
@@ -221,8 +215,7 @@ private class NeoRetroTheme : Theme
     * * drawing arrow
     \*/
 
-    public override void draw_arrow (Cairo.Context context)
-    {
+    public override void draw_arrow (Cairo.Context context) {
         context.translate (arrow_x, 0.0);
 
         /*\
@@ -241,7 +234,7 @@ private class NeoRetroTheme : Theme
         context.move_to (arrow_w, arrow_half_h);
         context.line_to (0.0, 0.0);
         context.line_to (arrow_w, neg_arrow_half_h);
-        context.curve_to (0.0,  10.0,               // Bézier control point for origin
+        context.curve_to (0.0, 10.0,                // Bézier control point for origin
                           0.0, -10.0,               // Bézier control point for destination
                           arrow_w, arrow_half_h);   // destination
 
@@ -252,7 +245,7 @@ private class NeoRetroTheme : Theme
         context.move_to (arrow_w, arrow_half_h);
         context.line_to (0.0, 0.0);
         context.line_to (arrow_w, neg_arrow_half_h);
-        context.curve_to (0.0,  10.0,               // Bézier control point for origin
+        context.curve_to (0.0, 10.0,                // Bézier control point for origin
                           0.0, -10.0,               // Bézier control point for destination
                           arrow_w, arrow_half_h);   // destination
 
@@ -283,8 +276,7 @@ private class NeoRetroTheme : Theme
     * * drawing sockets
     \*/
 
-    public override void draw_socket (Cairo.Context context)
-    {
+    public override void draw_socket (Cairo.Context context) {
         context.save ();
 
         context.set_source (socket_pattern);
@@ -306,8 +298,7 @@ private class NeoRetroTheme : Theme
     * * drawing highlight
     \*/
 
-    public override void draw_highlight (Cairo.Context context, bool has_tile)
-    {
+    public override void draw_highlight (Cairo.Context context, bool has_tile) {
         context.set_source (highlight_tile_pattern);
         context.rectangle (0.0, 0.0, /* width and height */ size, size);
         context.fill ();
@@ -317,30 +308,32 @@ private class NeoRetroTheme : Theme
     * * drawing tiles
     \*/
 
-    public override void draw_paused_tile (Cairo.Context context)
-    {
+    public override void draw_paused_tile (Cairo.Context context) {
         draw_tile_background (context, paused_color_h, paused_color_v, paused_color_h, paused_color_v);
     }
 
-    public override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
-    {
-        if (highlight)
-        {
+    public override void draw_tile (Cairo.Context context, Tile tile, bool highlight) {
+        if (highlight) {
             tile_highlights_h [tile.north].set_matrix (matrix);
             tile_highlights_h [tile.south].set_matrix (matrix);
             tile_highlights_v [tile.east ].set_matrix (matrix);
             tile_highlights_v [tile.west ].set_matrix (matrix);
 
-            draw_tile_background (context, tile_highlights_h [tile.north], tile_highlights_v [tile.east], tile_highlights_h [tile.south], tile_highlights_v [tile.west]);
+            draw_tile_background (
+                context, tile_highlights_h [tile.north], tile_highlights_v [tile.east],
+                tile_highlights_h [tile.south], tile_highlights_v [tile.west]
+            );
         }
-        else
-        {
+        else {
             tile_colors_h [tile.north].set_matrix (matrix);
             tile_colors_h [tile.south].set_matrix (matrix);
             tile_colors_v [tile.east ].set_matrix (matrix);
             tile_colors_v [tile.west ].set_matrix (matrix);
 
-            draw_tile_background (context, tile_colors_h [tile.north], tile_colors_v [tile.east], tile_colors_h [tile.south], tile_colors_v [tile.west]);
+            draw_tile_background (
+                context, tile_colors_h [tile.north], tile_colors_v [tile.east],
+                tile_colors_h [tile.south], tile_colors_v [tile.west]
+            );
         }
 
         context.select_font_face ("sans-serif", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
@@ -351,8 +344,8 @@ private class NeoRetroTheme : Theme
         draw_number (context, text_colors [tile.west ], west_number_x , half_tile_size, tile.west);
     }
 
-    private void draw_tile_background (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color, Cairo.Pattern south_color, Cairo.Pattern west_color)
-    {
+    private void draw_tile_background (Cairo.Context context, Cairo.Pattern north_color, Cairo.Pattern east_color,
+                                       Cairo.Pattern south_color, Cairo.Pattern west_color) {
         context.save ();
 
         /* Only write in a rounded square */
@@ -429,8 +422,8 @@ private class NeoRetroTheme : Theme
         context.restore ();
     }
 
-    private static void draw_number (Cairo.Context context, Cairo.Pattern text_color, double x, double y, uint8 number)
-    {
+    private static void draw_number (Cairo.Context context, Cairo.Pattern text_color, double x, double y,
+                                     uint8 number) {
         context.set_source (text_color);
 
         string text = "%hu".printf (number);
@@ -445,8 +438,7 @@ private class NeoRetroTheme : Theme
     \*/
 
     private const double HALF_PI = Math.PI_2;
-    private static void rounded_square (Cairo.Context context, double x, double y, int size, double radius_percent)
-    {
+    private static void rounded_square (Cairo.Context context, double x, double y, int size, double radius_percent) {
         if (radius_percent <= 0.0)
             assert_not_reached ();  // could be replaced by drawing a rectangle, but not used here
 
@@ -459,10 +451,10 @@ private class NeoRetroTheme : Theme
         double y2 = y + size - radius_arc;
 
         context.move_to (x, y1);
-        context.arc (x1, y1, radius_arc,  Math.PI, -HALF_PI);
-        context.arc (x2, y1, radius_arc, -HALF_PI,      0.0);
-        context.arc (x2, y2, radius_arc,      0.0,  HALF_PI);
-        context.arc (x1, y2, radius_arc,  HALF_PI,  Math.PI);
+        context.arc (x1, y1, radius_arc, Math.PI, -HALF_PI);
+        context.arc (x2, y1, radius_arc, -HALF_PI, 0.0);
+        context.arc (x2, y2, radius_arc, 0.0, HALF_PI);
+        context.arc (x1, y2, radius_arc, HALF_PI, Math.PI);
         context.close_path ();
     }
 }

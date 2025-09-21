@@ -19,8 +19,7 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-public class ScoreDialog : Gtk.Dialog
-{
+public class ScoreDialog : Gtk.Dialog {
     private History history;
     private HistoryEntry? selected_entry;
     private Gtk.ListStore size_model;
@@ -28,8 +27,7 @@ public class ScoreDialog : Gtk.Dialog
     private Gtk.ComboBox size_combo;
     private Gtk.TreeView scores;
 
-    public ScoreDialog (History history, uint8 size, HistoryEntry? selected_entry = null)
-    {
+    public ScoreDialog (History history, uint8 size, HistoryEntry? selected_entry = null) {
         Object (use_header_bar: /* true */ 1);
 
         add_css_class ("score-dialog");
@@ -82,12 +80,10 @@ public class ScoreDialog : Gtk.Dialog
             size_combo.set_active_iter (iter);
     }
 
-    private void set_size (uint8 size)
-    {
+    private void set_size (uint8 size) {
         score_model.clear ();
 
-        foreach (HistoryEntry entry in history.entries)
-        {
+        foreach (HistoryEntry entry in history.entries) {
             if (entry.size != size)
                 continue;
 
@@ -104,11 +100,9 @@ public class ScoreDialog : Gtk.Dialog
             score_model.append (out iter);
             score_model.@set (iter, 0, date_label, 1, time_label, 2, weight);
 
-            if (entry == selected_entry)
-            {
+            if (entry == selected_entry) {
                 Gtk.TreeIter piter = iter;
-                if (score_model.iter_previous (ref piter))
-                {
+                if (score_model.iter_previous (ref piter)) {
                     Gtk.TreeIter ppiter = piter;
                     if (score_model.iter_previous (ref ppiter))
                         piter = ppiter;
@@ -120,8 +114,7 @@ public class ScoreDialog : Gtk.Dialog
         }
     }
 
-    private void size_changed_cb (Gtk.ComboBox combo)
-    {
+    private void size_changed_cb (Gtk.ComboBox combo) {
         Gtk.TreeIter iter;
         if (!combo.get_active_iter (out iter))
             return;
@@ -131,12 +124,10 @@ public class ScoreDialog : Gtk.Dialog
         set_size ((uint8) size);
     }
 
-    private void entry_added_cb (HistoryEntry entry)
-    {
+    private void entry_added_cb (HistoryEntry entry) {
         /* Ignore if already have an entry for this */
         Gtk.TreeIter iter;
-        if (!get_size_iter (entry.size, out iter))
-        {
+        if (!get_size_iter (entry.size, out iter)) {
             /* Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3" */
             string label = _("%u × %u").printf (entry.size, entry.size);
 
@@ -153,12 +144,9 @@ public class ScoreDialog : Gtk.Dialog
         }
     }
 
-    private bool get_size_iter (uint8 requested_size, out Gtk.TreeIter iter)
-    {
-        if (size_model.get_iter_first (out iter))
-        {
-            do
-            {
+    private bool get_size_iter (uint8 requested_size, out Gtk.TreeIter iter) {
+        if (size_model.get_iter_first (out iter)) {
+            do {
                 int size;
                 size_model.@get (iter, 1, out size, -1);
                 if (size == requested_size)

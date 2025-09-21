@@ -13,8 +13,15 @@ variables:
     FLATPAK_MODULE: 'gnome-tetravex'
 
 stages:
+  - lint
   - build
   - deploy
+
+vala-lint:
+  image: valalang/lint:latest
+  stage: lint
+  script:
+    - io.elementary.vala-lint
 
 flatpak@x86_64:
     extends: '.flatpak@x86_64'

@@ -18,8 +18,7 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class SynesthesiaTheme : Theme
-{
+private class SynesthesiaTheme : Theme {
     /*\
     * * colors arrays
     \*/
@@ -29,8 +28,8 @@ private class SynesthesiaTheme : Theme
     private Cairo.Pattern tile_color;
     private Cairo.Pattern highlight_color;
 
-    public SynesthesiaTheme ()
-    {                                                       // based on GNOME color palette
+    public SynesthesiaTheme () {
+        // based on GNOME color palette
         text_colors [0] = make_color_pattern ("3d3846");    // black        // Dark 3
         text_colors [1] = make_color_pattern ("E01B24");    // red          // Red 3
         text_colors [2] = make_color_pattern ("FF7800");    // orange       // Orange 3
@@ -47,16 +46,14 @@ private class SynesthesiaTheme : Theme
         highlight_color = make_color_pattern ("DACACD", /* transparency */ true);
     }
 
-    private static Cairo.Pattern make_color_pattern (string color, bool transparency = false)
-    {
+    private static Cairo.Pattern make_color_pattern (string color, bool transparency = false) {
         double r = (hex_value (color [0]) * 16 + hex_value (color [1])) / 255.0;
         double g = (hex_value (color [2]) * 16 + hex_value (color [3])) / 255.0;
         double b = (hex_value (color [4]) * 16 + hex_value (color [5])) / 255.0;
         return new Cairo.Pattern.rgba (r, g, b, transparency ? 0.6 : 1.0);
     }
 
-    private static double hex_value (char c)
-    {
+    private static double hex_value (char c) {
         if (c >= '0' && c <= '9')
             return c - '0';
         else if (c >= 'a' && c <= 'f')
@@ -99,17 +96,16 @@ private class SynesthesiaTheme : Theme
     private double font_size;
     private double north_number_y;
     private double south_number_y;
-    private double  east_number_x;
-    private double  west_number_x;
+    private double east_number_x;
+    private double west_number_x;
 
-    public override void configure (uint new_size)
-    {
+    public override void configure (uint new_size) {
         if (size != 0 && size == new_size)
             return;
 
         /* arrow */
-        arrow_w = new_size * PuzzleView.gap_factor * 0.5;
-        arrow_x = (new_size * PuzzleView.gap_factor - arrow_w) * 0.5;
+        arrow_w = new_size * PuzzleView.GAP_FACTOR * 0.5;
+        arrow_x = (new_size * PuzzleView.GAP_FACTOR - arrow_w) * 0.5;
         arrow_half_h = arrow_w / Math.sqrt (3.0);
         neg_arrow_half_h = -arrow_half_h;
 
@@ -142,17 +138,16 @@ private class SynesthesiaTheme : Theme
 
         /* numbers */
         font_size = new_size * 4.0 / 19.0;
-        north_number_y = new_size *  4.0 / 18.0;
+        north_number_y = new_size * 4.0 / 18.0;
         south_number_y = new_size * 14.0 / 18.0;
-         east_number_x = new_size * 15.0 / 19.0;
-         west_number_x = new_size *  4.0 / 19.0;
+        east_number_x = new_size * 15.0 / 19.0;
+        west_number_x = new_size * 4.0 / 19.0;
 
         /* end */
         size = new_size;
     }
 
-    private void init_socket_pattern ()
-    {
+    private void init_socket_pattern () {
         socket_pattern = new Cairo.MeshPattern ();
         socket_pattern.begin_patch ();
         socket_pattern.move_to (0.5, 0.0);
@@ -171,8 +166,7 @@ private class SynesthesiaTheme : Theme
     * * drawing arrow
     \*/
 
-    public override void draw_arrow (Cairo.Context context)
-    {
+    public override void draw_arrow (Cairo.Context context) {
         context.translate (arrow_x, 0.0);
 
         context.move_to (0.0, 0.0);
@@ -187,17 +181,16 @@ private class SynesthesiaTheme : Theme
     * * drawing sockets
     \*/
 
-    public override void draw_socket (Cairo.Context context)
-    {
+    public override void draw_socket (Cairo.Context context) {
         context.save ();
 
         context.translate (tile_margin, tile_margin);
 
         context.set_source (socket_pattern);
-        context.move_to (half_tile_size, 0.0           );
-        context.line_to (tile_size     , half_tile_size);
-        context.line_to (half_tile_size, tile_size     );
-        context.line_to (0.0           , half_tile_size);
+        context.move_to (half_tile_size, 0.0);
+        context.line_to (tile_size, half_tile_size);
+        context.line_to (half_tile_size, tile_size);
+        context.line_to (0.0, half_tile_size);
         context.close_path ();
         context.fill_preserve ();
 
@@ -212,8 +205,7 @@ private class SynesthesiaTheme : Theme
     * * drawing highlight
     \*/
 
-    public override void draw_highlight (Cairo.Context context, bool has_tile)
-    {
+    public override void draw_highlight (Cairo.Context context, bool has_tile) {
         context.set_source (highlight_tile_pattern);
         context.rectangle (0.0, 0.0, /* width and height */ size, size);
         context.fill ();
@@ -223,13 +215,11 @@ private class SynesthesiaTheme : Theme
     * * drawing tiles
     \*/
 
-    public override void draw_paused_tile (Cairo.Context context)
-    {
+    public override void draw_paused_tile (Cairo.Context context) {
         draw_tile_background (context, paused_color);
     }
 
-    public override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
-    {
+    public override void draw_tile (Cairo.Context context, Tile tile, bool highlight) {
         if (highlight)
             draw_tile_background (context, highlight_color);
         else
@@ -243,8 +233,7 @@ private class SynesthesiaTheme : Theme
         draw_number (context, text_colors [tile.west ], west_number_x , half_size, tile.west);
     }
 
-    private void draw_tile_background (Cairo.Context context, Cairo.Pattern pattern)
-    {
+    private void draw_tile_background (Cairo.Context context, Cairo.Pattern pattern) {
         context.save ();
 
         context.rectangle (0.0, 0.0, size, size);
@@ -263,8 +252,8 @@ private class SynesthesiaTheme : Theme
         context.restore ();
     }
 
-    private static void draw_number (Cairo.Context context, Cairo.Pattern text_color, double x, double y, uint8 number)
-    {
+    private static void draw_number (Cairo.Context context, Cairo.Pattern text_color, double x, double y,
+                                     uint8 number) {
         context.set_source (text_color);
 
         string text = "%hu".printf (number);

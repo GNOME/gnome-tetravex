@@ -19,11 +19,7 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class Tetravex : Adw.Application
-{
-    /* Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog */
-    private const string PROGRAM_NAME = _("Tetravex");
-
+private class Tetravex : Adw.Application {
     private static bool start_paused;
     private static int game_size = int.MIN;
     private static int colors = 10;
@@ -42,79 +38,70 @@ private class Tetravex : Adw.Application
     private SimpleAction solve_action;
     private SimpleAction finish_action;
 
-    private const OptionEntry [] option_entries =
-    {
+    private const OptionEntry [] OPTION_ENTRIES = {
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "colors",  'c', OptionFlags.NONE, OptionArg.INT,  ref colors,                 N_("Set number of colors (2-10)"),
-
+        { "colors", 'c', OptionFlags.NONE, OptionArg.INT, ref colors, N_("Set number of colors (2-10)"),
         /* Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help' */
-                                                                                        N_("NUMBER") },
+          N_("NUMBER") },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "paused",  'p', OptionFlags.NONE, OptionArg.NONE, null,                       N_("Start the game paused"),            null },
+        { "paused", 'p', OptionFlags.NONE, OptionArg.NONE, null, N_("Start the game paused"), null },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "size",    's', OptionFlags.NONE, OptionArg.INT,  ref game_size,              N_("Set size of board (2-6)"),
-
+        { "size", 's', OptionFlags.NONE, OptionArg.INT, ref game_size, N_("Set size of board (2-6)"),
         /* Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help' */
-                                                                                        N_("SIZE") },
+          N_("SIZE") },
 
         /* Translators: command-line option description, see 'gnome-tetravex --help' */
-        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, null,                       N_("Print release version and exit"),   null },
-        {}
+        { "version", 'v', OptionFlags.NONE, OptionArg.NONE, null, N_("Print release version and exit"), null },
     };
 
-    private const GLib.ActionEntry[] action_entries =
-    {
-        { "new-game",       new_game_cb     },
-        { "pause",          pause_cb        },
-        { "solve",          solve_cb        },
-        { "finish",         finish_cb       },
-        { "scores",         scores_cb       },
-        { "move-up-l",      move_up_l       },
-        { "move-down-l",    move_down_l     },
-        { "move-left-l",    move_left_l     },
-        { "move-right-l",   move_right_l    },
-        { "move-up-r",      move_up_r       },
-        { "move-down-r",    move_down_r     },
-        { "move-left-r",    move_left_r     },
-        { "move-right-r",   move_right_r    },
-        { "escape",         escape_cb       },
-        { "undo",           undo_cb         },
-        { "redo",           redo_cb         },
-        { "reload",         reload_cb       },
-        { "size",           null,           "s",    "'2'",  size_changed_cb    },
-        { "rules",          rules_cb        },
-        { "about",          about_cb        },
-        { "quit",           quit            }
+    private const GLib.ActionEntry[] ACTION_ENTRIES = {
+        { "new-game", new_game_cb },
+        { "pause", pause_cb },
+        { "solve", solve_cb },
+        { "finish", finish_cb },
+        { "scores", scores_cb },
+        { "move-up-l", move_up_l },
+        { "move-down-l", move_down_l },
+        { "move-left-l", move_left_l },
+        { "move-right-l", move_right_l },
+        { "move-up-r", move_up_r },
+        { "move-down-r", move_down_r },
+        { "move-left-r", move_left_r },
+        { "move-right-r", move_right_r },
+        { "escape", escape_cb },
+        { "undo", undo_cb },
+        { "redo", redo_cb },
+        { "reload", reload_cb },
+        { "size", null, "s", "'2'", size_changed_cb },
+        { "rules", rules_cb },
+        { "about", about_cb },
+        { "quit", quit }
     };
 
-    private static int main (string[] args)
-    {
+    private static int main (string[] args) {
         Intl.setlocale (LocaleCategory.ALL, "");
         Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
         Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
         Intl.textdomain (GETTEXT_PACKAGE);
 
-        Environment.set_application_name (PROGRAM_NAME);
+        Environment.set_application_name (_("Tetravex"));
 
         Tetravex app = new Tetravex ();
         return app.run (args);
     }
 
-    private Tetravex ()
-    {
+    private Tetravex () {
         Object (
             application_id: APP_ID,
             resource_base_path: "/org/gnome/Tetravex"
         );
-        add_main_option_entries (option_entries);
+        add_main_option_entries (OPTION_ENTRIES);
     }
 
-    protected override int handle_local_options (GLib.VariantDict options)
-    {
-        if (options.contains ("version"))
-        {
+    protected override int handle_local_options (GLib.VariantDict options) {
+        if (options.contains ("version")) {
             /* NOTE: Is not translated so can be easily parsed */
             stderr.printf ("%1$s %2$s\n", "gnome-tetravex", VERSION);
             return Posix.EXIT_SUCCESS;
@@ -123,15 +110,13 @@ private class Tetravex : Adw.Application
         if (options.contains ("paused"))
             start_paused = true;
 
-        if (game_size != int.MIN && (game_size < 2 || game_size > 6))
-        {
+        if (game_size != int.MIN && (game_size < 2 || game_size > 6)) {
             /* Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1' */
             stderr.printf (_("Size could only be from 2 to 6.") + "\n");
             return Posix.EXIT_FAILURE;
         }
 
-        if (colors < 2 || colors > 10)
-        {
+        if (colors < 2 || colors > 10) {
             /* Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1' */
             stderr.printf (_("There could only be between 2 and 10 colors.") + "\n");
             return Posix.EXIT_FAILURE;
@@ -141,8 +126,7 @@ private class Tetravex : Adw.Application
         return -1;
     }
 
-    protected override void startup ()
-    {
+    protected override void startup () {
         base.startup ();
 
         settings = new GLib.Settings (APP_ID);
@@ -150,28 +134,27 @@ private class Tetravex : Adw.Application
         saved_game = settings.get_value ("saved-game");
         can_restore = Puzzle.is_valid_saved_game (saved_game);
 
-        add_action_entries (action_entries, this);
+        add_action_entries (ACTION_ENTRIES, this);
         add_action (settings.create_action ("theme"));
 
-        set_accels_for_action ("app.solve",         {        "<Control>h"       });
-        set_accels_for_action ("app.new-game",      {        "<Control>n"       });
-        set_accels_for_action ("app.pause",         {        "<Control>p",
-                                                                      "Pause"   });
-        set_accels_for_action ("app.move-up-l",     {        "<Control>Up"      });
-        set_accels_for_action ("app.move-down-l",   {        "<Control>Down"    });
-        set_accels_for_action ("app.move-left-l",   {        "<Control>Left"    });
-        set_accels_for_action ("app.move-right-l",  {        "<Control>Right"   });
-        set_accels_for_action ("app.move-up-r",     { "<Shift><Control>Up"      });
-        set_accels_for_action ("app.move-down-r",   { "<Shift><Control>Down"    });
-        set_accels_for_action ("app.move-left-r",   { "<Shift><Control>Left"    });
-        set_accels_for_action ("app.move-right-r",  { "<Shift><Control>Right"   });
-        set_accels_for_action ("app.escape",        {                 "Escape"  });
-        set_accels_for_action ("app.undo",          {        "<Control>z"       });
-        set_accels_for_action ("app.redo",          { "<Shift><Control>z"       });
-        set_accels_for_action ("app.reload",        { "<Shift><Control>r"       });
-        set_accels_for_action ("app.rules",         {                 "F1"      });
-        set_accels_for_action ("app.quit",          {        "<Control>q"       });
-        set_accels_for_action ("window.close",      { "<Primary>w"              });
+        set_accels_for_action ("app.solve", { "<Control>h" });
+        set_accels_for_action ("app.new-game", { "<Control>n" });
+        set_accels_for_action ("app.pause", { "<Control>p", "Pause" });
+        set_accels_for_action ("app.move-up-l", { "<Control>Up" });
+        set_accels_for_action ("app.move-down-l", { "<Control>Down" });
+        set_accels_for_action ("app.move-left-l", { "<Control>Left" });
+        set_accels_for_action ("app.move-right-l", { "<Control>Right" });
+        set_accels_for_action ("app.move-up-r", { "<Shift><Control>Up" });
+        set_accels_for_action ("app.move-down-r", { "<Shift><Control>Down" });
+        set_accels_for_action ("app.move-left-r", { "<Shift><Control>Left" });
+        set_accels_for_action ("app.move-right-r", { "<Shift><Control>Right" });
+        set_accels_for_action ("app.escape", { "Escape" });
+        set_accels_for_action ("app.undo", { "<Control>z" });
+        set_accels_for_action ("app.redo", { "<Shift><Control>z" });
+        set_accels_for_action ("app.reload", { "<Shift><Control>r" });
+        set_accels_for_action ("app.rules", { "F1" });
+        set_accels_for_action ("app.quit", { "<Control>q" });
+        set_accels_for_action ("window.close", { "<Primary>w" });
     }
 
     private void create_window () {
@@ -179,18 +162,20 @@ private class Tetravex : Adw.Application
         if (colors == 10)
             history_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history");
         else
-            history_path = Path.build_filename (Environment.get_user_data_dir (), "gnome-tetravex", "history-" + colors.to_string ());
+            history_path = Path.build_filename (
+                Environment.get_user_data_dir (), "gnome-tetravex", "history-" + colors.to_string ()
+            );
         history = new History (history_path);
 
         view = new PuzzleView ();
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
-        settings.bind ("mouse-use-extra-buttons",   view,
-                       "mouse-use-extra-buttons",   SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
-        settings.bind ("mouse-back-button",         view,
-                       "mouse-back-button",         SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
-        settings.bind ("mouse-forward-button",      view,
-                       "mouse-forward-button",      SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
+        settings.bind ("mouse-use-extra-buttons", view,
+                       "mouse-use-extra-buttons", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
+        settings.bind ("mouse-back-button", view,
+                       "mouse-back-button", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
+        settings.bind ("mouse-forward-button", view,
+                       "mouse-forward-button", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
         new TetravexWindow (this, view);
         settings.bind ("window-width", active_window, "default-width", SettingsBindFlags.DEFAULT);
@@ -203,10 +188,10 @@ private class Tetravex : Adw.Application
             game_size = settings.get_int ("grid-size");
         ((SimpleAction) lookup_action ("size")).set_state ("%d".printf (game_size));
 
-        undo_action   = (SimpleAction) lookup_action ("undo");
-        redo_action   = (SimpleAction) lookup_action ("redo");
-        pause_action  = (SimpleAction) lookup_action ("pause");
-        solve_action  = (SimpleAction) lookup_action ("solve");
+        undo_action = (SimpleAction) lookup_action ("undo");
+        redo_action = (SimpleAction) lookup_action ("redo");
+        pause_action = (SimpleAction) lookup_action ("pause");
+        solve_action = (SimpleAction) lookup_action ("solve");
         finish_action = (SimpleAction) lookup_action ("finish");
 
         undo_action.set_enabled (false);
@@ -231,8 +216,7 @@ private class Tetravex : Adw.Application
             new_game ();
     }
 
-    protected override void shutdown ()
-    {
+    protected override void shutdown () {
         base.shutdown ();
 
         settings.delay ();
@@ -245,8 +229,7 @@ private class Tetravex : Adw.Application
         settings.apply ();
     }
 
-    protected override void activate ()
-    {
+    protected override void activate () {
         Gtk.Window? window = active_window;
         if (window == null)
             create_window ();
@@ -257,8 +240,7 @@ private class Tetravex : Adw.Application
     private Variant saved_game;
     private bool can_restore;
 
-    private void new_game (Variant? saved_game = null, int? given_size = null)
-    {
+    private void new_game (Variant? saved_game = null, int? given_size = null) {
         pause_action.set_enabled (true);
         solve_action.set_enabled (true);
         finish_action.set_enabled (false);
@@ -266,8 +248,7 @@ private class Tetravex : Adw.Application
         if (puzzle_init_done)
             SignalHandler.disconnect_by_func (puzzle, null, this);
 
-        if (saved_game == null)
-        {
+        if (saved_game == null) {
             int size;
             if (given_size == null)
                 size = settings.get_int ("grid-size");
@@ -275,8 +256,7 @@ private class Tetravex : Adw.Application
                 size = (!) given_size;
             puzzle = new Puzzle ((uint8) size, (uint8) colors);
         }
-        else
-        {
+        else {
             puzzle = new Puzzle.restore ((!) saved_game);
             if (puzzle.is_solved_right)
                 solved_right_cb (puzzle.is_solved_right);
@@ -294,15 +274,13 @@ private class Tetravex : Adw.Application
         ((TetravexWindow) active_window).new_game (puzzle);
         view.puzzle = puzzle;
 
-        if (start_paused)
-        {
+        if (start_paused) {
             puzzle.paused = true;
             start_paused = false;
         }
         else if (saved_game != null)
             puzzle.paused = true;
-        else
-        {
+        else {
             view.grab_focus ();
             puzzle.start ();
         }
@@ -321,13 +299,11 @@ private class Tetravex : Adw.Application
         undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused);
         redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused);
 
-        if (puzzle.is_solved_right)
-        {
+        if (puzzle.is_solved_right) {
             solve_action.set_enabled (false);
             finish_action.set_enabled (!puzzle.paused && !view.tile_selected);
         }
-        else
-        {
+        else {
             solve_action.set_enabled (!puzzle.paused && !view.tile_selected);
             finish_action.set_enabled (false);
         }
@@ -336,8 +312,7 @@ private class Tetravex : Adw.Application
             view.grab_focus ();
     }
 
-    private void solved_cb (Puzzle puzzle)
-    {
+    private void solved_cb (Puzzle puzzle) {
         undo_action.set_enabled (false);
         redo_action.set_enabled (false);
         pause_action.set_enabled (false);
@@ -345,22 +320,18 @@ private class Tetravex : Adw.Application
         finish_action.set_enabled (false);
     }
 
-    private void solved_right_cb (bool is_solved_right)
-    {
-        if (is_solved_right)
-        {
+    private void solved_right_cb (bool is_solved_right) {
+        if (is_solved_right) {
             solve_action.set_enabled (false);
             finish_action.set_enabled (/* should never happen */ !puzzle.paused);
+            return;
         }
-        else
-        {
-            solve_action.set_enabled (/* should never happen */ !puzzle.paused);
-            finish_action.set_enabled (false);
-        }
+
+        solve_action.set_enabled (/* should never happen */ !puzzle.paused);
+        finish_action.set_enabled (false);
     }
 
-    private void show_end_game_cb (Puzzle puzzle)
-    {
+    private void show_end_game_cb (Puzzle puzzle) {
         DateTime date = new DateTime.now_local ();
         last_history_entry = new HistoryEntry (date, puzzle.size, puzzle.elapsed, /* old history format */ false);
         history.add ((!) last_history_entry);
@@ -368,27 +339,23 @@ private class Tetravex : Adw.Application
         scores_cb ();
     }
 
-    private void new_game_cb ()
-    {
+    private void new_game_cb () {
         new_game ();
     }
 
     private HistoryEntry? last_history_entry;
-    private void scores_cb ()
-    {
+    private void scores_cb () {
         var dialog = new ScoreDialog (history, puzzle.size, puzzle.is_solved ? last_history_entry : null);
         dialog.set_modal (true);
         dialog.set_transient_for (active_window);
         dialog.present ();
     }
 
-    private async void _solve_cb ()
-    {
+    private async void _solve_cb () {
         if (puzzle.elapsed < 0.2)   // security against multi-click on new-game button
             return;
 
-        if (puzzle.game_in_progress)
-        {
+        if (puzzle.game_in_progress) {
             var dialog = new Adw.AlertDialog (
                 _("Reveal Solution?"),
                 _("This will end your current game.")
@@ -411,8 +378,7 @@ private class Tetravex : Adw.Application
         _solve_cb.begin ();
     }
 
-    private void finish_cb ()
-    {
+    private void finish_cb () {
         view.finish ();
     }
 
@@ -447,52 +413,67 @@ private class Tetravex : Adw.Application
         _size_changed_cb.begin (action, variant);
     }
 
-    private void move_up_l ()     { view.move_up    (/* left board */ true);  }
-    private void move_down_l ()   { view.move_down  (/* left board */ true);  }
-    private void move_left_l ()
-    {
+    private void move_up_l () {
+        view.move_up (/* left board */ true);
+    }
+
+    private void move_down_l () {
+        view.move_down (/* left board */ true);
+    }
+
+    private void move_left_l () {
         if (!puzzle.is_solved_right)
             view.move_left (/* left board */ true);
         else if (!puzzle.paused && !view.tile_selected)
             view.finish ();
     }
-    private void move_right_l ()  { view.move_right (/* left board */ true);  }
-    private void move_up_r ()     { view.move_up    (/* left board */ false); }
-    private void move_down_r ()   { view.move_down  (/* left board */ false); }
-    private void move_left_r ()   { view.move_left  (/* left board */ false); }
-    private void move_right_r ()  { view.move_right (/* left board */ false); }
 
-    private void undo_cb ()
-    {
+    private void move_right_l () {
+        view.move_right (/* left board */ true);
+    }
+
+    private void move_up_r () {
+        view.move_up (/* left board */ false);
+    }
+
+    private void move_down_r () {
+        view.move_down (/* left board */ false);
+    }
+
+    private void move_left_r () {
+        view.move_left (/* left board */ false);
+    }
+
+    private void move_right_r () {
+        view.move_right (/* left board */ false);
+    }
+
+    private void undo_cb () {
         if (view.tile_selected)
             view.release_selected_tile ();
         else
             view.undo ();
     }
 
-    private void redo_cb ()
-    {
+    private void redo_cb () {
         if (view.tile_selected)
             view.release_selected_tile ();
         else
             view.redo ();
     }
 
-    private void reload_cb ()
-    {
+    private void reload_cb () {
         if (view.tile_selected)
             view.release_selected_tile ();
         else
             view.reload ();
     }
 
-    private void pause_cb ()
-    {
+    private void pause_cb () {
         puzzle.paused = !puzzle.paused;
     }
 
-    private void escape_cb ()
-    {
+    private void escape_cb () {
         if (puzzle.is_solved)
             return;
 
@@ -511,8 +492,7 @@ private class Tetravex : Adw.Application
             .present (active_window);
     }
 
-    private void about_cb ()
-    {
+    private void about_cb () {
         var about_dialog = new Adw.AboutDialog.from_appdata (resource_base_path + "/metainfo.xml", VERSION) {
             copyright = "Copyright © 1998–2025 Tetravex Contributors",
             developers = {
