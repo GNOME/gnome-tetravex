@@ -79,6 +79,7 @@ private class Tetravex : Adw.Application
         { "move-down-r",    move_down_r     },
         { "move-left-r",    move_left_r     },
         { "move-right-r",   move_right_r    },
+        { "escape",         escape_cb       },
         { "undo",           undo_cb         },
         { "redo",           redo_cb         },
         { "reload",         reload_cb       },
@@ -164,6 +165,7 @@ private class Tetravex : Adw.Application
         set_accels_for_action ("app.move-down-r",   { "<Shift><Control>Down"    });
         set_accels_for_action ("app.move-left-r",   { "<Shift><Control>Left"    });
         set_accels_for_action ("app.move-right-r",  { "<Shift><Control>Right"   });
+        set_accels_for_action ("app.escape",        {                 "Escape"  });
         set_accels_for_action ("app.undo",          {        "<Control>z"       });
         set_accels_for_action ("app.redo",          { "<Shift><Control>z"       });
         set_accels_for_action ("app.reload",        { "<Shift><Control>r"       });
@@ -181,10 +183,6 @@ private class Tetravex : Adw.Application
         history = new History (history_path);
 
         view = new PuzzleView ();
-        view_click_controller = new Gtk.GestureClick ();
-        view_click_controller.set_button (/* all buttons */ 0);
-        view_click_controller.released.connect (on_release_on_view);
-        view.add_controller (view_click_controller);
         settings.bind ("theme", view, "theme-id", SettingsBindFlags.GET | SettingsBindFlags.NO_SENSITIVITY);
 
         settings.bind ("mouse-use-extra-buttons",   view,
@@ -198,10 +196,6 @@ private class Tetravex : Adw.Application
         settings.bind ("window-width", active_window, "default-width", SettingsBindFlags.DEFAULT);
         settings.bind ("window-height", active_window, "default-height", SettingsBindFlags.DEFAULT);
         settings.bind ("window-is-maximized", active_window, "maximized", SettingsBindFlags.DEFAULT);
-
-        key_controller = new Gtk.EventControllerKey ();
-        key_controller.key_pressed.connect (on_key_pressed);
-        ((Gtk.Widget) active_window).add_controller (key_controller);
 
         if (game_size != int.MIN)
             settings.set_int ("grid-size", game_size);
@@ -288,6 +282,7 @@ private class Tetravex : Adw.Application
                 solved_right_cb (puzzle.is_solved_right);
         }
         puzzle_init_done = true;
+        puzzle.attempt_move.connect (attempt_move_cb);
         puzzle.paused_changed.connect (paused_changed_cb);
         puzzle.solved.connect (solved_cb);
         puzzle.solved_right.connect (solved_right_cb);
@@ -311,6 +306,15 @@ private class Tetravex : Adw.Application
             view.grab_focus ();
             puzzle.start ();
         }
+    }
+
+    private bool attempt_move_cb () {
+        /* Cancel pause on click */
+        if (puzzle.paused) {
+            puzzle.paused = false;
+            return false;
+        }
+        return true;
     }
 
     private void paused_changed_cb () {
@@ -450,7 +454,7 @@ private class Tetravex : Adw.Application
         if (!puzzle.is_solved_right)
             view.move_left (/* left board */ true);
         else if (!puzzle.paused && !view.tile_selected)
-            finish_cb ();
+            view.finish ();
     }
     private void move_right_l ()  { view.move_right (/* left board */ true);  }
     private void move_up_r ()     { view.move_up    (/* left board */ false); }
@@ -487,33 +491,15 @@ private class Tetravex : Adw.Application
         puzzle.paused = !puzzle.paused;
     }
 
-    private Gtk.EventControllerKey key_controller;    // for keeping in memory
-    private inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
+    private void escape_cb ()
     {
-        string name = (!) (Gdk.keyval_name (keyval) ?? "");
+        if (puzzle.is_solved)
+            return;
 
-        if (name == "Escape" && !puzzle.is_solved)
-        {
-            if (puzzle.paused)
-            {
-                pause_cb ();
-                return true;
-            }
-            else if (view.tile_selected)
-            {
-                view.release_selected_tile ();
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private Gtk.GestureClick view_click_controller;
-    private inline void on_release_on_view (Gtk.GestureClick _view_click_controller, int n_press, double event_x, double event_y)
-    {
-        /* Cancel pause on click */
         if (puzzle.paused)
             puzzle.paused = false;
+        else if (view.tile_selected)
+            view.release_selected_tile ();
     }
 
     /*\

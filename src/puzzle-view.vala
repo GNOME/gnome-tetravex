@@ -628,18 +628,15 @@ public class PuzzleView : Gtk.DrawingArea
     * * mouse user actions
     \*/
 
-    private Gtk.EventControllerMotion motion_controller;    // for keeping in memory
-    private Gtk.GestureClick click_controller;              // for keeping in memory
-
     private void init_mouse ()  // called on construct
     {
-        motion_controller = new Gtk.EventControllerMotion ();
+        var motion_controller = new Gtk.EventControllerMotion ();
         motion_controller.motion.connect (on_motion);
         motion_controller.enter.connect (on_mouse_in);
         motion_controller.leave.connect (on_mouse_out);
         add_controller (motion_controller);
 
-        click_controller = new Gtk.GestureClick ();
+        var click_controller = new Gtk.GestureClick ();
         click_controller.set_button (/* all buttons */ 0);
         click_controller.pressed.connect (on_click);
         click_controller.released.connect (on_release);
@@ -652,7 +649,7 @@ public class PuzzleView : Gtk.DrawingArea
 
     private inline void on_click (Gtk.GestureClick _click_controller, int n_press, double event_x, double event_y)
     {
-        if (puzzle.paused || puzzle.is_solved)
+        if (puzzle.is_solved || !puzzle.attempt_move () || puzzle.paused)
             return;
         clear_keyboard_highlight (/* only selection */ false);
 
@@ -816,8 +813,6 @@ public class PuzzleView : Gtk.DrawingArea
     * * keyboard user actions
     \*/
 
-    private Gtk.EventControllerKey key_controller;    // for keeping in memory
-
     private bool show_highlight;
 
     private bool highlight_set;
@@ -832,7 +827,7 @@ public class PuzzleView : Gtk.DrawingArea
 
     private void init_keyboard ()  // called on construct
     {
-        key_controller = new Gtk.EventControllerKey ();
+        var key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
         add_controller (key_controller);
     }

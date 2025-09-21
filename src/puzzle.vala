@@ -77,6 +77,7 @@ public class Puzzle
         get { return _paused; }
     }
 
+    public signal bool attempt_move ();
     public signal void tile_moved (Tile tile, uint8 x, uint8 y);
     public signal void can_undo_redo_changed ();
     public signal void paused_changed ();
