@@ -255,7 +255,8 @@ private class Tetravex : Adw.Application
 
     protected override void activate ()
     {
-        if (active_window == null)
+        Gtk.Window? window = active_window;
+        if (window == null)
             create_window ();
 
         active_window.present ();
@@ -360,7 +361,7 @@ private class Tetravex : Adw.Application
     {
         DateTime date = new DateTime.now_local ();
         last_history_entry = new HistoryEntry (date, puzzle.size, puzzle.elapsed, /* old history format */ false);
-        history.add (last_history_entry);
+        history.add ((!) last_history_entry);
 
         scores_cb ();
     }

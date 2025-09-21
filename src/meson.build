@@ -21,7 +21,10 @@ gnome_tetravex = executable (
     adwaita_dep,
     libm_dep,
   ],
-  vala_args: [ '--pkg=posix' ],
+  vala_args: [
+    '--pkg=posix',
+    '--enable-experimental-non-null'
+  ],
   c_args: [
     '-DAPP_ID="@0@"'.format(app_id),
     '-DVERSION="@0@"'.format(meson.project_version()),

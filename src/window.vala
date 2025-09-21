@@ -35,14 +35,14 @@ public class TetravexWindow : Adw.ApplicationWindow {
     [GtkChild]
     private unowned Gtk.Stack game_button_stack;
 
-    private Puzzle puzzle;
+    private Puzzle? puzzle;
 
     public TetravexWindow (Gtk.Application application, PuzzleView puzzle_view) {
         Object (application: application);
         toolbar_view.content = puzzle_view;
 
         var menu_builder = new Gtk.Builder.from_resource (application.resource_base_path + "/ui/menu.ui");
-        unowned var menu_model = menu_builder.get_object ("menu") as MenuModel;
+        unowned var menu_model = (MenuModel) menu_builder.get_object ("menu");
         menu_button.menu_model = menu_model;
 
         if (APP_ID.has_suffix (".Devel"))
@@ -64,14 +64,14 @@ public class TetravexWindow : Adw.ApplicationWindow {
     }
 
     private void solved_right_cb () {
-        if (puzzle.is_solved_right)
+        if (((!) puzzle).is_solved_right)
             game_button_stack.visible_child_name = "finish";
         else
             game_button_stack.visible_child_name = "solve";
     }
 
     private void paused_changed_cb () {
-        if (puzzle.paused) {
+        if (((!) puzzle).paused) {
             title_widget.subtitle = _("Paused");
             pause_button.icon_name = "media-playback-start-symbolic";
             pause_button.tooltip_text = _("Resume Game");
@@ -79,18 +79,19 @@ public class TetravexWindow : Adw.ApplicationWindow {
             return;
         }
 
-        title_widget.subtitle = null;
+        title_widget.subtitle = "";
         pause_button.icon_name = "media-playback-pause-symbolic";
         pause_button.tooltip_text = _("Pause Game");
         toolbar_view.content.remove_css_class ("dim-label");
 
-        if (visible_dialog != null)
-            visible_dialog.force_close ();
+        Adw.Dialog? dialog = visible_dialog;
+        if (dialog != null)
+            ((!) dialog).force_close ();
     }
 
     private void tick_cb () {
         string clock;
-        var elapsed = (int) puzzle.elapsed;
+        var elapsed = (int) ((!) puzzle).elapsed;
         var hours = elapsed / 3600;
         var minutes = (elapsed - hours * 3600) / 60;
         var seconds = elapsed - hours * 3600 - minutes * 60;
