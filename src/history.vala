@@ -19,24 +19,24 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class History : Object
+public class History
 {
-    [CCode (notify = false)] public string filename { private get; protected construct; }
-    internal List<HistoryEntry> entries = new List<HistoryEntry> ();
+    private string filename;
+    public List<HistoryEntry> entries = new List<HistoryEntry> ();
 
     /*\
     * * getting
     \*/
 
-    internal signal void entry_added (HistoryEntry entry);
+    public signal void entry_added (HistoryEntry entry);
 
     /*\
     * * loading
     \*/
 
-    internal History (string filename)
+    public History (string filename)
     {
-        Object (filename: filename);
+        this.filename = filename;
         load ();
     }
 
@@ -153,14 +153,14 @@ private class History : Object
     }
 }
 
-private class HistoryEntry : Object // TODO make struct? needs using HistoryEntry? for the List...
+public class HistoryEntry : Object
 {
-    [CCode (notify = false)] public DateTime date       { internal get; protected construct; }
-    [CCode (notify = false)] public uint8 size          { internal get; protected construct; }
-    [CCode (notify = false)] public double duration     { internal get; protected construct; }
-    [CCode (notify = false)] public bool int_duration   { internal get; protected construct; }
+    [CCode (notify = false)] public DateTime date       { get; protected construct; }
+    [CCode (notify = false)] public uint8 size          { get; protected construct; }
+    [CCode (notify = false)] public double duration     { get; protected construct; }
+    [CCode (notify = false)] public bool int_duration   { get; protected construct; }
 
-    internal HistoryEntry (DateTime date, uint8 size, double duration, bool int_duration)
+    public HistoryEntry (DateTime date, uint8 size, double duration, bool int_duration)
     {
         Object (date: date, size: size, duration: duration, int_duration: int_duration);
     }
@@ -169,7 +169,7 @@ private class HistoryEntry : Object // TODO make struct? needs using HistoryEntr
     * * utilities
     \*/
 
-    internal static string get_duration_string (HistoryEntry entry)
+    public static string get_duration_string (HistoryEntry entry)
     {
         if (entry.duration >= 3600.0)
             /* Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0") */

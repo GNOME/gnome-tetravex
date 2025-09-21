@@ -29,7 +29,7 @@ private class SynesthesiaTheme : Theme
     private Cairo.Pattern tile_color;
     private Cairo.Pattern highlight_color;
 
-    construct
+    public SynesthesiaTheme ()
     {                                                       // based on GNOME color palette
         text_colors [0] = make_color_pattern ("3d3846");    // black        // Dark 3
         text_colors [1] = make_color_pattern ("E01B24");    // red          // Red 3
@@ -71,7 +71,7 @@ private class SynesthesiaTheme : Theme
     * * configuring variables
     \*/
 
-    private uint size = 0;
+    private uint size;
 
     /* arrow */
     private double arrow_half_h;
@@ -102,7 +102,7 @@ private class SynesthesiaTheme : Theme
     private double  east_number_x;
     private double  west_number_x;
 
-    internal override void configure (uint new_size)
+    public override void configure (uint new_size)
     {
         if (size != 0 && size == new_size)
             return;
@@ -171,7 +171,7 @@ private class SynesthesiaTheme : Theme
     * * drawing arrow
     \*/
 
-    internal override void draw_arrow (Cairo.Context context)
+    public override void draw_arrow (Cairo.Context context)
     {
         context.translate (arrow_x, 0.0);
 
@@ -187,7 +187,7 @@ private class SynesthesiaTheme : Theme
     * * drawing sockets
     \*/
 
-    internal override void draw_socket (Cairo.Context context)
+    public override void draw_socket (Cairo.Context context)
     {
         context.save ();
 
@@ -212,7 +212,7 @@ private class SynesthesiaTheme : Theme
     * * drawing highlight
     \*/
 
-    internal override void draw_highlight (Cairo.Context context, bool has_tile)
+    public override void draw_highlight (Cairo.Context context, bool has_tile)
     {
         context.set_source (highlight_tile_pattern);
         context.rectangle (0.0, 0.0, /* width and height */ size, size);
@@ -223,12 +223,12 @@ private class SynesthesiaTheme : Theme
     * * drawing tiles
     \*/
 
-    internal override void draw_paused_tile (Cairo.Context context)
+    public override void draw_paused_tile (Cairo.Context context)
     {
         draw_tile_background (context, paused_color);
     }
 
-    internal override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
+    public override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
     {
         if (highlight)
             draw_tile_background (context, highlight_color);

@@ -32,7 +32,7 @@ private class NostalgiaTheme : Theme
     private Cairo.Pattern black_text_color = new Cairo.Pattern.rgb (0, 0, 0);
     private Cairo.Pattern white_text_color = new Cairo.Pattern.rgb (1, 1, 1);
 
-    construct
+    public NostalgiaTheme ()
     {
         tile_colors [0] = make_color_pattern ("000000");
         tile_colors [1] = make_color_pattern ("C17D11");
@@ -83,7 +83,7 @@ private class NostalgiaTheme : Theme
     * * configuring variables
     \*/
 
-    private uint size = 0;
+    private uint size;
 
     /* arrow */
     private double arrow_half_h;
@@ -122,7 +122,7 @@ private class NostalgiaTheme : Theme
     private double  east_number_x;
     private double  west_number_x;
 
-    internal override void configure (uint new_size)
+    public override void configure (uint new_size)
     {
         if (size != 0 && size == new_size)
             return;
@@ -189,7 +189,7 @@ private class NostalgiaTheme : Theme
     * * drawing arrow
     \*/
 
-    internal override void draw_arrow (Cairo.Context context)
+    public override void draw_arrow (Cairo.Context context)
     {
         context.translate (arrow_x, 0.0);
 
@@ -226,7 +226,7 @@ private class NostalgiaTheme : Theme
     * * drawing sockets
     \*/
 
-    internal override void draw_socket (Cairo.Context context)
+    public override void draw_socket (Cairo.Context context)
     {
         /* Background */
         context.rectangle (socket_depth, socket_depth, size_minus_two_socket_depths, size_minus_two_socket_depths);
@@ -260,7 +260,7 @@ private class NostalgiaTheme : Theme
     * * drawing highlight
     \*/
 
-    internal override void draw_highlight (Cairo.Context context, bool has_tile)
+    public override void draw_highlight (Cairo.Context context, bool has_tile)
     {
         context.set_source (highlight_tile_pattern);
         context.rectangle (0.0, 0.0, /* width and height */ size, size);
@@ -271,12 +271,12 @@ private class NostalgiaTheme : Theme
     * * drawing tiles
     \*/
 
-    internal override void draw_paused_tile (Cairo.Context context)
+    public override void draw_paused_tile (Cairo.Context context)
     {
         draw_tile_background (context, paused_color, paused_color, paused_color, paused_color);
     }
 
-    internal override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
+    public override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
     {
         draw_tile_background (context, tile_colors [tile.north], tile_colors [tile.east], tile_colors [tile.south], tile_colors [tile.west]);
 

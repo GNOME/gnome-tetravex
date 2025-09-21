@@ -21,16 +21,16 @@
 
 using Gtk;
 
-private class ScoreDialog : Dialog
+public class ScoreDialog : Dialog
 {
     private History history;
-    private HistoryEntry? selected_entry = null;
+    private HistoryEntry? selected_entry;
     private Gtk.ListStore size_model;
     private Gtk.ListStore score_model;
     private ComboBox size_combo;
     private TreeView scores;
 
-    internal ScoreDialog (History history, uint8 size, HistoryEntry? selected_entry = null)
+    public ScoreDialog (History history, uint8 size, HistoryEntry? selected_entry = null)
     {
         Object (use_header_bar: /* true */ 1);
 

@@ -19,51 +19,51 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private abstract class Theme : Object
+public abstract class Theme
 {
     // FIXME it is of the responsibility of the themes to ensure the overdraw does NOT draw over an neighbor tile; else bad things happen
-    internal int overdraw_top    { internal get; protected set; default = 0; }
-    internal int overdraw_left   { internal get; protected set; default = 0; }
-    internal int overdraw_right  { internal get; protected set; default = 0; }
-    internal int overdraw_bottom { internal get; protected set; default = 0; }
+    public int overdraw_top    { get; protected set; }
+    public int overdraw_left   { get; protected set; }
+    public int overdraw_right  { get; protected set; }
+    public int overdraw_bottom { get; protected set; }
 
-    internal abstract void configure (uint size);
-    internal abstract void draw_arrow (Cairo.Context context);
-    internal abstract void draw_socket (Cairo.Context context);
-    internal abstract void draw_highlight (Cairo.Context context, bool has_tile);
-    internal abstract void draw_paused_tile (Cairo.Context context);
-    internal abstract void draw_tile (Cairo.Context context, Tile tile, bool highlight);
+    public abstract void configure (uint size);
+    public abstract void draw_arrow (Cairo.Context context);
+    public abstract void draw_socket (Cairo.Context context);
+    public abstract void draw_highlight (Cairo.Context context, bool has_tile);
+    public abstract void draw_paused_tile (Cairo.Context context);
+    public abstract void draw_tile (Cairo.Context context, Tile tile, bool highlight);
 }
 
 public class PuzzleView : Gtk.DrawingArea
 {
-    private class TileImage : Object
+    private class TileImage
     {
         /* Tile being moved */
-        internal Tile tile;
+        public Tile tile;
 
         /* Location of tile */
-        internal double x = 0.0;
-        internal double y = 0.0;
+        public double x;
+        public double y;
 
         /* Coordinates to move from */
-        internal double source_x = 0.0;
-        internal double source_y = 0.0;
+        public double source_x;
+        public double source_y;
 
         /* Time started moving */
-        internal double source_time = 0.0;
+        public double source_time;
 
         /* Coordinates to target for */
-        internal double target_x = 0.0;
-        internal double target_y = 0.0;
+        public double target_x;
+        public double target_y;
 
         /* Duration of movement */
-        internal double duration = 0.0;
+        public double duration;
 
         /* Whether the tile follows exactly cursor or nuns after it */
-        internal bool snap_to_cursor = true;
+        public bool snap_to_cursor = true;
 
-        internal TileImage (Tile tile)
+        public TileImage (Tile tile)
         {
             this.tile = tile;
         }
@@ -76,11 +76,11 @@ public class PuzzleView : Gtk.DrawingArea
 
     /* Puzzle being rendered */
     private Puzzle _puzzle;
-    private bool puzzle_init_done = false;
-    [CCode (notify = false)] internal Puzzle puzzle
+    private bool puzzle_init_done;
+    public Puzzle puzzle
     {
         private get { if (!puzzle_init_done) assert_not_reached (); return _puzzle; }
-        internal set
+        set
         {
             uint8 old_puzzle_size = 0;
             if (puzzle_init_done)
@@ -117,16 +117,16 @@ public class PuzzleView : Gtk.DrawingArea
             set_highlight_position ();
             _puzzle.solved.connect (() => clear_keyboard_highlight (/* only selection */ true));
             _puzzle.tile_moved.connect (tile_moved_cb);
-            _puzzle.notify ["paused"].connect (queue_draw);
+            _puzzle.paused_changed.connect (queue_draw);
             queue_resize ();
         }
     }
 
     /* Theme */
     private Theme theme;
-    [CCode (notify = true)] public string theme_id
+    public string theme_id
     {
-        internal set
+        set
         {
             switch (value)
             {
@@ -146,12 +146,12 @@ public class PuzzleView : Gtk.DrawingArea
     }
 
     /* Tile being controlled by the mouse */
-    private TileImage? selected_tile = null;
-    private TileImage? last_selected_tile = null;
-    [CCode (notify = true)] internal bool tile_selected { internal get; private set; default = false; }
+    private TileImage? selected_tile;
+    private TileImage? last_selected_tile;
+    public bool tile_selected { get; private set; }
 
     /* Timeout to detect if a click is a selection or a drag */
-    private uint selection_timeout = 0;
+    private uint selection_timeout;
 
     /* The position inside the tile where the cursor is */
     private double selected_x_offset;
@@ -162,28 +162,29 @@ public class PuzzleView : Gtk.DrawingArea
 
     /* Animation timer */
     private Timer animation_timer = new Timer ();
-    private uint animation_timeout = 0;
+    private uint animation_timeout;
 
     /* Set in configure event */
-    [CCode (notify = true)] internal uint boardsize         { internal get; private set; default = 0; }
-    [CCode (notify = true)] internal double x_offset_right  { internal get; private set; default = 0; }
-    [CCode (notify = true)] internal double y_offset        { internal get; private set; default = 0; }
-    [CCode (notify = true)] internal double right_margin    { internal get; private set; default = 0; }
-    private double x_offset = 0.0;
-    private uint tilesize = 0;
-    private uint gap = 0;
-    private double arrow_x = 0.0;
-    private double arrow_local_y = 0.0;
+    public uint boardsize         { get; private set; }
+    public double x_offset_right  { get; private set; }
+    public double y_offset        { get; private set; }
+    public double right_margin    { get; private set; }
+
+    private double x_offset;
+    private uint tilesize;
+    private uint gap;
+    private double arrow_x;
+    private double arrow_local_y;
     private double [,] sockets_xs;
     private double [,] sockets_ys;
-    private int board_x_maxi = 0;
-    private int board_y_maxi = 0;
-    private double snap_distance = 0.0;
+    private int board_x_maxi;
+    private int board_y_maxi;
+    private double snap_distance;
 
     /* Pre-rendered image */
-    private uint render_size = 0;
-    private Cairo.Pattern? arrow_pattern = null;
-    private Cairo.Pattern? socket_pattern = null;
+    private uint render_size;
+    private Cairo.Pattern? arrow_pattern;
+    private Cairo.Pattern? socket_pattern;
 
     construct
     {
@@ -311,7 +312,7 @@ public class PuzzleView : Gtk.DrawingArea
         move_tile_to_location ((!) tiles.lookup (tile), x, y, animation_duration);
     }
 
-    internal const double gap_factor = 0.5;
+    public const double gap_factor = 0.5;
     private inline void on_resize (int allocated_width, int allocated_height)
     {
         if (puzzle_init_done)
@@ -645,9 +646,9 @@ public class PuzzleView : Gtk.DrawingArea
         add_controller (click_controller);
     }
 
-    [CCode (notify = false)] internal bool mouse_use_extra_buttons  { private get; internal set; default = true; }
-    [CCode (notify = false)] internal int  mouse_back_button        { private get; internal set; default = 8; }
-    [CCode (notify = false)] internal int  mouse_forward_button     { private get; internal set; default = 9; }
+    public bool mouse_use_extra_buttons  { private get; set; default = true; }
+    public int  mouse_back_button        { private get; set; default = 8; }
+    public int  mouse_forward_button     { private get; set; default = 9; }
 
     private inline void on_click (Gtk.GestureClick _click_controller, int n_press, double event_x, double event_y)
     {
@@ -771,12 +772,12 @@ public class PuzzleView : Gtk.DrawingArea
         }
     }
 
-    internal void finish ()
+    public void finish ()
     {
         puzzle.finish (final_animation_duration);
     }
 
-    internal void release_selected_tile ()
+    public void release_selected_tile ()
     {
         if (selected_tile == null)
             return;
@@ -793,19 +794,19 @@ public class PuzzleView : Gtk.DrawingArea
     * * history proxies
     \*/
 
-    internal void undo ()
+    public void undo ()
     {
         last_selected_tile = null;
         puzzle.undo ();
     }
 
-    internal void redo ()
+    public void redo ()
     {
         last_selected_tile = null;
         puzzle.redo ();
     }
 
-    internal void reload ()
+    public void reload ()
     {
         last_selected_tile = null;
         puzzle.reload ();
@@ -817,15 +818,15 @@ public class PuzzleView : Gtk.DrawingArea
 
     private Gtk.EventControllerKey key_controller;    // for keeping in memory
 
-    private bool show_highlight = false;
+    private bool show_highlight;
 
-    private bool highlight_set = false;
+    private bool highlight_set;
     private uint8     highlight_x = uint8.MAX;
     private uint8     highlight_y = uint8.MAX;
     private uint8 old_highlight_x = uint8.MAX;
     private uint8 old_highlight_y = uint8.MAX;
 
-    private bool tile_selection = false;
+    private bool tile_selection;
     private uint8 kbd_selected_x = uint8.MAX;
     private uint8 kbd_selected_y = uint8.MAX;
 
@@ -1057,25 +1058,25 @@ public class PuzzleView : Gtk.DrawingArea
     * * moving all tiles
     \*/
 
-    internal void move_up (bool left_board)
+    public void move_up (bool left_board)
     {
         if (selected_tile == null)
             puzzle.move_up (left_board);
     }
 
-    internal void move_down (bool left_board)
+    public void move_down (bool left_board)
     {
         if (selected_tile == null)
             puzzle.move_down (left_board);
     }
 
-    internal void move_left (bool left_board)
+    public void move_left (bool left_board)
     {
         if (selected_tile == null)
             puzzle.move_left (left_board);
     }
 
-    internal void move_right (bool left_board)
+    public void move_right (bool left_board)
     {
         if (selected_tile == null)
             puzzle.move_right (left_board);

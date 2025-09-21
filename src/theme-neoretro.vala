@@ -36,7 +36,7 @@ private class NeoRetroTheme : Theme
     private Cairo.Pattern paused_color_h;
     private Cairo.Pattern paused_color_v;
 
-    construct                         // white text //  L    H    V
+    public NeoRetroTheme ()                         // white text //  L    H    V
     {                                               //          +45
         make_color_pattern (0, "000000", true  );   //  0           // dark
         make_color_pattern (1, "850023", true  );   // 20   75   10 // red
@@ -114,7 +114,7 @@ private class NeoRetroTheme : Theme
     * * configuring variables
     \*/
 
-    private uint size = 0;
+    private uint size;
 
     /* arrow */
     private double arrow_half_h;
@@ -148,7 +148,7 @@ private class NeoRetroTheme : Theme
     private double  east_number_x;
     private double  west_number_x;
 
-    internal override void configure (uint new_size)
+    public override void configure (uint new_size)
     {
         if (size != 0 && size == new_size)
             return;
@@ -221,7 +221,7 @@ private class NeoRetroTheme : Theme
     * * drawing arrow
     \*/
 
-    internal override void draw_arrow (Cairo.Context context)
+    public override void draw_arrow (Cairo.Context context)
     {
         context.translate (arrow_x, 0.0);
 
@@ -283,7 +283,7 @@ private class NeoRetroTheme : Theme
     * * drawing sockets
     \*/
 
-    internal override void draw_socket (Cairo.Context context)
+    public override void draw_socket (Cairo.Context context)
     {
         context.save ();
 
@@ -306,7 +306,7 @@ private class NeoRetroTheme : Theme
     * * drawing highlight
     \*/
 
-    internal override void draw_highlight (Cairo.Context context, bool has_tile)
+    public override void draw_highlight (Cairo.Context context, bool has_tile)
     {
         context.set_source (highlight_tile_pattern);
         context.rectangle (0.0, 0.0, /* width and height */ size, size);
@@ -317,12 +317,12 @@ private class NeoRetroTheme : Theme
     * * drawing tiles
     \*/
 
-    internal override void draw_paused_tile (Cairo.Context context)
+    public override void draw_paused_tile (Cairo.Context context)
     {
         draw_tile_background (context, paused_color_h, paused_color_v, paused_color_h, paused_color_v);
     }
 
-    internal override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
+    public override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
     {
         if (highlight)
         {

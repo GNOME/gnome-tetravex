@@ -37,7 +37,7 @@ private class ExtrusionTheme : Theme
     private Cairo.Pattern paused_color_h;
     private Cairo.Pattern paused_color_v;
 
-    construct
+    public ExtrusionTheme ()
     { // based on GNOME color palette // white text
         make_color_pattern (0, "3d3846", true  );   // black        // Dark 3
         make_color_pattern (1, "C01C28", true  );   // red          // Red 4
@@ -116,7 +116,7 @@ private class ExtrusionTheme : Theme
     * * configuring variables
     \*/
 
-    private uint size = 0;
+    private uint size;
 
     /* arrow */
     private double arrow_half_h;
@@ -152,7 +152,7 @@ private class ExtrusionTheme : Theme
     private double east_number_x;
     private double west_number_x;
 
-    internal override void configure (uint new_size)
+    public override void configure (uint new_size)
     {
         if (size != 0 && size == new_size)
             return;
@@ -208,7 +208,7 @@ private class ExtrusionTheme : Theme
     * * drawing arrow
     \*/
 
-    internal override void draw_arrow (Cairo.Context context)
+    public override void draw_arrow (Cairo.Context context)
     {
         context.translate (arrow_x, 0.0);
 
@@ -224,7 +224,7 @@ private class ExtrusionTheme : Theme
     * * drawing sockets
     \*/
 
-    internal override void draw_socket (Cairo.Context context)
+    public override void draw_socket (Cairo.Context context)
     {
         context.save ();
 
@@ -242,7 +242,7 @@ private class ExtrusionTheme : Theme
     * * drawing highlight
     \*/
 
-    internal override void draw_highlight (Cairo.Context context, bool has_tile)
+    public override void draw_highlight (Cairo.Context context, bool has_tile)
     {
         context.save ();
 
@@ -259,13 +259,13 @@ private class ExtrusionTheme : Theme
     * * drawing tiles
     \*/
 
-    internal override void draw_paused_tile (Cairo.Context context)
+    public override void draw_paused_tile (Cairo.Context context)
     {
         draw_tile_shadow (context, paused_color_h, paused_color_v, paused_color_h, paused_color_v);
         draw_tile_background (context, paused_color_h, paused_color_v, paused_color_h, paused_color_v);
     }
 
-    internal override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
+    public override void draw_tile (Cairo.Context context, Tile tile, bool highlight)
     {
         tile_colors_h [tile.north].set_matrix (matrix);
         tile_colors_h [tile.east ].set_matrix (matrix);

@@ -54,17 +54,17 @@ public class TetravexWindow : Adw.ApplicationWindow {
         puzzle.paused_changed.connect (paused_changed_cb);
         puzzle.tick.connect (tick_cb);
         puzzle.solved.connect (solved_cb);
-        puzzle.notify ["is-solved-right"].connect (solved_right_cb);
+        puzzle.solved_right.connect (solved_right_cb);
 
-        solved_right_cb ();
+        solved_right_cb (false);
     }
 
     private void solved_cb () {
         game_button_stack.visible_child_name = "new-game";
     }
 
-    private void solved_right_cb () {
-        if (((!) puzzle).is_solved_right)
+    private void solved_right_cb (bool is_solved_right) {
+        if (is_solved_right)
             game_button_stack.visible_child_name = "finish";
         else
             game_button_stack.visible_child_name = "solve";

@@ -19,36 +19,37 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-private class Tile : Object
+public class Tile
 {
     /* Edge colors */
-    internal uint8 north;
-    internal uint8 west;
-    internal uint8 east;
-    internal uint8 south;
+    public uint8 north;
+    public uint8 west;
+    public uint8 east;
+    public uint8 south;
 
     /* Solution location */
-    [CCode (notify = false)] public uint8 x { internal get; protected construct; }
-    [CCode (notify = false)] public uint8 y { internal get; protected construct; }
+    public uint8 x { get; private set; }
+    public uint8 y { get; private set; }
 
-    internal Tile (uint8 x, uint8 y)
+    public Tile (uint8 x, uint8 y)
     {
-        Object (x: x, y: y);
+        this.x = x;
+        this.y = y;
     }
 }
 
-public class Puzzle : Object
+public class Puzzle
 {
-    [CCode (notify = false)] public uint8 size   { internal get; protected construct; }
-    [CCode (notify = false)] public uint8 colors { internal get; protected construct; }
+    public uint8 size   { get; private set; }
+    public uint8 colors { get; private set; }
     private Tile? [,] board;
 
     /* Game timer */
-    private Timer? clock = null;    // TODO ask for Timer.do_not_start() constructor
+    private Timer? clock;
     private uint clock_timeout;
-    [CCode (notify = false)] public double initial_time { private get; protected construct; default = 0.0; }
+    private double initial_time;
 
-    [CCode (notify = false)] internal double elapsed
+    public double elapsed
     {
         get
         {
@@ -58,10 +59,10 @@ public class Puzzle : Object
         }
     }
 
-    private bool _paused = false;
-    [CCode (notify = true)] internal bool paused
+    private bool _paused;
+    public bool paused
     {
-        internal set
+        set
         {
             _paused = value;
             if (clock != null)
@@ -73,17 +74,18 @@ public class Puzzle : Object
             }
             paused_changed ();
         }
-        internal get { return _paused; }
+        get { return _paused; }
     }
 
-    internal signal void tile_moved (Tile tile, uint8 x, uint8 y);
-    internal signal void paused_changed ();
-    internal signal void solved ();
-    internal signal void solved_right (bool is_solved);
-    internal signal void show_end_game ();
-    internal signal void tick ();
+    public signal void tile_moved (Tile tile, uint8 x, uint8 y);
+    public signal void can_undo_redo_changed ();
+    public signal void paused_changed ();
+    public signal void solved ();
+    public signal void solved_right (bool is_solved);
+    public signal void show_end_game ();
+    public signal void tick ();
 
-    [CCode (notify = false)] internal bool is_solved { internal get; private set; default = false; }
+    public bool is_solved { get; private set; }
     private bool check_if_solved ()
     {
         /* Solved if entire left hand side is complete (we ensure only tiles
@@ -102,14 +104,12 @@ public class Puzzle : Object
         return true;
     }
 
-    [CCode (notify = false)] public bool restored { private get; protected construct; default = false; }
-    internal Puzzle (uint8 size, uint8 colors)
+    private bool restored;
+    public Puzzle (uint8 size, uint8 colors)
     {
-        Object (size: size, colors: colors);
-    }
+        this.size = size;
+        this.colors = colors;
 
-    construct
-    {
         if (!restored)
         {
             do { init_board (size, (int32) colors, out board); }
@@ -195,12 +195,12 @@ public class Puzzle : Object
         return true;
     }
 
-    internal Tile? get_tile (uint8 x, uint8 y)
+    public Tile? get_tile (uint8 x, uint8 y)
     {
         return board [x, y];
     }
 
-    internal void get_tile_location (Tile tile, out uint8 x, out uint8 y)
+    public void get_tile_location (Tile tile, out uint8 x, out uint8 y)
     {
         y = 0;  // garbage
         for (x = 0; x < size * 2; x++)
@@ -227,7 +227,7 @@ public class Puzzle : Object
         return true;
     }
 
-    internal bool can_switch (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
+    public bool can_switch (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {
         if (x0 == x1 && y0 == y1)
             return false;
@@ -267,10 +267,10 @@ public class Puzzle : Object
         return true;
     }
 
-    private uint timeout_id = 0;
-    [CCode (notify = false)] internal bool game_in_progress { internal get; private set; default = false; }
-    [CCode (notify = true)]  internal bool is_solved_right  { internal get; private set; default = false; }
-    internal void switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished = 0)
+    private uint timeout_id;
+    public bool game_in_progress { get; private set; }
+    public bool is_solved_right  { get; private set; }
+    public void switch_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint delay_if_finished = 0)
     {
         _switch_tiles (x0, y0, x1, y1, delay_if_finished, /* undoing */ false, /* move id: one tile only */ 0);
     }
@@ -309,24 +309,28 @@ public class Puzzle : Object
                         return Source.REMOVE;
                     });
         }
-        else if (solved_on_right ())
+        else if (solved_on_right ()) {
             is_solved_right = true;
-        else if (is_solved_right)
+            solved_right (is_solved_right);
+        }
+        else if (is_solved_right) {
             is_solved_right = false;
+            solved_right (is_solved_right);
+        }
     }
 
     /*\
     * * moving tiles
     \*/
 
-    private uint last_move_id = 0;
+    private uint last_move_id;
 
     private inline void switch_one_of_many_tiles (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {
         _switch_tiles (x0, y0, x1, y1, /* delay if finished */ 0, /* undoing or redoing */ false, last_move_id);
     }
 
-    internal bool move_up (bool left_board)
+    public bool move_up (bool left_board)
     {
         if (!can_move_up (left_board) || last_move_id == uint.MAX)
             return false;
@@ -353,7 +357,7 @@ public class Puzzle : Object
         return false;
     }
 
-    internal bool move_down (bool left_board)
+    public bool move_down (bool left_board)
     {
         if (!can_move_down (left_board) || last_move_id == uint.MAX)
             return false;
@@ -380,7 +384,7 @@ public class Puzzle : Object
         return false;
     }
 
-    internal bool move_left (bool left_board)
+    public bool move_left (bool left_board)
     {
         if (!can_move_left (left_board) || last_move_id == uint.MAX)
             return false;
@@ -407,7 +411,7 @@ public class Puzzle : Object
         return false;
     }
 
-    internal bool move_right (bool left_board)
+    public bool move_right (bool left_board)
     {
         if (!can_move_right (left_board) || last_move_id == uint.MAX)
             return false;
@@ -435,7 +439,7 @@ public class Puzzle : Object
         return false;
     }
 
-    internal void try_move (uint8 x, uint8 y)
+    public void try_move (uint8 x, uint8 y)
         requires (x < 2 * size)
         requires (y < size)
     {
@@ -492,13 +496,13 @@ public class Puzzle : Object
     * * actions
     \*/
 
-    internal void start ()
+    public void start ()
     {
         paused = false;
         start_clock ();
     }
 
-    internal void solve ()
+    public void solve ()
     {
         List<Tile> wrong_tiles = new List<Tile> ();
         for (uint8 x = 0; x < size * 2; x++)
@@ -523,14 +527,14 @@ public class Puzzle : Object
         stop_clock ();
     }
 
-    internal void finish (uint duration)
+    public void finish (uint duration)
     {
         for (uint8 x = 0; x < size; x++)
             for (uint8 y = 0; y < size; y++)
                 switch_tiles (x + size, y, x, y, duration);
     }
 
-    internal bool only_one_remaining_tile (out uint8 empty_x, out uint8 empty_y)
+    public bool only_one_remaining_tile (out uint8 empty_x, out uint8 empty_y)
     {
         bool empty_found = false;
         empty_x = uint8.MAX;    // garbage
@@ -600,24 +604,28 @@ public class Puzzle : Object
     * * history
     \*/
 
-    [CCode (notify = true)] internal bool can_undo { internal get; private set; default = false; }
-    [CCode (notify = true)] internal bool can_redo { internal get; private set; default = false; }
-    private uint history_length = 0;
-    private uint last_move_index = 0;
+    public bool can_undo { get; private set; }
+    public bool can_redo { get; private set; }
+    private uint history_length;
+    private uint last_move_index;
 
     private List<Inversion> reversed_history = new List<Inversion> ();
 
-    private class Inversion : Object
+    private class Inversion
     {
-        [CCode (notify = false)] public uint8 x0 { internal get; protected construct; }
-        [CCode (notify = false)] public uint8 y0 { internal get; protected construct; }
-        [CCode (notify = false)] public uint8 x1 { internal get; protected construct; }
-        [CCode (notify = false)] public uint8 y1 { internal get; protected construct; }
-        [CCode (notify = false)] public uint  id { internal get; protected construct; }
+        public uint8 x0 { get; private set; }
+        public uint8 y0 { get; private set; }
+        public uint8 x1 { get; private set; }
+        public uint8 y1 { get; private set; }
+        public uint  id { get; private set; }
 
-        internal Inversion (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint id)
+        public Inversion (uint8 x0, uint8 y0, uint8 x1, uint8 y1, uint id)
         {
-            Object (x0: x0, y0: y0, x1: x1, y1: y1, id: id);
+            this.x0 = x0;
+            this.y0 = y0;
+            this.x1 = x1;
+            this.y1 = y1;
+            this.id = id;
         }
     }
 
@@ -640,9 +648,10 @@ public class Puzzle : Object
         history_length++;
         can_undo = true;
         can_redo = false;
+        can_undo_redo_changed ();
     }
 
-    internal void undo ()
+    public void undo ()
     {
         if (!can_undo)
             return;
@@ -672,6 +681,7 @@ public class Puzzle : Object
         if (last_move_index == history_length)
             can_undo = false;
         can_redo = true;
+        can_undo_redo_changed ();
     }
     private inline void undo_move (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {
@@ -680,7 +690,7 @@ public class Puzzle : Object
         last_move_index++;
     }
 
-    internal void redo ()
+    public void redo ()
     {
         if (!can_redo)
             return;
@@ -710,6 +720,7 @@ public class Puzzle : Object
         if (last_move_index == 0)
             can_redo = false;
         can_undo = true;
+        can_undo_redo_changed ();
     }
     private inline void redo_move (uint8 x0, uint8 y0, uint8 x1, uint8 y1)
     {
@@ -718,7 +729,7 @@ public class Puzzle : Object
         _switch_tiles (x0, y0, x1, y1, /* delay if finished */ 0, /* no log */ true, /* garbage */ 0);
     }
 
-    internal void reload ()
+    public void reload ()
     {
         if (!can_undo)
             return;
@@ -741,13 +752,14 @@ public class Puzzle : Object
 
         can_undo = false;
         can_redo = true;
+        can_undo_redo_changed ();
     }
 
     /*\
     * * save and restore
     \*/
 
-    internal Variant to_variant ()
+    public Variant to_variant ()
     {
         VariantBuilder builder = new VariantBuilder (new VariantType ("m(yyda(yyyyyyyy)ua(yyyyu))"));
         builder.open (new VariantType ("(yyda(yyyyyyyy)ua(yyyyu))"));
@@ -803,7 +815,7 @@ public class Puzzle : Object
         public uint8 initial_y;
     }
 
-    internal static bool is_valid_saved_game (Variant maybe_variant)
+    public static bool is_valid_saved_game (Variant maybe_variant)
     {
         Variant? variant = maybe_variant.get_maybe ();
         if (variant == null)
@@ -907,7 +919,7 @@ public class Puzzle : Object
         return true;
     }
 
-    internal Puzzle.restore (Variant maybe_variant)
+    public Puzzle.restore (Variant maybe_variant)
     {
         Variant? variant = maybe_variant.get_maybe ();
         if (variant == null)
@@ -919,7 +931,10 @@ public class Puzzle : Object
         ((!) variant).get_child (0, "y", out _size);
         ((!) variant).get_child (1, "y", out _colors);
         ((!) variant).get_child (2, "d", out _elapsed);
-        Object (size: _size, colors: _colors, restored: true, initial_time: _elapsed);
+        this.size = _size;
+        this.colors = _colors;
+        this.restored = true;
+        this.initial_time = _elapsed;
 
         Variant array_variant = ((!) variant).get_child_value (3);
         board = new Tile? [size * 2, size];
@@ -950,8 +965,10 @@ public class Puzzle : Object
             board [current_x, current_y] = tile;
         }
         game_in_progress = true;
-        if (solved_on_right ())
+        if (solved_on_right ()) {
             is_solved_right = true;
+            solved_right (is_solved_right);
+        }
         check_if_solved ();
     }
 

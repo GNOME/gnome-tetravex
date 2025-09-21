@@ -26,14 +26,14 @@ private class Tetravex : Adw.Application
     /* Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog */
     private const string PROGRAM_NAME = _("Tetravex");
 
-    private static bool start_paused = false;
+    private static bool start_paused;
     private static int game_size = int.MIN;
     private static int colors = 10;
 
     private GLib.Settings settings;
 
     private Puzzle puzzle;
-    private bool puzzle_init_done = false;
+    private bool puzzle_init_done;
     private History history;
 
     private PuzzleView view;
@@ -263,7 +263,7 @@ private class Tetravex : Adw.Application
     }
 
     private Variant saved_game;
-    private bool can_restore = false;
+    private bool can_restore;
 
     private void new_game (Variant? saved_game = null, int? given_size = null)
     {
@@ -287,16 +287,16 @@ private class Tetravex : Adw.Application
         {
             puzzle = new Puzzle.restore ((!) saved_game);
             if (puzzle.is_solved_right)
-                solved_right_cb ();
+                solved_right_cb (puzzle.is_solved_right);
         }
         puzzle_init_done = true;
         puzzle.paused_changed.connect (paused_changed_cb);
         puzzle.solved.connect (solved_cb);
-        puzzle.notify ["is-solved-right"].connect (solved_right_cb);
-        puzzle.notify ["can-undo"].connect (() =>
-            undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused));
-        puzzle.notify ["can-redo"].connect (() =>
-            redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused));
+        puzzle.solved_right.connect (solved_right_cb);
+        puzzle.can_undo_redo_changed.connect (() => {
+            undo_action.set_enabled (puzzle.can_undo && !puzzle.is_solved && !puzzle.paused);
+            redo_action.set_enabled (puzzle.can_redo && !puzzle.is_solved && !puzzle.paused);
+        });
         puzzle.show_end_game.connect (show_end_game_cb);
         ((TetravexWindow) active_window).new_game (puzzle);
         view.puzzle = puzzle;
@@ -343,9 +343,9 @@ private class Tetravex : Adw.Application
         finish_action.set_enabled (false);
     }
 
-    private void solved_right_cb ()
+    private void solved_right_cb (bool is_solved_right)
     {
-        if (puzzle.is_solved_right)
+        if (is_solved_right)
         {
             solve_action.set_enabled (false);
             finish_action.set_enabled (/* should never happen */ !puzzle.paused);
@@ -371,7 +371,7 @@ private class Tetravex : Adw.Application
         new_game ();
     }
 
-    private HistoryEntry? last_history_entry = null;
+    private HistoryEntry? last_history_entry;
     private void scores_cb ()
     {
         var dialog = new ScoreDialog (history, puzzle.size, puzzle.is_solved ? last_history_entry : null);
