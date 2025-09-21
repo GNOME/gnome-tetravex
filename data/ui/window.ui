@@ -64,7 +64,7 @@
                     <property name="name">solve</property>
                     <property name="child">
                       <object class="GtkButton">
-                        <property name="icon-name">dialog-question-symbolic</property>
+                        <property name="icon-name">view-reveal-symbolic</property>
                         <property name="action-name">app.solve</property>
                         <property name="tooltip-text" translatable="yes">Show Solution</property>
                       </object>
