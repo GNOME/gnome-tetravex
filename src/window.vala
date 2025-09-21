@@ -79,7 +79,8 @@ public class TetravexWindow : Adw.ApplicationWindow {
             return;
         }
 
-        title_widget.subtitle = "";
+        var size = ((!) puzzle).size;
+        title_widget.subtitle = _("%u × %u").printf (size, size);
         pause_button.icon_name = "media-playback-pause-symbolic";
         pause_button.tooltip_text = _("Pause Game");
         toolbar_view.content.remove_css_class ("dim-label");
