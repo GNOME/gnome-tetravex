@@ -115,8 +115,6 @@ public class Puzzle : Object
             do { init_board (size, (int32) colors, out board); }
             while (solved_on_right ());
         }
-
-        start_clock ();
     }
     private static inline void init_board (uint8 size, int32 colors, out Tile? [,] board)
     {
@@ -493,6 +491,12 @@ public class Puzzle : Object
     /*\
     * * actions
     \*/
+
+    internal void start ()
+    {
+        paused = false;
+        start_clock ();
+    }
 
     internal void solve ()
     {

@@ -308,7 +308,10 @@ private class Tetravex : Adw.Application
         else if (saved_game != null)
             puzzle.paused = true;
         else
+        {
             view.grab_focus ();
+            puzzle.start ();
+        }
     }
 
     private void paused_changed_cb () {
