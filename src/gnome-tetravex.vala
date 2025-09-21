@@ -274,16 +274,16 @@ private class Tetravex : Adw.Application {
         ((TetravexWindow) active_window).new_game (puzzle);
         view.puzzle = puzzle;
 
+        puzzle.start ();
+
         if (start_paused) {
             puzzle.paused = true;
             start_paused = false;
         }
         else if (saved_game != null)
             puzzle.paused = true;
-        else {
+        else
             view.grab_focus ();
-            puzzle.start ();
-        }
     }
 
     private bool attempt_move_cb () {
