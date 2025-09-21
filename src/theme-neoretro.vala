@@ -209,10 +209,10 @@ private class NeoRetroTheme : Theme
         socket_pattern.line_to (1.0, 0.0);
         socket_pattern.line_to (1.0, 1.0);
         socket_pattern.line_to (0.0, 1.0);
-        socket_pattern.set_corner_color_rgba (0, 0.3, 0.3, 0.3, 1);
-        socket_pattern.set_corner_color_rgba (1, 0.4, 0.4, 0.4, 1);
-        socket_pattern.set_corner_color_rgba (2, 0.7, 0.7, 0.7, 1);
-        socket_pattern.set_corner_color_rgba (3, 0.6, 0.6, 0.6, 1);
+        socket_pattern.set_corner_color_rgba (0, 0.3, 0.3, 0.3, 0.3);
+        socket_pattern.set_corner_color_rgba (1, 0.4, 0.4, 0.4, 0.3);
+        socket_pattern.set_corner_color_rgba (2, 0.7, 0.7, 0.7, 0.3);
+        socket_pattern.set_corner_color_rgba (3, 0.6, 0.6, 0.6, 0.3);
         socket_pattern.end_patch ();
         socket_pattern.set_matrix (matrix);
     }
@@ -260,11 +260,11 @@ private class NeoRetroTheme : Theme
         context.set_line_cap (Cairo.LineCap.ROUND);
 
         context.set_line_width (14.0);
-        context.set_source_rgba (0.4, 0.4, 0.4, 1);  // fill color 1, including border
+        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);  // fill color 1, including border
         context.stroke_preserve ();
 
         context.set_line_width (12.0);
-        context.set_source_rgba (1.0, 1.0, 1.0, 1);    // fill color 2
+        context.set_source_rgba (1.0, 1.0, 1.0, 0.1);    // fill color 2
         context.stroke_preserve ();
 
         /* filling interior */
@@ -272,10 +272,10 @@ private class NeoRetroTheme : Theme
         context.reset_clip ();  // forget the border clip
         context.clip ();       // clip to the current path
 
-        context.set_source_rgba (0.4, 0.4, 0.4, 1);  // fill color 1
+        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);  // fill color 1
         context.fill_preserve ();
 
-        context.set_source_rgba (1.0, 1.0, 1.0, 1);    // fill color 2
+        context.set_source_rgba (1.0, 1.0, 1.0, 0.1);    // fill color 2
         context.fill ();
     }
 
@@ -296,7 +296,7 @@ private class NeoRetroTheme : Theme
         context.fill_preserve ();
 
         context.set_line_width (1.0);
-        context.set_source_rgba (0.4, 0.4, 0.4, 1);
+        context.set_source_rgba (0.4, 0.4, 0.4, 0.3);
         context.stroke ();
 
         context.restore ();

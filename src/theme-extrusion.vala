@@ -216,7 +216,7 @@ private class ExtrusionTheme : Theme
         context.line_to (arrow_w, arrow_half_h);
         context.line_to (arrow_w, neg_arrow_half_h);
         context.close_path ();
-        context.set_source_rgba (0.5, 0.5, 0.5, 1);
+        context.set_source_rgba (0.5, 0.5, 0.5, 0.4);
         context.fill ();
     }
 
@@ -228,7 +228,7 @@ private class ExtrusionTheme : Theme
     {
         context.save ();
 
-        context.set_source_rgba (0.5, 0.5, 0.5, 1);
+        context.set_source_rgba (0.5, 0.5, 0.5, 0.3);
         rounded_square (context,
           /* x and y */ tile_margin, tile_margin,
           /* size    */ tile_size,
