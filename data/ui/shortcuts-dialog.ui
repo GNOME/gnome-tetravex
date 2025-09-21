@@ -55,7 +55,7 @@
         <child>
           <object class="AdwShortcutsItem">
             <property name="action-name">app.solve</property>
-            <property name="title" translatable="yes" context="shortcut window">Show Solution</property>
+            <property name="title" translatable="yes" context="shortcut window">Reveal Solution</property>
           </object>
         </child>
       </object>

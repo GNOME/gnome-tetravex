@@ -30,12 +30,6 @@ private class History : Object
 
     internal signal void entry_added (HistoryEntry entry);
 
-    internal bool is_empty ()
-    {
-        unowned List<HistoryEntry>? first_entry = entries.first ();
-        return first_entry == null;
-    }
-
     /*\
     * * loading
     \*/

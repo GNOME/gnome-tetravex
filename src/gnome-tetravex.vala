@@ -84,7 +84,7 @@ private class Tetravex : Adw.Application
         { "undo",           undo_cb         },
         { "redo",           redo_cb         },
         { "reload",         reload_cb       },
-        { "size",           null,           "s",    "'2'",  size_changed    },
+        { "size",           null,           "s",    "'2'",  size_changed_cb    },
         { "rules",          rules_cb        },
         { "about",          about_cb        },
         { "quit",           quit            }
@@ -364,93 +364,45 @@ private class Tetravex : Adw.Application
 
     private void new_game_cb ()
     {
-        int size = settings.get_int ("grid-size");
-        if (puzzle.game_in_progress && !puzzle.is_solved)
-        {
-            MessageDialog dialog = new MessageDialog (active_window,
-                                                      DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
-                                                      MessageType.QUESTION,
-                                                      ButtonsType.NONE,
-        /* Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with  */
-                                                      _("Are you sure you want to start a new %u × %u game?").printf (size, size));
-
-        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game" */
-            dialog.add_buttons (_("_Keep Playing"),   ResponseType.REJECT,
-
-        /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing" */
-                                _("_Start New Game"), ResponseType.ACCEPT);
-
-            dialog.response.connect ((_dialog, response) => {
-                    _dialog.destroy ();
-                    if (response == ResponseType.ACCEPT)
-                        new_game (/* saved game */ null, size);
-                });
-            dialog.present ();
-            return;
-        }
-        new_game (/* saved game */ null, size);
+        new_game ();
     }
 
     private HistoryEntry? last_history_entry = null;
-    private bool scores_dialog_visible = false; // security for #5
-    private void scores_cb (/* SimpleAction action, Variant? variant */)
+    private void scores_cb ()
     {
-        if (scores_dialog_visible)
-            return;
-        scores_dialog_visible = true;
-
-        Dialog dialog;
-        if (history.is_empty ())
-            dialog = new MessageDialog (active_window,
-                                        DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
-                                        MessageType.INFO,
-                                        ButtonsType.CLOSE,
-            /* Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet */
-                                        _("Looks like you haven’t finished a game yet.\n\nMaybe try a 2 × 2 grid, they are easy. 🙂️"));
-        else
-        {
-            dialog = new ScoreDialog (history, puzzle.size, puzzle.is_solved ? last_history_entry : null);
-            dialog.set_modal (true);
-            dialog.set_transient_for (active_window);
-        }
-
-        dialog.close_request.connect (() => {
-                scores_dialog_visible = false;
-
-                return /* do your usual stuff */ false;
-            });
+        var dialog = new ScoreDialog (history, puzzle.size, puzzle.is_solved ? last_history_entry : null);
+        dialog.set_modal (true);
+        dialog.set_transient_for (active_window);
         dialog.present ();
     }
 
-    private void solve_cb ()
+    private async void _solve_cb ()
     {
         if (puzzle.elapsed < 0.2)   // security against multi-click on new-game button
             return;
 
         if (puzzle.game_in_progress)
         {
-            MessageDialog dialog = new MessageDialog (active_window,
-                                                      DialogFlags.MODAL | DialogFlags.DESTROY_WITH_PARENT,
-                                                      MessageType.QUESTION,
-                                                      ButtonsType.NONE,
-            /* Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up" */
-                                                      _("Are you sure you want to give up and view the solution?"));
+            var dialog = new Adw.AlertDialog (
+                _("Reveal Solution?"),
+                _("This will end your current game.")
+            ) {
+                default_response = "cancel"
+            };
+            dialog.add_response ("cancel", _("_Keep Playing"));
+            dialog.add_response ("give_up", _("_Give Up"));
+            dialog.set_response_appearance ("give_up", Adw.ResponseAppearance.DESTRUCTIVE);
 
-            /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up" */
-            dialog.add_buttons (_("_Keep Playing"), ResponseType.REJECT,
-
-            /* Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing" */
-                                _("_Give Up"),      ResponseType.ACCEPT);
-
-            dialog.response.connect ((_dialog, response) => {
-                    _dialog.destroy ();
-                    if (response == ResponseType.ACCEPT)
-                        puzzle.solve ();
-                });
-            dialog.present ();
+            var resp_id = yield dialog.choose (active_window, null);
+            if (resp_id == "give_up")
+                puzzle.solve ();
             return;
         }
         puzzle.solve ();
+    }
+
+    private void solve_cb () {
+        _solve_cb.begin ();
     }
 
     private void finish_cb ()
@@ -458,17 +410,35 @@ private class Tetravex : Adw.Application
         view.finish ();
     }
 
-    private void size_changed (SimpleAction action, Variant variant)
-    {
-        int size = int.parse (variant.get_string ());
-        if (size < 2 || size > 6)
-            assert_not_reached ();
+    private async void _size_changed_cb (SimpleAction action, Variant variant) {
+        var size = int.parse (variant.get_string ());
+        if (settings.get_int ("grid-size") != size) {
+            if (puzzle.game_in_progress && !puzzle.is_solved) {
+                var dialog = new Adw.AlertDialog (
+                    _("Change Size?"),
+                    _("This will end your current game.")
+                ) {
+                    default_response = "cancel"
+                };
+                dialog.add_response ("cancel", _("_Cancel"));
+                dialog.add_response ("change_size", _("Change _Size"));
+                dialog.set_response_appearance ("change_size", Adw.ResponseAppearance.DESTRUCTIVE);
 
-        if (size == settings.get_int ("grid-size"))
-            return;
-        settings.set_int ("grid-size", size);
+                var resp_id = yield dialog.choose (active_window, null);
+                if (resp_id != "change_size")
+                    return;
+            }
+
+            settings.set_int ("grid-size", size);
+            settings.apply ();
+
+            new_game ();
+        }
         action.set_state (variant);
-        new_game_cb ();
+    }
+
+    private void size_changed_cb (SimpleAction action, Variant variant) {
+        _size_changed_cb.begin (action, variant);
     }
 
     private void move_up_l ()     { view.move_up    (/* left board */ true);  }
