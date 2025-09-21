@@ -2,84 +2,57 @@
 # Copyright 2011 Free Software Foundation, Inc.
 # Aron Xu <aronxu@gnome.org>, 2011.
 # YunQiang Su <wzssyqa@gmail.com>, 2011, 2012.
+# lumingzh <lumingzh@qq.com>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-08-25 22:19+0000\n"
-"PO-Revision-Date: 2020-08-27 11:46-0400\n"
-"Last-Translator: liushuyu <liushuyu_011@126.com>\n"
-"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
+"POT-Creation-Date: 2025-09-21 22:49+0000\n"
+"PO-Revision-Date: 2025-09-22 07:49+0800\n"
+"Last-Translator: lumingzh <lumingzh@qq.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Gtranslator 49.0\n"
 
-#: data/org.gnome.Tetravex.appdata.xml.in:7
-msgid "GNOME Tetravex"
-msgstr "GNOME 四邻"
-
-#: data/org.gnome.Tetravex.appdata.xml.in:8
-msgid "Reorder tiles to fit a square"
-msgstr "调整方块以填满一个方框"
-
-#: data/org.gnome.Tetravex.appdata.xml.in:10
-msgid ""
-"Each square piece has a number on each side. Position the pieces on the left "
-"side of the board so that the same numbers are next to each other. If the "
-"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
-"being timed!"
-msgstr ""
-"每个方块四面都有数字。将方块放在左侧的棋盘上，让相同的数字相邻。数字不匹配不"
-"允许放下。抓紧时间，游戏是计时的哦！"
-
-#: data/org.gnome.Tetravex.appdata.xml.in:16
-msgid ""
-"You can make the game easier or harder by changing the size of the board."
-msgstr "您可以通过改变棋盘的大小来增加或降低难度。"
-
-#: data/org.gnome.Tetravex.appdata.xml.in:32
-msgid "The GNOME Project"
-msgstr "GNOME 项目"
-
-#. Translators: application name, as seen in GNOME Shell
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:23
-#: src/gnome-tetravex.vala:27
+#: data/org.gnome.Tetravex.desktop.in.in:2
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:7
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:27 src/gnome-tetravex.vala:89
 msgid "Tetravex"
 msgstr "四邻"
 
-#: data/org.gnome.Tetravex.desktop.in:4
+#: data/org.gnome.Tetravex.desktop.in.in:3
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "匹配编号的方块来完成谜题"
 
 #. TRANSLATORS: Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. Search terms to find this application.
-#: data/org.gnome.Tetravex.desktop.in:8
+#: data/org.gnome.Tetravex.desktop.in.in:7
 msgid "game;logic;board;"
 msgstr "game;logic;board;游戏;逻辑;棋牌;"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
-#: data/org.gnome.Tetravex.gschema.xml:13
+#: data/org.gnome.Tetravex.gschema.xml.in:13
 msgid "The size of the playing grid"
 msgstr "游戏网格大小"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
-#: data/org.gnome.Tetravex.gschema.xml:15
+#: data/org.gnome.Tetravex.gschema.xml.in:15
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "此键的值用于决定游戏网格的大小。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:20
+#: data/org.gnome.Tetravex.gschema.xml.in:20
 msgid "Use “Back” and “Forward” mouse button events"
 msgstr "使用“后退（Back）”和“前进（Forward）”鼠标按钮事件"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:22
+#: data/org.gnome.Tetravex.gschema.xml.in:22
 msgid ""
 "For users which have a mouse with “Forward” and “Back” buttons, this key "
 "will determine if any action is taken inside of the window when either is "
@@ -89,12 +62,12 @@ msgstr ""
 "否在窗口内执行任何操作。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:28
+#: data/org.gnome.Tetravex.gschema.xml.in:28
 msgid "Mouse button to activate the “Undo” command"
 msgstr "激活“撤消”命令的鼠标按键"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:30
+#: data/org.gnome.Tetravex.gschema.xml.in:30
 msgid ""
 "For users which have a mouse with “Forward” and “Back” buttons, this key "
 "will set which button activates the “Undo” command. Possible values range "
@@ -104,12 +77,12 @@ msgstr ""
 "在 6 到 14 之间。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:36
+#: data/org.gnome.Tetravex.gschema.xml.in:36
 msgid "Mouse button to activate the “Redo” command"
 msgstr "激活“重做”命令的鼠标按键"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:38
+#: data/org.gnome.Tetravex.gschema.xml.in:38
 msgid ""
 "For users which have a mouse with “Forward” and “Back” buttons, this key "
 "will set which button activates the “Redo” command. Possible values range "
@@ -119,12 +92,12 @@ msgstr ""
 "在 6 到 14 之间。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
-#: data/org.gnome.Tetravex.gschema.xml:43
+#: data/org.gnome.Tetravex.gschema.xml.in:43
 msgid "Saved game, if any"
 msgstr "已保存游戏，如果有的话"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) »
-#: data/org.gnome.Tetravex.gschema.xml:45
+#: data/org.gnome.Tetravex.gschema.xml.in:45
 msgid ""
 "The key has value “nothing” if there is no saved game. Else, it contains a "
 "description of the board, with its size, the number of colors, and the time "
@@ -140,836 +113,803 @@ msgstr ""
 "引，以及保存为属性的历史条目：交换的两个方块的坐标和移动 id。"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
-#: data/org.gnome.Tetravex.gschema.xml:50
+#: data/org.gnome.Tetravex.gschema.xml.in:50
 msgid "Theme"
 msgstr "主题"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
-#: data/org.gnome.Tetravex.gschema.xml:56
+#: data/org.gnome.Tetravex.gschema.xml.in:56
 msgid "The width of the window"
 msgstr "主窗口的宽度"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
-#: data/org.gnome.Tetravex.gschema.xml:58
+#: data/org.gnome.Tetravex.gschema.xml.in:58
 msgid "The width of the main window in pixels."
 msgstr "主窗口的宽度(像素)"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
-#: data/org.gnome.Tetravex.gschema.xml:63
+#: data/org.gnome.Tetravex.gschema.xml.in:63
 msgid "The height of the window"
 msgstr "主窗口的高度"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
-#: data/org.gnome.Tetravex.gschema.xml:65
+#: data/org.gnome.Tetravex.gschema.xml.in:65
 msgid "The height of the main window in pixels."
 msgstr "主窗口的高度(像素)"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
-#: data/org.gnome.Tetravex.gschema.xml:70
+#: data/org.gnome.Tetravex.gschema.xml.in:70
 msgid "A flag to enable maximized mode"
 msgstr "启用最大化模式的标志"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
-#: data/org.gnome.Tetravex.gschema.xml:72
+#: data/org.gnome.Tetravex.gschema.xml.in:72
 msgid "If “true”, the main window starts in maximized mode."
 msgstr "如果设为“真”，主窗口将以最大化模式启动。"
 
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:8
+msgid "Reorder tiles to fit a square"
+msgstr "调整方块以填满一个方框"
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:10
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
+"being timed!"
+msgstr ""
+"每个方块四面都有数字。将方块放在左侧的棋盘上，让相同的数字相邻。数字不匹配不"
+"允许放下。抓紧时间，游戏是计时的哦！"
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:16
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr "您可以通过改变棋盘的大小来增加或降低难度。"
+
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
-#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
-#: src/app-menu.ui:23 src/app-menu.ui:64
+#: data/ui/menu.ui:23
 msgid "_New Game"
-msgstr "新建游戏(_N)"
+msgstr "新游戏(_N)"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: data/ui/menu.ui:28
+msgid "_Scores"
+msgstr "得分(_S)"
 
 #. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
-#: src/app-menu.ui:28
+#: data/ui/menu.ui:35
 msgid "Si_ze"
 msgstr "大小(_S)"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
-#: src/app-menu.ui:32
+#: data/ui/menu.ui:39
 msgid "_2 × 2"
 msgstr "_2 × 2"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
-#: src/app-menu.ui:38
+#: data/ui/menu.ui:45
 msgid "_3 × 3"
 msgstr "_3 × 3"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
-#: src/app-menu.ui:44
+#: data/ui/menu.ui:51
 msgid "_4 × 4"
 msgstr "_4 × 4"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
-#: src/app-menu.ui:50
+#: data/ui/menu.ui:57
 msgid "_5 × 5"
 msgstr "_5 × 5"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
-#: src/app-menu.ui:56
+#: data/ui/menu.ui:63
 msgid "_6 × 6"
 msgstr "_6 × 6"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
-#: src/app-menu.ui:73
-msgid "_Scores"
-msgstr "得分(_S)"
-
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
-#: src/app-menu.ui:78
+#: data/ui/menu.ui:71
 msgid "A_ppearance"
 msgstr "外观(_P)"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:82
+#: data/ui/menu.ui:75
 msgid "_Extrusion"
 msgstr "_Extrusion"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:88
+#: data/ui/menu.ui:81
 msgid "Neo_Retro"
 msgstr "Neo_Retro"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
-#: src/app-menu.ui:94
+#: data/ui/menu.ui:87
 msgid "_Nostalgia"
 msgstr "_Nostalgia"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
-#: src/app-menu.ui:100
+#: data/ui/menu.ui:93
 msgid "_Synesthesia"
 msgstr "_Synesthesia"
 
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows Game Rules dialog
+#: data/ui/menu.ui:103
+msgid "Game R_ules"
+msgstr "游戏规则(_U)"
+
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
-#: src/app-menu.ui:110
+#: data/ui/menu.ui:108
 msgid "_Keyboard Shortcuts"
 msgstr "键盘快捷键(_K)"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help
-#: src/app-menu.ui:115
-msgid "_Help"
-msgstr "帮助(_H)"
-
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
-#: src/app-menu.ui:120
+#: data/ui/menu.ui:113
 msgid "_About Tetravex"
 msgstr "关于四邻(_A)"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the change the number of colors or the game size while not specifying a new game; try `gnome-tetravex --cli show --size 3`
-#: src/cli.vala:35
-msgid "Game size and colors number can only be given for new puzzles."
-msgstr "游戏大小和颜色数量只能设置到新的谜题中。"
+#: data/ui/rules-dialog.ui:21
+msgid "Game Rules"
+msgstr "游戏规则"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli up`
-#: src/cli.vala:89
-msgid "Cannot move up left-board tiles."
-msgstr "无法向上移动左方块。"
+#: data/ui/rules-dialog.ui:28
+msgctxt "game rules"
+msgid "Complete the empty board by placing tiles on it"
+msgstr "通过在上面放置方块来补完空白的棋盘"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli down`
-#: src/cli.vala:95
-msgid "Cannot move down left-board tiles."
-msgstr "无法向下移动左方块。"
+#: data/ui/rules-dialog.ui:36
+msgctxt "game rules"
+msgid "Tile edge numbers must match with adjacent tiles"
+msgstr "方块边缘的数字必须与相邻方块匹配"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli left`
-#: src/cli.vala:101
-msgid "Cannot move left left-board tiles."
-msgstr "无法向左移动左方块。"
+#: data/ui/rules-dialog.ui:46
+msgctxt "game rules"
+msgid "Rounds are scored based on completion time"
+msgstr "游戏得分基于完成时间"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli right`
-#: src/cli.vala:107
-msgid "Cannot move right left-board tiles."
-msgstr "无法向右移动左方块。"
+#: data/ui/rules-dialog.ui:56
+msgctxt "game rules"
+msgid "You can pause the game"
+msgstr "您可以暂停游戏"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-up`
-#: src/cli.vala:113
-msgid "Cannot move up right-board tiles."
-msgstr "无法向上移动右方块。"
+#: data/ui/rules-dialog.ui:57
+msgctxt "game rules"
+msgid "Tile faces will be hidden"
+msgstr "分块正面将被隐藏"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-down`
-#: src/cli.vala:118
-msgid "Cannot move down right-board tiles."
-msgstr "无法向下移动右方块。"
+#: data/ui/rules-dialog.ui:67
+msgctxt "game rules"
+msgid "You can undo or redo a move"
+msgstr "您可以撤消或重做游戏操作"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-left`
-#: src/cli.vala:123
-msgid "Cannot move left right-board tiles."
-msgstr "无法向左移动右方块。"
+#: data/ui/rules-dialog.ui:68
+msgctxt "game rules"
+msgid "No time penalty is added"
+msgstr "不会添加时间惩罚"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-right`
-#: src/cli.vala:128
-msgid "Cannot move right right-board tiles."
-msgstr "无法向右移动右方块。"
+#: data/ui/shortcuts-dialog.ui:24
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "游戏"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “finish” command while the saved puzzle cannot be automatically finished; try `gnome-tetravex --cli new; gnome-tetravex --cli finish`
-#: src/cli.vala:145
-msgid ""
-"Cannot finish automatically. If you want to give up and view the solution, "
-"use “solve”."
-msgstr "无法自动完成。如果您想放弃并查看解决方案，请使用“求解”。"
+#: data/ui/shortcuts-dialog.ui:28
+msgctxt "shortcut window"
+msgid "New Game"
+msgstr "新游戏"
 
-#. Translators: command-line error message, displayed if the string is not a known command nor a valid move instruction; try `gnome-tetravex --cli new; gnome-tetravex --cli A2838I8U`
-#: src/cli.vala:174
-msgid "Cannot parse instruction, aborting."
-msgstr "无法解析指令，正在中止。"
+#: data/ui/shortcuts-dialog.ui:34
+msgctxt "shortcut window"
+msgid "Pause Game"
+msgstr "暂停游戏"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to invert two empty tiles
-#: src/cli.vala:181
-msgid "Both given tiles are empty, aborting."
-msgstr "两个给定的方块都是空的，正在中止。"
+#: data/ui/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "撤消"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to do an invalid move
-#: src/cli.vala:187
-msgid "Cannot swap the given tiles, aborting."
-msgstr "无法交换给定的方块，正在中止。"
+#: data/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "重做"
 
-#. Translators: command-line error message, displayed if the user tries to solve the puzzle using CLI (with the “solve” or “finish” commands), while the puzzle is already solved
-#: src/cli.vala:230
-msgid "Puzzle is already solved! If you want to start a new one, use “new”."
-msgstr "谜题已经解决了！如果你想开始一个新的游戏，点击“新游戏”。"
+#: data/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Reset Board"
+msgstr "重置棋盘"
 
-#. Translators: command-line error message, displayed if the user tries to do a move using CLI, while the puzzle is solved
-#: src/cli.vala:233
-msgid "Puzzle is solved! If you want to start a new one, use “new”."
-msgstr "谜题已经解决了！如果你想开始一个新的游戏，点击“新游戏”。"
+#: data/ui/shortcuts-dialog.ui:58
+msgctxt "shortcut window"
+msgid "Reveal Solution"
+msgstr "展现解法"
 
-#. Translators: command-line message, displayed when playing Tetravex in CLI under the board, if the puzzle was solved
-#: src/cli.vala:278
-msgid "Puzzle is solved!"
-msgstr "已解决谜题！"
+#: data/ui/shortcuts-dialog.ui:65
+msgctxt "shortcut window"
+msgid "Tile Selection"
+msgstr "方块选择"
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explanation of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
-#: src/gnome-tetravex-cli.vala:24
-msgid "(nothing)"
-msgstr "（空）"
+#: data/ui/shortcuts-dialog.ui:68
+msgctxt "shortcut window"
+msgid "Move Tile Focus"
+msgstr "移动方块焦点"
 
-#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#: data/ui/shortcuts-dialog.ui:74
+msgctxt "shortcut window"
+msgid "Select / Move / Unselect Tile"
+msgstr "选择 / 移动 / 取消选择方块"
+
+#: data/ui/shortcuts-dialog.ui:80
+msgctxt "shortcut window"
+msgid "Select Row"
+msgstr "选择行"
+
+#: data/ui/shortcuts-dialog.ui:86
+msgctxt "shortcut window"
+msgid "Select Left-Side Column"
+msgstr "选择左侧列"
+
+#: data/ui/shortcuts-dialog.ui:92
+msgctxt "shortcut window"
+msgid "Select Right-Side Column"
+msgstr "选择右侧列"
+
+#: data/ui/shortcuts-dialog.ui:99
+msgctxt "shortcut window"
+msgid "Finish Right-Side Board"
+msgstr "完成右侧棋盘"
+
+#: data/ui/shortcuts-dialog.ui:106
+msgctxt "shortcut window"
+msgid "Tile Shifting"
+msgstr "方块位移"
+
+#: data/ui/shortcuts-dialog.ui:110
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Up"
+msgstr "上移左侧方块"
+
+#: data/ui/shortcuts-dialog.ui:116
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Down"
+msgstr "下移左侧方块"
+
+#: data/ui/shortcuts-dialog.ui:122
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Left"
+msgstr "左移左侧方块"
+
+#: data/ui/shortcuts-dialog.ui:128
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Right"
+msgstr "右移左侧方块"
+
+#: data/ui/shortcuts-dialog.ui:138
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Up"
+msgstr "上移右侧方块"
+
+#: data/ui/shortcuts-dialog.ui:144
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Down"
+msgstr "下移右侧方块"
+
+#: data/ui/shortcuts-dialog.ui:150
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Left"
+msgstr "左移右侧方块"
+
+#: data/ui/shortcuts-dialog.ui:156
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Right"
+msgstr "右移右侧方块"
+
+#: data/ui/shortcuts-dialog.ui:163
+msgctxt "shortcut window"
+msgid "General"
+msgstr "常规"
+
+#: data/ui/shortcuts-dialog.ui:167
+msgctxt "shortcut window"
+msgid "Game Rules"
+msgstr "游戏规则"
+
+#: data/ui/shortcuts-dialog.ui:173
+msgctxt "shortcut window"
+msgid "Show Main Menu"
+msgstr "显示主菜单"
+
+#: data/ui/shortcuts-dialog.ui:179
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "显示键盘快捷键"
+
+#: data/ui/shortcuts-dialog.ui:185
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "关闭窗口"
+
+#: data/ui/shortcuts-dialog.ui:191
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "退出"
+
+#: data/ui/window.ui:37
+msgid "Undo"
+msgstr "撤消"
+
+#: data/ui/window.ui:44
+msgid "Redo"
+msgstr "重做"
+
+#: data/ui/window.ui:51
+msgid "Main Menu"
+msgstr "主菜单"
+
+#: data/ui/window.ui:69
+msgid "Reveal Solution"
+msgstr "展现解法"
+
+#: data/ui/window.ui:81
+msgid "New Game"
+msgstr "新游戏"
+
+#: data/ui/window.ui:93
+msgid "Move Tiles Left"
+msgstr "向左移动方块"
+
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:78
+#: src/gnome-tetravex.vala:43
 msgid "Set number of colors (2-10)"
 msgstr "设置颜色的数量(2-10)"
 
-#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex-cli --help'
 #. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:81
+#: src/gnome-tetravex.vala:45
 msgid "NUMBER"
 msgstr "数量"
 
-#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:90
-msgid "Set size of board (2-6)"
-msgstr "设置盘面的大小(2-6)"
-
-#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex-cli --help'
-#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:93
-msgid "SIZE"
-msgstr "尺寸"
-
-#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:96
-msgid "Print release version and exit"
-msgstr "显示版本并退出"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
-#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:200
-msgid "Invert two tiles, the one in A1, and the one in b2."
-msgstr "反转两个方块，一块在 A1 中，一块在 b2 中。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
-#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:203
-msgid "An uppercase targets a tile from the initial board."
-msgstr "大写字母的目标是来自初始板的方块。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:206
-msgid "A lowercase targets a tile in the left/final board."
-msgstr "小写字母的目标是左/最后一块板中的方块。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
-#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:209
-msgid "Digits specify the rows of the two tiles to invert."
-msgstr "数字指定要反转的两个方块的行。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
-#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:212
-msgid "Show the current puzzle. Alias: “status” or “show”."
-msgstr "显示当前的方块。别名：“状态”或“显示”。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
-#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:215
-msgid "Create a new puzzle; for changing size, use --size."
-msgstr "创建一个新的方块；要更改大小，请使用--size。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
-#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:218
-msgid "Give up with current puzzle, and view the solution."
-msgstr "放弃当前谜题并查看解法."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands
-#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:221
-msgid "Finish current puzzle, automatically. Alias: “end”."
-msgstr "自动完成当前的拼图。别名：“结束”。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:224
-msgid "Works for puzzles solved right or if one tile left."
-msgstr "适用于右侧或左侧的方块。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command
-#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:227
-msgid "Move all left-board tiles up by one."
-msgstr "将所有左边的方块向上移动一块。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command
-#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:230
-msgid "Move all left-board tiles down by one."
-msgstr "将所有左边的方块向下移动一块。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command
-#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:233
-msgid "Move all left-board tiles left by one."
-msgstr "将所有左边的方块向左移动一块。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command
-#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:236
-msgid "Move all left-board tiles right by one."
-msgstr "将所有左边的方块向右移动一块。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
-#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:239
-msgid "Move all right-board tiles up by one."
-msgstr "将所有右边的方块向上移动一块。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
-#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:242
-msgid "Move all right-board tiles down by one."
-msgstr "将所有右边的方块向下移动一块。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command
-#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:245
-msgid "Move all right-board tiles left by one."
-msgstr "将所有右边的方块向左移动一块。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command
-#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:248
-msgid "Move all right-board tiles right by one."
-msgstr "将所有右边的方块向右移动一块。"
-
-#. Translators: command-line message, seen when running `gnome-tetravex-cli --help`
-#: src/gnome-tetravex-cli.vala:138
-msgid "[COMMAND]"
-msgstr "[命令]"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli --help`; introduction of a list of options
-#: src/gnome-tetravex-cli.vala:141
-msgid "Available commands:"
-msgstr "可用的命令："
-
-#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1'
-#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
-#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:173
-msgid "Size could only be from 2 to 6."
-msgstr "尺寸只能从2到6。"
-
-#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1'
-#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
-#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:180
-msgid "There could only be between 2 and 10 colors."
-msgstr "只有 2 到 10 种颜色。"
-
-#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2'
-#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
-#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:187
-msgid "Failed to parse command-line arguments."
-msgstr "无法解析命令行参数。"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options
-#: src/gnome-tetravex-cli.vala:182
-msgid "To use `gnome-tetravex-cli`, pass as argument:"
-msgstr "要使用“gnome tetravex cli”，请作为参数传递："
-
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:72
-msgid "Play in the terminal (see “--cli=help”)"
-msgstr "在终端中运行（请参见“--cli=help”）"
-
-#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:75
-msgid "COMMAND"
-msgstr "命令"
-
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:84
+#: src/gnome-tetravex.vala:48
 msgid "Start the game paused"
 msgstr "开始暂停的游戏"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:87
-msgid "Restore last game, if any"
-msgstr "恢复上一场游戏，如果有的话"
+#: src/gnome-tetravex.vala:51
+msgid "Set size of board (2-6)"
+msgstr "设置盘面的大小(2-6)"
 
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
-#: src/gnome-tetravex.vala:197
-msgid "To play GNOME Tetravex in command-line:"
-msgstr "要在命令行中玩 GNOME 四邻："
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:53
+msgid "SIZE"
+msgstr "尺寸"
 
-#. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:56
+msgid "Print release version and exit"
+msgstr "显示版本并退出"
+
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
+#: src/gnome-tetravex.vala:115
+msgid "Size could only be from 2 to 6."
+msgstr "尺寸只能从 2 到 6。"
+
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
+#: src/gnome-tetravex.vala:121
+msgid "There could only be between 2 and 10 colors."
+msgstr "只有 2 到 10 种颜色。"
+
+#: src/gnome-tetravex.vala:360
+msgid "Reveal Solution?"
+msgstr "展现解法吗？"
+
+#: src/gnome-tetravex.vala:361 src/gnome-tetravex.vala:391
+msgid "This will end your current game."
+msgstr "这将会结束您当前的游戏。"
+
 #: src/gnome-tetravex.vala:365
-msgid "Restore last game"
-msgstr "恢复上一个游戏"
-
-#. not a typo
-#. Translators: tooltip text of the "play"/unpause button, in the bottom bar
-#: src/gnome-tetravex.vala:419
-msgid "Resume the game"
-msgstr "继续游戏"
-
-#. Translators: tooltip text of the pause button, in the bottom bar
-#: src/gnome-tetravex.vala:426
-msgid "Pause the game"
-msgstr "暂停游戏"
-
-#. Translators: tooltip text of the "restart"/new game button, in the bottom bar
-#: src/gnome-tetravex.vala:439
-msgid "Start a new game"
-msgstr "开始新游戏"
-
-#. Translators: tooltip text of the "solve"/give up button, in the bottom bar
-#: src/gnome-tetravex.vala:446
-msgid "Give up and view the solution"
-msgstr "放弃并查看解法"
-
-#. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
-#: src/gnome-tetravex.vala:453
-msgid "Move all tiles left"
-msgstr "向左移动所有方块"
-
-#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
-#: src/gnome-tetravex.vala:776
-#, c-format
-msgid "Are you sure you want to start a new %u × %u game?"
-msgstr "确定要开始新的 %u×%u 游戏吗？"
-
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
-#: src/gnome-tetravex.vala:779 src/gnome-tetravex.vala:837
 msgid "_Keep Playing"
 msgstr "继续游戏(_K)"
 
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:782
-msgid "_Start New Game"
-msgstr "开始新游戏(_S)"
-
-#. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
-#: src/gnome-tetravex.vala:808
-msgid ""
-"Looks like you haven’t finished a game yet.\n"
-"\n"
-"Maybe try a 2 × 2 grid, they are easy. 🙂️"
-msgstr ""
-"看来你还没完成一场比赛。\n"
-"\n"
-"也许试试 2×2 网格，它们很简单。🙂️"
-
-#. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
-#: src/gnome-tetravex.vala:834
-msgid "Are you sure you want to give up and view the solution?"
-msgstr "您确定想要放弃并查看解法？"
-
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:840
+#: src/gnome-tetravex.vala:366
 msgid "_Give Up"
 msgstr "放弃(_G)"
 
-#. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:1021
-msgid "Lars Rydlinge"
-msgstr "Lars Rydlinge"
+#: src/gnome-tetravex.vala:390
+msgid "Change Size?"
+msgstr "更改大小吗？"
 
-#. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:1025
-msgid "Robert Ancell"
-msgstr "Robert Ancell"
+#: src/gnome-tetravex.vala:395
+msgid "_Cancel"
+msgstr "取消(_C)"
 
-#. Translators: text crediting a game documenter, seen in the About dialog
-#: src/gnome-tetravex.vala:1029
-msgid "Rob Bradford"
-msgstr "Rob Bradford"
+#: src/gnome-tetravex.vala:396
+msgid "Change _Size"
+msgstr "更改大小(_S)"
 
-#. Translators: short description of the application, seen in the About dialog
-#: src/gnome-tetravex.vala:1033
-msgid "Position pieces so that the same numbers are touching each other"
-msgstr "放置方块使相同数字相邻"
-
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1037
-#, c-format
-msgid "Copyright © %u-%u – Lars Rydlinge"
-msgstr "Copyright © %u-%u – Lars Rydlinge"
-
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1041
-#, c-format
-msgid "Copyright © %u-%u – Arnaud Bonatti"
-msgstr "Copyright © %u-%u – Arnaud Bonatti"
-
-#. Translators: about dialog text; label of the website link
-#: src/gnome-tetravex.vala:1045
-msgid "Page on GNOME wiki"
-msgstr "GNOME wiki 上的页面"
-
-#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-tetravex.vala:1057
+#: src/gnome-tetravex.vala:513
 msgid "translator-credits"
 msgstr ""
 "Yang Zhang <zyangmath@gmail.com>, 2007\n"
 "Ping Z <zpsigma@gmail.com>, 2007\n"
 "Xhacker Liu <liu.dongyuan@gmail.com>, 2010\n"
 "Tong Hui <tonghuix@gmail.com>, 2014\n"
-"Weiyi Xu <xuweiyi0923@gmail.com>, 2020"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play", "Play on selected tile", "Select the given row", etc.
-#: src/help-overlay.ui:32
-msgctxt "shortcut window"
-msgid "Play with keyboard"
-msgstr "使用键盘开始游戏"
-
-#. Translators: Left/Right/Up/Down arrows actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; moves highlight
-#: src/help-overlay.ui:37
-msgctxt "shortcut window"
-msgid "Move keyboard highlight"
-msgstr "移动键盘突出显示"
-
-#. Translators: Return/space actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depend on context
-#: src/help-overlay.ui:45
-msgctxt "shortcut window"
-msgid "Select, move or unselect"
-msgstr "选择、移动或取消选择"
-
-#. Translators: numbers (1 to 6) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use 1 to 2 or up to 1 to 6
-#: src/help-overlay.ui:53
-msgctxt "shortcut window"
-msgid "Select the given row"
-msgstr "选择给定行"
-
-#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is split in two parts, that is for the left one
-#: src/help-overlay.ui:61
-msgctxt "shortcut window"
-msgid "Select left half-board column"
-msgstr "选择左半面棋盘的列"
-
-#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is split in two parts, that is for the right one
-#: src/help-overlay.ui:69
-msgctxt "shortcut window"
-msgid "Select right half-board column"
-msgstr "选择右半面棋盘的列"
-
-#. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
-#: src/help-overlay.ui:78
-msgctxt "shortcut window"
-msgid "Validate right half-board"
-msgstr "验证右半面棋盘"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
-#: src/help-overlay.ui:87
-msgctxt "shortcut window"
-msgid "History"
-msgstr "历史"
-
-#. Translators: Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, undoes last move
-#: src/help-overlay.ui:93
-msgctxt "shortcut window"
-msgid "Undo"
-msgstr "撤消"
-
-#. Translators: Shift-Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, redoes undone move
-#: src/help-overlay.ui:101
-msgctxt "shortcut window"
-msgid "Redo"
-msgstr "重做"
-
-#. Translators: Shift-Ctrl-R shortcut description in the Keyboard Shortcuts dialog, section History; undoes all the moves
-#: src/help-overlay.ui:109
-msgctxt "shortcut window"
-msgid "Reload initial position"
-msgstr "重现加载初始位置"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"...
-#: src/help-overlay.ui:118
-msgctxt "shortcut window"
-msgid "Main functions"
-msgstr "主功能"
-
-#. Translators: Ctrl-N shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:124
-msgctxt "shortcut window"
-msgid "Start a new game"
-msgstr "开始新游戏"
-
-#. Translators: Ctrl-P shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:132
-msgctxt "shortcut window"
-msgid "Pause the game"
-msgstr "暂停游戏"
-
-#. Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:140
-msgctxt "shortcut window"
-msgid "Solve the game"
-msgstr "解决游戏"
-
-#. Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:148
-msgctxt "shortcut window"
-msgid "Show scores"
-msgstr "显示得分"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Show Help", "Show Keyboard Shortcuts", "Quit"...
-#: src/help-overlay.ui:157
-msgctxt "shortcut window"
-msgid "Generic"
-msgstr "通用"
-
-#. Translators: F10 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows menu
-#: src/help-overlay.ui:163
-msgctxt "shortcut window"
-msgid "Toggle main menu"
-msgstr "切换主菜单"
-
-#. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
-#: src/help-overlay.ui:171
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "显示键盘快捷键"
-
-#. Translators: F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows application help
-#: src/help-overlay.ui:179
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "显示帮助"
-
-#. Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog
-#: src/help-overlay.ui:187
-msgctxt "shortcut window"
-msgid "Show About"
-msgstr "显示关于"
-
-#. Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application
-#: src/help-overlay.ui:195
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "退出"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note...
-#: src/help-overlay.ui:204
-msgctxt "shortcut window"
-msgid "Advanced gameplay"
-msgstr "高级游戏"
-
-#. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:210
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board up by one"
-msgstr "把左半面棋盘上的所有块向上移动一格"
-
-#. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:218
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board down by one"
-msgstr "把左半面棋盘上的所有块向下移动一格"
-
-#. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:226
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board left by one"
-msgstr "把左半面棋盘上的所有块向左移动一格"
-
-#. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:234
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board right by one"
-msgstr "把左半面棋盘上的所有块向右移动一格"
-
-#. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:242
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board up by one"
-msgstr "把右半面棋盘上的所有块向上移动一格"
-
-#. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:250
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board down by one"
-msgstr "把右半面棋盘上的所有块向下移动一格"
-
-#. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:258
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board left by one"
-msgstr "把右半面棋盘上的所有块向左移动一格"
-
-#. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:266
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board right by one"
-msgstr "把右半面棋盘上的所有块向右移动一格"
+"Weiyi Xu <xuweiyi0923@gmail.com>, 2020\n"
+"lumingzh <lumingzh@qq.com>, 2025"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
-#: src/history.vala:314
+#: src/history.vala:162
 #, c-format
 msgid "%uh %um %us"
 msgstr "%u时 %u分 %u秒"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
-#: src/history.vala:318
+#: src/history.vala:168
 #, c-format
 msgid "%um %us"
 msgstr "%u分 %u秒"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
-#: src/history.vala:322
+#: src/history.vala:172
 #, c-format
 msgid "%us"
 msgstr "%u秒"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
-#: src/history.vala:326
+#: src/history.vala:176
 #, c-format
 msgid "%.0fs"
 msgstr "%.0f秒"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
-#: src/history.vala:330
+#: src/history.vala:180
 #, c-format
 msgid "%.1fs"
 msgstr "%.1f秒"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
-#: src/history.vala:334
+#: src/history.vala:184
 #, c-format
 msgid "%.2fs"
 msgstr "%.2f秒"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
-#: src/history.vala:338
+#: src/history.vala:188
 #, c-format
 msgid "%.3fs"
 msgstr "%.3f秒"
 
-#. Translators: text that appears as an overlay on the board when the game is paused
-#: src/puzzle-view.vala:535
-msgid "Paused"
-msgstr "暂停"
-
 #. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
-#: src/score-dialog.vala:72
+#: src/score-dialog.vala:63
 msgid "Date"
 msgstr "日期"
 
 #. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
-#: src/score-dialog.vala:76
+#: src/score-dialog.vala:67
 msgid "Time"
 msgstr "时间"
 
 #. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
-#: src/score-dialog.vala:145
+#: src/score-dialog.vala:132 src/window.vala:83
 #, c-format
 msgid "%u × %u"
 msgstr "%u × %u"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete
-#: src/score-overlay.ui:37
-msgid "Congratulations!"
-msgstr "恭喜！"
+#: src/window.vala:75
+msgid "Paused"
+msgstr "已暂停"
 
-#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
-#: src/score-overlay.ui:78
-msgid "Show scores"
-msgstr "显示得分"
+#: src/window.vala:77
+msgid "Resume Game"
+msgstr "继续游戏"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the game time
-#: src/score-overlay.vala:57
-msgid "New best time!"
-msgstr "新最快用时！"
+#: src/window.vala:85
+msgid "Pause Game"
+msgstr "暂停游戏"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the second best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the second best time (in a corner case)
-#: src/score-overlay.vala:61 src/score-overlay.vala:117
-#: src/score-overlay.vala:156
-msgid "Second:"
-msgstr "第二："
+#~ msgid "GNOME Tetravex"
+#~ msgstr "GNOME 四邻"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the third best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the third best time (in a corner case)
-#: src/score-overlay.vala:68 src/score-overlay.vala:94
-#: src/score-overlay.vala:121 src/score-overlay.vala:163
-msgid "Third:"
-msgstr "第三："
+#~ msgid "The GNOME Project"
+#~ msgstr "GNOME 项目"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old third best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old third best time
-#: src/score-overlay.vala:75 src/score-overlay.vala:101
-msgid "Out of podium:"
-msgstr "未进入前三名："
+#~ msgid "_Help"
+#~ msgstr "帮助(_H)"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the game best time (in a corner case)
-#: src/score-overlay.vala:86 src/score-overlay.vala:112
-#: src/score-overlay.vala:149
-msgid "Best time:"
-msgstr "最快用时："
+#~ msgid "Game size and colors number can only be given for new puzzles."
+#~ msgstr "游戏大小和颜色数量只能设置到新的谜题中。"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the game time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the game time
-#: src/score-overlay.vala:90 src/score-overlay.vala:129
-msgid "Your time:"
-msgstr "您的用时："
+#~ msgid "Cannot move up left-board tiles."
+#~ msgstr "无法向上移动左方块。"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank before the one of the game played
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank after the one of the game played
-#: src/score-overlay.vala:125 src/score-overlay.vala:133
+#~ msgid "Cannot move down left-board tiles."
+#~ msgstr "无法向下移动左方块。"
+
+#~ msgid "Cannot move left left-board tiles."
+#~ msgstr "无法向左移动左方块。"
+
+#~ msgid "Cannot move right left-board tiles."
+#~ msgstr "无法向右移动左方块。"
+
+#~ msgid "Cannot move up right-board tiles."
+#~ msgstr "无法向上移动右方块。"
+
+#~ msgid "Cannot move down right-board tiles."
+#~ msgstr "无法向下移动右方块。"
+
+#~ msgid "Cannot move left right-board tiles."
+#~ msgstr "无法向左移动右方块。"
+
+#~ msgid "Cannot move right right-board tiles."
+#~ msgstr "无法向右移动右方块。"
+
+#~ msgid ""
+#~ "Cannot finish automatically. If you want to give up and view the "
+#~ "solution, use “solve”."
+#~ msgstr "无法自动完成。如果您想放弃并查看解决方案，请使用“求解”。"
+
+#~ msgid "Cannot parse instruction, aborting."
+#~ msgstr "无法解析指令，正在中止。"
+
+#~ msgid "Both given tiles are empty, aborting."
+#~ msgstr "两个给定的方块都是空的，正在中止。"
+
+#~ msgid "Cannot swap the given tiles, aborting."
+#~ msgstr "无法交换给定的方块，正在中止。"
+
+#~ msgid "Puzzle is already solved! If you want to start a new one, use “new”."
+#~ msgstr "谜题已经解决了！如果你想开始一个新的游戏，点击“新游戏”。"
+
+#~ msgid "Puzzle is solved! If you want to start a new one, use “new”."
+#~ msgstr "谜题已经解决了！如果你想开始一个新的游戏，点击“新游戏”。"
+
+#~ msgid "Puzzle is solved!"
+#~ msgstr "已解决谜题！"
+
+#~ msgid "(nothing)"
+#~ msgstr "（空）"
+
+#~ msgid "Invert two tiles, the one in A1, and the one in b2."
+#~ msgstr "反转两个方块，一块在 A1 中，一块在 b2 中。"
+
+#~ msgid "An uppercase targets a tile from the initial board."
+#~ msgstr "大写字母的目标是来自初始板的方块。"
+
+#~ msgid "A lowercase targets a tile in the left/final board."
+#~ msgstr "小写字母的目标是左/最后一块板中的方块。"
+
+#~ msgid "Digits specify the rows of the two tiles to invert."
+#~ msgstr "数字指定要反转的两个方块的行。"
+
+#~ msgid "Show the current puzzle. Alias: “status” or “show”."
+#~ msgstr "显示当前的方块。别名：“状态”或“显示”。"
+
+#~ msgid "Create a new puzzle; for changing size, use --size."
+#~ msgstr "创建一个新的方块；要更改大小，请使用--size。"
+
+#~ msgid "Give up with current puzzle, and view the solution."
+#~ msgstr "放弃当前谜题并查看解法."
+
+#~ msgid "Finish current puzzle, automatically. Alias: “end”."
+#~ msgstr "自动完成当前的拼图。别名：“结束”。"
+
+#~ msgid "Works for puzzles solved right or if one tile left."
+#~ msgstr "适用于右侧或左侧的方块。"
+
+#~ msgid "Move all left-board tiles up by one."
+#~ msgstr "将所有左边的方块向上移动一块。"
+
+#~ msgid "Move all left-board tiles down by one."
+#~ msgstr "将所有左边的方块向下移动一块。"
+
+#~ msgid "Move all left-board tiles left by one."
+#~ msgstr "将所有左边的方块向左移动一块。"
+
+#~ msgid "Move all left-board tiles right by one."
+#~ msgstr "将所有左边的方块向右移动一块。"
+
+#~ msgid "Move all right-board tiles up by one."
+#~ msgstr "将所有右边的方块向上移动一块。"
+
+#~ msgid "Move all right-board tiles down by one."
+#~ msgstr "将所有右边的方块向下移动一块。"
+
+#~ msgid "Move all right-board tiles left by one."
+#~ msgstr "将所有右边的方块向左移动一块。"
+
+#~ msgid "Move all right-board tiles right by one."
+#~ msgstr "将所有右边的方块向右移动一块。"
+
+#~ msgid "[COMMAND]"
+#~ msgstr "[命令]"
+
+#~ msgid "Available commands:"
+#~ msgstr "可用的命令："
+
+#~ msgid "Failed to parse command-line arguments."
+#~ msgstr "无法解析命令行参数。"
+
+#~ msgid "To use `gnome-tetravex-cli`, pass as argument:"
+#~ msgstr "要使用“gnome tetravex cli”，请作为参数传递："
+
+#~ msgid "Play in the terminal (see “--cli=help”)"
+#~ msgstr "在终端中运行（请参见“--cli=help”）"
+
+#~ msgid "COMMAND"
+#~ msgstr "命令"
+
+#~ msgid "Restore last game, if any"
+#~ msgstr "恢复上一场游戏，如果有的话"
+
+#~ msgid "To play GNOME Tetravex in command-line:"
+#~ msgstr "要在命令行中玩 GNOME 四邻："
+
+#~ msgid "Restore last game"
+#~ msgstr "恢复上一个游戏"
+
+#~ msgid "Start a new game"
+#~ msgstr "开始新游戏"
+
+#~ msgid "Give up and view the solution"
+#~ msgstr "放弃并查看解法"
+
 #, c-format
-msgid "Place %u:"
-msgstr "位次 %u："
+#~ msgid "Are you sure you want to start a new %u × %u game?"
+#~ msgstr "确定要开始新的 %u×%u 游戏吗？"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the worst time (in a corner case)
-#: src/score-overlay.vala:172
-msgid "Worst time:"
-msgstr "最慢用时："
+#~ msgid "_Start New Game"
+#~ msgstr "开始新游戏(_S)"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the fourth time (in a corner case)
-#: src/score-overlay.vala:178
-msgid "Fourth:"
-msgstr "第四："
+#~ msgid ""
+#~ "Looks like you haven’t finished a game yet.\n"
+#~ "\n"
+#~ "Maybe try a 2 × 2 grid, they are easy. 🙂️"
+#~ msgstr ""
+#~ "看来你还没完成一场比赛。\n"
+#~ "\n"
+#~ "也许试试 2×2 网格，它们很简单。🙂️"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made one of the worst scores for a game of this size; says that the rank after the one of the game is "free", inviting to do worse
-#: src/score-overlay.vala:205
-msgid "Free!"
-msgstr "请便！"
+#~ msgid "Are you sure you want to give up and view the solution?"
+#~ msgstr "您确定想要放弃并查看解法？"
+
+#~ msgid "Lars Rydlinge"
+#~ msgstr "Lars Rydlinge"
+
+#~ msgid "Robert Ancell"
+#~ msgstr "Robert Ancell"
+
+#~ msgid "Rob Bradford"
+#~ msgstr "Rob Bradford"
+
+#~ msgid "Position pieces so that the same numbers are touching each other"
+#~ msgstr "放置方块使相同数字相邻"
+
+#, c-format
+#~ msgid "Copyright © %u-%u – Lars Rydlinge"
+#~ msgstr "Copyright © %u-%u – Lars Rydlinge"
+
+#, c-format
+#~ msgid "Copyright © %u-%u – Arnaud Bonatti"
+#~ msgstr "Copyright © %u-%u – Arnaud Bonatti"
+
+#~ msgid "Page on GNOME wiki"
+#~ msgstr "GNOME wiki 上的页面"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Play with keyboard"
+#~ msgstr "使用键盘开始游戏"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move keyboard highlight"
+#~ msgstr "移动键盘突出显示"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Validate right half-board"
+#~ msgstr "验证右半面棋盘"
+
+#~ msgctxt "shortcut window"
+#~ msgid "History"
+#~ msgstr "历史"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Reload initial position"
+#~ msgstr "重现加载初始位置"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Main functions"
+#~ msgstr "主功能"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Start a new game"
+#~ msgstr "开始新游戏"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Pause the game"
+#~ msgstr "暂停游戏"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Solve the game"
+#~ msgstr "解决游戏"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show scores"
+#~ msgstr "显示得分"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Help"
+#~ msgstr "显示帮助"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show About"
+#~ msgstr "显示关于"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Advanced gameplay"
+#~ msgstr "高级游戏"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the left half-board up by one"
+#~ msgstr "把左半面棋盘上的所有块向上移动一格"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the left half-board down by one"
+#~ msgstr "把左半面棋盘上的所有块向下移动一格"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the left half-board left by one"
+#~ msgstr "把左半面棋盘上的所有块向左移动一格"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the left half-board right by one"
+#~ msgstr "把左半面棋盘上的所有块向右移动一格"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the right half-board up by one"
+#~ msgstr "把右半面棋盘上的所有块向上移动一格"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the right half-board down by one"
+#~ msgstr "把右半面棋盘上的所有块向下移动一格"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the right half-board left by one"
+#~ msgstr "把右半面棋盘上的所有块向左移动一格"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the right half-board right by one"
+#~ msgstr "把右半面棋盘上的所有块向右移动一格"
+
+#~ msgid "Congratulations!"
+#~ msgstr "恭喜！"
+
+#~ msgid "Show scores"
+#~ msgstr "显示得分"
+
+#~ msgid "New best time!"
+#~ msgstr "新最快用时！"
+
+#~ msgid "Second:"
+#~ msgstr "第二："
+
+#~ msgid "Third:"
+#~ msgstr "第三："
+
+#~ msgid "Out of podium:"
+#~ msgstr "未进入前三名："
+
+#~ msgid "Best time:"
+#~ msgstr "最快用时："
+
+#~ msgid "Your time:"
+#~ msgstr "您的用时："
+
+#, c-format
+#~ msgid "Place %u:"
+#~ msgstr "位次 %u："
+
+#~ msgid "Worst time:"
+#~ msgstr "最慢用时："
+
+#~ msgid "Fourth:"
+#~ msgstr "第四："
+
+#~ msgid "Free!"
+#~ msgstr "请便！"
 
 #~ msgid "_Size"
 #~ msgstr "大小(_S)"
@@ -991,9 +931,6 @@ msgstr "请便！"
 
 #~ msgid "_Quit"
 #~ msgstr "退出(_Q)"
-
-#~ msgid "New Game"
-#~ msgstr "新游戏"
 
 #~ msgid "OK"
 #~ msgstr "确认"
