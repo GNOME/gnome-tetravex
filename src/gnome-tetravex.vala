@@ -19,8 +19,6 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-using Gtk;
-
 private class Tetravex : Adw.Application
 {
     /* Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog */
@@ -183,7 +181,7 @@ private class Tetravex : Adw.Application
         history = new History (history_path);
 
         view = new PuzzleView ();
-        view_click_controller = new GestureClick ();
+        view_click_controller = new Gtk.GestureClick ();
         view_click_controller.set_button (/* all buttons */ 0);
         view_click_controller.released.connect (on_release_on_view);
         view.add_controller (view_click_controller);
@@ -201,9 +199,9 @@ private class Tetravex : Adw.Application
         settings.bind ("window-height", active_window, "default-height", SettingsBindFlags.DEFAULT);
         settings.bind ("window-is-maximized", active_window, "maximized", SettingsBindFlags.DEFAULT);
 
-        key_controller = new EventControllerKey ();
+        key_controller = new Gtk.EventControllerKey ();
         key_controller.key_pressed.connect (on_key_pressed);
-        ((Widget) active_window).add_controller (key_controller);
+        ((Gtk.Widget) active_window).add_controller (key_controller);
 
         if (game_size != int.MIN)
             settings.set_int ("grid-size", game_size);
@@ -489,8 +487,8 @@ private class Tetravex : Adw.Application
         puzzle.paused = !puzzle.paused;
     }
 
-    private EventControllerKey key_controller;    // for keeping in memory
-    private inline bool on_key_pressed (EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
+    private Gtk.EventControllerKey key_controller;    // for keeping in memory
+    private inline bool on_key_pressed (Gtk.EventControllerKey _key_controller, uint keyval, uint keycode, Gdk.ModifierType state)
     {
         string name = (!) (Gdk.keyval_name (keyval) ?? "");
 
@@ -510,8 +508,8 @@ private class Tetravex : Adw.Application
         return false;
     }
 
-    private GestureClick view_click_controller;
-    private inline void on_release_on_view (GestureClick _view_click_controller, int n_press, double event_x, double event_y)
+    private Gtk.GestureClick view_click_controller;
+    private inline void on_release_on_view (Gtk.GestureClick _view_click_controller, int n_press, double event_x, double event_y)
     {
         /* Cancel pause on click */
         if (puzzle.paused)

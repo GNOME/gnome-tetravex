@@ -19,16 +19,14 @@
    with this GNOME Tetravex.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-using Gtk;
-
-public class ScoreDialog : Dialog
+public class ScoreDialog : Gtk.Dialog
 {
     private History history;
     private HistoryEntry? selected_entry;
     private Gtk.ListStore size_model;
     private Gtk.ListStore score_model;
-    private ComboBox size_combo;
-    private TreeView scores;
+    private Gtk.ComboBox size_combo;
+    private Gtk.TreeView scores;
 
     public ScoreDialog (History history, uint8 size, HistoryEntry? selected_entry = null)
     {
@@ -44,28 +42,28 @@ public class ScoreDialog : Dialog
 
         size_model = new Gtk.ListStore (2, typeof (string), typeof (int));
 
-        size_combo = new ComboBox ();
+        size_combo = new Gtk.ComboBox ();
         size_combo.changed.connect (size_changed_cb);
         size_combo.model = size_model;
-        CellRendererText renderer = new CellRendererText ();
+        Gtk.CellRendererText renderer = new Gtk.CellRendererText ();
         size_combo.pack_start (renderer, true);
         size_combo.add_attribute (renderer, "text", 0);
         size_combo.width_request = 90;
-        ((HeaderBar) get_header_bar ()).set_title_widget (size_combo);
+        ((Gtk.HeaderBar) get_header_bar ()).set_title_widget (size_combo);
 
-        ScrolledWindow scroll = new ScrolledWindow ();
-        scroll.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
+        Gtk.ScrolledWindow scroll = new Gtk.ScrolledWindow ();
+        scroll.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
 
-        Box content_area = get_content_area ();
+        Gtk.Box content_area = get_content_area ();
         content_area.append (scroll);
 
         score_model = new Gtk.ListStore (3, typeof (string), typeof (string), typeof (int));
 
-        scores = new TreeView ();
-        renderer = new CellRendererText ();
+        scores = new Gtk.TreeView ();
+        renderer = new Gtk.CellRendererText ();
         /* Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played */
         scores.insert_column_with_attributes (-1, _("Date"), renderer, "text", 0, "weight", 2);
-        renderer = new CellRendererText ();
+        renderer = new Gtk.CellRendererText ();
         renderer.xalign = 1.0f;
         /* Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games */
         scores.insert_column_with_attributes (-1, _("Time"), renderer, "text", 1, "weight", 2);
@@ -79,7 +77,7 @@ public class ScoreDialog : Dialog
         foreach (HistoryEntry entry in history.entries)
             entry_added_cb (entry);
 
-        TreeIter iter;
+        Gtk.TreeIter iter;
         if (get_size_iter (size, out iter))
             size_combo.set_active_iter (iter);
     }
@@ -102,16 +100,16 @@ public class ScoreDialog : Dialog
             if (entry == selected_entry)
                 weight = Pango.Weight.BOLD;
 
-            TreeIter iter;
+            Gtk.TreeIter iter;
             score_model.append (out iter);
             score_model.@set (iter, 0, date_label, 1, time_label, 2, weight);
 
             if (entry == selected_entry)
             {
-                TreeIter piter = iter;
+                Gtk.TreeIter piter = iter;
                 if (score_model.iter_previous (ref piter))
                 {
-                    TreeIter ppiter = piter;
+                    Gtk.TreeIter ppiter = piter;
                     if (score_model.iter_previous (ref ppiter))
                         piter = ppiter;
                 }
@@ -122,9 +120,9 @@ public class ScoreDialog : Dialog
         }
     }
 
-    private void size_changed_cb (ComboBox combo)
+    private void size_changed_cb (Gtk.ComboBox combo)
     {
-        TreeIter iter;
+        Gtk.TreeIter iter;
         if (!combo.get_active_iter (out iter))
             return;
 
@@ -136,7 +134,7 @@ public class ScoreDialog : Dialog
     private void entry_added_cb (HistoryEntry entry)
     {
         /* Ignore if already have an entry for this */
-        TreeIter iter;
+        Gtk.TreeIter iter;
         if (!get_size_iter (entry.size, out iter))
         {
             /* Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3" */
@@ -155,7 +153,7 @@ public class ScoreDialog : Dialog
         }
     }
 
-    private bool get_size_iter (uint8 requested_size, out TreeIter iter)
+    private bool get_size_iter (uint8 requested_size, out Gtk.TreeIter iter)
     {
         if (size_model.get_iter_first (out iter))
         {
