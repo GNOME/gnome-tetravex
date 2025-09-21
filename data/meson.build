@@ -77,7 +77,7 @@ metainfo_file = i18n.merge_file(
     output: '@BASENAME@',
     configuration: metainfo_conf
   ),
-  output: '.metainfo.xml'.format(app_id),
+  output: '@0@.metainfo.xml'.format(app_id),
   install: true,
   install_dir: datadir / 'metainfo',
   po_dir: podir

@@ -573,48 +573,25 @@ private class Tetravex : Adw.Application
 
     private void about_cb ()
     {
-        string [] authors = {
-        /* Translators: text crediting a game author, seen in the About dialog */
-            _("Lars Rydlinge"),
-
-
-        /* Translators: text crediting a game author, seen in the About dialog */
-            _("Robert Ancell")
+        var about_dialog = new Adw.AboutDialog.from_appdata (resource_base_path + "/metainfo.xml", VERSION) {
+            copyright = "Copyright © 1998–2025 Tetravex Contributors",
+            developers = {
+                "Lars Rydlinge",
+                "Robert Ancell",
+                "Thomas H.P. Andersen",
+                "Michael Catanzaro",
+                "Mario Wenzel",
+                "Arnaud Bonatti",
+                "Mathias Bonn"
+            },
+            artists = {
+                "Jakub Steiner"
+            },
+            documenters = {
+                "Rob Bradford"
+            },
+            translator_credits = _("translator-credits"),
         };
-
-        /* Translators: text crediting a game documenter, seen in the About dialog */
-        string [] documenters = { _("Rob Bradford") };
-
-
-        /* Translators: short description of the application, seen in the About dialog */
-        string comments = _("Position pieces so that the same numbers are touching each other");
-
-
-        /* Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end */
-        string copyright = _("Copyright \xc2\xa9 %u-%u – Lars Rydlinge").printf (1999, 2008) + "\n" +
-
-
-        /* Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end */
-                           _("Copyright \xc2\xa9 %u-%u – Arnaud Bonatti").printf (2019, 2020);
-
-
-        /* Translators: about dialog text; label of the website link */
-        string website_label = _("Page on GNOME wiki");
-
-        show_about_dialog (active_window,
-                           "program-name",          PROGRAM_NAME,
-                           "version",               VERSION,
-                           "comments",              comments,
-                           "copyright",             copyright,
-                           "license-type",          License.GPL_2_0,
-                           "wrap-license",          true,
-                           "authors",               authors,
-                           "documenters",           documenters,
-        /* Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally! */
-                           "translator-credits",    _("translator-credits"),
-                           "logo-icon-name",        APP_ID,
-                           "website",               "https://gitlab.gnome.org/GNOME/gnome-tetravex",
-                           "website-label",         website_label,
-                           null);
+        about_dialog.present (active_window);
     }
 }
