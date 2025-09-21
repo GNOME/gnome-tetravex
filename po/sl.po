@@ -10,10 +10,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-08-28 14:55+0000\n"
-"PO-Revision-Date: 2020-08-28 21:38+0200\n"
-"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
+"POT-Creation-Date: 2025-09-21 06:27+0000\n"
+"PO-Revision-Date: 2025-09-21 13:20+0200\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
 "MIME-Version: 1.0\n"
@@ -22,74 +22,43 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: data/org.gnome.Tetravex.appdata.xml.in:7
-msgid "GNOME Tetravex"
-msgstr "GNOME Tetravex"
-
-#: data/org.gnome.Tetravex.appdata.xml.in:8
-msgid "Reorder tiles to fit a square"
-msgstr "Spremenite postavitev ploščic, da zapolnijo polje."
-
-#: data/org.gnome.Tetravex.appdata.xml.in:10
-msgid ""
-"Each square piece has a number on each side. Position the pieces on the left "
-"side of the board so that the same numbers are next to each other. If the "
-"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
-"being timed!"
-msgstr ""
-"Vsaka ploščica ima številko na vsaki strani. Postaviti je treba ploščice na "
-"levo stran igralne plošče, da bo na obeh straneh enaka številka. Če se "
-"števila ne ujemajo, ploščice na mesto ni mogoče postaviti. Igra je časovno "
-"omejena."
-
-#: data/org.gnome.Tetravex.appdata.xml.in:16
-msgid ""
-"You can make the game easier or harder by changing the size of the board."
-msgstr ""
-"Težavnost igre je mogoče prilagoditi s spreminjanjem velikosti igralne "
-"plošče."
-
-#: data/org.gnome.Tetravex.appdata.xml.in:32
-msgid "The GNOME Project"
-msgstr "Projekt GNOME"
-
-#. Translators: application name, as seen in GNOME Shell
 #. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:23
-#: src/gnome-tetravex.vala:27
+#: data/org.gnome.Tetravex.desktop.in.in:2
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:7
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:27 src/gnome-tetravex.vala:27
 msgid "Tetravex"
 msgstr "Tetravex"
 
-#: data/org.gnome.Tetravex.desktop.in:4
+#: data/org.gnome.Tetravex.desktop.in.in:3
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Dokončajte sestavljenko s skladanjem oštevilčenih ploščic"
 
 #. TRANSLATORS: Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
 #. Search terms to find this application.
-#: data/org.gnome.Tetravex.desktop.in:8
+#: data/org.gnome.Tetravex.desktop.in.in:7
 msgid "game;logic;board;"
 msgstr "igra;logika;tabla;plošča;"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
-#: data/org.gnome.Tetravex.gschema.xml:13
+#: data/org.gnome.Tetravex.gschema.xml.in:13
 msgid "The size of the playing grid"
 msgstr "Velikost igralne mreže"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
-#: data/org.gnome.Tetravex.gschema.xml:15
+#: data/org.gnome.Tetravex.gschema.xml.in:15
 msgid "The value of this key is used to decide the size of the playing grid."
 msgstr "Vrednost možnosti določa velikost igralne mreže."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:20
+#: data/org.gnome.Tetravex.gschema.xml.in:20
 msgid "Use “Back” and “Forward” mouse button events"
 msgstr "Uporabi dogodke gumbov miške »Nazaj« in »Naprej«"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:22
+#: data/org.gnome.Tetravex.gschema.xml.in:22
 msgid ""
 "For users which have a mouse with “Forward” and “Back” buttons, this key "
 "will determine if any action is taken inside of the window when either is "
@@ -99,12 +68,12 @@ msgstr ""
 "delovanje gumbov znotraj okna brskalnika, ko je katerikoli pritisnjen."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:28
+#: data/org.gnome.Tetravex.gschema.xml.in:28
 msgid "Mouse button to activate the “Undo” command"
 msgstr "Gumb miške za izvedbo ukaza »Razveljavi«"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:30
+#: data/org.gnome.Tetravex.gschema.xml.in:30
 msgid ""
 "For users which have a mouse with “Forward” and “Back” buttons, this key "
 "will set which button activates the “Undo” command. Possible values range "
@@ -114,12 +83,12 @@ msgstr ""
 "izvedbo ukaza »Razveljavi«. Dovoljene vrednosti so med 6 in 14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:36
+#: data/org.gnome.Tetravex.gschema.xml.in:36
 msgid "Mouse button to activate the “Redo” command"
 msgstr "Gumb miške za izvedbo ukaza »Ponovno uveljavi«"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:38
+#: data/org.gnome.Tetravex.gschema.xml.in:38
 msgid ""
 "For users which have a mouse with “Forward” and “Back” buttons, this key "
 "will set which button activates the “Redo” command. Possible values range "
@@ -129,12 +98,12 @@ msgstr ""
 "izvedbo ukaza »Ponovno uveljavi«. Dovoljene vrednosti so med 6 in 14."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
-#: data/org.gnome.Tetravex.gschema.xml:43
+#: data/org.gnome.Tetravex.gschema.xml.in:43
 msgid "Saved game, if any"
 msgstr "Shranjena igra, če je ta na voljo"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) »
-#: data/org.gnome.Tetravex.gschema.xml:45
+#: data/org.gnome.Tetravex.gschema.xml.in:45
 msgid ""
 "The key has value “nothing” if there is no saved game. Else, it contains a "
 "description of the board, with its size, the number of colors, and the time "
@@ -152,518 +121,420 @@ msgstr ""
 "zadnjih zamenjanih ploščic in ID poteze)."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
-#: data/org.gnome.Tetravex.gschema.xml:50
+#: data/org.gnome.Tetravex.gschema.xml.in:50
 msgid "Theme"
 msgstr "Tema"
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
-#: data/org.gnome.Tetravex.gschema.xml:56
+#: data/org.gnome.Tetravex.gschema.xml.in:56
 msgid "The width of the window"
 msgstr "Širina okna"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
-#: data/org.gnome.Tetravex.gschema.xml:58
+#: data/org.gnome.Tetravex.gschema.xml.in:58
 msgid "The width of the main window in pixels."
 msgstr "Širina okna v točkah."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
-#: data/org.gnome.Tetravex.gschema.xml:63
+#: data/org.gnome.Tetravex.gschema.xml.in:63
 msgid "The height of the window"
 msgstr "Višina okna"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
-#: data/org.gnome.Tetravex.gschema.xml:65
+#: data/org.gnome.Tetravex.gschema.xml.in:65
 msgid "The height of the main window in pixels."
 msgstr "Višina okna v točkah."
 
 #. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
-#: data/org.gnome.Tetravex.gschema.xml:70
+#: data/org.gnome.Tetravex.gschema.xml.in:70
 msgid "A flag to enable maximized mode"
 msgstr "Izbira za prikaz razpetega načina"
 
 #. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
-#: data/org.gnome.Tetravex.gschema.xml:72
+#: data/org.gnome.Tetravex.gschema.xml.in:72
 msgid "If “true”, the main window starts in maximized mode."
 msgstr "Izbrana možnost določa, da bo okno odprto razširjeno."
 
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:8
+msgid "Reorder tiles to fit a square"
+msgstr "Spremenite postavitev ploščic, da zapolnijo polje."
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:10
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
+"being timed!"
+msgstr ""
+"Vsaka ploščica ima številko na vsaki strani. Postaviti je treba ploščice na "
+"levo stran igralne plošče, da bo na obeh straneh enaka številka. Če se "
+"števila ne ujemajo, ploščice na mesto ni mogoče postaviti. Igra je časovno "
+"omejena."
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:16
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"Težavnost igre je mogoče prilagoditi s spreminjanjem velikosti igralne "
+"plošče."
+
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
-#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
-#: src/app-menu.ui:23 src/app-menu.ui:64
+#: data/ui/menu.ui:23
 msgid "_New Game"
 msgstr "_Nova Igra"
 
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: data/ui/menu.ui:28
+msgid "_Scores"
+msgstr "_Točke"
+
 #. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
-#: src/app-menu.ui:28
+#: data/ui/menu.ui:35
 msgid "Si_ze"
 msgstr "_Velikost"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
-#: src/app-menu.ui:32
+#: data/ui/menu.ui:39
 msgid "_2 × 2"
 msgstr "_2 × 2"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
-#: src/app-menu.ui:38
+#: data/ui/menu.ui:45
 msgid "_3 × 3"
 msgstr "_3 × 3"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
-#: src/app-menu.ui:44
+#: data/ui/menu.ui:51
 msgid "_4 × 4"
 msgstr "_4 × 4"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
-#: src/app-menu.ui:50
+#: data/ui/menu.ui:57
 msgid "_5 × 5"
 msgstr "_5 × 5"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
-#: src/app-menu.ui:56
+#: data/ui/menu.ui:63
 msgid "_6 × 6"
 msgstr "_6 × 6"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
-#: src/app-menu.ui:73
-msgid "_Scores"
-msgstr "_Točke"
-
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
-#: src/app-menu.ui:78
+#: data/ui/menu.ui:71
 msgid "A_ppearance"
 msgstr "_Videz"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:82
+#: data/ui/menu.ui:75
 msgid "_Extrusion"
 msgstr "_Extrusion"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:88
+#: data/ui/menu.ui:81
 msgid "Neo_Retro"
 msgstr "Neo_Retro"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
-#: src/app-menu.ui:94
+#: data/ui/menu.ui:87
 msgid "_Nostalgia"
 msgstr "_Nostalgija"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
-#: src/app-menu.ui:100
+#: data/ui/menu.ui:93
 msgid "_Synesthesia"
 msgstr "_Sinestezija"
 
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows Game Rules dialog
+#: data/ui/menu.ui:103
+msgid "Game R_ules"
+msgstr "Pravila i_gre"
+
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
-#: src/app-menu.ui:110
+#: data/ui/menu.ui:108
 msgid "_Keyboard Shortcuts"
 msgstr "_Tipkovne bližnjice"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help
-#: src/app-menu.ui:115
-msgid "_Help"
-msgstr "Pomo_č"
-
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
-#: src/app-menu.ui:120
+#: data/ui/menu.ui:113
 msgid "_About Tetravex"
 msgstr "_O igri"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the change the number of colors or the game size while not specifying a new game; try `gnome-tetravex --cli show --size 3`
-#: src/cli.vala:35
-msgid "Game size and colors number can only be given for new puzzles."
-msgstr ""
-"Velikost igra in številka barv je lahko podana le za nove sestavljanke."
+#: data/ui/rules-dialog.ui:21
+msgid "Game Rules"
+msgstr "Pravila igre"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli up`
-#: src/cli.vala:89
-msgid "Cannot move up left-board tiles."
-msgstr "Ploščic v levem polju ni mogoče pomakniti navzgor."
+#: data/ui/rules-dialog.ui:28
+msgctxt "game rules"
+msgid "Complete the empty board by placing tiles on it"
+msgstr "Zapolnite prazno igralno ploščo s postavljanjem ploščic"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli down`
-#: src/cli.vala:95
-msgid "Cannot move down left-board tiles."
-msgstr "Ploščic v levem polju ni mogoče pomakniti navzdol."
+#: data/ui/rules-dialog.ui:36
+msgctxt "game rules"
+msgid "Tile edge numbers must match with adjacent tiles"
+msgstr "Številke na robovih ploščic se morajo ujemati s sosednjimi ploščicami"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli left`
-#: src/cli.vala:101
-msgid "Cannot move left left-board tiles."
-msgstr "Ploščic v levem polju ni mogoče pomakniti levo."
+#: data/ui/rules-dialog.ui:46
+msgctxt "game rules"
+msgid "Rounds are scored based on completion time"
+msgstr "Krogi se točkujejo glede na čas dokončanja"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli right`
-#: src/cli.vala:107
-msgid "Cannot move right left-board tiles."
-msgstr "Ploščic v levem polju ni mogoče pomakniti desno."
+#: data/ui/rules-dialog.ui:56
+msgctxt "game rules"
+msgid "You can pause the game"
+msgstr "Igro lahko zaustavite"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-up`
-#: src/cli.vala:113
-msgid "Cannot move up right-board tiles."
-msgstr "Ploščic v desnem polju ni mogoče pomakniti navzgor."
+#: data/ui/rules-dialog.ui:57
+msgctxt "game rules"
+msgid "Tile faces will be hidden"
+msgstr "Obrazi ploščic bodo skriti"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-down`
-#: src/cli.vala:118
-msgid "Cannot move down right-board tiles."
-msgstr "Ploščic v desnem polju ni mogoče pomakniti navzdol."
+#: data/ui/rules-dialog.ui:67
+msgctxt "game rules"
+msgid "You can undo or redo a move"
+msgstr "Potezo lahko razveljavite ali ponovite"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-left`
-#: src/cli.vala:123
-msgid "Cannot move left right-board tiles."
-msgstr "Ploščic v desnem polju ni mogoče pomakniti levo."
+#: data/ui/rules-dialog.ui:68
+msgctxt "game rules"
+msgid "No time penalty is added"
+msgstr "Časovna kazen se ne prišteje"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-right`
-#: src/cli.vala:128
-msgid "Cannot move right right-board tiles."
-msgstr "Ploščic v desnem polju ni mogoče pomakniti desno."
+#: data/ui/shortcuts-dialog.ui:24
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Igra"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “finish” command while the saved puzzle cannot be automatically finished; try `gnome-tetravex --cli new; gnome-tetravex --cli finish`
-#: src/cli.vala:145
-msgid ""
-"Cannot finish automatically. If you want to give up and view the solution, "
-"use “solve”."
-msgstr ""
-"Igre ni mogoče zaključiti samodejno. Če želite prepustiti igro in pogledati "
-"rezultat, izberite možnost »Razreši«?"
+#: data/ui/shortcuts-dialog.ui:28
+msgctxt "shortcut window"
+msgid "New Game"
+msgstr "Nova igra"
 
-#. Translators: command-line error message, displayed if the string is not a known command nor a valid move instruction; try `gnome-tetravex --cli new; gnome-tetravex --cli A2838I8U`
-#: src/cli.vala:174
-msgid "Cannot parse instruction, aborting."
-msgstr "Navodil ni mogoče razčleniti. Opravilo bo preklicano."
+#: data/ui/shortcuts-dialog.ui:34
+msgctxt "shortcut window"
+msgid "Pause Game"
+msgstr "Premor v igri"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to invert two empty tiles
-#: src/cli.vala:181
-msgid "Both given tiles are empty, aborting."
-msgstr "Obe podani ploščici sta prazni. Opravilo bo preklicano."
+#: data/ui/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "Razveljavi"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to do an invalid move
-#: src/cli.vala:187
-msgid "Cannot swap the given tiles, aborting."
-msgstr "Ni mogoče zamenjati podanih ploščic. Opravilo bo preklicano."
+#: data/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "Ponovno uveljavi"
 
-#. Translators: command-line error message, displayed if the user tries to solve the puzzle using CLI (with the “solve” or “finish” commands), while the puzzle is already solved
-#: src/cli.vala:230
-msgid "Puzzle is already solved! If you want to start a new one, use “new”."
-msgstr ""
-"Sestavljanka je že razrešena. Če želite začeti z novo igro, uporabite ukaz "
-"»new«."
+#: data/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Reset Board"
+msgstr "Ponastavi ploščo"
 
-#. Translators: command-line error message, displayed if the user tries to do a move using CLI, while the puzzle is solved
-#: src/cli.vala:233
-msgid "Puzzle is solved! If you want to start a new one, use “new”."
-msgstr ""
-"Sestavljanka je razrešena. Če želite začeti z novo igro, uporabite ukaz "
-"»new«."
+#: data/ui/shortcuts-dialog.ui:58
+msgctxt "shortcut window"
+msgid "Reveal Solution"
+msgstr "Razkrije rešitev"
 
-#. Translators: command-line message, displayed when playing Tetravex in CLI under the board, if the puzzle was solved
-#: src/cli.vala:278
-msgid "Puzzle is solved!"
-msgstr "Sestavljanka je razrešena!"
+#: data/ui/shortcuts-dialog.ui:65
+msgctxt "shortcut window"
+msgid "Tile Selection"
+msgstr "Izbor ploščic"
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explanation of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
-#: src/gnome-tetravex-cli.vala:24
-msgid "(nothing)"
-msgstr "(prazno polje)"
+#: data/ui/shortcuts-dialog.ui:68
+msgctxt "shortcut window"
+msgid "Move Tile Focus"
+msgstr "Premakne pozornost med ploščicami"
 
-#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#: data/ui/shortcuts-dialog.ui:74
+msgctxt "shortcut window"
+msgid "Select / Move / Unselect Tile"
+msgstr "Izbere, premakne oziroma odstrani izbiro ploščice"
+
+#: data/ui/shortcuts-dialog.ui:80
+msgctxt "shortcut window"
+msgid "Select Row"
+msgstr "Izbere vrstico"
+
+#: data/ui/shortcuts-dialog.ui:86
+msgctxt "shortcut window"
+msgid "Select Left-Side Column"
+msgstr "Izbere stolpec levo"
+
+#: data/ui/shortcuts-dialog.ui:92
+msgctxt "shortcut window"
+msgid "Select Right-Side Column"
+msgstr "Izbere stolpec desno"
+
+#: data/ui/shortcuts-dialog.ui:99
+msgctxt "shortcut window"
+msgid "Finish Right-Side Board"
+msgstr "Končna desno stransko ploščo"
+
+#: data/ui/shortcuts-dialog.ui:106
+msgctxt "shortcut window"
+msgid "Tile Shifting"
+msgstr "Zamikanje ploščic"
+
+#: data/ui/shortcuts-dialog.ui:110
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Up"
+msgstr "Zamakne ploščice na levi navzgor"
+
+#: data/ui/shortcuts-dialog.ui:116
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Down"
+msgstr "Zamakne ploščice na levi navzdol"
+
+#: data/ui/shortcuts-dialog.ui:122
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Left"
+msgstr "Zamakne ploščice na levi levo"
+
+#: data/ui/shortcuts-dialog.ui:128
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Right"
+msgstr "Zamakne ploščice na levi desno"
+
+#: data/ui/shortcuts-dialog.ui:138
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Up"
+msgstr "Zamakne ploščice na desni navzgor"
+
+#: data/ui/shortcuts-dialog.ui:144
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Down"
+msgstr "Zamakne ploščice na desni navzdol"
+
+#: data/ui/shortcuts-dialog.ui:150
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Left"
+msgstr "Zamakne ploščice na desni levo"
+
+#: data/ui/shortcuts-dialog.ui:156
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Right"
+msgstr "Zamakne ploščice na desni desno"
+
+#: data/ui/shortcuts-dialog.ui:163
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Splošno"
+
+#: data/ui/shortcuts-dialog.ui:167
+msgctxt "shortcut window"
+msgid "Game Rules"
+msgstr "Pravila igre"
+
+#: data/ui/shortcuts-dialog.ui:173
+msgctxt "shortcut window"
+msgid "Show Main Menu"
+msgstr "Pokaže glavni meni"
+
+#: data/ui/shortcuts-dialog.ui:179
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Pokaži tipkovne bližnjice"
+
+#: data/ui/shortcuts-dialog.ui:185
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "Zapre okno"
+
+#: data/ui/shortcuts-dialog.ui:191
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Končaj"
+
+#: data/ui/window.ui:37
+msgid "Undo"
+msgstr "Razveljavi"
+
+#: data/ui/window.ui:44
+msgid "Redo"
+msgstr "Ponovi"
+
+#: data/ui/window.ui:51
+msgid "Main Menu"
+msgstr "Glavni meni"
+
+#: data/ui/window.ui:69
+msgid "Reveal Solution"
+msgstr "Razkrij rešitev"
+
+#: data/ui/window.ui:81
+msgid "New Game"
+msgstr "Nova igra"
+
+#: data/ui/window.ui:93
+msgid "Move Tiles Left"
+msgstr "Premakni ploščice levo"
+
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:78
+#: src/gnome-tetravex.vala:50
 msgid "Set number of colors (2-10)"
 msgstr "Nastavitev števila barv (2-10)"
 
-#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex-cli --help'
 #. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:81
+#: src/gnome-tetravex.vala:53
 msgid "NUMBER"
 msgstr "ŠTEVILKA"
 
-#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:90
-msgid "Set size of board (2-6)"
-msgstr "Velikost igralne plošče (2-6)"
-
-#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex-cli --help'
-#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:93
-msgid "SIZE"
-msgstr "VELIKOST"
-
-#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:96
-msgid "Print release version and exit"
-msgstr "Izpiši različico programa in končaj"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
-#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:200
-msgid "Invert two tiles, the one in A1, and the one in b2."
-msgstr "Obrni dve ploščici, eno v A1 in eno in b2."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
-#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:203
-msgid "An uppercase targets a tile from the initial board."
-msgstr "Velika črka določa zamenjavo ploščice na začetni postavitvi."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:206
-msgid "A lowercase targets a tile in the left/final board."
-msgstr "Mala črka določa  zamenjavo ploščice na levi, končni postavitvi."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
-#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:209
-msgid "Digits specify the rows of the two tiles to invert."
-msgstr "Številke določajo vrstice dveh ploščic za preobrnitev."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
-#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:212
-msgid "Show the current puzzle. Alias: “status” or “show”."
-msgstr "Pokaži trenutno sestavljanko. Ukaza »status« in »show«."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
-#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:215
-msgid "Create a new puzzle; for changing size, use --size."
-msgstr ""
-"Ustvari novo sestaljanko. Za spreminjanje velikosti je treba uporabiti "
-"zastavico --size."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
-#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:218
-msgid "Give up with current puzzle, and view the solution."
-msgstr "Odstopi od trenutne igre in si oglejte rešitev."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands
-#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:221
-msgid "Finish current puzzle, automatically. Alias: “end”."
-msgstr "Zaključi trenutno sestavljanko samodejno. Ukaz »end«."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:224
-msgid "Works for puzzles solved right or if one tile left."
-msgstr ""
-"Deluje za sestavljanke, ki so razrešene oziroma je preostalo le eno polje."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command
-#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:227
-msgid "Move all left-board tiles up by one."
-msgstr "Premakni vse ploščice v levem polju za eno mesto navzgor."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command
-#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:230
-msgid "Move all left-board tiles down by one."
-msgstr "Premakni vse ploščice v levem polju za eno mesto navzdol."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command
-#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:233
-msgid "Move all left-board tiles left by one."
-msgstr "Premakni vse ploščice v levem polju za eno mesto v levo."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command
-#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:236
-msgid "Move all left-board tiles right by one."
-msgstr "Premakni vse ploščice v levem polju za eno mesto v desno."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
-#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:239
-msgid "Move all right-board tiles up by one."
-msgstr "Premakni vse ploščice v desnem polju za eno mesto navzgor."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
-#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:242
-msgid "Move all right-board tiles down by one."
-msgstr "Premakni vse ploščice v desnem polju za eno mesto navzdol."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command
-#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:245
-msgid "Move all right-board tiles left by one."
-msgstr "Premakni vse ploščice v desnem polju za eno mesto levo."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command
-#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:248
-msgid "Move all right-board tiles right by one."
-msgstr "Premakni vse ploščice v desnem polju za eno mesto v desno."
-
-#. Translators: command-line message, seen when running `gnome-tetravex-cli --help`
-#: src/gnome-tetravex-cli.vala:138
-msgid "[COMMAND]"
-msgstr "[UKAZ]"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli --help`; introduction of a list of options
-#: src/gnome-tetravex-cli.vala:141
-msgid "Available commands:"
-msgstr "Razpoložljivi ukazi:"
-
-#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1'
-#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
-#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:173
-msgid "Size could only be from 2 to 6."
-msgstr "Velikost plošče je lahko le med 2 in 6."
-
-#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1'
-#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
-#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:180
-msgid "There could only be between 2 and 10 colors."
-msgstr "Razčlenjevanje argumentov ukazne vrstice je spodletelo."
-
-#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2'
-#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
-#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:187
-msgid "Failed to parse command-line arguments."
-msgstr "Razčlenjevanje argumentov ukazne vrstice je spodletelo."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options
-#: src/gnome-tetravex-cli.vala:182
-msgid "To use `gnome-tetravex-cli`, pass as argument:"
-msgstr ""
-"Za igranje v terminalnem oknu z ukazom »gnome-tetravex-cli« je treba "
-"vključiti argument:"
-
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:72
-msgid "Play in the terminal (see “--cli=help”)"
-msgstr "Igraj v terminalu (več z ukazom »--cli=help«)"
-
-#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:75
-msgid "COMMAND"
-msgstr "UKAZ"
-
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:84
+#: src/gnome-tetravex.vala:56
 msgid "Start the game paused"
 msgstr "Nadaljevanje prekinjene igre"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:87
-msgid "Restore last game, if any"
-msgstr "Obnovi zadnjo igro, če ta obstaja"
+#: src/gnome-tetravex.vala:59
+msgid "Set size of board (2-6)"
+msgstr "Velikost igralne plošče (2-6)"
 
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
-#: src/gnome-tetravex.vala:197
-msgid "To play GNOME Tetravex in command-line:"
-msgstr "Za igranje igre Tetravex GNOME prek ukazne vrstice:"
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:62
+msgid "SIZE"
+msgstr "VELIKOST"
 
-#. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
-#: src/gnome-tetravex.vala:365
-msgid "Restore last game"
-msgstr "Obnovi zadnjo igro"
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:65
+msgid "Print release version and exit"
+msgstr "Izpiši različico programa in končaj"
 
-#. not a typo
-#. Translators: tooltip text of the "play"/unpause button, in the bottom bar
-#: src/gnome-tetravex.vala:419
-msgid "Resume the game"
-msgstr "Nadaljuj z igro"
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
+#: src/gnome-tetravex.vala:130
+msgid "Size could only be from 2 to 6."
+msgstr "Velikost plošče je lahko le med 2 in 6."
 
-#. Translators: tooltip text of the pause button, in the bottom bar
-#: src/gnome-tetravex.vala:426
-msgid "Pause the game"
-msgstr "Premor igranja"
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
+#: src/gnome-tetravex.vala:137
+msgid "There could only be between 2 and 10 colors."
+msgstr "Razčlenjevanje argumentov ukazne vrstice je spodletelo."
 
-#. Translators: tooltip text of the "restart"/new game button, in the bottom bar
-#: src/gnome-tetravex.vala:439
-msgid "Start a new game"
-msgstr "Začni novo igro"
+#: src/gnome-tetravex.vala:387
+msgid "Reveal Solution?"
+msgstr "Ali želite _razkriti rešitev?"
 
-#. Translators: tooltip text of the "solve"/give up button, in the bottom bar
-#: src/gnome-tetravex.vala:446
-msgid "Give up and view the solution"
-msgstr "Prepustite igro in si oglejte rešitev"
+#: src/gnome-tetravex.vala:388 src/gnome-tetravex.vala:419
+msgid "This will end your current game."
+msgstr "S tem se bo končala vaša trenutna igra."
 
-#. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
-#: src/gnome-tetravex.vala:453
-msgid "Move all tiles left"
-msgstr "Premakni vse ploščice v levo"
-
-#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
-#: src/gnome-tetravex.vala:776
-#, c-format
-msgid "Are you sure you want to start a new %u × %u game?"
-msgstr "Ali ste prepričani, da želite začeti novo igro %u × %u?"
-
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
-#: src/gnome-tetravex.vala:779 src/gnome-tetravex.vala:837
+#: src/gnome-tetravex.vala:392
 msgid "_Keep Playing"
 msgstr "_Nadaljuj igranje"
 
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:782
-msgid "_Start New Game"
-msgstr "_Začni novo igro"
-
-#. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
-#: src/gnome-tetravex.vala:808
-msgid ""
-"Looks like you haven’t finished a game yet.\n"
-"\n"
-"Maybe try a 2 × 2 grid, they are easy. 🙂️"
-msgstr ""
-"Kaže, da še nista končali nobene igre.\n"
-"\n"
-"Najprej poskusite z igro 2 × 2. Te so enostavne. 🙂️"
-
-#. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
-#: src/gnome-tetravex.vala:834
-msgid "Are you sure you want to give up and view the solution?"
-msgstr "Ali ste prepričani, da želite prepustiti igro in pogledati rezultat?"
-
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:840
+#: src/gnome-tetravex.vala:393
 msgid "_Give Up"
 msgstr "_Prepusti igro"
 
-#. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:1021
-msgid "Lars Rydlinge"
-msgstr "Lars Rydlinge"
+#: src/gnome-tetravex.vala:418
+msgid "Change Size?"
+msgstr "Ali želite spremeniti velikost?"
 
-#. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:1025
-msgid "Robert Ancell"
-msgstr "Robert Ancell"
+#: src/gnome-tetravex.vala:423
+msgid "_Cancel"
+msgstr "Pre_kliči"
 
-#. Translators: text crediting a game documenter, seen in the About dialog
-#: src/gnome-tetravex.vala:1029
-msgid "Rob Bradford"
-msgstr "Rob Bradford"
+#: src/gnome-tetravex.vala:424
+msgid "Change _Size"
+msgstr "Spremeni _velikost"
 
-#. Translators: short description of the application, seen in the About dialog
-#: src/gnome-tetravex.vala:1033
-msgid "Position pieces so that the same numbers are touching each other"
-msgstr "Zlaganje ploščic, da se iste številke dotikajo ena druge."
-
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1037
-#, c-format
-msgid "Copyright © %u-%u – Lars Rydlinge"
-msgstr "Avtorske pravice © %u–%u – Lars Rydlinge"
-
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1041
-#, c-format
-msgid "Copyright © %u-%u – Arnaud Bonatti"
-msgstr "Avtorske pravice © %u–%u – Arnaud Bonatti"
-
-#. Translators: about dialog text; label of the website link
-#: src/gnome-tetravex.vala:1045
-msgid "Page on GNOME wiki"
-msgstr "Stran na Gnome Wiki"
-
-#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-tetravex.vala:1057
+#: src/gnome-tetravex.vala:545
 msgid "translator-credits"
 msgstr ""
 "Matej Urbančič <mateju@svn.gnome.org>\n"
@@ -671,412 +542,72 @@ msgstr ""
 "Matej Erman\n"
 "Tadej Janež"
 
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play", "Play on selected tile", "Select the given row", etc.
-#: src/help-overlay.ui:32
-msgctxt "shortcut window"
-msgid "Play with keyboard"
-msgstr "Igranje s tipkovnico"
-
-#. Translators: Left/Right/Up/Down arrows actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; moves highlight
-#: src/help-overlay.ui:37
-msgctxt "shortcut window"
-msgid "Move keyboard highlight"
-msgstr "Premakne poudarjeno polje"
-
-#. Translators: Return/space actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depend on context
-#: src/help-overlay.ui:45
-msgctxt "shortcut window"
-msgid "Select, move or unselect"
-msgstr "Izbere, premakne oziroma odstrani izbiro"
-
-#. Translators: numbers (1 to 6) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use 1 to 2 or up to 1 to 6
-#: src/help-overlay.ui:53
-msgctxt "shortcut window"
-msgid "Select the given row"
-msgstr "Izbere podano vrstico"
-
-#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is split in two parts, that is for the left one
-#: src/help-overlay.ui:61
-msgctxt "shortcut window"
-msgid "Select left half-board column"
-msgstr "Izbere levo polovico stolpca"
-
-#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is split in two parts, that is for the right one
-#: src/help-overlay.ui:69
-msgctxt "shortcut window"
-msgid "Select right half-board column"
-msgstr "Izbere desno polovico stolpca"
-
-#. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
-#: src/help-overlay.ui:78
-msgctxt "shortcut window"
-msgid "Validate right half-board"
-msgstr "Preveri desno polovico plošče"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
-#: src/help-overlay.ui:87
-msgctxt "shortcut window"
-msgid "History"
-msgstr "Zgodovina"
-
-#. Translators: Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, undoes last move
-#: src/help-overlay.ui:93
-msgctxt "shortcut window"
-msgid "Undo"
-msgstr "Razveljavi"
-
-#. Translators: Shift-Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, redoes undone move
-#: src/help-overlay.ui:101
-msgctxt "shortcut window"
-msgid "Redo"
-msgstr "Ponovno uveljavi"
-
-#. Translators: Shift-Ctrl-R shortcut description in the Keyboard Shortcuts dialog, section History; undoes all the moves
-#: src/help-overlay.ui:109
-msgctxt "shortcut window"
-msgid "Reload initial position"
-msgstr "Ponovno naloži začetno postavitev"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"...
-#: src/help-overlay.ui:118
-msgctxt "shortcut window"
-msgid "Main functions"
-msgstr "Osnovne možnosti"
-
-#. Translators: Ctrl-N shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:124
-msgctxt "shortcut window"
-msgid "Start a new game"
-msgstr "Začni novo igro"
-
-#. Translators: Ctrl-P shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:132
-msgctxt "shortcut window"
-msgid "Pause the game"
-msgstr "Premor igranja"
-
-#. Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:140
-msgctxt "shortcut window"
-msgid "Solve the game"
-msgstr "Razreši igro"
-
-#. Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:148
-msgctxt "shortcut window"
-msgid "Show scores"
-msgstr "Pokaže rezultat"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Show Help", "Show Keyboard Shortcuts", "Quit"...
-#: src/help-overlay.ui:157
-msgctxt "shortcut window"
-msgid "Generic"
-msgstr "Splošno"
-
-#. Translators: F10 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows menu
-#: src/help-overlay.ui:163
-msgctxt "shortcut window"
-msgid "Toggle main menu"
-msgstr "Preklopi glavni meni"
-
-#. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
-#: src/help-overlay.ui:171
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "Pokaži tipkovne bližnjice"
-
-#. Translators: F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows application help
-#: src/help-overlay.ui:179
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "Pokaži pomoč"
-
-#. Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog
-#: src/help-overlay.ui:187
-msgctxt "shortcut window"
-msgid "Show About"
-msgstr "Pokaže podatke o programu"
-
-#. Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application
-#: src/help-overlay.ui:195
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Končaj"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note...
-#: src/help-overlay.ui:204
-msgctxt "shortcut window"
-msgid "Advanced gameplay"
-msgstr "Napredno igranje"
-
-#. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:210
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board up by one"
-msgstr "Premakne vse ploščice v levem polju za eno mesto navzgor"
-
-#. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:218
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board down by one"
-msgstr "Premakne vse ploščice v levem polju za eno mesto navzdol"
-
-#. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:226
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board left by one"
-msgstr "Premakne vse ploščice v levem polju za eno mesto v levo"
-
-#. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:234
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board right by one"
-msgstr "Premakne vse ploščice v levem polju za eno mesto v desno"
-
-#. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:242
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board up by one"
-msgstr "Premakne vse ploščice v desnem polju za eno mesto navzgor"
-
-#. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:250
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board down by one"
-msgstr "Premakne vse ploščice v desnem polju za eno mesto navzdol"
-
-#. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:258
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board left by one"
-msgstr "Premakne vse ploščice v desnem polju za eno mesto v levo"
-
-#. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:266
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board right by one"
-msgstr "Premakne vse ploščice v desnem polju za eno mesto v desno"
-
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
-#: src/history.vala:314
+#: src/history.vala:176
 #, c-format
 msgid "%uh %um %us"
 msgstr "%uh %um %us"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
-#: src/history.vala:318
+#: src/history.vala:180
 #, c-format
 msgid "%um %us"
 msgstr "%um %us"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
-#: src/history.vala:322
+#: src/history.vala:184
 #, c-format
 msgid "%us"
 msgstr "%us"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
-#: src/history.vala:326
+#: src/history.vala:188
 #, c-format
 msgid "%.0fs"
 msgstr "%.0fs"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
-#: src/history.vala:330
+#: src/history.vala:192
 #, c-format
 msgid "%.1fs"
 msgstr "%.1fs"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
-#: src/history.vala:334
+#: src/history.vala:196
 #, c-format
 msgid "%.2fs"
 msgstr "%.2fs"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
-#: src/history.vala:338
+#: src/history.vala:200
 #, c-format
 msgid "%.3fs"
 msgstr "%.3fs"
 
-#. Translators: text that appears as an overlay on the board when the game is paused
-#: src/puzzle-view.vala:535
-msgid "Paused"
-msgstr "Premor"
-
 #. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
-#: src/score-dialog.vala:72
+#: src/score-dialog.vala:67
 msgid "Date"
 msgstr "Datum"
 
 #. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
-#: src/score-dialog.vala:76
+#: src/score-dialog.vala:71
 msgid "Time"
 msgstr "Čas"
 
 #. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
-#: src/score-dialog.vala:145
+#: src/score-dialog.vala:143
 #, c-format
 msgid "%u × %u"
 msgstr "%u × %u"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete
-#: src/score-overlay.ui:37
-msgid "Congratulations!"
-msgstr "Čestitke!"
+#: src/window.vala:75
+msgid "Paused"
+msgstr "Premor"
 
-#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
-#: src/score-overlay.ui:78
-msgid "Show scores"
-msgstr "Pokaži rezultat"
+#: src/window.vala:77
+msgid "Resume Game"
+msgstr "Nadaljuj igro"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the game time
-#: src/score-overlay.vala:57
-msgid "New best time!"
-msgstr "Nov najboljši čas!"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the second best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the second best time (in a corner case)
-#: src/score-overlay.vala:61 src/score-overlay.vala:117
-#: src/score-overlay.vala:156
-msgid "Second:"
-msgstr "Drugi:"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the third best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the third best time (in a corner case)
-#: src/score-overlay.vala:68 src/score-overlay.vala:94
-#: src/score-overlay.vala:121 src/score-overlay.vala:163
-msgid "Third:"
-msgstr "Tretji:"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old third best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old third best time
-#: src/score-overlay.vala:75 src/score-overlay.vala:101
-msgid "Out of podium:"
-msgstr "Prepočasi za stopničke:"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the game best time (in a corner case)
-#: src/score-overlay.vala:86 src/score-overlay.vala:112
-#: src/score-overlay.vala:149
-msgid "Best time:"
-msgstr "Najboljši čas:"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the game time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the game time
-#: src/score-overlay.vala:90 src/score-overlay.vala:129
-msgid "Your time:"
-msgstr "Vaš čas:"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank before the one of the game played
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank after the one of the game played
-#: src/score-overlay.vala:125 src/score-overlay.vala:133
-#, c-format
-msgid "Place %u:"
-msgstr "%u. mesto:"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the worst time (in a corner case)
-#: src/score-overlay.vala:172
-msgid "Worst time:"
-msgstr "Najslabši čas:"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the fourth time (in a corner case)
-#: src/score-overlay.vala:178
-msgid "Fourth:"
-msgstr "Četrti:"
-
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made one of the worst scores for a game of this size; says that the rank after the one of the game is "free", inviting to do worse
-#: src/score-overlay.vala:205
-msgid "Free!"
-msgstr "Prosto"
-
-#~ msgid ""
-#~ "Are you sure you want to start a new game with a different board size?"
-#~ msgstr ""
-#~ "Ali ste prepričani, da želite začeti novo igro z drugačno velikostjo "
-#~ "igralne plošče?"
-
-#~ msgid "org.gnome.Tetravex"
-#~ msgstr "org.gnome.Tetravex"
-
-#~ msgid "_2x2"
-#~ msgstr "_2x2"
-
-#~ msgid "_3x3"
-#~ msgstr "_3x3"
-
-#~ msgid "_4x4"
-#~ msgstr "_4x4"
-
-#~ msgid "_5x5"
-#~ msgstr "_5x5"
-
-#~ msgid "_6x6"
-#~ msgstr "_6x6"
-
-#~ msgid "Quit"
-#~ msgstr "Končaj"
-
-#~ msgid "New Game"
-#~ msgstr "Nova igra"
-
-#~ msgid "OK"
-#~ msgstr "V redu"
-
-#~ msgid "Size:"
-#~ msgstr "Velikost:"
-
-#~ msgid "_Size"
-#~ msgstr "_Velikost"
-
-#~ msgid "_Quit"
-#~ msgstr "_Končaj"
-
-#~ msgid "Play _Again"
-#~ msgstr "Igraj _znova"
-
-#~ msgid "_Pause"
-#~ msgstr "_Premor"
-
-#~ msgid "_Resolve"
-#~ msgstr "_Razreši"
-
-#~ msgid "Res_ume"
-#~ msgstr "Na_daljuj"
-
-#~ msgid "GNOME Games web site"
-#~ msgstr "Spletna stran iger GNOME"
-
-#~ msgid "_Move"
-#~ msgstr "_Premakni"
-
-#~ msgid "_Up"
-#~ msgstr "_Gor"
-
-#~ msgid "_Left"
-#~ msgstr "_Levo"
-
-#~ msgid "_Right"
-#~ msgstr "_Desno"
-
-#~ msgid "_Down"
-#~ msgstr "_Dol"
-
-#~ msgid "true if the window is fullscren"
-#~ msgstr "prav, če je okno razpeto čez celoten zaslon"
-
-#~ msgid "_New"
-#~ msgstr "_Nova"
-
-#~ msgid "Solve"
-#~ msgstr "Reši"
-
-#~ msgid "_Fullscreen"
-#~ msgstr "_Celozaslonski način"
-
-#~ msgid "_Leave Fullscreen"
-#~ msgstr "_Zapusti celozaslonski način"
+#: src/window.vala:84
+msgid "Pause Game"
+msgstr "Premor v igri"
