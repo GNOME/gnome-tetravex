@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tetravex\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
-"POT-Creation-Date: 2025-09-21 05:09+0000\n"
-"PO-Revision-Date: 2025-09-21 08:02+0200\n"
+"POT-Creation-Date: 2025-09-22 00:59+0000\n"
+"PO-Revision-Date: 2025-09-22 08:03+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
@@ -18,10 +18,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.7\n"
 
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
 #: data/org.gnome.Tetravex.desktop.in.in:2
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:7
-#: data/org.gnome.Tetravex.metainfo.xml.in.in:27 src/gnome-tetravex.vala:27
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:27 src/gnome-tetravex.vala:89
 msgid "Tetravex"
 msgstr "Tetravex"
 
@@ -34,108 +33,31 @@ msgstr ""
 #. Search terms to find this application.
 #: data/org.gnome.Tetravex.desktop.in.in:7
 msgid "game;logic;board;"
-msgstr ""
+msgstr "game;logic;board;თამაში;ლოგიკა;"
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
-#: data/org.gnome.Tetravex.gschema.xml.in:13
+#: data/org.gnome.Tetravex.gschema.xml.in:12
 msgid "The size of the playing grid"
 msgstr ""
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
-#: data/org.gnome.Tetravex.gschema.xml.in:15
-msgid "The value of this key is used to decide the size of the playing grid."
-msgstr ""
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:20
-msgid "Use “Back” and “Forward” mouse button events"
-msgstr "\"უკან\" და \"წინ\" თაგუნას ღილაკის მოვლენების გამოყენება"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:22
-msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key "
-"will determine if any action is taken inside of the window when either is "
-"pressed."
-msgstr ""
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:28
-msgid "Mouse button to activate the “Undo” command"
-msgstr ""
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:30
-msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key "
-"will set which button activates the “Undo” command. Possible values range "
-"between 6 and 14."
-msgstr ""
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:36
-msgid "Mouse button to activate the “Redo” command"
-msgstr ""
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:38
-msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key "
-"will set which button activates the “Redo” command. Possible values range "
-"between 6 and 14."
-msgstr ""
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
-#: data/org.gnome.Tetravex.gschema.xml.in:43
+#: data/org.gnome.Tetravex.gschema.xml.in:16
 msgid "Saved game, if any"
-msgstr ""
+msgstr "შენახული თამაში, ასეთის არსებობის შემთხვევაში"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) »
-#: data/org.gnome.Tetravex.gschema.xml.in:45
-msgid ""
-"The key has value “nothing” if there is no saved game. Else, it contains a "
-"description of the board, with its size, the number of colors, and the time "
-"elapsed, then the list of tiles, saved as properties: their current position "
-"(x and y), their colors (north, east, south and west), and their original "
-"position (x and y), and finally the history, with the last move index, and "
-"history entries saved as properties: coordinates of the two tiles swapped, "
-"and the move id."
-msgstr ""
+#: data/org.gnome.Tetravex.gschema.xml.in:20
+msgid "The name of the current theme"
+msgstr "მიმდინარე თემის სახელი"
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
-#: data/org.gnome.Tetravex.gschema.xml.in:50
-msgid "Theme"
-msgstr "გაფორმების თემა"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
-#: data/org.gnome.Tetravex.gschema.xml.in:56
+#: data/org.gnome.Tetravex.gschema.xml.in:24
 msgid "The width of the window"
 msgstr "ფანჯრის სიგანე"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
-#: data/org.gnome.Tetravex.gschema.xml.in:58
-msgid "The width of the main window in pixels."
-msgstr "მთავარი ფანჯრის სიგანე პიქსელებში."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
-#: data/org.gnome.Tetravex.gschema.xml.in:63
+#: data/org.gnome.Tetravex.gschema.xml.in:28
 msgid "The height of the window"
 msgstr "მთავარი ფანჯრის სიმაღლე"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
-#: data/org.gnome.Tetravex.gschema.xml.in:65
-msgid "The height of the main window in pixels."
-msgstr "მთავარი ფანჯრის სიმაღლე პიქსელებში."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
-#: data/org.gnome.Tetravex.gschema.xml.in:70
+#: data/org.gnome.Tetravex.gschema.xml.in:32
 msgid "A flag to enable maximized mode"
 msgstr "გაშლილობის რეჟიმის ჩართვის ალამი"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
-#: data/org.gnome.Tetravex.gschema.xml.in:72
-msgid "If “true”, the main window starts in maximized mode."
-msgstr "თუ ჩართულია, ფანჯარა გაშლილი გაიხსნება."
 
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:8
 msgid "Reorder tiles to fit a square"
@@ -305,8 +227,8 @@ msgstr ""
 
 #: data/ui/shortcuts-dialog.ui:58
 msgctxt "shortcut window"
-msgid "Show Solution"
-msgstr "ამოხსნის ჩვენება"
+msgid "Reveal Solution"
+msgstr "ამოხსნის გამოვლენა"
 
 #: data/ui/shortcuts-dialog.ui:65
 msgctxt "shortcut window"
@@ -431,8 +353,8 @@ msgid "Main Menu"
 msgstr "მთავარი მენიუ"
 
 #: data/ui/window.ui:69
-msgid "Show Solution"
-msgstr "ამოხსნის ჩვენება"
+msgid "Reveal Solution"
+msgstr "ამოხსნის გამოვლენა"
 
 #: data/ui/window.ui:81
 msgid "New Game"
@@ -443,138 +365,131 @@ msgid "Move Tiles Left"
 msgstr ""
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:50
+#: src/gnome-tetravex.vala:43
 msgid "Set number of colors (2-10)"
 msgstr ""
 
 #. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:53
+#: src/gnome-tetravex.vala:45
 msgid "NUMBER"
 msgstr "ნომერი"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:56
+#: src/gnome-tetravex.vala:48
 msgid "Start the game paused"
 msgstr ""
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:59
+#: src/gnome-tetravex.vala:51
 msgid "Set size of board (2-6)"
 msgstr ""
 
 #. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:62
+#: src/gnome-tetravex.vala:53
 msgid "SIZE"
 msgstr "ზომა"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:65
+#: src/gnome-tetravex.vala:56
 msgid "Print release version and exit"
 msgstr "რელიზის ვერსიის გამოტანა და გასვლა"
 
 #. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
-#: src/gnome-tetravex.vala:130
+#: src/gnome-tetravex.vala:115
 msgid "Size could only be from 2 to 6."
 msgstr ""
 
 #. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
-#: src/gnome-tetravex.vala:137
+#: src/gnome-tetravex.vala:121
 msgid "There could only be between 2 and 10 colors."
 msgstr ""
 
-#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
-#: src/gnome-tetravex.vala:375
-#, c-format
-msgid "Are you sure you want to start a new %u × %u game?"
-msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ ახალი %u × %u თამაში დაიწყოთ?"
+#: src/gnome-tetravex.vala:353
+msgid "Reveal Solution?"
+msgstr "გაჩვენოთ ამოხსნა?"
 
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
-#: src/gnome-tetravex.vala:378 src/gnome-tetravex.vala:440
+#: src/gnome-tetravex.vala:354 src/gnome-tetravex.vala:384
+msgid "This will end your current game."
+msgstr "ეს დაასრულებს თქვენს ამჟამინდელ თამაშს."
+
+#: src/gnome-tetravex.vala:358
 msgid "_Keep Playing"
-msgstr ""
+msgstr "_თამაშის გაგრძელება"
 
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:381
-msgid "_Start New Game"
-msgstr ""
-
-#. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
-#: src/gnome-tetravex.vala:409
-msgid ""
-"Looks like you haven’t finished a game yet.\n"
-"\n"
-"Maybe try a 2 × 2 grid, they are easy. 🙂️"
-msgstr ""
-
-#. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
-#: src/gnome-tetravex.vala:437
-msgid "Are you sure you want to give up and view the solution?"
-msgstr ""
-
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:443
+#: src/gnome-tetravex.vala:359
 msgid "_Give Up"
-msgstr ""
+msgstr "_დანებება"
 
-#: src/gnome-tetravex.vala:575
+#: src/gnome-tetravex.vala:383
+msgid "Change Size?"
+msgstr "შევცვალო ზომა?"
+
+#: src/gnome-tetravex.vala:388
+msgid "_Cancel"
+msgstr "გაუ_ქმება"
+
+#: src/gnome-tetravex.vala:389
+msgid "Change _Size"
+msgstr "ზომი_ს შეცვლა"
+
+#: src/gnome-tetravex.vala:506
 msgid "translator-credits"
 msgstr "თარგმანი-შესრულებულია"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
-#: src/history.vala:182
+#: src/history.vala:162
 #, c-format
 msgid "%uh %um %us"
 msgstr "%uსთ %uწთ %uწმ"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
-#: src/history.vala:186
+#: src/history.vala:168
 #, c-format
 msgid "%um %us"
 msgstr "%uწთ %uწმ"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
-#: src/history.vala:190
+#: src/history.vala:172
 #, c-format
 msgid "%us"
 msgstr "%uწმ"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
-#: src/history.vala:194
+#: src/history.vala:176
 #, c-format
 msgid "%.0fs"
 msgstr "%.0fწმ"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
-#: src/history.vala:198
+#: src/history.vala:180
 #, c-format
 msgid "%.1fs"
 msgstr "%.1fწმ"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
-#: src/history.vala:202
+#: src/history.vala:184
 #, c-format
 msgid "%.2fs"
 msgstr "%.2fწმ"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
-#: src/history.vala:206
+#: src/history.vala:188
 #, c-format
 msgid "%.3fs"
 msgstr "%.3fწმ"
 
 #. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
-#: src/score-dialog.vala:67
+#: src/score-dialog.vala:63
 msgid "Date"
 msgstr "თარიღი"
 
 #. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
-#: src/score-dialog.vala:71
+#: src/score-dialog.vala:67
 msgid "Time"
 msgstr "დრო"
 
 #. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
-#: src/score-dialog.vala:143
+#: src/score-dialog.vala:132 src/window.vala:83
 #, c-format
 msgid "%u × %u"
 msgstr "%u × %u"
@@ -587,9 +502,28 @@ msgstr "შეჩერებულია"
 msgid "Resume Game"
 msgstr "თამაშის გაგრძელება"
 
-#: src/window.vala:84
+#: src/window.vala:85
 msgid "Pause Game"
 msgstr "თამაშის შეჩერება"
+
+#~ msgid "Use “Back” and “Forward” mouse button events"
+#~ msgstr "\"უკან\" და \"წინ\" თაგუნას ღილაკის მოვლენების გამოყენება"
+
+#~ msgid "Theme"
+#~ msgstr "გაფორმების თემა"
+
+#~ msgid "The width of the main window in pixels."
+#~ msgstr "მთავარი ფანჯრის სიგანე პიქსელებში."
+
+#~ msgid "The height of the main window in pixels."
+#~ msgstr "მთავარი ფანჯრის სიმაღლე პიქსელებში."
+
+#~ msgid "If “true”, the main window starts in maximized mode."
+#~ msgstr "თუ ჩართულია, ფანჯარა გაშლილი გაიხსნება."
+
+#, c-format
+#~ msgid "Are you sure you want to start a new %u × %u game?"
+#~ msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ ახალი %u × %u თამაში დაიწყოთ?"
 
 #~ msgid "The GNOME Project"
 #~ msgstr "პროექტი \"GNOME\""
