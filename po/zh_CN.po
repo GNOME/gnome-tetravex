@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
-"POT-Creation-Date: 2025-09-21 22:49+0000\n"
-"PO-Revision-Date: 2025-09-22 07:49+0800\n"
+"POT-Creation-Date: 2025-09-22 06:06+0000\n"
+"PO-Revision-Date: 2025-09-23 08:34+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -36,116 +36,29 @@ msgstr "匹配编号的方块来完成谜题"
 msgid "game;logic;board;"
 msgstr "game;logic;board;游戏;逻辑;棋牌;"
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
-#: data/org.gnome.Tetravex.gschema.xml.in:13
+#: data/org.gnome.Tetravex.gschema.xml.in:12
 msgid "The size of the playing grid"
 msgstr "游戏网格大小"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
-#: data/org.gnome.Tetravex.gschema.xml.in:15
-msgid "The value of this key is used to decide the size of the playing grid."
-msgstr "此键的值用于决定游戏网格的大小。"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:20
-msgid "Use “Back” and “Forward” mouse button events"
-msgstr "使用“后退（Back）”和“前进（Forward）”鼠标按钮事件"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:22
-msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key "
-"will determine if any action is taken inside of the window when either is "
-"pressed."
-msgstr ""
-"对于有一个带有“前进”和“后退”按钮的鼠标的用户，此键将确定按下其中一个按钮时是"
-"否在窗口内执行任何操作。"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:28
-msgid "Mouse button to activate the “Undo” command"
-msgstr "激活“撤消”命令的鼠标按键"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:30
-msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key "
-"will set which button activates the “Undo” command. Possible values range "
-"between 6 and 14."
-msgstr ""
-"对于有“前进”和“后退”按钮的鼠标的用户，此键将设置按钮激活“撤消”命令。可能的值"
-"在 6 到 14 之间。"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:36
-msgid "Mouse button to activate the “Redo” command"
-msgstr "激活“重做”命令的鼠标按键"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
-#: data/org.gnome.Tetravex.gschema.xml.in:38
-msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key "
-"will set which button activates the “Redo” command. Possible values range "
-"between 6 and 14."
-msgstr ""
-"对于有“前进”和“后退”按钮的鼠标的用户，此键将设置按钮激活“重做”命令。可能的值"
-"在 6 到 14 之间。"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
-#: data/org.gnome.Tetravex.gschema.xml.in:43
+#: data/org.gnome.Tetravex.gschema.xml.in:16
 msgid "Saved game, if any"
 msgstr "已保存游戏，如果有的话"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) »
-#: data/org.gnome.Tetravex.gschema.xml.in:45
-msgid ""
-"The key has value “nothing” if there is no saved game. Else, it contains a "
-"description of the board, with its size, the number of colors, and the time "
-"elapsed, then the list of tiles, saved as properties: their current position "
-"(x and y), their colors (north, east, south and west), and their original "
-"position (x and y), and finally the history, with the last move index, and "
-"history entries saved as properties: coordinates of the two tiles swapped, "
-"and the move id."
-msgstr ""
-"如果没有保存的游戏，键值为“nothing”。否则，它包含了方块的描述、大小、颜色的数"
-"量和经过的时间，然后是保存为属性的方块列表：它们的当前位置（x 和 y）、颜色"
-"（北、东、南和西）、它们的原始位置（x 和 y），最后是历史记录和最后一次移动索"
-"引，以及保存为属性的历史条目：交换的两个方块的坐标和移动 id。"
+#: data/org.gnome.Tetravex.gschema.xml.in:20
+msgid "The name of the current theme"
+msgstr "当前主题的名称"
 
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
-#: data/org.gnome.Tetravex.gschema.xml.in:50
-msgid "Theme"
-msgstr "主题"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
-#: data/org.gnome.Tetravex.gschema.xml.in:56
+#: data/org.gnome.Tetravex.gschema.xml.in:24
 msgid "The width of the window"
 msgstr "主窗口的宽度"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
-#: data/org.gnome.Tetravex.gschema.xml.in:58
-msgid "The width of the main window in pixels."
-msgstr "主窗口的宽度(像素)"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
-#: data/org.gnome.Tetravex.gschema.xml.in:63
+#: data/org.gnome.Tetravex.gschema.xml.in:28
 msgid "The height of the window"
 msgstr "主窗口的高度"
 
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
-#: data/org.gnome.Tetravex.gschema.xml.in:65
-msgid "The height of the main window in pixels."
-msgstr "主窗口的高度(像素)"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
-#: data/org.gnome.Tetravex.gschema.xml.in:70
+#: data/org.gnome.Tetravex.gschema.xml.in:32
 msgid "A flag to enable maximized mode"
 msgstr "启用最大化模式的标志"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
-#: data/org.gnome.Tetravex.gschema.xml.in:72
-msgid "If “true”, the main window starts in maximized mode."
-msgstr "如果设为“真”，主窗口将以最大化模式启动。"
 
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:8
 msgid "Reorder tiles to fit a square"
@@ -494,35 +407,35 @@ msgstr "尺寸只能从 2 到 6。"
 msgid "There could only be between 2 and 10 colors."
 msgstr "只有 2 到 10 种颜色。"
 
-#: src/gnome-tetravex.vala:360
+#: src/gnome-tetravex.vala:353
 msgid "Reveal Solution?"
 msgstr "展现解法吗？"
 
-#: src/gnome-tetravex.vala:361 src/gnome-tetravex.vala:391
+#: src/gnome-tetravex.vala:354 src/gnome-tetravex.vala:384
 msgid "This will end your current game."
 msgstr "这将会结束您当前的游戏。"
 
-#: src/gnome-tetravex.vala:365
+#: src/gnome-tetravex.vala:358
 msgid "_Keep Playing"
 msgstr "继续游戏(_K)"
 
-#: src/gnome-tetravex.vala:366
+#: src/gnome-tetravex.vala:359
 msgid "_Give Up"
 msgstr "放弃(_G)"
 
-#: src/gnome-tetravex.vala:390
+#: src/gnome-tetravex.vala:383
 msgid "Change Size?"
 msgstr "更改大小吗？"
 
-#: src/gnome-tetravex.vala:395
+#: src/gnome-tetravex.vala:388
 msgid "_Cancel"
 msgstr "取消(_C)"
 
-#: src/gnome-tetravex.vala:396
+#: src/gnome-tetravex.vala:389
 msgid "Change _Size"
 msgstr "更改大小(_S)"
 
-#: src/gnome-tetravex.vala:513
+#: src/gnome-tetravex.vala:506
 msgid "translator-credits"
 msgstr ""
 "Yang Zhang <zyangmath@gmail.com>, 2007\n"
@@ -601,6 +514,69 @@ msgstr "继续游戏"
 #: src/window.vala:85
 msgid "Pause Game"
 msgstr "暂停游戏"
+
+#~ msgid ""
+#~ "The value of this key is used to decide the size of the playing grid."
+#~ msgstr "此键的值用于决定游戏网格的大小。"
+
+#~ msgid "Use “Back” and “Forward” mouse button events"
+#~ msgstr "使用“后退（Back）”和“前进（Forward）”鼠标按钮事件"
+
+#~ msgid ""
+#~ "For users which have a mouse with “Forward” and “Back” buttons, this key "
+#~ "will determine if any action is taken inside of the window when either is "
+#~ "pressed."
+#~ msgstr ""
+#~ "对于有一个带有“前进”和“后退”按钮的鼠标的用户，此键将确定按下其中一个按钮时"
+#~ "是否在窗口内执行任何操作。"
+
+#~ msgid "Mouse button to activate the “Undo” command"
+#~ msgstr "激活“撤消”命令的鼠标按键"
+
+#~ msgid ""
+#~ "For users which have a mouse with “Forward” and “Back” buttons, this key "
+#~ "will set which button activates the “Undo” command. Possible values range "
+#~ "between 6 and 14."
+#~ msgstr ""
+#~ "对于有“前进”和“后退”按钮的鼠标的用户，此键将设置按钮激活“撤消”命令。可能的"
+#~ "值在 6 到 14 之间。"
+
+#~ msgid "Mouse button to activate the “Redo” command"
+#~ msgstr "激活“重做”命令的鼠标按键"
+
+#~ msgid ""
+#~ "For users which have a mouse with “Forward” and “Back” buttons, this key "
+#~ "will set which button activates the “Redo” command. Possible values range "
+#~ "between 6 and 14."
+#~ msgstr ""
+#~ "对于有“前进”和“后退”按钮的鼠标的用户，此键将设置按钮激活“重做”命令。可能的"
+#~ "值在 6 到 14 之间。"
+
+#~ msgid ""
+#~ "The key has value “nothing” if there is no saved game. Else, it contains "
+#~ "a description of the board, with its size, the number of colors, and the "
+#~ "time elapsed, then the list of tiles, saved as properties: their current "
+#~ "position (x and y), their colors (north, east, south and west), and their "
+#~ "original position (x and y), and finally the history, with the last move "
+#~ "index, and history entries saved as properties: coordinates of the two "
+#~ "tiles swapped, and the move id."
+#~ msgstr ""
+#~ "如果没有保存的游戏，键值为“nothing”。否则，它包含了方块的描述、大小、颜色"
+#~ "的数量和经过的时间，然后是保存为属性的方块列表：它们的当前位置（x 和 y）、"
+#~ "颜色（北、东、南和西）、它们的原始位置（x 和 y），最后是历史记录和最后一次"
+#~ "移动索引，以及保存为属性的历史条目：交换的两个方块的坐标和移动 id。"
+
+#~ msgid "Theme"
+#~ msgstr "主题"
+
+#~ msgid "The width of the main window in pixels."
+#~ msgstr "主窗口的宽度(像素)"
+
+#~ msgid "The height of the main window in pixels."
+#~ msgstr "主窗口的高度(像素)"
+
+#~ msgid "If “true”, the main window starts in maximized mode."
+#~ msgstr "如果设为“真”，主窗口将以最大化模式启动。"
 
 #~ msgid "GNOME Tetravex"
 #~ msgstr "GNOME 四邻"
