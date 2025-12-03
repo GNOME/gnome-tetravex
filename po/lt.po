@@ -13,28 +13,65 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues\n"
-"POT-Creation-Date: 2020-07-03 15:29+0000\n"
-"PO-Revision-Date: 2020-07-13 16:21+0300\n"
-"Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
+"POT-Creation-Date: 2025-10-20 20:58+0000\n"
+"PO-Revision-Date: 2025-12-03 23:25+0200\n"
+"Last-Translator: Aurimas Černius <aurimas.cernius@mailo.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.8\n"
 
-#: data/org.gnome.Tetravex.appdata.xml.in:7
-msgid "GNOME Tetravex"
-msgstr "GNOME Tetravex"
+#: data/org.gnome.Tetravex.desktop.in.in:2
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:7
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:27 src/gnome-tetravex.vala:89
+msgid "Tetravex"
+msgstr "Tetravex"
 
-#: data/org.gnome.Tetravex.appdata.xml.in:8
+#: data/org.gnome.Tetravex.desktop.in.in:3
+msgid "Complete the puzzle by matching numbered tiles"
+msgstr "Užbaikite galvosūkį suradę atitinkamus numeruotus kauliukus"
+
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/org.gnome.Tetravex.desktop.in.in:7
+msgid "game;logic;board;"
+msgstr "žaidimas;logika;lenta;"
+
+#: data/org.gnome.Tetravex.gschema.xml.in:12
+msgid "The size of the playing grid"
+msgstr "Žaidimo tinklelio dydis"
+
+#: data/org.gnome.Tetravex.gschema.xml.in:16
+msgid "Saved game, if any"
+msgstr "Įrašytas žaidimą, jei toks yra"
+
+#: data/org.gnome.Tetravex.gschema.xml.in:20
+msgid "The name of the current theme"
+msgstr "Dabartinės temos pavadinimas"
+
+#: data/org.gnome.Tetravex.gschema.xml.in:24
+msgid "The width of the window"
+msgstr "Lango plotis"
+
+#: data/org.gnome.Tetravex.gschema.xml.in:28
+msgid "The height of the window"
+msgstr "Lango aukštis"
+
+#: data/org.gnome.Tetravex.gschema.xml.in:32
+msgid "A flag to enable maximized mode"
+msgstr "Požymis lango išdidinimo veiksenai įjungti"
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:8
 msgid "Reorder tiles to fit a square"
 msgstr "Pertvarkyti koklius, kad tilptų į kvadratą"
 
-#: data/org.gnome.Tetravex.appdata.xml.in:10
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:10
 msgid ""
 "Each square piece has a number on each side. Position the pieces on the left "
 "side of the board so that the same numbers are next to each other. If the "
@@ -45,955 +82,832 @@ msgstr ""
 "kvadratėlius lentoje taip, kad vienodi skaičiai būtų šalia. Jei skaičiai "
 "nesutampa, negalima ten dėti kvadratėlio. Dėliok greitai: laikas matuojamas!"
 
-#: data/org.gnome.Tetravex.appdata.xml.in:16
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:16
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr "Žaidimą galima padaryti paprastesnį ir patogesnį keičiant lentos dydį."
 
-#: data/org.gnome.Tetravex.appdata.xml.in:32
-msgid "The GNOME Project"
-msgstr "GNOME projektas"
-
-#. Translators: application name, as seen in GNOME Shell
-#. Translators: name of the program, as seen in the headerbar, in GNOME Shell, or in the about dialog
-#: data/org.gnome.Tetravex.desktop.in:3 src/gnome-tetravex.ui:23
-#: src/gnome-tetravex.vala:27
-msgid "Tetravex"
-msgstr "Tetravex"
-
-#: data/org.gnome.Tetravex.desktop.in:4
-msgid "Complete the puzzle by matching numbered tiles"
-msgstr "Užbaikite galvosūkį suradę atitinkamus numeruotus kauliukus"
-
-#. TRANSLATORS: Do NOT translate or localize the semicolons!
-#. The list MUST also end with a semicolon!
-#. Search terms to find this application.
-#: data/org.gnome.Tetravex.desktop.in:8
-msgid "game;logic;board;"
-msgstr "žaidimas;logika;lenta;"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
-#: data/org.gnome.Tetravex.gschema.xml:13
-msgid "The size of the playing grid"
-msgstr "Žaidimo tinklelio dydis"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/grid-size'
-#: data/org.gnome.Tetravex.gschema.xml:15
-msgid "The value of this key is used to decide the size of the playing grid."
-msgstr "Šio rakto reikšmė lemia žaidimo tinklelio dydį."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:20
-msgid "Use “Back” and “Forward” mouse button events"
-msgstr "Naudoti pelės mygtukų įvykius „grįžti“ ir „pirmyn“"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-use-extra-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:22
-msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key "
-"will determine if any action is taken inside of the window when either is "
-"pressed."
-msgstr ""
-"Naudotojams, turintiems peles su mygtukais „grįžti“ ir „pirmyn“, šis raktas "
-"nusako, ar vykdomas koks nors veiksmas lange, jei kuris iš jų nuspaudžiamas."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:28
-msgid "Mouse button to activate the “Undo” command"
-msgstr "Pelės mygtukas, aktyvinantis „atšaukimo“ komandą"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-back-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:30
-msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key "
-"will set which button activates the “Undo” command. Possible values range "
-"between 6 and 14."
-msgstr ""
-"Naudotojams, turintiems peles su mygtukais „grįžti“ ir „pirmyn“, šis raktas "
-"nusako, kuris mygtukas aktyvina „atšaukimo“ komandą. Galimos vertės yra nuo "
-"6 iki 14."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:36
-msgid "Mouse button to activate the “Redo” command"
-msgstr "Pelės mygtukas, aktyvinantis „pakartojimo“ komandą"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/mouse-forward-buttons'
-#: data/org.gnome.Tetravex.gschema.xml:38
-msgid ""
-"For users which have a mouse with “Forward” and “Back” buttons, this key "
-"will set which button activates the “Redo” command. Possible values range "
-"between 6 and 14."
-msgstr ""
-"Naudotojams, turintiems peles su mygtukais „grįžti“ ir „pirmyn“, šis raktas "
-"nusako, kuris mygtukas aktyvina „pakartojimo“ komandą. Galimos vertės yra "
-"nuo 6 iki 14."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'
-#: data/org.gnome.Tetravex.gschema.xml:43
-msgid "Saved game, if any"
-msgstr "Įrašytas žaidimą, jei toks yra"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/saved-game'; “nothing” is a technical keyword, you might want to translate it: « “nothing” (your translation) »
-#: data/org.gnome.Tetravex.gschema.xml:45
-msgid ""
-"The key has value “nothing” if there is no saved game. Else, it contains a "
-"description of the board, with its size, the number of colors, and the time "
-"elapsed, then the list of tiles, saved as properties: their current position "
-"(x and y), their colors (north, east, south and west), and their original "
-"position (x and y), and finally the history, with the last move index, and "
-"history entries saved as properties: coordinates of the two tiles swapped, "
-"and the move id."
-msgstr ""
-"Jei šio rakto vertė „nothing“, nėra įrašyto žaidimo. Priešingus atveju jis "
-"turi lentos aprašymą su dydžiu, spalvų skaičiumi, praėjusiu laiku, tuomet su "
-"plytelių sąrašu, įrašytu kaip savybės: jų dabartinė padėtis (x ir y), jų "
-"spalvos (north, east, south arba west), jų pradinė padėtis (x ir y) ir "
-"galiausiai istorija su paskutinio ėjimo numeriu bei istorijos įrašais, "
-"įrašytais kaip savybės: sukeistų plytelių koordinatės bei ėjimo id."
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/theme'
-#: data/org.gnome.Tetravex.gschema.xml:50
-msgid "Theme"
-msgstr "Tema"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
-#: data/org.gnome.Tetravex.gschema.xml:56
-msgid "The width of the window"
-msgstr "Lango plotis"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-width'
-#: data/org.gnome.Tetravex.gschema.xml:58
-msgid "The width of the main window in pixels."
-msgstr "Pagrindinio lango plotis pikseliais"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
-#: data/org.gnome.Tetravex.gschema.xml:63
-msgid "The height of the window"
-msgstr "Lango aukštis"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-height'
-#: data/org.gnome.Tetravex.gschema.xml:65
-msgid "The height of the main window in pixels."
-msgstr "Pagrindinio lango aukštis pikseliais"
-
-#. Translators: summary of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
-#: data/org.gnome.Tetravex.gschema.xml:70
-msgid "A flag to enable maximized mode"
-msgstr "Požymis lango išdidinimo veiksenai įjungti"
-
-#. Translators: description of a settings key, see 'dconf-editor /org/gnome/Tetravex/window-is-maximized'
-#: data/org.gnome.Tetravex.gschema.xml:72
-msgid "If “true”, the main window starts in maximized mode."
-msgstr "Jei teigiama, jei langas yra išdidintas."
-
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
-#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
-#: src/app-menu.ui:23 src/app-menu.ui:64
+#: data/ui/menu.ui:23
 msgid "_New Game"
 msgstr "_Naujas žaidimas"
 
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: data/ui/menu.ui:28
+msgid "_Scores"
+msgstr "_Taškai"
+
 #. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
-#: src/app-menu.ui:28
+#: data/ui/menu.ui:35
 msgid "Si_ze"
 msgstr "_Dydis"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
-#: src/app-menu.ui:32
+#: data/ui/menu.ui:39
 msgid "_2 × 2"
 msgstr "_2 × 2"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
-#: src/app-menu.ui:38
+#: data/ui/menu.ui:45
 msgid "_3 × 3"
 msgstr "_3 × 3"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
-#: src/app-menu.ui:44
+#: data/ui/menu.ui:51
 msgid "_4 × 4"
 msgstr "_4 × 4"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
-#: src/app-menu.ui:50
+#: data/ui/menu.ui:57
 msgid "_5 × 5"
 msgstr "_5 × 5"
 
 #. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
-#: src/app-menu.ui:56
+#: data/ui/menu.ui:63
 msgid "_6 × 6"
 msgstr "_6 × 6"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
-#: src/app-menu.ui:73
-msgid "_Scores"
-msgstr "_Taškai"
-
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
-#: src/app-menu.ui:78
+#: data/ui/menu.ui:71
 msgid "A_ppearance"
 msgstr "_Išvaizda"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:82
+#: data/ui/menu.ui:75
 msgid "_Extrusion"
 msgstr "Iš_stūmimas"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
-#: src/app-menu.ui:88
+#: data/ui/menu.ui:81
 msgid "Neo_Retro"
 msgstr "Neo_Retro"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
-#: src/app-menu.ui:94
+#: data/ui/menu.ui:87
 msgid "_Nostalgia"
 msgstr "_Nostalgija"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
-#: src/app-menu.ui:100
+#: data/ui/menu.ui:93
 msgid "_Synesthesia"
 msgstr "_Synesthesia"
 
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows Game Rules dialog
+#: data/ui/menu.ui:103
+msgid "Game R_ules"
+msgstr "Žaidimo _taisyklės"
+
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
-#: src/app-menu.ui:110
+#: data/ui/menu.ui:108
 msgid "_Keyboard Shortcuts"
 msgstr "_Klaviatūros trumpiniai"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows application help
-#: src/app-menu.ui:115
-msgid "_Help"
-msgstr "_Žinynas"
-
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
-#: src/app-menu.ui:120
+#: data/ui/menu.ui:113
 msgid "_About Tetravex"
 msgstr "_Apie tetravex"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the change the number of colors or the game size while not specifying a new game; try `gnome-tetravex --cli show --size 3`
-#: src/cli.vala:35
-msgid "Game size and colors number can only be given for new puzzles."
-msgstr ""
-"Žaidimo dydis bei spalvos gali būti suteiktos tik naujiems galvosūkiams."
+#: data/ui/rules-dialog.ui:21
+msgid "Game Rules"
+msgstr "Žaidimo taisyklės"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli up`
-#: src/cli.vala:89
-msgid "Cannot move up left-board tiles."
-msgstr "Negalima perkelti aukštyn kairiosios lentos plytelių."
+#: data/ui/rules-dialog.ui:28
+msgctxt "game rules"
+msgid "Complete the empty board by placing tiles on it"
+msgstr "Užpildykite tuščia lentą sudėdami joje plyteles"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli down`
-#: src/cli.vala:95
-msgid "Cannot move down left-board tiles."
-msgstr "Negalima perkelti žemyn kairiosios lentos plytelių."
+#: data/ui/rules-dialog.ui:36
+msgctxt "game rules"
+msgid "Tile edge numbers must match with adjacent tiles"
+msgstr "Gretimų plytelių kraštuose esantys skaičiui turi būti vienodi"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli left`
-#: src/cli.vala:101
-msgid "Cannot move left left-board tiles."
-msgstr "Negalima perkelti kairėn kairiosios lentos plytelių."
+#: data/ui/rules-dialog.ui:46
+msgctxt "game rules"
+msgid "Rounds are scored based on completion time"
+msgstr "Vertinamas užbaigimo laikas"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli right`
-#: src/cli.vala:107
-msgid "Cannot move right left-board tiles."
-msgstr "Negalima perkelti dešinėn kairiosios lentos plytelių."
+#: data/ui/rules-dialog.ui:56
+msgctxt "game rules"
+msgid "You can pause the game"
+msgstr "Galite pristabdyti žaidimą"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-up” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-up`
-#: src/cli.vala:113
-msgid "Cannot move up right-board tiles."
-msgstr "Negalima perkelti aukštyn dešiniosios lentos plytelių."
+#: data/ui/rules-dialog.ui:57
+msgctxt "game rules"
+msgid "Tile faces will be hidden"
+msgstr "Plytelių paviršius bus paslėptas"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-down” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-down`
-#: src/cli.vala:118
-msgid "Cannot move down right-board tiles."
-msgstr "Negalima perkelti žemyn dešiniosios lentos plytelių."
+#: data/ui/rules-dialog.ui:67
+msgctxt "game rules"
+msgid "You can undo or redo a move"
+msgstr "Galite atšaukti ar pakartoti ėjimą"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-left” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-left`
-#: src/cli.vala:123
-msgid "Cannot move left right-board tiles."
-msgstr "Negalima perkelti kairėn dešiniosios lentos plytelių."
+#: data/ui/rules-dialog.ui:68
+msgctxt "game rules"
+msgid "No time penalty is added"
+msgstr "Už tai nėra baudžiama laiku"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “r-right” command while it cannot be performed; try `gnome-tetravex --cli new; gnome-tetravex --cli r-right`
-#: src/cli.vala:128
-msgid "Cannot move right right-board tiles."
-msgstr "Negalima perkelti dešinėn dešiniosios lentos plytelių."
+#: data/ui/shortcuts-dialog.ui:24
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Žaidimas"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to use the “finish” command while the saved puzzle cannot be automatically finished; try `gnome-tetravex --cli new; gnome-tetravex --cli finish`
-#: src/cli.vala:145
-msgid ""
-"Cannot finish automatically. If you want to give up and view the solution, "
-"use “solve”."
-msgstr ""
-"Negalima automatiškai užbaigti. Jei norite pasiduoti ir pamatyti sprendimą, "
-"naudokite „solve“?"
+#: data/ui/shortcuts-dialog.ui:28
+msgctxt "shortcut window"
+msgid "New Game"
+msgstr "Naujas žaidimas"
 
-#. Translators: command-line error message, displayed if the string is not a known command nor a valid move instruction; try `gnome-tetravex --cli new; gnome-tetravex --cli A2838I8U`
-#: src/cli.vala:174
-msgid "Cannot parse instruction, aborting."
-msgstr "Nepavyko perskaityti instrukcijos, nutraukiama."
+#: data/ui/shortcuts-dialog.ui:34
+msgctxt "shortcut window"
+msgid "Pause Game"
+msgstr "Pristabdyti žaidimą"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to invert two empty tiles
-#: src/cli.vala:181
-msgid "Both given tiles are empty, aborting."
-msgstr "Abi pateiktos plytelės yra tuščios, nutraukiama."
+#: data/ui/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "Atšaukti"
 
-#. Translators: command-line error message, displayed if the user plays in CLI and tries to do an invalid move
-#: src/cli.vala:187
-msgid "Cannot swap the given tiles, aborting."
-msgstr "Negalima sukeisti pateiktų plytelių, nutraukiama."
+#: data/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "Pakartoti"
 
-#. Translators: command-line error message, displayed if the user tries to solve the puzzle using CLI (with the “solve” or “finish” commands), while the puzzle is already solved
-#: src/cli.vala:230
-msgid "Puzzle is already solved! If you want to start a new one, use “new”."
-msgstr ""
-"Galvosūkis jau yra išspręstas. Jei norite pradėti naują, naudokite „new“."
+#: data/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Reset Board"
+msgstr "Atstatyti lentą"
 
-#. Translators: command-line error message, displayed if the user tries to do a move using CLI, while the puzzle is solved
-#: src/cli.vala:233
-msgid "Puzzle is solved! If you want to start a new one, use “new”."
-msgstr "Galvosūkis išspręstas! Jei norite pradėti naują, naudokite „new“."
+#: data/ui/shortcuts-dialog.ui:58
+msgctxt "shortcut window"
+msgid "Reveal Solution"
+msgstr "Parodyti sprendimą"
 
-#. Translators: command-line message, displayed when playing Tetravex in CLI under the board, if the puzzle was solved
-#: src/cli.vala:278
-msgid "Puzzle is solved!"
-msgstr "Galvosūkis išspręstas!"
+#: data/ui/shortcuts-dialog.ui:65
+msgctxt "shortcut window"
+msgid "Tile Selection"
+msgstr "Plytelių pasirinkimas"
 
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduces an explanation of what will happen when no command is given; nothing is NOT a keyword here, just go translate it; it would be similar to “(no command)” or “(empty)”, for example
-#: src/gnome-tetravex-cli.vala:24
-msgid "(nothing)"
-msgstr "(nėra)"
+#: data/ui/shortcuts-dialog.ui:68
+msgctxt "shortcut window"
+msgid "Move Tile Focus"
+msgstr "Perkelti plytelės fokusą"
 
-#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
+#: data/ui/shortcuts-dialog.ui:74
+msgctxt "shortcut window"
+msgid "Select / Move / Unselect Tile"
+msgstr "Pažymėti / perkelti / atžymėti plytelę"
+
+#: data/ui/shortcuts-dialog.ui:80
+msgctxt "shortcut window"
+msgid "Select Row"
+msgstr "Pažymėti eilutę"
+
+#: data/ui/shortcuts-dialog.ui:86
+msgctxt "shortcut window"
+msgid "Select Left-Side Column"
+msgstr "Pažymėti stulpelį kairėje"
+
+#: data/ui/shortcuts-dialog.ui:92
+msgctxt "shortcut window"
+msgid "Select Right-Side Column"
+msgstr "Pažymėti stulpelį dešinėje"
+
+#: data/ui/shortcuts-dialog.ui:99
+msgctxt "shortcut window"
+msgid "Finish Right-Side Board"
+msgstr "Užbaigti dešinę lentą"
+
+#: data/ui/shortcuts-dialog.ui:106
+msgctxt "shortcut window"
+msgid "Tile Shifting"
+msgstr "Plytelių stumdymas"
+
+#: data/ui/shortcuts-dialog.ui:110
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Up"
+msgstr "Perkelti kairės plyteles aukštyn"
+
+#: data/ui/shortcuts-dialog.ui:116
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Down"
+msgstr "Perkelti kairės plyteles žemyn"
+
+#: data/ui/shortcuts-dialog.ui:122
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Left"
+msgstr "Perkelti kairės plyteles kairėn"
+
+#: data/ui/shortcuts-dialog.ui:128
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Right"
+msgstr "Perkelti kairės plyteles dešinėn"
+
+#: data/ui/shortcuts-dialog.ui:138
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Up"
+msgstr "Perkelti dešinės plyteles aukštyn"
+
+#: data/ui/shortcuts-dialog.ui:144
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Down"
+msgstr "Perkelti dešinės plyteles žemyn"
+
+#: data/ui/shortcuts-dialog.ui:150
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Left"
+msgstr "Perkelti dešinės plyteles kairėn"
+
+#: data/ui/shortcuts-dialog.ui:156
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Right"
+msgstr "Perkelti dešinės plyteles dešinėn"
+
+#: data/ui/shortcuts-dialog.ui:163
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Esmė"
+
+#: data/ui/shortcuts-dialog.ui:167
+msgctxt "shortcut window"
+msgid "Game Rules"
+msgstr "Žaidimo taisyklės"
+
+#: data/ui/shortcuts-dialog.ui:173
+msgctxt "shortcut window"
+msgid "Show Main Menu"
+msgstr "Rodyti pagrindinį meniu"
+
+#: data/ui/shortcuts-dialog.ui:179
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Rodyti klaviatūros trumpinius"
+
+#: data/ui/shortcuts-dialog.ui:185
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "Užverti langą"
+
+#: data/ui/shortcuts-dialog.ui:191
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Išeiti"
+
+#: data/ui/window.ui:37
+msgid "Undo"
+msgstr "Atšaukti"
+
+#: data/ui/window.ui:44
+msgid "Redo"
+msgstr "Pakartoti"
+
+#: data/ui/window.ui:51
+msgid "Main Menu"
+msgstr "Pagrindinis meniu"
+
+#: data/ui/window.ui:69
+msgid "Reveal Solution"
+msgstr "Parodyti prendimą"
+
+#: data/ui/window.ui:81
+msgid "New Game"
+msgstr "Naujas žaidimas"
+
+#: data/ui/window.ui:93
+msgid "Move Tiles Left"
+msgstr "Perkelti plyteles kairėn"
+
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:44 src/gnome-tetravex.vala:78
+#: src/gnome-tetravex.vala:43
 msgid "Set number of colors (2-10)"
 msgstr "Nustatyti spalvų skaičių (2-10)"
 
-#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex-cli --help'
 #. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:47 src/gnome-tetravex.vala:81
+#: src/gnome-tetravex.vala:45
 msgid "NUMBER"
 msgstr "SKAIČIUS"
 
-#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:50 src/gnome-tetravex.vala:90
-msgid "Set size of board (2-6)"
-msgstr "Nustatyti lentos dydį (2-6)"
-
-#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex-cli --help'
-#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:53 src/gnome-tetravex.vala:93
-msgid "SIZE"
-msgstr "DYDIS"
-
-#. Translators: command-line option description, see 'gnome-tetravex-cli --help'
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex-cli.vala:56 src/gnome-tetravex.vala:96
-msgid "Print release version and exit"
-msgstr "Atspausdinti leidimo versiją ir išeiti"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the (as an example) “A1b2” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli A1b2” command
-#: src/gnome-tetravex-cli.vala:86 src/gnome-tetravex.vala:200
-msgid "Invert two tiles, the one in A1, and the one in b2."
-msgstr "Sukeisti dvi plyteles, vieną iš A1 ir kitą iš b2."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of a lowercase and of the digits are explained after
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of a lowercase and of the digits are explained after
-#: src/gnome-tetravex-cli.vala:89 src/gnome-tetravex.vala:203
-msgid "An uppercase targets a tile from the initial board."
-msgstr "Didžioji raidė žymi plytelę pradinėje lentoje."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of an uppercase and of the digits are explained before and after
-#: src/gnome-tetravex-cli.vala:92 src/gnome-tetravex.vala:206
-msgid "A lowercase targets a tile in the left/final board."
-msgstr "Mažoji raidė žymi plytelę kairėje/galutinėje lentoje."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the (as an example) “A1b2” command; the meanings of uppercases and lowercases are explained before
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli A1b2” command; the meanings of uppercases and lowercases are explained before
-#: src/gnome-tetravex-cli.vala:95 src/gnome-tetravex.vala:209
-msgid "Digits specify the rows of the two tiles to invert."
-msgstr "Skaitmenys nurodo sukeičiamų plytelių eilutes."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action when no command is given or when the “show” or “status” commands are given
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli” or “--cli show” or “--cli status” commands
-#: src/gnome-tetravex-cli.vala:98 src/gnome-tetravex.vala:212
-msgid "Show the current puzzle. Alias: “status” or “show”."
-msgstr "Rodyti dabartinį galvosūkį. Trumpinys „status“ arba „show“."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “new” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli new” command
-#: src/gnome-tetravex-cli.vala:101 src/gnome-tetravex.vala:215
-msgid "Create a new puzzle; for changing size, use --size."
-msgstr "Sukurti naują galvosūkį; dydžio keitimui naudokite --size."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “solve” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli solve” command
-#: src/gnome-tetravex-cli.vala:104 src/gnome-tetravex.vala:218
-msgid "Give up with current puzzle, and view the solution."
-msgstr "Pasiduoti dabartiniame galvosūkųje ir parodyti sprendimą."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “finish” or “end” commands
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli finish” or “--cli end” commands
-#: src/gnome-tetravex-cli.vala:107 src/gnome-tetravex.vala:221
-msgid "Finish current puzzle, automatically. Alias: “end”."
-msgstr "Automatiškai užbaigti dabartinį galvosūkį. Trumpinys: „end“."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; explanation of the behavior of the “finish” or “end” commands; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; explanation of the behavior of the “--cli finish” command; the command does something in two situations: if the puzzle has been solved in the right part of the board, and if there is only one tile remaining (“left”) on the right part of the board that could be moved automatically
-#: src/gnome-tetravex-cli.vala:110 src/gnome-tetravex.vala:224
-msgid "Works for puzzles solved right or if one tile left."
-msgstr ""
-"Veikia su galvosūkiais, kurie yra išspręsti arba likusia vienintele plytele."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “up” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli up” command
-#: src/gnome-tetravex-cli.vala:113 src/gnome-tetravex.vala:227
-msgid "Move all left-board tiles up by one."
-msgstr "Perkelti visas plyteles kairėje per vieną aukštyn."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “down” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli down” command
-#: src/gnome-tetravex-cli.vala:116 src/gnome-tetravex.vala:230
-msgid "Move all left-board tiles down by one."
-msgstr "Perkelti visas plyteles kairėje per vieną žemyn."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “left” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli left” command
-#: src/gnome-tetravex-cli.vala:119 src/gnome-tetravex.vala:233
-msgid "Move all left-board tiles left by one."
-msgstr "Perkelti visas plyteles kairėje per vieną kairėn."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “right” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli right” command
-#: src/gnome-tetravex-cli.vala:122 src/gnome-tetravex.vala:236
-msgid "Move all left-board tiles right by one."
-msgstr "Perkelti visas plyteles kairėje per vieną dešinėn."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-up” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-up” command
-#: src/gnome-tetravex-cli.vala:125 src/gnome-tetravex.vala:239
-msgid "Move all right-board tiles up by one."
-msgstr "Perkelti visas plyteles dešinėje per vieną aukštyn."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-down” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-down” command
-#: src/gnome-tetravex-cli.vala:128 src/gnome-tetravex.vala:242
-msgid "Move all right-board tiles down by one."
-msgstr "Perkelti visas plyteles dešinėje per vieną žemyn."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-left” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-left” command
-#: src/gnome-tetravex-cli.vala:131 src/gnome-tetravex.vala:245
-msgid "Move all right-board tiles left by one."
-msgstr "Perkelti visas plyteles dešinėje per vieną kairėn."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; description of the action of the “r-right” command
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; description of the action of the “--cli r-right” command
-#: src/gnome-tetravex-cli.vala:134 src/gnome-tetravex.vala:248
-msgid "Move all right-board tiles right by one."
-msgstr "Perkelti visas plyteles dešinėje per vieną dešinėn."
-
-#. Translators: command-line message, seen when running `gnome-tetravex-cli --help`
-#: src/gnome-tetravex-cli.vala:138
-msgid "[COMMAND]"
-msgstr "[KOMANDA]"
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli --help`; introduction of a list of options
-#: src/gnome-tetravex-cli.vala:141
-msgid "Available commands:"
-msgstr "Galimos komandos:"
-
-#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex-cli -s 1'
-#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
-#: src/gnome-tetravex-cli.vala:158 src/gnome-tetravex.vala:173
-msgid "Size could only be from 2 to 6."
-msgstr "Dydis gali būti nuo 2 iki 6."
-
-#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex-cli -c 1'
-#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
-#: src/gnome-tetravex-cli.vala:165 src/gnome-tetravex.vala:180
-msgid "There could only be between 2 and 10 colors."
-msgstr "Spalvų gali būti nuo 2 iki 10."
-
-#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex-cli new A1b2'
-#. Translators: command-line error message, displayed for an invalid CLI command; see 'gnome-tetravex --cli new A1b2'
-#: src/gnome-tetravex-cli.vala:172 src/gnome-tetravex.vala:187
-msgid "Failed to parse command-line arguments."
-msgstr "Nepavyko perskaityti komandų eilutės argumentų."
-
-#. Translators: command-line help message, seen when running `gnome-tetravex-cli help`; introduction of a list of options
-#: src/gnome-tetravex-cli.vala:182
-msgid "To use `gnome-tetravex-cli`, pass as argument:"
-msgstr "Norėdami naudoti `gnome-tetravex-cli, perduokite argumentą:"
-
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:72
-msgid "Play in the terminal (see “--cli=help”)"
-msgstr "Žaisti terminale (žr. „--cli=help“)"
-
-#. Translators: in the command-line options description, text to indicate the user should give a command after '--cli' for playing in the terminal, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:75
-msgid "COMMAND"
-msgstr "KOMANDA"
-
-#. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:84
+#: src/gnome-tetravex.vala:48
 msgid "Start the game paused"
 msgstr "Paleisti pristabdytą žaidimą"
 
 #. Translators: command-line option description, see 'gnome-tetravex --help'
-#: src/gnome-tetravex.vala:87
-msgid "Restore last game, if any"
-msgstr "Atkurti paskutinį žaidimą, jei toks yra"
+#: src/gnome-tetravex.vala:51
+msgid "Set size of board (2-6)"
+msgstr "Nustatyti lentos dydį (2-6)"
 
-#. Translators: command-line help message, seen when running `gnome-tetravex --cli help`; introduction of a list of options
-#: src/gnome-tetravex.vala:197
-msgid "To play GNOME Tetravex in command-line:"
-msgstr "Norint žaisti GNOME Tetravex komandų eilutėje:"
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:53
+msgid "SIZE"
+msgstr "DYDIS"
 
-#. Translator: label of a button displayed in the headerbar at game start, if a previous game was being played while the window was closed; restores the saved game
-#: src/gnome-tetravex.vala:365
-msgid "Restore last game"
-msgstr "Atkurti paskutinį žaidimą"
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:56
+msgid "Print release version and exit"
+msgstr "Atspausdinti leidimo versiją ir išeiti"
 
-#. not a typo
-#. Translators: tooltip text of the "play"/unpause button, in the bottom bar
-#: src/gnome-tetravex.vala:419
-msgid "Resume the game"
-msgstr "Tęsti žaidimą"
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
+#: src/gnome-tetravex.vala:115
+msgid "Size could only be from 2 to 6."
+msgstr "Dydis gali būti nuo 2 iki 6."
 
-#. Translators: tooltip text of the pause button, in the bottom bar
-#: src/gnome-tetravex.vala:426
-msgid "Pause the game"
-msgstr "Pristabdyti žaidimą"
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
+#: src/gnome-tetravex.vala:121
+msgid "There could only be between 2 and 10 colors."
+msgstr "Spalvų gali būti nuo 2 iki 10."
 
-#. Translators: tooltip text of the "restart"/new game button, in the bottom bar
-#: src/gnome-tetravex.vala:439
-msgid "Start a new game"
-msgstr "Pradėti naują žaidimą"
+#: src/gnome-tetravex.vala:353
+msgid "Reveal Solution?"
+msgstr "Parodyti sprendimą?"
 
-#. Translators: tooltip text of the "solve"/give up button, in the bottom bar
-#: src/gnome-tetravex.vala:446
-msgid "Give up and view the solution"
-msgstr "Pasiduoti ir parodyti sprendimą"
+#: src/gnome-tetravex.vala:354 src/gnome-tetravex.vala:384
+msgid "This will end your current game."
+msgstr "Tai užbaigs dabartinį žaidimą."
 
-#. Translators: tooltip text of bottom bar button that appears is the puzzle is solved on the right part of the board
-#: src/gnome-tetravex.vala:453
-msgid "Move all tiles left"
-msgstr "Perkelti visas plyteles kairėn"
-
-#. Translators: popup dialog main text; appearing when user clicks "New Game" from the hamburger menu, while a game is started; possible answers are "Keep playing"/"Start New Game"; the %d are both replaced with
-#: src/gnome-tetravex.vala:776
-#, c-format
-#| msgid "Are you sure you want to start a new game with same board size?"
-msgid "Are you sure you want to start a new %u × %u game?"
-msgstr "Ar tikrai norite pradėti naują %u × %u žaidimą?"
-
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Start New Game"
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Give Up"
-#: src/gnome-tetravex.vala:779 src/gnome-tetravex.vala:837
+#: src/gnome-tetravex.vala:358
 msgid "_Keep Playing"
 msgstr "_Tęsti žaidimą"
 
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks "New Game" from the hamburger menu; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:782
-msgid "_Start New Game"
-msgstr "_Pradėti naują žaidimą"
-
-#. Translators: popup dialog main text; appearing when user clicks the "Scores" entry of the hamburger menu, while not having finished any game yet
-#: src/gnome-tetravex.vala:808
-msgid ""
-"Looks like you haven’t finished a game yet.\n"
-"\n"
-"Maybe try a 2 × 2 grid, they are easy. 🙂️"
-msgstr ""
-"Atrodo dar neužbaigėte žaidimo.\n"
-"\n"
-"Gal pabandykite 2 × 2, jie yra labai paprasti. 🙂️"
-
-#. Translators: popup dialog main text; appearing when user clicks the "Give up" button in the bottom bar; possible answers are "Keep playing"/"Give up"
-#: src/gnome-tetravex.vala:834
-msgid "Are you sure you want to give up and view the solution?"
-msgstr "Ar tikrai norite pasiduoti ir pamatyti sprendimą?"
-
-#. Translators: popup dialog possible answer (with a mnemonic that appears pressing Alt); appearing when user clicks the "Give up" button in the bottom bar; other possible answer is "_Keep Playing"
-#: src/gnome-tetravex.vala:840
+#: src/gnome-tetravex.vala:359
 msgid "_Give Up"
 msgstr "Pasiduoti"
 
-#. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:1021
-msgid "Lars Rydlinge"
-msgstr "Lars Rydlinge"
+#: src/gnome-tetravex.vala:383
+msgid "Change Size?"
+msgstr "Keisti dydį?"
 
-#. Translators: text crediting a game author, seen in the About dialog
-#: src/gnome-tetravex.vala:1025
-msgid "Robert Ancell"
-msgstr "Robert Ancell"
+#: src/gnome-tetravex.vala:388
+msgid "_Cancel"
+msgstr "_Atsisakyti"
 
-#. Translators: text crediting a game documenter, seen in the About dialog
-#: src/gnome-tetravex.vala:1029
-msgid "Rob Bradford"
-msgstr "Rob Bradford"
+#: src/gnome-tetravex.vala:389
+msgid "Change _Size"
+msgstr "Keisti _dydį"
 
-#. Translators: short description of the application, seen in the About dialog
-#: src/gnome-tetravex.vala:1033
-msgid "Position pieces so that the same numbers are touching each other"
-msgstr ""
-"Sudėliokite koklius taip, kad besiglaudžiančios kraštinės turėtų tą patį "
-"skaičių"
-
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1037
-#, c-format
-msgid "Copyright © %u-%u – Lars Rydlinge"
-msgstr "Autorių teisės © %u-%u – Lars Rydlinge"
-
-#. Translators: text crediting a maintainer, seen in the About dialog; the %u are replaced with the years of start and end
-#: src/gnome-tetravex.vala:1041
-#, c-format
-msgid "Copyright © %u-%u – Arnaud Bonatti"
-msgstr "Autorių teisės © %u-%u – Arnaud Bonatti"
-
-#. Translators: about dialog text; label of the website link
-#: src/gnome-tetravex.vala:1045
-msgid "Page on GNOME wiki"
-msgstr "GNOME wiki puslapis"
-
-#. Translators: about dialog text; this string should be replaced by a text crediting yourselves and your translation team, or should be left empty. Do not translate literally!
-#: src/gnome-tetravex.vala:1057
+#: src/gnome-tetravex.vala:506
 msgid "translator-credits"
 msgstr ""
-"Paskutinis vertėjas:\n"
-"Aurimas Černius <aurisc4@gmail.com>\n"
-"\n"
-"Ankstesnieji vertėjai:\n"
+"Aurimas Černius <aurimas.cernius@mailo.com>\n"
 "Žygimantas Beručka <zygis@gnome.org>,\n"
 "Justina Klingaitė <justina.klingaite@gmail.com>,\n"
 "Tomas Kuliavas <tokul@users.sf.net>,\n"
 "Gediminas Paulauskas <menesis@chatsubo.lt>"
 
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Select where to play", "Play on selected tile", "Select the given row", etc.
-#: src/help-overlay.ui:32
-msgctxt "shortcut window"
-msgid "Play with keyboard"
-msgstr "Žaisti klaviatūra"
-
-#. Translators: Left/Right/Up/Down arrows actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; moves highlight
-#: src/help-overlay.ui:37
-msgctxt "shortcut window"
-msgid "Move keyboard highlight"
-msgstr "Perkėlimo klaviatūros paryškinimas"
-
-#. Translators: Return/space actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depend on context
-#: src/help-overlay.ui:45
-msgctxt "shortcut window"
-msgid "Select, move or unselect"
-msgstr "Pažymėti, perkelti arba atžymėti"
-
-#. Translators: numbers (1 to 6) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use 1 to 2 or up to 1 to 6
-#: src/help-overlay.ui:53
-msgctxt "shortcut window"
-msgid "Select the given row"
-msgstr "Pažymėti pasirinktą eilutę"
-
-#. Translators: alphabetical chars (a to f) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use a to b or up to a to f; the board is split in two parts, that is for the left one
-#: src/help-overlay.ui:61
-msgctxt "shortcut window"
-msgid "Select left half-board column"
-msgstr "Pažymėti kairės lentos stulpelį"
-
-#. Translators: capital alphabetical chars (A to F) actions description in the Keyboard Shortcuts dialog, section "Play with keyboard"; depending on game size, you can only use A to B or up to A to F; the board is split in two parts, that is for the right one
-#: src/help-overlay.ui:69
-msgctxt "shortcut window"
-msgid "Select right half-board column"
-msgstr "Pažymėti dešinės lentos stulpelį"
-
-#. Translators: Ctrl-Left shortcut (in some contexts) description in the Keyboard Shortcuts dialog, section "Play with keyboard"; allows user to finish puzzle on the right part of the board, and to then "validate", moving all tiles at the same time on the lift part of the board
-#: src/help-overlay.ui:78
-msgctxt "shortcut window"
-msgid "Validate right half-board"
-msgstr "Patikrinti dešinę lentą"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Undo" and "Redo"
-#: src/help-overlay.ui:87
-msgctxt "shortcut window"
-msgid "History"
-msgstr "Istorija"
-
-#. Translators: Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, undoes last move
-#: src/help-overlay.ui:93
-msgctxt "shortcut window"
-msgid "Undo"
-msgstr "Atšaukti"
-
-#. Translators: Shift-Ctrl-Z shortcut description in the Keyboard Shortcuts dialog, section History; verb, redoes undone move
-#: src/help-overlay.ui:101
-msgctxt "shortcut window"
-msgid "Redo"
-msgstr "Pakartoti"
-
-#. Translators: Shift-Ctrl-R shortcut description in the Keyboard Shortcuts dialog, section History; undoes all the moves
-#: src/help-overlay.ui:109
-msgctxt "shortcut window"
-msgid "Reload initial position"
-msgstr "Iš naujo įkelti pradinę padėtį"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "New Game", "Pause", "Scores"...
-#: src/help-overlay.ui:118
-msgctxt "shortcut window"
-msgid "Main functions"
-msgstr "Pagrindinės funkcijos"
-
-#. Translators: Ctrl-N shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:124
-msgctxt "shortcut window"
-msgid "Start a new game"
-msgstr "Pradėti naują žaidimą"
-
-#. Translators: Ctrl-P shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:132
-msgctxt "shortcut window"
-msgid "Pause the game"
-msgstr "Pristabdyti žaidimą"
-
-#. Translators: Ctrl-H shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:140
-msgctxt "shortcut window"
-msgid "Solve the game"
-msgstr "Išspręsti žaidimą"
-
-#. Translators: Ctrl-I shortcut description in the Keyboard Shortcuts dialog, section Main Functions
-#: src/help-overlay.ui:148
-msgctxt "shortcut window"
-msgid "Show scores"
-msgstr "Rodyti rezultatus"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains "Show Help", "Show Keyboard Shortcuts", "Quit"...
-#: src/help-overlay.ui:157
-msgctxt "shortcut window"
-msgid "Generic"
-msgstr "Bendra"
-
-#. Translators: F10 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows menu
-#: src/help-overlay.ui:163
-msgctxt "shortcut window"
-msgid "Toggle main menu"
-msgstr "Perjungti pagrindinį meniu"
-
-#. Translators: Ctrl-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; displays Keyboard Shortcuts dialog
-#: src/help-overlay.ui:171
-msgctxt "shortcut window"
-msgid "Show Keyboard Shortcuts"
-msgstr "Rodyti klaviatūros trumpinius"
-
-#. Translators: F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows application help
-#: src/help-overlay.ui:179
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "Rodyti žinyną"
-
-#. Translators: Shift-F1 shortcut description in the Keyboard Shortcuts dialog, section Generic; shows About dialog
-#: src/help-overlay.ui:187
-msgctxt "shortcut window"
-msgid "Show About"
-msgstr "Rodyti apie langą"
-
-#. Translators: Ctrl-Q shortcut description in the Keyboard Shortcuts dialog, section Generic; quits the application
-#: src/help-overlay.ui:195
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Išeiti"
-
-#. Translators: title of a section in the Keyboard Shortcuts dialog; contains four keyboard shortcuts for functions that help playing, but are not doable by mouse, so the "advanced" note...
-#: src/help-overlay.ui:204
-msgctxt "shortcut window"
-msgid "Advanced gameplay"
-msgstr "Sudėtingas žaidimas"
-
-#. Translators: Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:210
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board up by one"
-msgstr "Perkelti visas plyteles kairėje lentoje per vieną aukštyn"
-
-#. Translators: Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:218
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board down by one"
-msgstr "Perkelti visas plyteles kairėje lentoje per vieną žemyn"
-
-#. Translators: Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:226
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board left by one"
-msgstr "Perkelti visas plyteles kairėje lentoje per vieną į kairę"
-
-#. Translators: Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:234
-msgctxt "shortcut window"
-msgid "Move all the pieces in the left half-board right by one"
-msgstr "Perkelti visas plyteles kairėje lentoje per vieną į dešinę"
-
-#. Translators: Shift-Ctrl-Up shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:242
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board up by one"
-msgstr "Perkelti visas plyteles dešinėje lentoje per vieną aukštyn"
-
-#. Translators: Shift-Ctrl-Down shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:250
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board down by one"
-msgstr "Perkelti visas plyteles dešinėje lentoje per vieną žemyn"
-
-#. Translators: Shift-Ctrl-Left shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:258
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board left by one"
-msgstr "Perkelti visas plyteles dešinėje lentoje per vieną kairėn"
-
-#. Translators: Shift-Ctrl-Right shortcut description in the Keyboard Shortcuts dialog, section Advanced gameplay
-#: src/help-overlay.ui:266
-msgctxt "shortcut window"
-msgid "Move all the pieces in the right half-board right by one"
-msgstr "Perkelti visas plyteles dešinėje lentoje per vieną dešinėn"
-
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
-#: src/history.vala:314
+#: src/history.vala:162
 #, c-format
 msgid "%uh %um %us"
 msgstr "%uh %um %us"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
-#: src/history.vala:318
+#: src/history.vala:168
 #, c-format
 msgid "%um %us"
 msgstr "%um %us"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
-#: src/history.vala:322
+#: src/history.vala:172
 #, c-format
 msgid "%us"
 msgstr "%us"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
-#: src/history.vala:326
+#: src/history.vala:176
 #, c-format
 msgid "%.0fs"
 msgstr "%.0fs"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
-#: src/history.vala:330
+#: src/history.vala:180
 #, c-format
 msgid "%.1fs"
 msgstr "%.1fs"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
-#: src/history.vala:334
+#: src/history.vala:184
 #, c-format
 msgid "%.2fs"
 msgstr "%.2fs"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
-#: src/history.vala:338
+#: src/history.vala:188
 #, c-format
 msgid "%.3fs"
 msgstr "%.3fs"
 
-#. Translators: text that appears as an overlay on the board when the game is paused
-#: src/puzzle-view.vala:535
-msgid "Paused"
-msgstr "Pauzė"
-
 #. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
-#: src/score-dialog.vala:72
+#: src/score-dialog.vala:63
 msgid "Date"
 msgstr "Data"
 
 #. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
-#: src/score-dialog.vala:76
+#: src/score-dialog.vala:67
 msgid "Time"
 msgstr "Laikas"
 
 #. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
-#: src/score-dialog.vala:145
+#: src/score-dialog.vala:132 src/window.vala:83
 #, c-format
 msgid "%u × %u"
 msgstr "%u × %u"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete
-#: src/score-overlay.ui:37
-msgid "Congratulations!"
-msgstr "Sveikiname!"
+#: src/window.vala:75
+msgid "Paused"
+msgstr "Pauzė"
 
-#. Translators: label of a button of the score overlay, displayed after a puzzle is complete; opens Scores dialog
-#: src/score-overlay.ui:78
-msgid "Show scores"
-msgstr "Rodyti rezultatus"
+#: src/window.vala:77
+msgid "Resume Game"
+msgstr "Tęsti žaidimą"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the game time
-#: src/score-overlay.vala:57
-msgid "New best time!"
-msgstr "Naujas geriausias laikas!"
+#: src/window.vala:85
+msgid "Pause Game"
+msgstr "Pristabdyti žaidimą"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the second best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the second best time (in a corner case)
-#: src/score-overlay.vala:61 src/score-overlay.vala:117
-#: src/score-overlay.vala:156
-msgid "Second:"
-msgstr "Antras:"
+#~ msgid "GNOME Tetravex"
+#~ msgstr "GNOME Tetravex"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old second best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old second best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the third best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the third best time (in a corner case)
-#: src/score-overlay.vala:68 src/score-overlay.vala:94
-#: src/score-overlay.vala:121 src/score-overlay.vala:163
-msgid "Third:"
-msgstr "Trečias:"
+#~ msgid "The GNOME Project"
+#~ msgstr "GNOME projektas"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has been the fastest for a puzzle of this size; introduces the old third best time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the old third best time
-#: src/score-overlay.vala:75 src/score-overlay.vala:101
-msgid "Out of podium:"
-msgstr "Už pakylos ribų:"
+#~ msgid ""
+#~ "The value of this key is used to decide the size of the playing grid."
+#~ msgstr "Šio rakto reikšmė lemia žaidimo tinklelio dydį."
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the best time ever
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the best time ever
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the game best time (in a corner case)
-#: src/score-overlay.vala:86 src/score-overlay.vala:112
-#: src/score-overlay.vala:149
-msgid "Best time:"
-msgstr "Geriausias laikas:"
+#~ msgid "Use “Back” and “Forward” mouse button events"
+#~ msgstr "Naudoti pelės mygtukų įvykius „grįžti“ ir „pirmyn“"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made the second best time for a puzzle of this size; introduces the game time
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; introduces the game time
-#: src/score-overlay.vala:90 src/score-overlay.vala:129
-msgid "Your time:"
-msgstr "Jūsų laikas:"
+#~ msgid ""
+#~ "For users which have a mouse with “Forward” and “Back” buttons, this key "
+#~ "will determine if any action is taken inside of the window when either is "
+#~ "pressed."
+#~ msgstr ""
+#~ "Naudotojams, turintiems peles su mygtukais „grįžti“ ir „pirmyn“, šis "
+#~ "raktas nusako, ar vykdomas koks nors veiksmas lange, jei kuris iš jų "
+#~ "nuspaudžiamas."
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank before the one of the game played
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has not made the first or second best time for a puzzle of this size; the %u is replaced by the rank after the one of the game played
-#: src/score-overlay.vala:125 src/score-overlay.vala:133
+#~ msgid "Mouse button to activate the “Undo” command"
+#~ msgstr "Pelės mygtukas, aktyvinantis „atšaukimo“ komandą"
+
+#~ msgid ""
+#~ "For users which have a mouse with “Forward” and “Back” buttons, this key "
+#~ "will set which button activates the “Undo” command. Possible values range "
+#~ "between 6 and 14."
+#~ msgstr ""
+#~ "Naudotojams, turintiems peles su mygtukais „grįžti“ ir „pirmyn“, šis "
+#~ "raktas nusako, kuris mygtukas aktyvina „atšaukimo“ komandą. Galimos "
+#~ "vertės yra nuo 6 iki 14."
+
+#~ msgid "Mouse button to activate the “Redo” command"
+#~ msgstr "Pelės mygtukas, aktyvinantis „pakartojimo“ komandą"
+
+#~ msgid ""
+#~ "For users which have a mouse with “Forward” and “Back” buttons, this key "
+#~ "will set which button activates the “Redo” command. Possible values range "
+#~ "between 6 and 14."
+#~ msgstr ""
+#~ "Naudotojams, turintiems peles su mygtukais „grįžti“ ir „pirmyn“, šis "
+#~ "raktas nusako, kuris mygtukas aktyvina „pakartojimo“ komandą. Galimos "
+#~ "vertės yra nuo 6 iki 14."
+
+#~ msgid ""
+#~ "The key has value “nothing” if there is no saved game. Else, it contains "
+#~ "a description of the board, with its size, the number of colors, and the "
+#~ "time elapsed, then the list of tiles, saved as properties: their current "
+#~ "position (x and y), their colors (north, east, south and west), and their "
+#~ "original position (x and y), and finally the history, with the last move "
+#~ "index, and history entries saved as properties: coordinates of the two "
+#~ "tiles swapped, and the move id."
+#~ msgstr ""
+#~ "Jei šio rakto vertė „nothing“, nėra įrašyto žaidimo. Priešingus atveju "
+#~ "jis turi lentos aprašymą su dydžiu, spalvų skaičiumi, praėjusiu laiku, "
+#~ "tuomet su plytelių sąrašu, įrašytu kaip savybės: jų dabartinė padėtis (x "
+#~ "ir y), jų spalvos (north, east, south arba west), jų pradinė padėtis (x "
+#~ "ir y) ir galiausiai istorija su paskutinio ėjimo numeriu bei istorijos "
+#~ "įrašais, įrašytais kaip savybės: sukeistų plytelių koordinatės bei ėjimo "
+#~ "id."
+
+#~ msgid "Theme"
+#~ msgstr "Tema"
+
+#~ msgid "The width of the main window in pixels."
+#~ msgstr "Pagrindinio lango plotis pikseliais"
+
+#~ msgid "The height of the main window in pixels."
+#~ msgstr "Pagrindinio lango aukštis pikseliais"
+
+#~ msgid "If “true”, the main window starts in maximized mode."
+#~ msgstr "Jei teigiama, jei langas yra išdidintas."
+
+#~ msgid "_Help"
+#~ msgstr "_Žinynas"
+
+#~ msgid "Game size and colors number can only be given for new puzzles."
+#~ msgstr ""
+#~ "Žaidimo dydis bei spalvos gali būti suteiktos tik naujiems galvosūkiams."
+
+#~ msgid "Cannot move up left-board tiles."
+#~ msgstr "Negalima perkelti aukštyn kairiosios lentos plytelių."
+
+#~ msgid "Cannot move down left-board tiles."
+#~ msgstr "Negalima perkelti žemyn kairiosios lentos plytelių."
+
+#~ msgid "Cannot move left left-board tiles."
+#~ msgstr "Negalima perkelti kairėn kairiosios lentos plytelių."
+
+#~ msgid "Cannot move right left-board tiles."
+#~ msgstr "Negalima perkelti dešinėn kairiosios lentos plytelių."
+
+#~ msgid "Cannot move up right-board tiles."
+#~ msgstr "Negalima perkelti aukštyn dešiniosios lentos plytelių."
+
+#~ msgid "Cannot move down right-board tiles."
+#~ msgstr "Negalima perkelti žemyn dešiniosios lentos plytelių."
+
+#~ msgid "Cannot move left right-board tiles."
+#~ msgstr "Negalima perkelti kairėn dešiniosios lentos plytelių."
+
+#~ msgid "Cannot move right right-board tiles."
+#~ msgstr "Negalima perkelti dešinėn dešiniosios lentos plytelių."
+
+#~ msgid ""
+#~ "Cannot finish automatically. If you want to give up and view the "
+#~ "solution, use “solve”."
+#~ msgstr ""
+#~ "Negalima automatiškai užbaigti. Jei norite pasiduoti ir pamatyti "
+#~ "sprendimą, naudokite „solve“?"
+
+#~ msgid "Cannot parse instruction, aborting."
+#~ msgstr "Nepavyko perskaityti instrukcijos, nutraukiama."
+
+#~ msgid "Both given tiles are empty, aborting."
+#~ msgstr "Abi pateiktos plytelės yra tuščios, nutraukiama."
+
+#~ msgid "Cannot swap the given tiles, aborting."
+#~ msgstr "Negalima sukeisti pateiktų plytelių, nutraukiama."
+
+#~ msgid "Puzzle is already solved! If you want to start a new one, use “new”."
+#~ msgstr ""
+#~ "Galvosūkis jau yra išspręstas. Jei norite pradėti naują, naudokite „new“."
+
+#~ msgid "Puzzle is solved! If you want to start a new one, use “new”."
+#~ msgstr "Galvosūkis išspręstas! Jei norite pradėti naują, naudokite „new“."
+
+#~ msgid "Puzzle is solved!"
+#~ msgstr "Galvosūkis išspręstas!"
+
+#~ msgid "(nothing)"
+#~ msgstr "(nėra)"
+
+#~ msgid "Invert two tiles, the one in A1, and the one in b2."
+#~ msgstr "Sukeisti dvi plyteles, vieną iš A1 ir kitą iš b2."
+
+#~ msgid "An uppercase targets a tile from the initial board."
+#~ msgstr "Didžioji raidė žymi plytelę pradinėje lentoje."
+
+#~ msgid "A lowercase targets a tile in the left/final board."
+#~ msgstr "Mažoji raidė žymi plytelę kairėje/galutinėje lentoje."
+
+#~ msgid "Digits specify the rows of the two tiles to invert."
+#~ msgstr "Skaitmenys nurodo sukeičiamų plytelių eilutes."
+
+#~ msgid "Show the current puzzle. Alias: “status” or “show”."
+#~ msgstr "Rodyti dabartinį galvosūkį. Trumpinys „status“ arba „show“."
+
+#~ msgid "Create a new puzzle; for changing size, use --size."
+#~ msgstr "Sukurti naują galvosūkį; dydžio keitimui naudokite --size."
+
+#~ msgid "Give up with current puzzle, and view the solution."
+#~ msgstr "Pasiduoti dabartiniame galvosūkųje ir parodyti sprendimą."
+
+#~ msgid "Finish current puzzle, automatically. Alias: “end”."
+#~ msgstr "Automatiškai užbaigti dabartinį galvosūkį. Trumpinys: „end“."
+
+#~ msgid "Works for puzzles solved right or if one tile left."
+#~ msgstr ""
+#~ "Veikia su galvosūkiais, kurie yra išspręsti arba likusia vienintele "
+#~ "plytele."
+
+#~ msgid "Move all left-board tiles up by one."
+#~ msgstr "Perkelti visas plyteles kairėje per vieną aukštyn."
+
+#~ msgid "Move all left-board tiles down by one."
+#~ msgstr "Perkelti visas plyteles kairėje per vieną žemyn."
+
+#~ msgid "Move all left-board tiles left by one."
+#~ msgstr "Perkelti visas plyteles kairėje per vieną kairėn."
+
+#~ msgid "Move all left-board tiles right by one."
+#~ msgstr "Perkelti visas plyteles kairėje per vieną dešinėn."
+
+#~ msgid "Move all right-board tiles up by one."
+#~ msgstr "Perkelti visas plyteles dešinėje per vieną aukštyn."
+
+#~ msgid "Move all right-board tiles down by one."
+#~ msgstr "Perkelti visas plyteles dešinėje per vieną žemyn."
+
+#~ msgid "Move all right-board tiles left by one."
+#~ msgstr "Perkelti visas plyteles dešinėje per vieną kairėn."
+
+#~ msgid "Move all right-board tiles right by one."
+#~ msgstr "Perkelti visas plyteles dešinėje per vieną dešinėn."
+
+#~ msgid "[COMMAND]"
+#~ msgstr "[KOMANDA]"
+
+#~ msgid "Available commands:"
+#~ msgstr "Galimos komandos:"
+
+#~ msgid "Failed to parse command-line arguments."
+#~ msgstr "Nepavyko perskaityti komandų eilutės argumentų."
+
+#~ msgid "To use `gnome-tetravex-cli`, pass as argument:"
+#~ msgstr "Norėdami naudoti `gnome-tetravex-cli, perduokite argumentą:"
+
+#~ msgid "Play in the terminal (see “--cli=help”)"
+#~ msgstr "Žaisti terminale (žr. „--cli=help“)"
+
+#~ msgid "COMMAND"
+#~ msgstr "KOMANDA"
+
+#~ msgid "Restore last game, if any"
+#~ msgstr "Atkurti paskutinį žaidimą, jei toks yra"
+
+#~ msgid "To play GNOME Tetravex in command-line:"
+#~ msgstr "Norint žaisti GNOME Tetravex komandų eilutėje:"
+
+#~ msgid "Restore last game"
+#~ msgstr "Atkurti paskutinį žaidimą"
+
+#~ msgid "Start a new game"
+#~ msgstr "Pradėti naują žaidimą"
+
+#~ msgid "Give up and view the solution"
+#~ msgstr "Pasiduoti ir parodyti sprendimą"
+
 #, c-format
-msgid "Place %u:"
-msgstr "Vieta %u:"
+#~| msgid "Are you sure you want to start a new game with same board size?"
+#~ msgid "Are you sure you want to start a new %u × %u game?"
+#~ msgstr "Ar tikrai norite pradėti naują %u × %u žaidimą?"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the worst time (in a corner case)
-#: src/score-overlay.vala:172
-msgid "Worst time:"
-msgstr "Blogiausias laikas:"
+#~ msgid "_Start New Game"
+#~ msgstr "_Pradėti naują žaidimą"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; introduces the fourth time (in a corner case)
-#: src/score-overlay.vala:178
-msgid "Fourth:"
-msgstr "Ketvirtas:"
+#~ msgid ""
+#~ "Looks like you haven’t finished a game yet.\n"
+#~ "\n"
+#~ "Maybe try a 2 × 2 grid, they are easy. 🙂️"
+#~ msgstr ""
+#~ "Atrodo dar neužbaigėte žaidimo.\n"
+#~ "\n"
+#~ "Gal pabandykite 2 × 2, jie yra labai paprasti. 🙂️"
 
-#. Translators: text of the score overlay, displayed after a puzzle is complete; appears if the player has made one of the worst scores for a game of this size; says that the rank after the one of the game is "free", inviting to do worse
-#: src/score-overlay.vala:205
-msgid "Free!"
-msgstr "Laisva!"
+#~ msgid "Are you sure you want to give up and view the solution?"
+#~ msgstr "Ar tikrai norite pasiduoti ir pamatyti sprendimą?"
+
+#~ msgid "Lars Rydlinge"
+#~ msgstr "Lars Rydlinge"
+
+#~ msgid "Robert Ancell"
+#~ msgstr "Robert Ancell"
+
+#~ msgid "Rob Bradford"
+#~ msgstr "Rob Bradford"
+
+#~ msgid "Position pieces so that the same numbers are touching each other"
+#~ msgstr ""
+#~ "Sudėliokite koklius taip, kad besiglaudžiančios kraštinės turėtų tą patį "
+#~ "skaičių"
+
+#, c-format
+#~ msgid "Copyright © %u-%u – Lars Rydlinge"
+#~ msgstr "Autorių teisės © %u-%u – Lars Rydlinge"
+
+#, c-format
+#~ msgid "Copyright © %u-%u – Arnaud Bonatti"
+#~ msgstr "Autorių teisės © %u-%u – Arnaud Bonatti"
+
+#~ msgid "Page on GNOME wiki"
+#~ msgstr "GNOME wiki puslapis"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Play with keyboard"
+#~ msgstr "Žaisti klaviatūra"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move keyboard highlight"
+#~ msgstr "Perkėlimo klaviatūros paryškinimas"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Validate right half-board"
+#~ msgstr "Patikrinti dešinę lentą"
+
+#~ msgctxt "shortcut window"
+#~ msgid "History"
+#~ msgstr "Istorija"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Reload initial position"
+#~ msgstr "Iš naujo įkelti pradinę padėtį"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Main functions"
+#~ msgstr "Pagrindinės funkcijos"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Start a new game"
+#~ msgstr "Pradėti naują žaidimą"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Pause the game"
+#~ msgstr "Pristabdyti žaidimą"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Solve the game"
+#~ msgstr "Išspręsti žaidimą"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show scores"
+#~ msgstr "Rodyti rezultatus"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show Help"
+#~ msgstr "Rodyti žinyną"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show About"
+#~ msgstr "Rodyti apie langą"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Advanced gameplay"
+#~ msgstr "Sudėtingas žaidimas"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the left half-board up by one"
+#~ msgstr "Perkelti visas plyteles kairėje lentoje per vieną aukštyn"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the left half-board down by one"
+#~ msgstr "Perkelti visas plyteles kairėje lentoje per vieną žemyn"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the left half-board left by one"
+#~ msgstr "Perkelti visas plyteles kairėje lentoje per vieną į kairę"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the left half-board right by one"
+#~ msgstr "Perkelti visas plyteles kairėje lentoje per vieną į dešinę"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the right half-board up by one"
+#~ msgstr "Perkelti visas plyteles dešinėje lentoje per vieną aukštyn"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the right half-board down by one"
+#~ msgstr "Perkelti visas plyteles dešinėje lentoje per vieną žemyn"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the right half-board left by one"
+#~ msgstr "Perkelti visas plyteles dešinėje lentoje per vieną kairėn"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Move all the pieces in the right half-board right by one"
+#~ msgstr "Perkelti visas plyteles dešinėje lentoje per vieną dešinėn"
+
+#~ msgid "Congratulations!"
+#~ msgstr "Sveikiname!"
+
+#~ msgid "Show scores"
+#~ msgstr "Rodyti rezultatus"
+
+#~ msgid "New best time!"
+#~ msgstr "Naujas geriausias laikas!"
+
+#~ msgid "Second:"
+#~ msgstr "Antras:"
+
+#~ msgid "Third:"
+#~ msgstr "Trečias:"
+
+#~ msgid "Out of podium:"
+#~ msgstr "Už pakylos ribų:"
+
+#~ msgid "Best time:"
+#~ msgstr "Geriausias laikas:"
+
+#~ msgid "Your time:"
+#~ msgstr "Jūsų laikas:"
+
+#, c-format
+#~ msgid "Place %u:"
+#~ msgstr "Vieta %u:"
+
+#~ msgid "Worst time:"
+#~ msgstr "Blogiausias laikas:"
+
+#~ msgid "Fourth:"
+#~ msgstr "Ketvirtas:"
+
+#~ msgid "Free!"
+#~ msgstr "Laisva!"
 
 #~ msgid ""
 #~ "Are you sure you want to start a new game with a different board size?"
@@ -1020,9 +934,6 @@ msgstr "Laisva!"
 
 #~ msgid "Quit"
 #~ msgstr "Išeiti"
-
-#~ msgid "New Game"
-#~ msgstr "Naujas žaidimas"
 
 #~ msgid "OK"
 #~ msgstr "Gerai"
