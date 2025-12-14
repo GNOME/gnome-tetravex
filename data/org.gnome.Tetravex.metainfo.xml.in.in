@@ -32,6 +32,7 @@
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-tetravex/issues</url>
   <url type="translate">https://l10n.gnome.org/module/gnome-tetravex/</url>
   <url type="vcs-browser">https://gitlab.gnome.org/GNOME/gnome-tetravex</url>
+  <url type="help">https://help.gnome.org/gnome-tetravex/</url>
   <developer id="@developer-id@">
     <name>The Tetravex Team</name>
   </developer>
