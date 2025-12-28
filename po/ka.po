@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tetravex\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
-"POT-Creation-Date: 2025-09-22 00:59+0000\n"
-"PO-Revision-Date: 2025-09-22 08:03+0200\n"
+"POT-Creation-Date: 2025-12-19 18:54+0000\n"
+"PO-Revision-Date: 2025-12-28 17:13+0100\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.8\n"
 
 #: data/org.gnome.Tetravex.desktop.in.in:2
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:7
@@ -26,7 +26,7 @@ msgstr "Tetravex"
 
 #: data/org.gnome.Tetravex.desktop.in.in:3
 msgid "Complete the puzzle by matching numbered tiles"
-msgstr ""
+msgstr "ააწყვეთ პაზლი იგივე ნომრის მქონე ფილებით"
 
 #. TRANSLATORS: Do NOT translate or localize the semicolons!
 #. The list MUST also end with a semicolon!
@@ -37,7 +37,7 @@ msgstr "game;logic;board;თამაში;ლოგიკა;"
 
 #: data/org.gnome.Tetravex.gschema.xml.in:12
 msgid "The size of the playing grid"
-msgstr ""
+msgstr "სათამაშო ბადის ზომა"
 
 #: data/org.gnome.Tetravex.gschema.xml.in:16
 msgid "Saved game, if any"
@@ -61,7 +61,7 @@ msgstr "გაშლილობის რეჟიმის ჩართვი�
 
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:8
 msgid "Reorder tiles to fit a square"
-msgstr ""
+msgstr "გადაალაგეთ ფილები კვადრატის შევსებამდე"
 
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:10
 msgid ""
@@ -124,12 +124,12 @@ msgstr "_გარეგნობა"
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
 #: data/ui/menu.ui:75
 msgid "_Extrusion"
-msgstr ""
+msgstr "_ექსტრუზია"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
 #: data/ui/menu.ui:81
 msgid "Neo_Retro"
-msgstr ""
+msgstr "ნეო_რეტრო"
 
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
 #: data/ui/menu.ui:87
@@ -139,7 +139,7 @@ msgstr "_ნოსტალგია"
 #. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
 #: data/ui/menu.ui:93
 msgid "_Synesthesia"
-msgstr ""
+msgstr "_სინთეზია"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows Game Rules dialog
 #: data/ui/menu.ui:103
@@ -223,7 +223,7 @@ msgstr "ბრძანების აღდგენა"
 #: data/ui/shortcuts-dialog.ui:52
 msgctxt "shortcut window"
 msgid "Reset Board"
-msgstr ""
+msgstr "დაფის ჩამოყრა"
 
 #: data/ui/shortcuts-dialog.ui:58
 msgctxt "shortcut window"
@@ -268,7 +268,7 @@ msgstr ""
 #: data/ui/shortcuts-dialog.ui:106
 msgctxt "shortcut window"
 msgid "Tile Shifting"
-msgstr ""
+msgstr "ფილების წანაცვლება"
 
 #: data/ui/shortcuts-dialog.ui:110
 msgctxt "shortcut window"
@@ -318,7 +318,7 @@ msgstr "ზოგადი"
 #: data/ui/shortcuts-dialog.ui:167
 msgctxt "shortcut window"
 msgid "Game Rules"
-msgstr ""
+msgstr "თამაშის წესები"
 
 #: data/ui/shortcuts-dialog.ui:173
 msgctxt "shortcut window"
