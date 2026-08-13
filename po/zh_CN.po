@@ -2,14 +2,14 @@
 # Copyright 2011 Free Software Foundation, Inc.
 # Aron Xu <aronxu@gnome.org>, 2011.
 # YunQiang Su <wzssyqa@gmail.com>, 2011, 2012.
-# lumingzh <lumingzh@qq.com>, 2025.
+# lumingzh <lumingzh@qq.com>, 2025-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
-"POT-Creation-Date: 2025-09-22 06:06+0000\n"
-"PO-Revision-Date: 2025-09-23 08:34+0800\n"
+"POT-Creation-Date: 2025-12-14 22:41+0000\n"
+"PO-Revision-Date: 2026-08-13 13:21+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 49.0\n"
+"X-Generator: Gtranslator 50.0\n"
 
 #: data/org.gnome.Tetravex.desktop.in.in:2
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:7
@@ -78,6 +78,10 @@ msgstr ""
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr "您可以通过改变棋盘的大小来增加或降低难度。"
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:37
+msgid "The Tetravex Team"
+msgstr "四邻团队"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
 #: data/ui/menu.ui:23
@@ -443,7 +447,7 @@ msgstr ""
 "Xhacker Liu <liu.dongyuan@gmail.com>, 2010\n"
 "Tong Hui <tonghuix@gmail.com>, 2014\n"
 "Weiyi Xu <xuweiyi0923@gmail.com>, 2020\n"
-"lumingzh <lumingzh@qq.com>, 2025"
+"lumingzh <lumingzh@qq.com>, 2025-2026"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
 #: src/history.vala:162
