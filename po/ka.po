@@ -1,14 +1,14 @@
 # Georgian translation for tetravex.
 # Copyright (C) 2023 tetravex's authors.
 # This file is distributed under the same license as the tetravex package.
-# Ekaterine Papava <papava.e@gtu.ge>, 2023-2025.
+# Ekaterine Papava <papava.e@gtu.ge>, 2023-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: tetravex\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
-"POT-Creation-Date: 2025-12-19 18:54+0000\n"
-"PO-Revision-Date: 2025-12-28 17:13+0100\n"
+"POT-Creation-Date: 2025-12-14 22:41+0000\n"
+"PO-Revision-Date: 2026-08-13 07:32+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: data/org.gnome.Tetravex.desktop.in.in:2
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:7
@@ -75,6 +75,11 @@ msgstr ""
 msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:37
+#| msgid "Tetravex"
+msgid "The Tetravex Team"
+msgstr "Tetravex-ის გუნდი"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
 #: data/ui/menu.ui:23
@@ -173,7 +178,7 @@ msgstr ""
 #: data/ui/rules-dialog.ui:46
 msgctxt "game rules"
 msgid "Rounds are scored based on completion time"
-msgstr ""
+msgstr "რაუნდებში ქულები დასრულების მიხედვით გაიცემა"
 
 #: data/ui/rules-dialog.ui:56
 msgctxt "game rules"
@@ -183,17 +188,17 @@ msgstr "თქვენ შეგიძლიათ შეაჩეროთ თ
 #: data/ui/rules-dialog.ui:57
 msgctxt "game rules"
 msgid "Tile faces will be hidden"
-msgstr ""
+msgstr "ფილის სახეები დამალული იქნება"
 
 #: data/ui/rules-dialog.ui:67
 msgctxt "game rules"
 msgid "You can undo or redo a move"
-msgstr ""
+msgstr "სვლა შეგიძლიათ, გააუქმოთ, ან გაიმეოროთ"
 
 #: data/ui/rules-dialog.ui:68
 msgctxt "game rules"
 msgid "No time penalty is added"
-msgstr ""
+msgstr "დროის ჯარიმა არ ემატება"
 
 #: data/ui/shortcuts-dialog.ui:24
 msgctxt "shortcut window"
