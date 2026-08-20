@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
 "POT-Creation-Date: 2025-12-14 22:41+0000\n"
-"PO-Revision-Date: 2026-02-08 14:28+0200\n"
+"PO-Revision-Date: 2026-08-20 15:17+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Launchpad-Export-Date: 2010-09-13 15:09+0000\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 "X-POT-Import-Date: 2012-03-05 14:46:29+0000\n"
 
 #: data/org.gnome.Tetravex.desktop.in.in:2
@@ -90,6 +90,10 @@ msgid ""
 msgstr ""
 "Voit tehdä pelistä aiempaa haastavemman tai helpomman muuttamalla laudan "
 "kokoa."
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:37
+msgid "The Tetravex Team"
+msgstr "Tetravex-tiimi"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
 #: data/ui/menu.ui:23
