@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
 "POT-Creation-Date: 2025-12-14 22:41+0000\n"
-"PO-Revision-Date: 2026-01-26 20:21+0500\n"
+"PO-Revision-Date: 2026-08-22 08:54+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: data/org.gnome.Tetravex.desktop.in.in:2
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:7
@@ -80,107 +80,86 @@ msgid ""
 msgstr ""
 "Тақтаның өлшемін өзгерту арқылы ойынды жеңілдетуге немесе қиындатуға болады."
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when
-#. pressing Alt); starts a new game
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:37
+msgid "The Tetravex Team"
+msgstr "Tetravex командасы"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
 #: data/ui/menu.ui:23
 msgid "_New Game"
 msgstr "Ж_аңа ойын"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when
-#. pressing Alt); displays Scores dialog
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
 #: data/ui/menu.ui:28
 msgid "_Scores"
 msgstr "_Есептер"
 
-#. Translators: submenu of the hamburger menu (with a mnemonic that appears
-#. when pressing Alt); allows to change the size of the board
+#. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
 #: data/ui/menu.ui:35
 msgid "Si_ze"
 msgstr "Өл_шем"
 
-#. Translators: entry of the Size submenu of the hamburger menu (with a
-#. mnemonic that appears when pressing Alt); set board size to 2 by 2;
-#. possible sizes between 2 and 6
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
 #: data/ui/menu.ui:39
 msgid "_2 × 2"
 msgstr "_2 × 2"
 
-#. Translators: entry of the Size submenu of the hamburger menu (with a
-#. mnemonic that appears when pressing Alt); set board size to 3 by 3;
-#. possible sizes between 2 and 6
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
 #: data/ui/menu.ui:45
 msgid "_3 × 3"
 msgstr "_3 × 3"
 
-#. Translators: entry of the Size submenu of the hamburger menu (with a
-#. mnemonic that appears when pressing Alt); set board size to 4 by 4;
-#. possible sizes between 2 and 6
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
 #: data/ui/menu.ui:51
 msgid "_4 × 4"
 msgstr "_4 × 4"
 
-#. Translators: entry of the Size submenu of the hamburger menu (with a
-#. mnemonic that appears when pressing Alt); set board size to 5 by 5;
-#. possible sizes between 2 and 6
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
 #: data/ui/menu.ui:57
 msgid "_5 × 5"
 msgstr "_5 × 5"
 
-#. Translators: entry of the Size submenu of the hamburger menu (with a
-#. mnemonic that appears when pressing Alt); set board size to 6 by 6;
-#. possible sizes between 2 and 6
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
 #: data/ui/menu.ui:63
 msgid "_6 × 6"
 msgstr "_6 × 6"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when
-#. pressing Alt); displays allows to change the theme
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
 #: data/ui/menu.ui:71
 msgid "A_ppearance"
 msgstr "Сырт _көрінісі"
 
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a
-#. mnemonic that appears when pressing Alt); set theme to Adwaita; other
-#. possible themes are Neo_Retro, _Nostalgia and _Synesthesia
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
 #: data/ui/menu.ui:75
 msgid "_Extrusion"
 msgstr "_Экструзия"
 
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a
-#. mnemonic that appears when pressing Alt); set theme to NeoRetro; other
-#. possible themes are _Extrusion, _Nostalgia and _Synesthesia
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
 #: data/ui/menu.ui:81
 msgid "Neo_Retro"
 msgstr "Нео_Ретро"
 
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a
-#. mnemonic that appears when pressing Alt); set theme to Nostalgia; other
-#. possible themes are _Extrusion, Neo_Retro and _Synesthesia
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
 #: data/ui/menu.ui:87
 msgid "_Nostalgia"
 msgstr "_Ностальгия"
 
-#. Translators: entry of the Appearance submenu of the hamburger menu (with a
-#. mnemonic that appears when pressing Alt); set theme to Synesthesia; other
-#. possible themes are _Extrusion, Neo_Retro and _Nostalgia
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
 #: data/ui/menu.ui:93
 msgid "_Synesthesia"
 msgstr "_Синестезия"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when
-#. pressing Alt); shows Game Rules dialog
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows Game Rules dialog
 #: data/ui/menu.ui:103
 msgid "Game R_ules"
 msgstr "Ойын ере_желері"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when
-#. pressing Alt); displays Keyboard Shortcuts dialog
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
 #: data/ui/menu.ui:108
 msgid "_Keyboard Shortcuts"
 msgstr "П_ернетақта жарлықтары"
 
-#. Translators: entry of the hamburger menu (with a mnemonic that appears when
-#. pressing Alt); shows About dialog
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
 #: data/ui/menu.ui:113
 msgid "_About Tetravex"
 msgstr "Tetravex т_уралы"
@@ -398,8 +377,7 @@ msgstr "Плиткаларды солға жылжыту"
 msgid "Set number of colors (2-10)"
 msgstr "Түстер санын орнату (2-10)"
 
-#. Translators: in the command-line options description, text to indicate the
-#. user should specify colors number, see 'gnome-tetravex --help'
+#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
 #: src/gnome-tetravex.vala:45
 msgid "NUMBER"
 msgstr "NUMBER"
@@ -414,8 +392,7 @@ msgstr "Ойналған ойындардың статистикасы"
 msgid "Set size of board (2-6)"
 msgstr "Тақта өлшемін орнату (2-6)"
 
-#. Translators: in the command-line options description, text to indicate the
-#. user should specify size, see 'gnome-tetravex --help'
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
 #: src/gnome-tetravex.vala:53
 msgid "SIZE"
 msgstr "ӨЛШЕМІ"
@@ -425,14 +402,12 @@ msgstr "ӨЛШЕМІ"
 msgid "Print release version and exit"
 msgstr "Нұсқа ақпаратын шығару және шығу"
 
-#. Translators: command-line error message, displayed on invalid game size
-#. request; see 'gnome-tetravex -s 1'
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
 #: src/gnome-tetravex.vala:115
 msgid "Size could only be from 2 to 6."
 msgstr "Өлшем тек 2-ден 6-ға дейін болуы мүмкін."
 
-#. Translators: command-line error message, displayed for an invalid number of
-#. colors; see 'gnome-tetravex -c 1'
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
 #: src/gnome-tetravex.vala:121
 msgid "There could only be between 2 and 10 colors."
 msgstr "Түстер саны тек 2 мен 10 арасында болуы мүмкін."
@@ -469,85 +444,59 @@ msgstr "Өлшемді ө_згерту"
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
-#. Translators: that is the duration of a game, as seen in the Scores dialog,
-#. if game has taken one hour or more; the %u are replaced by the hours (h),
-#. minutes (m) and seconds (s); as an example, you might want to use
-#. "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits,
-#. padding with 0")
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
 #: src/history.vala:162
 #, c-format
 msgid "%uh %um %us"
 msgstr "%u сағ %u мин %u с"
 
-#. Translators: that is the duration of a game, as seen in the Scores dialog,
-#. if game has taken between one minute and one hour; the %u are replaced by
-#. the minutes (m) and seconds (s); as an example, you might want to use
-#. "%.2u:%.2u", that is quite international (the ".2" meaning "two digits,
-#. padding with 0")
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
 #: src/history.vala:168
 #, c-format
 msgid "%um %us"
 msgstr "%u мин %u с"
 
-#. Translators: that is the duration of a game, as seen in the Scores dialog,
-#. if game has taken less than one minute; the %u is replaced by the number of
-#. seconds (s) it has taken
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
 #: src/history.vala:172
 #, c-format
 msgid "%us"
 msgstr "%u с"
 
-#. Translators: that is the duration of a game, as seen in the Scores dialog,
-#. if game has taken less than one minute; the %.0f is replaced by the number
-#. of seconds (s) it has taken
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
 #: src/history.vala:176
 #, c-format
 msgid "%.0fs"
 msgstr "%.0f с"
 
-#. Translators: that is the duration of a game, as seen in the Scores dialog,
-#. if game has taken less than one minute; the %.1f is replaced by the number
-#. of seconds (s) it has taken, including deciseconds (1 digits after comma,
-#. so the .1)
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
 #: src/history.vala:180
 #, c-format
 msgid "%.1fs"
 msgstr "%.1f с"
 
-#. Translators: that is the duration of a game, as seen in the Scores dialog,
-#. if game has taken less than one minute; the %.2f is replaced by the number
-#. of seconds (s) it has taken, including centiseconds (2 digits after comma,
-#. so the .2)
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
 #: src/history.vala:184
 #, c-format
 msgid "%.2fs"
 msgstr "%.2f с"
 
-#. Translators: that is the duration of a game, as seen in the Scores dialog,
-#. if game has taken less than one minute; the %.3f is replaced by the number
-#. of seconds (s) it has taken, including milliseconds (3 digits after comma,
-#. so the .3)
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
 #: src/history.vala:188
 #, c-format
 msgid "%.3fs"
 msgstr "%.3f с"
 
-#. Translators: in the Scores dialog, in the scores list, label of the column
-#. displaying when games were played
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
 #: src/score-dialog.vala:63
 msgid "Date"
 msgstr "Күні"
 
-#. Translators: in the Scores dialog, in the scores list, label of the column
-#. displaying the duration of played games
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
 #: src/score-dialog.vala:67
 msgid "Time"
 msgstr "Уақыт"
 
-#. Translators: this string creates the options of the combobox seen in the
-#. Scores dialog; the %u are replaced by the board size; it allows to choose
-#. for which board size you want to see the scores, for example between "2 ×
-#. 2" and "3 × 3"
+#. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
 #: src/score-dialog.vala:132 src/window.vala:83
 #, c-format
 msgid "%u × %u"
@@ -579,7 +528,8 @@ msgstr "Ойынды аялдату"
 
 #~ msgid "If “true”, the main window starts in maximized mode."
 #~ msgstr ""
-#~ "Егер \"true\" болса, басты терезе максималды күйінде іске қосылатын болады."
+#~ "Егер \"true\" болса, басты терезе максималды күйінде іске қосылатын "
+#~ "болады."
 
 #~ msgid "_Help"
 #~ msgstr "_Көмек"
