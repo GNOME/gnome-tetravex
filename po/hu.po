@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
 "POT-Creation-Date: 2025-12-14 22:41+0000\n"
-"PO-Revision-Date: 2026-03-06 08:51+0100\n"
+"PO-Revision-Date: 2026-09-01 22:02+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: data/org.gnome.Tetravex.desktop.in.in:2
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:7
@@ -88,6 +88,11 @@ msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "A játékot egyszerűbbé vagy nehezebbé teheti a tábla méretének módosításával."
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:37
+#| msgid "Tetravex"
+msgid "The Tetravex Team"
+msgstr "A Tetravex csapata"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
 #: data/ui/menu.ui:23
@@ -174,7 +179,6 @@ msgid "Game Rules"
 msgstr "Játékszabályok"
 
 #: data/ui/rules-dialog.ui:28
-#| msgid "Complete the puzzle by matching numbered tiles"
 msgctxt "game rules"
 msgid "Complete the empty board by placing tiles on it"
 msgstr "Töltse fel az üres táblát a csempék elhelyezésével"
@@ -190,7 +194,6 @@ msgid "Rounds are scored based on completion time"
 msgstr "A körök a teljesítési idő alapján kerülnek pontozásra"
 
 #: data/ui/rules-dialog.ui:56
-#| msgid "Pause the game"
 msgctxt "game rules"
 msgid "You can pause the game"
 msgstr "Szüneteltetheti a játékot"
@@ -211,19 +214,16 @@ msgid "No time penalty is added"
 msgstr "Nincs időbüntetés hozzáadva"
 
 #: data/ui/shortcuts-dialog.ui:24
-#| msgid "_New Game"
 msgctxt "shortcut window"
 msgid "Game"
 msgstr "Játék"
 
 #: data/ui/shortcuts-dialog.ui:28
-#| msgid "_New Game"
 msgctxt "shortcut window"
 msgid "New Game"
 msgstr "Új játék"
 
 #: data/ui/shortcuts-dialog.ui:34
-#| msgid "Pause the game"
 msgctxt "shortcut window"
 msgid "Pause Game"
 msgstr "Játék szüneteltetése"
@@ -259,29 +259,21 @@ msgid "Move Tile Focus"
 msgstr "Csempe fókuszálásának mozgatása"
 
 #: data/ui/shortcuts-dialog.ui:74
-#| msgctxt "shortcut window"
-#| msgid "Select, move or unselect"
 msgctxt "shortcut window"
 msgid "Select / Move / Unselect Tile"
 msgstr "Csempe kiválasztása, mozgatása vagy kiválasztásának megszüntetése"
 
 #: data/ui/shortcuts-dialog.ui:80
-#| msgctxt "shortcut window"
-#| msgid "Select the given row"
 msgctxt "shortcut window"
 msgid "Select Row"
 msgstr "Sor kiválasztása"
 
 #: data/ui/shortcuts-dialog.ui:86
-#| msgctxt "shortcut window"
-#| msgid "Select left half-board column"
 msgctxt "shortcut window"
 msgid "Select Left-Side Column"
 msgstr "Bal oldali oszlop kiválasztása"
 
 #: data/ui/shortcuts-dialog.ui:92
-#| msgctxt "shortcut window"
-#| msgid "Select right half-board column"
 msgctxt "shortcut window"
 msgid "Select Right-Side Column"
 msgstr "Jobb oldali oszlop kiválasztása"
@@ -337,8 +329,6 @@ msgid "Shift Right-Side Tiles Right"
 msgstr "Jobb oldali csempék eltolása jobbra"
 
 #: data/ui/shortcuts-dialog.ui:163
-#| msgctxt "shortcut window"
-#| msgid "Generic"
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Általános"
@@ -349,8 +339,6 @@ msgid "Game Rules"
 msgstr "Játékszabályok"
 
 #: data/ui/shortcuts-dialog.ui:173
-#| msgctxt "shortcut window"
-#| msgid "Toggle main menu"
 msgctxt "shortcut window"
 msgid "Show Main Menu"
 msgstr "Főmenü megjelenítése"
@@ -371,14 +359,10 @@ msgid "Quit"
 msgstr "Kilépés"
 
 #: data/ui/window.ui:37
-#| msgctxt "shortcut window"
-#| msgid "Undo"
 msgid "Undo"
 msgstr "Visszavonás"
 
 #: data/ui/window.ui:44
-#| msgctxt "shortcut window"
-#| msgid "Redo"
 msgid "Redo"
 msgstr "Mégis"
 
@@ -391,12 +375,10 @@ msgid "Reveal Solution"
 msgstr "Megoldás felfedése"
 
 #: data/ui/window.ui:81
-#| msgid "_New Game"
 msgid "New Game"
 msgstr "Új játék"
 
 #: data/ui/window.ui:93
-#| msgid "Move all tiles left"
 msgid "Move Tiles Left"
 msgstr "Csempék mozgatása balra"
 
@@ -544,11 +526,9 @@ msgid "Paused"
 msgstr "Szüneteltetve"
 
 #: src/window.vala:77
-#| msgid "Resume the game"
 msgid "Resume Game"
 msgstr "Játék folytatása"
 
 #: src/window.vala:85
-#| msgid "Pause the game"
 msgid "Pause Game"
 msgstr "Játék szüneteltetése"
