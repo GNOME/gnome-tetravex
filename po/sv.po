@@ -1,18 +1,18 @@
 # Swedish messages for gnome-tetravex.
-# Copyright © 1999-2025 Free Software Foundation, Inc.
+# Copyright © 1999-2026 Free Software Foundation, Inc.
 # Andreas Persenius <ndap@swipnet.se>, 1999.
 # Andreas Hyden <a.hyden@cyberpoint.se>
 # Martin Norbäck <d95mback@dtek.chalmers.se>, 2000.
 # Christian Rose <menthos@menthos.com>, 2000, 2001, 2002, 2003, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2018, 2019, 2020, 2025.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2018, 2019, 2020, 2025, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
-"POT-Creation-Date: 2025-09-22 00:59+0000\n"
-"PO-Revision-Date: 2025-12-10 21:37+0100\n"
+"POT-Creation-Date: 2025-12-14 22:41+0000\n"
+"PO-Revision-Date: 2026-08-12 17:14+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: data/org.gnome.Tetravex.desktop.in.in:2
 #: data/org.gnome.Tetravex.metainfo.xml.in.in:7
@@ -83,6 +83,10 @@ msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Du kan göra spelet lättare eller svårare genom att ändra storleken på brädet."
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:37
+msgid "The Tetravex Team"
+msgstr "Tetravex-gruppen"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
 #: data/ui/menu.ui:23
