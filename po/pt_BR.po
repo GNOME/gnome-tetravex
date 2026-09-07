@@ -25,14 +25,14 @@
 # Felipe Braga <fbobraga@gmail.com>, 2015.
 # Enrico Nicoletto <liverig@gmail.com>, 2013, 2020.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2013-2020.
-# Juliano de Souza Camargo <julianosc@pm.me>, 2025.
+# Juliano de Souza Camargo <julianosc@pm.me>, 2025-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-tetravex\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
-"POT-Creation-Date: 2025-09-25 16:54+0000\n"
-"PO-Revision-Date: 2025-10-10 09:53-0300\n"
+"POT-Creation-Date: 2025-12-14 22:41+0000\n"
+"PO-Revision-Date: 2026-09-07 16:40-0300\n"
 "Last-Translator: Juliano de Souza Camargo <julianosc@pm.me>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao/>\n"
 "Language: pt_BR\n"
@@ -40,7 +40,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 49.0\n"
+"X-Generator: Gtranslator 50.0\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Tetravex.desktop.in.in:2
@@ -106,6 +106,10 @@ msgid ""
 msgstr ""
 "Ao alterar o tamanho do tabuleiro você pode fazer o jogo ficar mais fácil ou "
 "mais difícil."
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:37
+msgid "The Tetravex Team"
+msgstr "A equipe Tetravex"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
 #: data/ui/menu.ui:23
@@ -480,7 +484,7 @@ msgstr ""
 "Felipe Borges <felipe10borges@gmail.com>\n"
 "Sérgio Cipolla <secipolla@gmail.com>\n"
 "Rodrigo Padula de Oliveira <contato@rodrigopadula.com>\n"
-"Rafael Fontenelle <rafaelff@gnome.org>"
+"Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Juliano de Souza Camargo <julianosc@pm.me>"
 
 #. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
