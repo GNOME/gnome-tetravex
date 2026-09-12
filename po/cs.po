@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: gnome-tetravex master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
 "POT-Creation-Date: 2025-12-14 22:41+0000\n"
-"PO-Revision-Date: 2026-02-24 13:58+0100\n"
+"PO-Revision-Date: 2026-09-12 11:56+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -32,7 +32,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Tetravex.desktop.in.in:2
@@ -96,6 +96,10 @@ msgid ""
 "You can make the game easier or harder by changing the size of the board."
 msgstr ""
 "Hru si můžete usnadnit, a nebo naopak ztížit, změnou velikosti herní desky."
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:37
+msgid "The Tetravex Team"
+msgstr "Tým hry Tetravex"
 
 #. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
 #: data/ui/menu.ui:23
