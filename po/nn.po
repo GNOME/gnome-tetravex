@@ -9,10 +9,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: nn\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-04 04:56+0100\n"
-"PO-Revision-Date: 2010-02-24 15:40+0000\n"
-"Last-Translator: Torstein Adolf Winterseth <kvikende@yahoo.no>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-tetravex/issues/\n"
+"POT-Creation-Date: 2025-12-14 22:41+0000\n"
+"PO-Revision-Date: 2026-10-11 12:00+0200\n"
+"Last-Translator: Roy-Magne Mo <rmo@sunnmore.net>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
@@ -21,180 +21,438 @@ msgstr ""
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: ../data/gnome-tetravex.appdata.xml.in.h:1
-#, fuzzy
-msgid "GNOME Tetravex"
-msgstr "Tetravex"
-
-#: ../data/gnome-tetravex.appdata.xml.in.h:2
-msgid "Reorder tiles to fit a square"
-msgstr ""
-
-#: ../data/gnome-tetravex.appdata.xml.in.h:3
-msgid ""
-"Each square piece has a number on each side. Position the pieces on the left "
-"side of the board so that the same numbers are next to each other. If the "
-"numbers don't match, you can't put the piece there. Move quickly: you're "
-"being timed!"
-msgstr ""
-
-#: ../data/gnome-tetravex.appdata.xml.in.h:4
-msgid ""
-"You can make the game easier or harder by changing the size of the board."
-msgstr ""
-
-#: ../data/gnome-tetravex.desktop.in.h:1 ../src/gnome-tetravex.ui.h:1
-#: ../src/gnome-tetravex.vala:71 ../src/gnome-tetravex.vala:106
-#: ../src/gnome-tetravex.vala:381
+#: data/org.gnome.Tetravex.desktop.in.in:2
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:7
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:27 src/gnome-tetravex.vala:89
 msgid "Tetravex"
 msgstr "Tetravex"
 
 #
-#: ../data/gnome-tetravex.desktop.in.h:2
+#: data/org.gnome.Tetravex.desktop.in.in:3
 msgid "Complete the puzzle by matching numbered tiles"
 msgstr "Fullfør puslespelet ved å flytta på nummererte fliser"
 
-#: ../data/gnome-tetravex.desktop.in.h:3
+#. TRANSLATORS: Do NOT translate or localize the semicolons!
+#. The list MUST also end with a semicolon!
+#. Search terms to find this application.
+#: data/org.gnome.Tetravex.desktop.in.in:7
 msgid "game;logic;board;"
-msgstr ""
+msgstr "spel;logikk;brett;"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:1
+#: data/org.gnome.Tetravex.gschema.xml.in:12
 msgid "The size of the playing grid"
 msgstr "Storleiken på spelefeltet"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:2
-#, fuzzy
-msgid "The value of this key is used to decide the size of the playing grid."
-msgstr ""
-"Verdien i denne nøkkelen vert brukt til å avgjera kor stort spelefeltet skal "
-"vera. Dei moglege verdiane er 2 til 8. Alt anna vert retta til 3."
+#: data/org.gnome.Tetravex.gschema.xml.in:16
+msgid "Saved game, if any"
+msgstr "Lagra spel, viss det finst"
+
+#: data/org.gnome.Tetravex.gschema.xml.in:20
+msgid "The name of the current theme"
+msgstr "Namnet på gjeldande tema"
 
 #
-#: ../data/org.gnome.tetravex.gschema.xml.h:3
-#, fuzzy
-msgid "Width of the window in pixels"
-msgstr "Breidda på hovudvindauget i pikslar"
+#: data/org.gnome.Tetravex.gschema.xml.in:24
+msgid "The width of the window"
+msgstr "Breidd på vindauget"
 
 #
-#: ../data/org.gnome.tetravex.gschema.xml.h:4
-#, fuzzy
-msgid "Height of the window in pixels"
-msgstr "Høgda på hovudvindauget i pikslar"
+#: data/org.gnome.Tetravex.gschema.xml.in:28
+msgid "The height of the window"
+msgstr "Høgd på vindauget"
 
-#: ../data/org.gnome.tetravex.gschema.xml.h:5
-msgid "true if the window is maximized"
+#: data/org.gnome.Tetravex.gschema.xml.in:32
+msgid "A flag to enable maximized mode"
+msgstr "Eit flagg for å slå på maksimert modus"
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:8
+msgid "Reorder tiles to fit a square"
+msgstr "Ordne flisene slik at dei passar i eit kvadrat"
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:10
+msgid ""
+"Each square piece has a number on each side. Position the pieces on the left "
+"side of the board so that the same numbers are next to each other. If the "
+"numbers don’t match, you can’t put the piece there. Move quickly: you’re "
+"being timed!"
 msgstr ""
+"Kvar firkanta brikke har eit tal på kvar side. Plasser brikkene på venstre "
+"side av brettet slik at like tal ligg inntil kvarandre. Viss tala ikkje "
+"stemmer, kan du ikkje leggje brikka der. Vær rask: tida går!"
 
-#: ../src/app-menu.ui.h:1
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:16
+msgid ""
+"You can make the game easier or harder by changing the size of the board."
+msgstr ""
+"Du kan gjere spelet lettare eller vanskelegare ved å endre brettstorleiken."
+
+#: data/org.gnome.Tetravex.metainfo.xml.in.in:37
+msgid "The Tetravex Team"
+msgstr "Tetravex-laget"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); starts a new game
+#: data/ui/menu.ui:23
 msgid "_New Game"
 msgstr "_Nytt spel"
 
 #
-#: ../src/app-menu.ui.h:2
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Scores dialog
+#: data/ui/menu.ui:28
 msgid "_Scores"
 msgstr "_Poeng"
 
+#. Translators: submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); allows to change the size of the board
+#: data/ui/menu.ui:35
+msgid "Si_ze"
+msgstr "_Storleik"
+
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 2 by 2; possible sizes between 2 and 6
+#: data/ui/menu.ui:39
+msgid "_2 × 2"
+msgstr "_2 × 2"
+
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 3 by 3; possible sizes between 2 and 6
+#: data/ui/menu.ui:45
+msgid "_3 × 3"
+msgstr "_3 × 3"
+
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 4 by 4; possible sizes between 2 and 6
+#: data/ui/menu.ui:51
+msgid "_4 × 4"
+msgstr "_4 × 4"
+
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 5 by 5; possible sizes between 2 and 6
+#: data/ui/menu.ui:57
+msgid "_5 × 5"
+msgstr "_5 × 5"
+
+#. Translators: entry of the Size submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set board size to 6 by 6; possible sizes between 2 and 6
+#: data/ui/menu.ui:63
+msgid "_6 × 6"
+msgstr "_6 × 6"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays allows to change the theme
+#: data/ui/menu.ui:71
+msgid "A_ppearance"
+msgstr "_Utsjånad"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Adwaita; other possible themes are Neo_Retro, _Nostalgia and _Synesthesia
+#: data/ui/menu.ui:75
+msgid "_Extrusion"
+msgstr "_Extrusion"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to NeoRetro; other possible themes are _Extrusion, _Nostalgia and _Synesthesia
+#: data/ui/menu.ui:81
+msgid "Neo_Retro"
+msgstr "Neo_Retro"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Nostalgia; other possible themes are _Extrusion, Neo_Retro and _Synesthesia
+#: data/ui/menu.ui:87
+msgid "_Nostalgia"
+msgstr "_Nostalgia"
+
+#. Translators: entry of the Appearance submenu of the hamburger menu (with a mnemonic that appears when pressing Alt); set theme to Synesthesia; other possible themes are _Extrusion, Neo_Retro and _Nostalgia
+#: data/ui/menu.ui:93
+msgid "_Synesthesia"
+msgstr "_Synesthesia"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows Game Rules dialog
+#: data/ui/menu.ui:103
+msgid "Game R_ules"
+msgstr "_Spelreglar"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); displays Keyboard Shortcuts dialog
+#: data/ui/menu.ui:108
+msgid "_Keyboard Shortcuts"
+msgstr "_Tastatursnarvegar"
+
+#. Translators: entry of the hamburger menu (with a mnemonic that appears when pressing Alt); shows About dialog
+#: data/ui/menu.ui:113
+msgid "_About Tetravex"
+msgstr "_Om Tetravex"
+
+#: data/ui/rules-dialog.ui:21
+msgid "Game Rules"
+msgstr "Spelreglar"
+
 #
-#: ../src/app-menu.ui.h:3
-msgid "_Size"
-msgstr "_Storleik:"
+#: data/ui/rules-dialog.ui:28
+msgctxt "game rules"
+msgid "Complete the empty board by placing tiles on it"
+msgstr "Fullfør det tomme brettet ved å plassere fliser på det"
 
-#: ../src/app-menu.ui.h:4
-msgid "_2x2"
-msgstr ""
+#: data/ui/rules-dialog.ui:36
+msgctxt "game rules"
+msgid "Tile edge numbers must match with adjacent tiles"
+msgstr "Kanttala på flisene må stemme med nabofliser"
 
-#: ../src/app-menu.ui.h:5
-msgid "_3x3"
-msgstr ""
-
-#: ../src/app-menu.ui.h:6
-msgid "_4x4"
-msgstr ""
-
-#: ../src/app-menu.ui.h:7
-msgid "_5x5"
-msgstr ""
-
-#: ../src/app-menu.ui.h:8
-msgid "_6x6"
-msgstr ""
-
-#: ../src/app-menu.ui.h:9
-msgid "_Help"
-msgstr "_Hjelp"
+#: data/ui/rules-dialog.ui:46
+msgctxt "game rules"
+msgid "Rounds are scored based on completion time"
+msgstr "Rundar får poeng etter tida dei tek"
 
 #
-#: ../src/app-menu.ui.h:10
-msgid "_About"
-msgstr "_Om"
+#: data/ui/rules-dialog.ui:56
+msgctxt "game rules"
+msgid "You can pause the game"
+msgstr "Du kan setje spelet på pause"
+
+#: data/ui/rules-dialog.ui:57
+msgctxt "game rules"
+msgid "Tile faces will be hidden"
+msgstr "Framsidene på flisene vert gøymde"
+
+#: data/ui/rules-dialog.ui:67
+msgctxt "game rules"
+msgid "You can undo or redo a move"
+msgstr "Du kan angre eller gjere om eit trekk"
+
+#: data/ui/rules-dialog.ui:68
+msgctxt "game rules"
+msgid "No time penalty is added"
+msgstr "Ingen tidsstraff vert lagd til"
+
+#: data/ui/shortcuts-dialog.ui:24
+msgctxt "shortcut window"
+msgid "Game"
+msgstr "Spel"
+
+#: data/ui/shortcuts-dialog.ui:28
+msgctxt "shortcut window"
+msgid "New Game"
+msgstr "Nytt spel"
 
 #
-#: ../src/app-menu.ui.h:11
-#, fuzzy
-msgid "_Quit"
+#: data/ui/shortcuts-dialog.ui:34
+msgctxt "shortcut window"
+msgid "Pause Game"
+msgstr "Set spelet på pause"
+
+#: data/ui/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Undo"
+msgstr "Angre"
+
+#: data/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Redo"
+msgstr "Gjer om"
+
+#: data/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Reset Board"
+msgstr "Tilbakestill brettet"
+
+#: data/ui/shortcuts-dialog.ui:58
+msgctxt "shortcut window"
+msgid "Reveal Solution"
+msgstr "Vis løysing"
+
+#: data/ui/shortcuts-dialog.ui:65
+msgctxt "shortcut window"
+msgid "Tile Selection"
+msgstr "Val av flis"
+
+#: data/ui/shortcuts-dialog.ui:68
+msgctxt "shortcut window"
+msgid "Move Tile Focus"
+msgstr "Flytt fokus mellom fliser"
+
+#: data/ui/shortcuts-dialog.ui:74
+msgctxt "shortcut window"
+msgid "Select / Move / Unselect Tile"
+msgstr "Vel / flytt / opphev val av flis"
+
+#: data/ui/shortcuts-dialog.ui:80
+msgctxt "shortcut window"
+msgid "Select Row"
+msgstr "Vel rad"
+
+#: data/ui/shortcuts-dialog.ui:86
+msgctxt "shortcut window"
+msgid "Select Left-Side Column"
+msgstr "Vel kolonne på venstre side"
+
+#: data/ui/shortcuts-dialog.ui:92
+msgctxt "shortcut window"
+msgid "Select Right-Side Column"
+msgstr "Vel kolonne på høgre side"
+
+#: data/ui/shortcuts-dialog.ui:99
+msgctxt "shortcut window"
+msgid "Finish Right-Side Board"
+msgstr "Fullfør brettet på høgre side"
+
+#: data/ui/shortcuts-dialog.ui:106
+msgctxt "shortcut window"
+msgid "Tile Shifting"
+msgstr "Forskyving av fliser"
+
+#: data/ui/shortcuts-dialog.ui:110
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Up"
+msgstr "Skyv fliser på venstre side opp"
+
+#: data/ui/shortcuts-dialog.ui:116
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Down"
+msgstr "Skyv fliser på venstre side ned"
+
+#: data/ui/shortcuts-dialog.ui:122
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Left"
+msgstr "Skyv fliser på venstre side mot venstre"
+
+#: data/ui/shortcuts-dialog.ui:128
+msgctxt "shortcut window"
+msgid "Shift Left-Side Tiles Right"
+msgstr "Skyv fliser på venstre side mot høgre"
+
+#: data/ui/shortcuts-dialog.ui:138
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Up"
+msgstr "Skyv fliser på høgre side opp"
+
+#: data/ui/shortcuts-dialog.ui:144
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Down"
+msgstr "Skyv fliser på høgre side ned"
+
+#: data/ui/shortcuts-dialog.ui:150
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Left"
+msgstr "Skyv fliser på høgre side mot venstre"
+
+#: data/ui/shortcuts-dialog.ui:156
+msgctxt "shortcut window"
+msgid "Shift Right-Side Tiles Right"
+msgstr "Skyv fliser på høgre side mot høgre"
+
+#: data/ui/shortcuts-dialog.ui:163
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Generelt"
+
+#: data/ui/shortcuts-dialog.ui:167
+msgctxt "shortcut window"
+msgid "Game Rules"
+msgstr "Spelreglar"
+
+#: data/ui/shortcuts-dialog.ui:173
+msgctxt "shortcut window"
+msgid "Show Main Menu"
+msgstr "Vis hovudmenyen"
+
+#: data/ui/shortcuts-dialog.ui:179
+msgctxt "shortcut window"
+msgid "Show Keyboard Shortcuts"
+msgstr "Vis tastatursnarvegar"
+
+#: data/ui/shortcuts-dialog.ui:185
+msgctxt "shortcut window"
+msgid "Close Window"
+msgstr "Lukk vindauget"
+
+#
+#: data/ui/shortcuts-dialog.ui:191
+msgctxt "shortcut window"
+msgid "Quit"
 msgstr "Avslutt"
 
-#: ../src/gnome-tetravex.vala:38
-msgid "Print release version and exit"
-msgstr ""
+#: data/ui/window.ui:37
+msgid "Undo"
+msgstr "Angre"
 
-#: ../src/gnome-tetravex.vala:39
-#, fuzzy
+#: data/ui/window.ui:44
+msgid "Redo"
+msgstr "Gjer om"
+
+#: data/ui/window.ui:51
+msgid "Main Menu"
+msgstr "Hovudmeny"
+
+#: data/ui/window.ui:69
+msgid "Reveal Solution"
+msgstr "Vis løysing"
+
+#: data/ui/window.ui:81
+msgid "New Game"
+msgstr "Nytt spel"
+
+#: data/ui/window.ui:93
+msgid "Move Tiles Left"
+msgstr "Flytt fliser til venstre"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:43
+msgid "Set number of colors (2-10)"
+msgstr "Set talet på fargar (2–10)"
+
+#. Translators: in the command-line options description, text to indicate the user should specify colors number, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:45
+msgid "NUMBER"
+msgstr "TAL"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:48
 msgid "Start the game paused"
-msgstr "Start spelet om att"
+msgstr "Start spelet på pause"
 
-#: ../src/gnome-tetravex.vala:40
-#, fuzzy
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:51
 msgid "Set size of board (2-6)"
-msgstr "Storleik på brettet (2-6)"
+msgstr "Set storleik på brettet (2–6)"
+
+#. Translators: in the command-line options description, text to indicate the user should specify size, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:53
+msgid "SIZE"
+msgstr "STORLEIK"
+
+#. Translators: command-line option description, see 'gnome-tetravex --help'
+#: src/gnome-tetravex.vala:56
+msgid "Print release version and exit"
+msgstr "Skriv ut utgåve og avslutt"
+
+#. Translators: command-line error message, displayed on invalid game size request; see 'gnome-tetravex -s 1'
+#: src/gnome-tetravex.vala:115
+msgid "Size could only be from 2 to 6."
+msgstr "Storleiken kan berre vere frå 2 til 6."
+
+#. Translators: command-line error message, displayed for an invalid number of colors; see 'gnome-tetravex -c 1'
+#: src/gnome-tetravex.vala:121
+msgid "There could only be between 2 and 10 colors."
+msgstr "Det kan berre vere mellom 2 og 10 fargar."
+
+#: src/gnome-tetravex.vala:353
+msgid "Reveal Solution?"
+msgstr "Vis løysinga?"
+
+#: src/gnome-tetravex.vala:354 src/gnome-tetravex.vala:384
+msgid "This will end your current game."
+msgstr "Dette avsluttar det gjeldande spelet."
 
 #
-#. not a typo
-#: ../src/gnome-tetravex.vala:129
-#, fuzzy
-msgid "Resume the game"
-msgstr "Start spelet att"
-
-#
-#: ../src/gnome-tetravex.vala:141
-msgid "Pause the game"
-msgstr "Paus spelet"
-
-#: ../src/gnome-tetravex.vala:158
-msgid "Start a new game"
-msgstr "Start eit nytt spel"
-
-#
-#: ../src/gnome-tetravex.vala:170
-#, fuzzy
-msgid "Give up and view the solution"
-msgstr "Flytt eit kort til fundamentet"
-
-#: ../src/gnome-tetravex.vala:239
-msgid "Size could only be from 2 to 6.\n"
-msgstr ""
-
-#
-#: ../src/gnome-tetravex.vala:347
-#, fuzzy
-msgid "Are you sure you want to give up and view the solution?"
-msgstr "Er du sikker på at du vil avslutte?"
-
-#
-#: ../src/gnome-tetravex.vala:349 ../src/gnome-tetravex.vala:410
-#, fuzzy
+#: src/gnome-tetravex.vala:358
 msgid "_Keep Playing"
-msgstr "Speler"
+msgstr "_Spel vidare"
 
-#: ../src/gnome-tetravex.vala:350
+#: src/gnome-tetravex.vala:359
 msgid "_Give Up"
-msgstr ""
+msgstr "_Gje opp"
 
-#: ../src/gnome-tetravex.vala:384
-msgid "Position pieces so that the same numbers are touching each other"
-msgstr ""
+#: src/gnome-tetravex.vala:383
+msgid "Change Size?"
+msgstr "Endre storleik?"
 
-#: ../src/gnome-tetravex.vala:391
+#: src/gnome-tetravex.vala:388
+msgid "_Cancel"
+msgstr "_Avbryt"
+
+#: src/gnome-tetravex.vala:389
+msgid "Change _Size"
+msgstr "_Endre storleik"
+
+#: src/gnome-tetravex.vala:506
 msgid "translator-credits"
 msgstr ""
 "Åsmund Skjæveland <aasmunds@fys.uio.no>\n"
@@ -203,44 +461,131 @@ msgstr ""
 "Eskild Hustvedt <eskildh@gnome.org>\n"
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
 
-#: ../src/gnome-tetravex.vala:409
-#, fuzzy
-msgid "Are you sure you want to start a new game with a different board size?"
-msgstr "Vil du starta eit nytt spel med dette kartet?"
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken one hour or more; the %u are replaced by the hours (h), minutes (m) and seconds (s); as an example, you might want to use "%u:%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
+#: src/history.vala:162
+#, c-format
+msgid "%uh %um %us"
+msgstr "%ut %um %us"
 
-#: ../src/gnome-tetravex.vala:411
-#, fuzzy
-msgid "_Start New Game"
-msgstr "Start eit nytt spel"
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken between one minute and one hour; the %u are replaced by the minutes (m) and seconds (s); as an example, you might want to use "%.2u:%.2u", that is quite international (the ".2" meaning "two digits, padding with 0")
+#: src/history.vala:168
+#, c-format
+msgid "%um %us"
+msgstr "%um %us"
 
-#: ../src/puzzle-view.vala:356
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %u is replaced by the number of seconds (s) it has taken
+#: src/history.vala:172
+#, c-format
+msgid "%us"
+msgstr "%us"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.0f is replaced by the number of seconds (s) it has taken
+#: src/history.vala:176
+#, c-format
+msgid "%.0fs"
+msgstr "%.0fs"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.1f is replaced by the number of seconds (s) it has taken, including deciseconds (1 digits after comma, so the .1)
+#: src/history.vala:180
+#, c-format
+msgid "%.1fs"
+msgstr "%.1fs"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.2f is replaced by the number of seconds (s) it has taken, including centiseconds (2 digits after comma, so the .2)
+#: src/history.vala:184
+#, c-format
+msgid "%.2fs"
+msgstr "%.2fs"
+
+#. Translators: that is the duration of a game, as seen in the Scores dialog, if game has taken less than one minute; the %.3f is replaced by the number of seconds (s) it has taken, including milliseconds (3 digits after comma, so the .3)
+#: src/history.vala:188
+#, c-format
+msgid "%.3fs"
+msgstr "%.3fs"
+
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying when games were played
+#: src/score-dialog.vala:63
+msgid "Date"
+msgstr "Dato"
+
+#. Translators: in the Scores dialog, in the scores list, label of the column displaying the duration of played games
+#: src/score-dialog.vala:67
+msgid "Time"
+msgstr "Tid"
+
+#. Translators: this string creates the options of the combobox seen in the Scores dialog; the %u are replaced by the board size; it allows to choose for which board size you want to see the scores, for example between "2 × 2" and "3 × 3"
+#: src/score-dialog.vala:132 src/window.vala:83
+#, c-format
+msgid "%u × %u"
+msgstr "%u × %u"
+
+#: src/window.vala:75
 msgid "Paused"
 msgstr "Pausa"
 
 #
-#: ../src/score-dialog.vala:29
-msgid "Quit"
-msgstr "Avslutt"
-
-#: ../src/score-dialog.vala:30
-msgid "New Game"
-msgstr "Nytt spel"
+#: src/window.vala:77
+msgid "Resume Game"
+msgstr "Hald fram spelet"
 
 #
-#: ../src/score-dialog.vala:33
+#: src/window.vala:85
+msgid "Pause Game"
+msgstr "Set spelet på pause"
+
 #, fuzzy
-msgid "OK"
-msgstr "_OK"
+#~ msgid "GNOME Tetravex"
+#~ msgstr "Tetravex"
 
-#: ../src/score-dialog.vala:45
-msgid "Size:"
-msgstr "Storleik:"
-
-#: ../src/score-dialog.vala:70
 #, fuzzy
-msgid "Date"
-msgstr "Roter"
+#~ msgid ""
+#~ "The value of this key is used to decide the size of the playing grid."
+#~ msgstr ""
+#~ "Verdien i denne nøkkelen vert brukt til å avgjera kor stort spelefeltet "
+#~ "skal vera. Dei moglege verdiane er 2 til 8. Alt anna vert retta til 3."
 
-#: ../src/score-dialog.vala:73
-msgid "Time"
-msgstr "Tid"
+#
+#~ msgid "_Size"
+#~ msgstr "_Storleik:"
+
+#~ msgid "_Help"
+#~ msgstr "_Hjelp"
+
+#
+#~ msgid "_About"
+#~ msgstr "_Om"
+
+#
+#, fuzzy
+#~ msgid "_Quit"
+#~ msgstr "Avslutt"
+
+#~ msgid "Start a new game"
+#~ msgstr "Start eit nytt spel"
+
+#
+#, fuzzy
+#~ msgid "Give up and view the solution"
+#~ msgstr "Flytt eit kort til fundamentet"
+
+#
+#, fuzzy
+#~ msgid "Are you sure you want to give up and view the solution?"
+#~ msgstr "Er du sikker på at du vil avslutte?"
+
+#, fuzzy
+#~ msgid ""
+#~ "Are you sure you want to start a new game with a different board size?"
+#~ msgstr "Vil du starta eit nytt spel med dette kartet?"
+
+#, fuzzy
+#~ msgid "_Start New Game"
+#~ msgstr "Start eit nytt spel"
+
+#
+#, fuzzy
+#~ msgid "OK"
+#~ msgstr "_OK"
+
+#~ msgid "Size:"
+#~ msgstr "Storleik:"
